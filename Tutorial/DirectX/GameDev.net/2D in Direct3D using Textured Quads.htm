@@ -1,0 +1,1406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/"><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+  <title>GameDev.net - 2D in Direct3D using Textured Quads</title>
+  <meta property="og:title" content="2D in Direct3D using Textured Quads">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://www.gamedev.net/reference/articles/article1972.asp">
+    <meta property="og:image" content="http://images.gamedev.net/icons/gamedev_net.png">
+    <meta property="og:site_name" content="GameDev.net">
+    <meta property="fb:app_id" content="103355463445">
+    <meta property="og:description" content="This article is for people trying to make a 2D graphics engine using Direct3D 9.">
+  <link rel="stylesheet" href="2D%20in%20Direct3D%20using%20Textured%20Quads_files/reference.css" type="text/css">
+  <link rel="icon" href="http://www.gamedev.net/pics/gdicon.png" type="image/png">
+  <script src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-279474-1']);
+      _gaq.push(['_trackPageview']);
+      (function () {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+</script>
+<script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/google_service.js"></script> 
+<script type="text/javascript">
+    GS_googleAddAdSenseService("ca-pub-3167291168602081");
+    GS_googleEnableAllServices();
+</script><script src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/google_ads.js"></script> 
+<script type="text/javascript">
+GA_googleAddSlot("ca-pub-3167291168602081", "Leaderboard_Main");
+GA_googleAddSlot("ca-pub-3167291168602081", "Box_Main");
+</script>
+
+<script type="text/javascript">
+    GA_googleFetchAds();
+</script> 
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_reset{background:none;border-spacing:0;border:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_link img{border:none}
+.fb_dialog{position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{background:rgba(82, 82, 82, .7);padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/zq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/zL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/zq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/zL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/zq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/zL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/ze/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/ze/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/ze/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/ze/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/zd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/z9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:right}
+.fb_iframe_widget{position:relative;display:-moz-inline-block;display:inline-block}
+.fb_iframe_widget iframe{position:relative;vertical-align:text-bottom}
+.fb_iframe_widget span{position:relative}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/z9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_button_simple,
+.fb_button_simple_rtl{background-image:url(http://static.ak.fbcdn.net/rsrc.php/zH/r/eIpbnVKI9lR.png);background-repeat:no-repeat;cursor:pointer;outline:none;text-decoration:none}
+.fb_button_simple_rtl{background-position:right 0}
+.fb_button_simple .fb_button_text{margin:0 0 0 20px;padding-bottom:1px}
+.fb_button_simple_rtl .fb_button_text{margin:0 10px 0 0}
+a.fb_button_simple:hover .fb_button_text,
+a.fb_button_simple_rtl:hover .fb_button_text,
+.fb_button_simple:hover .fb_button_text,
+.fb_button_simple_rtl:hover .fb_button_text{text-decoration:underline}
+.fb_button,
+.fb_button_rtl{background:#29447e url(http://static.ak.fbcdn.net/rsrc.php/zL/r/FGFbc80dUKj.png);background-repeat:no-repeat;cursor:pointer;display:inline-block;padding:0 0 0 1px;text-decoration:none;outline:none}
+.fb_button .fb_button_text,
+.fb_button_rtl .fb_button_text{background:#5f78ab url(http://static.ak.fbcdn.net/rsrc.php/zL/r/FGFbc80dUKj.png);border-top:solid 1px #879ac0;border-bottom:solid 1px #1a356e;color:#fff;display:block;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-weight:bold;padding:2px 6px 3px 6px;margin:1px 1px 0 21px;text-shadow:none}
+a.fb_button,
+a.fb_button_rtl,
+.fb_button,
+.fb_button_rtl{text-decoration:none}
+a.fb_button:active .fb_button_text,
+a.fb_button_rtl:active .fb_button_text,
+.fb_button:active .fb_button_text,
+.fb_button_rtl:active .fb_button_text{border-bottom:solid 1px #29447e;border-top:solid 1px #45619d;background:#4f6aa3;text-shadow:none}
+.fb_button_xlarge,
+.fb_button_xlarge_rtl{background-position:left -60px;font-size:24px;line-height:30px}
+.fb_button_xlarge .fb_button_text{padding:3px 8px 3px 12px;margin-left:38px}
+a.fb_button_xlarge:active{background-position:left -99px}
+.fb_button_xlarge_rtl{background-position:right -268px}
+.fb_button_xlarge_rtl .fb_button_text{padding:3px 8px 3px 12px;margin-right:39px}
+a.fb_button_xlarge_rtl:active{background-position:right -307px}
+.fb_button_large,
+.fb_button_large_rtl{background-position:left -138px;font-size:13px;line-height:16px}
+.fb_button_large .fb_button_text{margin-left:24px;padding:2px 6px 4px 6px}
+a.fb_button_large:active{background-position:left -163px}
+.fb_button_large_rtl{background-position:right -346px}
+.fb_button_large_rtl .fb_button_text{margin-right:25px}
+a.fb_button_large_rtl:active{background-position:right -371px}
+.fb_button_medium,
+.fb_button_medium_rtl{background-position:left -188px;font-size:11px;line-height:14px}
+a.fb_button_medium:active{background-position:left -210px}
+.fb_button_medium_rtl{background-position:right -396px}
+.fb_button_text_rtl,
+.fb_button_medium_rtl .fb_button_text{padding:2px 6px 3px 6px;margin-right:22px}
+a.fb_button_medium_rtl:active{background-position:right -418px}
+.fb_button_small,
+.fb_button_small_rtl{background-position:left -232px;font-size:10px;line-height:10px}
+.fb_button_small .fb_button_text{padding:2px 6px 3px;margin-left:17px}
+a.fb_button_small:active,
+.fb_button_small:active{background-position:left -250px}
+.fb_button_small_rtl{background-position:right -440px}
+.fb_button_small_rtl .fb_button_text{padding:2px 6px;margin-right:18px}
+a.fb_button_small_rtl:active{background-position:right -458px}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr{left:-4px}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_rtl{left:2px}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{left:0}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:10%}
+.fb_share_count_wrapper{position:relative;float:left}
+.fb_share_count{background:#b0b9ec none repeat scroll 0 0;color:#333;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;text-align:center}
+.fb_share_count_inner{background:#e8ebf2;display:block}
+.fb_share_count_right{margin-left:-1px;display:inline-block}
+.fb_share_count_right .fb_share_count_inner{border-top:solid 1px #e8ebf2;border-bottom:solid 1px #b0b9ec;margin:1px 1px 0 1px;font-size:10px;line-height:10px;padding:2px 6px 3px;font-weight:bold}
+.fb_share_count_top{display:block;letter-spacing:-1px;line-height:34px;margin-bottom:7px;font-size:22px;border:solid 1px #b0b9ec}
+.fb_share_count_nub_top{border:none;display:block;position:absolute;left:7px;top:35px;margin:0;padding:0;width:6px;height:7px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/zU/r/bSOHtKbCGYI.png)}
+.fb_share_count_nub_right{border:none;display:inline-block;padding:0;width:5px;height:10px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/zX/r/i_oIVTKMYsL.png);vertical-align:top;background-position:right 5px;z-index:10;left:2px;margin:0 2px 0 0;position:relative}
+.fb_share_no_count{display:none}
+.fb_share_size_Small .fb_share_count_right .fb_share_count_inner{font-size:10px}
+.fb_share_size_Medium .fb_share_count_right .fb_share_count_inner{font-size:11px;padding:2px 6px 3px;letter-spacing:-1px;line-height:14px}
+.fb_share_size_Large .fb_share_count_right .fb_share_count_inner{font-size:13px;line-height:16px;padding:2px 6px 4px;font-weight:normal;letter-spacing:-1px}
+.fb_share_count_hidden .fb_share_count_nub_top,
+.fb_share_count_hidden .fb_share_count_top,
+.fb_share_count_hidden .fb_share_count_nub_right,
+.fb_share_count_hidden .fb_share_count_right{visibility:hidden}
+</style></head><body><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/quant.js"></script><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/pmon_1264075957.js"></script><div id="itxtexclude"><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/door.js"></script><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/debug_1287742062.js"></script><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/oldui_1276075064.js"></script><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/fx_1286533523.js"></script><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/metrics_1284051966.js"></script><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/data_1291114277.js"></script><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/core_1291226176.js"></script></div><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/begin_1270648709.js"></script><script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/EventMonitor_1272473063.js"></script>
+<div id="header"><a href="http://www.gamedev.net/">GameDev.net</a>2D in Direct3D using Textured Quads</div>
+<div class=" fb_reset" id="fb-root"><script src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/all.js" async=""></script><div style="position: absolute; top: -10000px; height: 0pt; width: 0pt;"></div></div>
+<script>
+    window.fbAsyncInit = function () { FB.init({ appId: '103355463445', status: true, cookie: true, xfbml: true }); };
+    (function () {
+        var e = document.createElement('script'); e.async = true;
+        e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+    } ());
+</script>
+<center><script type="text/javascript">
+GA_googleFillSlot("Leaderboard_Main");
+</script><script src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/ads"></script><div id="google_ads_div_Leaderboard_Main"><script language="Javascript">
+var cpmstar_rnd=Math.round(Math.random()*999999);
+var cpmstar_pid=13812;
+document.writeln("<SCR"+"IPT language='Javascript' src='http://server.cpmstar.com/view.aspx?poolid="+cpmstar_pid+"&script=1&rnd="+cpmstar_rnd+"'></SCR"+"IPT>");
+</script><script language="Javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/view.htm"></script><a href="http://server.cpmstar.com/click.aspx?poolid=13812&amp;subpoolid=0&amp;campaignid=142&amp;creativeid=315&amp;url=" target="_blank"><img src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/728x90-AdventureQuest-Characters.gif" border="0" width="728" height="90"></a>
+
+</div>
+</center>
+<table border="0" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td>
+
+    <p align="center"><span class="title">2D in Direct3D using Textured Quads</span>
+    
+          <br><span class="author">by Eamonn Doherty</span>
+        </p>
+    <table align="right" border="0" cellpadding="5" cellspacing="0" width="310">
+    <tbody><tr>
+    <td align="center">
+    <fb:like class=" fb_edge_widget_with_comment fb_iframe_widget" href="http://www.gamedev.net/reference/articles/article1972.asp"><span><iframe src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/like.htm" class="fb_ltr" title="Like this content on Facebook." style="border: medium none; overflow: hidden; height: 80px; width: 450px;" name="f30a258497b60f8" id="f25912adf4b5aaa" scrolling="no"></iframe></span></fb:like>
+    </td></tr>
+    <tr><td align="center"><br><span class="maintext-2">ADVERTISEMENT</span><script type="text/javascript">
+GA_googleFillSlot("Box_Main");
+</script><script src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/ads_002"></script><div id="google_ads_div_Box_Main">
+<ins style="width: 300px; height: 250px; border: 0pt none; display: inline-table; position: relative;"><ins style="width: 300px; height: 250px; border: 0pt none; display: block; position: relative;"><iframe style="border: 0pt none; position: absolute; top: 0pt; left: 0pt;" marginheight="0" marginwidth="0" name="google_ads_iframe_Box_Main" id="google_ads_iframe_Box_Main" width="300" frameborder="0" height="250" scrolling="no"></iframe></ins></ins></div>
+<script>GA_googleCreateDomIframe('google_ads_div_Box_Main' ,'Box_Main');</script></td></tr></tbody></table>
+  
+
+<p>This article is for people trying to make a 2D graphics engine using 
+Direct3D 9. It assumes you already have a basic Direct3D 9 application 
+up and running, possibly using ID3DXSprite functions.
+</p><p>If you do not, the code for a fully working application using the methods presented in this article is <a href="http://www.gamedev.net/reference/programming/features/2d3dquads/TexturedQuads.zip">included</a>.
+</p><p>This article is divded into the following sections:
+</p><ol>
+  <li>The concept
+  </li><li>The vertex format
+  </li><li>Initialization code
+  </li><li>Loading a texture
+  </li><li>Drawing a texture
+  </li><li>The CTexture class
+</li></ol>
+
+<h1>1. The concept</h1>
+<p>So you've decided to write a 2d game. Great, I love 2d games. You've 
+also decided to use Direct3D as your API of choice. Groovy, you get to 
+use cool tricks like fully hardware-supported alpha blending. If you're 
+using Direct3D 8 instead, the code is pretty much the same (just change 
+all the 8's to 9's and update <b>CreateVertexBuffer()</b> and <b>SetStreamSource()</b>
+ calls). Now, you're probably wondering "How exactly do I put a 2d 
+graphic on screen using an API designed exclusively for 3d graphics?"
+</p><p>Don't worry. It's not particularly hard. Anyways, you only have to actually write the code once ;-)
+</p><p>The basic idea is to draw a rectangular polygon on screen 
+textured with your 2d image. The great thing about this is that the 
+image can have its own alpha channel, so you don't get the opaque 
+rectangular frame around your image (accomplishing the same thing as 
+colour-keying) and at the same time, you can have certain areas of the 
+image be partially transparent.
+</p><p>In order to draw a quad on the screen, you have to give the 
+positions of the four corners of the quad. This means with a little 
+toying around with the coordinates, you can easily add transformations 
+like skewing and perspective effects. Those, however, are left as an 
+exercise for the reader.
+</p><p>The main benefit, however, to using textured quads for a 2d 
+engine is speed. You're actually using the 3d hardware to do exactly 
+what it was designed for: spitting out a bunch of textured shapes on 
+screen really fast.
+</p><p>Of course, with so many benefits to using textured quads, there must be some drawbacks. And there are a few.
+</p><p>The most significant drawback to using 3d hardware for drawing is
+ that most 3d cards cannot support textures whose side lengths are not 
+powers of 2. Furthermore, some cards cannot support non-square textures.
+ What this means is that you should try to make your graphics have 
+dimensions such as: 1x1, 2x2, 4x4, 8x8, 16x16, 32x32, 64x64, 128x128, 
+etc. The maximum size you should use is 512x512. Most video cards can 
+support textures up to 2048x2048, but some can't, and a texture that big
+ would consume a massive amount of memory on the video card.
+</p><p>The <b>CTexture</b> class I provide at the end of this article 
+will provide a work-around for these limitations, allowing you to use 
+rectangular textures of weird dimensions. Even so, using non-square, 
+non-power-of-2 textures is pretty much guaranteed to result in more 
+processing time and more memory consumption.
+
+</p><h1>2. The vertex format</h1>
+<p>It's time to get down to business: putting a quad on the screen.
+</p><p>Every quad is made up of two triangle and four vertices as shown below:
+</p><pre>  v0               v1
+   |---------------|
+   |\              |
+   |  \            |
+   |    \          |
+   |      \        |
+   |        \      |
+   |          \    |
+   |            \  |
+   |              \|
+   |---------------|
+  v3               v2
+</pre>
+
+<p>I like to keep that particular diagram as a comment in my code as it 
+comes in handy when I want to change the colour tint of a particular 
+corner on a quad I'm drawing (more on this later).
+</p><p>The first thing you need in order to write your own quad-based 
+engine for 2d drawing is a flexible vertex format. The vertex format 
+decides exactly what information is available about the vertices that 
+make up the quads you draw. This one should do you well:
+
+</p><pre class="code">const DWORD D3DFVF_TLVERTEX = D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1;
+</pre>
+
+<p>Put it somewhere where all of your graphics code can see it. It's very important.
+</p><p>Here's a quick run-down of exactly what the each of the flags in the above vertex format does:
+</p><p><b>D3DFVF_XYZRHW</b> - Specifies what position information the 
+vertex will hold. In this case, X, Y, Z coordinates, as well as a 
+"reciprocal of homogenous W" coordinate. All you really need to know 
+about that is it lets you use screen coordinates to draw your quads 
+instead of 3d-space coordinates. As you may have guessed, the Z 
+coordinate is irrelevant. It will always be set to 0.
+</p><p><b>D3DFVF_DIFFUSE</b> - Allows you to specify a colour and alpha 
+for the vertex, letting you shade the corners of a quad in different 
+colours. ID3DXSprite offers limited support for this, allowing you to 
+shade the whole a quad a certain colour. The code in this article allows
+ you to change the colour and alpha value of each corner of a quad.
+</p><p><b>D3DFVF_TEX1</b> - Specifies that the vertex is to hold texture coordinates. You need this to put a texture on the quads you draw.
+</p><p>Now that you've got your vertex format defined, you need a 
+structure to hold a vertex. This one will work swimmingly with the above
+ vertex format:
+
+</p><pre class="code"><span class="codecomment">//Custom vertex</span>
+struct TLVERTEX
+{
+    float x;
+    float y;
+    float z;
+    float rhw;
+    D3DCOLOR colour;
+    float u;
+    float v;
+};
+</pre>
+
+<p>You'll need this structure to be available to all of your drawing code as well.
+</p><p>A brief description of the members:
+</p><p><b>x, y, z</b> - The coordinates the vertex is located at. <b>x</b> and <b>y</b> are the screen coordinates at which the vertex is located. In 2d-land, <b>z</b> is always 0.0f. While <b>x</b> and <b>y</b> are floats, they should contain integral values, or they will be rounded when it comes time to draw the quad.
+</p><p><b>rhw</b> - This is always 1.0f. It allows you to use screen 
+coordinates to specify the position of the vertex rather than 3d-space 
+coordinates,
+</p><p><b>colour</b> - The colour/alpha value of the vertex in standard 32-bit AARRGGBB format.
+</p><p><b>u, v</b> - The texture coordinates of the vertex. For the vertices on the left, <b>u</b> is 0.0f. On the right, <b>u</b> is 1.0f. On the top, <b>v</b> is 0.0f. On the bottom, <b>v</b> is 1.0f.
+</p><p>If you didn't get all of that, don't worry about it. As long as you copy-and-pasted the <b>const</b> and <b>struct</b> properly, you'll have no problem using the code accompanying this article ;)
+
+</p><h1>3. Initialization code</h1>
+<p>So you've got your Direct3D object, presented your parameters, 
+created your device, whatever. All you need to do now is add a couple 
+lines and you'll be drawing textured quads in no time.
+</p><p>First things first, you need to make a vertex buffer. In the same scope your IDirect3DDevice9 pointer is located, add:
+
+</p><pre class="code">IDirect3DVertexBuffer9* vertexBuffer;
+</pre>
+
+<p>Groovy. Now, in your initalization function, <b>AFTER</b> the device is created, add the following:
+
+</p><pre class="code"><span class="codecomment">//Set vertex shader</span>
+<b>DEVICE</b>-&gt;SetVertexShader(NULL);
+<b>DEVICE</b>-&gt;SetFVF(D3DFVF_TLVERTEX);
+
+<span class="codecomment">//Create vertex buffer</span>
+<b>DEVICE</b>-&gt;CreateVertexBuffer(sizeof(TLVERTEX) * 4, NULL,
+    D3DFVF_TLVERTEX, D3DPOOL_MANAGED, &amp;vertexBuffer, NULL);
+<b>DEVICE</b>-&gt;SetStreamSource(0, vertexBuffer, 0, sizeof(TLVERTEX));
+</pre>
+
+<p>NOTE 1: Replace <b>DEVICE</b> with the name of your IDirect3DDevice9* object
+<br>NOTE 2: This code does not have to be directly after the <b>CreateDevice()</b> call; as long as the device is created, it should work fine
+</p><p>Also the following render states should be set if they are not:
+
+</p><pre class="code"><b>DEVICE</b>-&gt;SetRenderState(D3DRS_LIGHTING, FALSE);
+<b>DEVICE</b>-&gt;SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+<b>DEVICE</b>-&gt;SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
+<b>DEVICE</b>-&gt;SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+<b>DEVICE</b>-&gt;SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+</pre>
+
+<p>NOTE: Replace <b>DEVICE</b> with the name of your IDirect3DDevice9* object
+</p><p>Alright, now we're ready to go. Let's load some textures.
+
+</p><h1>4. Loading a texture</h1>
+<p>Using D3DX this is incredibly simple. Here's a code dump:
+
+</p><pre class="code"><span class="codecomment">//Load texture from file with D3DX
+//Supported formats: BMP, PPM, DDS, JPG, PNG, TGA, DIB
+</span>IDirect3DTexture9 *LoadTexture(char *fileName)
+{
+  IDirect3DTexture9 *d3dTexture;
+  D3DXIMAGE_INFO SrcInfo;      <span class="codecomment">//Optional</span>
+
+  <span class="codecomment">//Use a magenta colourkey</span>
+  D3DCOLOR colorkey = 0xFFFF00FF;
+
+  <span class="codecomment">// Load image from file</span>
+  if (FAILED(D3DXCreateTextureFromFileEx (<b>DEVICE</b>, fileName, 0, 0, 1, 0, 
+        D3DFMT_A8R8G8B8, D3DPOOL_MANAGED, D3DX_FILTER_NONE, D3DX_DEFAULT, 
+        colorkey, &amp;SrcInfo, NULL, &amp;d3dTexture)))
+  {
+    return NULL;
+  }
+
+  <span class="codecomment">//Return the newly made texture</span>
+  return d3dTexture;
+}
+</pre>
+
+<p>NOTE: Replace <b>DEVICE</b> with the name of your IDirect3DDevice9* object
+</p><p>You pass it a graphics file, it passes you a pointer to a 
+texture. Couldn't be easier. Upon failure, a NULL pointer is returned. 
+While the loaded graphics file will retain its own alpha map, there is 
+also a magenta colour key, meaning all pixels with a colour value of 
+0xFFFF00FF will be given an alpha value of 0 upon loading.
+</p><p>Please note that if you load an image file whose dimensions are 
+not powers of 2, and your video card cannot support non-power-of-2 
+textures, this function will automatically put the image in a texture 
+with dimensions that are powers of 2. For example, if you tried to load a
+ 100x100 image, it would be put into a 128x128 texture. The extra space 
+on the texture will have an alpha value of 0, so it will not show up 
+when the texture is drawn. However, it will cause the drawing functions 
+below to draw the image with a scaled size. That is, if you tried to 
+draw the 100x100 image in a 100x100 square on screen, the drawing 
+function would have to scale the 128x128 texture to fit inside it. This 
+would make the image appear smaller than it actually is. Using the 
+drawing functions in the <b>CTexture</b> class (provided at the end of 
+the article) will prevent this scaling. Even so, I urge the reader to 
+avoid the whole mess and use square, power-of-2-sized graphics.
+
+</p><h1>5. Drawing a texture</h1>
+<p>Time to get something on the screen. Two main drawing functions will be used -- <b>BlitD3D()</b> and <b>BlitExD3D()</b>. The only difference between the two is that <b>BlitExD3D()</b> supports colour modulation of all four corners of the quad, while <b>BlitD3D()</b> can only tint the whole quad.
+</p><p>Please be aware that the rotation code provided here is horrible, and should be rewritten. Use it at your own risk.
+
+</p><pre class="code"><span class="codecomment">//Draw a textured quad on the back-buffer</span>
+void BlitD3D (IDirect3DTexture9 *texture, RECT *rDest,
+    D3DCOLOR vertexColour, float rotate)
+{
+  TLVERTEX* vertices;
+
+  <span class="codecomment">//Lock the vertex buffer</span>
+  vertexBuffer-&gt;Lock(0, 0, (void**)&amp;vertices, NULL);
+
+  <span class="codecomment">//Setup vertices
+  //A -0.5f modifier is applied to vertex coordinates to match texture
+  //and screen coords. Some drivers may compensate for this
+  //automatically, but on others texture alignment errors are introduced
+  //More information on this can be found in the Direct3D 9 documentation</span>
+  vertices[0].colour = vertexColour;
+  vertices[0].x = (float) rDest-&gt;left - 0.5f;
+  vertices[0].y = (float) rDest-&gt;top - 0.5f;
+  vertices[0].z = 0.0f;
+  vertices[0].rhw = 1.0f;
+  vertices[0].u = 0.0f;
+  vertices[0].v = 0.0f;
+
+  vertices[1].colour = vertexColour;
+  vertices[1].x = (float) rDest-&gt;right - 0.5f;
+  vertices[1].y = (float) rDest-&gt;top - 0.5f;
+  vertices[1].z = 0.0f;
+  vertices[1].rhw = 1.0f;
+  vertices[1].u = 1.0f;
+  vertices[1].v = 0.0f;
+
+  vertices[2].colour = vertexColour;
+  vertices[2].x = (float) rDest-&gt;right - 0.5f;
+  vertices[2].y = (float) rDest-&gt;bottom - 0.5f;
+  vertices[2].z = 0.0f;
+  vertices[2].rhw = 1.0f;
+  vertices[2].u = 1.0f;
+  vertices[2].v = 1.0f;
+
+  vertices[3].colour = vertexColour;
+  vertices[3].x = (float) rDest-&gt;left - 0.5f;
+  vertices[3].y = (float) rDest-&gt;bottom - 0.5f;
+  vertices[3].z = 0.0f;
+  vertices[3].rhw = 1.0f;
+  vertices[3].u = 0.0f;
+  vertices[3].v = 1.0f;
+
+  <span class="codecomment">//Handle rotation</span>
+  if (rotate != 0)
+  {
+    RECT rOrigin;
+    float centerX, centerY;
+
+    <span class="codecomment">//Find center of destination rectangle</span>
+    centerX = (float)(rDest-&gt;left + rDest-&gt;right) / 2;
+    centerY = (float)(rDest-&gt;top + rDest-&gt;bottom) / 2;
+
+    <span class="codecomment">//Translate destination rect to be centered on the origin</span>
+    rOrigin.top = rDest-&gt;top - (int)(centerY);
+    rOrigin.bottom = rDest-&gt;bottom - (int)(centerY);
+    rOrigin.left = rDest-&gt;left - (int)(centerX);
+    rOrigin.right = rDest-&gt;right - (int)(centerX);
+
+    <span class="codecomment">//Rotate vertices about the origin</span>
+    bufferVertices[index].x = rOrigin.left * cosf(rotate) -
+                              rOrigin.top * sinf(rotate);
+    bufferVertices[index].y = rOrigin.left * sinf(rotate) +
+                              rOrigin.top * cosf(rotate);
+
+    bufferVertices[index + 1].x = rOrigin.right * cosf(rotate) -
+                                  rOrigin.top * sinf(rotate);
+    bufferVertices[index + 1].y = rOrigin.right * sinf(rotate) +
+                                  rOrigin.top * cosf(rotate);
+
+    bufferVertices[index + 2].x = rOrigin.right * cosf(rotate) -
+                                  rOrigin.bottom * sinf(rotate);
+    bufferVertices[index + 2].y = rOrigin.right * sinf(rotate) +
+                                  rOrigin.bottom * cosf(rotate);
+
+    bufferVertices[index + 3].x = rOrigin.left * cosf(rotate) -
+                                  rOrigin.bottom * sinf(rotate);
+    bufferVertices[index + 3].y = rOrigin.left * sinf(rotate) +
+                                  rOrigin.bottom * cosf(rotate);
+
+    <span class="codecomment">//Translate vertices to proper position</span>
+    bufferVertices[index].x += centerX;
+    bufferVertices[index].y += centerY;
+    bufferVertices[index + 1].x += centerX;
+    bufferVertices[index + 1].y += centerY;
+    bufferVertices[index + 2].x += centerX;
+    bufferVertices[index + 2].y += centerY;
+    bufferVertices[index + 3].x += centerX;
+    bufferVertices[index + 3].y += centerY;
+  }
+
+  <span class="codecomment">//Unlock the vertex buffer</span>
+  vertexBuffer-&gt;Unlock();
+
+  <span class="codecomment">//Set texture</span>
+  <b>DEVICE</b>-&gt;SetTexture (0, texture);
+
+  <span class="codecomment">//Draw image</span>
+  <b>DEVICE</b>-&gt;DrawPrimitive (D3DPT_TRIANGLEFAN, 0, 2);
+}
+</pre>
+
+<p>NOTE: Replace <b>DEVICE</b> with the name of your IDirect3DDevice9* object
+</p><p>Here's a description of the arguments passed to the function:
+</p><p><b>texture</b> - A pointer to the texture to use on the quad. Whatever is passed here will show up on screen.
+</p><p><b>rDest</b> - A rectangle containing the screen coordinates of 
+the quad. If the rectangle is of a different size than the texture, the 
+image will be scaled.
+</p><p><b>vertexColour</b> - The colour used to tint the quad in 32-bit 
+0xAARRGGBB format. A value of 0xFFFFFFFF will not modify the appearance 
+of the texture.
+</p><p><b>fRotate</b> - How much the quad should be rotated about its 
+center. The value should be in radians. A value of 0 will, of course, 
+not rotate the quad at all.
+</p><p>The extended blitting function follows:
+
+</p><pre class="code"><span class="codecomment">//Draw a textured quad on the back-buffer</span>
+void BlitExD3D (IDirect3DTexture9 *texture, RECT *rDest,
+    D3DCOLOR *vertexColours <span class="codecomment">/* -&gt; D3DCOLOR[4] */</span>, float rotate)
+{
+  TLVERTEX* vertices;
+
+  <span class="codecomment">//Lock the vertex buffer</span>
+  vertexBuffer-&gt;Lock(0, 0, (void**)&amp;vertices, NULL);
+
+  <span class="codecomment">//Setup vertices
+  //A -0.5f modifier is applied to vertex coordinates to match texture
+  //and screen coords. Some drivers may compensate for this
+  //automatically, but on others texture alignment errors are introduced
+  //More information on this can be found in the Direct3D 9 documentation</span>
+  vertices[0].colour = vertexColours[0];
+  vertices[0].x = (float) rDest-&gt;left - 0.5f;
+  vertices[0].y = (float) rDest-&gt;top - 0.5f;
+  vertices[0].z = 0.0f;
+  vertices[0].rhw = 1.0f;
+  vertices[0].u = 0.0f;
+  vertices[0].v = 0.0f;
+
+  vertices[1].colour = vertexColours[1];
+  vertices[1].x = (float) rDest-&gt;right - 0.5f;
+  vertices[1].y = (float) rDest-&gt;top - 0.5f;
+  vertices[1].z = 0.0f;
+  vertices[1].rhw = 1.0f;
+  vertices[1].u = 1.0f;
+  vertices[1].v = 0.0f;
+
+  vertices[2].colour = vertexColours[2];
+  vertices[2].x = (float) rDest-&gt;right - 0.5f;
+  vertices[2].y = (float) rDest-&gt;bottom - 0.5f;
+  vertices[2].z = 0.0f;
+  vertices[2].rhw = 1.0f;
+  vertices[2].u = 1.0f;
+  vertices[2].v = 1.0f;
+
+  vertices[3].colour = vertexColours[3];
+  vertices[3].x = (float) rDest-&gt;left - 0.5f;
+  vertices[3].y = (float) rDest-&gt;bottom - 0.5f;
+  vertices[3].z = 0.0f;
+  vertices[3].rhw = 1.0f;
+  vertices[3].u = 0.0f;
+  vertices[3].v = 1.0f;
+
+  <span class="codecomment">//Handle rotation</span>
+  if (rotate != 0)
+  {
+    RECT rOrigin;
+    float centerX, centerY;
+
+    <span class="codecomment">//Find center of destination rectangle</span>
+    centerX = (float)(rDest-&gt;left + rDest-&gt;right) / 2;
+    centerY = (float)(rDest-&gt;top + rDest-&gt;bottom) / 2;
+
+    <span class="codecomment">//Translate destination rect to be centered on the origin</span>
+    rOrigin.top = rDest-&gt;top - (int)(centerY);
+    rOrigin.bottom = rDest-&gt;bottom - (int)(centerY);
+    rOrigin.left = rDest-&gt;left - (int)(centerX);
+    rOrigin.right = rDest-&gt;right - (int)(centerX);
+
+    <span class="codecomment">//Rotate vertices about the origin</span>
+    bufferVertices[index].x = rOrigin.left * cosf(rotate) -
+                              rOrigin.top * sinf(rotate);
+    bufferVertices[index].y = rOrigin.left * sinf(rotate) +
+                              rOrigin.top * cosf(rotate);
+
+    bufferVertices[index + 1].x = rOrigin.right * cosf(rotate) -
+                                  rOrigin.top * sinf(rotate);
+    bufferVertices[index + 1].y = rOrigin.right * sinf(rotate) +
+                                  rOrigin.top * cosf(rotate);
+
+    bufferVertices[index + 2].x = rOrigin.right * cosf(rotate) -
+                                  rOrigin.bottom * sinf(rotate);
+    bufferVertices[index + 2].y = rOrigin.right * sinf(rotate) +
+                                  rOrigin.bottom * cosf(rotate);
+
+    bufferVertices[index + 3].x = rOrigin.left * cosf(rotate) -
+                                  rOrigin.bottom * sinf(rotate);
+    bufferVertices[index + 3].y = rOrigin.left * sinf(rotate) +
+                                  rOrigin.bottom * cosf(rotate);
+
+    <span class="codecomment">//Translate vertices to proper position</span>
+    bufferVertices[index].x += centerX;
+    bufferVertices[index].y += centerY;
+    bufferVertices[index + 1].x += centerX;
+    bufferVertices[index + 1].y += centerY;
+    bufferVertices[index + 2].x += centerX;
+    bufferVertices[index + 2].y += centerY;
+    bufferVertices[index + 3].x += centerX;
+    bufferVertices[index + 3].y += centerY;
+  }
+
+  <span class="codecomment">//Unlock the vertex buffer</span>
+  vertexBuffer-&gt;Unlock();
+
+  <span class="codecomment">//Set texture</span>
+  <b>DEVICE</b>-&gt;SetTexture (0, texture);
+
+  <span class="codecomment">//Draw image</span>
+  <b>DEVICE</b>-&gt;DrawPrimitive (D3DPT_TRIANGLEFAN, 0, 2);
+}
+</pre>
+
+<p>NOTE: Replace <b>DEVICE</b> with the name of your IDirect3DDevice9* object
+</p><p>The only argument here that is different from the <b>BlitD3D()</b> function is <b>vertexColours</b>.
+</p><p><b>vertexColours</b> must be a pointer to a D3DCOLOR array of 
+size 4. The indices of the array correspond to the numbers of the 
+vertices in the kick-ass diagram provided at the beginning of this 
+article. Each vertex in the quad will have its colour and alpha 
+modulated based on its corresponding value in <b>vertexColours</b>.
+
+</p><h1>6. The CTexture class</h1>
+<p>Okay, we can load textures and we can draw textures. What more could a programmer want?
+</p><p>A programmer could want a way to keep track of the textures. The <b>CTexture</b>
+ class features a built-in resource manager so a single texture is not 
+loaded more than once. It also keeps track of information about the 
+texture for quick and easy access at runtime.
+</p><p>First off, the class has a struct inside its private scope: <b>LOADEDTEXTURE</b>.
+ This struct contains an IDirect3DTexture9* pointer as well as 
+information about the texture, such as its filename and dimensions. It's
+ declaration is:
+
+</p><pre class="code"><span class="codecomment">//Loaded texture struct</span>
+struct LOADEDTEXTURE
+{
+  int referenceCount;         <span class="codecomment">//# of CTexture instances containing this texture</span>
+  IDirect3DTexture9* texture; <span class="codecomment">//The texture</span>
+  string sFilename;           <span class="codecomment">//The filename of the texture</span>
+  int width;                  <span class="codecomment">//Width of the texture</span>
+  int height;                 <span class="codecomment">//Height of the texture</span>
+};
+</pre>
+
+<p>You'll notice that the struct keeps a reference count of <b>CTexture</b>
+ instances that use the texture it contains. This is helpful as we can 
+periodically run through the list of loaded textures and delete any 
+unreferenced ones, or even delete the texture as soon as it becomes 
+unreferenced. By default, the <b>CTexture</b> class does not release 
+textures as soon as they become unreferenced, but it's not a 
+particularly taxing job to make it do so. However, I do not recommend 
+it. It would be best to wait until you have some free processing time 
+(such as the loading time between levels) before you start deleting 
+textures. This way you can clear all the unreferenced ones at once 
+without causing any hiccups in the game.
+</p><p>Next up, also in the private scope, we have the list of loaded textures:
+
+</p><pre class="code"><span class="codecomment">//Linked list of all loaded textures</span>
+static list &lt;LOADEDTEXTURE*&gt; loadedTextures;
+</pre>
+
+<p>We want it to be static so there is only ever one list, instead of a list in every instance of <b>CTexture</b>. Don't forget to initialize the list outside of the class declaration, as it is static.
+</p><p>Each instance of <b>CTexture</b> needs to know if it has already 
+loaded a texture or not, and which texture that is. This is easily taken
+ care of by adding a flag and LOADEDTEXTURE pointer in the private 
+scope, as well as a constructor in the public scope.
+
+</p><pre class="code">public:
+
+  <span class="codecomment">//Set default member values</span>
+  CTexture()
+  {
+    bLoaded = FALSE;
+    texture = NULL;
+  }
+
+private:
+
+  BOOL bLoaded;           <span class="codecomment">//Texture loaded flag</span>
+  LOADEDTEXTURE* texture; <span class="codecomment">//The texture</span>
+</pre>
+
+<p>Alright, it's time once again to load a texture. The following function looks through the <b>loadedTextures</b> list to see if the requested texture has been loaded. If so, it assigns that to the <b>CTexture</b>. If not, it loads the texture using the <b>LoadTexture()</b> function provided above and adds it to the list before assigning it to the <b>CTexture</b>. This function goes in the public scope of <b>CTexture</b>:
+
+</p><pre class="code"><span class="codecomment">//Load texture from file</span>
+int CTexture::Init (string sFilename)
+{
+  D3DSURFACE_DESC surfaceDesc;
+  LOADEDTEXTURE* newTexture;
+  list&lt;LOADEDTEXTURE*&gt;::iterator itTextures;
+
+  <span class="codecomment">//Make sure texture is not already loaded</span>
+  if (bLoaded)
+    return FALSE;
+
+  <span class="codecomment">//Convert filename to lowercase letters</span>
+  sFilename = strlwr((char *)sFilename.c_str ());
+
+  <span class="codecomment">//Check if texture is in the loaded list</span>
+  for (itTextures = loadedTextures.begin ();
+       itTextures != loadedTextures.end ();
+       itTextures++)
+    if ((*itTextures)-&gt;sFilename == sFilename)
+    {   
+      <span class="codecomment">//Get LOADEDTEXTURE object</span>
+      texture = *itTextures;  
+
+      <span class="codecomment">//Increment reference counter</span>
+      (*itTextures)-&gt;referenceCount++;
+
+      <span class="codecomment">//Set loaded flag</span>
+      bLoaded = TRUE;
+
+      <span class="codecomment">//Successfully found texture</span>
+      return TRUE;
+    }
+
+  <span class="codecomment">//Texture was not in the list, make a new texture</span>
+  newTexture = new LOADEDTEXTURE;
+
+  <span class="codecomment">//Load texture from file</span>
+  newTexture-&gt;texture = LoadTexture ((char*)sFilename.c_str());
+    
+  <span class="codecomment">//Make sure texture was loaded</span>
+  if (!newTexture-&gt;texture)
+    return FALSE;
+
+  <span class="codecomment">//Get texture dimensions</span>
+  newTexture-&gt;texture-&gt;GetLevelDesc(0, &amp;surfaceDesc);
+
+  <span class="codecomment">//Set new texture parameters</span>
+  newTexture-&gt;referenceCount = 1;
+  newTexture-&gt;sFilename = sFilename;
+  newTexture-&gt;width = surfaceDesc.Width;
+  newTexture-&gt;height = surfaceDesc.Height;
+
+  <span class="codecomment">//Push new texture onto list</span>
+  loadedTextures.push_back (newTexture);
+
+  <span class="codecomment">//Setup current texture instance</span>
+  texture = loadedTextures.back();
+  bLoaded = TRUE;
+ 
+  <span class="codecomment">//Successfully loaded texture</span>
+  return TRUE;
+}
+</pre>
+
+<p>You'll notice that the filename is converted to lowercase at the 
+beginning of the function. This is because filenames are not 
+case-sensitive in Windows. We do not want the program to load the same 
+texture twice if sFilename is "hello.jpg" one time and "Hello.JPG" the 
+next.
+</p><p>Next up, a function to call when we're done with a particular 
+instance of the texture. This function doesn't do much besides decrease 
+the reference count of the <b>LOADEDTEXTURE</b> and clear the loaded flag of the <b>CTexture</b> instance. Here it is:
+
+</p><pre class="code"><span class="codecomment">//Unload a texture</span>
+int CTexture::Close()
+{
+  <span class="codecomment">//Make sure texture is loaded</span>
+  if (!bLoaded)
+    return FALSE;
+    
+  <span class="codecomment">//Decrement reference counter and nullify pointer</span>
+  texture-&gt;referenceCount--;
+  texture = NULL;
+
+  <span class="codecomment">//Clear loaded flag</span>
+  bLoaded = FALSE;
+
+  <span class="codecomment">//Successfully unloaded texture</span>
+  return TRUE;
+}
+</pre>
+
+<p>So now we can load and clear our texture instances. We still have no 
+way of getting them out of memory. Thats where the following two 
+functions come in handy. The first goes through the list and releases 
+all unreferenced textures. This can safely be called at any time, as 
+none of the textures it releases are in use. The next releases all of 
+the texture in the list. It should only be called at program termination
+ to catch any textures other parts of the program failed to release.
+</p><p>Here is the function that releases all unreferenced textures:
+
+</p><p><b>Declaration:</b>
+
+</p><pre class="code"><span class="codecomment">//Release all unreferenced textures</span>
+static int GarbageCollect();
+</pre>
+
+<p><b>Function:</b>
+
+</p><pre class="code"><span class="codecomment">//Release all unreferenced textures</span>
+int CTexture::GarbageCollect()
+{
+  list&lt;LOADEDTEXTURE*&gt;::iterator it;
+  list&lt;LOADEDTEXTURE*&gt;::iterator itNext;
+
+  <span class="codecomment">//Go through loaded texture list</span>
+  for (it = loadedTextures.begin(); it != loadedTextures.end ();)   
+    if ((*it)-&gt;referenceCount &lt;= 0)
+    {
+      <span class="codecomment">//Get next iterator</span>
+      itNext = it;
+      itNext++;
+
+      <span class="codecomment">//Release texture</span>
+      if ((*it)-&gt;texture)
+        (*it)-&gt;texture-&gt;Release();
+      (*it)-&gt;texture = NULL;
+
+      <span class="codecomment">//Delete LOADEDTEXTURE object</span>
+      delete (*it);
+      loadedTextures.erase (it);
+
+      <span class="codecomment">//Move to next element</span>
+      it = itNext;
+    } else it++; <span class="codecomment">//Increment iterator</span>
+
+  <span class="codecomment">//Successfully released unreferenced textures</span>
+  return TRUE;
+}
+</pre>
+
+<p>And this function will release all loaded textures:
+</p><p><b>Declaration:</b>
+
+</p><pre class="code"><span class="codecomment">//Release all unreferenced textures</span>
+static int CleanupTextures();
+</pre>
+
+<p><b>Function:</b>
+
+</p><pre class="code"><span class="codecomment">//Release all textures</span>
+int CTexture::CleanupTextures()
+{
+  list&lt;LOADEDTEXTURE*&gt;::iterator it;
+ 
+  <span class="codecomment">//Go through loaded texture list</span>
+  for (it = loadedTextures.begin(); it != loadedTextures.end (); it++)
+  {
+    <span class="codecomment">//Release texture</span>
+    if ((*it)-&gt;texture)
+      (*it)-&gt;texture-&gt;Release();
+    (*it)-&gt;texture = NULL;
+        
+    <span class="codecomment">//Delete LOADEDTEXTURE object</span>
+    delete (*it);
+  }
+
+  <span class="codecomment">//Clear list</span>
+  loadedTextures.clear ();
+
+  <span class="codecomment">//Successfully released all textures</span>
+  return TRUE;
+}
+</pre>
+
+<p>Make sure both of the above functions are declared static in the class declaration.
+</p><p>Alright, we're well equipped to manage our graphical resources. 
+The only thing left to do is put them on the screen. Here are the 
+functions for the <b>CTexture</b> class that use the two drawing functions provided above:
+
+</p><pre class="code"><span class="codecomment">//Draw texture with limited colour modulation</span>
+void CTexture::Blit (int X, int Y, D3DCOLOR vertexColour, float rotate)
+{
+  RECT rDest;
+
+  <span class="codecomment">//Setup destination rectangle</span>
+  rDest.left = X;
+  rDest.right = X + texture-&gt;width;
+  rDest.top = Y;
+  rDest.bottom = Y + texture-&gt;height;
+
+  <span class="codecomment">//Draw texture</span>
+  BlitD3D (texture-&gt;texture, &amp;rDest, vertexColour, rotate);
+}
+
+
+<span class="codecomment">//Draw texture with full colour modulation</span>
+void CTexture::BlitEx (int X, int Y, D3DCOLOR* vertexColours, float rotate)
+{
+  RECT rDest;
+
+  <span class="codecomment">//Setup destination rectangle</span>
+  rDest.left = X;
+  rDest.right = X + texture-&gt;width;
+  rDest.top = Y;
+  rDest.bottom = Y + texture-&gt;height;
+
+  <span class="codecomment">//Draw texture</span>
+  BlitExD3D (texture-&gt;texture, &amp;rDest, vertexColours, rotate);
+}
+</pre>
+
+<p>Like the <b>BlitExD3D()</b> provided earlier, <b>CTexture::BlitEx()</b> takes a pointer to a D3DCOLOR [4] array for its <b>vertexColours</b> argument.
+</p><p>You may notice that these functions have no support for scaling. 
+This helps them account for texture sizes being not what they seem (e.g.
+ a 100x100 image being loaded onto a 128x128 texture). If you want to 
+add scaling, make sure you account for this. It shouldn't be too much 
+trouble.
+</p><p>This concludes my article. You can check out the <a href="http://www.gamedev.net/reference/programming/features/2d3dquads/TexturedQuads.zip">included sample code</a> for a demonstration of the methods presented here in action.
+</p><p>Please send any bugs, suggestions, feedback, or better rotation code to <a href="mailto:SiberianKiss@gdnMail.net">SiberianKiss@gdnMail.net</a>.
+
+</p><h1>Appendix</h1>
+<p>This appendix is to address a few issues that were not sufficiently 
+explained in the article (or in some cases left out altogether). The 
+article is intended for beginners using Direct3D for 2D applications. 
+For this reason, when writing the code I decided to go with flexibility 
+over speed in many areas. However, I neglected to mention other, faster 
+methods. I will attempt to do so here, as well as point out some 
+omissions from the sample code.
+
+</p><h2>Issue 1: Cleanup</h2>
+<p>This is just a little one, but apparently not very well known. When a call is made to <b>IDirect3DDevice9::SetStreamSource()</b>, a reference count is increased in the passed vertex buffer. If you do not call <b>SetStreamSource()</b> with another vertex buffer, or NULL, the <b>Release()</b>
+ method of the previously passed vertex buffer will fail. This is just a
+ small memory leak, and is cleaned up by DirectX upon program 
+termination anyways. However if you're using a lot of different vertex 
+buffers, you will notice some slowdown as your video memory is consumed.
+ Also, it's just good programming practice to release everything 
+properly yourself.
+</p><p>For you copy-and-pasters, you'll want to add the following to your DirectX cleanup code:
+
+</p><pre class="code"><span class="codecomment">//Clear stream source</span>
+<b><b>DEVICE</b></b>-&gt;SetStreamSource (0, NULL, 0, 0);
+</pre>
+
+<p>It must be before this:
+
+</p><pre class="code"><span class="codecomment">//Release vertex buffer</span>
+if (vertexBuffer)
+   vertexBuffer-&gt;Release ();
+</pre>
+
+<p>NOTE: Replace <b>DEVICE</b> with the name of your IDirect3DDevice9* object
+</p><p>And voila, no memory lost.
+
+</p><h2>Issue 2: Direct3D Uses Inclusive-Exclusive Coordinates</h2>
+<p>Wow I can't believe people complained about this one. It's fairly 
+common knowledge. When you're setting up a destination rectangle, the 
+bottom and right coordinates are:
+
+</p><pre class="code">RECT.bottom = RECT.top + height
+RECT.right = RECT.left + width
+</pre>
+
+<p>You even save two cycles over inclusive-inclusive coordinates by losing the "- 1"s.
+
+</p><h2>Issue 3: Locking the Vertex Buffer</h2>
+<p>Here's where we get into some optimization. Locking is more expensive
+ than simply using transformation and scaling matrices to move the 
+vertexes of the quad around, but it also affords more flexibility. If 
+you want to use colour modulation, you're pretty much stuck locking the 
+vertex buffer in order to get access to that sweet, sweet <b>colour</b> 
+member (don't worry, you're probably not losing too much processing 
+time). However, if you're not using colour modulation and want an extra 
+bit of speed, read on.
+</p><p>This method uses transformation matrices to move around the 
+vertices in the buffer. Understand that this method is not particularly 
+compatible with the drawing methods presented in the first article. In 
+fact, it requires a change to a fairly major item from the first 
+article: the vertex format.  You should use this one instead:
+
+</p><pre class="code"><span class="codecomment">//Custom vertex format</span>
+const DWORD D3DFVF_TLVERTEX = D3DFVF_XYZ | D3DFVF_DIFFUSE | D3DFVF_TEX1;
+
+<span class="codecomment">//Custom vertex</span>
+struct TLVERTEX
+{
+   float x;
+   float y;
+   float z;
+   D3DCOLOR colour;
+   float u;
+   float v;
+};
+</pre>
+
+<p>In order to use matrix transformations, an orthographic projection 
+matrix must first be set up. This must be done at initialization, after 
+the device is open for business. Here is the code:
+
+</p><pre class="code">D3DXMATRIX matOrtho;
+D3DXMATRIX matIdentity;
+
+<span class="codecomment">//Setup orthographic projection matrix</span>
+D3DXMatrixOrthoLH (&amp;matOrtho, <b><b>RESOLUTION_WIDTH</b></b>, <b><b>RESOLUTION_HEIGHT</b></b>, 1.0f, 10.0f);
+D3DXMatrixIdentity (&amp;matIdentity);
+<b>DEVICE</b>-&gt;SetTransform (D3DTS_PROJECTION, &amp;matOrtho);
+<b>DEVICE</b>-&gt;SetTransform (D3DTS_WORLD, &amp;matIdentity);
+<b>DEVICE</b>-&gt;SetTransform (D3DTS_VIEW, &amp;matIdentity);
+</pre>
+
+<p>NOTE: Replace <b>DEVICE</b> with the name of your IDirect3DDevice9* object
+</p><p>NOTE 2: Replace <b><b>RESOLUTION_WIDTH</b></b> with the width of the backbuffer
+</p><p>NOTE 3: Replace <b><b>RESOLUTION_HEIGHT</b></b> with the height of the backbuffer
+</p><p>Please note that this method does not allow colour modulation 
+(though a similar effect can be acheived with a simple vertex shader). 
+It simply uses the vertex colours that are already specified in the 
+buffer. Before using this method, we must ensure that the colour values 
+in the buffer are all white, and that there is a valid quad in the 
+buffer. This function will see to that:
+
+</p><pre class="code"><span class="codecomment">//Setup the quad</span>
+void SetupQuad ()
+{
+
+    TLVERTEX* vertices = NULL;
+    vertexBuffer-&gt;Lock(0, 4 * sizeof(TLVERTEX), (VOID**)&amp;vertices, 0);
+
+    <span class="codecomment">//Setup vertices</span>
+    vertices[0].colour = 0xffffffff;
+    vertices[0].x = 0.0f;
+    vertices[0].y = 0.0f;
+    vertices[0].z = 1.0f;
+    vertices[0].u = 0.0f;
+    vertices[0].v = 0.0f;
+
+    vertices[1].colour = 0xffffffff;
+    vertices[1].x = 1.0f;
+    vertices[1].y = 0.0f;
+    vertices[1].z = 1.0f;
+    vertices[1].u = 1.0f;
+    vertices[1].v = 0.0f;
+
+    vertices[2].colour = 0xffffffff;
+    vertices[2].x = 1.0f;
+    vertices[2].y = -1.0f;
+    vertices[2].z = 1.0f;
+    vertices[2].u = 1.0f;
+    vertices[2].v = 1.0f;
+
+    vertices[3].colour = 0xffffffff;
+    vertices[3].x = 0.0f;
+    vertices[3].y = -1.0f;
+    vertices[3].z = 1.0f;
+    vertices[3].u = 0.0f;
+    vertices[3].v = 1.0f;
+
+    vertexBuffer-&gt;Unlock();
+}
+</pre>
+
+<p>If you are not using colour modulation at all in your program, this only needs to be called once, upon program startup.  
+</p><p>Here is code to actually draw the textured quad:
+
+</p><pre class="code"><span class="codecomment">//Draw a textured quad on the backbuffer</span>
+void Blit(IDirect3DTexture9* texture, RECT* rDest, float rotate)
+{
+    float X;
+    float Y;
+    D3DXMATRIX matTranslation;
+    D3DXMATRIX matScaling;
+    D3DXMATRIX matTransform;
+    
+    <span class="codecomment">//Get coordinates</span>
+    X = rDest-&gt;left - (float)(<b>RESOLUTION_WIDTH</b>) / 2;
+    Y = -rDest-&gt;top + (float)(<b>RESOLUTION_HEIGHT</b>) / 2; 
+
+    //Setup translation and scaling matrices
+    D3DXMatrixScaling (&amp;matScaling, (float)(rDest-&gt;right - rDest-&gt;left),
+        (float)(rDest-&gt;bottom - rDest-&gt;top), 1.0f);
+    D3DXMatrixTranslation (&amp;matTranslation, X, Y, 0.0f);
+    matTransform = matScaling * matTranslation;
+
+    <span class="codecomment">//Check if quad is rotated</span>
+    if (rotate)
+    {
+        D3DXMATRIX matRotate;
+
+        <span class="codecomment">//Create rotation matrix about the z-axis</span>
+        D3DXMatrixRotationZ (&amp;matRotate, rotate);
+
+        <span class="codecomment">//Multiply matrices together</span>
+        matTransform *= matRotate;
+    }
+
+    <span class="codecomment">//Draw the quad</span>
+    <b>DEVICE</b>-&gt;SetTransform (D3DTS_WORLD, &amp;matTransform);
+    <b>DEVICE</b>-&gt;SetTexture (0, texture);
+    <b>DEVICE</b>-&gt;DrawPrimitive(D3DPT_TRIANGLEFAN, 0, 2);
+}
+</pre>
+
+<p>NOTE: Replace <b>DEVICE</b> with the name of your IDirect3DDevice9* object
+</p><p>NOTE 2: Replace <b>RESOLUTION_WIDTH</b> with the width of the backbuffer
+</p><p>NOTE 3: Replace <b>RESOLUTION_HEIGHT</b> with the height of the backbuffer
+</p><p>Though slightly less powerful, this function should be faster 
+than the ones presented in the article. It also has better-looking 
+rotation.
+</p><p>Please see <a href="http://www.gamedev.net/reference/programming/features/2d3dquads/NoLocking.zip">NoLocking.zip</a> for a demonstration of this technique in action.
+
+</p><h2>Issue 4: Batching</h2>
+<p>It's time for a bit of batching. If you manage this well, this could potentially give you a rather large speed increase.
+</p><p>In the <b>Blit()</b> functions provided in the article, <b>SetTexture()</b>
+ is called every time you want to draw something, even if you're drawing
+ the same texture on screen many times in a row. You can save some 
+valuable cycles by simply not calling it if you're drawing the same 
+texture multiple times.
+</p><p>Another feature the blitting methods could use is setting up a 
+source rectangle to blit from. This way you can have many images on one 
+texture and draw all that are needed in the current frame with a single 
+call to <b>SetTexture()</b>. Since texture coordinates are not specified
+ in pixels (or texels), but rather as a value from 0.0f to 1.0f, a quick
+ conversion must be done from pixel coordinates to texture coordinates.
+</p><p>Furthermore, when drawing multiple quads from the same texture, 
+it is possible to put them all in one large vertex buffer and draw them 
+all in a single call. To do this, we must use the triangle-list 
+primitive type, as opposed to the triangle fans used up to this point. 
+To accomodate this, we will also need an index buffer to so we do not 
+create duplicate vertices in the buffer. More information about index 
+buffers can be found in the Two Kings tutorial here: 
+http://www.two-kings.de/tutorials/d3d08/d3d08.html
+</p><p>So, first thing we need to do is add another vertex buffer and an
+ index buffer, as well as some state information about the vertex buffer
+ and texture. Put this in a scope visible to all of your graphics code:
+
+</p><pre class="code"><span class="codecomment">//Vertex buffer and index buffer for batched drawing</span>
+IDirect3DVertexBuffer9* vertexBatchBuffer;
+IDirect3DIndexBuffer9* indexBatchBuffer;
+
+<span class="codecomment">//Max amount of vertices that can be put in the batching buffer</span>
+const int BATCH_BUFFER_SIZE = 1000;
+
+<span class="codecomment">//Vertices currently in the batching buffer</span>
+int numBatchVertices;
+TLVERTEX* batchVertices;
+
+<span class="codecomment">//Info on texture used for batched drawing</span>
+float batchTexWidth;
+float batchTexHeight;
+</pre>
+
+<p>You can tweak the <b>BATCH_BUFFER_SIZE</b> constant to a number that 
+works best with your app. The lower it is, the more often it has to be 
+flushed. The higher it is, the longer it takes to lock. Make sure it's a
+ multiple of four though, so you can completely fill it with quads.
+</p><p>Now we need to initialize our new buffers. Do this around the 
+same time as you initialize the other vertex buffer (just make sure it's
+ after the device is created):
+
+</p><pre class="code"><span class="codecomment">//Create batching vertex and index buffers</span>
+d3dDevice-&gt;CreateVertexBuffer(BATCH_BUFFER_SIZE * sizeof(TLVERTEX),
+    D3DUSAGE_WRITEONLY, D3DFVF_TLVERTEX, D3DPOOL_MANAGED, &amp;vertexBatchBuffer, NULL);
+d3dDevice-&gt;CreateIndexBuffer (BATCH_BUFFER_SIZE * 3, D3DUSAGE_WRITEONLY,
+    D3DFMT_INDEX16, D3DPOOL_MANAGED, &amp;indexBatchBuffer, NULL);
+numBatchVertices = 0;
+</pre>
+
+<p>You may have noticed that the vertex and index buffers are both 
+static. The vertex buffer is static because there will likely be a lot 
+of switching between it and our original vertex buffer. The index buffer
+ is static because we only change its contents once. Also, by making 
+them static, we can keep them in the managed pool which makes for easier
+ handling of alt-tabbing in a fullscreen app.
+</p><p>Of course, you must remember to set the buffers free when you're done with them. Add this to your cleanup routine:
+
+</p><pre class="code"><span class="codecomment">//Release batching buffers</span>
+if (vertexBatchBuffer)
+    vertexBatchBuffer-&gt;Release ();
+if (indexBatchBuffer)
+    indexBatchBuffer-&gt;Release ();
+</pre>
+
+<p>Since you'll only be putting quads in the vertex buffer, you'll only 
+need to fill up the index buffer once and never modify it again. Use 
+this function to fill it (call it after the index buffer has been 
+initialized):
+
+</p><pre class="code"><span class="codecomment">//Fill the index buffer</span>
+void FillIndexBuffer ()
+{
+    int index = 0;
+    short* indices = NULL;
+
+    //Lock index buffer
+    indexBatchBuffer-&gt;Lock(0, BATCH_BUFFER_SIZE  * 3,
+                           (void**) &amp;indices, 0);
+
+    for (int vertex = 0; vertex &lt; BATCH_BUFFER_SIZE; vertex += 4)
+    {
+        indices[index] = vertex;
+        indices[index + 1] = vertex + 2;
+        indices[index + 2] = vertex + 3;
+        indices[index + 3] = vertex;
+        indices[index + 4] = vertex + 1;
+        indices[index + 5] = vertex + 2;
+        index += 6;
+    }
+
+    //Unlock index buffer
+    indexBatchBuffer-&gt;Unlock ();
+}
+</pre>
+
+<p>Alright. Now you just have to let your computer know you're ready to 
+batch a bunch of quads together. Call this function every time you want 
+to draw a series of images from a single texture:
+
+</p><pre class="code"><span class="codecomment">//Get ready for batch drawing</span>
+void BeginBatchDrawing (IDirect3DTexture9* texture)
+{
+    D3DXMATRIX matIdentity;
+    D3DSURFACE_DESC surfDesc;
+
+    <span class="codecomment">//Lock the batching vertex buffer</span>
+    numBatchVertices = 0;
+    vertexBatchBuffer-&gt;Lock (0, BATCH_BUFFER_SIZE * sizeof(TLVERTEX),
+                             (void **) &amp;batchVertices, 0);
+
+    <span class="codecomment">//Get texture dimensions</span>
+    texture-&gt;GetLevelDesc (0, &amp;surfDesc);
+    batchTexWidth = (float) surfDesc.Width;
+    batchTexHeight = (float) surfDesc.Height;
+
+    <span class="codecomment">//Set texture</span>
+    d3dDevice-&gt;SetTexture (0, texture);
+
+    <span class="codecomment">//Set world matrix to an identity matrix</span>
+    D3DXMatrixIdentity (&amp;matIdentity);
+    d3dDevice-&gt;SetTransform (D3DTS_WORLD, &amp;matIdentity);
+
+    <span class="codecomment">//Set stream source to batch buffer</span>
+    d3dDevice-&gt;SetStreamSource (0, vertexBatchBuffer,
+                                0, sizeof(TLVERTEX));
+}
+</pre>
+
+<p>You should probably make this function set a flag somewhere so the 
+program can tell it's in the middle of a batch drawing process. I'm 
+leaving it out of the example to keep things simple (the demos already 
+have far too many global variables for my liking).
+</p><p>Now it's time to put some quads in the vertex buffer. This function will do just that for you:
+
+</p><pre class="code"><span class="codecomment">//Add a quad to the batching buffer</span>
+void AddQuad (RECT* rSource, RECT* rDest, D3DCOLOR colour)
+{
+    float X;
+    float Y;
+    float destWidth;
+    float destHeight;
+
+    //Calculate coordinates
+    X = rDest-&gt;left - (float)(d3dPresent.BackBufferWidth) / 2;
+    Y = -rDest-&gt;top + (float)(d3dPresent.BackBufferHeight) / 2; 
+    destWidth = (float)(rDest-&gt;right - rDest-&gt;left);
+    destHeight = (float)(rDest-&gt;bottom - rDest-&gt;top);
+
+    //Setup vertices in buffer
+    batchVertices[numBatchVertices].colour = colour;
+    batchVertices[numBatchVertices].x = X;
+    batchVertices[numBatchVertices].y = Y;
+    batchVertices[numBatchVertices].z = 1.0f;
+    batchVertices[numBatchVertices].u = rSource-&gt;left / batchTexWidth;
+    batchVertices[numBatchVertices].v = rSource-&gt;top / batchTexHeight;
+    
+    batchVertices[numBatchVertices + 1].colour = colour;
+    batchVertices[numBatchVertices + 1].x = X + destWidth;
+    batchVertices[numBatchVertices + 1].y = Y;
+    batchVertices[numBatchVertices + 1].z = 1.0f;
+    batchVertices[numBatchVertices + 1].u = rSource-&gt;right / batchTexWidth;
+    batchVertices[numBatchVertices + 1].v = rSource-&gt;top / batchTexHeight;
+
+    batchVertices[numBatchVertices + 2].colour = colour;
+    batchVertices[numBatchVertices + 2].x = X + destWidth;
+    batchVertices[numBatchVertices + 2].y = Y - destHeight;
+    batchVertices[numBatchVertices + 2].z = 1.0f;
+    batchVertices[numBatchVertices + 2].u = rSource-&gt;right / batchTexWidth;
+    batchVertices[numBatchVertices + 2].v = rSource-&gt;bottom / batchTexHeight;
+
+    batchVertices[numBatchVertices + 3].colour = colour;
+    batchVertices[numBatchVertices + 3].x = X;
+    batchVertices[numBatchVertices + 3].y = Y - destHeight;
+    batchVertices[numBatchVertices + 3].z = 1.0f;
+    batchVertices[numBatchVertices + 3].u = rSource-&gt;left / batchTexWidth;
+    batchVertices[numBatchVertices + 3].v = rSource-&gt;bottom / batchTexHeight;
+
+    //Increase vertex count
+    numBatchVertices += 4;
+
+    //Flush buffer if it's full
+    if (numBatchVertices == BATCH_BUFFER_SIZE)
+    {
+        //Unlock vertex buffer
+        vertexBatchBuffer-&gt;Unlock();
+        
+        //Draw quads in the buffer
+        d3dDevice-&gt;DrawIndexedPrimitive (D3DPT_TRIANGLELIST, 0, 0,
+              numBatchVertices, 0, numBatchVertices / 2);        
+
+        //Reset vertex count        
+        numBatchVertices = 0;        
+
+        //Lock vertex buffer
+        vertexBatchBuffer-&gt;Lock (0, BATCH_BUFFER_SIZE * sizeof(TLVERTEX),
+              (void **) &amp;batchVertices, 0);
+    }
+
+}
+</pre>
+
+<p>As you can see, the function has basic colour modulation 
+functionality. It can easil bey extended this to behave similarly to the
+ <b>BlitExD3D()</b> function from the article, but I'll leave that up to
+ you. Also, when the vertex buffer gets full, this function 
+automatically draws whatever's inside it, and prepares to receive a new 
+batch of quads.
+
+</p><pre class="code">//Finish batch drawing
+void EndBatchDrawing()
+{
+    //Unlock vertex buffer
+    vertexBatchBuffer-&gt;Unlock();
+
+    //Draw the quads in the buffer if it wasn't just flushed
+    if (numBatchVertices)
+        d3dDevice-&gt;DrawIndexedPrimitive (D3DPT_TRIANGLELIST, 0, 0,
+              numBatchVertices, 0, numBatchVertices / 2);
+
+    //Set stream source to regular buffer
+    d3dDevice-&gt;SetStreamSource (0, vertexBuffer, 0, sizeof(TLVERTEX));
+
+    //Reset vertex count        
+    numBatchVertices = 0;        
+}
+</pre>
+
+<p>A demonstration of batching building on the NoLocking.zip app can be found in <a href="http://www.gamedev.net/reference/programming/features/2d3dquads/Batching.zip">Batching.zip</a>.
+ The batching code presented relies heavily upon global variables and 
+has very little error checking. I urge the reader to encapsulate the 
+batching functionality in a class, and add a lot of error checking 
+(asserting that the vertex buffer is not overflowing in <b>AddQuad()</b> would be a good start).
+
+</p><p align="center"><b><a href="http://www.gamedev.net/community/forums/topic.asp?key=featart&amp;uid=1972&amp;forum_id=35&amp;Topic_Title=2D+in+Direct3D+using+Textured+Quads">Discuss this article in the forums</a></b></p>
+<p>
+<br><span class="maintext-2">Date this article was posted to GameDev.net: <b>7/31/2003</b>
+<br>(Note that this date does not necessarily correspond to the date the article was written)</span>
+</p><p><b>See Also:</b><br>
+
+<a href="http://www.gamedev.net/reference/list.asp?categoryid=229">DirectX Graphics   </a><br>
+
+<a href="http://www.gamedev.net/reference/list.asp?categoryid=78">Featured Articles  </a><br>
+
+</p><p align="center">© 1999-2011 Gamedev.net. All rights reserved. <a href="http://www.gamedev.net/info/legal.htm#copyright"><u>Terms of Use</u></a> <a href="http://www.gamedev.net/info/legal.htm#privacy"><u>Privacy Policy</u></a>
+<br><span class="maintext-1">Comments? Questions? Feedback? <a href="http://www.gamedev.net/info/faq.asp">Click here!</a></span></p>
+
+</td></tr></tbody></table>
+
+
+<!-- start Vibrant Media IntelliTXT Tooltip style sheet -->
+<style type="text/css">
+.iTt{
+    FONT-FAMILY:       Verdana, Arial, Helvetica;
+    FONT-SIZE:         11px;
+    FONT-STYLE:        normal;
+    FONT-WEIGHT:       normal;
+    COLOR:             black;
+    BACKGROUND-COLOR:  lightyellow;
+    BORDER:            black 1px solid;
+    PADDING:           2px;
+}
+.iTt a {
+    COLOR:             0000CC;
+}
+.iTt a:visited {
+    COLOR:             0000CC;
+}
+.iTt a:hover {
+    COLOR:             6666CC;
+}
+.iTt TD {
+   COLOR:              999999;
+}
+</style>
+<!-- end Vibrant Media IntelliTXT style sheet -->
+<!-- start Vibrant Media IntelliTXT script section -->
+<script type="text/javascript" src="2D%20in%20Direct3D%20using%20Textured%20Quads_files/front.js"></script>
+<!-- end Vibrant Media IntelliTXT script section -->
+
+</body></html>

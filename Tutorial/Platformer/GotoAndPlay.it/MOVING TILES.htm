@@ -1,0 +1,603 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+<title>gotoAndPlay Flash Tutorials -- Tonypa's tile-based tutorials (updated)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="keywords" content="Flash, actionscript, flash game development, game programming, tutorials, flash tutorial, map,maze,movement,platform,scrolling,shooting,tile based,tiles,">
+<meta http-equiv="description" content="A long, well organized and in depth series of articles that cover all the aspects of tile-based games: moving, jumping, scrolling, shooting and much more!">
+<link rel="icon" href="http://www.gotoandplay.it/images/gtp_icon.png"><link href="MOVING%20TILES_files/main.css" rel="stylesheet" type="text/css">
+<link href="MOVING%20TILES_files/boxes.css" rel="stylesheet" type="text/css">
+<link href="MOVING%20TILES_files/skin.htm" rel="stylesheet" type="text/css"><script language="JavaScript" type="text/JavaScript" src="MOVING%20TILES_files/main.js"></script>
+<script language="JavaScript" type="text/JavaScript" src="MOVING%20TILES_files/cookies.js"></script>
+</head><body leftmargin="0" topmargin="0" class="bg" onload="preloadMenu()" marginheight="0" marginwidth="0">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+  <tbody><tr> 
+    <td colspan="3"><img src="MOVING%20TILES_files/spacer.gif" width="120" height="11"></td>
+  </tr>
+  <tr> 
+    <td rowspan="4" class="leftShadow" width="20">&nbsp;</td>
+    <td width="760"><img src="MOVING%20TILES_files/headLogo.jpg" border="0"></td>    
+    <td rowspan="4" class="rightShadow" width="20">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td> 
+      <script>menuSelected = 3</script>
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+  <tbody><tr>
+   <td colspan="25"><img name="navBar_r1_c1" src="MOVING%20TILES_files/navBar_r1_c1.gif" alt="" border="0" width="760" height="1"></td>
+  </tr>
+  <tr>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c1.gif" alt="" border="0" width="1"></td>
+   <td><a href="http://www.gotoandplay.it/" title="Return to the homepage" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c2','','/images/navBar/navBar_r2_c2_f2.gif',1);"><img name="navBar_r2_c2" src="MOVING%20TILES_files/navBar_r2_c2.gif" alt="" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_gapBlog/" title="Latest news!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_news','','/images/navBar/navBar_news_f2.gif',12);"><img name="navBar_news" src="MOVING%20TILES_files/navBar_news.gif" alt="" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_games/" title="Play games!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c4','','/images/navBar/navBar_r2_c4_f2.gif',2);"><img name="navBar_r2_c4" src="MOVING%20TILES_files/navBar_r2_c4.gif" alt="" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_articles/" title="Learn how to make flash games!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c6','','/images/navBar/navBar_r2_c6_f2.gif',3);"><img name="navBar_r2_c6" src="MOVING%20TILES_files/navBar_r2_c6_sel.gif" alt="" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_articles/multiplayerCentral/" title="Learn the art of multiplayer games!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c8','','/images/navBar/navBar_r2_c8_f2.gif',9);"><img name="navBar_r2_c8" src="MOVING%20TILES_files/navBar_r2_c8.gif" alt="" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_reviews/" title="Game reviews, book reviews ..." onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('navBar_r2_c101','','/images/navBar/navBar_r2_c10_f2.gif',10)"><img src="MOVING%20TILES_files/navBar_r2_c10.gif" alt="" name="navBar_r2_c101" id="navBar_r2_c101" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/spotLight/" title="Read our interviews with the pros!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c12','','/images/navBar/navBar_r2_c12_f2.gif',11);"><img name="navBar_r2_c12" src="MOVING%20TILES_files/navBar_r2_c12.gif" alt="" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_forums/" title="The community forums" onmouseover="MM_swapImage('navBar_r2_c141','','/images/navBar/navBar_r2_c14_f2.gif',4)" onmouseout="MM_swapImgRestore()"><img src="MOVING%20TILES_files/navBar_r2_c14.gif" alt="" name="navBar_r2_c141" id="navBar_r2_c141" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_info/" title="Info, f.a.q. and more..." onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('navBar_r2_c161','','/images/navBar/navBar_r2_c16_f2.gif',5)"><img src="MOVING%20TILES_files/navBar_r2_c16.gif" alt="" name="navBar_r2_c161" id="navBar_r2_c161" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_links/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('navBar_r2_c181','','/images/navBar/navBar_r2_c18_f2.gif',6)"><img src="MOVING%20TILES_files/navBar_r2_c18.gif" alt="" name="navBar_r2_c181" id="navBar_r2_c181" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="javascript:spammersGoToHell()" title="Write us!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c20','','/images/navBar/navBar_r2_c20_f2.gif',7);"><img name="navBar_r2_c20" src="MOVING%20TILES_files/navBar_r2_c20.gif" alt="" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0"><img src="MOVING%20TILES_files/navBar_r2_c11.gif" alt="" border="0"></td>
+   <td><a href="http://www.gotoandplay.it/_credits/" title="Site credits" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c22','','/images/navBar/navBar_r2_c22_f2.gif',8);"><img name="navBar_r2_c22" src="MOVING%20TILES_files/navBar_r2_c22.gif" alt="" border="0"></a></td>
+   <td><img src="MOVING%20TILES_files/navBar_r2_c23.gif" alt="" border="0" width="1"></td>
+  </tr>
+ <tr>
+   <td colspan="25"><img name="navBar_r1_c1" src="MOVING%20TILES_files/navBar_r1_c1.gif" alt="" border="0" width="760" height="1"></td>
+  </tr>
+</tbody></table>
+<table background="MOVING%20TILES_files/titlebar_r2.gif" border="0" cellpadding="0" cellspacing="0" width="760"> 
+  <tbody><tr> 
+    <td><img src="MOVING%20TILES_files/titleBar_r1.gif" width="760"></td> 
+  </tr> 
+  <tr> 
+    <td style="background-image: url(/_advertisement/img/titlebar_r2.gif); background-repeat: no-repeat; background-color: rgb(253, 253, 253);">
+		<table align="center" border="0" cellpadding="0" cellspacing="0" width="470" height="62">
+          <tbody><tr>
+            <td align="center">
+			<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.adobe.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="468" height="60"><param name="movie" value="http://www.gotoandplay.it/phpAdsNew/adimage.php?filename=gtpbanner2.swf&amp;contenttype=swf&amp;clickTAG=http://www.gotoandplay.it/phpAdsNew/adclick.php%3Fbannerid=3%26zoneid=11%26source=%26dest=http%3A%2F%2Fwww.gotoandplay.it%2F_advertisement%2Findex.php"><param name="quality" value="high"><param name="allowScriptAccess" value="always"><embed src="MOVING%20TILES_files/adimage.php" quality="high" type="application/x-shockwave-flash" pluginspace="http://www.adobe.com/go/getflashplayer" allowscriptaccess="always" width="468" height="60"></object><div id="beacon_3" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="MOVING%20TILES_files/adlog.gif" alt="" style="width: 0px; height: 0px;" width="0" height="0"></div>			</td>
+          </tr>
+    </tbody></table>	</td>
+  </tr>
+  <tr> 
+    <td><img src="MOVING%20TILES_files/titleBar_r3.gif" width="760"></td> 
+  </tr> 
+</tbody></table>
+    </td>
+  </tr>
+  <tr> 
+    <td class="internalFrame" align="left" valign="top"> <table class="xsmall" border="0" cellpadding="6" cellspacing="0" width="758">
+        <tbody><tr> 
+          <td style="padding: 0px;" valign="top"> 
+            <img src="MOVING%20TILES_files/type_1.gif"><br><div style="padding: 6px;"><br><img src="MOVING%20TILES_files/rate_2.gif">&nbsp;<span class="articleTitle">Tonypa's tile-based tutorials (updated)</span><br>
+<span class="xsmall">[ September 03, 2004 ]<b> by Tonu Paldra, alias Tonypa</b></span><br>
+<span class="xsmall"><div style="padding-top: 6px; color: rgb(68, 68, 68);"><em>A
+long, well organized and in depth series of articles that cover all the
+aspects of tile-based games: moving, jumping, scrolling, shooting and
+much more!</em></div></span><br><hr>
+</div>          </td>
+        </tr>
+        <tr> 
+          <td class="articleText" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody><tr>
+                <td class="articleText" align="left" width="18%" nowrap="nowrap" valign="top"><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa.php">Intro</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p02.php">Why tiles?</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p03.php">Map format</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p04.php">More maps</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p05.php">Creating tiles</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p06.php">The hero</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p07.php">Keys to move</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p08.php">Hit the wall</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p09.php">Open the door</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p10.php">Jumping</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p11.php">Clouds</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p12.php">Ladders</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p13.php">Stupid enemy</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p14.php">More on enemy</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p15.php">Shoot him</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p16.php">Getting items</a><br><span style="color: rgb(102, 102, 102);"><b>Moving tiles</b></span><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p18.php">Scrolling</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p19.php">More scrolling</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p20.php">Depth</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p21.php">Isometric view</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p22.php">Mouse to move</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p23.php">Isometric mouse</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p24.php">Isometric scroll</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p25.php">Rotate hero</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p26.php">Rotate bground</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p27.php">Pathfinding</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p28.php">More pathfinding</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p29.php">Slopes</a><br></td>
+                <td class="articleText" align="left" width="82%" valign="top">
+				  <p class="articleParagraphTitle">MOVING TILES</p>
+                  <p>Gather
+up, boys and girls, for today I am going to tell you a little story
+about moving tiles. Some of you may know it already by the name "moving
+platform", dont be fooled by the name, its still same cute thing. </p>
+                  <p>Once,
+long time ago, in the land of tile based games, lived a young tile. He
+was a happy tile. One fine day a hero came to him and asked: "Young
+tile, why dont you move?" </p>
+                  <p>"I dont know how to move," said little tile. </p>
+                  <p>"Thats sad," sighed the hero, "since I would love to stand on you and move with you to the places I cant reach by my own." </p>
+                  <p>That day young tile realised his life was not so happy anymore. </p>
+                  <p>But we can help him to move:</p>
+                  <p align="center">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="240" height="200">
+                      <param name="movie" value="tonypa/img/p17_1.swf">
+                      <param name="quality" value="high">
+                      <embed src="MOVING%20TILES_files/p17_1.swf" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="240" height="200">
+                    </object>
+                  </p>
+                  <p>Before
+we actually start the coding, we have to make some rules. Rules, while
+annoying, are very helpful. What are we doing? Where to go? Whats the
+meaning of life? Rules to answer:</p>
+                  <ul>
+                    <li> moving tiles are cloud type (for explanation please look <a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p11.php">here</a>)</li>
+                    <li> moving tiles can move horisontally and vertically</li>
+                    <li> hero can land on the moving tile only from above</li>
+                    <li> when hero is standing on moving tile, he moves with the tile</li>
+                    <li> hero on moving tile still cant go into wall<br>
+</li>
+                  </ul>
+				  <p class="articleParagraphTitle"><br>
+			      STEPPING ON MOVING TILE</p>
+                  <p>So, how can hero land on the moving tile. First and simplest way is to jump. </p>
+                  <p align="center"><img src="MOVING%20TILES_files/p17_2.gif" border="1" width="75" height="122"></p>
+                  <p>On
+the picture hero is moving down and in the next step he would be inside
+the moving tile. We will place him standing on the tile. Note that hero
+MUST be above the moving tile and hero MUST be moving down. In any
+other case hero wont land on moving tile. </p>
+                  <p>But
+thats not the only way for hero to get on the moving tile. In the next
+picture hero is standing still on the piece of wall and he is not
+moving anywhere. </p>
+                  <p align="center"><img src="MOVING%20TILES_files/p17_3.gif" border="1" width="174" height="155"></p>
+                  <p>But
+the moving tile is moving up and in the next step, hero would be inside
+the moving tile. Yes, we again have to make sure the hero will be
+catched by the moving tile and he starts to move up with the moving
+tile. </p>
+				  <p class="articleParagraphTitle"><br>
+			      STEPPING OFF</p>
+                  <p>Once
+we have the hero standing on the moving tile, we also need to create
+some ways for the hero to get off. First, he can jump off. He can walk
+over the edge of moving tile. And also couple of possible situations
+exist in the next pictures: </p>
+                  <p align="center"><img src="MOVING%20TILES_files/p17_4.gif" border="1" width="300" height="186"></p>
+                  <p>When
+hero stands on the moving tile moving up and in the next step hero
+would hit the wall above, he should drop off the moving tile or he
+would be squashed. When hero is standing on the moving tile moving
+horisontally, hitting the wall left/right in next step, he should be
+placed near the wall and in case the moving tile keeps moving, hero
+should fall off. </p>
+                  <p align="center"><img src="MOVING%20TILES_files/p17_5.gif" border="1" width="136" height="163"></p>
+                  <p>In
+this picture hero is moving down while standing on the moving tile.
+When the hero hits the wall tile, he should stay on the wall. Moving
+tile continues going down, but without the hero. </p>
+				  <p class="articleParagraphTitle"><br>
+			      PREPARING</p>
+                  <p>Draw
+moving tile movie clip. You can have many different moving tiles, put
+them in different frames inside "movingtiles" mc. Make sure mc in the
+library is linked as "movingtiles". </p>
+                  <p>Declare movingtiles objects: </p>
+                  <pre class="quote">game.MovingTilep1 = function () {};
+game.MovingTilep1.prototype.speed = 2;
+game.MovingTilep1.prototype.dirx = 0;
+game.MovingTilep1.prototype.diry = 1;
+game.MovingTilep1.prototype.miny = 0;
+game.MovingTilep1.prototype.maxy = 2;
+game.MovingTilep1.prototype.width = game.tileW / 2;
+game.MovingTilep1.prototype.height = game.tileH / 2;
+ 
+game.MovingTilep2= function () {};
+game.MovingTilep2.prototype.speed = 2;
+game.MovingTilep2.prototype.dirx = 1;
+game.MovingTilep2.prototype.diry = 0;
+game.MovingTilep2.prototype.minx = -2;
+game.MovingTilep2.prototype.maxx = 2;
+game.MovingTilep2.prototype.width = game.tileW / 2;
+game.MovingTilep2.prototype.height = game.tileH / 2;</pre>
+                  <p>We
+have 2 kinds of moving tiles: MovingTilep1 will be moving vertically
+(its diry property is set to non-zero value) and MovingTilep2 is
+horisontal mover (since its dirx is set so). The speed property, as you
+might of already guessed, sets how many pixels tile moves in each step.
+</p>
+                  <p>The miny/maxy/minx/maxx properties will set
+the boundaries for the movement. We could write some absolute values
+too, but then doing changes will be confusing. Instead, we have the
+boundaries set as relative to the starting position of the moving tile.
+We can place the moving tile in any position and it will still move
+correctly between its boundaries. Remember, moving tiles dont check for
+any wall tiles and its your job to place them so they dont move through
+walls. Or place them so they move through walls if you want so. You are
+making the game, so you are the god. </p>
+                  <p>Lets
+look at the example. Movingtile starts in the position x=2, y=5. It has
+vertical movement and miny=-1, maxy=4. How far will it move then?
+Starting y-miny=5+(-1)=4, so minimum position it goes, is x=2, y=4.
+Maximum position is 5+4=9 or the postion x=2, y=9. </p>
+                  <p>To give moving tiles starting position, we use array similar to the enemies array: </p>
+                  <pre class="quote">//moving tiles array is in the order [tile type, xtile, ytile]
+myMovingTiles = [
+[0],
+[[1, 4, 2]],
+[[2, 4, 4]]
+];</pre>
+                  <p>In
+the map1 we have declared 1 moving tile. Its type 1 (made from the
+template MovingTile1) and its placed at the starting position x=4, y=2.
+Map2 also has only 1 moving tile. You can put more then 1 moving tile
+in each map. </p>
+                  <p>Next we need to add moving tiles in the buildMap function. Write after the enemies code: </p>
+                  <pre class="quote">game.movingtiles = myMovingTiles[game.currentMap];
+for (var i = 0; i &lt; game.movingtiles.length; ++i)
+{
+	var name = "movingtile" + i;
+	game[name] = new game["MovingTilep" + game.movingtiles[i][0]];
+	game.clip.attachMovie("movingtiles", name, 12001 + i);
+	game[name].clip = game.clip[name];
+	game[name].clip.gotoAndStop(game.movingtiles[i][0]);
+	game[name].xtile = game.movingtiles[i][1];
+	game[name].ytile = game.movingtiles[i][2];
+	game[name].x = game[name].xtile * game.tileW + game.tileW / 2;
+	game[name].y = game[name].ytile * game.tileH + game.tileH / 2;
+	game[name].clip._x = game[name].x;
+	game[name].clip._y = game[name].y;
+	game[name].minx = game[name].minx + game[name].xtile;
+	game[name].maxx = game[name].maxx + game[name].xtile;
+	game[name].miny = game[name].miny + game[name].ytile;
+	game[name].maxy = game[name].maxy + game[name].ytile;
+}</pre>
+                  <p>We
+take the array for current map from the moving tiles array. Variable
+game.movingtiles will be holding info about how many moving tiles we
+have on stage and where they start at. Then we create new object, place
+mc on stage in correct position and send it in correct frame. Note that
+type1 moving tile will be sent to the frame1, type2 to the frame2. Last
+part of the code calculates values for the boundaries for each moving
+tile. While the names are again miny/max/minx/maxx, the properties are
+not relative anymore. Each moving tile object will have absolute values
+for its boundaries so we dont have to contsantly calculate them over
+and over to check if its time to turn back. </p>
+                  <p>In the moveChar function we have to add 1 line in the beginning to save current y position: </p>
+                  <pre class="quote">ob.lasty = ob.y;</pre>
+                  <p>We will also have to rewrite the code in the moveChar function for movement down </p>
+                  <pre class="quote">if (diry == 1)
+{
+	if (ob.downleft and ob.downright and !checkMovingTiles(speed * diry))
+	{
+		ob.y += speed * diry;
+	}
+	else
+	{
+		ob.jump = false;
+		if(ob.onMovingTile)
+		{
+			ob.y = ob.onMovingTile.y - ob.onMovingTile.height - ob.height;
+		}
+		else
+		{
+			ob.y = (ob.ytile + 1) * game.tileH - ob.height;
+		}
+	}
+}</pre>
+                  <p>We
+have added the call for checkMovingTiles function, which will return
+true in case hero will land on moving tile. And if we have landed on
+it, we set the y coordinate of the hero so it stands just above the
+tile. </p>
+				  <p class="articleParagraphTitle"><br>
+			      IS HERO ON MOVING TILE?</p>
+                  <p>You
+already guessed from the addition in the moveChar function, yes, its
+time to make new function for the checking if char is standing on the
+moving tile. checkMovingTiles function not only finds the answer, but
+it also saves the name of the tile hero currently moves on, into the
+char object. </p>
+                  <pre class="quote">function checkMovingTiles (y)
+{
+	if(char.diry &lt;&gt; -1)
+	{
+		var heroymax = char.y + char.height + y;
+		var heroxmax = char.x + char.width;
+		var heroxmin = char.x - char.width;
+		foundit = false;
+		for (var i = 0; i &lt; game.movingtiles.length; i++)
+		{
+			var ob = game["movingtile" + i];
+			var tileymax = ob.y + ob.height;
+			var tileymin = ob.y - ob.height;
+			var tilexmax = ob.x + ob.width;
+			var tilexmin = ob.x - ob.width;
+			if(char.lasty + char.height &lt;= tileymin)
+			{
+				if (heroymax &lt;= tileymax and heroymax &gt;= tileymin)
+				{
+					if (heroxmax &gt; tilexmin and heroxmax &lt; tilexmax)
+					{
+						char.onMovingTile = ob;
+						foundit = true;
+						break;
+					}
+					else if (heroxmin &gt; tilexmin and heroxmin
+					                                     &lt; tilexmax)
+					{
+						char.onMovingTile = ob;
+						foundit = true;
+						break;
+					}
+				}
+			}
+		}
+		return(foundit);
+	}
+}</pre>
+                  <p>Lets
+see whats happening here. If char is not moving up (diry is not -1), we
+calculate the boundaries for the char. Then we start to loop through
+all the moving tiles. ob will be moving tile object we are currently
+dealing with. We also calculate boundaries for current tile to figure
+out if they are colliding: </p>
+                  <p align="center"><img src="MOVING%20TILES_files/p17_6.gif" border="1" width="213" height="203"></p>
+                  <p>The
+if statement with "lasty" property secures that chars last position was
+above the moving tile and other if statements find collision between
+char and tile. If we have found moving tile, then the onMovingTile will
+be holding reference to the tile object. </p>
+				  <p class="articleParagraphTitle"><br>
+			      IT SHALL MOVE</p>
+                  <p>Be
+prepared for the ugliest, biggest, meaniest function in the history of
+mankind! It is big, because it does many things, first, it moves around
+all the moving tiles, it then checks if the tiles need to have their
+movement direction reversed, and if thats not hard work enough, this
+function also handles the movement of hero standing on the moving tile
+and checks if hero should fall off from it. </p>
+                  <pre class="quote">function moveTiles ()
+{
+	for (var i = 0; i &lt; game.movingtiles.length; i++)
+	{
+		var ob = game["movingtile" + i];
+		getMyCorners (ob.x + ob.speed * ob.dirx, ob.y + ob.speed * ob.diry, ob);
+		if (ob.miny &gt; ob.upY or ob.maxy &lt; ob.downY)
+		{
+			ob.diry = -ob.diry;
+		}
+		if (ob.minx &gt; ob.leftX or ob.maxx &lt; ob.rightX)
+		{
+			ob.dirx = -ob.dirx;
+		}
+		ob.x = ob.x + ob.speed * ob.dirx;
+		ob.y = ob.y + ob.speed * ob.diry;
+		ob.xtile = Math.floor(ob.x / game.tileW);
+		ob.ytile = Math.floor(ob.y / game.tileH);
+		ob.clip._x = ob.x;
+		ob.clip._y = ob.y;
+		if(ob.diry == -1)
+		{
+			checkMovingTiles(0);
+		}
+	}
+	
+	//check if hero is on moving tile
+	if(char.onMovingTile)
+	{
+		getMyCorners (char.x, char.y + char.onMovingTile.speed
+		                                     * char.onMovingTile.diry, char);
+		if (char.onMovingTile.diry == -1)
+		{
+			if (char.upleft and char.upright)
+			{
+				char.y = char.onMovingTile.y - char.onMovingTile.height
+				                                          - char.height;
+			}
+			else
+			{
+				char.y = char.ytile * game.tileH + char.height;
+				char.jumpspeed = 0;
+				char.jump = true;
+				char.onMovingTile = false;
+			}
+		}
+		if (char.onMovingTile.diry == 1)
+		{
+			if (char.downleft and char.downright)
+			{
+				char.y = char.onMovingTile.y - char.onMovingTile.height
+				                                          - char.height;
+			}
+			else
+			{
+				char.onMovingTile = false;
+				char.y = (char.ytile + 1) * game.tileH - char.height;
+			}
+		}
+		getMyCorners (char.x + char.onMovingTile.speed 
+		                                 * char.onMovingTile.dirx, char.y, char);
+		if (char.onMovingTile.dirx == -1)
+		{
+			if (char.downleft and char.upleft)
+			{
+				char.x += char.onMovingTile.speed
+				                  * char.onMovingTile.dirx;
+			}
+			else
+			{
+				char.x = char.xtile * game.tileW + char.width;
+				fall (char);
+			}
+		}
+		if (char.onMovingTile.dirx == 1)
+		{
+			if (char.upright and char.downright)
+			{
+				char.x += char.onMovingTile.speed
+				                  * char.onMovingTile.dirx;
+			}
+			else
+			{
+				fall (char);
+				char.x = (char.xtile + 1) * game.tileW - char.width;
+			}
+		}
+		updateChar (char);
+	}
+}</pre>
+                  <p>Well,
+like told before, the first part moves moving tiles. It loops through
+all the moving tiles and compares their next position with
+miny/maxy(minx/maxx properties. If moving tile has moved too far, its
+movement is reversed. </p>
+                  <p>With the following code: </p>
+                  <pre class="quote">if(ob.diry==-1)
+{
+	checkMovingTiles(0);
+}</pre>
+                  <p>we
+check if we have picked up the hero. Notice, that this is only possible
+if hero is standing still on the edge of wall and tile is moving up
+(diry is -1). </p>
+                  <p>The part of function from the line: </p>
+                  <pre class="quote">if(char.onMovingTile)
+{
+	...</pre>
+                  <p>deals
+with hero. When onMovingTile property is not false, that means char is
+standing on one of them and its onMovingTile refers to the right moving
+tile object. The code here is very similar to the code in moveChar
+function. We calculate corners for next position of hero using
+getMyCorners function, if we havent hit any walls, we move the hero
+with tile, but if some hard wall has been found, then hero cant move
+there. </p>
+				  <p class="articleParagraphTitle"><br>
+			      WRAPPING IT UP</p>
+                  <p>In the detectKeys function add line to the beginning to move all the tiles before hero gets chance to move too: </p>
+                  <pre class="quote">moveTiles();</pre>
+                  <p>and in case hero will jump, we have to set its onMovingTile property to false: </p>
+                  <pre class="quote">ob.onMovingTile=false;</pre>
+                  <p>You can download the source fla with all the code and movie set up <a href="http://www.gotoandplay.it/_articles/2004/02/tonypa/movingTiles.fla">here</a>.</p></td>
+              </tr>
+            </tbody></table></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="top">
+		  	<hr>
+            <a href="http://www.gotoandplay.it/_articles/index.php"><img src="MOVING%20TILES_files/btn_index.gif" border="0"></a>&nbsp;&nbsp;
+            <a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p16.php"><img src="MOVING%20TILES_files/btn_prev.gif" border="0" width="47" height="20"></a>&nbsp;&nbsp;
+			<a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p18.php"><img src="MOVING%20TILES_files/btn_next.gif" border="0" width="47" height="20"></a>
+            <hr></td>
+        </tr>
+        <tr> 
+          <td valign="top">
+		  	<!-- PAGE FOOTER: Related Articles and Author Data -->
+		  	<table border="0" cellpadding="0" cellspacing="0">
+              <tbody><tr>
+                	
+                <td width="238" valign="top"> 
+                  <table border="0" cellpadding="0" cellspacing="0" width="226">
+  <tbody><tr> 
+    <td width="220" height="19"><img src="MOVING%20TILES_files/title_boxRelArticles.gif" width="220" height="19"></td>
+    <td class="box_shadowTop"></td>
+  </tr>
+  <tr> 
+    <td class="box_Pattern">
+		<div style="padding-left: 1px; padding-right: 1px;">
+			<iframe name="relatedArticles" marginheight="0" marginwidth="0" src="MOVING%20TILES_files/box_relatedArt_frame.htm" width="218" frameborder="0" height="146" scrolling="auto"></iframe>
+		</div>
+	</td>
+    <td class="box_shadowMid">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="box_bgBottom" height="20"></td>
+    <td class="box_shadowBtm">&nbsp;</td>
+  </tr>
+</tbody></table>                </td>
+                <td width="515" valign="top"> 
+                  <table border="0" cellpadding="0" cellspacing="0" width="521">
+  <tbody><tr> 
+    <td width="509" height="19"><img src="MOVING%20TILES_files/title_boxAuthor.gif" width="515" height="19"></td>
+    <td class="box_shadowTop"></td>
+  </tr>
+  <tr> 
+    <td class="largeBox_Pattern">
+	<div class="box_inside">
+		<table class="articleText" border="0" cellpadding="4" cellspacing="0">
+			<tbody><tr>
+				<td align="right" width="118"><strong>Name:</strong></td>
+				<td>
+				Tonu Paldra, alias Tonypa				</td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Location:</strong></td>
+				<td>
+				Estonia				</td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Age:</strong></td>
+				<td>
+				34				</td>
+			</tr>
+			<tr>
+				<td align="right" valign="top"><strong>Flash experience:</strong></td>
+				<td>
+Discovered Flash4 in the year 2000 and fell in love with it. Abandoned
+Flash4, when they ended Flash4 help forum in Flashkit. Been playing
+with Flash only in spare time, thinking its great hobby </td>
+			</tr>
+			<tr>
+				<td align="right" valign="top"><strong>Job:</strong></td>
+				<td>
+				Magazine designer				</td>
+			</tr>
+			<tr>
+				<td align="right" valign="top"><strong>Website:</strong></td>
+				<td>
+				<a href="http://www.tonypa.pri.ee/" target="_blank">http://www.tonypa.pri.ee/</a>				</td>
+			</tr>
+		</tbody></table>
+	</div>
+	</td>
+    <td class="box_shadowMid">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="20"><img src="MOVING%20TILES_files/box_footer.gif" width="515" height="20"></td>
+    <td class="box_shadowBtm">&nbsp;</td>
+  </tr>
+</tbody></table>                </td>
+		  	  </tr>
+			</tbody></table>
+			<!-- END PAGE FOOTER -->
+          </td>
+        </tr>
+      </tbody></table></td>
+  </tr>
+  <tr> 
+    <td class="internalFrame" align="left" valign="top"></td>
+  </tr>
+  <tr> 
+    <td colspan="3" class="bgLeft04"> 
+      <img src="MOVING%20TILES_files/footer.png" border="0">    </td>
+  </tr>
+</tbody></table>
+<table align="center" border="0" cellpadding="2" cellspacing="0" width="740">
+  <tbody><tr>
+    <td class="footNote" align="center">| <a href="http://www.gotoandplay.it/" title="back to the homepage" class="footNoteLink">Homepage</a> 
+	  | <a href="http://www.gotoandplay.it/_gapBlog/" title="Latest news!" class="footNoteLink">News</a>
+      | <a href="http://www.gotoandplay.it/_games/" class="footNoteLink" title="flash games, dickDynamite">Games</a> 
+      | <a href="http://www.gotoandplay.it/_articles/" title="flash articles, tutorials" class="footNoteLink">Articles</a> 
+	  | <a href="http://www.gotoandplay.it/_articles/" title="multiplayer articles" class="footNoteLink">Multiplayer Central</a> 
+	  | <a href="http://www.gotoandplay.it/_reviews/" title="Game reviews, book reviews..." class="footNoteLink">Reviews</a> 
+	  | <a href="http://www.gotoandplay.it/spotlight/" title="Interviews with the pros!" class="footNoteLink">Spotlight</a> 
+      | <a href="http://www.gotoandplay.it/_forums/" title="gotoAndPlay() Forums" target="_blank" class="footNoteLink">Forums</a>
+      | <a href="http://www.gotoandplay.it/_info/" class="footNoteLink" title="general info and f.a.q.">Info</a> 
+      | <a href="http://www.gotoandplay.it/_links/" title="other great flash resources" class="footNoteLink">Links</a> 
+      | <a href="mailto:info@gotoandplay.it" title="contact us" class="footNoteLink">Contact us</a> 
+	  | <a href="http://www.gotoandplay.it/_advertisement/" title="advertisement on gotoAndPlay()" class="footNoteLink">Advertise</a>
+      | <a href="http://www.gotoandplay.it/_credits/" title="site credits" class="footNoteLink">Credits</a>    
+      |<br><br>| <a href="http://www.smartfoxserver.com/" title="SmartFoxServer" class="footNoteLink">www.smartfoxserver.com</a>  
+	  | <a href="http://www.gotoandplay.biz/" title="gotoAndPlay()" class="footNoteLink">www.gotoandplay.biz</a> 
+	  | <a href="http://www.openspace-engine.com/" title="OpenSpace" class="footNoteLink">www.openspace-engine.com</a>  
+      |</td>
+  </tr>
+  <tr> 
+    <td class="footNote" align="center"><br>
+      gotoAndPlay() v 3.0.0 -- (c)2003-2008 gotoAndPlay() Team -- P.IVA 03121770048</td>
+  </tr>
+</tbody></table>
+<p>&nbsp;</p>
+
+</body></html>

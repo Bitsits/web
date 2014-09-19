@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head>
+
+
+  
+    <title>Super Mario Bros. Maps -            Ian-Albert.com</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="smb.php_files/template.css" type="text/css">
+    <link rel="stylesheet" href="smb.php_files/body.css" type="text/css">
+    <meta name="author" content="Ian Albert">
+            <script src="smb.php_files/dhtml.js" type="text/javascript"></script>
+    <script src="smb.php_files/ajax.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      function showCommentForm() {
+        setIDStyleProperty("commentform", "display", "block");
+        setIDStyleProperty("commentlink", "display", "none");
+        document.forms.commform.comment.focus();
+      }
+      function submitComment() {
+        var f = document.forms.commform;
+        if (f.comment.value.length == 0) return false;
+        var url = "http://ian-albert.com/util.php?action=submitcomment" +
+                  "&page=%2Fmisc%2Fsmb.php" +
+                  "&comment=" + escape(f.comment.value) +
+                  "&name=" + escape(f.name.value) +
+                  "&email=" + escape(f.email.value);
+        makeRequest(url, 'refreshComments');
+        setIDStyleProperty("commentform", "display", "none");
+        return false;
+      }
+      function refreshComments(httpResponse) {
+        setTagContents("comments", "<div class=\"comments-title\">Recent " +
+                       "comments</div>\n" + httpResponse.responseText);
+      }
+      function openPopup(url, width, height) {
+        winpops = window.open(url, "ianPopup", "width=" + width + ",height=" +
+                              height + ",scrollbars,resizable,");
+      }
+      function breakOutOfFrame() {
+        try {
+          if (window != top) {
+            setTimeout("top.location.href = window.location.href;", 1000);
+          }
+        } catch (e) {}
+      }
+      setTimeout(breakOutOfFrame, 0);
+      /* ]]> */
+    </script>
+      <script charset="utf-8" id="injection_graph_func" src="smb.php_files/injection_graph_func.js"></script><script id="_nameHighlight_injection"></script><link class="skype_name_highlight_style" href="smb.php_files/injection_nh_graph.css" type="text/css" rel="stylesheet" charset="utf-8" id="_injection_graph_nh_css"><link href="smb.php_files/skypeplugin_dropdownmenu.css" type="text/css" rel="stylesheet" charset="utf-8" id="_skypeplugin_dropdownmenu_css"></head><body>
+    <div style="overflow: hidden; height: 32px;"><img src="smb.php_files/spacer.gif" alt="" width="1" height="32"></div>
+    <div style="overflow: hidden; height: 20px;">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tbody><tr>
+        <td style="margin: 0pt; padding: 0pt 0pt 0pt 20px; background: rgb(208, 208, 208) none repeat scroll 0% 0%; width: 50%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous;"><a href="http://ian-albert.com/"><img src="smb.php_files/title.gif" alt="Ian-Albert.com" width="319" border="0" height="20"></a></td>
+        <td style="margin: 0pt; padding: 0pt 20px 0pt 0pt; background: rgb(208, 208, 208) none repeat scroll 0% 0%; width: 50%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; text-align: right;"><a href="http://ian-albert.com/contact.php"><img src="smb.php_files/contactme1.gif" alt="Contact Me" width="77" border="0" height="20"></a></td>
+      </tr>
+    </tbody></table>
+    </div>
+    <div style="padding: 16px 12px 12px 20px;">
+      <img src="smb.php_files/hier_start.gif" alt="(" width="5" height="15">
+      <span class="hier"><a href="http://ian-albert.com/">Home</a></span>
+      <img src="smb.php_files/hier_div.gif" alt=")-(" width="19" height="15">
+      <span class="hier"><a href="http://ian-albert.com/misc/">Misc.</a></span><img src="smb.php_files/hier_div.gif" alt=")-(" width="19" height="15"><span class="hier"><a href="http://ian-albert.com/misc/gamemaps.php">Video Game Maps</a></span><img src="smb.php_files/hier_div.gif" alt=")-(" width="19" height="15">      <span class="pagetitle">Super Mario Bros. Maps</span>
+      <img src="smb.php_files/hier_end.gif" alt=")" width="5" height="15">
+    </div>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tbody><tr>
+        <td width="42" valign="top"><img src="smb.php_files/strip_gamemaps.jpg" alt="Strip illustration" width="42" height="256"></td>
+        <td style="border-top: 1px solid rgb(128, 128, 128); border-left: 1px solid rgb(128, 128, 128); border-bottom: 1px solid rgb(128, 128, 128); padding: 12px 12px 12px 32px; background: rgb(240, 240, 240) none repeat scroll 0% 0%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; vertical-align: top;" width="100%">
+          <!-- Header end -->
+
+<p class="first">These are the complete maps of the original Super Mario 
+Bros. for the <span class="ab">NES</span>.</p>
+
+<p>Update April 11<sup>th</sup>, 2005: Thanks to BlueRaja for pointing out a missing 
+1-up in level 8-1.  The map has been updated.<br>
+Update June 19<sup>th</sup>, 2005: Thanks to DDCecil for finding missing 
+1-ups in 2-1, 4-1, 5-1 and 7-1 (sheesh, I must be really sloppy!).  Maps 
+updated.<br>
+Update March 1<sup>th</sup>, 2006: Yes, I know about the minus world; no, I'm
+not gonna map it.</p>
+
+&nbsp;
+
+<table align="center" bgcolor="#e0e0e0">
+<tbody><tr>
+<th align="left" valign="top">World 1</th>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-1-1.gif">Level 1-1<br><img src="smb.php_files/mario-1-1.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-1-2.gif">Level 1-2<br><img src="smb.php_files/mario-1-2.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-1-3.gif">Level 1-3<br><img src="smb.php_files/mario-1-3.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-1-4.gif">Level 1-4<br><img src="smb.php_files/mario-1-4.jpg" alt="" width="120" border="0" height="24"></a></td>
+</tr>
+<tr>
+<th align="left" valign="top">World 2</th>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-2-1.gif">Level 2-1<br><img src="smb.php_files/mario-2-1.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-2-2.gif">Level 2-2<br><img src="smb.php_files/mario-2-2.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-2-3.gif">Level 2-3<br><img src="smb.php_files/mario-2-3.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-2-4.gif">Level 2-4<br><img src="smb.php_files/mario-2-4.jpg" alt="" width="120" border="0" height="24"></a></td>
+</tr>
+<tr>
+<th align="left" valign="top">World 3</th>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-3-1.gif">Level 3-1<br><img src="smb.php_files/mario-3-1.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-3-2.gif">Level 3-2<br><img src="smb.php_files/mario-3-2.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-3-3.gif">Level 3-3<br><img src="smb.php_files/mario-3-3.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-3-4.gif">Level 3-4<br><img src="smb.php_files/mario-3-4.jpg" alt="" width="120" border="0" height="24"></a></td>
+</tr>
+<tr>
+<th align="left" valign="top">World 4</th>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-4-1.gif">Level 4-1<br><img src="smb.php_files/mario-4-1.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-4-2.gif">Level 4-2<br><img src="smb.php_files/mario-4-2.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-4-3.gif">Level 4-3<br><img src="smb.php_files/mario-4-3.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-4-4.gif">Level 4-4<br><img src="smb.php_files/mario-4-4.jpg" alt="" width="120" border="0" height="24"></a></td>
+</tr>
+<tr>
+<th align="left" valign="top">World 5</th>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-5-1.gif">Level 5-1<br><img src="smb.php_files/mario-5-1.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-5-2.gif">Level 5-2<br><img src="smb.php_files/mario-5-2.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-5-3.gif">Level 5-3<br><img src="smb.php_files/mario-5-3.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-5-4.gif">Level 5-4<br><img src="smb.php_files/mario-5-4.jpg" alt="" width="120" border="0" height="24"></a></td>
+</tr>
+<tr>
+<th align="left" valign="top">World 6</th>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-6-1.gif">Level 6-1<br><img src="smb.php_files/mario-6-1.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-6-2.gif">Level 6-2<br><img src="smb.php_files/mario-6-2.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-6-3.gif">Level 6-3<br><img src="smb.php_files/mario-6-3.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-6-4.gif">Level 6-4<br><img src="smb.php_files/mario-6-4.jpg" alt="" width="120" border="0" height="24"></a></td>
+</tr>
+<tr>
+<th align="left" valign="top">World 7</th>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-7-1.gif">Level 7-1<br><img src="smb.php_files/mario-7-1.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-7-2.gif">Level 7-2<br><img src="smb.php_files/mario-7-2.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-7-3.gif">Level 7-3<br><img src="smb.php_files/mario-7-3.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-7-4.gif">Level 7-4<br><img src="smb.php_files/mario-7-4.jpg" alt="" width="120" border="0" height="24"></a></td>
+</tr>
+<tr>
+<th align="left" valign="top">World 8</th>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-8-1.gif">Level 8-1<br><img src="smb.php_files/mario-8-1.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-8-2.gif">Level 8-2<br><img src="smb.php_files/mario-8-2.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-8-3.gif">Level 8-3<br><img src="smb.php_files/mario-8-3.jpg" alt="" width="120" border="0" height="24"></a></td>
+<td><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-8-4.gif">Level 8-4<br><img src="smb.php_files/mario-8-4.jpg" alt="" width="120" border="0" height="24"></a></td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-a.gif">Bonus area A</a> &#8212; Underground coins</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-b.gif">Bonus area B</a> &#8212; Underground coins</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-c.gif">Bonus area C</a> &#8212; Underground coins</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-d.gif">Bonus area D</a> &#8212; Underground coins</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-e.gif">Bonus area E</a> &#8212; Underground coins</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-f.gif">Bonus area F</a> &#8212; Underwater area</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-g.gif">Bonus area G</a> &#8212; Underwater area (same as F with smaller platforms)</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-h.gif">Bonus area H</a> &#8212; Cloud area</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-i.gif">Bonus area I</a> &#8212; Cloud area</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-j.gif">Bonus area J</a> &#8212; Warp to worlds 6, 7, and 8.</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-bonusarea-k.gif">Bonus area K</a> &#8212; Cloud area (same as I with smaller platforms)</li>
+</ul>
+
+<ul>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-underground-transition.gif">Underground level 
+transition</a> &#8212; The brief non-playable screen where Mario walks 
+into a pipe to enter an underground or underwater level.</li>
+<li><a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-underground-end.gif">Underground end of 
+level</a> &#8212; This area concludes all underground or underwater 
+levels.</li>
+</ul>
+
+<a name="wallpaper"></a>
+<ul>
+<li>Download a wallpaper of all the maps, one after the other, and reduced 
+in size to fit your desktop.  Choose your desktop size:
+<a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-all-640.gif">640×480</a>,
+<a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-all-800.gif">800×600</a>,
+<a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-all-1024.gif">1024×768</a>,
+<a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-all-1280.gif">1280×1024</a>,
+<a href="http://ian-albert.com/misc/gamemaps/super_mario_bros/full/mario-all-1600.gif">1600×1200</a></li>
+</ul>
+
+<p>For those interested, these maps were created using <a href="http://fceultra.sourceforge.net/" target="italink" class="ab">FCEU</a>, a free Nintendo emulator for Windows.  I used the
+<span class="ab">ROM</span> image for the Mario/Duck Hunt version of the
+game.  Screen captures were tediously pieced together in Photoshop.  Some
+text was reproduced using the <a href="http://www.zone38.net/font/">Press
+Start</a> font by codeman38, which emulates the same font used in <span class="ab">SMB</span>.  Some Game Genie codes were used to make mapping
+easier, including high jumps, 900-tick timer, and invincibility.  I
+noticed no side effects from these cheats, so the maps should not be any
+different due to the use of these codes.  <strike>A future project may be
+to stitch all these maps together into one long, narrow, continuous map,
+but that may be a ways off.</strike> (I experimented with this and it
+looks awful).  If you want more information about how I created these,
+feel free to <a href="http://ian-albert.com/contact.php">ask</a>.</p>
+
+          <!-- Footer start -->
+        </td>
+                <td style="border-top: 1px solid rgb(128, 128, 128); border-left: 1px solid rgb(128, 128, 128); border-bottom: 1px solid rgb(128, 128, 128); background: rgb(224, 224, 224) none repeat scroll 0% 0%; overflow: hidden; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; vertical-align: top;" width="160">
+          <div style="padding: 8px;">
+                        <div class="comments" id="comments">
+              <div class="comments-title">Recent comments</div>
+              <div class="comment">Thanx I'm making a super mario bros clone.</div>
+<div class="comment-name">&#8211; Anonymous</div>
+<div class="comment">s.m.b rocks</div>
+<div class="comment-name">&#8211; <a href="mailto:fl26@hotmail.com">Daniel</a></div>
+<div class="comment">Level 2-1 there is a green turtle on the ground
+after the third pipe below the set of brown boxes you forgot. Other
+than that, extremely helpful material. Thank you for all your hard work
+at putting this together.</div>
+<div class="comment-name">&#8211; Mason C.</div>
+            </div>
+                        <div class="comment-form-reveal" id="commentlink" onclick="showCommentForm();">Leave a comment</div>
+            <div id="commentform" style="display: none;">
+              <form method="post" id="commform" onsubmit="return submitComment();" action="">
+                <div class="comment-form-label"><label for="comment">Comment</label></div>
+                <div class="comment-form-field"><input id="comment" maxlength="255" type="text"></div>
+                <div class="comment-form-label"><label for="name">Name (optional)</label></div>
+                <div class="comment-form-field"><input id="name" type="text"></div>
+                <div class="comment-form-label"><label for="email">Email (optional)</label></div>
+                <div class="comment-form-field"><input id="email" type="text"></div>
+                <div class="comment-form-button"><input value="Post" type="submit"></div>
+              </form>
+            </div>
+                                  </div>
+          <div style="background: rgb(128, 128, 128) none repeat scroll 0% 0%; overflow: hidden; width: 160px; height: 1px; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; margin-top: 6pt; margin-bottom: 6pt;"></div><div style="margin-left: 0px;"><script type="text/javascript"><!--
+google_ad_client = "pub-9218163626306060";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+google_color_border = "e0e0e0"; // "808080";
+google_color_bg = "e0e0e0";
+google_color_link = "990066";
+google_color_url = "990066";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript" src="smb.php_files/show_ads.js">
+</script><script src="smb.php_files/expansion_embed.js"></script><script src="smb.php_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 600px; position: relative; visibility: visible; width: 160px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 600px; position: relative; visibility: visible; width: 160px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="smb.php_files/ads.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="160" frameborder="0" height="600" scrolling="no"></iframe></ins></ins></div>          <img src="smb.php_files/spacer.gif" alt="" width="160" height="1">
+        </td>
+              </tr>
+    </tbody></table>
+    <div style="text-align: right; padding-right: 20px; height: 32px;">
+      <img src="smb.php_files/spacer.gif" alt="" width="1" height="20">
+<!--      <img src="/images/metainfo.gif" width="60" height="14" alt="Metainfo" style="vertical-align: middle; margin-right: 20px;" />-->
+      <a href="http://ian-albert.com/contact.php"><img src="smb.php_files/contactme2.gif" alt="Contact Me" style="vertical-align: middle;" width="78" border="0" height="14"></a>
+    </div>
+      </body></html>

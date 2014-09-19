@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+   
+      <link rel="shortcut icon" href="http://www.xnadevelopment.com/favicon.ico">
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+      <link rel="stylesheet" type="text/css" href="links_files/styles.css">
+      <title>XNA Development: Game Development for the masses</title>
+      <meta name="description" content="Everything you want to know about XNA Development. News, Links, Information and Tutorials.">
+      <meta name="keywords" content="xna, xna development, xna tutorials, xna game development, xna 2D, game development, 2D game development">
+   </head><body class="links">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="links_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>Links</h2>
+				<ul>
+				<li><a href="http://www.xnadevelopment.com/links.shtml">Community</a></li>
+				<li><a href="http://www.xnadevelopment.com/software.shtml">Software</a></li>
+				<li><a href="http://www.xnadevelopment.com/gameassets.shtml">Game Assets</a></li>
+				<li><a href="http://www.xnadevelopment.com/developerlinks.shtml">Developer</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="links_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+			
+<ul>
+   <li><a href="http://creators.xna.com/">XNA Creator's Club</a>
+- Microsoft's official forums for questions and discussions about XNA
+Development. Provides support, tutorials, samples and more for your XNA
+Game development needs.
+</li></ul>
+
+<ul>
+   <li><a href="http://msdn2.microsoft.com/en-us/xna/aa937781.aspx">XNA Developer Center</a> - Microsoft's site for XNA development, news and support.
+</li></ul>
+
+<ul>
+   <li><a href="http://blogs.msdn.com/xna/default.aspx">XNA Team Blog</a> - the official blog for the XNA Development team at Microsoft.
+</li></ul>
+
+<ul>
+   <li><a href="http://letskilldave.com/default.aspx">Let's Kill Dave</a>
+- David Weller's blog. David works for Microsoft as a Game Developer
+Community Manager. Very active in the game community and author of a
+couple of game development books. He currently has an XNA book in the
+works, looking forward to seeing that come out.
+</li></ul>
+
+<ul>
+   <li><a href="http://www.thezbuffer.com/">The ZBuffer</a> - the number one site for news and information relating to XNA. Tutorials, links, news all XNA all the time.
+</li></ul>
+
+
+<ul>
+   <li><a href="http://www.ziggyware.com/">Ziggyware</a> - one of
+the best places to get your XNA news. Ziggy is constantly staying on
+top of what is going on in the community and getting that information
+out to everyone. Definitely a "must bookmark" site for XNA.
+</li></ul>
+
+<ul>
+   <li><a href="http://www.xnawiki.com/">XNA Wiki</a> - XNA Wiki
+is a place for XNA Game Studio users to collaborate and share code,
+techniques, and tutorials to aid others in the pursuit of game
+development for all.
+</li></ul>
+
+
+
+<ul>
+   <li><a href="http://msmvps.com/blogs/mykre/default.aspx">Mykre's Blog</a>
+- Mykre has been very active in the gaming community and the MSDN
+forums for quite a while. Very well respected, he and the ZBuffer have
+been two of my best resources for game development.
+</li></ul>
+
+<ul>
+   <li><a href="http://machaira.spaces.live.com/">Machaira's Space</a>
+-a blog dedicated to XNA development, news and gaming in general and
+managed by one of the top answerers in the MSDN forums for XNA.
+</li></ul>
+
+<ul>
+   <li><a href="http://www.xna101.net/">Blue Rose Games </a> -
+this XNA development site (formerly XNA101.com) focuses on XNA
+development for game developers without previous C# experience. There
+are lots of tutorials, code samples and information on XNA development
+for developers of all skill sets. This site is also a great resource
+for people wanting to get started with 3D development with XNA.
+</li></ul>
+
+<ul>
+   <li><a href="http://exdream.no-ip.info/blog/">exDream</a> - a
+site run by one of the best DirectX and XNA developers outside of
+Microsoft. Also the author of Professional XNA Game Programming.
+</li></ul>
+
+<ul>
+   <li><a href="http://focusedgames.com/">Focused Games</a> - a
+great site kept by a very active community member Krisc from the Efnet
+IRC channel. Focused Games has been making great headway on a Desktop
+Tower Defense clone in XNA and has other large projects in the works. </li></ul>
+
+<ul>
+   <li><a href="http://www.alanphipps.com/VisualBasicdotNET-XNA.html">Alan Phipps.com - VB and XNA Game Development</a>
+- this site has XNA tutorials for those still doing Visual Basic game
+development. While it's my personal stance that I think you should just
+learn C# to use XNA, these tutorials are still a good resource for
+people to scared to take the plunge right now (like I was for years).
+</li></ul>
+
+<ul>
+   <li><a href="http://www.riemers.net/">Riemer's Tutorials</a> - 
+</li></ul>
+
+<ul>
+   <li><a href="http://www.thehazymind.com/">The Ramblings of a Hazy Mind</a> - 
+</li></ul>
+
+<ul>
+   <li><a href="http://www.gameprojects.com/">GameProjects.com</a> - 
+</li></ul>
+
+
+<ul>
+   <li><a href="http://www.xnadevelopment.com/linksgraveyard.shtml">XNA Links Graveyard</a>
+- I have a hard time letting go. These are sites I used to visit and
+are either dead or dying. Maybe someday they'll come back, until then,
+I'll just hang onto a little bit of the XNA Community's past with this
+page of links... </li></ul>
+
+
+
+
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="links_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+   
+   </body></html>

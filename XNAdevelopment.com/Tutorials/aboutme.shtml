@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+   
+      <title>About Me</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+      <link rel="stylesheet" type="text/css" href="aboutme_files/styles.css">
+      <link rel="shortcut icon" href="http://www.xnadevelopment.com/favicon.ico">
+      <meta name="description" content="Everything you want to know about XNA Development. News, Links, Information and Tutorials.">
+      <meta name="keywords" content="xna, xna development, xna tutorials, xna game development, xna 2D, game development, 2D game development">
+   <script charset="utf-8" id="injection_graph_func" src="aboutme_files/injection_graph_func.js"></script><script id="_nameHighlight_injection"></script><link class="skype_name_highlight_style" href="aboutme_files/injection_nh_graph.css" type="text/css" rel="stylesheet" charset="utf-8" id="_injection_graph_nh_css"><link href="aboutme_files/skypeplugin_dropdownmenu.css" type="text/css" rel="stylesheet" charset="utf-8" id="_skypeplugin_dropdownmenu_css"></head><body class="about">
+
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="aboutme_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>About</h2>
+				<p>
+					George is a business developer by day. At night, George likes
+					to dabble with game development. With the release of XNA, this
+					hobby has become less frustration and changing the colors of
+					triangles and more "Wow! Did you make that Dad?"
+				</p>
+				<p>
+					<a href="http://www.xnadevelopment.com/aboutme.shtml">more&#8230;</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="aboutme_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="columns">
+			<div class="column left">
+				<p>
+George is relatively new to the development scene. He took a short
+course in BASIC on Apple IIgs in High School and didn't re-visit the
+computer world again until his freshman year of college in 1996. A lot
+had changed. </p>
+				<p>
+George managed to catch up (some) and graduated with a Math/Computer Science major in 2000 from <a href="http://www.gcc.edu/">Grove City College</a>.
+He's been employed as a software developer ever since and continues to
+refine his development skills and play catch up with all these "old
+school" developers. </p>
+				<p>
+Currently, George is a business developer by day working with C#,
+VB.NET, ASP.NET and SQL building WinForm and Web software for the
+construction industry at <a href="http://www.viewpointcs.com/">Viewpoint Construction Software</a>.
+				</p>
+				<p>
+At night, George likes to dabble with game development. George even
+managed to win a small game development contest using Managed Direct X
+with the classic game <a href="http://geekswithblogs.net/clingermangw/category/4558.aspx?Show=All">"Bob The Fish"</a>
+(surely you've heard of it!). However, with the release of XNA, this
+hobby has become less frustration and changing the colors of triangles
+and more "Wow! Did you make that Dad?" </p>
+				<img src="aboutme_files/MVP_BlueOnly5.png" width="111" height="172">
+				<p>
+George runs an XNA community site, <a href="http://www.xnadevelopment.com/">XNADevelopment.com</a> where he creates tutorials for beginning 2D game development with XNA and <a href="http://creators.xna.com/search/SearchResults.aspx?u=2249&amp;o=DateDescending">tries to help out</a>
+the best he can in the official Microsoft Creators Club forums for XNA.
+For this work (and most likely because of some internal accidental
+mix-up) George was awarded a <a href="https://mvp.support.microsoft.com/profile=566A8AD3-8E8B-422F-99E4-8DED2A870C62">Microsoft MVP award for XNA</a>.
+				</p>
+				<p>
+Since the launch of his site in August 2006, George has been involved in a variety of random XNA community events.
+				</p>
+			</div>
+			<div class="column right">
+				<img src="aboutme_files/GeorgeClingerman_thumb.jpg" width="240" height="182">
+				<p>
+George was lucky enough to meet up with <a href="http://www.neopoleon.com/">Rory Blyth</a> at the XNA Game Studio Express launch and get his mug in a <a href="http://channel9.msdn.com/ShowPost.aspx?PostID=267098">Channel 9 video</a>.
+				</p>
+				<p>
+George was also <a href="http://www.xnatutorial.com/?p=52">interviewed by Joran Omark</a> (we miss your XNA community updates!) at his wonderful site <a href="http://www.xnatutorial.com/">XNATutorial.com</a> where George may have written just a bit <a href="http://www.xnatutorial.com/?p=53">too much about himself</a>.
+				</p>
+				<p>
+George has also started branching out and you can find <a href="http://pdx.techevents.info/codecamp/3/PresenterInfo.aspx?ID=578be36a-0e90-46d1-964f-fcfc69118ce6">him speaking</a> at the local Code Camps in the Northwest.
+				</p>
+				<p>
+George also tries to regularly frequent the official XNA IRC channel (<a href="irc://irc.efnet.net/#xna">EFnet #xna</a>) and try to pretend like he knows what he's talking about when someone has a question.
+				</p>
+				<p>
+When not writing tutorials for XNADevelopment.com, you can keep up with what George is doing and thinking about by checking out <a href="http://geekswithblogs.net/clingermangw/Default.aspx">his blog</a> that he has maintained for years now at the <a href="http://geekswithblogs.net/">GeeksWithBlogs</a> blogging community.
+				</p>
+				<p>
+George feels a bit weird about writing about himself in the third person, but <a href="http://www.mylittlescraps.com/blog">his lovely wife and four wonderful sons</a> have assured him that it sounds ok.
+				</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="aboutme_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</body></html>

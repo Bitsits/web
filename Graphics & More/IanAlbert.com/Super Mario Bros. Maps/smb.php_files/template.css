@@ -1,0 +1,136 @@
+/* Styles for page layout of main template, but not body elements */
+/* FIXME: Currently a merged stylesheet.  Need to break out body elements into separate file */
+
+BODY, TD, TH, P, ADDRESS {
+  font-family: "Adobe Jenson Pro", "AJensonPro", "Jenson Pro",
+               "MinionPro", "Minion Pro", "Palatino Linotype",
+               "Times New Roman", Times, serif;
+  color: #404040;
+}
+BODY {
+  background: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: auto;
+}
+A { color: #800040; }
+A:visited { color: #600030; }
+.hier A { text-decoration: none; }
+.hier A:hover { text-decoration: underline; }
+.pagetitle {
+  color: #404040;
+  font-weight: bold;
+  font-size: 125%;
+}
+.smallcaps, .sc { font-variant: small-caps; }
+.ab { font-size: 80%; }
+H1 { font-size: 125%; }
+H2 { font-size: 110%; }
+H3 { font-size: 100%; }
+.small { font-size: 75%; }
+.attention {
+  background: #e0e0e0;
+  border: 1px solid #808080;
+  padding: 4px;
+}
+
+.tabset { border-bottom: 1px solid #808080; }
+.foretab, .backtab {
+  border-left: 1px solid #808080;
+  border-top: 1px solid #808080;
+  border-right: 2px solid #808080;
+  margin-left: 2px;
+  margin-right: 2px;
+  cursor: pointer;
+  font-size: 10pt;
+  white-space: nowrap;
+}
+.foretab {
+  background: #f0f0f0;
+  color: #800040;
+  padding: 2px 5px 2px 5px;
+}
+.backtab {
+  background: #d0d0d0;
+  color: #202020;
+  padding: 2px 5px 1px 5px;
+}
+.tabcontent {
+  background: #f0f0f0;
+  padding: 8px;
+  border-left: 1px solid #808080;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+P.first:first-letter { font-size: 200%; }
+P.first:first-line { font-variant: small-caps; }
+.comments {
+  font-size: 9pt;
+  margin-bottom: 18pt;
+}
+.comments-title {
+  font-weight: bold;
+  text-align: center;
+}
+.comment {
+  font-style: italic;
+  padding-top: 8pt;
+}
+.comment-form-reveal {
+  text-align: center;
+  font-size: 9pt;
+  color: #800040;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.comment-form-label {
+  font-size: 9pt;
+  font-weight: bold;
+}
+.comment-form-field INPUT {
+  font-size: 8pt;
+  border: 1px solid #808080;
+  background: #e0e0e0;
+  width: 100%;
+}
+.comment-form-button INPUT {
+  border: 1px solid #808080;
+  background: #d0d0d0;
+  font-size: 9pt;
+}
+.comment-none {
+  font-style: italic;
+  font-size: 9pt;
+  margin-top: 6pt;
+  text-align: center;
+}
+
+.gtasa-maps A { text-decoration: none; }
+.gtasa-maps IMG { vertical-align: middle; }
+
+.yay {
+  background-color: white;
+  color: black;
+}
+.yay A, .yay TD, .yay P {
+  color: black;
+}
+.boo {
+  background-color: black;
+  color: white;
+}
+.boo TD, .boo A, .boo P {
+  color: white;
+}
+
+.tinydatatable TD, .tinydatatable TH { font-size: 75%; border: 1px solid #808080; }
+.tinydatatable TD { vertical-align: top; }
+.tinydatatable TH { vertical-align: bottom; }
+
+.sidebar, .sidebar P, .sidebar TD, .sidebar TH { font-size: 9pt; }
+A IMG { text-decoration: none; }
+
+.figureBackground {
+  background-color: #e0e0e0;
+}

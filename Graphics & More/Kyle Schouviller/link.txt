@@ -1,0 +1,15 @@
+http://www.kyleschouviller.com/xna/acid-boots/
+
+http://www.kyleschouviller.com/files/
+
+Large Boxes
+Colors, by Name
+Colors, by Hue
+Colors, by Hue (bands)
+Colors, by Hue (luminance sorted)
+
+Small Boxes:
+Colors, by Name
+Colors, by Hue
+Colors, by Hue (bands)
+Colors, by Hue (luminance sorted)

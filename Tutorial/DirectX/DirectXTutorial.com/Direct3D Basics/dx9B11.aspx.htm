@@ -1,0 +1,685 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Lesson 10: Blending Colors for Special Effects
+</title><link href="dx9B11.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B11.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B11.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B11.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B11.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+        Lesson 10:&nbsp; Blending Colors for Special Effects</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B11.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B10.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+    Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    In this lesson I am going to cover a special technique that you may or may not always
+    use.&nbsp; This technique is called color blending.</p>
+    <p>
+        What is color blending?</p>
+    <p>
+        Simply put, color blending is a way to mix two color together to produce a third
+        color.&nbsp; For example, if you blend blue and red together, you get purple.</p>
+    <p>
+        There are other effects that can also be produced, such as semi-transparency.&nbsp;
+        If you take an object you wish to draw, and blend each pixel with the one behind
+        it, you can make the object look somewhat invisible.&nbsp; This particular effect
+        will be covered in this lesson, although there are hundreds more that can be achieved.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Blend Operations</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Because of the flexibility of color blending, DirectX requires that you specify
+    exactly how you want your blending to be done.&nbsp; To do this, DirectX uses what
+    is called a <em>blend operation</em>.&nbsp; A blend operation is simply an equation
+    with two unknown values which, when filled, produce a third value.&nbsp; If you
+    fill the two values with color, the third color is some combination of the two you
+    provided.</p>
+    <center>
+        <img alt="Image 11.1 - Red and Blue Added Together" src="dx9B11.aspx_files/dx9B11-1.PNG"><br>
+        <br>
+        Image 11.1 - Red and Blue Added Together
+    </center>
+    <p>
+        As you can see, each red, green and blue value from both colors were run through
+        the equation, blended, and a new set of primary colors was produced.&nbsp; This
+        is the basis of all color blending.&nbsp; Now let's look at this in detail.</p>
+    <p>
+        A blend operation (or blend equation) has five parts: the source color, the source
+        factor, the operation, the destination color and the destination factor.&nbsp; Let's
+        take a look at the whole equation, then go into each of the parts in detail.</p>
+    <center>
+        <p>
+            Final Color&nbsp; =&nbsp; (Source Color&nbsp; x &nbsp;Source Factor)&nbsp; Operation&nbsp;
+            (Dest Color x Dest Factor)</p>
+    </center>
+    <p class="subheader">
+        Source Color and Dest Color</p>
+    <p>
+        Color blending takes place when you draw on object onto the back buffer.&nbsp; This
+        equation is run for each pixel drawn.&nbsp; The source color is the color of the
+        pixel that is being drawn, while the destination color is the color of the pixel
+        that was behind the one drawn, like this:</p>
+    <center>
+        <img alt="Image 11.2 - Source Color and Destination Color" src="dx9B11.aspx_files/dx9B11-2.PNG"><br>
+        <br>
+        Image 11.2 - Source Color and Destination Color
+    </center>
+    <p>
+        The values of these colors are automatically set based on what you are drawing,
+        and nothing need be done for Direct3D to set these values.</p>
+    <p class="subheader">
+        Source Factor and Dest Factor</p>
+    <p>
+        In color blending, each primary color is multiplied by some pre-determined factor.&nbsp;
+        While this can get quite complex, building a simple color blend is quite simple.&nbsp;
+                Before you begin rendering, you tell Direct3D what it should use for these factors.&nbsp;
+        Usually, you will use an object's Alpha channel.&nbsp; We'll go over how this is
+        done in a moment.</p>
+    <p>
+        When you select what factor is to be used, Direct3D always translates that value
+        into a FLOAT between 0.0 and 1.0.&nbsp;
+    </p>
+    <p>
+        In color blending, each primary color is multiplied by some other number between
+        0.0 and 1.0.&nbsp; Where that number comes from, you will determine (we'll go over
+        how in the next section).</p>
+    <p>
+        For example, if you were to create a semi-transparency effect, you might use a model's
+        alpha channel.&nbsp; The alpha channel (which is a value between 0 and 255) gets
+        translated into a value between 0.0 (fully transparent) and 1.0 (fully opaque).&nbsp;
+        The color is then multiplied by new number.&nbsp; If the alpha were 192 (or .75
+        once translated), then the color would show at 75% of its usual brightness.&nbsp;
+        All you would then have to do is add 25% of whatever was behind that (we'll go over
+        this in a bit as well)</p>
+    <p class="subheader">
+        Operation</p>
+    <p>
+        In addition to the source factor and the destination factor, you are also able to
+        set the overall operation used between the source and the destination.&nbsp; Available
+        settings for this are addition, subtraction, minimum (the darker of the two colors)
+        and maximum (the brighter of the two colors).</p>
+    <p>
+        Enough!&nbsp; Let's get on with the code.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Using Color Blending</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Blending colors is quite simple in practice, and only 
+takes a few lines of code.&nbsp;
+                This lesson happens to be oriented around 
+semi-transparency, and these are the steps taken to achieve this effect:</p>
+            <p>
+                1.&nbsp; Turn on Blending<br>
+                2.&nbsp; Set the Operation for the Blend Equation<br>
+                3.&nbsp; Set the Source and Destination Factors<br>
+                4.&nbsp; Set the Alpha Values in the 3D Model</p>
+            <hr>
+            <p class="subheader">
+                1.&nbsp; Turn on Blending</p>
+            <p>
+                Before any color blending can be done, Direct3D must be informed.&nbsp; This is
+                a simple call to the ever-useful SetRenderState() function, like so:</p>
+            <div class="codebox">
+                d3ddev-&gt;SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);</div>
+            <p>
+                Setting the parameters to D3DRS_ALPHABLENDENABLE and TRUE turns on color blending.</p>
+            <hr>
+            <p class="subheader">
+                2.&nbsp; Set the Operation for the Blend Equation</p>
+            <p>
+                This step is also simple, and requires another call to SetRenderState().&nbsp; This
+                time, the parameters are a little more flexible.</p>
+            <div class="codebox">
+                d3ddev-&gt;SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);<br>
+                <strong>d3ddev-&gt;SetRenderState(D3DRS_BLENDOP, D3DBLENDOP_ADD);</strong></div>
+            <p>
+                The first parameter is D3DRS_BLENDOP, which indicates that we are going to set the
+                operation.&nbsp; The second parameter tells what operation we are setting it to.&nbsp;
+                The various values you can put into this parameter are listed here:</p>
+
+            [<a href="#still" onclick="Toggle('table11-1')" class="mainlink">Table 11.1 - D3DRS_BLENDOP
+                values</a>]<br>
+            <br>
+            <table id="table11-1" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 248px;">
+                        Value</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLENDOP_ADD</td>
+                    <td>
+                        This is the one we'll use in this lesson.&nbsp; This indicates that the destination
+                        color will be added to the source color.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLENDOP_SUBTRACT</td>
+                    <td>
+                        This indicates that the destination will be subtracted from the source.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLENDOP_REVSUBTRACT</td>
+                    <td>
+                        This indicates the reverse of regular subtraction, that the <em>source</em> will
+                        be subtracted from the <em>destination</em>.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLENDOP_MIN</td>
+                    <td>
+                        This indicates that the darker of the two colors will be used.&nbsp; Note that this
+                        is done to each primary color separately, not to the whole color.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLENDOP_MAX</td>
+                    <td>
+                        This indicates that the brighter of the two colors will be used.</td>
+                </tr>
+                <tr>    
+                    <td style="width: 248px;">
+                        [<a class="mainlink" href="#still" onclick="Toggle('table11-1')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+            <hr>
+            <p class="subheader">
+                3.&nbsp; Set the Source and Destination Factors</p>
+        <p>
+                Here, we have to make two calls to SetRenderState(), once for each factor.&nbsp;
+                To set the source factor, we use the flag D3DRS_SRCBLEND in parameter 1.&nbsp; Next,
+                we set the destination factor with D3DRS_DESTBLEND in parameter 1, as shown here:</p>
+            <div class="codebox">
+                d3ddev-&gt;SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);<br>
+                d3ddev-&gt;SetRenderState(D3DRS_BLENDOP, D3DBLENDOP_ADD);<br>
+                <strong>d3ddev-&gt;SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);<br>
+                    d3ddev-&gt;SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);</strong></div>
+            <p>
+                Just as with the operation, each factor is flexible, and there are fifteen different
+                options to choose from.&nbsp; Not all of them are listed in this tutorial, as most of them you
+                will never need.&nbsp; However, the most commonly-used values are given here:</p>
+
+            [<a href="#still" onclick="Toggle('table11-2')" class="mainlink">Table 11.2 - D3DRS_SRCBLEND
+                and D3DRS_DESTBLEND values</a>]<br>
+            <br>
+            <table id="table11-2" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 248px;">
+                        Value</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLEND_SRCALPHA</td>
+                    <td>
+                        The factor used is the alpha value of the object being drawn.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLEND_INVSRCALPHA</td>
+                    <td>
+                        The factor used is the inverse of the alpha value of the object being drawn.&nbsp;
+                        In other words, because the value is between 0.0 and 1.0, this would be equal to
+                        1 - alpha.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLEND_SRCCOLOR</td>
+                    <td>
+                        The factor used is the source color.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLEND_INVSRCCOLOR</td>
+                    <td>
+                        The factor used is the inverse of the source color.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLEND_DESTCOLOR</td>
+                    <td>
+                        The factor used is the destination color.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLEND_INVDESTCOLOR</td>
+                    <td>
+                        The factor used is the inverse of the destination color.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLEND_ZERO</td>
+                    <td>
+                        The factor used is zero, meaning the color is treated as if it were black.</td>
+                </tr>
+                <tr>
+                    <td style="width: 248px;">
+                        D3DBLEND_ONE</td>
+                    <td>
+                        The factor used is one, meaning the color is not changed at all.</td>
+                </tr>
+                <tr>    
+                    <td style="width: 248px;">
+                        [<a class="mainlink" href="#still" onclick="Toggle('table11-2')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+            <p>
+                When reviewing the table, note that all the values mentioned there (such as the
+                color and the alpha) start as a value between 0x00 and 0xFF (0 to 255) and get translated
+                to a value between 0.0 and 1.0.</p>
+            <hr>
+            <p class="subheader">
+                4.&nbsp; Set the Alpha Values in the 3D Model</p>
+            <p>
+                This is the easy step.&nbsp; All we need to do is change the alpha values of each
+                color in whatever object we're going to use.&nbsp; For this lesson, we'll use two
+                squares, one somewhat transparent and the other fully opaque.&nbsp; Also, for simplicity
+                we'll not use index buffers.</p>
+            <p>
+                Here are the coded vertices:</p>
+            <div class="codebox">
+                // create the vertices using the CUSTOMVERTEX struct<br>
+                CUSTOMVERTEX t_vert[] =<br>
+                {<br>
+                &nbsp; &nbsp; // square 1<br>
+                &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f, D3DCOLOR_ARGB(255, 0, 0, 255), },<br>
+                &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f, D3DCOLOR_ARGB(255, 0, 255, 0), },<br>
+                &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f, D3DCOLOR_ARGB(255, 255, 0, 0), },<br>
+                &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f, D3DCOLOR_ARGB(255, 0, 255, 255), },<br>
+                <br>
+                &nbsp; &nbsp; // square 2<br>
+                &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f, D3DCOLOR_ARGB(<a class="secretcodelink" href="http://lwn.net/Articles/251535/">19</a>1,
+                0, 0, 255), },<br>
+                &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f, D3DCOLOR_ARGB(191, 0, <a class="secretcodelink" href="http://www.jupiterimages.com/popup2.aspx?navigationSubType=itemdetails&amp;itemID=22270033">245</a>, 0), },<br>
+                &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f, D3DCOLOR_ARGB(191, 255, 0, 0), },<br>
+                &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f, D3DCOLOR_ARGB(191, 0, 255, 255), },<br>
+                };</div>
+            <p>
+                Notice that instead of using the D3DCOLOR_XRGB macro, we're switching to the D3DCOLOR_ARGB
+                macro instead.&nbsp; This one takes four parameters, the first being alpha, and
+                the other three being red, green and blue.</p>
+            <p>
+                In this example, I've set the alpha for the first square as 191 (3/4 opaque), and for the second
+                square as 255 (full opaque).</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                    The Finished Program</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                And now let's look at the whole program.&nbsp; There are several parts taken out
+                such as lighting and textures, while the transparency code was put in.</p>
+            <p>
+                Note:&nbsp; I haven't bolded every change in this example, as most of the changes
+                from the last lesson are quite irrelevant here, and are simply there to clean up
+                all the stuff we're getting rid of.</p>
+            <p>
+                [<a class="mainlink" href="#still" onclick="Toggle('lessonprog')">Show Code</a>]</p>
+            <div id="lessonprog" class="codebox" style="display: none; left: 0px; top: 0px;">
+                // include the basic windows header files and the Direct3D header file<br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                #include &lt;d3d9.h&gt;<br>
+                #include &lt;d3dx9.h&gt;<br>
+                <br>
+                // define the screen resolution<br>
+                #define SCREEN_WIDTH 800<br>
+                #define SCREEN_HEIGHT 600<br>
+                <br>
+                // include the Direct3D Library files<br>
+                #pragma comment (lib, "d3d9.lib")<br>
+                #pragma comment (lib, "d3dx9.lib")<br>
+                <br>
+                // global declarations<br>
+                LPDIRECT3D9 d3d;<br>
+                LPDIRECT3DDEVICE9 d3ddev;<br>
+                LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL;<br>
+                <br>
+                // function prototypes<br>
+                void initD3D(HWND hWnd);<br>
+                void render_frame(void);<br>
+                void cleanD3D(void);<br>
+                void init_graphics(void);<br>
+                <br>
+                struct CUSTOMVERTEX {FLOAT X, Y, Z; DWORD COLOR;};<br>
+                #define CUSTOMFVF (D3DFVF_XYZ | D3DFVF_DIFFUSE)<br>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);<br>
+                <br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+                {<br>
+                &nbsp; &nbsp; HWND hWnd;<br>
+                &nbsp; &nbsp; WNDCLASSEX wc;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+                <br>
+                &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+                &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+                &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+                &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+                &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+                &nbsp; &nbsp; wc.lpszClassName = L"WindowClass";<br>
+                <br>
+                &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+                <br>
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL, L"WindowClass", L"Our Direct3D Program",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WS_OVERLAPPEDWINDOW, 0, 0, 
+SCREEN_WIDTH, SCREEN_HEIGHT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NULL, NULL, hInstance, NULL);<br>
+                <br>
+                &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+                <br>
+                &nbsp; &nbsp; // set up and initialize Direct3D<br>
+                &nbsp; &nbsp; initD3D(hWnd);<br>
+                <br>
+                &nbsp; &nbsp; // enter the main loop:<br>
+                <br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; while(TRUE)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; render_frame();<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; cleanD3D();<br>
+                <br>
+                &nbsp; &nbsp; return msg.wParam;<br>
+                }<br>
+                <br>
+                <br>
+                // this is the main message handler for the program<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+                {<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+                }<br>
+                <br>
+                <br>
+                // this function initializes and prepares Direct3D for use<br>
+                void initD3D(HWND hWnd)<br>
+                {<br>
+                &nbsp; &nbsp; d3d = Direct3DCreate9(D3D_SDK_VERSION);<br>
+                <br>
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp));<br>
+                &nbsp; &nbsp; d3dpp.Windowed = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;<br>
+                &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferWidth = SCREEN_WIDTH;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferHeight = SCREEN_HEIGHT;<br>
+                &nbsp; &nbsp; d3dpp.EnableAutoDepthStencil = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.AutoDepthStencilFormat = D3DFMT_D16;<br>
+                <br>
+                &nbsp; &nbsp; // create a device class using this information and the info from
+                the d3dpp stuct<br>
+                &nbsp; &nbsp; d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D3DDEVTYPE_HAL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; D3DCREATE_SOFTWARE_VERTEXPROCESSING,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3dpp,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3ddev);<br>
+                <br>
+                &nbsp; &nbsp; init_graphics(); &nbsp; &nbsp;// call the function to initialize the
+                cube<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, FALSE); &nbsp;&nbsp;
+                // turn off the 3D lighting<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_ZENABLE, TRUE); &nbsp;&nbsp; // turn
+                on the z-buffer<br>
+                <br>
+                <strong>&nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE); &nbsp;&nbsp;
+                    // turn on the color blending<br>
+                    &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA); &nbsp;&nbsp;
+                    // set source factor<br>
+                    &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+                    &nbsp;&nbsp; // set dest factor<br>
+                    &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_BLENDOP, D3DBLENDOP_ADD); &nbsp;&nbsp;
+                    // set the operation<br>
+                </strong>
+                }<br>
+                <br>
+                <br>
+                // this is the function used to render a single frame<br>
+                void render_frame(void)<br>
+                {<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0),
+                1.0f, 0);<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 0),
+                1.0f, 0);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;BeginScene();<br>
+                <br>
+                &nbsp; &nbsp; // select which vertex format we are using<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetFVF(CUSTOMFVF);<br>
+                <br>
+                &nbsp; &nbsp; // set an ever-increasing
+                float value<br>
+                &nbsp; &nbsp; static float index = 0.0f; index+=0.03f;<br>
+                <br>
+                &nbsp; &nbsp; // set the view transform<br>
+                &nbsp; &nbsp; D3DXMATRIX matView; &nbsp; &nbsp;// the view transform matrix<br>
+                &nbsp; &nbsp; D3DXMatrixLookAtLH(&amp;matView,<br>
+                &nbsp; &nbsp; &amp;D3DXVECTOR3 ((float)sin(index) * 20.0f, 2.0f, 25.0f), &nbsp; &nbsp;// the camera position<br>
+                &nbsp; &nbsp; &amp;D3DXVECTOR3 (0.0f, 0.0f, 0.0f), &nbsp; &nbsp;// the look-at position<br>
+                &nbsp; &nbsp; &amp;D3DXVECTOR3 (0.0f, 1.0f, 0.0f)); &nbsp; &nbsp;// the up direction<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_VIEW, &amp;matView); &nbsp; &nbsp;//
+                set the view transform to matView
+                <br>
+                <br>
+                &nbsp; &nbsp; // set the projection transform<br>
+                &nbsp; &nbsp; D3DXMATRIX matProjection; &nbsp; &nbsp;// the projection transform
+                matrix<br>
+                &nbsp; &nbsp; D3DXMatrixPerspectiveFovLH(&amp;matProjection,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; D3DXToRadian(45), &nbsp; &nbsp;// the horizontal field
+                of view<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp; (FLOAT)SCREEN_WIDTH / (FLOAT)SCREEN_HEIGHT, // aspect
+                ratio<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp; 1.0f, &nbsp;&nbsp; // the near view-plane<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp; 100.0f); &nbsp; &nbsp;// the far view-plane<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_PROJECTION, &amp;matProjection); &nbsp;&nbsp;
+                // set the projection<br>
+                <br>
+                &nbsp; &nbsp; // set the stream source<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+                <br>
+                &nbsp; &nbsp; // set the first world transform<br>
+                &nbsp; &nbsp; D3DXMATRIX matTranslate;<br>
+                &nbsp; &nbsp; D3DXMatrixTranslation(&amp;matTranslate, 0.0f, 0.0f, -10.0f);<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;(matTranslate)); &nbsp;&nbsp;
+                // set the world transform<br>
+                <br>
+                &nbsp; &nbsp; // draw the first square<br>
+                &nbsp; &nbsp; d3ddev-&gt;DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);<br>
+                <br>
+                &nbsp; &nbsp; // set the second world transform<br>
+                &nbsp; &nbsp; D3DXMatrixTranslation(&amp;matTranslate, 0.0f, 0.0f, 0.0f);<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;(matTranslate)); &nbsp;&nbsp;
+                // set the world transform<br>
+                <br>
+                &nbsp; &nbsp; // draw the second square<br>
+                &nbsp; &nbsp; d3ddev-&gt;DrawPrimitive(D3DPT_TRIANGLESTRIP, 4, 2);&nbsp;<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;EndScene();&nbsp;<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL);<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that cleans up Direct3D and COM<br>
+                void cleanD3D(void)<br>
+                {<br>
+                &nbsp; &nbsp; v_buffer-&gt;Release(); &nbsp; &nbsp;// close and release the vertex buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;Release(); &nbsp; &nbsp;// close and release the 3D device<br>
+                &nbsp; &nbsp; d3d-&gt;Release(); &nbsp; &nbsp;// close and release Direct3D<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that puts the 3D models into video RAM<br>
+                void init_graphics(void)<br>
+                {<br>
+                &nbsp; &nbsp; // create the vertices using the CUSTOMVERTEX struct<br>
+                &nbsp; &nbsp; CUSTOMVERTEX vertices[] =<br>
+                &nbsp; &nbsp; {<br>
+                <strong>&nbsp; &nbsp; &nbsp; &nbsp; // square 1<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f, D3DCOLOR_ARGB(255, 0, 0, 255),
+                    },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f, D3DCOLOR_ARGB(255, 0, 255, 0),
+                    },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f, D3DCOLOR_ARGB(255, 255, 0, 0), },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f, D3DCOLOR_ARGB(255, 0, 255, 255),
+                    },<br>
+                    <br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; // square 2<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f, D3DCOLOR_ARGB(192, 0, 0, 255),
+                    },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f, D3DCOLOR_ARGB(192, 0, 255, 0),
+                    },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f, D3DCOLOR_ARGB(192, 255, 0, 0), },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f, D3DCOLOR_ARGB(192, 0, 255, 255),
+                    },<br>
+                </strong>
+                &nbsp; &nbsp;};<br>
+                <br>
+                &nbsp; &nbsp; // create a vertex buffer interface called v_buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;CreateVertexBuffer(8 * sizeof(CUSTOMVERTEX),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; CUSTOMFVF,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; &amp;v_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; VOID* pVoid; &nbsp;&nbsp; // a void pointer<br>
+                <br>
+                &nbsp; &nbsp; // lock v_buffer and load the vertices into it<br>
+                &nbsp; &nbsp; v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                &nbsp; &nbsp; memcpy(pVoid, vertices, sizeof(vertices));<br>
+                &nbsp; &nbsp; v_buffer-&gt;Unlock();<br>
+                }</div>
+            <p>
+                This code is quite straightforward, without all the additional lighting and texture
+                code included.&nbsp; If you run this, you should get something like this:</p>
+            <center>
+                <img alt="Image 11.3 - Alpha Squares in Action" src="dx9B11.aspx_files/dx9B11-3.PNG"><br><br>
+                Image 11.3 - Alpha Squares in Action
+            </center>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">Summary</div>
+        <div class="maintext" style="position: relative;">
+            <p>
+                That isn't all there is to color blending.&nbsp; There are fifteen different flags
+                that you can plug into the source factor and the destination factor, not to mention
+                the five different operations.&nbsp; This leaves you with 1125 different combinations
+                of color blending.&nbsp; Of course, many do the same as other combinations, but
+                there is still quite a bit to play around with.</p>
+            <p>
+                Therefore, before going on, try doing these for exercises:</p>
+            <p>
+                1.&nbsp; Make the front square have 25% transparency.<br>
+                2.&nbsp; Study the tables above and concoct your very own alpha blend.&nbsp; See
+                if it does what you expected!<br>
+                3.&nbsp; Try making both objects transparent, and switching their positions and
+                see what happens.</p>
+                <p>
+                    Congratulations!&nbsp; You now know the basics of Direct3D programming!&nbsp; But
+                    in case this worried you, never fear, for the adventure has only just begun!</p>
+            <p>
+                This next tutorial is extremely important in game development:</p>
+            <center>
+                <p>
+                    Next Tutorial:&nbsp; Direct3D Textures</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Help make DirectX Tutorial better.  Give your <a class="feedlink" href="javascript:RunFeedback(31)">feedback</a>.</p>
+            </center>
+        </div>
+        
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B11.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

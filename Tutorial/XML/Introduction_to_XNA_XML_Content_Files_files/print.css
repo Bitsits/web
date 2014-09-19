@@ -1,0 +1,77 @@
+body {
+	color: #000;
+	background: white;
+	font-family: Arial, Helvetica, serif;
+	font-size: 10pt !important;
+}
+
+td, th, h1, h2, h3, h4, h5, h6 {
+	font-family: Arial, Helvetica, serif;
+}
+
+h1 {
+	font-size: 14pt !important;
+}
+
+h2 {
+	font-size: 12pt !important;
+}
+
+h3 {
+	font-size: 10pt !important;
+}
+
+p {
+	font-size: 10pt;
+	font-family: Arial, Helvetica, serif;
+	line-height: 1.2em;
+}
+
+#content {
+	margin: 0 5% !important;
+	width: auto;
+	padding: 0;
+	color: black;
+}
+
+#logo,
+#help-panel,
+#header-links,
+#space-role,
+#main-menu-w,
+.menu-submenu,
+#footer-w,
+.icon-button,
+span.warning,
+.tb-topright,
+.hidden,
+.video-link,
+#tickets-export-links,
+#ticket-builder,
+.feed-link,
+li.icon-edit,
+li.icon-delete
+{
+	display: none !important;
+}
+
+#header-w {
+	background-color: white !important;
+}
+
+h1.header-w {
+	color: black;
+	background-color: white !important;
+	padding: 0;
+	margin: 0 0 10px 0;
+}
+
+td.event-type {
+	width: 40px;
+	text-align: center;
+}
+
+table.u-stream a {
+	text-decoration: none !important;
+	color: black;
+}

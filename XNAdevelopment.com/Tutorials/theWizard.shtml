@@ -1,0 +1,534 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="theWizard_files/styles.css">
+    <title>The Wizard: Part 1 - Making a character Move</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="theWizard_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>The Wizard - Part 1</h2>
+				<p>
+					<em>Making a sprite walk around the screen </em>
+				</p>
+				<ul>
+				<li><a href="http://www.xnadevelopment.com/tutorials/thewizard/TheWizard.zip">Download the Source code</a></li>
+				
+				<li><a href="http://geekswithblogs.net/clingermangw/archive/2008/03/15/120562.aspx">View Comments or Leave Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="theWizard_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>The Wizard - Part 1</h2>
+<strong>Making a Sprite move around the Screen</strong>
+<p>&nbsp;</p>
+<p>This is the first in a four part series to show you how to add some
+movement and action to your sprite. This first part will go over the
+basics of getting keyboard input from the player and using it to make
+the Sprite move around the screen.</p>
+<p><strong>Creating the new game project:</strong> </p>
+<p>We are going to be using the "Sprite" class we created in the tutorial "<a href="http://www.xnadevelopment.com/tutorials/creatinga2dsprite/CreatingA2DSprite.shtml">Creating a 2D Sprite</a>". Instead of creating a new XNA Game project, you can just <a href="http://www.xnadevelopment.com/tutorials/creatinga2dsprite/CreatingA2DSprite.zip">download the source</a> for that project and begin working from that game project.  </p>
+<p>If you would rather create a new game project to start from, but are
+having trouble remembering how to do that, just follow the steps in <a href="http://www.xnadevelopment.com/tutorials/creatinganewxnagameproject/CreatingANewXNAWindowsGameProject.shtml">this tutorial here</a>
+and come back to the this tutorial after you've refreshed your memory.
+Once you have your new game project, you will need to add the "Sprite"
+class created in this tutorial here to your new project. </p>
+<p><strong>Adding the images:</strong> </p>
+<p><img src="theWizard_files/WizardSquare.png" alt="WizardSquare" style="border: 0px none ; margin: 5px;" align="right" border="0" width="100" height="100">
+Now, let's add the new sprite image that we are going to be using in
+this tutorial to the game project. You can download the Wizard image
+used in the project from <a href="http://www.xnadevelopment.com/tutorials/thewizard/wizardimage.zip">here</a>.
+Once you have downloaded the image, add the new Wizard image to the
+Content folder in your game. If you are having trouble remembering how
+to add an image to an XNA Game project, just follow the steps in <a href="http://www.xnadevelopment.com/tutorials/addinganimagetothegameproject/AddingAnImageToTheGameProject.shtml">this tutorial here</a> and come back to this tutorial after you've refreshed your memory.  </p>
+<p><strong>Enhancing the Sprite class:</strong> </p>
+<p>To start out, we are going to make some enhancements to the <strong>Sprite</strong> class. These enhancements were made in the "<a href="http://www.xnadevelopment.com/tutorials/scrollinga2dbackground/AdvancedScrollingA2DBackground.zip">Advanced Scrolling a 2D Background</a>" project, but we will go over them now. </p>
+<p>To begin, start by adding the following objects to the top of the <strong>Sprite class</strong>.  </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//The asset name for the Sprite's Texture</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">string</span> AssetName;</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>        <span class="rem">//The Size of the Sprite (with scale applied)</span></pre>
+<pre class="alt">        <span class="kwrd">public</span> Rectangle Size;</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">        <span class="rem">//The amount to increase/decrease the size of the original sprite. </span></pre>
+<pre>        <span class="kwrd">private</span> <span class="kwrd">float</span> mScale = 1.0f;</pre>
+</div>
+<p>The AssetName is a public object used to store the name of the image
+to be loaded from the Content Pipeline for this sprite. Size is a
+public object used to give the current size of the sprite after the
+scale has been applied. mScale is a private object that will tell the
+Draw method how much to shrink or enlarge the sprite from it's original
+size. </p>
+<p>Next, we're going to add&nbsp; a property to the class. Properties
+are often used when you have some other things to do when the value of
+an object changes. In our case, when the scale of the sprite is
+changed, we need to recalculate the Size of the sprite with that new
+scale applied. </p>
+<p>Add the following property to the Sprite class. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//When the scale is modified throught he property, the Size of the </span></pre>
+<pre>        <span class="rem">//sprite is recalculated with the new scale applied.</span></pre>
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">float</span> Scale</pre>
+<pre>        {</pre>
+<pre class="alt">            get { <span class="kwrd">return</span> mScale;}</pre>
+<pre>            set </pre>
+<pre class="alt">            { </pre>
+<pre>                mScale = <span class="kwrd">value</span>;</pre>
+<pre class="alt">                <span class="rem">//Recalculate the Size of the Sprite with the new scale</span></pre>
+<pre>                Size = <span class="kwrd">new</span> Rectangle(0, 0, (<span class="kwrd">int</span>)(mSpriteTexture.Width * Scale), (<span class="kwrd">int</span>)(mSpriteTexture.Height * Scale));</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+<p>The LoadContent method of the Sprite class needs enhanced as well.
+Modify the LoadContent method of the Sprite class to look like the
+following. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Load the texture for the sprite using the Content Pipeline</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">void</span> LoadContent(ContentManager theContentManager, <span class="kwrd">string</span> theAssetName)</pre>
+<pre class="alt">        {</pre>
+<pre>            mSpriteTexture = theContentManager.Load&lt;Texture2D&gt;(theAssetName);</pre>
+<pre class="alt">            AssetName = theAssetName;</pre>
+<pre>            Size = <span class="kwrd">new</span> Rectangle(0, 0, (<span class="kwrd">int</span>)(mSpriteTexture.Width * Scale), (<span class="kwrd">int</span>)(mSpriteTexture.Height * Scale));</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>We added the storing of the asset name and initial calculation of the Sprites size. </p>
+<p>Our sprites need to be able to move, so we are going to add a new
+"Update" method to the class to help us do that. Add the following new
+Update method to the Sprite class. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">void</span> Update(GameTime theGameTime, Vector2 theSpeed, Vector2 theDirection)</pre>
+<pre class="alt">        {</pre>
+<pre>            Position += theDirection * theSpeed * (<span class="kwrd">float</span>)theGameTime.ElapsedGameTime.TotalSeconds;</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>Movement is a simple calculation of taking the direction the sprite
+should be moving in, the speed they should be moving and multiplying
+those by the time that has elapsed then adjusting the original position
+with that result. </p>
+<p>theDirection is a Vector2 object. A value of -1 in the X value of
+the Vector2 will indicate something should be moving to the left. A
+value of 0 indicates it's not moving at all along the X axis. And a
+value of 1 indicates the sprite should be moving to the right. The same
+goes for the Y value of the Vector2. A -1 indicates the sprite needs to
+move up, 0 not moving in the Y direction and 1 means it's moving down.
+Combinations of X,Y values cause the sprite to move along both the X, Y
+axis. </p>
+<p>theSpeed is how fast the sprite should move in a along a given axis.
+Value of 0 means it has no speed along that axis, higher speeds make
+the sprite move faster along the given axis. </p>
+<p>theGameTime is used to keep how fast the sprite moves consistent
+across different computers. By always moving by how much time has
+elapsed, if a computer's refresh rate is faster, the sprite should
+still move the same speed as it does on a computer with a slower
+refresh rate. </p>
+<p>With our sprite successfully changing position, now it's time to
+draw it to the screen in that new position and with it's potentially
+new scale. Modify the Draw method of the Sprite class to look like the
+following. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Draw the sprite to the screen</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">void</span> Draw(SpriteBatch theSpriteBatch)</pre>
+<pre class="alt">        {            </pre>
+<pre>            theSpriteBatch.Draw(mSpriteTexture, Position, </pre>
+<pre class="alt">                <span class="kwrd">new</span> Rectangle(0, 0, mSpriteTexture.Width, mSpriteTexture.Height), </pre>
+<pre>                Color.White, 0.0f, Vector2.Zero, Scale, SpriteEffects.None, 0);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>The SpriteBatch object has several different overrides for Draw
+(overrides are the same method, but they take additional parameters to
+give new functionality). In this case, we wanted to re-size the sprite
+up or down according to Scale so we're passing that in. We're using the
+defaults for all of the other parameters of that particular override.
+Eventually in the future we might use them, but for now, we just want
+to position and scale the sprite. </p>
+<p>That's it for the changes to the Sprite class for now. Do a quick Build <strong>Build <a href="http://www.xnadevelopment.com/livewriter/TheWizardPart1HowtomakeagamecharacterWal_79AB/CropperCapture26324.jpg"><img src="theWizard_files/CropperCapture26324_thumb.jpg" alt="CropperCapture26324" style="border: 0px none ;" border="0" width="31" height="27"></a> </strong>
+now to make sure all the changes compile correctly. Nothing will be
+different in the game yet, but it's good to make sure you don't have
+any errors before you get to much further. </p>
+<p><strong>Adding the Wizard class:</strong> </p>
+<p>We're going to be moving a Wizard character around on the screen
+(you added the image for the Wizard to the project earlier). The Wizard
+is going to be a sprite, but he's going to have some additional
+functionality special to him as well. To do that, we're going to create
+a new class called "Wizard" and then inherit from the Sprite class.
+Inheriting gives you the functionality of the other class and allows
+you to add to that functionality. It's the basis of object oriented
+programming. </p>
+<p>Right-click on the the game project in the Solution Explorer.
+Select, "Add", then pick "Class" from the add sub-men. This will open
+up the "Add New Item" dialog. Type in the name "Wizard" for your class
+and click the "Add" button. </p>
+<p>Now we need to start adding some functionality to the Wizard class.
+Let's start by adding our XNA framework "using" statements to the top
+of the Wizard class file. </p>
+<p>Add the following "using" statements. </p>
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework;</pre>
+<pre><span class="kwrd">using</span> Microsoft.Xna.Framework.Storage;</pre>
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework.Input;</pre>
+<pre><span class="kwrd">using</span> Microsoft.Xna.Framework.Content;</pre>
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework.Graphics;</pre>
+</div>
+<p>These just help with the readability of our code so we don't have to
+type so much to get at the object provided to us by the XNA framework.
+For example, we can use Vector2 instead of having to type
+Microsoft.Xna.Framework.Vector2 every time we want to use that object.</p>
+<p>It's is now time to indicate that we want to inherit from the Sprite
+class. Change the class declaration for the Wizard to look like the
+following.</p>
+<div class="csharpcode">
+<pre class="alt"> <span class="kwrd">class</span> Wizard : Sprite</pre>
+</div>
+<p>The Wizard class now inherits from the Sprite class and has access to all of it's public and protected members and methods.</p>
+<p>We're gong to be using some values in the class over and over again
+that do not change. So we're going to make these constants of our
+class. It's a good programming practice to get into the habit of
+removing "magic" numbers and strings from your code and moving them
+into variables and constants. A magic number or string is any number
+that is just magically in your code with no real explanation of what
+the value is or why it's that value.</p>
+<p>Add the following constants to the top of the Wizard class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">const</span> <span class="kwrd">string</span> WIZARD_ASSETNAME = <span class="str">"WizardSquare"</span>;</pre>
+<pre>        <span class="kwrd">const</span> <span class="kwrd">int</span> START_POSITION_X = 125;</pre>
+<pre class="alt">        <span class="kwrd">const</span> <span class="kwrd">int</span> START_POSITION_Y = 245;</pre>
+<pre>        <span class="kwrd">const</span> <span class="kwrd">int</span> WIZARD_SPEED = 160;</pre>
+<pre class="alt">        <span class="kwrd">const</span> <span class="kwrd">int</span> MOVE_UP = -1;</pre>
+<pre>        <span class="kwrd">const</span> <span class="kwrd">int</span> MOVE_DOWN = 1;</pre>
+<pre class="alt">        <span class="kwrd">const</span> <span class="kwrd">int</span> MOVE_LEFT = -1;</pre>
+<pre>        <span class="kwrd">const</span> <span class="kwrd">int</span> MOVE_RIGHT = 1;</pre>
+</div>
+<p>Now let's add some more class level objects that will help give us the functionality we need to move our Wizard sprite around.</p>
+<p>Add the following objects to the top of the Wizard class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">enum</span> State</pre>
+<pre>        {</pre>
+<pre class="alt">            Walking</pre>
+<pre>        }</pre>
+<pre class="alt">        State mCurrentState = State.Walking;</pre>
+<pre>                </pre>
+<pre class="alt">        Vector2 mDirection = Vector2.Zero;</pre>
+<pre>        Vector2 mSpeed = Vector2.Zero;</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>        KeyboardState mPreviousKeyboardState;</pre>
+</div>
+<p>The State enum is used to store the current "State" of the sprite.
+What is state? You can think of state as any type of action you need to
+keep track of for you sprite because it might limit another action or
+"state". So if the sprite was dead, or powered up or jumping or
+ducking, etc. Those might all be "states" your Wizard could be in and
+you might want to check to see if the Wizard was in (or not in) a
+current state before you do something or draw something to the screen.</p>
+<p>Currently, our Wizard only has one state, "Walking". mCurrentState
+is used to track the current state of the sprite and it's set to
+"Walking" when it's created.</p>
+<p>mDirection is used to store the Direction the Wizard is moving in
+and mSpeed is used to store the Speed the sprite is moving at in those
+directions.</p>
+<p>mPreviousKeyboardState is used to store the previous state the
+Keyboard was in last time we checked. This is useful for times when we
+don't want to repeat an action unless a player has pressed a key on the
+keyboard again instead of just holding it down. With knowing the
+previous state of the keyboard we can verify the key was released
+before, but is now pressed and then do whatever action we need to do
+for that key.</p>
+<p>The Wizard needs to load the new Wizard image, so we're going to
+model after the base sprite class and add a LoadContent method to the
+Wizard. Add the following LoadContent method to the Wizard class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">void</span> LoadContent(ContentManager theContentManager)</pre>
+<pre>        {</pre>
+<pre class="alt">            Position = <span class="kwrd">new</span> Vector2(START_POSITION_X, START_POSITION_Y);</pre>
+<pre>            <span class="kwrd">base</span>.LoadContent(theContentManager, WIZARD_ASSETNAME);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>The LoadContent method for the Wizard class does not take in an
+asset name like the Sprite class does. This is because the Wizard class
+already knows what asset it needs to load. So first, it sets the
+initial position of the Wizard (using the constants we declared for the
+starting x and y positions) and then it calls the "LoadContent" method
+of the base sprite class it inherits from. It passes into the base
+LoadContent method the content manager it received in when it's
+LoadContent method was called and then the constant we declared for the
+asset name. The "LoadContent" method of the Sprite class will now run
+and execute all of it's code.</p>
+<p>Now, we need to add an "Update" method to the Wizard class. This
+method will take care of checking for input and moving the sprite
+around. Add the following Update method to the Wizard class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">void</span> Update(GameTime theGameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            KeyboardState aCurrentKeyboardState = Keyboard.GetState();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            UpdateMovement(aCurrentKeyboardState);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            mPreviousKeyboardState = aCurrentKeyboardState;</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Update(theGameTime, mSpeed, mDirection);</pre>
+<pre>        }</pre>
+</div>
+<p>The Update method first gets the current state of the keyboard. This
+is built in functionality of the XNA framework and by calling
+"Keyboard.GetState();", the XNA framework will report to you all the
+keys that are pressed and not pressed on the keyboard. </p>
+<p>Next, we call a method "UpdateMovement" passing in the current
+keyboard state. We haven't written this method yet, but we will
+shortly. </p>
+<p>Then, we store the state of the keyboard in our
+mPreviousKeyboardState object. This will help us when we get to the
+point that we need to verify that a key wasn't released and then
+pressed again. We won't be using this functionality for this tutorial,
+but it's a good habit to get into to make sure it's available when
+checking keyboard input because you're bound to need that information
+eventually.</p>
+<p>Finally, we call the Update method of the Sprite class we are
+inheriting from. We pass in the time that has elapsed and the current
+values for the Speed and Direction of the Wizard. The Update method of
+the Sprite class will then use those values to adjust the position of
+the sprite. </p>
+<p>That's it for the Update method, but in it we called an
+"UpdateMovement" method that didn't exist. Let's go ahead and add that
+method now. This method will handle all of the checking to see if one
+of the movement keys was pressed and then setting the movement
+variables for the sprite).</p>
+<p>Add the following "UpdateMovement" method to the Wizard class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> UpdateMovement(KeyboardState aCurrentKeyboardState)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (mCurrentState == State.Walking)</pre>
+<pre>            {</pre>
+<pre class="alt">                mSpeed = Vector2.Zero;</pre>
+<pre>                mDirection = Vector2.Zero;</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>                <span class="kwrd">if</span> (aCurrentKeyboardState.IsKeyDown(Keys.Left) == <span class="kwrd">true</span>)</pre>
+<pre class="alt">                {</pre>
+<pre>                    mSpeed.X = WIZARD_SPEED;</pre>
+<pre class="alt">                    mDirection.X = MOVE_LEFT;</pre>
+<pre>                }</pre>
+<pre class="alt">                <span class="kwrd">else</span> <span class="kwrd">if</span> (aCurrentKeyboardState.IsKeyDown(Keys.Right) == <span class="kwrd">true</span>)</pre>
+<pre>                {</pre>
+<pre class="alt">                    mSpeed.X = WIZARD_SPEED;</pre>
+<pre>                    mDirection.X = MOVE_RIGHT;</pre>
+<pre class="alt">                }</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">                <span class="kwrd">if</span> (aCurrentKeyboardState.IsKeyDown(Keys.Up) == <span class="kwrd">true</span>)</pre>
+<pre>                {</pre>
+<pre class="alt">                    mSpeed.Y = WIZARD_SPEED;</pre>
+<pre>                    mDirection.Y = MOVE_UP;</pre>
+<pre class="alt">                }</pre>
+<pre>                <span class="kwrd">else</span> <span class="kwrd">if</span> (aCurrentKeyboardState.IsKeyDown(Keys.Down) == <span class="kwrd">true</span>)</pre>
+<pre class="alt">                {</pre>
+<pre>                    mSpeed.Y = WIZARD_SPEED;</pre>
+<pre class="alt">                    mDirection.Y = MOVE_DOWN;</pre>
+<pre>                }</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+<p>The UpdateMovement method is the key method of getting our Wizard
+sprite to move around. First it checks to make sure the Wizard is in a
+current state for Walking. Our Wizard can currently ONLY be in a
+Walking state, but there might be times in the future when we don't
+want to move him around if he's not currently in a Walking state so we
+check.</p>
+<p>Next, we zero out his direction and speed. Vector2.Zero is a quick
+and easy way of saying create a new Vector2(0,0). Now we start checking
+to see what keys are pressed. First we check to see if the Left arrow
+key or the Right arrow key is pressed. If they are, then we set the
+Speed along the X axis and indicate the direction. Then we check to see
+if the Up arrow or the Down arrow are pressed. And again, if they are,
+then we set the Speed along the Y axis and indicate the direction.</p>
+<p>Now, when the base.Update of the Sprite class is called (which
+happens in our Update method already), the new values for our Wizard
+speed and direction will be passed and our Wizard sprite will move
+appropriately.</p>
+<p>Do a quick <strong>Build <a href="http://www.xnadevelopment.com/livewriter/TheWizardPart1HowtomakeagamecharacterWal_79AB/CropperCapture26324.jpg"><img src="theWizard_files/CropperCapture26324_thumb.jpg" alt="CropperCapture26324" style="border: 0px none ;" border="0" width="31" height="27"></a> </strong>to
+make sure the Wizard class compiles correctly with no errors. You won't
+see the Wizard on the screen yet (if you're building this off the
+"Creating a 2D Sprite" project you should still just see the sprites
+drawn to the screen and you won't be able to move them. So we still
+have some final changes to make. We need to change the Game1.cs class
+to use our new Wizard class instead of the Sprite class.</p>
+<p><strong>Modifying the Game1.cs Class:</strong></p>
+<p>We want to remove references to just using the Sprite class and
+instead use our Wizard class. So to do that we're going to be deleting
+some code and then adding some new code to replace it.</p>
+<p>Delete the following lines of code from the top of the Game1.cs class</p>
+<div class="csharpcode">
+<pre class="alt">        Sprite mSprite;</pre>
+<pre>        Sprite mSpriteTwo;</pre>
+</div>
+<p>Now add the following line of code to the top of the Game1.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        Wizard mWizardSprite;</pre>
+</div>
+<p>&nbsp;</p>
+<p>Now, modify the Initialize method, to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Initialize()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// TODO: Add your initialization logic here</span></pre>
+<pre>            mWizardSprite = <span class="kwrd">new</span> Wizard();</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Initialize();</pre>
+<pre>        }</pre>
+</div>
+<p>This will create a new instance of our Wizard sprite (and we removed
+the old lines of code that were creating new instances of the Sprite
+class).</p>
+<p>We now need to load the content of our Wizard. Modify the LoadContent method of the Game1.cs class to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadContent()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Create a new SpriteBatch, which can be used to draw textures.</span></pre>
+<pre>            spriteBatch = <span class="kwrd">new</span> SpriteBatch(GraphicsDevice);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">// TODO: use this.Content to load your game content here</span></pre>
+<pre class="alt">            mWizardSprite.LoadContent(<span class="kwrd">this</span>.Content);           </pre>
+<pre>        }</pre>
+</div>
+<p>With our Wizard sprite content loaded, let's add in the ability for
+the Game1.cs class to "Update" the Wizard. Modify the Update method to
+look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Allows the game to exit</span></pre>
+<pre>            <span class="kwrd">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)</pre>
+<pre class="alt">                <span class="kwrd">this</span>.Exit();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">// TODO: Add your update logic here</span></pre>
+<pre>            mWizardSprite.Update(gameTime);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Update(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>Finally, we want to draw our Wizard. Modify the Draw method of the Game1.cs class to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">// TODO: Add your drawing code here</span></pre>
+<pre>            spriteBatch.Begin();</pre>
+<pre class="alt">            mWizardSprite.Draw(<span class="kwrd">this</span>.spriteBatch);</pre>
+<pre>            spriteBatch.End();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>Now that we have appropriately modified the Game1.cs class to use our new Wizard class, do a <strong>Build <a href="http://www.xnadevelopment.com/livewriter/TheWizardPart1HowtomakeagamecharacterWal_79AB/CropperCapture26324.jpg"><img src="theWizard_files/CropperCapture26324_thumb.jpg" alt="CropperCapture26324" style="border: 0px none ;" border="0" width="31" height="27"></a> </strong>and
+see your results. The Wizard should now be drawn to the screen and you
+should be able to move him around with the Up, Down, Left and Right
+arrow keys. </p>
+<p align="center"><img src="theWizard_files/CropperCapture270.jpg" alt="Wizard Moving" style="border: 0px none ; margin: 5px;" border="0" width="612" height="480"> </p>
+<p>Congratulations! You have successfully figured out how to make a
+sprite move around the screen in you game. Can you think of some things
+you can change? Could you add the old Sprites back in and draw them to
+the screen? What do you think would happen if you tried to add two
+wizards to the game? </p>
+<p>Play with it, experiment and ask questions. Most of all make sure you&#8217;re having fun!  </p>
+<p>&nbsp; </p>
+
+
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="theWizard_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</body></html>

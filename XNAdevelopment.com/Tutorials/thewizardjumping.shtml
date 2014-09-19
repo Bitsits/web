@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="thewizardjumping_files/styles.css">
+    <title>The Wizard: Part 2 - Making a Sprite Jump</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="thewizardjumping_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>The Wizard - Part 2</h2>
+				<p>
+					<em>Making a Sprite Jump </em>
+				</p>
+				<ul>
+				<li><a href="http://www.xnadevelopment.com/tutorials/thewizardjumping/thewizardjumping.zip">Download the Source code</a></li>
+				
+				<li><a href="http://geekswithblogs.net/clingermangw/archive/2008/03/15/120565.aspx">View Comments or Leave Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="thewizardjumping_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>The Wizard - Part 2</h2>
+<strong>Making a Sprite Jump</strong>
+<p>&nbsp;</p>
+<p>This is the second in a four part series to show you how to add some
+movement and action to your sprite. This first part was covered in "The
+Wizard - Part 1: Moving a Sprite on the Screen". Part two covers adding
+the ability to make your sprite Jump. </p>
+<p><strong>Starting the game project:</strong> </p>
+<p>We are going to be building off everything that we did in the first part of this series&nbsp; "<a href="http://www.xnadevelopment.com/tutorials/thewizard/theWizard.shtml">The Wizard - Part 1: Moving a Sprite on the Screen</a>". Instead of creating a new XNA Game project, you can just <a href="http://www.xnadevelopment.com/tutorials/thewizard/TheWizard.zip">download the source</a> for that project and begin working from that game project.  </p>
+<p><strong>Enhancing the Wizard class:</strong> </p>
+<p>All of our work to add the ability for our Wizard sprite to jump
+will be done by enhancing the Wizard class. Let's start off by adding a
+new state for the Wizard, we already had walking, now lets add a new
+state "Jumping" </p>
+<p>Modify the State enum in the Wizard.cs class to look like the following. </p>
+<div class="csharpcode">
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">enum</span> State</pre>
+<pre>        {</pre>
+<pre class="alt">            Walking,</pre>
+<pre>            Jumping</pre>
+<pre class="alt">        }</pre>
+<pre>        State mCurrentState = State.Walking;</pre>
+</div>
+</div>
+<p>We're still starting out with the state being Walking, but Jumping is now an available State in code.</p>
+<p>Next, we're going to add a new object called "mStartingPosition" to
+the Wizard class. This object will be used to track the position the
+Wizard sprite was in when it started it's jump.</p>
+<p>Add the following object to the top of the Wizard.cs class</p>
+<div class="csharpcode">
+<pre class="alt">        Vector2 mStartingPosition = Vector2.Zero;</pre>
+</div>
+<p>Now we need to modify our Update method to handle the situation of
+the Wizard sprite jumping. Modify the Update method in the Wizard.cs
+class to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">void</span> Update(GameTime theGameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            KeyboardState aCurrentKeyboardState = Keyboard.GetState();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            UpdateMovement(aCurrentKeyboardState);</pre>
+<pre>            UpdateJump(aCurrentKeyboardState);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            mPreviousKeyboardState = aCurrentKeyboardState;</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Update(theGameTime, mSpeed, mDirection);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>We added a new method call to "UpdateJump", but we don't have a
+method in our Wizard class called "UpdateJump", let's go ahead and add
+that now. </p>
+<p>Add the following "UpdateJump" method to the Wizard.cs class. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> UpdateJump(KeyboardState aCurrentKeyboardState)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (mCurrentState == State.Walking)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="kwrd">if</span> (aCurrentKeyboardState.IsKeyDown(Keys.Space) == <span class="kwrd">true</span> &amp;&amp; mPreviousKeyboardState.IsKeyDown(Keys.Space) == <span class="kwrd">false</span>)</pre>
+<pre>                {</pre>
+<pre class="alt">                    Jump();</pre>
+<pre>                }</pre>
+<pre class="alt">            }</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">if</span> (mCurrentState == State.Jumping)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="kwrd">if</span> (mStartingPosition.Y - Position.Y &gt; 150)</pre>
+<pre>                {</pre>
+<pre class="alt">                    mDirection.Y = MOVE_DOWN;</pre>
+<pre>                }</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>                <span class="kwrd">if</span> (Position.Y &gt; mStartingPosition.Y)</pre>
+<pre class="alt">                {</pre>
+<pre>                    Position.Y = mStartingPosition.Y;</pre>
+<pre class="alt">                    mCurrentState = State.Walking;</pre>
+<pre>                    mDirection = Vector2.Zero;</pre>
+<pre class="alt">                }</pre>
+<pre>            }</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>Let's go over what this method is doing. First, it checks to see if
+the Wizard is currently walking, if it is, then it checks to see if the
+Spacebar has been pressed again (if it was held down from last time,
+then we don't want to jump). If the Spacebar was pressed (and
+previously released), then it calls the Jump method. So we only jump,
+if we were walking and the player has hit the Spacebar.</p>
+<p>Next, we take care of the situation of when the Sprite is already
+Jumping (it's state will now be "Jumping"). The first check we do is to
+see if Y value of the position the Wizard was in when it started
+jumping, is greater than 150 (ooo, Magic number! We should have cleaned
+that up! Looks like a good exercise for you to improve this code!
+Always look for places like that in your code to improve!), then we
+change the Direction of the jump to start increasing along the Y axis.
+So basically what is happening is we are checking to see if the Wizard
+has reached the Height of his jump, if he has, then start making him
+head back down.</p>
+<p>The second check we do is to see if the Wizard has moved down below
+the "ground" or starting position. If they have, then their current Y
+position will be greater than the position they were in when they
+started the Jump. When that happens, set their current Y position to
+the starting position of the jump (so they don't drop below the
+"ground" level), change the State to walking to indicate they have
+completed the Jump and zero out the Direction to indicate they're not
+moving in any direction for the Jump anymore.</p>
+<p>The UpdateJump method called a "Jump" method when the player hit
+spacebar. So now we need to write the Jump method. Add the following
+"Jump" method to the Wizard.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> Jump()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (mCurrentState != State.Jumping)</pre>
+<pre>            {</pre>
+<pre class="alt">                mCurrentState = State.Jumping;</pre>
+<pre>                mStartingPosition = Position;</pre>
+<pre class="alt">                mDirection.Y = MOVE_UP;</pre>
+<pre>                mSpeed = <span class="kwrd">new</span> Vector2(WIZARD_SPEED, WIZARD_SPEED);</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+<p>The Jump method first checks to make sure the Wizard currently isn't
+jumping. We don't want to "re-jump" them mid-jump. If they aren't
+currently Jumping, then change the state of the Sprite to Jumping,
+store the starting position, indicate that the sprite is going to be
+moving in the up direction and set the speed.</p>
+<p>That's it! Go ahead and do a <strong>Build <img src="thewizardjumping_files/CropperCapture26324_thumb.jpg" alt="CropperCapture26324_thumb" style="border: 0px none ;" border="0" width="31" height="27"> </strong>and
+move and jump your Wizard around the screen. You should be able to
+stand still and jump straight up and move to the left and right and hit
+the spacebar to jump to the left and to the right.</p>
+<p align="center"><img src="thewizardjumping_files/CropperCapture2703.jpg" alt="CropperCapture2703" style="border: 0px none ;" border="0" width="612" height="480"></p>
+<p>&nbsp;</p>
+<p>Congratulations! You have successfully figured out how to make a
+sprite jump around the screen in your game. What modifications can you
+make? Can you increase how high the Wizard can jump? Can you change it
+so you have to hit the "J" key to Jump? Can you think of some other
+things you can change? </p>
+<p>Play with it, experiment and ask questions. Most of all make sure you&#8217;re having fun!  </p>
+
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="thewizardjumping_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</body></html>

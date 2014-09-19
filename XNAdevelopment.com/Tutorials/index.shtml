@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+   
+      <link rel="shortcut icon" href="http://www.xnadevelopment.com/favicon.ico">
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+      <link rel="stylesheet" type="text/css" href="index_files/styles.css">
+      <title>XNA Development: Game Development for the masses</title>
+      <meta name="description" content="Everything you want to know about XNA Development. News, Links, Information and Tutorials.">
+      <meta name="keywords" content="xna, xna development, xna tutorials, xna game development, xna 2D, game development, 2D game development">
+   <script charset="utf-8" id="injection_graph_func" src="index_files/injection_graph_func.js"></script><script id="_nameHighlight_injection"></script><link class="skype_name_highlight_style" href="index_files/injection_nh_graph.css" type="text/css" rel="stylesheet" charset="utf-8" id="_injection_graph_nh_css"><link href="index_files/skypeplugin_dropdownmenu.css" type="text/css" rel="stylesheet" charset="utf-8" id="_skypeplugin_dropdownmenu_css"></head><body class="home">
+
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="index_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>About</h2>
+				<p>
+					George is a business developer by day. At night, George likes
+					to dabble with game development. With the release of XNA, this
+					hobby has become less frustration and changing the colors of
+					triangles and more "Wow! Did you make that Dad?"
+				</p>
+				<p>
+					<a href="http://www.xnadevelopment.com/aboutme.shtml">more&#8230;</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="index_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="columns">
+			<div class="column left">
+			<p>
+With XNA Game Studio Express, developers can create games using the XNA
+Framework. While developers have always been able to make games, the
+XNA Framework has reduced the once steep learning curve for game
+development and made it into something more attainable for the masses
+of developers who dream of making their own game. All at no cost to the
+developer. </p>
+			<p> In addition to XNA providing free and less
+complicated game development, games developed using XNA Game Studio
+Express will be playable on Microsoft&#8217;s Xbox 360. An opportunity like
+this is unprecedented in game development history. Hobbyists have never
+before had the chance to play their games on a console without friends
+in high places or loads of cash to purchase the expensive console
+development software and licenses. </p>
+			<p> With more developers being able to create games and
+an increase in interest for the chance to be able to show &#8220;their&#8221; game
+on the Xbox 360, XNA Development.com was created to provide this new
+community with easy to follow tutorials and code samples for game
+development. With a strong focus on 2D game development, XNA
+Development.com strives to make it possible for everyone to understand
+how they can realize their own dream of making a game. </p>
+			</div>
+			<div class="column right">
+			<p> Please do
+not think of these tutorials as the &#8220;right&#8221; or &#8220;best&#8221; way of making a
+game. They are simply a stepping stone in the path to creating your own
+game. Whether that game is for you, your children, your friend or the
+start of your own game company, XNA Development.com wants to be there
+to help you through those rough spots. By providing well documented
+code and using good development practices whenever possible, XNA
+Development hopes to be a quality site in providing that resource you
+need to get your game going from start to finish. </p>
+			<p>
+				XNA Development.com is in no way affiliated with Microsoft. Any and all <a href="mailto:clingermangw@hotmail.com">feedback</a> and suggestions are welcome.
+			</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="index_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+</body></html>

@@ -1,0 +1,1032 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Lesson 9: Rendering With Vertex Lighting
+</title><link href="dx9B9.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B9.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B9.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B9.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B9.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+        Lesson 8: &nbsp;Rendering With Vertex Lighting</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B9.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B7.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B10.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+    Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    So far, we have programmed very simple 3D scenes using no lights.&nbsp; This meant
+    that everything was lighted equally and brightly, leaving no room for realism.&nbsp;
+    In this lesson, we are going to cover how to use lights to illuminate your 3D scene,
+    allowing your models to look somewhat like they exist in the real world.</p>
+    <p>
+        But before we dive into the code, we will cover a little bit of theory on how exactly
+        light works in Direct3D.&nbsp; Then, once the mechanics are covered, we will put
+        together another classic cube, this time illuminating it with realistic lighting.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Light in Nature and Light in 3D</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    If you have played many games, you may have noticed that the quality of lighting
+    in those 3D games is not exactly as it would be in the real world.&nbsp; Indeed,
+    3D lighting currently comes nowhere near the real world. &nbsp;The amount of detailed
+    mathematics involved in real-world lighting is so immensly complex that I can hardly
+    imagine a computer dealing with it at all, not to mention dealing with it in real-time.</p>
+    <center>
+        <img alt="Image 9.1 - The Complexity of Real-World Lighting" src="dx9B9.aspx_files/dx9B9-1.PNG"><br>
+        <br>
+        Image 9.1 - The Complexity of Real-World Lighting
+    </center>
+    <p>
+    Imagine what it would take to render exact, real-world light.&nbsp; First of all,
+        a light would fall directly onto a surface, illuminating it somewhat.&nbsp; The
+        light would pass through the air, bouncing off dust particles and scattering through
+        the air in an incomprehensibly complex pattern.&nbsp; This would cause other surfaces
+        to be illuminated, even though no light falls on them directly.&nbsp; Then there
+        is the fact that objects reflect more light in a certain direction, giving it a
+        shine and somewhat hiding the color beneath.</p>
+    <p>
+        I could go on for five or six lessons just explaining the light phenomena seen in
+        Image 9.1 alone (and there is a lot more to light than just that).&nbsp; However,
+        to spare you the fried brains, I'm just going to get to the point:</p>
+    <p>
+        Direct3D uses lights to <em>approximate</em> real-world lighting.&nbsp; It does
+        this using a system of calculation that is much less time-consuming, and that can
+        therefore be run in real-time.&nbsp; This system is built up of a set of types of
+        <em>lighting</em> and types of <em>light sources</em>.</p>
+    <hr>
+    <p class="subheader">
+        Types of Lighting</p>
+    <p>
+        There are three types of lighting that can be used to approximate real-world light.&nbsp;
+        They are called <em>diffuse lighting</em>, <em>ambient lighting</em> and <em>specular
+            lighting</em>.</p>
+    <p>
+        Diffuse lighting is light that more or less falls directly onto a surface.&nbsp;
+        If you hold up your hand in a room with one light source, you will see that one
+        side of your hand is lit, while the other side is not.&nbsp; That side of your hand
+        is lit with what is called <em>diffuse</em> light.</p>
+    <center>
+        <img alt="Image 9.2 - Diffuse Light" src="dx9B9.aspx_files/dx9B9-2.PNG"><br>
+        <br>
+        Image 9.2 - Diffuse Light
+    </center>
+    <p>
+        Ambient lighting consists of light that is everywhere.&nbsp; Generally speaking,
+        it is quite dark (though not totally dark).&nbsp; When you hold your hand up in
+        that room with one light source, the dark side of your hand is ambiently lit, and
+        the light that is reflected there is refered to as <em>ambient</em> light.</p>
+    <center>
+        <img alt="Image 9.3 - Ambient Light" src="dx9B9.aspx_files/dx9B9-3.PNG"><br>
+        <br>
+        Image 9.3 - Ambient Light
+    </center>
+    <p>
+        Specular lighting is often refered to as <em>specular highlight</em> or, even more
+        commonly, <em>reflection</em>.&nbsp; (Wow, big word, huh?)&nbsp; When light reflects
+        off an object, ususally most of the light will go in one specific direction (rather
+        than scatter everywhere evenly).&nbsp; The result is that each object has a little
+        shine on it that comes from the light source.</p>
+    <center>
+        <img alt="Image 9.4 - Specular Light" src="dx9B9.aspx_files/dx9B9-4.PNG"><br>
+        <br>
+        Image 9.4 - Specular Light
+    </center>
+    <hr>
+    <p class="subheader">
+        Types of Light Sources</p>
+    <p>
+        In order to produce the three types of light in the correct volumes and in the correct
+        directions, there are several types of light sources, each with different properties,
+        that produce the various types of light.</p>
+    <p>
+        In order to produce the three types of light, there are several types of lights
+        (or light sources) that emanate light.&nbsp; The various types of light sources,
+        each emanating specific types and colors of light and then combined together with
+        other light sources, can produce a realistic lighting scene.&nbsp; Well, perhaps
+        not quite like the light from Image 9.1.</p>
+    <p>
+        I think the best way to thoroughly explain light sources is to describe each type
+        of light source, so here we go.&nbsp; The following are all types of light sources:</p>
+    <p>
+                1.&nbsp;Ambient Lights<br>
+                2.&nbsp;Directional Lights<br>
+                3.&nbsp;Point Lights<br>
+                4.&nbsp;Spot Lights</p>
+    <p class="subheader">
+        Ambient Lights</p>
+    <p>
+        Ambient lights do just what they say: they make ambient light.&nbsp; &nbsp;Ambient
+        lights are relatively simple.&nbsp; The only real adjustable property of an ambient
+        light is its color, as it has no specific source or direction.</p>
+    <p>
+        Usually this color is white or gray.&nbsp; The darker the gray, the darker the environment
+        seems to be.&nbsp; Using pure white ambient light is the equivalent to just not
+        using lights at all.</p>
+    <p class="subheader">
+        Directional Lights</p>
+    <p>
+        Directional lights are similar to ambient lights in that both ambient lights and
+        directional lights shine light <em>from</em> everywhere at once.&nbsp; The only
+        difference is that directional lights, as the name implies, gives light in a specifc
+        direction.</p>
+    <p>
+        In other words, you can use this light source to illuminate a specifc side of every
+        object in your 3D scene.&nbsp; Image 9.5 shows this.</p>
+    <center>
+        <img alt="Image 9.5 - Directional Light" src="dx9B9.aspx_files/dx9B9-5.PNG"><br>
+        <br>
+        Image 9.5 - Directional Light
+    </center>
+    <p>
+        As you can see, the light comes from everywhere, but only shines in one direction.&nbsp;
+        This can be used to create a sunlight effect, where the sunlight comes from one
+        broad direction.</p>
+    <p>
+        Directional lights produce ambient, diffuse and specular light.&nbsp; If you already
+        have an ambient light source in place, a directional light will produce additional
+        ambient light when it is enabled, and not produce it when it is disabled.</p>
+    <p class="subheader">
+        Point Lights</p>
+    <p>
+        Point lights are lights that have no specific direction, but instead have location,
+        and emanate light in all directions from one specific point.&nbsp; They emanate
+        ambient, diffuse and specular light.</p>
+    <center>
+        <img alt="Image 9.6 - Point Light" src="dx9B9.aspx_files/dx9B9-6.PNG"><br>
+        <br>
+        Image 9.6 - Point Light
+    </center>
+    <p>
+        Most lights in your game (as in lamps, fires, etc.) will use this type of light
+        source.</p>
+    <p class="subheader">
+        Spot Lights</p>
+    <p>
+        A spot light is a rather specialized type of light.&nbsp; It has both location <em>and</em>
+        direction, and thus produces a beam of light.&nbsp; This is
+    useful for things like
+        flashlights or vehicle headlights, and not much else.</p>
+    <center>
+        <img alt="Image 9.7 - Spot Light" src="dx9B9.aspx_files/dx9B9-7.PNG"><br>
+        <br>
+        Image 9.7 - Spot Light
+    </center>
+    <hr>
+    <p class="subheader">
+        Materials</p>
+    <p>
+        A <em>material</em> is a description of how surfaces reflect light, and which 
+        colors are involved.&nbsp; In other words, you won't necessarily see this color.&nbsp;
+        You will only see it when you shine a light on it.</p>
+    <p>
+        Of course, a good 3D game always has lights shining on its objects, so materials
+        are usually taken into consideration.</p>
+    <p>
+        Let me use a couple of pictures to explain what a material is exactly.&nbsp; Let's
+        say we have a white square.&nbsp; Let's give it a white material and illuminate
+        it with a white light.</p>
+    <center>
+        <img alt="Image 9.8 - A Wooden Square" src="dx9B9.aspx_files/dx9B9-8.GIF" width="261" height="68"><br>
+        <br>
+        Image 9.8 - A Pure White Square
+    </center>
+    <p>
+        Just what we had before, a white square.&nbsp; The surface is exactly as it would
+        have been without using lighting.&nbsp; However, let's now give the square a <em>red</em>
+        material, while keeping the white light.</p>
+    <center>
+        <img alt="Image 9.9 - A Redwood Square" src="dx9B9.aspx_files/dx9B9-9.GIF" width="261" height="68"><br>
+        <br>
+        Image 9.9 - A Pure Red Square
+    </center>
+    <p>
+        Now we have a red square.&nbsp; What happened here?&nbsp; Well, the red material
+        made the surface of the square entirely red.&nbsp; Only red light was reflect
+        off, and so the surface appeared red.&nbsp; If we shined a completely blue light
+        on this square, nothing would show up at all (because no blue reflects off).</p>
+    <p>
+        However, if we added some blue and some green into the material, we would get a
+        much more controllable color, as well as a much more realistic one.</p>
+    <center>
+        <img alt="Image 9.10 - A Better Redwood Square" src="dx9B9.aspx_files/dx9B9-10.PNG"><br>
+        <br>
+        Image 9.10 - A Reddish Square
+    </center>
+    <p>
+        This may look somewhat different to the pure red square, but by itself it's still
+        quite red.&nbsp; &nbsp;<em>Now</em> what
+        happens if we add a bluish light to the square.&nbsp; (A bluish light, not a blue
+        light.)</p>
+    <center>
+        <img alt="Image 9.11 - Purplewood?" src="dx9B9.aspx_files/dx9B9-11.PNG"><br>
+        <br>
+        Image 9.11 - Purple Square&nbsp;</center>
+    <p>
+        Purple!&nbsp; Actaully it's still reddish, but any reddish surface with a bluish
+        light on it appears purple.&nbsp;
+        Realistic.</p>
+        <p>
+        The moral of this little demonstration is to not have materials or lights that have
+        only one primary color. Use white (or gray) as much as possible. &nbsp;I know
+        we aren't up to the point of putting <em>any</em> color into lights or materials,
+        but keep that in mind.</p>
+    <p>
+        Fiddling with materials and lights is a bit like mixing paint in a room with funky lights.&nbsp;
+        All kinds of things can happen.&nbsp; The paint will even sometimes go black, even
+        though it's really a bright yellow (pure yellow paint mixed with a pure blue light).</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Vertex Normals</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    The topic I will discuss in this section is one of those topics I wish Direct3D
+    could make do without, for it can get annoying sometimes.&nbsp; The trouble is,
+    it is absolutely necessary.</p>
+    <p>
+        Consider this simple problem:</p>
+    <p>
+        Suppose you have a single, square surface which is lit from one side by a soft,
+        diffuse light.</p>
+    <center>
+        <img alt="Image 9.12 - A Diffusely Lit Square" src="dx9B9.aspx_files/dx9B9-12.PNG"><br>
+        <br>
+        Image 9.12 - A Diffusely Lit Square
+    </center>
+    <p>
+        It's a wonderful square we have, but it would be better if it rotated somewhat (stationary
+        objects always bore me):</p>
+    <center>
+        <img alt="Image 9.13 - Some Less Diffusely Lit Squares" src="dx9B9.aspx_files/dx9B9-13.PNG" width="670"><br>
+        <br>
+        Image 9.13 - Some Less Diffusely Lit Squares
+    </center>
+    <p>
+        Naturally, the farther the square tilts, the less the square will be lit. &nbsp;The
+        problem is, exactly how lit should this square of ours be as it tilts farther away
+        from the light?</p>
+    <p>
+        The answer lies in a geometrical term called a <em>normal</em>.&nbsp; A normal is
+        a vector that is perpendicular to a surface.</p>
+    <p>
+        So how is this an answer exactly?&nbsp; Take a look at this next diagram.</p>
+    <center>
+        <img alt="Image 9.14 - Sizing Up the Normals" src="dx9B9.aspx_files/dx9B9-14.PNG"><br>
+        <br>
+        Image 9.14 - Sizing Up the Normals
+    </center>
+    <p>
+        As each surface tilts farther away from the light, the normal vector becomes more
+        exposed to the light due to its 90° angle.&nbsp; Direct3D uses the angle of the
+        normal in relation to the angle of the light to determine how brightly lit the surface
+        should be.&nbsp; The less the difference in the angles, the more light there will be shining on the surface.</p>
+    <p>
+        Unfortunately, Direct3D does not determine the normal of a surface for you.&nbsp;
+        This is one of the more annoying parts about lighting.&nbsp; You must determine
+        each surface normal for yourself.&nbsp; You do this by appointing a normal vector
+        to each vertex around the surface.&nbsp; These normals are called <em>vertex normals</em>.</p>
+    <center>
+        <img alt="Image 9.15 - Vertex Normals" src="dx9B9.aspx_files/dx9B9-15.PNG"><br>
+        <br>
+        Image 9.15 - Vertex Normals
+    </center>
+    <p>
+        Each of the normals here are vectors set to (0, 1, 0), meaning they point directly
+        up.&nbsp; A normal, which is usually one unit long, tends to point away from the
+        triangle it goes to make up.&nbsp; So if this square were on its side, it might
+        be (1, 0, 0).</p>
+        <p>
+            Now, if this were a cube, it would look something like this:</p>
+        <center>
+            <img alt="Image 9.16 - A Cube with Normals" src="dx9B9.aspx_files/dx9B9-16.PNG"><br>
+            <br>
+            Image 9.16 - A Cube with Normals
+        </center>
+        <p>
+            Notice that each vertex has three normals sticking out of it.&nbsp; This is because
+            it controls the light on all three surfaces it connects to.&nbsp; Unfortunately,
+            a vertex can only have one normal.&nbsp; This means that we will need to create
+            three vertices for each corner of a cube.</p>
+        <p>
+        Ok, enough with the theory.&nbsp; Let's get this into practice.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Creating Lights</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Unfortunately, lighting is not so simple that it can be done with a single function
+                call.&nbsp; In fact, there are quite a few things to do.&nbsp; Let's list them,
+                then go over them in detail.</p>
+            <p>
+                1.&nbsp; Setting Up a New Flexible Vertex Format<br>
+                2.&nbsp; Turning the Lighting On<br>
+                3.&nbsp; Setting the Ambient Light<br>
+                4.&nbsp; Creating and Setting the Diffuse Light<br>
+                5.&nbsp; Creating and Setting the Material</p>
+            <p>
+                The first three are very simple, but the last two will require a whole function
+                to themselves.&nbsp; But let's take the first ones first.</p>
+            <hr>
+            <p class="subheader">
+                1.&nbsp; Setting Up a New Flexible Vertex Format</p>
+            <p>
+                Once again the FVF code and the vertex format will change.&nbsp; This time we are
+                going to take out the diffuse color and add a new property in: the vertex normal.&nbsp;
+                Here is the new FVF code and vertex format:</p>
+            <div class="codebox">
+                struct CUSTOMVERTEX {FLOAT X, Y, Z; <strong>D3DVECTOR NORMAL;</strong>};<br>
+                #define CUSTOMFVF (D3DFVF_XYZ | <strong>D3DFVF_NORMAL</strong>)</div>
+            <p class="subheader">
+                D3DVECTOR NORMAL;</p>
+            <p>
+                This is a new one, although it is really small and straightforward.&nbsp; Here it
+                is:</p>
+            <div class="codebox">
+                typedef struct D3DVECTOR {<br>
+                &nbsp; &nbsp; float x, y, z;<br>
+                } D3DVECTOR, *LPD3DVECTOR;</div>
+            <p>
+                One word.&nbsp; Simple.&nbsp; Once you look at the finished program, you'll see
+                how this is used when defining vertices.&nbsp; But for now let's move on.</p>
+            <hr>
+            <p class="subheader">
+                2.&nbsp; Turning the Lighting On</p>
+            <p>
+                This one is even easier.&nbsp; In fact, the function call is already there in the
+                previous lessons.&nbsp; We just
+                have to change one of its two parameters from FALSE to TRUE:</p>
+            <div class="codebox">
+                d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, <strong>TRUE</strong>);</div>
+            <hr>
+            <p class="subheader">
+                3.&nbsp; Setting the Ambient Light</p>
+            <p>
+                Perhaps this one isn't <em>quite</em> as easy as step 2, but I don't think you'll
+                mind.</p>
+            <p>
+                What this step does is make sure that your objects are visible somewhat, even if
+                no lights are shining on them directly.&nbsp; Although other lights can <em>add</em>
+                to this ambience when they are included, this step sets the amount of light that
+                will be present when <em>no</em> lights are included.</p>
+            <p>
+                This step uses the same function, SetRenderState, however the first parameter changes
+                to a different flag, D3DRS_AMBIENT.&nbsp; The second parameter is the color of the
+                ambient light.</p>
+            <div class="codebox">
+                d3ddev-&gt;SetRenderState(<strong>D3DRS_AMBIENT, D3DCOLOR_XRGB(50, 50, 50)</strong>);
+                &nbsp;&nbsp; // ambient light</div>
+            <p>
+                As metioned before, a dark gray resembles a darkish environment, whereas a lighter
+                gray (perhaps 200, 200, 200) resembles a well-lit, probably outdoor, environment.</p>
+            <hr>
+            <p class="subheader">
+                4.&nbsp; Creating and Setting the Diffuse Light</p>
+            <p>
+                This step is longer than normal.&nbsp; It's actually
+                not that bad, it's just longer.&nbsp; I'll just show it to you and then go over each
+                part of it.&nbsp; Because of the size and flexibility of this step, I'm going to
+                give it it's own function called init_light().&nbsp; Here it is:</p>
+            <div class="codebox" style="left: 0px; top: 0px;">
+                // this is the function that sets up the lights and materials<br>
+                void init_light(void)<br>
+                {<br>
+                &nbsp; &nbsp; D3DLIGHT9 light; &nbsp;&nbsp; // create the light struct<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;light, sizeof(light)); &nbsp;&nbsp; // clear out the
+                light struct for use<br>
+                &nbsp; &nbsp; light.Type = D3DLIGHT_DIRECTIONAL; &nbsp;&nbsp; // make the light
+                type 'directional
+                light'<br>
+                &nbsp; &nbsp; light.Diffuse = D3DXCOLOR(0.5f, 0.5f, 0.5f, 1.0f); &nbsp;&nbsp; //
+                set the light's color<br>
+                &nbsp; &nbsp; light.Direction = D3DXVECTOR3(-1.0f, -0.3f, -1.0f);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;SetLight(0, &amp;light); &nbsp;&nbsp; // send the light
+                struct properties to light #0<br>
+                &nbsp; &nbsp; d3ddev-&gt;LightEnable(0, TRUE); &nbsp;&nbsp; // turn on light #0<br>
+                }</div>
+            <p>
+                The comments make it pretty simple, but I will go over each of the above in detail:</p>
+            <p class="subheader">
+                D3DLIGHT9</p>
+            <p>
+                D3DLIGHT9 is a struct that contains all the information about a light, no matter
+                its type.&nbsp; In this lesson, we will cover the properties required for a directional
+                light.&nbsp; The other types will be covered in the next lesson.&nbsp; However,
+                so far we have been introduced to the following contents of the struct:</p>
+            <p class="subheader">
+                Type</p>
+            <p>
+                This one is easy.&nbsp; It consists of three flags that define each of the three
+                types of light sources (excluding the ambient light source, which we have covered
+                already).&nbsp; Table 9.1 shows the available flags for this value.</p>
+            [<a href="#still" onclick="Toggle('table9-1')" class="mainlink">Table 9.1 - light.Type Values</a>]<br>
+            <br>
+            <table id="table9-1" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 193px;">
+                        Value</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DLIGHT_DIRECTIONAL</td>
+                    <td>
+                        Creates a directional light, a light that comes from everywhere at once, but shines
+                        only in one direction.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DLIGHT_POINT</td>
+                    <td>
+                        Creates a point light, a light that emanates equally in all directions from one
+                        exact point.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DLIGHT_SPOT</td>
+                    <td>
+                        Creates a spot light, a light that emanates in one direction from one exact point.</td>
+                </tr>
+                <tr>
+                    <td>
+                        [<a class="mainlink" href="#still" onclick="Toggle('table9-1')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+            <p>
+                For this lesson, we will use D3DLIGHT_DIRECTIONAL, as the others have properties
+                not covered so far.</p>
+            <p class="subheader">
+                Diffuse</p>
+            <p>
+                This one is actually a struct in itself, which consists of four FLOATs.&nbsp; They
+                are labeled r, g, b and a.&nbsp; We can guess what they stand for.&nbsp; Red, Green,
+                Blue and Alpha.&nbsp; Easy?</p>
+            <p>
+                Up until now, you have used colors on a scale from 0 to 255.&nbsp; However, when
+                working with D3DLIGHT9, you usually use values from 0.0f to 1.0f.&nbsp; 1.0f is
+                full color and 0.0f is no color, with decimals in between.</p>
+            <p>
+                In this lesson, we have each primary color set to 0.5f and the Alpha (which is covered
+                later) to 1.0f.</p>
+            <p class="subheader">
+                Direction</p>
+            <p>
+                This value contains a D3DXVECTOR3 struct.&nbsp; This is almost the exact same struct we used for
+                the vertex normals when rebuilding the FVF code.&nbsp; The only difference
+                is that we can initialize it's values right in the same line of code.</p>
+        <p>
+            The struct contains the exact
+                direction the directional light will point in.&nbsp;
+                In our code, we set the x-direction to -1.0f, the y-direction to -0.3f and the z-direction
+                -1.0f.</p>
+            <p>
+                Now we a couple of simple functions to cover.</p>
+            <p class="subheader">
+                d3ddev-&gt;SetLight(0, &amp;light);</p>
+            <p>
+                SetLight() is a function used to tell the Direct3D device about
+                the light we are
+                building.&nbsp; This function simply takes the properties we just constructed and
+                stores them away on the graphics device.</p>
+            <p>
+                The first parameter is an arbitrary number we give to the light.&nbsp; We are giving
+                it 0.&nbsp; We could give it 42, but I find that number to be a little too philosophical.&nbsp;
+                We'll stick to 0 for now.&nbsp; It doesn't matter what it is, so long as we remember
+                it later.</p>
+            <p>
+                The second parameter is the address of the struct we built.&nbsp; We'll just put
+                '&amp;light' in this.</p>
+            <p>
+                Next function.</p>
+            <p class="subheader">
+                d3ddev-&gt;LightEnable(0, TRUE);</p>
+            <p>
+                This turns the light on.&nbsp; By default, the light is off.</p>
+            <p>
+                The first parameter is the light number.&nbsp; We used 0 before, so we'll use 0
+                here.</p>
+            <p>
+                The second parameter is the state of the light.&nbsp; TRUE for on, FALSE for off.&nbsp;
+                This function is useful if you have lights that turn on and off during the game.&nbsp;
+                However, for our example, we will just turn it on and leave it on.</p>
+            <p>
+                And that's all there is to building a directional light.&nbsp; However, there is
+                one final step to do before you run the program.</p>
+            <hr>
+            <p class="subheader">
+                5.&nbsp; Creating and Setting the Material</p>
+            <p>
+                The last thing to do before we run the program once more is to add a material.&nbsp;
+                Materials do not work in vertices like many other things do.&nbsp; What happens
+                is we set a material, and then any vertex drawn after that will be drawn with that
+                material.&nbsp; It will be drawn that way until we set a different material.</p>
+            <p>
+                Let's do this like we did the light.&nbsp; I'll give you the code, then explain
+                it.&nbsp; For this example I'm going to combine the light and the material into
+                one function, which should make things simpler.&nbsp; Here is the function now:</p>
+            <div class="codebox">
+                // this is the function that sets up the lights and materials<br>
+                void init_light(void)<br>
+                {<br>
+                &nbsp; &nbsp; D3DLIGHT9 light; &nbsp;&nbsp; // create the light struct<br>
+                <strong>&nbsp; &nbsp; D3DMATERIAL9 material; &nbsp;&nbsp; // create the material struct</strong><br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;light, sizeof(light)); &nbsp;&nbsp; // clear
+                out the light struct for use<br>
+                &nbsp; &nbsp; light.Type = D3DLIGHT_DIRECTIONAL; &nbsp;&nbsp; // make the light
+                type 'directional light'<br>
+                &nbsp; &nbsp; light.Diffuse = D3DXCOLOR(0.5f, 0.5f, 0.5f, 1.0f); &nbsp;&nbsp; //
+                set the light's color<br>
+                &nbsp; &nbsp; light.Direction = D3DXVECTOR3(-1.0f, -0.3f, -1.0f);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;SetLight(0, &amp;light); &nbsp;&nbsp; // send the light
+                struct properties to light #0<br>
+                &nbsp; &nbsp; d3ddev-&gt;LightEnable(0, TRUE); &nbsp;&nbsp; // turn on light #0<br>
+                <br>
+                <strong>&nbsp; &nbsp; ZeroMemory(&amp;material, sizeof(D3DMATERIAL9)); &nbsp;&nbsp;
+                    // clear out the struct for use<br>
+                    &nbsp; &nbsp; material.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f); &nbsp;&nbsp;
+                    // set diffuse color to white<br>
+                    &nbsp; &nbsp; material.Ambient = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f); &nbsp;&nbsp;
+                    // set ambient color to white<br>
+                    <br>
+                    &nbsp; &nbsp; d3ddev-&gt;SetMaterial(&amp;material); &nbsp;&nbsp; // set the globably-used
+                    material to &amp;material</strong><br>
+                }</div>
+            <p>
+                Let's go over the new players:</p>
+            <p class="subheader">
+                D3DMATERIAL9</p>
+            <p>
+                This is a very simple struct, which contains color structs for each type of lighting.&nbsp;
+                What I mean by color struct is a struct that consists of r, g, b and a, just like
+                in light.Diffuse.&nbsp; In our D3DMATERIAL9 struct, we use two structs:</p>
+            <p class="subheader">
+                material.Diffuse</p>
+            <p>
+                This sets the color of diffuse light that will reflect off the surfaces rendered.&nbsp;
+                <em>The color put in here only has an effect on diffuse light.</em>&nbsp; No other
+                type.</p>
+            <p>
+                For simplicity (and realism) we will set all the diffuse values of this material
+                to 1.0f.</p>
+            <p class="subheader">
+                material.Ambient</p>
+            <p>
+                Because we also have ambient light in our scene, we will need to include a material
+                color for that type of lighting as well.&nbsp; We will set these values to 1.0f,
+                just as in diffuse.</p>
+            <p class="subheader">
+                d3ddev-&gt;SetMaterial(&amp;material);</p>
+            <p>
+                This is the function that sets the material.&nbsp; It's only parameter is simply
+                the address of the struct we put together.</p>
+            <hr>
+            <p>
+                And that really is all there is to a basic light.&nbsp; Let's
+                try it out and make it into a finished program.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                    The Finished Program</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                In this lesson we're going to use the traditional cube.&nbsp; 
+                As usual, I've taken the code from the last lesson and made the changes in <strong>bold.</strong>&nbsp;
+                        Notice that the vertex and index buffers are both changed.</p>
+            <p>
+                [<a class="mainlink" href="#still" onclick="Toggle('lessonprog')">Show Code</a>]</p>
+            <div id="lessonprog" class="codebox" style="display: none; left: 0px; top: 0px;">
+                // include the basic windows header files and the Direct3D header file<br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                #include &lt;d3d9.h&gt;<br>
+                #include &lt;d3dx9.h&gt;<br>
+                <br>
+                // define the screen resolution<br>
+                #define SCREEN_WIDTH 800<br>
+                #define SCREEN_HEIGHT 600<br>
+                <br>
+                // include the Direct3D Library files<br>
+                #pragma comment (lib, "d3d9.lib")<br>
+                #pragma comment (lib, "d3dx9.lib")<br>
+                <br>
+                // global declarations<br>
+                LPDIRECT3D9 d3d;<br>
+                LPDIRECT3DDEVICE9 d3ddev;<br>
+                LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL;<br>
+                LPDIRECT3DINDEXBUFFER9 i_buffer = NULL;<br>
+                <br>
+                // function prototypes<br>
+                void initD3D(HWND hWnd);<br>
+                void render_frame(void);<br>
+                void cleanD3D(void);<br>
+                void init_graphics(void);<br>
+                <strong>void init_light(void); &nbsp;&nbsp; // sets up the light and the material</strong><br>
+                <br>
+                struct CUSTOMVERTEX {FLOAT X, Y, Z; <strong>D3DVECTOR NORMAL;</strong>};<br>
+                #define CUSTOMFVF (D3DFVF_XYZ | <strong>D3DFVF_NORMAL</strong>)<br>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);<br>
+                <br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+                {<br>
+                &nbsp; &nbsp; HWND hWnd;<br>
+                &nbsp; &nbsp; WNDCLASSEX wc;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+                <br>
+                &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+                &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+                &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+                &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+                &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+                &nbsp; &nbsp; wc.lpszClassName = L"WindowClass";<br>
+                <br>
+                &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+                <br>
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL, L"WindowClass", L"Our Direct3D Program",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WS_OVERLAPPEDWINDOW, 0, 0, 
+SCREEN_WIDTH, SCREEN_HEIGHT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NULL, NULL, hInstance, NULL);<br>
+                <br>
+                &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+                <br>
+                &nbsp; &nbsp; // set up and initialize Direct3D<br>
+                &nbsp; &nbsp; initD3D(hWnd);<br>
+                <br>
+                &nbsp; &nbsp; // enter the main loop:<br>
+                <br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; while(TRUE)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; render_frame();<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; // clean up DirectX and COM<br>
+                &nbsp; &nbsp; cleanD3D();<br>
+                <br>
+                &nbsp; &nbsp; return msg.wParam;<br>
+                }<br>
+                <br>
+                <br>
+                // this is the main message handler for the program<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+                {<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+                }<br>
+                <br>
+                <br>
+                // this function initializes and prepares Direct3D for use<br>
+                void initD3D(HWND hWnd)<br>
+                {<br>
+                &nbsp; &nbsp; d3d = Direct3DCreate9(D3D_SDK_VERSION);<br>
+                <br>
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp));<br>
+                &nbsp; &nbsp; d3dpp.Windowed = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;<br>
+                &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferWidth = SCREEN_WIDTH;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferHeight = SCREEN_HEIGHT;<br>
+                &nbsp; &nbsp; d3dpp.EnableAutoDepthStencil = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.AutoDepthStencilFormat = D3DFMT_D16;<br>
+                <br>
+                &nbsp; &nbsp; // create a device class using this information and the info from
+                the d3dpp stuct<br>
+                &nbsp; &nbsp; d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D3DDEVTYPE_HAL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; D3DCREATE_SOFTWARE_VERTEXPROCESSING,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3dpp,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3ddev);<br>
+                <br>
+                &nbsp; &nbsp; init_graphics(); &nbsp; &nbsp;// call the function to initialize the cube<br>
+                <strong>&nbsp; &nbsp; init_light(); &nbsp;&nbsp; // call the function to initialize the light and material</strong><br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, <strong>TRUE</strong>);
+                &nbsp; &nbsp;// turn on the 3D lighting<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_ZENABLE, TRUE); &nbsp;&nbsp; // turn on the z-buffer<br>
+                <strong>&nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_AMBIENT, D3DCOLOR_XRGB(50, 50, 50)); &nbsp;&nbsp; // ambient light</strong><br>
+                }<br>
+                <br>
+                <br>
+                // this is the function used to render a single frame<br>
+                void render_frame(void)<br>
+                {<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0), 1.0f, 0);<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 0), 1.0f, 0);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;BeginScene();<br>
+                <br>
+                &nbsp; &nbsp; // select which vertex format we are using<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetFVF(CUSTOMFVF);<br>
+                <br>
+                &nbsp; &nbsp; // set the view transform<br>
+                &nbsp; &nbsp; D3DXMATRIX matView;<br>
+                &nbsp; &nbsp; D3DXMatrixLookAtLH(&amp;matView,<br>
+                &nbsp; &nbsp; &amp;D3DXVECTOR3 (0.0f, 8.0f, 25.0f), &nbsp; &nbsp;// the camera position<br>
+                &nbsp; &nbsp; &amp;D3DXVECTOR3 (0.0f, 0.0f, 0.0f), &nbsp; &nbsp; &nbsp;// the look-at
+                position<br>
+                &nbsp; &nbsp; &amp;D3DXVECTOR3 (0.0f, 1.0f, 0.0f)); &nbsp; &nbsp;// the up direction<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_VIEW, &amp;matView);<br>
+                <br>
+                &nbsp; &nbsp; // set the projection transform<br>
+                &nbsp; &nbsp; D3DXMATRIX matProjection;<br>
+                &nbsp; &nbsp; D3DXMatrixPerspectiveFovLH(&amp;matProjection,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; D3DXToRadian(45),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 
+(FLOAT)SCREEN_WIDTH / (FLOAT)SCREEN_HEIGHT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 1.0f, 
+&nbsp;&nbsp; // the near view-plane<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; 100.0f); &nbsp; 
+&nbsp;// the far view-plane<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_PROJECTION, &amp;matProjection);<br>
+                <br>
+                &nbsp; &nbsp; // set the world transform<br>
+                &nbsp; &nbsp; static float index = 0.0f; index+=0.03f;<br>
+                &nbsp; &nbsp; D3DXMATRIX matRotateY;<br>
+                &nbsp; &nbsp; D3DXMatrixRotationY(&amp;matRotateY, index);<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;(matRotateY));<br>
+                <br>
+                &nbsp; &nbsp; // select the vertex and index buffers to use<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetIndices(i_buffer);<br>
+                <br>
+                &nbsp; &nbsp; // draw the cube<br>
+                &nbsp; &nbsp; d3ddev-&gt;DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, <strong>24</strong>,
+                0, 12);&nbsp;<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;EndScene();&nbsp;<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL);<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that cleans up Direct3D and COM<br>
+                void cleanD3D(void)<br>
+                {<br>
+                &nbsp; &nbsp; v_buffer-&gt;Release();<br>
+                &nbsp; &nbsp; i_buffer-&gt;Release();<br>
+                &nbsp; &nbsp; d3ddev-&gt;Release();<br>
+                &nbsp; &nbsp; d3d-&gt;Release();<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that puts the 3D models into video RAM<br>
+                void init_graphics(void)<br>
+                {<br>
+                &nbsp; &nbsp; // create the vertices using the CUSTOMVERTEX struct<br>
+                &nbsp; &nbsp; CUSTOMVERTEX vertices[] =<br>
+                &nbsp; &nbsp; {<br>
+                <strong>&nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f, 0.0f, 0.0f, 1.0f, }, &nbsp;&nbsp;
+                    // side 1<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f, 0.0f, 0.0f, 1.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f, 0.0f, 0.0f, 1.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f, 0.0f, 0.0f, 1.0f, },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, -3.0f, 0.0f, 0.0f, -1.0f, }, &nbsp;&nbsp;
+                    // side 2<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, -3.0f, 0.0f, 0.0f, -1.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, -3.0f, 0.0f, 0.0f, -1.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, -3.0f, 0.0f, 0.0f, -1.0f, },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, -3.0f, 0.0f, 1.0f, 0.0f, }, &nbsp;&nbsp;
+                    // side 3<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f, 0.0f, 1.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, -3.0f, 0.0f, 1.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f, 0.0f, 1.0f, 0.0f, },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, -3.0f, 0.0f, -1.0f, 0.0f, }, &nbsp;&nbsp;
+                    // side 4<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, -3.0f, 0.0f, -1.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f, 0.0f, -1.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f, 0.0f, -1.0f, 0.0f, },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, -3.0f, 1.0f, 0.0f, 0.0f, }, &nbsp;&nbsp;
+                    // side 5<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, -3.0f, 1.0f, 0.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f, 1.0f, 0.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f, 1.0f, 0.0f, 0.0f, },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, -3.0f, -1.0f, 0.0f, 0.0f, }, &nbsp;&nbsp;
+                    // side 6<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f, -1.0f, 0.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, -3.0f, -1.0f, 0.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f, -1.0f, 0.0f, 0.0f, },</strong><br>
+                &nbsp; &nbsp; };<br>
+                <br>
+                &nbsp; &nbsp; // create a vertex buffer interface called v_buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;CreateVertexBuffer(<strong>24</strong>*sizeof(CUSTOMVERTEX),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; CUSTOMFVF,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; &amp;v_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; VOID* pVoid; &nbsp;&nbsp; // a void pointer<br>
+                <br>
+                &nbsp; &nbsp; // lock v_buffer and load the vertices into it<br>
+                &nbsp; &nbsp; v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                &nbsp; &nbsp; memcpy(pVoid, vertices, sizeof(vertices));<br>
+                &nbsp; &nbsp; v_buffer-&gt;Unlock();<br>
+                <br>
+                &nbsp; &nbsp; // create the indices using an int array<br>
+                &nbsp; &nbsp; short indices[] =<br>
+                &nbsp; &nbsp; {<br>
+                <strong>
+                &nbsp; &nbsp; &nbsp; &nbsp; 0, 1, 2, &nbsp;&nbsp; // side 1<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 2, 1, 3,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 4, 5, 6, &nbsp;&nbsp; // side 2<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 6, 5, 7,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 8, 9, 10, &nbsp;&nbsp; // side 3<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 10, 9, 11,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 12, 13, 14, &nbsp;&nbsp; // side 4<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 14, 13, 15,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 16, 17, 18, &nbsp;&nbsp; // side 5<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 18, 17, 19,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                20, 21, 22, &nbsp;&nbsp; // side 6<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 22, 21, 23,</strong><br>
+                &nbsp; &nbsp; };<br>
+                <br>
+                &nbsp; &nbsp; // create an index buffer interface called i_buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;CreateIndexBuffer(36*sizeof(short),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; D3DFMT_INDEX16,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &amp;i_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; // lock i_buffer and load the indices into it<br>
+                &nbsp; &nbsp; i_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                &nbsp; &nbsp; memcpy(pVoid, indices, sizeof(indices));<br>
+                &nbsp; &nbsp; i_buffer-&gt;Unlock();<br>
+                }<br>
+                <br>
+                <br>
+                <span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);"><strong>// this is the function
+                    that sets up the lights and materials<br>
+                </strong></span><span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);"><strong>void
+                    init_light(void)<br>
+                </strong></span><strong><span>{<br>
+                    &nbsp; &nbsp; D3DLIGHT9 light; &nbsp;&nbsp; // create the light struct<br>
+                </span>&nbsp; &nbsp; D3DMATERIAL9 material; &nbsp;&nbsp; // create the material struct<br>
+                    <br>
+                </strong><span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);"><strong>&nbsp; &nbsp;
+                    ZeroMemory(&amp;light, sizeof(light)); &nbsp;&nbsp; // clear out the light struct
+                    for use<br>
+                </strong></span><span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);"><strong>&nbsp;
+                    &nbsp; light.Type = D3DLIGHT_DIRECTIONAL; &nbsp;&nbsp; // make the light type 'directional
+                    light'<br>
+                </strong></span><span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);"><strong>&nbsp;
+                    &nbsp; light.Diffuse = D3DXCOLOR(0.5f, 0.5f, 0.5f, 1.0f); &nbsp;&nbsp; // set the
+                    light's color<br>
+                </strong></span><span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);"><strong>&nbsp;
+                    &nbsp; light.Direction = D3DXVECTOR3(-1.0f, -0.3f, -1.0f);<br>
+                    <br>
+                </strong></span><strong><span>&nbsp; &nbsp; d3ddev-&gt;SetLight(0, &amp;light); &nbsp;&nbsp;
+                    // send the light struct properties to light #0<br>
+                    &nbsp; &nbsp; d3ddev-&gt;LightEnable(0, TRUE); &nbsp;&nbsp; // turn on light #0<br>
+                    <br>
+                </span>&nbsp; &nbsp; ZeroMemory(&amp;material, sizeof(D3DMATERIAL9)); &nbsp;&nbsp; //
+                    clear out the struct for use<br>
+                    &nbsp; &nbsp; material.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f); &nbsp;&nbsp;
+                    // set diffuse color to white<br>
+                    &nbsp; &nbsp; material.Ambient = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f); &nbsp;&nbsp;
+                    // set ambient color to white<br>
+                    <br>
+                    &nbsp; &nbsp; d3ddev-&gt;SetMaterial(&amp;material); &nbsp;&nbsp; // set the globably-used
+                    material to &amp;material<br>
+                    <span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);">}</span></strong></div>
+            <p>
+                If you run this code, you should get something like this.</p>
+            <center>
+                <img alt="Image 9.17 - A Lit Cube" src="dx9B9.aspx_files/dx9B9-17.PNG"><br><br>
+                Image 9.17 - A Lit Cube</center>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                Summary</div>
+        <div class="maintext" style="position: relative;">
+            <p>
+                Lighting is a very important part of 3D game programming.&nbsp; Without it, worlds
+                just look fake.&nbsp; Lighting helps to bring the realism out and make it a more
+                enjoyable experience.</p>
+            <p>
+                Although you have learned the very basics of lighting, there is much, much more
+                to the subject.&nbsp; We have more types of lighting and light sources to learn
+                about.&nbsp; These will be covered next, and it will become easier.&nbsp; In the meantime, I suggest these
+                exercises:</p>
+            <p>
+                1.&nbsp; Make the cube red, but have it look realistic under colored lighting.<br>
+                2.&nbsp; Make two directional-lights, giving an extra effect.<br>
+                3. &nbsp;&nbsp;Try toggling the light and see what happens.<br>
+                4.&nbsp; Have the direction of the light rotate in a circle.<br>
+                5.&nbsp; If you dare, recreate the Hypercraft from Lesson 7, complete with vertex
+                normals!<br>
+                6.&nbsp; As an experiment, try scaling an object with light on it.&nbsp; It will
+                produce an odd effect.</p>
+            <p>
+                Once you're done, it's time to move onward.&nbsp; DirectX has only begun!</p>
+            <center>
+                <p>
+                    Next Lesson:&nbsp; More on Lighting</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B10.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Help make DirectX Tutorial better.  Give your <a class="feedlink" href="javascript:RunFeedback(29)">feedback</a>.</p>
+            </center>
+
+        </div>
+        
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B9.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

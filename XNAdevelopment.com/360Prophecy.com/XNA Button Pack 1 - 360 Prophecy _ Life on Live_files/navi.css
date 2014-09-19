@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+
+#navitable {
+	position:absolute;
+	left: 75px;
+	top: 90px;
+	width:122px;
+	height:171px;
+}
+
+#navi101 {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:122px;
+	height:23px;
+}
+
+#navi202 {
+	position:absolute;
+	left:0px;
+	top:23px;
+	width:122px;
+	height:14px;
+}
+
+#navi303 {
+	position:absolute;
+	left:0px;
+	top:37px;
+	width:71px;
+	height:23px;
+}
+
+#navi404 {
+	position:absolute;
+	left:71px;
+	top:37px;
+	width:51px;
+	height:67px;
+}
+
+#navi505 {
+	position:absolute;
+	left:0px;
+	top:60px;
+	width:71px;
+	height:11px;
+}
+
+#navi606 {
+	position:absolute;
+	left:0px;
+	top:71px;
+	width:71px;
+	height:26px;
+}
+
+#navi707 {
+	position:absolute;
+	left:0px;
+	top:97px;
+	width:71px;
+	height:7px;
+}
+
+#navi808 {
+	position:absolute;
+	left:0px;
+	top:104px;
+	width:122px;
+	height:30px;
+}
+
+#navi909 {
+	position:absolute;
+	left:0px;
+	top:134px;
+	width:122px;
+	height:7px;
+}
+
+#navi1010 {
+	position:absolute;
+	left:0px;
+	top:141px;
+	width:86px;
+	height:30px;
+}
+
+#navi1111 {
+	position:absolute;
+	left:86px;
+	top:141px;
+	width:36px;
+	height:30px;
+}

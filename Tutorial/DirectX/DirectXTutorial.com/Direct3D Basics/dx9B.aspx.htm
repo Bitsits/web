@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Tutorial
+</title><link href="dx9B.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+        Direct3D Basics</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A4.aspx">Previous</a></div>
+            <!--div class="prevbar"><a class="mainlink" href="../A-Win32/dx9A5.aspx">Previous</a></div-->
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B1.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+        Prerequisite</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Before you can do this tutorial, you will need the following:</p>
+            <p>
+                1.&nbsp; Visual Studio 2005 (or Visual C++ 2005 Express Edition)*.<br>
+                2.&nbsp; A knowledge of basic C++ and Win32 programming.<br>
+                3.&nbsp; DirectX SDK (February 2005 or later)<br>
+                4.&nbsp; A burning desire to make games.</p>
+            <p style="font-size: 10px;">
+                * - other versions of C++ compilers will also run DirectX, however, there are some
+                language specific changes you may need to make in each of the demo applications.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B1.aspx">Lesson 1:&nbsp; Getting Started with Direct3D</a></div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    In this first DirectX lesson we will go over how to build a basic Direct3D application.&nbsp;
+    We will also cover a couple of theoretical concepts underlying DirectX which are
+    useful to know.&nbsp; Don't worry, nothing too theoretical.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B2.aspx">Lesson 2:&nbsp; Going Fullscreen</a></div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Imagine only being able to play Half-Life 2 or Halo in a 400x400 pixel window.&nbsp;
+    Kinda lame?&nbsp; I thought so myself.&nbsp; In this lesson we will modify our Direct3D
+    program to be in Fullscreen mode.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B3.aspx">Lesson 3:&nbsp; An Overview of the Third Dimension</a></div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    More important than knowing the code of Direct3D is having a very fundamental understanding
+    of 3D and how it works.&nbsp; This lesson will go briefly over 3D coordinate systems,
+    how 3D models are constructed, lighting, color and more.&nbsp; If you already know
+    these things, I recommed you go over this to make sure there isn't anything else
+    you might learn.&nbsp; Otherwise, you should do this lesson in full.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B4.aspx">Lesson 4:&nbsp; Drawing a Triangle</a></div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Triangles do not make the world go round.&nbsp; They <em>are</em> the world.&nbsp;
+    Because triangles can be combined to form pretty much any shape known to man, games
+    tend to be made out of triangles.&nbsp; In this lesson we will learn how to draw
+    a simple triangle and color it.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B5.aspx">Lesson 5:&nbsp; Transforming Vertices</a></div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    So far, our triangle does nothing.&nbsp; It sits still, and even if 
+you got it to
+    move, it wasn't in 3D.&nbsp; You made a boring, flat triangle.&nbsp;
+ Now let's bring
+    this triangle to life by transforming it into a 3D triangle, 
+rotating it, moving it around, and even scaling it to a different size.</p>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+            <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B6.aspx">Lesson 6:&nbsp; Rendering Depth</a></div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Now our triangle can rotate, can be resized and can move.&nbsp; Our camera can zoom,
+    pan, and change direction.&nbsp; We've got everything set to go.&nbsp; However,
+    there is one problem that must be solved before we go too far...</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B7.aspx">Lesson 7:&nbsp; Simple Modeling</a></div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    We're getting pretty good with triangles, but triangles by themselves are no fun.&nbsp;
+    Let's learn how to make simple shapes out of triangles, and transform each shape
+    as a whole.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B9.aspx">Lesson 8:&nbsp; Rendering with Vertex Lighting</a></div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    In the previous lessons we have turned lighting off for simplicity.&nbsp; However,
+    no lights in a 3D world makes everything look fake.&nbsp; Lights add good effects
+    to your game, even if they are as simple as day and night.&nbsp; This lesson will
+    cover the basics of lighting and show how to make a simple light.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B10.aspx">Lesson 9:&nbsp; More on Lighting</a></div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    There is more to lighting than a simple Directional Light.&nbsp; This lesson covers
+    more types of lights you can use.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B11.aspx">Lesson 10:&nbsp; Blending Colors for Special Effects</a></div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Sometimes you wish to have objects be see-through.&nbsp; This includes windows,
+    glass objects, clouds, and much more.&nbsp; These effects are achieved by blending
+    colors together, the color of what you are drawing and what is in the background.&nbsp;
+    This lesson will cover how to do simple color blending.</p>
+        </div>
+        
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

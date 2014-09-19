@@ -1,0 +1,630 @@
+@charset "utf-8";
+/*  
+Theme Name: 360Pseven
+Theme URI: http://360prophecy.com/
+Description: Seven
+Version: 1.0
+Author: Jeff Jenkins
+Author URI: http://sinnix.net/
+
+I need to increase the number of characters in this file because there is a stupid, rediculous bug in Dreamweaver.  This had better work.
+*/ 
+
+
+
+body {
+	background-color: #2a2e33;
+	background-image: url(images/background_tile.jpg);
+	background-repeat: repeat-x;
+	margin: 0px;
+	padding: 0px;
+}
+
+img {
+	border: none;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+
+#shadow-maker {
+	width: 900px;
+	background-image: url(images/shadow.png);
+	background-repeat: repeat-y;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+}
+
+.alignleft {
+	float: left;
+}
+
+.alignright {
+	float: right;
+	margin: 5px 0 5px 5px;
+}
+
+#navi {
+	width: 175px;
+	margin: 0 0 0 20px;
+	padding: 100px 0 0 0;
+	float: left;
+}
+
+#gamercard-lite {
+	float: right;
+	display: block;
+	font-family:Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	margin: 30px 30px 0 0;
+	line-height: 14px;
+}
+
+.gamertag-name {
+	font-size: 24px;
+}
+
+.gamertag-score {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+#king {
+	/* Holds all content. */
+	width: 860px;
+	border-left: 1px solid #191e22;
+	border-right: 1px solid #191e22;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+}
+
+#header {
+	width: 860px;
+	height: 341px;
+	background-image: url(images/header_background5.jpg);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+}
+
+#content-wrapper {
+	width: 860px;
+	background-image: url(images/background_content_tile.jpg);
+	background-repeat: repeat-y;
+	margin: 0px;
+	padding: 0px;
+}
+
+#content {
+	width: 860px;
+	min-height: 555px;
+	background-image:url(images/background_content_reflection2.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+}
+
+#footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #aaafb4;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#footer a {
+	color: #d7dee4;
+	text-decoration: none;
+}
+
+#footer a:hover {
+	color: #d7dee4;
+	text-decoration: none;
+}
+
+#index-post {
+	width: 545px;
+	padding: 0;
+	margin: 0 0 0 22px;
+	position: relative;
+	top: -8px;
+	float: left;
+	z-index: 10;
+}
+
+#index-post-top {
+	width: 505px;
+	height: 80px;
+	position: relative;
+	background-image: url(images/post-background-top.png);
+	background-repeat: no-repeat;
+	padding: 17px 20px 0px 24px;
+	margin: 0;
+	z-index: 20;
+}
+
+#index-post-body {
+	width: 505px;
+	min-height: 100px;
+	background-image: url(images/post-background-body.png);
+	background-repeat: repeat-y;
+	padding: 1px 20px 1px 20px;
+	margin: 0;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #272e36;
+	line-height: 18px;
+	position: relative;
+	z-index: 5;
+}
+
+#index-post-body a {
+	color: #cd1414;
+	text-decoration: none;
+}
+
+#index-post-body a:hover {
+	color: #ef2525;
+	text-decoration: none;
+}
+
+#index-post-body li {
+	line-height: 20px;
+	margin: 0 0 15px 0;
+}
+
+#index-post-title {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	color: #fff;
+	text-decoration: none;
+}
+
+#index-post-title a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#index-post-title a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+#index-post-meta {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #fff;
+}
+
+#index-post-meta a {
+	color: #fff;
+	text-decoration: underline;
+}
+
+#index-post-meta a:hover {
+	color: #1664be;
+	text-decoration: underline;
+}
+
+#index-post-foot {
+	width: 525px;
+	height: 20px;
+	background-image: url(images/post-background-foot.png);
+	background-repeat: no-repeat;
+	padding: 0px 10px 0px 10px;
+	margin: 0 0 10px 0;
+}
+
+.navigation {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #272e36;
+	position: relative;
+	top: -6px;
+	z-index: 75;
+}
+
+.navigation a {
+	color: #272e36;
+	text-decoration: none;
+}
+
+.navigation a:hover {
+	color: #1664be;
+	text-decoration: none;
+}
+
+#twitter {
+	width: 384px;
+	height: 73px;
+	background-image:url(images/twitter_bubble.png);
+	background-repeat: no-repeat;
+	margin: 2px 0 0 37px;
+	padding: 6px 10px 10px 6px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #ffffff;
+	float: left;
+	position: absolute;
+	top: -70px;
+	display: inline;
+	z-index: 100;
+}
+
+#twitter a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+#twitter a:hover {
+	text-decoration: underline;
+}
+
+#index-column {
+	width: 272px;
+	float: right;
+	margin: 10px 10px 0 0;
+	padding: 0px;
+}
+
+#Xbox-link {
+	width: 272px;
+	height: 118px;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+#game-access {
+	width: 272px;
+	height: 217px;
+	margin: 0 0 1px 0;
+	padding: 0 0 0 0;
+}
+
+#minicomic-spot2 {
+	width: 272px;
+	height: 130px;
+	background-image: url(images/comic-back.png);
+	background-repeat: no-repeat;
+	margin: 0 0 3px 0;
+	padding: 0 0 0 0;
+}
+
+#flickr-mini {
+	width: 272px;
+	height: 98px;
+	background-image: url(images/flickr-back.png);
+	background-repeat: no-repeat;
+	margin: 0px 0 0 0;
+	padding: 0 0 0 0;
+}
+
+#search {
+	margin: 0px 0px 2px 0px;
+}
+
+#searchform{
+	margin:0px 0px 0px 0px; 
+	padding: 0; 
+	height: 36px; 
+	background: none; 
+}
+
+#searchform .search-box {
+	background: url(images/search-field2.png) no-repeat; 
+	color:#fff; 
+	font: normal 11px Arial, sans-serif; 
+	border:none;
+	width: 272px; 
+	height: 36px; 
+	padding: 10px 0 0 35px; 
+	margin: 0;
+}
+
+#index-posts-recent {
+	width: 247px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #ffffff;
+	padding: 0px;
+	margin: 18px 0 0 18px;
+}
+
+#index-posts-recent a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+#index-posts-recent a:hover {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+.index-post-recent-date {
+	color: #285252;
+	font-weight: bold;
+}
+
+
+#comments-main {
+	width: 505px;
+	margin: 30px 0 0 0;
+	list-style: none;
+}
+
+h3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #272e36;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+#comments-main input {
+	border: 1px solid #56606a;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #272e36;
+	width: 200px;
+}
+
+
+#comments-main textarea{
+	width: 500px;
+	border: 1px solid #56606a;
+}
+
+#commentlist ol {
+	list-style: none;
+}
+
+.commentlist li {
+	width: 500px;
+	list-style: none;
+	padding: 5px;
+	margin: 5px 0 0 0;
+	min-height: 70px;
+	position: relative;
+	left: -40px;
+	background-color: #c8d4db;
+}
+
+.alt {
+	background-color: #f8f8f8;
+}
+
+.commentlist li .avatar { 
+	float: left;
+	padding: 1px;
+	margin: 0px;
+}
+	
+.comment-author {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 14px;
+	text-decoration: none;
+	color: #75a0ba;
+}
+
+.comment-author a {
+	color: #75a0ba;
+}
+
+.commentmetadata {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #9ea9b0;
+	text-decoration: none;
+	display: block;
+	float: right;
+}
+
+.commentmetadata a {
+	text-decoration: none;
+	color: #CCCCCC;
+}
+
+.commentmetadata a:hover {
+	text-decoration: underline;
+	color: #CCCCCC;
+}
+
+small {
+	color: #6093b2;
+}
+
+small a {
+	color: #6093b2;
+	text-decoration: none;
+}
+
+/*EXTENDED COMMENTS */
+
+.comment-top {
+	background-image: url(images/comment-top.jpg);
+	background-repeat: no-repeat;
+	width: 425px;
+	height: 29px;
+}
+
+.comment-author-position {
+	position: absolute; 
+	left: 26px; 
+	top: 10px;
+	font-size: 18px;
+}
+
+.comment-author-position a {
+	color: #6093b2;
+}
+
+.comment-content {
+	background-color: #c8d4db;
+	border: 1px solid #c8d4db;
+	margin-left: 17px;
+	width: 406px;
+	min-height: 20px;
+}
+
+.comment-content-position {
+	width: 388px;
+	margin-left: 10px;
+}
+
+.comment-bottom {
+	background-image: url(images/comment-bottom.jpg);
+	background-repeat: no-repeat;
+	width: 425px;
+	height: 24px;
+}
+
+#gravatar-notice {
+	width: 485px;
+	height: 90px;
+	margin: 5px;
+	padding: 5px;
+	border: 1px solid #0c75b6;
+	font-size: 11px;
+	color: #0c75b6;
+}
+
+/* Captions */
+.aligncenter, div.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption {
+	border: 1px solid #ddd;
+	text-align: center;
+	background-color: #f3f3f3;
+	padding-top: 4px;
+	margin: 10px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 1px solid #ddd;
+}
+
+.wp-caption p.wp-caption-text {
+	font-size: 11px;
+	line-height: 17px;
+	padding: 0 4px 5px;
+	margin: 0;
+	color: #272e36;
+}
+/* End captions */
+
+/* Comics Template */
+
+#master-comic {
+	width: 783px;
+	margin: 0 0 0 37px;
+	padding: 0 0 0 0;
+	position: relative;
+	top: -7px;
+}
+
+#show-comic {
+	background-image: url(images/comic-background.png);
+	background-repeat: repeat-y;
+	min-height: 200px;
+	width: 783px;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+#comic-navigation {
+	position: absolute;
+	top: -23px;
+	left: 320px;
+	height: 31px;
+	width: 141px;
+}
+
+/* Page Template */
+
+#page-body {
+	background-image: url(images/comic-background.png);
+	background-repeat: repeat-y;
+	min-height: 200px;
+	width: 783px;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+#page-content {
+	border: 1px solid white;
+	width: 740px;
+	margin-left: 10px;
+	padding: 0 10px 0 10px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #272e36;
+	line-height: 18px;
+}
+
+#page-content a {
+	color: #cd1414;
+	text-decoration: none;
+}
+
+#page-content a:hover {
+	color: #cd1414;
+	text-decoration: none;
+}
+
+h2 {
+	margin: 0 0 2px 0;
+}	
+
+p {
+	margin: 0 0 15px 0;
+}
+
+.download-item {
+	width: 600px;
+	height: 80px;
+	margin: 0 0 10px 60px;
+	padding: 10px;
+	border: 1px solid #cccccc;
+}
+
+.download-image {
+	float: left;
+	margin-right: 10px;
+}
+
+#feedburner-subscribe {
+	margin: 10px 0 0 40px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+#feedburner-subscribe a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#feedburner-subscribe a:hover {
+	text-decoration: underline;
+}
+
+blockquote {
+	padding: 5px;
+	border-left: 1px solid #0099CC;
+}
+
+.feedburnerFeedBlock li{
+	list-style: none;
+	margin: 0;
+}

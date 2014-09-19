@@ -1,0 +1,576 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head profile="http://gmpg.org/xfn/11">
+
+<!--
+	generated in 0.385 seconds
+	43647 bytes batcached for 300 seconds
+-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>How to use XnaContent XML Files « Jim 2.5's Blog</title>
+<link rel="stylesheet" href="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/style.css" type="text/css" media="screen">
+<link rel="alternate" type="application/rss+xml" title="Jim 2.5's Blog RSS Feed" href="http://jamesewelch.wordpress.com/feed/">
+<link rel="pingback" href="http://jamesewelch.wordpress.com/xmlrpc.php">
+<meta name="google-site-verification" content="4fabSEIMFbT2HUL79b-USstBSl6NozvVyGbH77xH2yI">
+<link rel="alternate" type="application/rss+xml" title="Jim 2.5's Blog » How to use XnaContent XML&nbsp;Files Comments Feed" href="http://jamesewelch.wordpress.com/2008/04/17/how-to-use-xnacontent-xml-files/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="stylesheet" href="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/global.css" type="text/css">
+<script type="text/javascript" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/comment-reply.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://jamesewelch.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://jamesewelch.wordpress.com/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Jim 2.5's Blog" href="http://jamesewelch.wordpress.com/">
+<link rel="prev" title="Power Toys that I can’t live&nbsp;without" href="http://jamesewelch.wordpress.com/2008/04/15/power-toys-that-i-cant-live-without/">
+<link rel="next" title="Monday’s Moment of Programming Enlightenment – Part&nbsp;2" href="http://jamesewelch.wordpress.com/2008/04/21/mondays-moment-of-programming-enlightenment-part-2/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="http://jamesewelch.wordpress.com/2008/04/17/how-to-use-xnacontent-xml-files/">
+<link rel="shortlink" href="http://wp.me/p6aI0-2U">
+<link rel="shortcut icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/15b689380744551585294b901f5707af?s=16" sizes="16x16">
+<link rel="icon" type="image/x-icon" href="http://1.gravatar.com/blavatar/15b689380744551585294b901f5707af?s=16" sizes="16x16">
+<link rel="apple-touch-icon" href="http://1.gravatar.com/blavatar/90b8d318ca4e59b2a173329fec700de8?s=158">
+	<style type="text/css">
+	/* <![CDATA[ */
+				div#likes { margin-top: 15px; }
+		.like-button { border: 1px solid #eee; padding: 2px 6px; font-size: 13px; font-family: arial, tahoma, sans-serif; }
+		#wpl-likebox { clear: left; font-size: 11px; font-family: arial, tahoma, verdana, sans-serif !important; min-height: 30px; margin: 10px 0 !important; padding: 5px 0 10px 0 !important; }
+		#wpl-button { float: left; background: url( /i/buttonbg.png ) top left repeat-x; margin-right: 7px; border: 1px solid #d4d4d4; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+		#wpl-button a { color: #666 !important; line-height: 130% !important; text-decoration: none !important; outline: none; float: left; padding: 3px 6px 2px 24px !important; font-size: 11px !important; background: url( /i/likestar.png ) 6px 49.8% no-repeat; }
+		#wpl-button.liked { background: #feffce; border: 1px solid #f3e389; }
+		#wpl-button.liked a { color: #ba871b !important; }
+		#wpl-likebox #wpl-count { min-height: 25px; line-height: 130% !important; float: left; padding-top: 4px; }
+		#wpl-likebox #wpl-avatars { clear: left; max-height: 98px; overflow: hidden; margin-top: 15px; line-height: 130% !important; }
+		#wpl-likebox #wpl-avatars img { border: none !important; }
+	/* ]]> */
+	</style>
+	<link rel="openid.server" href="http://jamesewelch.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://jamesewelch.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://jamesewelch.wordpress.com/osd.xml" title="Jim 2.5's Blog">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+<style type="text/css">
+#headerimage {
+	background: url('http://jamesewelch.files.wordpress.com/2008/11/header31.png') no-repeat;
+}
+</style>
+<meta name="application-name" content="Jim 2.5's Blog"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Technology, programming, politics, and commentaries"><meta name="msapplication-task" content="name=Subscribe;action-uri=http://jamesewelch.wordpress.com/feed/;icon-uri=http://1.gravatar.com/blavatar/15b689380744551585294b901f5707af?s=16"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><script type="text/javascript"> 
+	window.google_analytics_uacct = "UA-52447-2"; 
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/ga.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/services.css"></head><body id="section-index">
+
+
+<div id="navigation" class="clearfix">
+		<div class="menu">
+		<ul>
+			<li><a href="http://jamesewelch.wordpress.com/" title="Home">Home</a></li>
+			<li class="page_item page-item-92"><a href="http://jamesewelch.wordpress.com/contact/" title="Contact">Contact</a></li>
+<li class="page_item page-item-13"><a href="http://jamesewelch.wordpress.com/programming-links/" title="Links &amp;&nbsp;Resources">Links &amp;&nbsp;Resources</a></li>
+									<li class="search"><form method="get" id="searchform" action="http://jamesewelch.wordpress.com"><input class="textbox" name="s" id="s" type="text"><input id="searchsubmit" value="Search" type="submit"></form></li>
+					</ul>	
+	</div>
+</div><!-- end id:navigation -->
+
+<div id="container">
+
+
+<div id="header">
+<h1><a href="http://jamesewelch.wordpress.com/" title="Jim 2.5's Blog">Jim 2.5's Blog</a></h1>
+<h2>Technology, programming, politics, and commentaries</h2>
+</div><!-- end id:header -->
+
+
+<div id="feedarea">
+<dl>
+	<dt><strong>Feeds:</strong></dt>
+	<dd><a href="http://jamesewelch.wordpress.com/feed/">Posts</a></dd>
+	<dd><a href="http://jamesewelch.wordpress.com/comments/feed/">Comments</a></dd>
+</dl>
+</div><!-- end id:feedarea -->
+
+	<div id="headerimage">
+</div><!-- end id:headerimage -->
+<div id="content">
+<div id="content-main">
+		
+						
+			<div class="post-180 post type-post hentry category-net category-game-development category-programming category-technology tag-net tag-game-development tag-programming tag-technology tag-xml tag-xna" id="post-180">
+				<div class="posttitle">
+					<h2>How to use XnaContent XML&nbsp;Files</h2>
+					<p class="post-info">April 17, 2008 by <a href="http://jamesewelch.wordpress.com/author/jamesewelch/" title="Posts by Jim">Jim</a>  </p>
+				</div>
+				
+				<div class="entry">
+					<script type="text/javascript" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/adsense.js"></script><p>There’s
+a couple methods to working with XML documents in the XNA games. First,
+you can just serialize and deserialize your class files at run-time. </p>
+<h3>Why use XML files for game development?</h3>
+<p>By saving data outside of your executable, you can keep your data
+and code separate. With external data, you can make updates to the
+files without needing to write more code. You can also easily update
+and maintain the files without rebuilding your projects.</p>
+<h3>What’s the difference between using XnaContent and Serialization methods?</h3>
+<h5>Run-time vs. Design-time Validation</h5>
+<p>The biggest difference between the two methods, is that using
+XnaContent XML files allow you to catch errors when you build your
+project rather than getting XML errors at run-time. </p>
+<p>Of course, you could build XSD documents to validate your serialized
+class files or just trust that however the files were created, that
+they were created correctly.</p>
+<h5>XNB vs. XML</h5>
+<p>The second difference is that the XnaContent XML documents will be
+converted and compressed to XNB format and your serialized files will
+still be XML documents. </p>
+<p><span id="more-180"></span></p>
+<h3>Okay, let’s get coding</h3>
+<p>First, if you prefer instructions on how to do this by experts, then you should download the <a href="http://creators.xna.com/Headlines/tutorialscol1/archive/2007/06/28/Authoring-Particle-Systems-Using-XML-and-the-Content-Pipeline.aspx" target="_blank">Authoring Particle Systems Using XML and the Content Pipeline</a> tutorial from XNA.com.</p>
+<p>Another good read is the “<a href="http://www.ziggyware.com/readarticle.php?article_id=150" target="_blank">Introduction to XNA XML Content Files in XNA Game Studio 2.0</a>” article written by <a href="http://go2.wordpress.com/?id=725X1342&amp;site=jamesewelch.wordpress.com&amp;url=http%3A%2F%2Fnick.gravelyn.com%2Fcode&amp;sref=http%3A%2F%2Fjamesewelch.wordpress.com%2F2008%2F04%2F17%2Fhow-to-use-xnacontent-xml-files%2F" target="_blank">Nick Gravelyn</a>.</p>
+<h5>Step 1: Our Content class (Content Pipeline Project)</h5>
+<p>First, let’s define what we will be loading. In this example, I’m
+going to code a XnaContent document to store some settings for when I
+render a planet. Right now, I only need three things: the planet name,
+the asset name for the heightmap, and the asset name for the skydome.</p>
+<p>In your Content Pipeline project, create a new class and let’s call it PlanetSurfaceMapData. We will define it as such:</p>
+<pre><span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">class</span> <span style="color: rgb(43, 145, 175);">PlanetSurfaceMapContent
+</span>{
+    <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">string</span> TerrainAssetName;
+    <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">string</span> SkyAssetName;
+    <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">string</span> Name;
+}</pre>
+<h5>Step 2: Our ContentTypeWriter class (Content Pipeline Project)</h5>
+<p>Next, let’s start on our ContentTypeWriter. Right click in your
+Solution Explorer and choose “Add-&gt;New Item…”. Choose “Content Type
+Writer” from the list of templates.&nbsp; This template fills out
+nearly everything that we need for our writer, but we’ll need to update
+a few parts.</p>
+<p>In the section that says “<font size="2"></font><font face="Courier New"></font><font color="#0000ff">using</font> <font color="#2b91af">TWrite</font> =”, let’s update it to reference our new <span style="color: rgb(43, 145, 175);">PlanetSurfaceMapContent </span>class. You’ll need to fill out the full class name with namespace here.</p>
+<p>Next, let’s move down into the Write method. We need to write the
+three values from our XnaContent XML document to the XNB format, so
+let’s update the function to look like this:</p>
+<pre><span style="color: rgb(0, 0, 255);">protected</span> <span style="color: rgb(0, 0, 255);">override</span> <span style="color: rgb(0, 0, 255);">void</span> Write(<span style="color: rgb(43, 145, 175);">ContentWriter</span> output, <span style="color: rgb(43, 145, 175);">TWrite</span> value)
+{
+    output.Write(value.Name);
+    output.Write(value.TerrainAssetName);
+    output.Write(value.SkyAssetName);
+}</pre>
+<p>Finally, we need to update the GetRuntimeReader to reference the class that we’ll be building in the next step. </p>
+<h5>Step 4: Our Data class (Game Library Project)</h5>
+<p>This class will be a copy of the <span style="color: rgb(43, 145, 175);">PlanetSurfaceMapContent </span>class that we’ll name <span style="color: rgb(43, 145, 175);">PlanetSurfaceMapData </span>.
+This part is probably wrong by me, but it’s how I’ve been doing it.
+This class is the receiver of the content and you could probably add to
+this data class to have more than just the fields, such as methods,
+etc. </p>
+<p>I separate the two classes into Data (run-time) and Content
+(design-time) classes so I can have just the fields in the Content
+class and the Data class to be treated like any normal class within my
+game.</p>
+<p>Don’t forget to update your namespaces if you copy the file. Also,
+if you copy the file, you’ll need to add a GetRuntimeType method to the
+ContentTypeWriter to specify this Data class as it’s runtime class. </p>
+<h5>Step 5: Our ContentTypeReader class (Game Library Project)</h5>
+<p>To start, let’s use the built-in template to generate some of the
+code for us. Right click on your Solution Explorer, choose “Add-&gt;New
+Item..” and then choose the “Content Type Reader” template.</p>
+<p>Update the “<font size="2"></font><font face="Courier New"></font><font color="#0000ff">using</font> <font color="#2b91af">TRead</font> =” statement to reference our <span style="color: rgb(43, 145, 175);">PlanetSurfaceMapData </span>class.</p>
+<p>In the Read function, let’s create a new instance and then read in the data.</p>
+<pre><span style="color: rgb(0, 0, 255);">protected</span> <span style="color: rgb(0, 0, 255);">override</span> <span style="color: rgb(43, 145, 175);">TRead</span> Read(<span style="color: rgb(43, 145, 175);">ContentReader</span> input, <span style="color: rgb(43, 145, 175);">TRead</span> existingInstance)
+{
+    existingInstance = <span style="color: rgb(0, 0, 255);">new</span> <span style="color: rgb(43, 145, 175);">TRead</span>();
+    existingInstance.Name = input.ReadString();
+    existingInstance.TerrainAssetName = input.ReadString();
+    existingInstance.SkyAssetName = input.ReadString();
+    <span style="color: rgb(0, 0, 255);">return</span> existingInstance;
+}</pre>
+<p>Almost done…</p>
+<h5>Step 6: Making our XnaContent XML Document</h5>
+<p>There’s two ways to make your first document. If the file is just
+simple data such as string and numbers, then you can probably figure it
+out. However, if your Content class contains complex data, then you can
+use the intermediate serializer.</p>
+<p>The intermediate serializer will create a XnaContent file for your
+data. Here’s an example of it. You can even use this as part of your
+game/scene editor to generate XnaContent documents from your classes at
+run-time. (However, this creates XML documents not XNB documents).</p>
+<p>Here’s the example code (from the above XNA sample link) modified to work with my classes:</p>
+<pre><span style="color: rgb(0, 0, 255);">using</span> System.Xml;
+<span style="color: rgb(0, 0, 255);">using</span> Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
+
+<span style="color: rgb(0, 0, 255);">namespace</span> MyXmlCreatorTest
+{
+    <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">static</span> <span style="color: rgb(0, 0, 255);">class</span> <span style="color: rgb(43, 145, 175);">Program
+</span>    {
+        <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">static</span> <span style="color: rgb(0, 0, 255);">void</span> Main()
+        {
+            <span style="color: rgb(0, 0, 255);">object</span> testPlanet = <span style="color: rgb(0, 0, 255);">new</span> PlanetSurfaceContent();
+            <span style="color: rgb(43, 145, 175);">XmlWriterSettings</span> xmlSettings = <span style="color: rgb(0, 0, 255);">new</span> <span style="color: rgb(43, 145, 175);">XmlWriterSettings</span>();
+            xmlSettings.Indent = <span style="color: rgb(0, 0, 255);">true</span>;
+
+            <span style="color: rgb(0, 0, 255);">using</span> (<span style="color: rgb(43, 145, 175);">XmlWriter</span> xmlWriter = <span style="color: rgb(43, 145, 175);">XmlWriter</span>.Create(<span style="color: rgb(163, 21, 21);">"test.xml"</span>, xmlSettings))
+            {
+                IntermediateSerializer.Serialize(xmlWriter, testPlanet, <span style="color: rgb(0, 0, 255);">null</span>);
+            }
+        }
+    }
+}</pre>
+<p>Or, you can just do it by hand, by right clicking on your Solution
+Explorer of your Game’s Content project and choose “Add-&gt;New Item…”
+and choose “XML File”. This will create a template XnaContent XML
+document that we can fill out.</p>
+<p>The important things to remember is that you need to provide the
+full class name as the Asset Type value. Within the &lt;Asset&gt; node,
+you can define each field by enclosing the field name as an XmlElement
+and the value within the element tags.</p>
+<p>Below is a example of my XnaContent XML document:</p>
+<pre><span style="color: rgb(0, 0, 255);">&lt;?</span><span style="color: rgb(163, 21, 21);">xml</span><span style="color: rgb(0, 0, 255);"> </span><span style="color: rgb(255, 0, 0);">version</span><span style="color: rgb(0, 0, 255);">=</span>"<span style="color: rgb(0, 0, 255);">1.0</span>"<span style="color: rgb(0, 0, 255);"> </span><span style="color: rgb(255, 0, 0);">encoding</span><span style="color: rgb(0, 0, 255);">=</span>"<span style="color: rgb(0, 0, 255);">utf-8</span>"<span style="color: rgb(0, 0, 255);"> ?&gt;
+&lt;</span><span style="color: rgb(163, 21, 21);">XnaContent</span><span style="color: rgb(0, 0, 255);">&gt;
+  &lt;</span><span style="color: rgb(163, 21, 21);">Asset</span><span style="color: rgb(0, 0, 255);"> </span><span style="color: rgb(255, 0, 0);">Type</span><span style="color: rgb(0, 0, 255);">=</span>"<span style="color: rgb(0, 0, 255);">GameEngine.ContentPipeline.PlanetSurface.PlanetSurfaceMapContent</span>"<span style="color: rgb(0, 0, 255);">&gt;
+    &lt;</span><span style="color: rgb(163, 21, 21);">TerrainAssetName</span><span style="color: rgb(0, 0, 255);">&gt;</span>Models\\Heightmaps\\DemoMap2\\heightmap<span style="color: rgb(0, 0, 255);">&lt;/</span><span style="color: rgb(163, 21, 21);">TerrainAssetName</span><span style="color: rgb(0, 0, 255);">&gt;
+    &lt;</span><span style="color: rgb(163, 21, 21);">SkyAssetName</span><span style="color: rgb(0, 0, 255);">&gt;</span>Models\\Skys\\Space<span style="color: rgb(0, 0, 255);">&lt;/</span><span style="color: rgb(163, 21, 21);">SkyAssetName</span><span style="color: rgb(0, 0, 255);">&gt;
+    &lt;</span><span style="color: rgb(163, 21, 21);">Name</span><span style="color: rgb(0, 0, 255);">&gt;</span>Test Planet<span style="color: rgb(0, 0, 255);">&lt;/</span><span style="color: rgb(163, 21, 21);">Name</span><span style="color: rgb(0, 0, 255);">&gt;
+  &lt;/</span><span style="color: rgb(163, 21, 21);">Asset</span><span style="color: rgb(0, 0, 255);">&gt;
+&lt;/</span><span style="color: rgb(163, 21, 21);">XnaContent</span><span style="color: rgb(0, 0, 255);">&gt;</span></pre>
+<h5>Step 7: Finally, we get to the game code</h5>
+<p>After all that, we’re almost done. Now we can load the class using the Content Manager.</p>
+<pre><span style="color: rgb(43, 145, 175);">PlanetSurfaceMapData</span> currentSceneData = </pre>
+<pre>   contentManager.Load&lt;<span style="color: rgb(43, 145, 175);">PlanetSurfaceMapData</span>&gt;(<span style="color: rgb(163, 21, 21);">@"Xml\Planets\TestPlanet"</span>);</pre>
+<p>&nbsp;</p>
+<p>That’s it. Here’s my planet data loaded into my Scene Editor.</p>
+<p><img src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/xna-xnacontent-screenshot.jpg" alt="Scene Editor using XnaContent XML document to load settings" class="alignnone size-medium wp-image-179" width="300" height="225"></p>
+<p>&nbsp;</p>
+<div class="wlWriterSmartContent" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:1fcd49ac-4027-4152-93f5-0945f4a63c2b" style="margin: 0pt; padding: 0pt; display: inline;">My Related Posts: <a href="http://jamesewelch.wordpress.com/tag/Technology" rel="tag">Technology</a>, <a href="http://jamesewelch.wordpress.com/tag/Programming" rel="tag">Programming</a>, <a href="http://jamesewelch.wordpress.com/tag/.NET" rel="tag">.NET</a>, <a href="http://jamesewelch.wordpress.com/tag/Game-Development" rel="tag">Game Development</a>, <a href="http://jamesewelch.wordpress.com/tag/XNA" rel="tag">XNA</a>, <a href="http://jamesewelch.wordpress.com/tag/XML" rel="tag">XML</a></div>
+
+<!--adcode-->
+<div style="padding-top: 5px; text-align: left;" class="adcode" align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-3443918307802676";
+google_ad_output = "js";
+google_feedback = "on";
+google_max_num_ads = "4";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_format = "336x280_as";
+google_image_size = "336x280";
+google_ad_type = "text,flash,html";
+google_ad_channel ="7770228814+7128664342+9378541030+7401333398+7453468586+2794543176";
+var color_bg = 'ffffff';
+var color_text = '000000';
+var color_link = '265E15';
+var color_border = 'ffffff';
+var color_url = '265E15';
+
+google_analytics_domain_name = "wordpress.com";
+//--></script>
+<script type="text/javascript" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/show_ads.js"></script><script src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><script language="JavaScript1.1" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/ads"></script><div style="margin-top: 15px;"><a href="http://www.google.com/url?ct=abg&amp;q=https://www.google.com/adsense/support/bin/request.py%3Fcontact%3Dabg_afc%26url%3Dhttp://jamesewelch.wordpress.com/2008/04/17/how-to-use-xnacontent-xml-files/%26hl%3Den%26client%3Dca-pub-3443918307802676%26adU%3Dveryant.com%26adT%3DCOBOL-to-Java%26gl%3DIN&amp;usg=AFQjCNHTcCEgw3NQBhXFDG2-7j4d1ALKVg" style="border-bottom: medium none; text-decoration: none;">Ads by Google</a><br><div style="margin: auto; display: block; float: left; padding-right: 10px; font-size: 130%;"><a href="s-p:%20Go%20to%20veryant.com" onclick="advert_cookie(); window.location='http://googleads.g.doubleclick.net/aclk?sa=l&amp;ai=B9JgCxNGxTJmjO4ejcPfQtKEPtOqCrAHU9aPrDcCNtwGw1DIQARgBIKTunwY4AFDuquGL-_____8BYOWq6YPkDrIBGWphbWVzZXdlbGNoLndvcmRwcmVzcy5jb226AQozMzZ4MjgwX2pzyAEB2gFMaHR0cDovL2phbWVzZXdlbGNoLndvcmRwcmVzcy5jb20vMjAwOC8wNC8xNy9ob3ctdG8tdXNlLXhuYWNvbnRlbnQteG1sLWZpbGVzL4ACAagDAegDlQjoAx_oA94F9QMIAADE&amp;num=1&amp;sig=AGiWqtyi7n-j04BiX4KoCCORStbcbODhlg&amp;client=ca-pub-3443918307802676&amp;adurl=http://www.veryant.com/cobol/'; return false;"><span class="gad-head" style="font-size: 1.2em; font-weight: bold;">COBOL-to-Java</span></a><br><span style="">Develop in COBOL, deploy anywhere protect investments and lower TCO<br></span><a href="s-p:%20Go%20to%20veryant.com" onclick="advert_cookie(); window.location='http://googleads.g.doubleclick.net/aclk?sa=l&amp;ai=B9JgCxNGxTJmjO4ejcPfQtKEPtOqCrAHU9aPrDcCNtwGw1DIQARgBIKTunwY4AFDuquGL-_____8BYOWq6YPkDrIBGWphbWVzZXdlbGNoLndvcmRwcmVzcy5jb226AQozMzZ4MjgwX2pzyAEB2gFMaHR0cDovL2phbWVzZXdlbGNoLndvcmRwcmVzcy5jb20vMjAwOC8wNC8xNy9ob3ctdG8tdXNlLXhuYWNvbnRlbnQteG1sLWZpbGVzL4ACAagDAegDlQjoAx_oA94F9QMIAADE&amp;num=1&amp;sig=AGiWqtyi7n-j04BiX4KoCCORStbcbODhlg&amp;client=ca-pub-3443918307802676&amp;adurl=http://www.veryant.com/cobol/'; return false;">veryant.com</a></div><br clear="all"><br clear="all"></div>
+</div>
+<div style="clear: both;"><br></div>
+<!--/adcode-->
+									</div>
+		
+				<p class="postmetadata">Posted in <a href="http://en.wordpress.com/tag/net/" title="View all posts in .NET" rel="category tag">.NET</a>, <a href="http://en.wordpress.com/tag/game-development/" title="View all posts in Game Development" rel="category tag">Game Development</a>, <a href="http://en.wordpress.com/tag/programming/" title="View all posts in Programming" rel="category tag">Programming</a>, <a href="http://en.wordpress.com/tag/technology/" title="View all posts in Technology" rel="category tag">Technology</a> | Tagged <a href="http://en.wordpress.com/tag/net/" rel="tag">.NET</a>, <a href="http://en.wordpress.com/tag/game-development/" rel="tag">Game Development</a>, <a href="http://en.wordpress.com/tag/programming/" rel="tag">Programming</a>, <a href="http://en.wordpress.com/tag/technology/" rel="tag">Technology</a>, <a href="http://en.wordpress.com/tag/xml/" rel="tag">XML</a>, <a href="http://en.wordpress.com/tag/xna/" rel="tag">XNA</a> | Leave a Comment</p>
+				
+<!-- You can start editing here. -->
+
+<div class="post-content">
+<p>
+	<span class="commentsfeed"><a href="http://jamesewelch.wordpress.com/2008/04/17/how-to-use-xnacontent-xml-files/feed/">Comments RSS</a></span>
+</p>
+</div>
+
+
+<div id="respond">
+
+<h3>Leave a Reply</h3>
+
+<div class="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="http://jamesewelch.wordpress.com/2008/04/17/how-to-use-xnacontent-xml-files/#respond" style="display: none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://jamesewelch.wordpress.com/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input class="textbox" name="author" id="author" size="22" tabindex="1" type="text">
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input class="textbox" name="email" id="email" size="22" tabindex="2" type="text">
+<label for="email"><small>E-mail (required)</small></label></p>
+
+<p><input class="textbox" name="url" id="url" size="22" tabindex="3" type="text">
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: &lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;pre&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" id="submit" tabindex="5" value="Submit Comment" type="submit">
+<input name="comment_post_ID" value="180" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p>
+
+<input name="genseq" value="1286721975" type="hidden">
+<p><input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe">Notify me of follow-up comments via email.</label></p><p><input name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto;" tabindex="7" type="checkbox"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of site updates</label></p><input name="sub-type" value="comment-form-text4" type="hidden">
+</form>
+
+
+</div>
+
+			</div>
+	
+		
+		<p align="center"></p>
+		
+	</div><!-- end id:content-main -->
+<div id="sidebar">
+<ul>
+<li class="sidebox"><h2>Post Categories</h2>		<ul>
+			<li class="cat-item cat-item-384"><a href="http://jamesewelch.wordpress.com/category/entertainment/" title="View all posts filed under Entertainment">Entertainment</a> (52)
+<ul class="children">
+	<li class="cat-item cat-item-178"><a href="http://jamesewelch.wordpress.com/category/entertainment/books/" title="View all posts filed under Books">Books</a> (9)
+</li>
+	<li class="cat-item cat-item-8444615"><a href="http://jamesewelch.wordpress.com/category/entertainment/comics-entertainment/" title="View all posts filed under Comics">Comics</a> (11)
+</li>
+	<li class="cat-item cat-item-52576"><a href="http://jamesewelch.wordpress.com/category/entertainment/food-and-wine/" title="View all posts filed under Food and Wine">Food and Wine</a> (5)
+</li>
+	<li class="cat-item cat-item-1256"><a href="http://jamesewelch.wordpress.com/category/entertainment/gaming/" title="View all posts filed under Gaming">Gaming</a> (17)
+</li>
+	<li class="cat-item cat-item-376"><a href="http://jamesewelch.wordpress.com/category/entertainment/humor/" title="View all posts filed under Humor">Humor</a> (5)
+</li>
+	<li class="cat-item cat-item-106593"><a href="http://jamesewelch.wordpress.com/category/entertainment/movies-and-films/" title="View all posts filed under Movies and Films">Movies and Films</a> (21)
+</li>
+	<li class="cat-item cat-item-18"><a href="http://jamesewelch.wordpress.com/category/entertainment/music/" title="View all posts filed under Music">Music</a> (4)
+</li>
+	<li class="cat-item cat-item-459"><a href="http://jamesewelch.wordpress.com/category/entertainment/television/" title="View all posts filed under Television">Television</a> (3)
+</li>
+	<li class="cat-item cat-item-5386"><a href="http://jamesewelch.wordpress.com/category/entertainment/theatre/" title="View all posts filed under Theatre">Theatre</a> (1)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-278"><a href="http://jamesewelch.wordpress.com/category/lifestyle/" title="View all posts filed under Lifestyle">Lifestyle</a> (21)
+<ul class="children">
+	<li class="cat-item cat-item-66887"><a href="http://jamesewelch.wordpress.com/category/lifestyle/art-and-photography/" title="View all posts filed under Art and Photography">Art and Photography</a> (4)
+</li>
+	<li class="cat-item cat-item-6045701"><a href="http://jamesewelch.wordpress.com/category/lifestyle/blogging-lifestyle/" title="View all posts filed under Blogging">Blogging</a> (6)
+</li>
+	<li class="cat-item cat-item-1868"><a href="http://jamesewelch.wordpress.com/category/lifestyle/philosophy/" title="View all posts filed under Philosophy">Philosophy</a> (4)
+</li>
+	<li class="cat-item cat-item-200"><a href="http://jamesewelch.wordpress.com/category/lifestyle/travel/" title="View all posts filed under Travel">Travel</a> (3)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-105"><a href="http://jamesewelch.wordpress.com/category/news-and-politics/" title="News and Politics">News and Politics</a> (60)
+<ul class="children">
+	<li class="cat-item cat-item-44150"><a href="http://jamesewelch.wordpress.com/category/news-and-politics/us-news/" title="View all posts filed under U.S. News">U.S. News</a> (5)
+	<ul class="children">
+	<li class="cat-item cat-item-2289001"><a href="http://jamesewelch.wordpress.com/category/news-and-politics/us-news/california-news/" title="View all posts filed under California News">California News</a> (3)
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-30647"><a href="http://jamesewelch.wordpress.com/category/news-and-politics/us-politics/" title="National Politics">U.S. Politics</a> (51)
+	<ul class="children">
+	<li class="cat-item cat-item-206867"><a href="http://jamesewelch.wordpress.com/category/news-and-politics/us-politics/california-politics/" title="California State Politics">California Politics</a> (40)
+		<ul class="children">
+	<li class="cat-item cat-item-3981148"><a href="http://jamesewelch.wordpress.com/category/news-and-politics/us-politics/california-politics/san-diego-politics/" title="Local new, city, county, etc.">San Diego Politics</a> (18)
+</li>
+		</ul>
+</li>
+	</ul>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-67"><a href="http://jamesewelch.wordpress.com/category/sports/" title="View all posts filed under Sports">Sports</a> (1)
+<ul class="children">
+	<li class="cat-item cat-item-1869356"><a href="http://jamesewelch.wordpress.com/category/sports/baseball-sports/" title="View all posts filed under Baseball">Baseball</a> (1)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://jamesewelch.wordpress.com/category/technology/" title="View all posts filed under Technology">Technology</a> (113)
+<ul class="children">
+	<li class="cat-item cat-item-475"><a href="http://jamesewelch.wordpress.com/category/technology/database/" title="View all posts filed under Database">Database</a> (15)
+</li>
+	<li class="cat-item cat-item-37903"><a href="http://jamesewelch.wordpress.com/category/technology/gis/" title="View all posts filed under GIS">GIS</a> (3)
+	<ul class="children">
+	<li class="cat-item cat-item-1133"><a href="http://jamesewelch.wordpress.com/category/technology/gis/maps/" title="View all posts filed under Maps">Maps</a> (1)
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-196"><a href="http://jamesewelch.wordpress.com/category/technology/programming/" title="View all posts filed under Programming">Programming</a> (91)
+	<ul class="children">
+	<li class="cat-item cat-item-2427"><a href="http://jamesewelch.wordpress.com/category/technology/programming/net/" title="View all posts filed under .NET">.NET</a> (47)
+</li>
+	<li class="cat-item cat-item-12157"><a href="http://jamesewelch.wordpress.com/category/technology/programming/game-development/" title="View all posts filed under Game Development">Game Development</a> (7)
+</li>
+	<li class="cat-item cat-item-178521"><a href="http://jamesewelch.wordpress.com/category/technology/programming/regular-expression/" title="View all posts filed under Regular Expression">Regular Expression</a> (3)
+</li>
+	<li class="cat-item cat-item-6180603"><a href="http://jamesewelch.wordpress.com/category/technology/programming/series-programming-enlightenment/" title="View all posts filed under Series: Programming Enlightenment">Series: Programming Enlightenment</a> (4)
+</li>
+	<li class="cat-item cat-item-3882"><a href="http://jamesewelch.wordpress.com/category/technology/programming/unit-testing/" title="View all posts filed under Unit Testing">Unit Testing</a> (2)
+</li>
+	<li class="cat-item cat-item-168"><a href="http://jamesewelch.wordpress.com/category/technology/programming/web-design/" title="View all posts filed under Web Design">Web Design</a> (9)
+</li>
+	<li class="cat-item cat-item-2358"><a href="http://jamesewelch.wordpress.com/category/technology/programming/web-services/" title="View all posts filed under Web Services">Web Services</a> (4)
+</li>
+	<li class="cat-item cat-item-649"><a href="http://jamesewelch.wordpress.com/category/technology/programming/web-standards/" title="View all posts filed under Web Standards">Web Standards</a> (5)
+</li>
+	</ul>
+</li>
+	<li class="cat-item cat-item-581"><a href="http://jamesewelch.wordpress.com/category/technology/software/" title="View all posts filed under Software">Software</a> (26)
+</li>
+</ul>
+</li>
+		</ul>
+</li><li class="sidebox"><h2>Post Archives</h2>		<ul>
+			<li><a href="http://jamesewelch.wordpress.com/2010/09/" title="September 2010">September 2010</a>&nbsp;(3)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2010/07/" title="July 2010">July 2010</a>&nbsp;(4)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2010/06/" title="June 2010">June 2010</a>&nbsp;(2)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2010/05/" title="May 2010">May 2010</a>&nbsp;(1)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2009/09/" title="September 2009">September 2009</a>&nbsp;(2)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2009/08/" title="August 2009">August 2009</a>&nbsp;(2)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2009/07/" title="July 2009">July 2009</a>&nbsp;(3)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2009/06/" title="June 2009">June 2009</a>&nbsp;(4)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2009/05/" title="May 2009">May 2009</a>&nbsp;(3)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2009/04/" title="April 2009">April 2009</a>&nbsp;(4)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2009/02/" title="February 2009">February 2009</a>&nbsp;(5)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2009/01/" title="January 2009">January 2009</a>&nbsp;(4)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/12/" title="December 2008">December 2008</a>&nbsp;(18)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/11/" title="November 2008">November 2008</a>&nbsp;(9)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/10/" title="October 2008">October 2008</a>&nbsp;(22)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/09/" title="September 2008">September 2008</a>&nbsp;(8)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/08/" title="August 2008">August 2008</a>&nbsp;(9)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/07/" title="July 2008">July 2008</a>&nbsp;(8)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/06/" title="June 2008">June 2008</a>&nbsp;(7)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/05/" title="May 2008">May 2008</a>&nbsp;(7)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/04/" title="April 2008">April 2008</a>&nbsp;(14)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/03/" title="March 2008">March 2008</a>&nbsp;(11)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/02/" title="February 2008">February 2008</a>&nbsp;(8)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2008/01/" title="January 2008">January 2008</a>&nbsp;(5)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2007/12/" title="December 2007">December 2007</a>&nbsp;(7)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2007/11/" title="November 2007">November 2007</a>&nbsp;(11)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2007/10/" title="October 2007">October 2007</a>&nbsp;(14)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2007/09/" title="September 2007">September 2007</a>&nbsp;(12)</li>
+	<li><a href="http://jamesewelch.wordpress.com/2007/08/" title="August 2007">August 2007</a>&nbsp;(18)</li>
+		</ul>
+</li>		<li class="sidebox">		<h2>Recent Posts</h2>		<ul>
+				<li><a href="http://jamesewelch.wordpress.com/2010/09/30/troubleshooting-internal-error-in-the-net-runtime/" title="Troubleshooting Internal Error in the .NET&nbsp;Runtime">Troubleshooting Internal Error in the .NET&nbsp;Runtime</a></li>
+				<li><a href="http://jamesewelch.wordpress.com/2010/09/28/troubleshooting-http-401-1-errors-called-from-localhost/" title="Troubleshooting HTTP 401.1 errors called from&nbsp;localhost">Troubleshooting HTTP 401.1 errors called from&nbsp;localhost</a></li>
+				<li><a href="http://jamesewelch.wordpress.com/2010/09/02/wcf-error-an-error-occurred-when-verifying-security-for-the-message/" title="WCF Error: An error occurred when verifying security for the&nbsp;message">WCF Error: An error occurred when verifying security for the&nbsp;message</a></li>
+				<li><a href="http://jamesewelch.wordpress.com/2010/07/27/comic-con-2010/" title="Comic Con&nbsp;2010">Comic Con&nbsp;2010</a></li>
+				<li><a href="http://jamesewelch.wordpress.com/2010/07/15/which-direction-is-better-for-sorting-multi-column-list-items/" title="Which direction is better for sorting multi-column list&nbsp;items?">Which direction is better for sorting multi-column list&nbsp;items?</a></li>
+				</ul>
+		</li>		<li class="sidebox">			<h2>Top Posts</h2>			<ul><li><a href="http://jamesewelch.wordpress.com/2008/05/01/how-to-write-a-dos-batch-file-to-loop-through-files/">How to write a DOS batch file to loop through files</a></li><li><a href="http://jamesewelch.wordpress.com/2008/03/07/how-to-load-a-google-sketchup-model-into-a-xna-game/">How to load a Google SketchUp model into a XNA game</a></li><li><a href="http://jamesewelch.wordpress.com/2008/09/12/how-to-verify-your-voter-registration-register-to-vote-or-request-absentee-ballot-online/">How to verify your voter registration, register to vote, or request absentee ballot online</a></li><li><a href="http://jamesewelch.wordpress.com/2008/04/17/how-to-use-xnacontent-xml-files/">How to use XnaContent XML Files</a></li><li><a href="http://jamesewelch.wordpress.com/2008/02/28/how-to-create-a-heightmap-and-skydome-using-terragen-for-xna/">How to create a heightmap and skydome using Terragen for XNA</a></li></ul>		</li><li class="sidebox"><h2>Blog Information</h2>			<div class="textwidget"><h4>Creative Commons License</h4>
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">
+<img alt="Creative Commons License" style="border-width: 0pt;" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/88x31.png">
+</a>
+<br>
+<span>Jim 2.0</span> is licensed under a 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.
+</p>
+
+<h4>Disclaimer</h4>
+<p>
+The opinions expressed herein are my own personal opinions and do not
+represent my employer's, family's, friends', acquaintances', or
+reader's view in anyway, form, or shape. Void where prohibited. Some
+assembly required. Batteries not included. YMMV.
+</p><!-- ukey="3731965A" --></div>
+		</li></ul>
+</div><!-- end id:sidebar -->
+</div><!-- end id:content -->
+</div><!-- end id:container -->
+<div id="footer">
+<p><a href="http://wordpress.com/" rel="generator">Blog at WordPress.com</a>.</p>
+<p>Theme: Mistylook by <a href="http://wpthemes.info/" rel="designer">Sadish</a>.</p>
+<br class="clear">
+</div><!-- end id:footer -->
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>
+<script type="text/javascript" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/wordpress.js"></script>
+<script type="text/javascript">
+var skimlinks_pub_id = "725X1342";
+var skimlinks_sitename = 'jamesewelch.wordpress.com';
+var skimlinks_domain = "go2.wordpress.com";
+skimlinks();
+</script>
+<script type="text/javascript">_qoptions={qacct:'p-18-mFEk4J448M',labels:'language.en,as'};</script>
+<script type="text/javascript" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/quant.js"></script>
+<noscript><p><img class="robots-nocontent"
+src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif?labels=language.en%2Cas"
+style="display:none" height="1" width="1" alt="" /></p></noscript>
+<script type="text/javascript" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/jquery.js"></script>
+<script type="text/javascript" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/gprofiles.js"></script>
+	<script type="text/javascript">
+	WPGroHo = {
+		data: {},
+		renderers: {},
+		syncProfileData: function( hash, id ) {
+			if ( !WPGroHo.data[hash] ) {
+				WPGroHo.data[hash] = {};
+				a = jQuery( 'div.grofile-hash-map-' + hash + ' span' ).each( function() {
+					WPGroHo.data[hash][this.className] = jQuery( this ).text();
+				} );
+			}
+
+			WPGroHo.appendProfileData( WPGroHo.data[hash], hash, id );
+		},
+		appendProfileData: function( data, hash, id ) {
+			for ( var key in data ) {
+				if ( jQuery.isFunction( WPGroHo.renderers[key] ) ) {
+					return WPGroHo.renderers[key]( data[key], hash, id, key );
+				}
+
+				jQuery( '#' + id ).find( 'h4' ).after( jQuery( '<p class="grav-extra ' + key + '" />' ).html( data[key] ) );
+			}
+		}
+	};
+	jQuery(document).ready(function($){
+		Gravatar.profile_cb = function( h, d ) {
+			WPGroHo.syncProfileData( h, d );
+		};
+		Gravatar.attach_profiles();
+	});
+	</script>
+	<div style="display: none;">
+	</div>
+<script type="text/javascript">_acseed='Nm01fCNhbSRyWS5UXzs/OWo3YWx7SjwkOkYqejs5UTloYz5ecWZwVDImam1mPVYuJVBWYWdiYzhjL0teWmdVblMkI21QRnI+QTsrWk5bL3tOY0c5N3o/aUt9WV83THs1cGsuWUd8cFBFX3N3T3dsfVQxMl55SW41clkxfC84JHZBP1c1Lj1UeWFTTXRvYTFvOX08W00tVVdxIQ==';</script>
+<script type="text/javascript" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/beacon.js"></script><script type="text/javascript">try{COMSCORE.beacon({c1:2,c2:7518284});}catch(e){}</script><noscript><p
+class="robots-nocontent"><img
+src="http://b.scorecardresearch.com/p?cj=1c1=2&#038;c2=7518284" alt=""
+style="display:none" width="1" height="1" /></p></noscript><script src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/w.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'1471136','v':'wpcom','user_id':'0','post':'180','subd':'jamesewelch'});
+ex_go({'crypt':'RDZ8LFkxbXF0aVJhPVYmfFFiVHRaT3c1VXJETkJ+LTc0LyxWcEo4RGhuQmFNUH5dZGFTLSxWZmllam56X0hOL045P0l1Mk5hOHU1d2V2U182bWtpSmVjTl1Wa2Q/WjI1eWtQcmhzaElSW2wlUG84T2MmalddSHNJeENPc0RRfnFIOWpfLG1ZJVpDaFJbLmYueGhOZi5QR2tSSStyL3V1NmZkdGNkXTlEW104SGZhWTcxb35XWTZER1FOSD91U1l3VmRvdnFYV2haWWppN1t8NWJRX0xuP3ZQM0YzR1BCUmksR0Q4NWFtOTQ3cWFBbXJfU21DKyZwMDRJRFlHMl1GSnFoUkEmSnh5biwrZzBZW2pMZVZhWFBaOFgrQkJiYTUwK3JwfnRfa0ZofmhRfltHfFlVcjZaZ0I4QnxlSk9OJnBnNzhwOXNveVFMfkZhbTFoSkYzcS9WLnh6Qy18JXJ8T0lvWjRWRnhZOFFCOFUrdyY4cEgmeGhoQi1dREhYbmJsREsmL3xLVVhBRGdUSERyR0hsMkIzMWhlPVFLaFJVTHBJY0wtNnpn'});
+addLoadEvent(function(){linktracker_init('1471136',180);});
+	</script><img id="wpstats" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/g_002.gif" alt=""><img id="wpstats2" src="How%20to%20use%20XnaContent%20XML%20Files%20%C2%AB%20Jim%202.5%27s%20Blog_files/g.gif" alt="" style="display: none;">
+
+</body></html>

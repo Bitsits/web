@@ -1,0 +1,533 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Win32 Lesson 2: A Primer of Basic Windows
+</title><link href="dx9A2.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9A2.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9A2.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9A2.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9A2.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+                    Lesson 2:&nbsp; A Primer of Basic Windows</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/A-Win32/dx9A2.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A1.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A3.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+                        Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                        This lesson will cover how to build a basic Windows application.&nbsp; Before we
+                            get into actually building a window (which is required for DirectX), we will cover
+                            how to create an application and add a simple message box.&nbsp; We will do this
+                            by learning each step of a "Hello World!" program.</p>
+            <p>
+                If this is your first time through this code, note that it is not expected that
+                you remember every line of code we go over here.&nbsp; You may, after some time
+                programming, be able to remember them without reference.&nbsp;
+                But for now, know
+                that if you cannot remember the code in the next four lessons, it does not mean
+                you are stupid. ;)</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Win32 Console Programs vs. Windows Programs</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Following is a code sample of a simple 'Hello World!' demo for a Win32 Console Application.</p>
+
+            <div class="codebox">
+    #include &lt;stdio.h&gt; &nbsp;&nbsp; // include the standard input/output header
+    file<br><br>
+    void main(void) &nbsp;&nbsp; // our program starts here<br>
+    {<br>
+    &nbsp; &nbsp; printf("Hello World!"); &nbsp;&nbsp; // print "Hello World!" into
+    the console<br>
+    &nbsp; &nbsp; return; &nbsp;&nbsp; // return void to windows<br>
+    }</div>
+    <p>
+        As you most likely are aware, the function main() is used here to start the application
+        and work with Windows.&nbsp;
+                Simply put, main() is where your program starts, and
+        Windows can feed to your program any parameters you decide
+                might be necessary.&nbsp;
+        Of course, there are specific parameters which can be put in here, but we aren't
+        concerned with these and won't be in any of these tutorials.</p>
+    <p>
+        A Windows program, however, is different in that it has two functions it uses to
+        work with Windows.&nbsp; One of these is exactly like the Win32 Console's main()
+        function.&nbsp; The other one allows Windows programs to be event-driven.&nbsp;
+        Events are occurrences such as the user clicking the mouse, or pressing a key, or
+        a timer reaching zero.&nbsp; When any of these events occur, Windows records the
+        occurence in a message and places the message in a message queue for the program
+        for which the message is intended, in this case, your game.&nbsp; This second function
+        handles these messages and contains code to run when each occurs.&nbsp; We will
+        cover this second function in the next lesson.</p>
+    <p>
+        To write our first Windows program, we will need to write the first of these functions,
+        WinMain().</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    The WinMain() Function</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>The WinMain() function is the equivalent of the main() function in the Win32 Console.
+            &nbsp;It's where the application starts and where you can do some basic intialization.&nbsp;
+            I usually just put the code for creating a window, for the basic loop, and usually
+            some code for a timer.&nbsp; We'll cover each of these in 'The Basics' lessons.&nbsp;
+                Here is the prototype for the WinMain() function:</p>
+            <div class="codebox">
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;int nCmdShow);
+            </div>
+            <p>Ok, so let's take this function apart:</p>
+            <p>
+                <strong>WINAPI</strong></p>
+            <p>
+                Before we get into the parameters, let's look at something just before them.&nbsp;
+                Between
+                the int and the WinMain is the word WINAPI.&nbsp; WINAPI is a method of passing parameters
+                which comes from the days of Fortran and Pascal. &nbsp;In short, what it does is reverse
+                the order the parameters are passed. &nbsp;They normally pass from right to left, but
+                with WINAPI, they are passed from left to right. &nbsp;The details on why this is are
+                not really important.&nbsp; Windows simply requires it to be this way.</p>
+            <p>
+                Now let's take a look at each of the parameters in the function:</p>
+            <p>
+                <strong>HINSTANCE hInstance,</strong></p>
+            <p>
+                This first parameter is an abbreviation for a "handle to
+ an instance". &nbsp;A handle
+                is a 32-bit integer which identifies something, like an 
+object.&nbsp; An instance is a copy of an application.&nbsp;
+                Due to multitasking and the ability to run multiple 
+copies of a program, Windows
+                needs a way to keep track of which programs are 
+which.&nbsp;
+                It does this by giving each
+                instance of any application a "handle to an instance", 
+or an integer which identifies
+                each application from the others.&nbsp; When your
+                program starts, Windows picks a number and puts it into 
+this parameter.</p>
+            <p>
+                <strong>HINSTANCE hPrevInstance,</strong></p>
+            <p>
+                Here we have another relic of the past. &nbsp;This second parameter stands for a handle
+                to the previous instance.&nbsp; What this means is, if there are multiple copies of an
+                application open, hPrevInstance will contain the handle of the last instance to
+                be created.&nbsp; Theoretically.</p>
+            <p>
+                Way back before 32-bit processors came around and before
+ Windows 95, multiple copies
+                of the same application were forced to share the same 
+memory space. &nbsp;This complicated things greatly,
+                and it was of interest to many programmers to keep their
+ applications from running
+                multiple copies of themselves.&nbsp; In order to avoid 
+this, hPrevInstance would give
+                the handle to the previous instance (if any) and return 
+NULL if this was the only one, allowing a programmer to detect any 
+running copies.</p>
+            <p>
+                However, now that we have 32-bit applications, Windows now provides each application
+                with its own memory space, and hPrevInstance is now obsolete. &nbsp;It only exists for
+                backward compatibility and is equal to NULL in every application, despite the existence
+                of other copies.</p>
+            <p>
+                There is a method of detecting previous instances of an application, but it is beyond
+                the scope of this tutorial.&nbsp; You can learn this method by looking in the MSDN Library
+                under the WinMain Function.</p>
+            <p>
+                <strong>LPSTR lpCmdLine,</strong></p>
+            <p>
+                This parameter is a long pointer to a string that contains the command line calling
+                existence to the application. &nbsp;Example: If you had an application called "MyApp.exe"
+                and ran it from the Run command prompt in the Start Menu, you could run it like this "MyApp.exe"
+                or "MyApp.exe RunA" or "MyApp.exe RunB".&nbsp; In either case, lpCmdLine would store the
+                entirety of whatever was entered, allowing the program to check for special parameters.</p>
+            <p>
+                This is useful in game programming for running special modes such as Safe Mode,
+                Windowed Mode, Software-Rendering Mode, Cheat-Code Mode or whatever you want.</p>
+            <p>
+                <strong>int nCmdShow</strong></p>
+            <p>
+                This parameter indicates how the window is to appear when created. &nbsp;For instance,
+                this could call for the window being minimized, maximized, or normal, or even open
+                a window with it running in the background.&nbsp; You do not need to use these, but they
+                are available if you so desire.&nbsp; Usually you will not use them in game programming,
+                but they can be useful on occasion.&nbsp; Below are some common values that can come from
+                this parameter:</p>
+                [<a href="#still" onclick="Toggle('table2-1')" class="mainlink">Table 2.1 - nCmdShow Values</a>]<br>
+            <br>
+                <table class="tablebox" id="table2-1" style="display: none;">
+                    <tbody><tr>
+                        <th style="width: 193px;">Value</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_SHOWNORMAL</td>
+                        <td>
+                            Activates and displays a window. If the window is minimized or maximized, the system
+                            restores it to its original size and position. An application should specify this
+                            flag when displaying the window for the first time.</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_SHOW</td>
+                        <td>
+                            Activates the window and displays it in its current size and position.</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_HIDE</td>
+                        <td>
+                            Hides the window and activates another window.</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_MAXIMIZE</td>
+                        <td>
+                            Maximizes the specified window.</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_MINIMIZE</td>
+                        <td>
+                            Minimizes the specified window and activates the next top-level window in the Z
+                            order.</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_RESTORE</td>
+                        <td>
+                            Activates and displays the window. If the window is minimized or maximized, the
+                            system restores it to its original size and position. An application should specify
+                            this flag when restoring a minimized window.</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_SHOWMAXIMIZED</td>
+                        <td>
+                            Activates the window and displays it as a maximized window.</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_SHOWMINIMIZED</td>
+                        <td>
+                            Activates the window and displays it as a minimized window.</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_SHOWMINNOACTIVE</td>
+                        <td>
+                            Displays the window as a minimized window. This value is similar to SW_SHOWMINIMIZED,
+                            except the window is not activated.</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_SHOWNA</td>
+                        <td>
+                            Displays the window in its current size and position. This value is similar to SW_SHOW,
+                            except the window is not activated.</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 193px;">
+                            SW_SHOWNOACTIVATE</td>
+                        <td>
+                            Displays a window in its most recent size and position. This value is similar to
+                            SW_SHOWNORMAL, except the window is not actived.</td>
+                    </tr>
+                    <tr><td>[<a href="#still" onclick="Toggle('table2-1')" class="mainlink">Close Table</a>]</td></tr>
+                </tbody></table>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                        Lesson Overview</div>
+        <div class="maintext" style="position: relative;">
+            <p>
+                All right! Enough with the theory! Let's get some code going and some programs running.</p>
+            <p>
+                We'll take a break here and write a basic program. Let's start out with, you guessed
+                it, a 'Hello World!' program. Here is the code for the program we'll make, and afterward,
+                we'll take the new commands apart and see what's up.</p>
+            <div class="codebox">
+                #include &lt;windows.h&gt; &nbsp;&nbsp; // include the basic windows header file<br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nShowCmd)<br>
+                {<br>
+                &nbsp; &nbsp; // create a "Hello World" message box using MessageBox()<br>
+                &nbsp; &nbsp; MessageBox(NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; L"Hello World!",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; L"Just another Hello World program!",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MB_ICONEXCLAMATION | MB_OK);<br>
+                <br>
+                &nbsp; &nbsp; // return 0 to Windows<br>
+                &nbsp; &nbsp; return 0;<br>
+                }</div>
+            <p>
+                If you run this program, you'll get something like this:</p>
+                
+            <center>
+                <img src="dx9A2.aspx_files/dx9A2-1.PNG" alt="Image 2.1 - Hello World In Action"><br><br>
+                Image 2.1 - Hello World In Action<br><br>
+            </center>
+            <p>
+                Let's take the new parts of this program apart starting from the top and working
+                our way down.</p>
+            <hr>
+            <p>
+                <strong>#include &lt;windows.h&gt;</strong></p>
+            <p>
+                The windows.h header file is basically just a container which includes lots of other
+                header files useful for Windows programming so that you don't have to add tons of
+                header files yourself.</p>
+            <hr>
+            <p>
+                <strong>MessageBox()</strong></p>
+            <p>
+                This is a function that creates the message box you saw in the demo. Here is its
+                prototype:</p>
+            <div class="codebox">
+                int MessageBox(HWND hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPCTSTR lptext,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPCTSTR lpcaption,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; UINT utype);</div>
+            <p>
+                Now let's quickly go over each of the parameters:</p>
+            <p>
+                <strong>HWND hWnd,</strong></p>
+            <p>
+                HWND is a handle to a window. As we went over before, handles are integers which
+                identify an object. In this case, we're identifying a window. Simple. Because we
+                have no window made, we put NULL, and Windows knows not to have this message come
+                from any window, but the desktop.</p>
+            <p>
+                <strong>LPCTSTR lptext,</strong></p>
+            <p>
+                This is a pointer to a 16-bit string that contains the text of the message box. Nothing
+                more to it.</p>
+            <p>
+                <strong>LPCTSTR lpcaption,</strong></p>
+            <p>
+                This is a pointer to a 16-bit string that contains the text of the title bar, or caption,
+                for the message box. Simple.</p>
+            <p>
+                <strong>
+                UINT utype</strong></p>
+            <p>
+                This parameter determines what the style of the message box is. Following is a list
+                of commonly used values you can put into this parameter (combined with a logical
+                OR operator for multiple values).</p>
+            <p>
+                To indicate the buttons displayed in the message box, specify one of the following
+                values:</p>
+                
+            [<a href="#still" onclick="Toggle('table2-2')" class="mainlink">Table 2.2 - MessageBox</a>]<br>
+            <br>
+            <table id="table2-2" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 214px;">
+                        Value</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        MB_CANCELTRYCONTINUE</td>
+                    <td>
+                        The message box contains three push buttons: Cancel, Try Again, Continue.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        MB_OK</td>
+                    <td>
+                        The message box contains one push button: OK. This is the default.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        MB_OKCANCEL</td>
+                    <td>
+                        The message box contains two push buttons: OK and Cancel.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        MB_RETRYCANCEL</td>
+                    <td>
+                        The message box contains two push buttons: Retry and Cancel.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        MB_YESNO</td>
+                    <td>
+                        The message box contains two push buttons: Yes and No.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        MB_YESNOCANCEL</td>
+                    <td>
+                        The message box contains three push buttons: Yes, No, and Cancel.</td>
+                </tr>
+                <tr>    
+                    <td style="width: 214px;">
+                        [<a class="mainlink" href="#still" onclick="Toggle('table2-2')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+            
+            <p>
+                To display an icon in the message box, specify one of the following values:</p>
+
+            [<a href="#still" onclick="Toggle('table2-3')" class="mainlink">Table 2.3 - MessageBox() icon values</a>]<br>
+            <br>
+            <table id="table2-3" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 193px;">
+                        Value</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        MB_ICONINFORMATION</td>
+                    <td>
+                        An icon consisting of a lowercase letter <em>i</em> in a circle appears in the message
+                        box.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        MB_ICONEXCLAMATION</td>
+                    <td>
+                        An exclamation-point icon appears in the message box.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        MB_ICONERROR</td>
+                    <td>
+                        A stop-sign icon appears in the message box.</td>
+                </tr>
+                <tr>
+                    <td>
+                        [<a class="mainlink" href="#still" onclick="Toggle('table2-3')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+            
+            <p>
+                <strong>Return Value</strong></p>
+            <p>
+                In game programming, you normally won't need return values, because error messages
+                (which is what you will use this for 99 percent of the time) only have one direction
+                to go in: quit. &nbsp;However, it is still useful to know. &nbsp;Following is a
+                list of return values, letting you know which button was pressed:</p>
+
+            [<a href="#still" onclick="Toggle('table2-4')" class="mainlink">Table 2.4 - MessageBox() return values</a>]<br>
+            <br>
+            <table id="table2-4" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 214px;">
+                        Value</th>
+                    <th>
+                        Button Pressed</th>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        IDCANCEL</td>
+                    <td>
+                        The 'Cancel' button was selected.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        IDTRYAGAIN</td>
+                    <td>
+                        The 'Try Again' button was selected.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        IDCONTINUE</td>
+                    <td>
+                        The 'Continue' button was selected.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        IDNO</td>
+                    <td>
+                        The 'No' button was selected.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        IDYES</td>
+                    <td>
+                        The 'Yes' button was selected.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        IDOK</td>
+                    <td>
+                        The 'OK' button was selected.</td>
+                </tr>
+                <tr>    
+                    <td style="width: 214px;">
+                        [<a class="mainlink" href="#still" onclick="Toggle('table2-4')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+            <hr>
+            <p>
+                Great!&nbsp; You are now officially a Windows programmer.&nbsp; Yes, we've only
+                covered how to make the simplest of programs, but we'll fix that shortly by writing a
+                program to create a window.&nbsp; Let's get to it!</p>
+            
+            <center>
+                <p>
+                    Next Lesson:&nbsp; Creating a Window</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A3.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Found a typo?  Let me know <a class="feedlink" href="javascript:RunFeedback(2)">here</a>.</p>
+            </center>
+            
+        </div>
+
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9A2.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

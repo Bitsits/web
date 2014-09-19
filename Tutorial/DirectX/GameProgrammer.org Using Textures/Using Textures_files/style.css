@@ -1,0 +1,39 @@
+body{ background-color: #aaa; font-family:Georgia,serif; color: #000; margin: 0px 0px 0px 0px; font-size: 10px;}
+img{ border: 0px; }
+table{ border: 0px; }
+pre{ color: #0000cc; font-size: 11px; font-family: "Courier New"; background-color: #e6e49f; width:100%; padding: 10 10 10 10; border: solid #b28f4d 1px; }
+
+.x3dmain  { color: #000; font-size: 10px; }
+.x3dmaintitle { margin: 5 5 5 5; background-color: #555566; color: #fff; font-size: 12px; font-weight: bold; text-decoration: none }
+.x3dmaintitlelink { color: #fff; font-size: 11px; text-decoration: none; font-weight: bold }
+.x3dmaintitlelink:hover { text-decoration: underline; }
+
+.x3dmainlink  { color: #0036ff; font-size: 11px; text-decoration: none; font-weight:bold; }
+
+.x3dmainlink:hover { text-decoration: underline; }
+.x3dmaintable { margin: 5 5 5 5; color: #000;}
+.x3dtoplink {  color: #eeeeff; font-size: 11px;  text-decoration:none }
+.x3dtoplink:hover { text-decoration: underline; }
+.x3dtoptable { background-color: #505050; }
+.x3dtoptitle { background-color: #606060; font-size: 11px; font-weight: bold;}
+
+.x3dcode { color: #0000cc; font-size: 11px; font-family: "Courier New"; background-color: #eeeeff; width:100%; padding: 10 10 10 10; border: solid #000000 1px; }
+
+.x3dmenu { color: #000; font-size: 10px;  }
+.x3dmenutitle { color: #000; font-size: 10px; font-weight: bold }
+.x3dmenulink { color: #593; font-size: 11px; text-decoration: none; font-weight: bold }
+.x3dmenulink:hover { color: #000; }
+
+.x3dsign   { color: #775c29; font-size: 10px; font-weight: bold;}
+.x3dsign:hover   { color: #b28f4d; text-decoration:underline; }
+
+.x3dspecial   { color: #000; font-size: 10px; font-weight: bold }
+.x3dspeciallink   { color: #b28f4d; font-size: 10px; font-weight: bold; text-decoration: none }
+.x3dspeciallink:hover { color: #9f5; text-decoration:underline}
+
+.x3dimg {margin: 10px 10px 10px 10px; border-style:solid; border-width:1px; border-color:#448; }
+
+.x3dseparator   { color: #585; font-size: 10px; font-weight: bold }
+
+.x3dsponser { background-color: #102310; color: #ffffff; font-size: 10px; font-weight: bold; border: solid 1px #335533}
+

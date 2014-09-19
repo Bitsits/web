@@ -1,0 +1,809 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html class=" Mozilla" web:culture="en-IN" xmlns:web="" xmlns:spaces=""><head>
+
+
+
+    
+        <script type="text/javascript">//<![CDATA[
+window["$BSI"]={headTime:(new Date).getTime()};window["$CSIPerf"]={lapse:[{},{s:"h",t:$BSI.headTime}],csd:{},_ttg:$BSI.headTime}
+//]]></script>
+        <script type="text/javascript">//<![CDATA[
+var _d=document,_dh=_d.getElementsByTagName("head")[0];function $(a){return _d.getElementById(a)}
+//]]></script>
+        
+
+<link rel="StyleSheet" href="cns%21C6A0309746469D9E%21720.entry_files/NYKpPzcj59cSpaces.css" type="text/css"><link rel="StyleSheet" href="cns%21C6A0309746469D9E%21720.entry_files/NYKpPzcj59cSpacesThemed.css" type="text/css"><style id="themecss" type="text/css"></style><!-- The theme was rendered in legacy mode --><script type="text/javascript">//<![CDATA[
+if(!window["$Do"]){$Do={};$Do.q=[]}new function(){var a=$Do;a.iff=function(c,b){return a.c?a.c(c,b,arguments):0};a.when=function(c,b){if(!a.iff.apply(a,arguments))a.q.push({id:c,c:b,a:arguments})}}
+//]]></script>
+
+<title>
+Object Serialization Using XML and the XNA Content Pipeline - Windows Live 
+</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Object Serialization Using XML and the XNA Content Pipeline - Windows Live ">
+<meta name="keywords" content="Photos, Blogging, Social Networking, Friends, Sharing, Lists, Spaces, Windows Live">
+<meta name="PageId" content="BlogPermalink">
+
+
+
+
+<link rel="alternate" type="application/rss+xml" title="Machaira's Space - All content (RSS)" href="http://api.live.net/Users%28-4134251031648887394%29/Main?$format=rss20">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://machaira.spaces.live.com/rsd.aspx?alias=machaira"><link rel="wlwmanifest" href="http://machaira.spaces.live.com/wlwmanifest.aspx">
+
+<script>if (typeof registerNamespace != 'function') { registerNamespace = function() {
+var iArgs = arguments.length; for (var a=0;a<iArgs;a++) { var rootObject = this, namespaceParts = arguments[a].split('.'),
+iCount = namespaceParts.length;for (var i = 0; i < iCount; i++) { var currentPart = namespaceParts[i]; if (!rootObject[currentPart]) {
+rootObject[currentPart] = function() {}; } rootObject = rootObject[currentPart]; } } return rootObject;}; }
+function GetString(s){var rootObject = this, parts = s.toLowerCase( ).split('.'),
+iCount = parts.length;for (var i = 0; i < iCount; i++){var currentPart = parts[i];rootObject = rootObject[currentPart];
+if (rootObject == null){return '';}}return rootObject.toString( );}
+registerNamespace("live.sndefaultstrings.strings.flash");
+live.sndefaultstrings.strings.flash.downloadmessage = "Download the latest version of Flash to view this content";
+</script>
+<script src="cns%21C6A0309746469D9E%21720.entry_files/spaces_002.js"></script><script type="text/javascript">
+var C_STATIC_CONTENT_URL = "http://msc.wlxrs.com/RMggIkqsyFD-Bz-cU-ldbg/";
+var C_STATIC_IMAGES_URL = "http://img.wlxrs.com/cqy56786!uzt7CtTk6QbIw/";
+var C_FETCH_URL_SERVICE  = "http://my.live.com/cfw/news.aspx?returnheadlines={0}&fetchurl={1}";
+var C_FRONTDOOR_HOSTNAME  = "spaces.live.com";
+var C_WEB_HOSTNAME  = "{0}.spaces.live.com";
+var C_UPDATEDSPACES_MAPVIEW = "False";
+var C_CANARY_COOKIE_NAME = "sc";
+var C_VERSION = "15.4.6641.0929";
+</script><!-- base href="http://machaira.spaces.live.com/mmm2010-09-20_23.19/" --><link rel="SHORTCUT ICON" href="http://img.wlxrs.com/cqy56786%21uzt7CtTk6QbIw/Web/images/favicon.ico"><link rel="apple-touch-icon" href="http://img.wlxrs.com/cqy56786%21uzt7CtTk6QbIw/Web/images/spaces_iphone_57x57.png"><script>var vBlogPart = new Object();
+var BlogJSBlogEntryUrl = "http\x3a\x2f\x2fcid-58c06936ee7d8422.spaces.live.com\x2fBlogIt.aspx";
+var BlogJSPersonalSpaceurl = "http\x3a\x2f\x2fmachaira.spaces.live.com\x2f";
+var BlogJSBlogPartParam = "_c=BlogPart";
+var BlogJSBlogPartBlogView = "BlogPart=blogview";
+</script><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="Blog: All entries (RSS)"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27R2VuZXJhbA%3d%3d%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="General"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27TW92aWVz%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="Movies"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27TmV3cyBhbmQgcG9saXRpY3M%3d%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="News and politics"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27WGJveCAzNjA%3d%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="Xbox 360"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27TVZQ%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="MVP"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27Q29tcHV0ZXJzIGFuZCBJbnRlcm5ldA%3d%3d%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="Computers and Internet"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27TXVzaWM%3d%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="Music"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27R2FtZSBJbmR1c3RyeQ%3d%3d%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="Game Industry"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27UHJvZ3JhbW1pbmc%3d%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="Programming"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27WE5B%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="XNA"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Categories%28%27R2FtZXM%3d%27%29/Entries?$format=rss20" rel="alternate" type="application/rss+xml" title="Games"><link href="http://api.live.net/Users%28-4134251031648887394%29/Blogs%28%27C6A0309746469D9E%21102%27%29/Entries%28%27C6A0309746469D9E%21720%27%29/Comments?$format=rss20" rel="alternate" type="application/rss+xml" title="Comments on: Object Serialization Using XML and the XNA Content Pipeline (RSS)"><script>var gNoFlashImage = 'http\x3a\x2f\x2fimg.wlxrs.com\x2fcqy56786\x21uzt7CtTk6QbIw\x2fWeb\x2fimages\x2fnoflash.gif'</script><style id="CustomTheme"></style><script type="text/javascript" language="javascript"> var gblSpaceTitle = "Machaira\x27s Space";</script><script type="text/javascript"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/webfoundationfull.js" id=""></script><script src="cns%21C6A0309746469D9E%21720.entry_files/spaces.js" id=""></script><script src="cns%21C6A0309746469D9E%21720.entry_files/loader.js"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/WebIMUI.js"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/WebIMStr.js"></script><link href="cns%21C6A0309746469D9E%21720.entry_files/NYKpPzcj59cwlx_webimui.css" type="text/css" rel="stylesheet"><script src="cns%21C6A0309746469D9E%21720.entry_files/MicrosoftAjaxCompat.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/MicrosoftAjaxCore.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/Microsoft_003.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/Microsoft_002.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/Microsoft_005.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/Microsoft.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/Microsoft_004.js" type="text/javascript" async="async"></script></head><body id="SpacesBlog" class="ltr SignedIn Firefox FF_Win FF_M3 FF_D5 Full RE_Gecko"><div id="SPACES_LOADMONITOR" style="display: none;">&nbsp;</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<input name="Web.moz-custom" content="enabled" type="hidden">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+    
+    
+
+        
+
+
+    
+        
+<div class="BodyBG" style="min-width: 1000px;">
+    <script type="text/javascript">//<![CDATA[
+function $MB(b,d,g,f,e){if(!window.$f)return;b=b||event;var h=b.target||b.srcElement,a=$f.pn(h,"c_ml");if(a&&!a.menu){var c=$(a.getAttribute("hid"));if(c){$css.add(c,"uxfa_m c_m t_hovl");a.parentNode.insertBefore(c.cloneNode(true),a.nextSibling)}}try{$menu.bind(b,g,f,1,0,0,undefined,e)}catch(i){}if(d)$Do.when("$WLXIMCL.initialize",0,0)}function $SP(a){$WLXIM.switchPresence(a);$menu.closeCurrent()}function $MeMenu(b,a){$MB(b,0,a,0,750);$Do.when("$ThemeMenuInit")}
+//]]></script><script type="text/javascript">//<![CDATA[
+var $B={'ltr':1,'SignedIn':1,'Firefox':1,'FF_Win':1,'FF_M3':1,'FF_D5':1,'Full':1,'RE_Gecko':1,V:3.5}
+//]]></script><div id="c_header" class="c_hb t_hdbg" style="min-width: 987px;"><div class="c_hg_pm"><div class="c_h t_hdt" style="width: 947px;"><div class="c_htr"><div class="c_hleft"><div class="c_hl" style="top: 12px;"><a class="c_hlp c_nootl uxfa_ml c_ml link c_hbrln" href="http://home.live.com/?rru=home&amp;livecom=1" target="_top" onfocus="$MB(event,0,0,{x:21,y:0})" onmouseover="$MB(event,0,0,{x:21,y:0})"><span class="c_is" style="padding-left: 18px; font-size: 17px; line-height: 17px; vertical-align: middle; margin-right: 3px;"><span style="clip: rect(8px, 18px, 24px, 0px); left: 0px; top: -8px;"><img src="cns%21C6A0309746469D9E%21720.entry_files/s7.png" alt="Windows Live"></span></span><span class="c_hbrnd">Windows Live<span class="c_tm">™</span></span></a><ul class="uxfa_m c_m t_hovl"><li><a href="http://home.live.com/?rru=home&amp;livecom=1" target="_top">Home</a><span class="c_ms"></span></li><li><a href="https://devices.live.com/" target="_top">Devices</a></li><li><a href="http://skydrive.live.com/" target="_top">SkyDrive</a></li><li><a href="https://devices.live.com/Devices/Mobile" target="_top">Mobile</a></li><li><a href="http://g.live.com/9uxp9en-in/hdr_dwnld??su=http://shared.live.com/Live.Spaces" target="_top">Downloads</a><span class="c_ms"></span></li><li><a href="http://home.live.com/allservices/" target="_top">All services</a></li></ul></div><ul class="c_ht"><li><a href="http://mail.live.com/?rru=inbox" class="uxfa_ml c_ml" target="_top" hid="c_ht_mail" onmouseover="$MB(event)" onfocus="$MB(event)">Hotmail<span style="display: inline;" id="c_murc">&nbsp;(0)</span></a></li><li><a href="http://machaira.spaces.live.com/mmm2010-09-20_23.19/#" onclick="$MB(event,1);return false" class="uxfa_ml c_ml" target="_top" hid="c_mm_clc0" onmouseover="$MB(event,1)" onfocus="$MB(event,1)">Messenger<span style="display: none;" id="c_mocc"></span></a></li><li><a href="http://cid-58c06936ee7d8422.office.live.com/" class="uxfa_ml c_ml" target="_top" hid="c_ht_docs" onmouseover="$MB(event)" onfocus="$MB(event)">Office</a></li><li><a href="http://cid-58c06936ee7d8422.photos.live.com/" class="uxfa_ml c_ml" target="_top" hid="c_ht_photos" onmouseover="$MB(event)" onfocus="$MB(event)">Photos</a><span class="c_ms t_hp"></span></li><li><a href="http://g.live.com/9uxp9msn/mhm-en-in??su=http://shared.live.com/Live.Spaces" class="uxfa_ml c_ml" target="_top" hid="c_ht_msn" onmouseover="$MB(event)" onfocus="$MB(event)">MSN</a></li></ul></div><div class="c_hright"><div id="c_me" class="c_me c_mcp" thov="1"><span class="c_melnkspan" thov="1"><a id="c_melink" href="#" class="c_un c_ml c_nootl c_m_usep c_haschev" onclick="try{$MB(event,0,1);}catch(e){};$Do.when('$ThemeMenuInit');return false" onmouseover="try{$MeMenu(event,1)}catch(e){};" onfocus="try{$MeMenu(event,1)}catch(e){};" target="_top"><div id="c_mechev" class="c_chev">&nbsp;▼</div><div class="c_mename"><span style="visibility: hidden;" id="ic2" class="c_ic_i"><span dir="ltr" class="is_c" id="ic2_frame"><img class="is_img c_ic_blueframe" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/ic/iciconmap24w4m4v2.png);" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span>&nbsp;</span><span class="c_meun" id="c_meun">Shubhajit Saha</span></div><div class="c_clr"></div></a></span><ul class="c_m t_hovl"><li style="display: block;"><a id="c_wimn" href="#" onclick="$WLXIM.signIn();;return false" target="_top">Sign in to Messenger</a><span class="c_ms"></span></li><li style="display: none;"><a id="c_wimp" href="#" onclick="$WLXIM.popout();;return false" target="_top">Pop out Messenger</a><span class="c_ms"></span></li><li style="display: none;"><span id="c_wims" class="c_wimm_st link" target="_top">Messenger isn't available now.</span><span class="c_ms"></span></li><li style="display: none;"><span id="c_wimr" class="c_wimm_st link" target="_top">Reconnecting in {0}:{1}...</span><span class="c_ms"></span></li><li style="display: none;"><a id="c_wimnet" href="#" onclick="$HeaderWebIM.toggle(this);;return false" class="c_wimnw" target="_top"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/h/s7.png); background-position: -224px 0px; width: 10px; height: 9px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span> NETWORK_NAME</a><span class="c_ms"></span></li><li style="display: none;"><span class=" c_ld"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/h/s7.png); background-position: -18px -19px; width: 7px; height: 7px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span> Available<a style="display: none;" id="c_himla" href="#" onclick="$SP(1);return false" target="_top"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/h/s7.png); background-position: -18px -19px; width: 7px; height: 7px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span> Available</a></span></li><li style="display: none;"><span class=" c_ld"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/h/s7.png); background-position: -25px -19px; width: 7px; height: 7px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span> Busy<a style="display: none;" id="c_himlc" href="#" onclick="$SP(3);return false" target="_top"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/h/s7.png); background-position: -25px -19px; width: 7px; height: 7px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span> Busy</a></span></li><li style="display: none;"><span class=" c_ld"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/h/s7.png); background-position: -32px -19px; width: 7px; height: 7px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span> Away<a style="display: none;" id="c_himlb" href="#" onclick="$SP(6);return false" target="_top"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/h/s7.png); background-position: -32px -19px; width: 7px; height: 7px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span> Away</a></span></li><li style="display: none;"><span class=" c_ld"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/h/s7.png); background-position: -39px -19px; width: 7px; height: 7px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span> Appear offline<a style="display: none;" id="c_himld" href="#" onclick="$SP(2);return false" target="_top"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/h/s7.png); background-position: -39px -19px; width: 7px; height: 7px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span> Appear offline</a></span><span class="c_ms"></span></li><li style="display: none;"><a id="c_himlo" href="#" onclick="$WLXIM.signOut();return false" target="_top">Sign out of Messenger</a><span class="c_ms"></span></li><li><a href="http://profile.live.com/Privacy" target="_top">Privacy settings</a></li><li><a id="c_hli" href="https://account.live.com/" target="_top">Account</a></li><li><a href="http://home.live.com/options/" target="_top">Options</a></li></ul><script type="text/javascript">//<![CDATA[
+new function(){var b=["c_wimn","c_wimp","c_wims","c_wimr","c_wimnet"];for(var a=0;a<b.length;a++){var c=document.getElementById(b[a]);c.parentNode.style.display="none"}};
+//]]></script><div class="c_hsopr"><a id="c_profile" onmouseover="event.cancelBubble=true" href="http://cid-58c06936ee7d8422.profile.live.com/" target="_top">profile</a> | <a id="c_signout" onmouseover="event.cancelBubble=true" href="http://login.live.com/logout.srf?ct=1286724992&amp;rver=6.1.6206.0&amp;lc=16393&amp;id=73625&amp;ru=http:%2F%2Fmachaira.spaces.live.com%2Flfe%2FLive.Controls.SharedPages%2FLogOut.aspx&amp;mkt=en-IN" target="_top">sign out</a></div></div></div><div class="c_clr"></div></div></div></div></div><script type="text/javascript">var $HIC={};$HIC.e=7;$HIC.c='58c06936ee7d8422';
+        $HIC.m=0;
+        $HIC.l=0;</script><script type="text/javascript">//<![CDATA[
+var $HeaderCookie={};new function(){var c=$HeaderCookie,a=$("c_mocc"),b=$("c_murc"),f=$B.rtl?"&#x200f;":"";function d(b){if(a&&!$HIC.NoWebIm){a.style.display="inline";if(b>999)b="99+";a.innerHTML="&nbsp;"+f+"("+b+")"}$HIC.m=b;$Do.when("$Header.UpdateCookie",this)}c.updateContactsCount=d;function g(){if(this.dataIsGood&&$HIC.m)return $HIC.m;else return 0}c.getContactsCount=g;function e(a){if(b){b.style.display="inline";if(a>9999)a="999+";b.innerHTML="&nbsp;"+f+"("+a+")"}$HIC.l=a;$Do.when("$Header.UpdateCookie",this)}c.updateUnreadCount=e;if($HIC.m)d(parseInt($HIC.m));if($HIC.l)e(parseInt($HIC.l))}
+//]]></script><div id="c_h_hm"><div id="c_hmc" style="display: none;"><ul id="c_ht_mail"><li><a target="_top" href="http://mail.live.com/?rru=inbox">Inbox</a></li><li><a target="_top" href="http://calendar.live.com/calendar/calendar.aspx">Calendar</a></li><li><a target="_top" href="http://mail.live.com/?rru=contacts">Contacts</a><span class="c_ms"></span></li><li><a target="_top" href="http://mail.live.com/?rru=compose">Send email</a></li></ul><ul id="c_ht_docs"><li><a target="_top" href="http://cid-58c06936ee7d8422.office.live.com/">Recent documents</a></li><li><a target="_top" href="http://cid-58c06936ee7d8422.office.live.com/documents.aspx">Your documents</a></li><li><a target="_top" href="http://groups.live.com/">Your groups</a></li></ul><ul id="c_ht_photos"><li><a target="_top" href="http://cid-58c06936ee7d8422.photos.live.com/">Recent photos</a></li><li><a target="_top" href="http://cid-58c06936ee7d8422.photos.live.com/albums.aspx">Your albums</a></li><li><a target="_top" href="http://cid-58c06936ee7d8422.photos.live.com/peopletags.aspx">Photos of you</a><span class="c_ms"></span></li><li><a target="_top" href="http://cid-58c06936ee7d8422.photos.live.com/choosefolder.aspx">Share photos</a></li></ul><ul id="c_ht_msn"><li><a target="_top" href="http://g.live.com/9uxp9msn/mhm-en-in??su=http://shared.live.com/Live.Spaces">Home</a><span class="c_ms"></span></li><li><a target="_top" href="http://g.live.com/9uxp9msn/mnw-en-in??su=http://shared.live.com/Live.Spaces">News</a></li><li><a target="_top" href="http://g.live.com/9uxp9msn/msp-en-in??su=http://shared.live.com/Live.Spaces">Sports</a></li><li><a target="_top" href="http://g.live.com/9uxp9msn/mwe-en-in??su=http://shared.live.com/Live.Spaces">Weather</a></li></ul><ul index="0" r="Header" maxc="0" id="c_mm_clc0" class="c_mm_clc c_mm_clcHeader t_hovl c_m"><li class="c_mm_status" id="c_mm_status0"><div><div class="statusText"><span>Loading...</span></div></div><span class="c_ms"> </span></li><li class="c_mm_dn" id="c_mm_s0"><div class="c_mm_sb"><input class="c_mm_sbhint" type="text"><span class="c_mm_sbc"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/webim/wim3.png); background-position: 0px 0px; width: 10px; height: 10px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt="Close"></span></span><div class="c_clr"> </div></div><div class="c_mm_sr" id="c_mm_sr0"></div><span class="c_ms c_mm_dn"></span></li><li class="c_mm_c c_mm_dn"><div class="c_mm_contacts" id="c_mm_cl0"><div><div id="c_mm_g0zz" class="c_clr"> </div></div></div><span class="c_ms"> </span></li><li id="c_mm_links0" class="c_mm_links"><ul><li><a href="http://mail.live.com/?rru=contacts" target="_top">Contacts</a></li><li><a href="http://cid-58c06936ee7d8422.profile.live.com/" target="_top">Profile</a><span class="c_ms"></span></li><li><a href="http://cid-58c06936ee7d8422.profile.live.com/connect/" target="_top">Add friends</a></li></ul></li></ul></div></div><script type="text/javascript">//<![CDATA[
+function $newScript(e,f,b,d){var a=_d.createElement("script");a.id=f||"";if(d)a.async=true;a.src=e;if(!b){var c=$("head")||_dh;c.appendChild(a)}return a}
+//]]></script><script type="text/javascript">//<![CDATA[
+new function(){var a="WIMP",e=null,b=window,d=b.parent,g=b[a],f;if(d!=b)try{if(d[a])return}catch(h){}function c(c){clearTimeout(f);f=e;try{d[a]=c}catch(g){}b[a]=c;$Do.when("$WIMP")}b[a+"cb"]=c;if(g){$newScript(g,0,0,1);f=setTimeout(function(){c(e)},2e4)}else c(e)};
+//]]></script>
+
+    
+        <div class="sn_lbar_short">&nbsp;</div>
+        <div class="sn_lbar_short_shadow">&nbsp;</div>
+    
+    <div id="pageFrame" class="PageBG">
+        <table class="sn_lbar"><tbody><tr><td><span><a id="navProfile" href="http://cid-c6a0309746469d9e.profile.live.com/"><span>Jim's profile</span></a></span><span><a id="navTitle" href="http://machaira.spaces.live.com/default.aspx"><span>Machaira's Space</span></a></span><span><a id="navServicePhotos" href="http://cid-c6a0309746469d9e.photos.live.com/albums.aspx"><span>Photos</span></a></span><span><a id="navServiceBlog" href="http://machaira.spaces.live.com/blog/" class="selected"><span>Blog</span></a></span><span><a id="navServiceLists" href="http://cid-c6a0309746469d9e.profile.live.com/Lists/"><span>Lists</span></a></span><span><a id="navMore" href="http://machaira.spaces.live.com/" onclick="return ShowNavMenu(this)"><span>More <img src="cns%21C6A0309746469D9E%21720.entry_files/showmenu_rest_ContainerHeaderTextLuminance.gif" alt="" class="caret"></span></a><div class="sn_lbar_menu" style="display: none;"><table><tbody><tr><td><ul><li><a id="navServiceFriends" href="http://cid-c6a0309746469d9e.profile.live.com/friends/all/"><nobr>Friends</nobr></a></li></ul></td></tr></tbody></table></div></span></td><td class="sn_lbar_utility"><span><a id="navTools" href="http://machaira.spaces.live.com/" onclick="return ShowNavMenu(this)"><span><img src="cns%21C6A0309746469D9E%21720.entry_files/toolsicon.png" alt=""> Tools <img src="cns%21C6A0309746469D9E%21720.entry_files/showmenu_rest_ContainerHeaderTextLuminance.gif" alt="" class="caret"></span></a><div class="sn_lbar_menu" style="display: none;"><table><tbody><tr><td><ul><li><a id="navToolMess" href="http://spaces.live.com/api.aspx?wx_action=sendMessage&amp;wxp_toCid=-4134251031648887394&amp;wx_ru=http%3a%2f%2fmachaira.spaces.live.com%2fblog%2fcns%21C6A0309746469D9E%21720.entry%3fwa%3dwsignin1.0%26sa%3d541052579"><nobr>Send a private message</nobr></a></li><li><a id="navToolRss" href="http://api.live.net/Users%28-4134251031648887394%29/Main?$format=rss20"><nobr>Subscribe to RSS feed</nobr></a></li><li><a id="navToolFrnd" href="mailto:?subject=http%3a%2f%2fmachaira.spaces.live.com%2f&amp;body=http%3a%2f%2fmachaira.spaces.live.com%2f"><nobr>Tell a friend</nobr></a></li><li><a id="navToolInvFrnd" href="http://cid-58c06936ee7d8422.profile.live.com/connect/send?cid=c6a0309746469d9e&amp;ru=http%253a%252f%252fmachaira.spaces.live.com%252fblog%252fcns%21C6A0309746469D9E%21720.entry%253fwa%253dwsignin1.0%2526sa%253d541052579"><nobr>Add as a friend</nobr></a></li></ul></td></tr></tbody></table></div></span><span><script defer="defer" src="cns%21C6A0309746469D9E%21720.entry_files/launchhelp.js"></script><a class="helplink" title="" href="#" onclick="javascript:LaunchHelp('http://help.live.com/','WL_Spacesv3','en-in','','keyword','qaf',true,'b1','','','','');;return false;">Help</a></span></td></tr></tbody></table>
+
+
+    
+        
+    <div id="bodyProxy" style="display: none;"></div>	
+
+    <div id="innerBody">
+        <div id="ctl00_MainContentPlaceholder_ctl00_MainPanel">
+	
+
+
+</div>
+
+
+        <div id="toppage" class="singlePart" name="SpaceTemplateRegion">
+            <table class="FullView" id="layoutManager" cellpadding="0" cellspacing="0">
+                 <tbody><tr>
+                    <td class="region" id="FullViewNav">
+                        
+
+<table class="ContainerLeftNav fullPageOuter fixedTable " style="height: 100%; width: 100%;" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td style="height: 100%; width: 100%; vertical-align: top;">
+
+    <div class="LeftNav">
+
+        
+    <div class="sppPartTitle">
+        
+            <div class="partHeader">
+                <div class="ContainerHeader">
+                    <table style="table-layout: fixed; width: 100%;" cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                    <td width="100%">
+                        <div class="partDetail" style="white-space: nowrap;">
+                            <div class="Title2">
+                                <h2 class="ellipse LineHeightStandard " style="font-size: 100%;">Blog</h2>
+                            </div>
+                        </div>
+                    </td>
+                                              
+                    </tr>
+                    </tbody></table>
+                </div>
+            </div>
+        
+    </div>
+
+        
+        <div>
+        
+
+<script type="text/javascript">
+/*<![CDATA[*/
+function BlogLeftNavTypeChange()
+{
+    var v = document.getElementById("sortby").value;
+    var url = document.URL;
+    
+    // Remove the hash and stuff that follows
+    if (url.indexOf("#") >= 0)
+    {   url = url.substr(0, url.indexOf("#"));
+    }
+
+    url = url.replace(/[&/?]fl=[^&]*/g, "");
+    if (url.indexOf("?") == -1)
+        url += "?fl=" + v;
+    else
+        url += "&fl=" + v;
+        
+    try
+    {   document.location = url;
+    } catch (ex) {}
+}
+/* ]]> */
+</script>
+
+<ul class="List"><li><a class=" " href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart" id="LN_blogView"><img src="cns%21C6A0309746469D9E%21720.entry_files/blogdetails.gif" alt="" class="spLNIcon"><div class="spLNIconText">Entries</div></a></li><li><a class=" " href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=summary&amp;_c=BlogPart" id="LN_blogSumm"><img src="cns%21C6A0309746469D9E%21720.entry_files/blogsummary.gif" alt="" class="spLNIcon"><div class="spLNIconText">Summary</div></a></li></ul>
+
+<div style="padding: 0px 8px;">
+<hr class="line">
+</div>
+
+<div class="BlogSelect">
+    <label style="display: block; padding-bottom: 6px;" for="sortby">Listed by:</label>
+    <select id="sortby" onchange="BlogLeftNavTypeChange()">
+        <option value="a" selected="selected">Date</option>
+        <option value="cat">Category</option>
+    </select>
+</div>
+
+<ul class="List"><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d10%26ayear%3d2010" title="View all entries published during this time period" id="LN_201010"><div class="">October 2010</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d9%26ayear%3d2010" title="View all entries published during this time period" id="LN_20109"><div class="">September 2010</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d8%26ayear%3d2010" title="View all entries published during this time period" id="LN_20108"><div class="">August 2010</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d7%26ayear%3d2010" title="View all entries published during this time period" id="LN_20107"><div class="">July 2010</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d6%26ayear%3d2010" title="View all entries published during this time period" id="LN_20106"><div class="">June 2010</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d5%26ayear%3d2010" title="View all entries published during this time period" id="LN_20105"><div class="">May 2010</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d4%26ayear%3d2010" title="View all entries published during this time period" id="LN_20104"><div class="">April 2010</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d3%26ayear%3d2010" title="View all entries published during this time period" id="LN_20103"><div class="">March 2010</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d2%26ayear%3d2010" title="View all entries published during this time period" id="LN_20102"><div class="">February 2010</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d1%26ayear%3d2010" title="View all entries published during this time period" id="LN_20101"><div class="">January 2010</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d12%26ayear%3d2009" title="View all entries published during this time period" id="LN_200912"><div class="">December 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d11%26ayear%3d2009" title="View all entries published during this time period" id="LN_200911"><div class="">November 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d10%26ayear%3d2009" title="View all entries published during this time period" id="LN_200910"><div class="">October 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d9%26ayear%3d2009" title="View all entries published during this time period" id="LN_20099"><div class="">September 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d8%26ayear%3d2009" title="View all entries published during this time period" id="LN_20098"><div class="">August 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d7%26ayear%3d2009" title="View all entries published during this time period" id="LN_20097"><div class="">July 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d6%26ayear%3d2009" title="View all entries published during this time period" id="LN_20096"><div class="">June 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d5%26ayear%3d2009" title="View all entries published during this time period" id="LN_20095"><div class="">May 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d4%26ayear%3d2009" title="View all entries published during this time period" id="LN_20094"><div class="">April 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d3%26ayear%3d2009" title="View all entries published during this time period" id="LN_20093"><div class="">March 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d2%26ayear%3d2009" title="View all entries published during this time period" id="LN_20092"><div class="">February 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d1%26ayear%3d2009" title="View all entries published during this time period" id="LN_20091"><div class="">January 2009</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d12%26ayear%3d2008" title="View all entries published during this time period" id="LN_200812"><div class="">December 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d11%26ayear%3d2008" title="View all entries published during this time period" id="LN_200811"><div class="">November 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d10%26ayear%3d2008" title="View all entries published during this time period" id="LN_200810"><div class="">October 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d9%26ayear%3d2008" title="View all entries published during this time period" id="LN_20089"><div class="">September 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d8%26ayear%3d2008" title="View all entries published during this time period" id="LN_20088"><div class="">August 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d7%26ayear%3d2008" title="View all entries published during this time period" id="LN_20087"><div class="">July 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d6%26ayear%3d2008" title="View all entries published during this time period" id="LN_20086"><div class="">June 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d5%26ayear%3d2008" title="View all entries published during this time period" id="LN_20085"><div class="">May 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d4%26ayear%3d2008" title="View all entries published during this time period" id="LN_20084"><div class="">April 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d3%26ayear%3d2008" title="View all entries published during this time period" id="LN_20083"><div class="">March 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d2%26ayear%3d2008" title="View all entries published during this time period" id="LN_20082"><div class="">February 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d1%26ayear%3d2008" title="View all entries published during this time period" id="LN_20081"><div class="">January 2008</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d12%26ayear%3d2007" title="View all entries published during this time period" id="LN_200712"><div class="">December 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d11%26ayear%3d2007" title="View all entries published during this time period" id="LN_200711"><div class="">November 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d10%26ayear%3d2007" title="View all entries published during this time period" id="LN_200710"><div class="">October 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d9%26ayear%3d2007" title="View all entries published during this time period" id="LN_20079"><div class="">September 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d8%26ayear%3d2007" title="View all entries published during this time period" id="LN_20078"><div class="">August 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d7%26ayear%3d2007" title="View all entries published during this time period" id="LN_20077"><div class="">July 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d6%26ayear%3d2007" title="View all entries published during this time period" id="LN_20076"><div class="">June 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d5%26ayear%3d2007" title="View all entries published during this time period" id="LN_20075"><div class="">May 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d4%26ayear%3d2007" title="View all entries published during this time period" id="LN_20074"><div class="">April 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d3%26ayear%3d2007" title="View all entries published during this time period" id="LN_20073"><div class="">March 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d2%26ayear%3d2007" title="View all entries published during this time period" id="LN_20072"><div class="">February 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d1%26ayear%3d2007" title="View all entries published during this time period" id="LN_20071"><div class="">January 2007</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d12%26ayear%3d2006" title="View all entries published during this time period" id="LN_200612"><div class="">December 2006</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d11%26ayear%3d2006" title="View all entries published during this time period" id="LN_200611"><div class="">November 2006</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d10%26ayear%3d2006" title="View all entries published during this time period" id="LN_200610"><div class="">October 2006</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d9%26ayear%3d2006" title="View all entries published during this time period" id="LN_20069"><div class="">September 2006</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d8%26ayear%3d2006" title="View all entries published during this time period" id="LN_20068"><div class="">August 2006</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d7%26ayear%3d2006" title="View all entries published during this time period" id="LN_20067"><div class="">July 2006</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d6%26ayear%3d2006" title="View all entries published during this time period" id="LN_20066"><div class="">June 2006</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d5%26ayear%3d2006" title="View all entries published during this time period" id="LN_20065"><div class="">May 2006</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d4%26ayear%3d2006" title="View all entries published during this time period" id="LN_20064"><div class="">April 2006</div></a></li><li><a class="" href="http://machaira.spaces.live.com/?_c11_BlogPart_BlogPart=blogview&amp;_c=BlogPart&amp;partqs=amonth%3d3%26ayear%3d2006" title="View all entries published during this time period" id="LN_20063"><div class="">March 2006</div></a></li></ul>
+        </div>
+
+    </div>
+</td>
+</tr>
+</tbody></table>
+                    </td>
+                    <td class="region" id="MainFocus">
+                        
+
+  
+<div class="ContainerFullView fullPageOuter SPTransparency">
+
+    
+
+<div class="spAToolbar" style="width: 100%;">
+    <table class="spAToolbarTable" style="width: 100%;" cellspacing="0">
+    <tbody><tr>
+        <td><ul id="ctl00_MainContentPlaceholder_ctl01_Toolbar_Internal_LeftToolbarList" class="LeftToolBarItems"></ul></td>
+        <td align="right"><ul id="ctl00_MainContentPlaceholder_ctl01_Toolbar_Internal_RightToolbarList" class="RightToolBarItems"><li class="sppLast">&nbsp;&nbsp;&nbsp;<a href="http://machaira.spaces.live.com/blog/cns%21C6A0309746469D9E%21715.entry" title="Go to: Another year, another set of goals">&lt; Previous</a>&nbsp;&nbsp;&nbsp;<a href="http://machaira.spaces.live.com/blog/cns%21C6A0309746469D9E%21722.entry" title="Go to: XNA and Short Term Memory Loss">Next &gt;</a></li>
+</ul></td>
+    </tr>
+    </tbody></table>
+</div>
+
+
+
+    
+    <div>
+    <div id="BPErr" class="notify Spaces_Controls_NotificationBar ErrorMed Spaces_Controls_NotificationBar" style="border-left: medium none; border-right: medium none; display: none;" nb:importance="Med"><table><tbody><tr><td class="NBContent">Sorry, your entry can't be deleted right now.  Please try again later.</td></tr></tbody></table></div>
+
+<script type="text/javascript">
+if (typeof registerNamespace != 'function') { registerNamespace = function() {
+var iArgs = arguments.length; for (var a=0;a<iArgs;a++) { var rootObject = this, namespaceParts = arguments[a].split('.'),
+iCount = namespaceParts.length;for (var i = 0; i < iCount; i++) { var currentPart = namespaceParts[i]; if (!rootObject[currentPart]) {
+rootObject[currentPart] = function() {}; } rootObject = rootObject[currentPart]; } } return rootObject;}; }
+function GetString(s){var rootObject = this, parts = s.toLowerCase( ).split('.'),
+iCount = parts.length;for (var i = 0; i < iCount; i++){var currentPart = parts[i];rootObject = rootObject[currentPart];
+if (rootObject == null){return '';}}return rootObject.toString( );}
+registerNamespace("live.sndefaultstrings.strings.blogentry");
+live.sndefaultstrings.strings.blogentry._deletephoto = "Delete this photo";
+registerNamespace("live.sndefaultstrings.strings.blogentry.deletephoto");
+live.sndefaultstrings.strings.blogentry.deletephoto.tooltip = "Delete photo \x7b0\x7d";
+live.sndefaultstrings.strings.blogentry.deletephoto.jserror = "One or more of your photos could not be removed from this entry.  Please select the photos you wish to remove and try again.";
+live.sndefaultstrings.strings.blogentry.deletephoto.prompt = "You are about to permanently delete the photo \x7b0\x7d.  If you\x27re using this photo in other places on this \x7b1\x7d, it will not be deleted from those places.";
+live.sndefaultstrings.strings.blogentry.trackbackerror = "You have entered more than 10 trackback URLs. You can only send 10 trackbacks at one time.";
+live.sndefaultstrings.strings.blogentry.deleteerror = "Sorry, your entry can\x27t be deleted right now.  Please try again later.";
+live.sndefaultstrings.strings.blogentry.titletoolong = "The title you have entered is too long. Please shorten the title and try again.";
+live.sndefaultstrings.strings.blogentry.schemaviolation = "This entry contains too much text. Please remove some text, and then publish this entry. To publish more text, add a new entry.";
+registerNamespace("live.sndefaultstrings.strings.guestbook.edit");
+live.sndefaultstrings.strings.guestbook.edit.toolong = "The greeting contains too much text. Please remove some text, and then save the greeting.";
+live.sndefaultstrings.strings.blogentry.missingmessageerror = "You either didn\x27t enter a message or you entered content that\x27s not allowed. Please enter a message, and then click Publish.";
+live.sndefaultstrings.strings.blogentry.genericerror = "The service is temporarily unavailable. Please try again later.";
+live.sndefaultstrings.strings.blogentry.genericimageerror = "There was a problem uploading and some of your photos may not have been added.  Please try again later.";
+live.sndefaultstrings.strings.blogentry.quotalimit = "This file can\x27t be uploaded because it would cause you to exceed your total storage limit. Delete some older files to make room for this file, and then try again.";
+live.sndefaultstrings.strings.blogentry.containsprofanity = "This entry\x27s title contains language that is prohibited. Please delete the prohibited language from the title of the entry.";
+live.sndefaultstrings.strings.blogentry.timeouterror = "Due to the high volume of activity on the servers right now, your entry may not have been published. To avoid duplicate entries, please check to see if your entry was published before trying again.";
+registerNamespace("live.sndefaultstrings.strings.deleteblogitem.entry");
+live.sndefaultstrings.strings.deleteblogitem.entry.title = "Delete this entry";
+live.sndefaultstrings.strings.deleteblogitem.entry.text = "You are about to delete this entry. Any comments and trackbacks associated with the entry will also be deleted.";
+registerNamespace("live.sndefaultstrings.strings.deleteblogitem.comment");
+live.sndefaultstrings.strings.deleteblogitem.comment.title = "Delete this comment";
+live.sndefaultstrings.strings.deleteblogitem.comment.text = "You are about to permanently delete this comment.";
+registerNamespace("live.sndefaultstrings.strings.deleteblogitem.trackback");
+live.sndefaultstrings.strings.deleteblogitem.trackback.title = "Delete this trackback";
+live.sndefaultstrings.strings.deleteblogitem.trackback.text = "You are about to permanently delete this trackback.";
+registerNamespace("live.sndefaultstrings.strings.deleteblogitem.multiple");
+live.sndefaultstrings.strings.deleteblogitem.multiple.title = "Delete selected items";
+live.sndefaultstrings.strings.deleteblogitem.multiple.text = "You are about to permanently delete the items you selected.";
+live.sndefaultstrings.strings.blogentry.addcategorypopovertitle = "Add a category";
+live.sndefaultstrings.strings.blogentry.addcategorypopoveradd = "Add";
+live.sndefaultstrings.strings.blogentry.addcategorypopovercancel = "\x5bstring not found \x28blogentry.addcategorypopovercancel\x29\x5d";
+live.sndefaultstrings.strings.blogentry.addnewcategorytext = "Enter the name of the category, and then click \x7b0\x7dAdd\x7b1\x7d. The category will appear at the bottom of the list.";
+live.sndefaultstrings.strings.blogentry.categorytoolong = "The category name you have entered is too long. Please shorten the category name and try again.";
+live.sndefaultstrings.strings.blogentry.invalidcategory = "The category name you have entered is invalid. Please enter a different category name.";
+registerNamespace("live.sndefaultstrings.strings.global");
+live.sndefaultstrings.strings.global.errorretrievingcontent = "There was an error retrieving the content. Please try again.";
+live.sndefaultstrings.strings.global._delete = "Delete";
+live.sndefaultstrings.strings.global.cancel = "Cancel";
+live.sndefaultstrings.strings.global.ok = "OK";
+live.sndefaultstrings.strings.global.save = "Save";
+live.sndefaultstrings.strings.blogentry.photo = "GIF, JPEG, PNG, BMP or TIF format only. You can upload a maximum of \x7b0\x7d1 MB\x7b1\x7d of photos at a time.";
+live.sndefaultstrings.strings.blogentry.attachedphoto = "Photos in this entry";
+live.sndefaultstrings.strings.blogentry.entrycategory = "Category\x3a";
+live.sndefaultstrings.strings.blogentry.addphotos = "Add photos";
+live.sndefaultstrings.strings.blogentry.embedvideo = "Embed videos";
+live.sndefaultstrings.strings.blogentry.publishwait = "Please wait while your entry is being published.";
+live.sndefaultstrings.strings.guestbook.edit.savewait = "Please wait while your greeting is saved.";
+live.sndefaultstrings.strings.blogentry.publishdraftwait = "Please wait while your entry is being saved as a draft.";
+live.sndefaultstrings.strings.blogentry.cancelprompt = "You are about to exit the edit page without saving. Any changes you have made since you last saved will be lost.  Click OK to exit without saving changes, or click Cancel to return to the edit page.";
+live.sndefaultstrings.strings.blogentry.canceltitle = "Exit without saving changes";
+registerNamespace("live.sndefaultstrings.strings.blogjs");
+live.sndefaultstrings.strings.blogjs.namerequired = "The name box is empty. Please type a name in the name box.";
+live.sndefaultstrings.strings.blogjs.nametoolong = "The name you have entered is too long. Please shorten the name and try again.";
+live.sndefaultstrings.strings.blogjs.invalidemail = "The email address is not in a valid format. Please retype the email address using the \x3ci\x3ename\x40example.com\x3c\x2fi\x3e format.";
+live.sndefaultstrings.strings.blogjs.emailtoolong = "The email address you entered is too long. Please shorten the email address and try again.";
+live.sndefaultstrings.strings.blogjs.urltoolong = "The web address \x28URL\x29 you entered is too long. Please shorten the web address and try again.";
+registerNamespace("live.sndefaultstrings.strings.comments");
+live.sndefaultstrings.strings.comments.invalidcomment = "You either didn\x27t enter a comment or you entered content that\x27s not allowed. Please enter a comment, and then click \x7b0\x7dAdd\x7b1\x7d.";
+live.sndefaultstrings.strings.blogjs.commenttoolong = "The comment you entered is too long. Please shorten your comment and click \x7b0\x7dAdd\x7b1\x7d";
+registerNamespace("live.sndefaultstrings.strings.blogview");
+live.sndefaultstrings.strings.blogview.servererror = "The server has encountered an error. Please try again.";
+live.sndefaultstrings.strings.blogview.containsprofanity = "This comment contains language that is prohibited. Please delete the prohibited language, and then click Add.";
+live.sndefaultstrings.strings.blogview.publishcomment = "Add";
+live.sndefaultstrings.strings.blogview.cancel = "\x5bstring not found \x28blogview.cancel\x29\x5d";
+live.sndefaultstrings.strings.blogjs.errorretrievingcontent = "There was an error retrieving the content. Please try again.";
+live.sndefaultstrings.strings.blogview.passportsignin = "To add a comment, you must sign in with your Windows Live ID \x28a Microsoft account like Hotmail, Messenger, or MSN\x29.";
+registerNamespace("live.sndefaultstrings.strings.photos");
+live.sndefaultstrings.strings.photos.showcontactpic = "Use my profile information";
+live.sndefaultstrings.strings.blogentry.photonavigate = "Click Cancel to keep your blog entry and continue uploading photos. Clicking OK will result in losing your blog entry and all photos you\x27ve added so far.";
+registerNamespace("live.sndefaultstrings.strings.embedvideopopover");
+live.sndefaultstrings.strings.embedvideopopover.title = "Embed videos";
+live.sndefaultstrings.strings.embedvideopopover.savebutton = "\x5bstring not found \x28embedvideopopover.savebutton\x29\x5d";
+live.sndefaultstrings.strings.embedvideopopover.cancelbutton = "\x5bstring not found \x28embedvideopopover.cancelbutton\x29\x5d";
+live.sndefaultstrings.strings.embedvideopopover.instructions = "Enter the embed code for the video you want to add, and then click \x3cb\x3eSave\x3c\x2fb\x3e.  \x3cb\x3eNote\x3c\x2fb\x3e\x3a Only Flash video players are allowed.";
+live.sndefaultstrings.strings.embedvideopopover.embedcode = "Embed code\x3a";
+live.sndefaultstrings.strings.embedvideopopover.emptyembed = "Please enter the embed code for the video you want to add.";
+live.sndefaultstrings.strings.embedvideopopover.invalidembed = "The code you\x27ve entered doesn\x27t contain an \x26lt\x3bembed\x26gt\x3b tag.  To embed a video, the embed code must contain at least one \x26lt\x3bembed\x26gt\x3b tag.";
+live.sndefaultstrings.strings.embedvideopopover.invalidplayer = "The embed code you\x27ve entered is not supported by Spaces.  Only Flash video players are allowed.";
+live.sndefaultstrings.strings.embedvideopopover.invalidversion = "You do not have the most recent version of Flash installed.  You must install the latest version of Flash to embed videos.";
+live.sndefaultstrings.strings.embedvideopopover.downloadflash = "Click here to get the latest version.";
+
+
+/*<![CDATA[*/
+    
+    var gblBlogPage = 'http\x3a\x2f\x2fmachaira.spaces.live.com\x2fblog\x2f';
+    
+    function Delete()
+    {
+        if((typeof(Spaces) != "undefined") && Spaces.Blog && Spaces.Blog.Entry)
+        {
+            Spaces.Blog.Entry.DeletePermalink('cns\x21C6A0309746469D9E\x21720');
+        }
+    }
+/* ]]> */
+</script>
+
+<div class="ContainerPadding" id="wlppScope">
+
+
+<span id="ctl00_MainContentPlaceholder_ctl01_ctl00_lblEntry"><div id="entrycns!C6A0309746469D9E!720" class="bvEntry"><div id="LastMDatecns!C6A0309746469D9E!720">February 22</div><h4 class="beTitle" id="subjcns!C6A0309746469D9E!720">Object Serialization Using XML and the XNA Content Pipeline</h4><div id="msgcns!C6A0309746469D9E!720" class="bvMsg"><p>It
+seems the question of how to manage data for class objects comes up a
+lot in the Creators Club forums. I can’t imagine that there are people
+that don’t know about the wonderful Content Pipeline that can be used
+with XNA Game Studio to help manage data, but I guess there are still
+actually some out there. Hopefully this post will help inform them.</p> <p>So
+you’re making the next big RPG and trying to figure out how to store
+all the data for the dozens (hundreds, thousands, whatever) items you
+have in the game. You’ve got an Item class something like the following:</p><pre>    <span>public</span> <span>class</span> Item
+    {
+        <span>public</span> <span>string</span> Name;
+        <span>public</span> ItemType Type;
+        <span>public</span> ItemSubType SubType;
+        <span>public</span> <span>string</span> Description;
+        <span>public</span> <span>int</span> MinDamage;
+        <span>public</span> <span>int</span> MaxDMG;
+        <span>public</span> <span>int</span> MaxHP;
+        <span>public</span> <span>int</span> Speed;
+
+        <span>public</span> Item()
+        {
+
+        }
+    }</pre>
+<p>ItemType and ItemSubType are enums that can be anything you want, but let’s say they look like this:</p><pre>    <span>public</span> <span>enum</span> ItemType
+    {
+        Weapon,
+        Armor,
+        Potion,
+        Ring,
+        Necklace,
+        Scroll
+    }
+
+    <span>public</span> <span>enum</span> ItemSubType
+    {
+        TwoHandedWeapon,
+        OneHandedWeapon,
+        HeadArmor,
+        ChestArmor,
+        ArmsArmor,
+        HandsArmor,
+        LegsArmor,
+        FeetArmor,
+        None
+    }</pre>
+
+
+<p>We need to get instances of this class into a file of some type. XML
+is a much used format due to it’s readability, making debugging easier.
+Fortunately, the Content Pipeline handles XML with not much work.</p>
+<p>We’ll need to create two projects, a Windows Game project and a
+Windows Game Library project. The code above gets added to the Game
+Library project. We then add references to the Game library project to
+both the Windows Game project and the Content project in the Windows
+Game project.</p>
+<p>We’ll need a test file to work with. Fortunately, creating one is
+easy. Add the following lines to the top of the Game1.cs file in the
+Windows Game project:</p><pre><span>using</span> System.Xml;
+<span>using</span> System.Xml.Serialization;
+<span>using</span> Microsoft.Xna.Framework.Content.Pipeline.Serialization.Intermediate;
+<span>using</span> WindowsGameLibrary1;
+</pre>
+
+
+<p>&nbsp;</p>
+<p>Then add the following code to the LoadContent method (this is only
+temporary and will be removed after running the game to create our test
+file):</p><pre>            Item item = <span>new</span> Item();
+
+            item.Description = <span>"Standard dagger"</span>;
+            item.MaxDMG = 10;
+            item.MaxHP = 100;
+            item.MinDamage = 1;
+            item.Name = <span>"Dagger"</span>;
+            item.Speed = 5;
+            item.SubType = ItemSubType.OneHandedWeapon;
+            item.Type = ItemType.Weapon;
+
+            XmlWriterSettings settings = <span>new</span> XmlWriterSettings();
+            settings.Indent = <span>true</span>;
+
+            <span>using</span> (XmlWriter writer = XmlWriter.Create(Content.RootDirectory + <span>@"\item1.xml"</span>, settings))
+            {
+                IntermediateSerializer.Serialize&lt;Item&gt;(writer, item, <span>"item1.xml"</span>);
+            }</pre>
+
+
+<p>Press F5 or use the Debug | Start Debugging menu item. Once the
+CornflowerBlue colored window appears close it. Our test file is now
+ready. In the C:\Users\&lt;user name&gt;\Documents\Visual Studio
+2008\Projects\&lt;solution name&gt;\&lt;project
+name&gt;\bin\x86\Debug\Content folder (assuming you’re running Vista)
+you’ll find the test1.xml file. If you open it you’ll see the following:</p><pre><span>&lt;?</span><span>xml</span> <span>version</span><span>="1.0"</span> <span>encoding</span><span>="utf-8"</span>?<span>&gt;</span>
+<span>&lt;</span><span>XnaContent</span><span>&gt;</span>
+  <span>&lt;</span><span>Asset</span> <span>Type</span><span>="WindowsGameLibrary1.Item"</span><span>&gt;</span>
+    <span>&lt;</span><span>Name</span><span>&gt;</span>Dagger<span>&lt;/</span><span>Name</span><span>&gt;</span>
+    <span>&lt;</span><span>Type</span><span>&gt;</span>Weapon<span>&lt;/</span><span>Type</span><span>&gt;</span>
+    <span>&lt;</span><span>SubType</span><span>&gt;</span>OneHandedWeapon<span>&lt;/</span><span>SubType</span><span>&gt;</span>
+    <span>&lt;</span><span>Description</span><span>&gt;</span>Standard dagger<span>&lt;/</span><span>Description</span><span>&gt;</span>
+    <span>&lt;</span><span>MinDamage</span><span>&gt;</span>1<span>&lt;/</span><span>MinDamage</span><span>&gt;</span>
+    <span>&lt;</span><span>MaxDMG</span><span>&gt;</span>10<span>&lt;/</span><span>MaxDMG</span><span>&gt;</span>
+    <span>&lt;</span><span>MaxHP</span><span>&gt;</span>100<span>&lt;/</span><span>MaxHP</span><span>&gt;</span>
+    <span>&lt;</span><span>Speed</span><span>&gt;</span>5<span>&lt;/</span><span>Speed</span><span>&gt;</span>
+  <span>&lt;/</span><span>Asset</span><span>&gt;</span>
+<span>&lt;/</span><span>XnaContent</span><span>&gt;</span></pre>
+
+
+<p>Go ahead and drag and drop it into the Content node in the Solution
+Explorer for the Windows Game (or right-click on the Content node and
+navigate to the file and select it).</p>
+<p>Pull up the Properties for the test1.xml file and you should see the relevant properties have been automatically set:</p>
+<ul>
+<li>Build Action – Compile 
+</li><li>Copy to Output Directory – Do not copy 
+</li><li>Asset Name – item1 
+</li><li>Content Importer – XML Content 
+</li><li>Content Processor – No Processing Required</li></ul>
+<p>&nbsp;</p>
+<p>Comment out or remove the code we added to the LoadContent method and replace it with the following:</p><pre>            Item item = Content.Load&lt;Item&gt;(<span>"item1"</span>);
+</pre>
+
+
+<p>&nbsp;</p>
+<p>Put a breakpoint on this line and run the game again. Step over the
+line (usually the F10 key). Assuming you’ve entered everything
+correctly holding the mouse over “item” will pop open something that
+looks like this:</p>
+<p><a href="https://bhnioq.bay.livefilestore.com/y1mUM9AWuHP8OWTSBfVaMMd02q22yk1OaAqpY0e8oV5GZjAFNdHhilHI27EcAv-EjxqSnuJwAKz6Gq8ZO4yCzLI5hCIGqMfld3n9yNA6G4KjsK00Fn0X0uilMNXd-tBnO2K8xcJWmyhyxMILvCJxg_4YA/debug%5B2%5D.png" rel="WLPP"><img style="border: 0px none ; display: block; float: none; margin-left: auto; margin-right: auto;" title="debug" alt="debug" src="cns%21C6A0309746469D9E%21720.entry_files/debug_thumb.png" width="244" border="0" height="107"></a> </p>
+<p>So we know the first chunk of code that used the
+IntermediateSerializer works for creating a file that the
+ContentManager can read into an Item object. What now? One usual thing
+that’s done is to create a Windows Forms application that contains
+controls to allow someone to enter all the item data. You then have
+some code just like the above to take the data that was entered (and
+most likely saved into something like a List&lt;Item&gt; collection) to
+save the data to one or more files.</p>
+<p>Depending on the amount and type of data you can organize the files several ways (in increasing order of file size):</p>
+<ul>
+<li>A file for each item</li>
+<li>A file for each group of items (say weapons in one file, armor in another file, etc.)</li>
+<li>A file for all items in a level or area</li>
+<li>A file for all items</li></ul>
+<p>If you want to keep more than one item in a file, you’ll have to
+change the way you keep the data in memory. The nice thing about
+working with the IntermediateSerializer is that you don’t have to
+change anything (except the type of content being read) if you
+serialize one Item object or a List&lt;Item&gt; collection. So a list
+of items would simply be:</p><pre>List&lt;Item&gt; items = Content.Load&lt;List&lt;Item&gt;&gt;(<span>"items"</span>);</pre>
+
+
+<p>Only you can determine the best way to organize the files. Be aware
+that keeping all the data in one file will mean increased load time,
+perhaps to a prohibitive degree. If you do decide to keep more than one
+item per file you might want to change the way they’re organized,
+perhaps using a Dictionary collection to make finding items easier. You
+could use a short or int variable as the key for the Item object value.
+Doing this means you have to store less information in whatever data
+you have that references items (a Level object for example where items
+are strewn about the level). Instead of having to keep the name of the
+item in the Level object, which could mean a lot of unnecessary bytes,
+you have either 2 or 4 bytes.</p>
+<p>&nbsp;</p>
+<p>If your data is known at design time using the
+IntermediateSerializer to turn it into a compiled binary file that you
+use the ContentManager to load at run time makes things a lot easier.
+Feel free to experiment with serializing various types of objects and
+see what works for you.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p><pre>&nbsp;</pre><pre>&nbsp;</pre>
+  </div><div class="footerLinks"><nobr id="blogDT">22:28:37</nobr>&nbsp;| <nobr dir="ltr"><a title="Blog about this entry in your space" href="javascript:BlogIt('cns!C6A0309746469D9E!720');" id="blogThis0">Blog it</a></nobr></div><div class="footer"></div></div></span>
+
+<div style="padding: 8px 18px;">
+<a name="comment" style="display: none;"></a>
+
+        <script type="text/javascript">
+            
+            if(window.$Cmt == null)
+			{
+                window.$Cmt = new Object();
+		    }
+            
+            if(!$Cmt.fname && !$Cmt.lname && !$Cmt.ppic){$Cmt.fname='Shubhajit';$Cmt.lname='Saha';$Cmt.ppic='';}
+            
+            $Cmt.canary = '\x2bZw\x2bYDODBRYJd3vkmvm\x2bj3jAvktqI\x2bTI3CBSYI52OCA\x3d6';
+            $Cmt.churl = '\x2fHandlers\x2f';
+            $Cmt.hdlrvm = 'CommentsViewMore.mvc/';
+            $Cmt.hdlrad = 'CommentAdd.mvc/';
+            $Cmt.hdlrdl = 'CommentDelete.mvc/';
+            $Cmt.adderrtext = 'Sorry, we couldn\x26\x2339\x3bt add your comment. Please try again.';
+            $Cmt.emptyerrtext = 'You didn\x26\x2339\x3bt enter a comment. Please try again.';
+            $Cmt.longerrtext = 'Sorry, the comment you entered is too long. Please shorten it.';
+            $Cmt.confirmnav = 'If you navigate away from this page, your comment won\x27t be added.';
+            $Cmt.dlpohd = 'Delete this comment';
+            $Cmt.dlpocnf = 'Are you sure you want to delete this comment\x26\x2363\x3b';
+            $Cmt.dlporpt = 'Report this comment as spam';
+			$Cmt.btok = 'OK';
+			$Cmt.btcancel = 'Cancel';
+            $Cmt.dltmsg = '\x3cimg src\x3d\x22http\x26\x2358\x3b\x2f\x2fsecure.wlxrs.com\x2f\x26\x2336\x3blive.controls.images\x2fcc\x2fprogress.gif\x22 \x2f\x3eDeleting...';
+            $Cmt.dltnotif = '\x3ctable class\x3d\x22cc2_dlterr\x22 cellspacing\x3d\x220px\x22 cellpadding\x3d\x220px\x22 \x3e\x3ctr\x3e\x3ctd class\x3d\x22cc2_errimg\x22\x3e\x3cimg src\x3d\x22http\x26\x2358\x3b\x2f\x2fsecure.wlxrs.com\x2f\x26\x2336\x3blive.controls.images\x2fcc\x2ferror.png\x22 \x2f\x3e\x3c\x2ftd\x3e\x3ctd class\x3d\x22cc2_errtext\x22\x3eSorry, we couldn\x26\x2339\x3bt delete this comment. Please try again.\x3c\x2ftd\x3e\x3c\x2ftr\x3e\x3c\x2ftable\x3e';
+            $Cmt.maxinlcomments = 18;
+            $Cmt.maxflcomments = 20;
+            $Cmt.maxcommentlength = 500;
+            $Cmt.audiourl = 'http\x3a\x2f\x2fmachaira.spaces.live.com\x2fHandlers\x2fhipAudioUrl.mvc';
+            $Cmt.errorimgurl = 'http\x26\x2358\x3b\x2f\x2fsecure.wlxrs.com\x2f\x26\x2336\x3blive.controls.images\x2fcc\x2ferror.png';
+			$Cmt.spinnerImgUrl = 'http\x26\x2358\x3b\x2f\x2fsecure.wlxrs.com\x2f\x26\x2336\x3blive.controls.images\x2fcc\x2fprogress.gif';
+			$Cmt.addMsg = 'Adding...';
+			$Cmt.loading = 'Loading...';
+            $Cmt.pourl = 'http\x3a\x2f\x2fmsc.wlxrs.com\x2fnmFgvzdwi4hk0P3YZpwW1A\x2fPopover.js';
+            $Cmt.aurl = 'http\x3a\x2f\x2fmsc.wlxrs.com\x2fARaXJFccP88Ua49ygmVldA\x2fjs\x2fHipV3.js';
+            $Cmt.currusercid = '6395227155516458018';
+			$Cmt.amcp = 'cc2_amc_'
+            $Cmt.nomorecmt = 'This update has no new comments';
+            $Cmt.lderr = 'Sorry, we can\x26\x2339\x3bt get comments right now. Please try again later.';
+            if(window.$Comments==null)window.$Comments={};window.$Comments.expTxtColor="#000";window.$Comments.expRows=3;window.$Comments.DirtyCount=0;$Comments.OnTextBoxFocus=function(a,c){if(a.Dirty==null){window.$Comments.DirtyCount++;a.Dirty={};var b=a.cache;if(b==null){b=a.cache={};b.postButton=document.getElementById(c);b.container=document.getElementById(c+"_cn");b.rows=a.rows;b.color=a.style.color;b.text=a.value}b.container.style.display="block";a.rows=window.$Comments.expRows;a.style.color=window.$Comments.expTxtColor;a.value=""}return true};$Comments.OnTextBoxBlur=function(a){if(a.value==""||a.value==null){window.$Comments.DirtyCount--;var b=a.cache;if(b!=null&&a.Dirty!=null){a.rows=b.rows;a.style.color=b.color;a.value=b.text;a.Dirty=null;b.postButton.disabled="true";b.container.style.display="none"}}return true};$Comments.OnWNCommentClick=function(a,b){document.getElementById(a).style.display="block";setTimeout(function(){try{document.getElementById(b).focus()}catch(a){}},10);return true};$Comments.OnTextBoxChange=function(a,c){var b=null;if(a.cache!=null&&a.cache.postButton!=null)b=a.cache.postButton;else b=document.getElementById(c);if(a.value==null||a.value=="")b.disabled=true;else b.disabled=false;return true};
+        </script>
+
+		
+		
+        
+        <div style="display: none;">
+             <script type="text/javascript">//<![CDATA[
+$icerrsrc = "http\x3a\x2f\x2fsecure.wlxrs.com\x2f\x24live.controls.images\x2fic\x2fbluemann.png";function ic_onTE(a){try{var c=a.getAttribute("errsrc")||$icerrsrc;if(a.src!=c){a.className="c_ic_tile";var b=a.style;b.top=b.left=b.height=b.width="";setTimeout(function(){a.src=c;a.style.visibility=""},0)}}catch(d){}}function ic_onTL(a){try{var c=a.width,b=a.height;a.className="c_ic_tile";var j=a.width,i=a.height,e,d,l=0,m=0;if(c==0&&b==0){var k=new Image;k.src=a.src;c=k.width;b=k.height}var h=a.currentStyle;if(c==1&&b==1||h&&h.width=="1px"&&h.height=="1px"){ic_onTE(a);return}var g=Math.round;if(c&&b&&c!=b){if(c>b){d=i;e=g(i*(c/b));l=-g((e-j)/2)}else{e=j;d=g(j*(b/c));m=-g((d-i)/2)}var f=a.style;if(d&&e){f.width=e+"px";f.height=d+"px";f.left=l+"px";f.top=m+"px"}}a.style.visibility=""}catch(n){}};
+//]]></script><div id="ic1" class="c_ic c_ic_h_t"><div id="ic1_text" class="c_ic_text_h "><div class="c_ic_name "><span dir="ltr" id="ic1_name" target="_top" href="#" title="Someone on Windows Live" onclick="i = new Image(); i.src = 'http://g.live.com/_9uxp9en-in/ic_dn??su=http://shared.live.com/Live.Spaces';return false;"><span dir="ltr">Someone on Windows Live</span></span></div><div id="ic1_fstarp" class="c_ic_fstarp c_ic_fstarp_hide"><span dir="ltr" class="is_c" id="ic1_fstar"><img class="is_img c_ic_fstar" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/ic/iciconmap24w4m4v2.png);" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt="Favorite"></span></div><div class="c_clr"></div></div><div class="c_clr"></div></div>
+        </div>
+
+
+       
+            <script type="text/javascript">
+                if(window.$Cmt == null)
+                {
+                    window.$Cmt = new Object();
+                }
+                
+                var $ctid = "c_CommentControl";
+                $Cmt[$ctid] = new Object();
+                $Cmt[$ctid].count = 0;
+                $Cmt[$ctid].sparentid = 'C6A0309746469D9E\x21720';
+                $Cmt[$ctid].aparentid = '00010000-0f7b-1dcb-c6a0-309746469d9e';
+                $Cmt[$ctid].isgrp = 'false';
+                $Cmt[$ctid].ptype = 's';
+                $Cmt[$ctid].ctype = 'PlainText';
+                $Cmt[$ctid].aocid = '-4134251031648887394';
+                $Cmt[$ctid].hash = 'WUqIkhREJzbaDWP4skJsU6X5zT59FqftHm\x2b5m\x2fEJo9w\x3d';
+                $Cmt[$ctid].moreComments = false;
+                $Cmt[$ctid].notfApp = '6403544982806810';
+                $Cmt[$ctid].notfCt = '0';
+                $Cmt[$ctid].biciAcType = 'blog';
+				$Cmt[$ctid].attic = 'False';
+				
+                if(!$Cmt.fname && !$Cmt.lname && !$Cmt.ppic){$Cmt.fname='Shubhajit';$Cmt.lname='Saha';$Cmt.ppic='';}
+                
+                
+                
+                        $Cmt[$ctid].anchor = '';
+                        $Cmt[$ctid].fbanchor = '';
+                        $Cmt[$ctid].cctype = 'f';
+                        $Cmt[$ctid].isPhoto = '0';
+                        $Cmt[$ctid].notRecipients = '-4134251031648887394';
+                        $Cmt[$ctid].cmtPageUrl = 'http\x3a\x2f\x2fmachaira.spaces.live.com\x2fblog\x2fcns\x21C6A0309746469D9E\x21720.entry';
+                        
+                
+            </script>
+            
+            <div id="cc2_main_full_CommentControl" class="cc2_main">
+                <h3 id="cc2_hdr_CommentControl" class="cc2_hdr">Comments&nbsp;<span id="cc2_ccc_CommentControl" class="cc2_ccc"></span></h3>
+                <div class="cc2_main_bk"><span dir="ltr" class="is_c"><img class="is_img" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/common/wnHome2.png); background-position: -11px 0px; width: 11px; height: 12px;" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span></div>
+                <div class="cc2_main_cntn">
+           
+       <div id="cc2_nt_off_CommentControl" class="cc2_nt"><div class="UI_NotificationBar ErrorLow" style="">Comments aren't enabled for this item.</div></div>
+
+        
+       
+	            </div>
+            </div>
+       
+
+</div>
+
+<div id="trackback" class="bvSection bvEntryTrackbacks" style="padding: 8px 18px; margin-top: 5px;">
+
+    <h3 class="bvTbTitle" id="tbTitlecns!C6A0309746469D9E!720">
+        Trackbacks
+    </h3>
+          
+    <div class="Content">
+        <span id="ctl00_MainContentPlaceholder_ctl01_ctl00_lblTrackbacks"><div>The trackback URL for this entry is:</div><div>http://machaira.spaces.live.com/blog/cns!C6A0309746469D9E!720.trak</div><div>Weblogs that reference this entry</div><ul class="bvTrackbacks"><li>
+None</li></ul></span>
+    </div>
+    
+</div>
+
+</div>
+    </div>
+
+    
+</div>
+                    </td>
+                 </tr>
+            </tbody></table>
+        </div>
+    </div>
+
+
+
+         
+</div>
+
+
+<table id="uxp_ftr_control" cellpadding="0" cellspacing="0">
+<tbody><tr>
+	<td id="uxp_ftr_left">
+		<ul>
+		
+        <li><span id="uxp_ftr_link_trademark">© 2010 Microsoft</span></li>
+            <li><a id="uxp_ftr_link_legal" target="_top" href="http://g.msn.com/0TO_/enin">Terms</a></li>
+			<li><a id="uxp_ftr_link_privacy" target="_top" href="http://go.microsoft.com/fwlink/?LinkId=74170">Privacy</a></li><li><a id="uxp_ftr_link_aboutads" target="_top" href="http://g.msn.com/AIPRIV/en-us">About our ads</a></li><li><a id="uxp_ftr_link_advertise" target="_top" href="http://g.live.com/9uxp9ad/adv-en-in??su=http://shared.live.com/Live.Spaces">Advertise</a></li></ul>
+	</td>
+	<td id="uxp_ftr_right">
+		<table id="uxp_ftr_right_nest" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td>		
+				<ul>
+
+        <li><a id="uxp_ftr_link_custom1" target="_top" href="http://help.live.com/help.aspx?mkt=en-in&amp;project=tou&amp;querytype=keyword&amp;query=coc">Code of Conduct</a></li>
+        
+        <li><a id="uxp_ftr_link_custom2" target="_top" href="http://help.live.com/help.aspx?mkt=en-in&amp;project=WL_Spacesv3&amp;querytype=keyword&amp;query=spitpot&amp;format=b1">Safety</a></li>
+        
+					<li><a id="uxp_ftr_link_help" target="_blank" href="http://explore.live.com/windows-live-spaces-help-center">Help Center</a></li>
+					<li><a id="uxp_ftr_link_feedback" target="_top" href="http://g.live.com/9uxp9en-in/ftr4?productkey=WLSpaces">Feedback</a></li><li><a id="uxp_ftr_link_abuse" target="_top" href="https://support.live.com/default.aspx?productkey=WLSpacesAbuse">Report abuse</a></li><li><a id="uxp_ftr_link_language" target="_top" href="http://home.live.com/options/language?ru=http%3a%2f%2fmachaira.spaces.live.com%2fblog%2fcns%21C6A0309746469D9E%21720.entry%3fwa%3dwsignin1.0%26sa%3d541052579">English</a></li></ul>
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<img style="display: none;" src="cns%21C6A0309746469D9E%21720.entry_files/loginmsn.gif">
+
+<web:binding selector="img.HoverButton" type="Spaces.Controls.HoverButton" namespace="hb"></web:binding>
+<web:binding selector="div.notify" type="Spaces.Controls.NotificationBar" namespace="nb"></web:binding>
+
+
+
+
+<script type="text/javascript">//<![CDATA[
+var $Config={"BSI":{"enabled":1,"xid":"c27aad07-9408-4bdf-bec2-02e9fc346a44","pn":"SpacesBlog","rid":"002fadf07c5","biciPrevious":"c27aad07-9408-4bdf-bec2-02e9fc346a44_002fadf07c5_5527","BICI":{"fid":"fadf","urlHash":"p8Ar2","beaconUrl":"\u002f\u002fc.live.com\u002fc.gif\u003fDI\u003d5527\u0026wlxid\u003dc27aad07-9408-4bdf-bec2-02e9fc346a44\u0026reqid\u003d002fadf07c5","enableLD":1,"enableGlinkExtra":1,"enableGlinkCall":1},"SBSPLT":{"rt":"634223217903690941","render":0,"enabled":0},"CSIPerf":{"enabled":1,"pltImg":"\u002fHandlers\u002fPLTImage.mvc","pltTransList":"","transactionLimit":50,"maxSessionDuration":240,"page":{"landingPageName":"","timeStamp":""},"IDSS":{"enabled":1,"sampleFrequency":1},"Omniture":{"enabled":0,"sampleFrequency":1000,"serverUrl":"\u002f\u002fmsnportal.112.2o7.net\u002fb\u002fss\u002fmsnportalhotmail\u002f1\u002fH.1-pdv-2\u002f","delimiter":"\u0026"},"WLXFD":{"enabled":1,"sampleFrequency":100,"delimiter":"\u0026"},"Trace":{"enabled":1,"sampleFrequency":100,"enableReportEvent":1},"jsVersion":"15.40.1079"},"Watson":{"enabled":1,"sr":100}},"mkt":"en-IN","mmn":"BL2xxxxxC618","di":5527,"prop":"SN.Spaces","sd":".live.com","hn":"machaira.spaces.live.com","Flash":{"Major":9,"Min":0,"Rev":124,"Cookie":"sn_flash","NoFlashHtml":"\u003ca href\u003d\u0022http\u003a\u002f\u002fwww.macromedia.com\u002fgo\u002fgetflashplayer\u0022 target\u003d\u0022_blank\u0022\u003e\u003cimg src\u003d\u0022http\u0026\u002358\u003b\u002f\u002fmsc.wlxrs.com\u002fp6CC1spq7W1J2ZqzECvKVA\u002fnoflash.gif\u0022 alt\u003d\u0022\u0022 \u002f\u003e\u003cbr \u002f\u003eDownload the latest version of Flash to view this content\u003c\u002fa\u003e"},"WS":{"SL":{"url":"http\u003a\u002f\u002flink.live.net\u002f"}},"Themes":{"baseUrl":"http\u003a\u002f\u002fcss.wlxrs.com\u002fwYSJucWDlvBFuk9sf7-sYLuNReYNvIct37T4\u0021Gj6tscLDrAVwmYzF2sDMUUlpiIVJAC1-ouYU7brIT8fqchBORRsQZRSvqqxMvehHofAubHL7QAusjX5XA\u002f","current":"Xbox360","version":"15.0.1285","url":"http\u003a\u002f\u002fcss.wlxrs.com\u002fwYSJucWDlvBFuk9sf7-sYLuNReYNvIct37T4\u0021Gj6tscLDrAVwmYzF2sDMUUlpiIVJAC1-ouYU7brIT8fqchBORRsQZRSvqqxMvehHofAubHL7QAusjX5XA\u002fXbox360\u002f15.0.1285\u002f","genService":"\u002fHandlers\u002fThemeCss.mvc\u003ftheme\u003d\u007bthemeid\u007d\u0026version\u003d\u007bversion\u007d","uniqueServiceParams":"CSSTemplates\u003ddefault\u00252cfirefox"},"Header":{"baseUrl":"http\u003a\u002f\u002fjs.wlxrs.com\u002fddNo-h20J-9f2XDgxy3Ezg\u002f"},"WebIM":{"u":"https\u003a\u002f\u002fsecure.wlxrs.com\u002fGqTJrjuCnVBG3m5rEHwPMw\u002f","uf":"loader.cxp.js","j":"http\u003a\u002f\u002fjs.wlxrs.com\u002fddNo-h20J-9f2XDgxy3Ezg\u002fWebIMUI.js","a":"http\u003a\u002f\u002fjs.wlxrs.com\u002fv2cM2hNGR9Ww3YtgegbNeIhr6jWMX8JU0aFWgMABrbKlckUrBXA8DMmaR6wulRha2t30M3C5IpCW4Koyru0cAN8OCGRtmKokbXtu\u0021PuPdpiBT3bmddF7lLdLpRa0SI2VKJslbE6\u0021N9Czzih8CtMJQd3-d7YvJ9Sr\u002fWebIMStr.js","c":"http\u003a\u002f\u002fcss.wlxrs.com\u002fwYSJucWDlvBFuk9sf7-sYLuNReYNvIctKP6w2CuheeWtx1vBXSie6vT6C2w\u0021d8w1Rd32T76VWfGBzMQSfNczDw\u002fBase\u002f15.40.1079\u002fNYKpPzcj59cwlx_webimui.css\u003fZfDHJ0dwkwrfIMoja3-R7w","n":"Messenger on the web","so3":"Someone on \u007b0\u007d","imgBase":"http\u003a\u002f\u002fsecure.wlxrs.com\u002f\u0024live.controls.images\u002f","can":"Ws0ndokDIimESQZ\u002fMOoGqv0NjbQC4uDLITU74ha8zT0\u003d6","fmcan":"PA48s3Gd6iW2P\u002fhbIr7FwXXtzZ1USZWGWQ5qcQtaRdw\u003d6","pi":"http\u003a\u002f\u002fcid-58c06936ee7d8422.profile.live.com\u002finvites","pd":"http\u003a\u002f\u002fcid-58c06936ee7d8422.profile.live.com\u002fdetails","af":"http\u003a\u002f\u002fprofile.live.com\u002fconnect\u002f","sms":0},"email":"bitsits\u0040gmail.com","Ssl":{"d":1},"hcid":"58c06936ee7d8422"};
+//]]></script>
+
+<script type="text/javascript">//<![CDATA[
+function SM_Check(f){SM_Check.i=SM_Check.i||[];var e=0,i=f.length,c=window["$Config"],b=c&&c.BSI,a=b&&b.Watson;if(a&&a.enabled)for(;e<i;e++){var h=f[e];if(typeof window[h]=="undefined")try{var d="//"+c.hn+"/handlers/Watson.mvc";if(a.url)d=a.url;var g=new Image;d=d+"?xid="+b.xid+"&rid="+b.rid+"&di="+c.di+"&pn="+b.pn+"&mmn="+c.mmn+"&ec=54&msg="+h+"&sr="+a.sr;g.src=d;SM_Check.i.push(g)}catch(j){}}}
+//]]></script>
+<script type="text/javascript" src="cns%21C6A0309746469D9E%21720.entry_files/liveframeworkex.js"></script>
+<script type="text/javascript">//<![CDATA[
+if(typeof($Version)=="undefined"){{document.write('\<script type="text/javascript" src="http://js.wlxrs.com/gqQg3YdSP!FAhG6xwSryRA/liveframeworkex.js"\>\</scr' + 'ipt\>')}}
+//]]></script>
+<script type="text/javascript">//<![CDATA[
+SM_Check(['$Version']);$Config.baseUrl='http://js.wlxrs.com/gqQg3YdSP!FAhG6xwSryRA/';
+//]]></script><script type="text/javascript">//<![CDATA[
+new function(){var a=['http\x3a\x2f\x2fmsc.wlxrs.com\x2fRMggIkqsyFD-Bz-cU-ldbg\x2fWeb\x2fscript\x2fwebfoundationfull.js', 'http\x3a\x2f\x2fmsc.wlxrs.com\x2fRMggIkqsyFD-Bz-cU-ldbg\x2fWeb\x2fscript\x2fspaces.foundation.js'],i,b=a.length;for(i=0;i<b;i++){$newScript(a[i]);}}
+//]]></script><script type="text/javascript">//<![CDATA[
+SM_Check(['\x24f']);
+//]]></script>
+    
+
+</div>
+<img style="position: absolute; top: 0pt;" alt="" src="cns%21C6A0309746469D9E%21720.entry_files/c.gif" width="1" height="1"><!-- ImfId-35df14d0-f5f1-43cb-bb67-ba986e4dbacb -->
+
+
+        
+    <script type="text/javascript" language="javascript">
+    /* <![CDATA[ */
+
+    if(window.WLPhotoPreview)
+    {
+        var __wlppPhotoPreview = new window.WLPhotoPreview('http\x3a\x2f\x2fimg.wlxrs.com\x2fcqy56786\x21uzt7CtTk6QbIw\x2fWeb\x2fimages\x2floading.gif',
+        'Close');
+        
+        __wlppPhotoPreview.WirePhotoPreview();
+        
+         window.attachEvent("onunload", __wlppDispose);
+    }
+        
+    function __wlppDispose()
+    {
+        window.detachEvent("onunload", __wlppDispose);
+        __wlppPhotoPreview.dispose();
+        __wlppPhotoPreview = null;
+    }
+        
+    $Binding.parse();
+
+    
+    var fppEventPlayer = new Spaces.Tracing.ServerEventPlayer();
+    $Network.Events.onprofile.attach(fppEventPlayer.Play);
+
+
+    
+    if (Spaces.LoadMonitor)
+    {
+        Spaces.LoadMonitor.CompleteComponent(Spaces.LoadMonitor.strPltId);
+    }
+    /* ]]> */ 
+    </script>
+   
+    <div class="c_ic_hide"><div id="icTmConvTemplate_template"><div id="icTmConvTemplate" class="c_ic c_ic_h_m_t"><div class="c_ic_img_h c_ic_img_m"><div class="c_ic_img_sub c_ic_img_m" id="icTmConvTemplate_usertilecontainer"><a id="icTmConvTemplate_frame_clip" title="{3}" class="c_ic_frame_clip c_ml" target="_top" href="#" onclick="return false;"><span dir="ltr" class="is_c" id="icTmConvTemplate_frame"><img class="is_img c_ic_blueframe" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/ic/iciconmap24w4m4v2.png);" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span></a><div class="c_ic_tile_clip"><img id="icTmConvTemplate_usertile" errsrc="http://secure.wlxrs.com/$live.controls.images/ic/bluemann.png" style="visibility: hidden;" alt="{3}"></div></div></div><div id="icTmConvTemplate_text" class="c_ic_text_h "><div class="c_ic_name c_ic_name_m"><span dir="ltr" id="icTmConvTemplate_name" target="_top" href="#" title="{3}" onclick="i = new Image(); i.src = 'http://g.live.com/_9uxp9en-in/ic_dn??su=http://shared.live.com/Live.Spaces';return false;"><span dir="ltr">{0}</span></span></div><div id="icTmConvTemplate_fstarp" class="c_ic_fstarp c_ic_fstarp_hide"><span dir="ltr" class="is_c" id="icTmConvTemplate_fstar"><img class="is_img c_ic_fstar" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/ic/iciconmap24w4m4v2.png);" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt="Favorite"></span></div><div class="c_clr"></div><div id="icTmConvTemplate_psm" class="c_ic_psm"><span dir="ltr">{2}</span></div></div><div class="c_clr"></div></div></div><div id="icTmInlineTemplate_template"><span id="icTmInlineTemplate" class="c_ic_i"><span dir="ltr" class="is_c" id="icTmInlineTemplate_frame"><img class="is_img c_ic_blueframe" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/ic/iciconmap24w4m4v2.png);" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span>&nbsp;<span class="c_ic_name" id="icTmInlineTemplate_name" title="{3}"><span dir="ltr">{0}</span></span></span></div><div id="icTmTabInlineTemplate_template"><span id="icTmTabInlineTemplate" class="c_ic_i"><span dir="ltr" class="is_c" id="icTmTabInlineTemplate_frame"><img class="is_img c_ic_blueframe" onload="$Do.when('$IS.Init',0,this);" style="background-image: url(http://secure.wlxrs.com/$live.controls.images/ic/iciconmap24w4m4v2.png);" src="cns%21C6A0309746469D9E%21720.entry_files/invis.gif" alt=""></span>&nbsp;<span class="c_ic_name" id="icTmTabInlineTemplate_name"><span dir="ltr">{0}</span></span></span></div></div><script type="text/javascript">//<![CDATA[
+window.ic_common_data = {
+"imgbaseurl":"http\u003a\u002f\u002fsecure.wlxrs.com\u002f\u0024live.controls.images\u002fic\u002f",
+"socialcontext":"0",
+"vcid":"58c06936ee7d8422",
+"max_name":"20",
+"tp_no_name":"View photos of this person",
+"afcanary":"3P5ePJ3vYiZvkMkAj8HTkthfnR7PC6xSKOSTSxT9kwo\u003d7",
+"ru":location.href,
+"dmtrgt":"_top"};
+window.ic_menu_data = {
+"af":['Add to favorites',''],
+"gr":['View group','http\x3a\x2f\x2fcid-\x24cid\x24.groups.live.com\x2f'],
+"pr":['View profile','http\x3a\x2f\x2fcid-\x24cid\x24.profile.live.com\x2f'],
+"ed":['Edit details','http\x3a\x2f\x2fcid-\x24cid\x24.profile.live.com\x2fdetails\x2f'],
+"vd":['View details','http\x3a\x2f\x2fcid-58c06936ee7d8422.profile.live.com\x2fdetails\x2f\x3fcontactId\x3d\x7bcontactid\x7d'],
+"se":['Send email',"mailto\u003a\u007baddress\u007d"],
+"sm":['Send message','http\x3a\x2f\x2fcid-58c06936ee7d8422.profile.live.com\x2fmessages\x2fcompose.aspx\x3ftoCid\x3d\x7baddress\x7d\x26returnUrl\x3d\x7bru\x7d\x26mkt\x3den-in'],
+"si":['Send IM'],
+"ss":['Send text message'],
+"c1":['Add as friend','http\x3a\x2f\x2fcid-\x24cid\x24.profile.live.com\x2fconnect\x2fsend.aspx\x3fname\x3d\x7bname\x7d\x26scontext\x3d\x7bscxt\x7d\x26ru\x3d\x7bru\x7d\x26mkt\x3den-in'],
+"c4":['View invitation','http\x3a\x2f\x2fcid-\x24cid\x24.profile.live.com\x2fconnect\x2fsend.aspx\x3fname\x3d\x7bname\x7d\x26scontext\x3d\x7bscxt\x7d\x26ru\x3d\x7bru\x7d\x26mkt\x3den-in'],
+"c2":['Add to Messenger','http\x3a\x2f\x2fcid-\x24cid\x24.profile.live.com\x2fconnect\x2fsend.aspx\x3fname\x3d\x7bname\x7d\x26scontext\x3d\x7bscxt\x7d\x26ru\x3d\x7bru\x7d\x26mkt\x3den-in'],
+"c3":['Add to your profile','http\x3a\x2f\x2fcid-\x24cid\x24.profile.live.com\x2fconnect\x2fsend.aspx\x3fname\x3d\x7bname\x7d\x26scontext\x3d\x7bscxt\x7d\x26ru\x3d\x7bru\x7d\x26mkt\x3den-in'],
+"dc":['View documents','http\x3a\x2f\x2fcid-\x24cid\x24.skydrive.live.com\x2fhome.aspx'],
+"ve":['Find email','http\x3a\x2f\x2fmail.live.com\x2f\x3frru\x3d\x7brru\x7d'],
+"ph":['View photos','http\x3a\x2f\x2fcid-\x24cid\x24.skydrive.live.com\x2falbums.aspx'],
+"ct":['View contact info','http\x3a\x2f\x2fmail.live.com\x2f\x3frru\x3dcontacts\x253fcontact\x253d\x7bcontactid\x7d'],
+"cp":['Change picture','http\x3a\x2f\x2fcid-58c06936ee7d8422.profile.live.com\x2fdetails\x2fEditPic.aspx'],
+"pr3":['View profile \x7b0\x7d'],
+"ph3":['View photos \x7b0\x7d'],
+"sm3":['Send message \x7b0\x7d']};
+window.ic_control_data = {
+"ic1":["","",[],"Someone on Windows Live","","0","","","a"],
+"ic2":["58c06936ee7d8422","",[],"Shubhajit Saha","","6395227155516458018","bitsits\u0040gmail.com","11\u003a6395227155516458018","a"],
+"icTmConvTemplate":["","1",["se","ph","pr","af"],"\u007b0\u007d","","0","","","a",[],"","1"],
+"icTmInlineTemplate":["","",[],"\u007b0\u007d","","0","","","a"],
+"icTmTabInlineTemplate":["","",[],"\u007b0\u007d","","0","","","a"],
+"ic1":["","",[],"Someone on Windows Live","","0","","","a"]};
+window.ic_template_data = {
+"icTmConvTemplate":0,
+"icTmInlineTemplate":0,
+"icTmTabInlineTemplate":0};
+if(typeof($ic)!='undefined'&&typeof($ic.ic)!='undefined'){$ic.ic.init();}
+//]]></script>   
+    
+<!--Microsoft.Spaces.WebFoundation, Version=15.4.0.0, Culture=neutral, PublicKeyToken=null 65.55.124.197 machaira.spaces.live.com 00:00:01.8252117-->
+   
+
+    
+<div style="height: 1pt; width: 1pt; position: absolute; top: -100px;" id="MsgrContainer1"><iframe id="ifm988837" src="cns%21C6A0309746469D9E%21720.entry_files/Messenger.htm" style="width: 100%; height: 100%;" frameborder="0"></iframe></div><div style="height: 1pt; width: 1pt; position: absolute; top: -100px;" id="MsgrStorageContainer1"><iframe id="ifm808376" src="cns%21C6A0309746469D9E%21720.entry_files/LocalStorage.htm" style="width: 100%; height: 100%;" frameborder="0"></iframe></div></body></html>

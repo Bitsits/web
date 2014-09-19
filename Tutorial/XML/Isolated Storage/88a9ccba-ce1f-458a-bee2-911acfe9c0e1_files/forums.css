@@ -1,0 +1,238 @@
+﻿div.box > h4
+{
+	font-weight: bold;
+}
+
+.box h1, 
+.box h2, 
+.box h3, 
+.box h4, 
+.box h5 
+{
+	margin-bottom:0px
+}
+
+div.box > h4
+{
+	padding-left:0px;
+}
+
+li.announcement h4
+{
+	padding:0px;
+}
+
+li.category > h2
+{
+	padding-left:0px;
+	margin-bottom:0px;
+}
+
+li.announcement h4
+{
+	background:none;
+}
+
+li.forum {
+	margin:1em;
+}
+
+div.box,
+li.box
+{
+	border: none;
+	background-image: none;
+	margin-bottom:0px;
+}
+
+div.discover
+{
+	border:1px solid #BBBBBB;
+}
+
+
+/*div.box > h4,*//*TODO: This entry is removed.*/
+div.box > .help {
+	background-color:#260859;
+}
+
+li.category > h2 > a:hover,
+li.category > h2 > a:active,
+li.category > h2 > a:focus
+{
+	color: #260859;
+	text-decoration: none;
+}
+
+#forumsSearch input[type="text"] 
+{
+	font-size: 1em;	
+	width: 270px;
+}
+
+#rail > div 
+{
+	margin-bottom:0px;	
+}
+	
+a.help 
+{
+	font-size: 1.1em;	
+}	
+
+div#announcement
+{
+	font-size:90%;
+}
+
+div.box > .content
+{
+	margin: 2px;
+}
+
+div.discover
+{
+	margin-bottom:.5em;
+}
+
+.forum h3
+{
+	background: #fff none;
+	margin-bottom: 0px;
+	padding-top: 0px;
+}
+
+li.forum a,
+li.forum a:link,
+li.forum a:visited,
+li.forum a:hover,
+li.forum a:focus,
+li.forum a:active{
+	color:#0066DD;
+}
+
+li.thread > h3 
+{
+	font-size:110%;	
+	display:inline;
+	margin-right:1em;
+	margin-left:0em;
+}
+
+a.author span {
+	display:inline;
+	color:Green;
+}
+
+li.thread img.icon 
+{
+	clear:left;
+}
+
+li.thread > h3
+{
+	font-family: inherit;
+	clear: none;
+}
+
+
+.IE7 li.message > div.head
+{
+	overflow:hidden;
+}
+
+ul.announcement li.announcement h4{
+	width:88%;
+	line-height: normal;
+	white-space: normal;
+	height:auto;
+	border: none;
+        overflow:visible;
+	clear:none;
+}
+
+ul.announcement li.announcement A[name='deleteAnnouncement']{
+	clear: right;
+}
+
+.IE7 ul.announcement li.announcement{
+	clear:both;
+}
+
+#content .announcement > A[name='createAnnouncement']
+{
+	top:10px;
+}
+
+.IE7 #content .announcement > A[name='deleteAnnouncement']{
+	clear:right;
+}
+
+.IE7 ul.announcement li.announcement h4{
+float:left;
+clear:left;
+}
+
+#content ul.category{
+	padding-top: 0px;
+}
+
+TABLE.users TR.userstitle TD.lastactivedate
+{
+	width:25%;
+}
+
+.IE7 div.replies li.children
+{
+	margin-top:-1em;
+}
+
+ul.category ul.forum li.forum h3
+{
+	white-space: normal;
+	line-height: 130%;
+	height: auto;
+}
+
+li.thread h3 a{
+    width:58%;
+    display:inline-block;
+}
+
+#content li.thread a.expcol,
+#content li.thread img.icon{
+    width:20px;
+    vertical-align:top;
+}
+
+.IE8 #content li.thread a.expcol,
+.IE8 #content li.thread img.icon{
+    margin-top:-2px;
+}
+
+SPAN.fullbadge .affil
+{
+vertical-align:inherit;
+}
+
+TD.displayname span.fullbadge
+{
+	width:60%;
+}
+div.head span.fullbadge
+{
+	width:55%;
+}
+span.fullbadge span.name
+{
+	display:block;
+	word-break:break-all;
+	white-space: normal;
+	height: auto;
+	line-height: 125%;
+}
+
+ul.threads li.thread div.stats
+{
+	height:20px;
+}

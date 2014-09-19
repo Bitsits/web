@@ -1,0 +1,1858 @@
+<html><head>
+
+<title>GameDev.net -- DirectX</title>
+<meta name="Keywords" content="game development, game programming, game jobs, video game jobs, games jobs, graphics programming, OpenGL, DirectX, Direct3D, AI, artificial intelligence, game design, game, gamedev, development, programming, c++, games, program, create, design, gouraud, shading, tutorial, art, gdnet">
+<meta name="Description" content="Gamedev.net is the leading resource for game developers, featuring daily news updates, over 1500 featured articles and tutorials, and the most active game development forums anywhere!"> 
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="DirectX_files/theme.css">
+<script src="DirectX_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="DirectX_files/google_service.js"></script>
+<script type="text/javascript">
+  GS_googleAddAdSenseService("ca-pub-3167291168602081");
+  GS_googleEnableAllServices();
+</script><script src="DirectX_files/google_ads.js"></script>
+<script type="text/javascript">
+GA_googleAddSlot("ca-pub-3167291168602081", "Banner_Main");
+GA_googleAddSlot("ca-pub-3167291168602081", "Button_FrontPage");
+</script>
+<script type="text/javascript">
+  GA_googleFetchAds();
+</script>
+<!--[if IE]>
+<style>
+.source {background: #ffffff; border: solid 2px; font-family: Courier New; color: black; font-size: 9pt; width: 95%; height: 250px; overflow: auto; padding: 3px;}
+</style>
+<script type="text/javascript" src="/include/menu.js"></script>
+<![endif]-->
+<script type="text/javascript">
+var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-279474-1']); _gaq.push(['_trackPageview']);
+(function () {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</head><body>
+<div id="header">
+<div class="logo"><a href="http://www.gamedev.net/"></a></div>
+<div class="sponsor"></div>
+<div class="banner">
+<script type="text/javascript">
+GA_googleFillSlot("Banner_Main");
+</script><script src="DirectX_files/ads_002"></script><div id="google_ads_div_Banner_Main">
+<ins style="width: 468px; height: 60px; border: 0pt none; display: inline-table; position: relative;"><ins style="width: 468px; height: 60px; border: 0pt none; display: block; position: relative;"><iframe style="border: 0pt none; position: absolute; top: 0pt; left: 0pt;" marginheight="0" marginwidth="0" name="google_ads_iframe_Banner_Main" id="google_ads_iframe_Banner_Main" width="468" frameborder="0" height="60" scrolling="no"></iframe></ins></ins></div>
+<script>GA_googleCreateDomIframe('google_ads_div_Banner_Main' ,'Banner_Main');</script></div>
+<div class="nav"><ul id="lw_menu">
+<li id="l1f">Features
+<ul>
+<li id="l2fa"><a href="http://www.gamedev.net/gamejobs/">Game Jobs</a></li>
+<li id="l2fb"><a href="http://www.gamedev.net/features/reviews/">Product Reviews</a></li>
+<li id="l2fc"><a href="http://www.gamedev.net/community/contest/">Contests</a></li>
+<li id="l2fd"><a href="http://www.gamedev.net/community/gds/">GD Showcase</a></li>
+<li id="l2fe"><a href="http://www.gamedev.net/info/newsletter.asp">Newsletter</a></li>
+</ul>
+</li>
+<li id="l1r">Resources
+<ul>
+<li id="l2ra"><a href="http://www.gamedev.net/reference/">Articles &amp; Resources</a></li>
+<li id="l2rb"><a href="http://www.gamedev.net/columns/">Columns</a></li>
+<li id="l2rc"><a href="http://www.gamedev.net/columns/books/">Books</a></li>
+<li id="l2rd"><a href="http://www.gamedev.net/reference/start_here/">For Beginners</a></li>
+<li id="l2re"><a href="http://www.gamedev.net/dict/">Game Dictionary</a></li>
+<li id="l2rf"><a href="http://wiki.gamedev.net/">Wiki</a></li>
+</ul>
+</li>
+<li id="l1c">Community
+<ul>
+<li id="l2ca"><a href="http://www.gamedev.net/community/forums/">Forums</a></li>
+<li id="l2cb"><a href="http://www.gamedev.net/community/gathering/">GD Gathering</a></li>
+<li id="l2cc"><a href="http://www.gamedev.net/community/chat/">Online Chat</a></li>
+<li id="l2cd"><a href="http://www.gamedev.net/community/forums/?cid=17,11&amp;nofavs=t">Workshops</a></li>
+</ul>
+</li>
+<li id="l1m">Members
+<ul>
+<li id="l2ma"><a href="http://www.gamedev.net/community/forums/cpanel.asp">Control Panel</a></li>
+<li id="l2mb"><a href="http://www.gamedev.net/subscribe/">GDNet+ Signups</a></li>
+<li id="l2mc"><a href="http://www.gamedev.net/community/journals/">Developer Journals</a></li>
+<li id="l2md"><a href="http://www.gamedev.net/profile/">Member Search</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<script language="Javascript">
+	startList();
+</script>
+<div class="leftcolumn">	
+			<div id="CMS_Options">
+				<div id="CMS_Features">
+				  <div class="boxContentHeadr_MM">
+				  	<div class="boxContentHeadr_Title">Features</div>
+				  </div>
+				  <div class="boxContent_MM">
+			          <a href="http://www.gamedev.net/gamejobs/">Game Jobs</a><br>
+			          <a href="http://www.gamedev.net/features/reviews/">Product Reviews</a><br>
+			          <a href="http://www.gamedev.net/community/contest/">Contests</a><br>
+			          <a href="http://www.gamedev.net/community/gds/">GD Showcase</a><br>
+			          <a href="http://www.gamedev.net/info/newsletter.asp">Newsletter</a><br>
+			          <a href="http://www.gamedev.net/info/media/">Advertise with Us</a><br>
+			          <a href="http://www.gamedev.net/info/about/">About Us</a>
+				  </div>
+				</div>	
+				<div id="CMS_Resources">
+				  <div class="boxContentHeadr_MM">
+				  	<div class="boxContentHeadr_Title">Resources</div>
+				  </div>
+				  <div class="boxContent_MM">
+			          <a href="http://www.gamedev.net/reference/">Articles &amp; Resources</a><br>
+			          <a href="http://www.gamedev.net/columns/">Columns</a><br>
+			          <a href="http://www.gamedev.net/columns/books/">Books</a><br>
+			          <a href="http://www.gamedev.net/reference/start_here/">For Beginners</a><br>
+			          <a href="http://www.gamedev.net/dict/">Game Dictionary</a><br>
+			          <a href="http://wiki.gamedev.net/">Wiki</a><br>
+			          <a href="http://www.gamedev.net/info/writers.asp">Write For Us</a>
+				  </div>
+				</div>	
+				<div id="CMS_Community">
+				  <div class="boxContentHeadr_MM">
+				  	<div class="boxContentHeadr_Title">Community</div>
+				  </div>
+				  <div class="boxContent_MM">
+			          <a href="http://www.gamedev.net/community/forums/">Forums</a><br>
+			          <a href="http://www.gamedev.net/community/gathering/">GD Gathering</a><br>
+			          <a href="http://www.gamedev.net/community/chat/">Online Chat</a><br>
+			          <a href="http://www.gamedev.net/community/forums/?cid=17,11&amp;nofavs=t">Workshops</a><br>
+				  </div>
+				</div>	
+				<div id="CMS_Members">
+				  <div class="boxContentHeadr_MM">
+				  	<div class="boxContentHeadr_Title">Members</div>
+				  </div>			  
+				  <div class="boxContent_MM">
+			          <a href="http://www.gamedev.net/community/forums/cpanel.asp">Control Panel</a><br>
+			          <a href="http://www.gamedev.net/subscribe/">GDNet+ Signups!</a><br>
+			          <a href="http://www.gamedev.net/community/journals/">Developer Journals</a><br>
+			          <a href="http://www.gamedev.net/profile/">Member Search</a><br>
+				  </div>
+				</div>	
+			</div>
+			
+			<div id="FP_Events" class="roundedBox" style="width: 98%;">
+					<div class="boxCorners"><img src="DirectX_files/int_rtcr.gif" class="boxLeft" width="7" height="8"><img src="DirectX_files/int_ltcr.gif" width="7" height="8"></div>
+						<div class="boxContentHeadr">Upcoming Events</div>
+						<div class="boxContent">
+<img src="DirectX_files/dotsm-blue.gif" width="7" height="6"><a href="http://www.gamedev.net/directory/events/?method=se&amp;eid=567">Unite 2010</a><br><span class="events_date">11/10 - 11/12 @ Montréal, Canada</span><br><br><img src="DirectX_files/dotsm-blue.gif" width="7" height="6"><a href="http://www.gamedev.net/directory/events/?method=se&amp;eid=563">GDC China</a><br><span class="events_date">12/5 - 12/7 @ Shanghai, China</span><br><br><img src="DirectX_files/dotsm-blue.gif" width="7" height="6"><a href="http://www.gamedev.net/directory/events/?method=se&amp;eid=557">Asia Game Show 2010</a><br><span class="events_date">12/24 - 12/27&nbsp;&nbsp;</span><br><br><img src="DirectX_files/dotsm-blue.gif" width="7" height="6"><a href="http://www.gamedev.net/directory/events/?method=se&amp;eid=562">GDC 2011</a><br><span class="events_date">2/28 - 3/4 @ San Francisco, CA</span><br><br><a href="http://www.gamedev.net/directory/events/">More events...</a>
+						</div>
+			</div>		
+	
+			<div id="FP_Stats" class="roundedBox" style="width: 98%;">
+					<div class="boxCorners"><img src="DirectX_files/int_rtcr.gif" class="boxLeft" width="7" height="8"><img src="DirectX_files/int_ltcr.gif" width="7" height="8"></div>
+						<div class="boxContentHeadr">Quick Stats</div>
+						<div class="boxContent">
+
+						<span class="stats_bold">5059</span> people currently visiting GDNet.<br>
+						<span class="stats_bold">2406</span> articles in the reference section.<br>
+						<br>
+						<a href="http://www.grid.org/services/teams/team.htm?id=FD181524-CCD8-4DAA-A4EC-499F0DB09AD2">Help us fight cancer!</a><br>
+						<a href="http://setiathome.berkeley.edu/team_display.php?teamid=31384">Join SETI Team GDNet!</a>
+						</div>
+
+			</div>			
+
+			<!-- MICROBUTTON ADVERT FOR PARTNER SITES -->		
+			<div id="FP_PartnerButton" align="center">
+<a href="http://www.gamedev.net/"><img src="DirectX_files/gdnet-88x31.gif" alt="Link to us" border="0" width="88" height="31"></a>
+<a href="http://eventsforgamers.com/"><img src="DirectX_files/eventsforgamers.gif" alt="Events 4 Gamers" border="0" width="88" height="31"></a>
+<script type="text/javascript">
+GA_googleFillSlot("Button_FrontPage");
+</script><script src="DirectX_files/ads"></script><div id="google_ads_div_Button_FrontPage">
+<ins style="width: 88px; height: 31px; border: 0pt none; display: inline-table; position: relative;"><ins style="width: 88px; height: 31px; border: 0pt none; display: block; position: relative;"><iframe style="border: 0pt none; position: absolute; top: 0pt; left: 0pt;" marginheight="0" marginwidth="0" name="google_ads_iframe_Button_FrontPage" id="google_ads_iframe_Button_FrontPage" width="88" frameborder="0" height="31" scrolling="no"></iframe></ins></ins></div>
+<script>GA_googleCreateDomIframe('google_ads_div_Button_FrontPage' ,'Button_FrontPage');</script>
+			</div>
+			
+</div>
+
+<div id="centercolumn_2col">
+<div class="centerpadding">
+
+
+<div class="contextNav">
+<div class="hdrbreadcrumbs"><a href="http://www.gamedev.net/">Home</a> » <a href="http://www.gamedev.net/reference/">Articles &amp; Resources</a> » <a href="http://www.gamedev.net/reference/list.asp?categoryid=1">Programming</a> » <strong>DirectX</strong></div>
+    <div class="hdrSearchBox"><form action="/community/forums/search.asp">
+        <img src="DirectX_files/search_sponsor.png" alt="Intel"> sponsors gamedev.net search:
+        <input size="20" name="terms" class="searchinput" type="text">
+        <input src="DirectX_files/hdr3srchbtn.gif" class="searchbutton" type="image">
+        <input name="area" value="site" type="hidden">
+    </form></div>
+</div>
+
+
+<table border="0" cellpadding="6" cellspacing="0" width="100%"><tbody><tr valign="top">
+  <td align="left">
+    <span class="sectiontitle">DirectX</span><br>
+
+	
+	<hr size="1">
+    <span class="maintext-1">The DirectX SDK is an API developed by 
+Microsoft that allows programmers to access the hardware directly in 
+Windows. These articles cover all aspects of DirectX, including 
+DirectDraw, Direct3D, DirectSound, DirectMusic, DirectInput, and 
+DirectPlay.
+<br><br>GameDev.net is proud to be part of the <a href="http://communities2.microsoft.com/home/console.aspx?siteid=34000003">Microsoft DirectX Developer Community</a>.
+    <p>For more information about DirectX, check out: 
+    </p><ul>
+
+      <li>Our <a href="http://www.gamedev.net/columns/books/books.asp?CategoryID=8">DirectX books</a>.
+
+      </li><li>Our <a href="http://www.gamedev.net/community/forums/forum.asp?forum_id=10">DirectX forum.
+
+    </a></li></ul>
+
+<a href="http://www.gamedev.net/community/forums/forum.asp?forum_id=10">  </a></span></td>
+  <td class="maintext-2" align="right" nowrap="nowrap">
+    Resources Listed:
+    <span class="mediumfont">
+98
+
+    </span><br>
+
+  </td>
+</tr></tbody></table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td>
+<center>
+
+<table class="boxtext" border="0" cellpadding="2" cellspacing="1" width="99%">
+<tbody><tr><td colspan="2" class="menuheadr">Jump To :</td></tr><tr><td><a href="#151">DirectDraw </a></td><td><a href="#155">DirectX Audio</a></td></tr><tr><td><a href="#152">DirectInput</a></td><td><a href="#158">General</a></td></tr><tr><td><a href="#153">Direct3D</a></td><td><a href="#229">DirectX Graphics </a></td></tr><tr><td><a href="#154">DirectPlay</a></td><td><a href="#234">DirectShow</a></td></tr>
+</tbody></table>
+
+<table border="0" cellpadding="3" cellspacing="1" width="99%">
+
+  <tbody><tr><td colspan="5">&nbsp;</td></tr>
+
+  <tr>
+    <td colspan="5" class="boxheadr">Subcategory: <a name="151"></a>DirectDraw </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="boxtext"><b>Topic</b></td>
+    <td class="boxtext"><b>Author</b></td>
+    <td class="boxtext"><b>Description</b></td>
+  </tr>          
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article863.asp">16-bit Color</a><br><span class="threadtime">[Added: 11/23/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+TANSTAAFL&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Another article covering 16-bit color? Considering how often the issue comes up, why not? Besides, it's by TANSTAAFL.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article541.asp">16-Bit Pixels</a><br><span class="threadtime">[Added: 7/25/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Sam Christiansen&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">How to plot pixels in 16-bit DirectDraw modes&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article538.asp">Bit Depth Independent Pixel Plotting in DirectDraw</a><br><span class="threadtime">[Added: 7/25/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Ron Hiler&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Describes how to plot pixels in DirectDraw, regardless of the bit depth.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1008.asp">Creating a Quake-like Console Using DirectDraw</a><br><span class="threadtime">[Added: 5/17/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Pranay Uppuluri&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">You know you want a Quake-like console in your game. This article will show you how.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article608.asp">DirectDraw Programming Tutorial</a><br><span class="threadtime">[Added: 8/7/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Lan Mader&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">A wonderfully comprehensive introduction to programming with DirectDraw.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1078.asp">Loading and blitting bitmaps</a><br><span class="threadtime">[Added: 7/5/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Matthew Allen&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Explains how to load bitmaps using the ddutil library.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1064.asp">Loading Bitmap Files into DirectDraw</a><br><span class="threadtime">[Added: 6/22/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Kieren Johnstone&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Describes how to use Windows functions to load a bitmap to a DirectDraw surface.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article588.asp">Plotting Pixels in Non-Palettized DirectDraw Surfaces</a><br><span class="threadtime">[Added: 7/31/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Nathan Davies&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Another look at 16 bit surfaces&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article578.asp">Quick Example DirectX Code</a><br><span class="threadtime">[Added: 7/31/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Unknown&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">A very useful page containing many oft-used bits of DirectX code.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article543.asp">Re: How do I use 16-bpp surfaces?</a><br><span class="threadtime">[Added: 7/25/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Dennis Muller&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">A post explaining working directly with surface memory for 16-bit DD surfaces&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article544.asp">Re: How do I use 16-bpp surfaces? (another response)</a><br><span class="threadtime">[Added: 7/25/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Nick Caldwell&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Another message from the same thread&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1077.asp">Setting up DirectDraw 7</a><br><span class="threadtime">[Added: 7/5/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Matthew Allen&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Provides instructions and source code for setting up a basic DirectDraw application.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article998.asp">Using DirectDraw's Gamma Controls to Perform a Fade</a><br><span class="threadtime">[Added: 5/17/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Joseph Fernald&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Suggests using the gamma control for fades to avoid modifying surface data.&nbsp;</td>
+  </tr>
+
+  <tr><td colspan="5">&nbsp;</td></tr>
+
+  <tr>
+    <td colspan="5" class="boxheadr">Subcategory: <a name="152"></a>DirectInput</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="boxtext"><b>Topic</b></td>
+    <td class="boxtext"><b>Author</b></td>
+    <td class="boxtext"><b>Description</b></td>
+  </tr>          
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article842.asp">Converting Scan Codes to ASCII</a><br><span class="threadtime">[Added: 11/12/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Photon&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This article describes how to convert scan codes using Win32 functionality.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/gamasutra.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article927.asp">Cop a Feel....with Haptic Peripherals!!!</a><br><span class="threadtime">[Added: 2/22/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Chuck Walters&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Covers taking advantage of force feedback features with DirectInput 5.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1309.asp">DirectInput Initialization</a><br><span class="threadtime">[Added: 2/21/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Anthony Wlodarski&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Covers the necessary steps in setting up DirectInput objects and devices.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1607.asp">DirectX 8 and the Keyboard</a><br><span class="threadtime">[Added: 1/2/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mason Smith&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Provides basic coverage of the keyboard under DirectInput, including a class wrapper.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1657.asp">DirectX 8 and the Mouse</a><br><span class="threadtime">[Added: 1/18/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mason Smtih&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">A follow up to the author's keyboard article.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1346.asp">Flexible User Input Programming &#8211; An Idea</a><br><span class="threadtime">[Added: 3/14/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Yordan Gyurchev&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Describes a method of creating a user-customizable, flexible input system using DirectInput.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article607.asp">Programming Mouse and Keyboard with DirectInput 3.0</a><br><span class="threadtime">[Added: 8/7/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Peter Donnelly&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Although it's a little dated, this article gives a detailed overview of DirectInput.&nbsp;</td>
+  </tr>
+
+  <tr><td colspan="5">&nbsp;</td></tr>
+
+  <tr>
+    <td colspan="5" class="boxheadr">Subcategory: <a name="153"></a>Direct3D</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="boxtext"><b>Topic</b></td>
+    <td class="boxtext"><b>Author</b></td>
+    <td class="boxtext"><b>Description</b></td>
+  </tr>          
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1020.asp">An Overview of Direct3D</a><br><span class="threadtime">[Added: 11/22/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Bipin Patwardhan&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">If you are new to Direct3D, this 
+article will give you a good overview. Note though that the version of 
+DirectX used is several versions old, and many things have changed in 
+recent releases.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article869.asp">Direct3D 7 IM Framework Programming 1: The Basics</a><br><span class="threadtime">[Added: 11/24/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Wolfgang Engel&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">With DirectX 7 comes many 
+improvements to the Direct3D component. This series will introduce you 
+to them using sample applications and source code.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article896.asp">Direct3D 7 IM Framework Programming 2: First Steps to Animation</a><br><span class="threadtime">[Added: 1/10/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Wolfgang Engel&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Part 2 covers some 3d theory basics and created an animated textured demo.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1028.asp">Direct3D 7 Immediate Mode Framework Programming 3: Multitexturing</a><br><span class="threadtime">[Added: 5/29/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Wolfgang Engel&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">The third installment in this 
+series gets into multitexturing, and how it can be used to abtain more 
+realistic lighting, as well as other effects.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1196.asp">Direct3D 7 Immediate Mode Framework Programming 4: Building Worlds with X Files</a><br><span class="threadtime">[Added: 8/31/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Wolfgang Engel&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">The latest installment in this series covers loading models and scenes using Microsoft's X file format.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article2283.asp">Direct3D 9.0 with Allegro</a><br><span class="threadtime">[Added: 1/25/2006]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Homer Cuevas&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Tutorial and demo code for using Direct3D and Allegro together.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article911.asp">Direct3D Immediate Mode</a><br><span class="threadtime">[Added: 2/1/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Bipin Patwardhan&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">A little dated since it was written for DX5, but still a decent intro to D3D IM.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article758.asp">Direct3D Immediate-Mode Tutorial</a><br><span class="threadtime">[Added: 9/23/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Colin McCartney&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This was written for DirectX 3, 
+and thus prior to DrawPrimitive, so its usefullness is limited, but it 
+is included here for completeness.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1045.asp">Direct3D Without All The Garbage</a><br><span class="threadtime">[Added: 6/8/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Lee Mazurek&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Explains an easy way to implement the bare minimum of 3D engine features.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/html.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article597.asp">DrawPrimitive Tutorial</a><br><span class="threadtime">[Added: 7/31/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mark Feldman&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Direct3D IM is an often underdocumented topic across the net. This is one of the best tuturials for getting started with the <i>DrawPrimitive</i> extension to the DirectX API, introduced with DirectX 5.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/gamasutra.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article930.asp">From 3D Studio Max to Direct 3D Part 1: Introduction to Plugin Development</a><br><span class="threadtime">[Added: 2/23/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Loic Baumann&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Part 1 of the series gives an overview of creating a 3DSMax plugin to export to your Direct3D engine.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/gamasutra.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article931.asp">From 3D Studio Max to Direct3D Part 2: How to Create a Plugin</a><br><span class="threadtime">[Added: 2/23/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Loic Baumann&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Part 2 of the series gets into the details of creating the plugin.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/gamasutra.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1173.asp">Inside Direct3D: Chapter 12 -- Stencil Buffers</a><br><span class="threadtime">[Added: 8/9/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Peter Kovach&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This excerpt from the book covers usign D3D stencil buffers to create a variety of effects.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1233.asp">Mip-Mapping in Direct3D</a><br><span class="threadtime">[Added: 11/9/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Johnathan Skinner&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This article explains what mip-maps are, how to create them, and how to use them in Direct3D.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/gamasutra.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article598.asp">Multitexturing in DirectX 6</a><br><span class="threadtime">[Added: 7/31/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Jason L. Mitchell, Michael Tatro and Ian Bullard&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">One of the best new features in 
+DirectX 6.0 is multitexturing. This well-written document describes 
+everything you need to know to get experienced with the new extensions 
+to the API.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/gamasutra.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article926.asp">Optimizing Direct3D Applications for Hardware Acceleration</a><br><span class="threadtime">[Added: 2/22/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Jason L. Mitchell&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">As the title suggests, contains some good tips for getting the most out of D3D.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/html.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1317.asp">Rendering to Texture Surfaces Using DirectX 7</a><br><span class="threadtime">[Added: 3/2/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Kim Pallister&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Explains using this technique and applying it to dynamic environment maps and soft shadows.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+        <a href="http://www.gamedev.net/reference/programming/features/atid3d10/">The Future of PC Gaming &#8211; The Possibilities of Direct3D 10</a><br><span class="threadtime">[Added: 4/28/2006]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Oluseyi&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">We sat down with ATI to discuss what Direct3D 10 and the next generation of hardware will offer for game developers.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article787.asp">Transparency in D3D Immediate Mode</a><br><span class="threadtime">[Added: 10/13/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Nathan Davies&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Covers how to handle textures with transparent pixels.&nbsp;</td>
+  </tr>
+
+  <tr><td colspan="5">&nbsp;</td></tr>
+
+  <tr>
+    <td colspan="5" class="boxheadr">Subcategory: <a name="154"></a>DirectPlay</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="boxtext"><b>Topic</b></td>
+    <td class="boxtext"><b>Author</b></td>
+    <td class="boxtext"><b>Description</b></td>
+  </tr>          
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article764.asp">A DirectPlay Tutorial</a><br><span class="threadtime">[Added: 10/5/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Sobeit Void&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">A good introduction to DirectPlay, with a lot of source code examples.&nbsp;</td>
+  </tr>
+
+  <tr><td colspan="5">&nbsp;</td></tr>
+
+  <tr>
+    <td colspan="5" class="boxheadr">Subcategory: <a name="155"></a>DirectX Audio</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="boxtext"><b>Topic</b></td>
+    <td class="boxtext"><b>Author</b></td>
+    <td class="boxtext"><b>Description</b></td>
+  </tr>          
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1881.asp">3D Sound with DirectX Audio</a><br><span class="threadtime">[Added: 2/13/2003]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Toby Murray&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This tutorial gives a basic explanation of how to use DirectX Audio to create and play 3D sound effects.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article592.asp">Direct Sound Sample</a><br><span class="threadtime">[Added: 7/31/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Nathan Davidson&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Sample C source code to get DirectSound up and running.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1276.asp">DirectMusic Symphony In C++ Part One - Using DirectMusic to make music in your games</a><br><span class="threadtime">[Added: 1/9/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mike Parker&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Shows you the basics of DirectMusic, how to get it up and running, and how to load and play a midi file.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article593.asp">DirectSound3D</a><br><span class="threadtime">[Added: 7/31/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Brian Schmidt&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Although written for DirectX 3, this article still provides a good introduction to 3D sound in DirectSound.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1905.asp">Playing MIDIs and WAVs using DirectX</a><br><span class="threadtime">[Added: 4/18/2003]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Stephen Johnson&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Basic introduction to playing sounds with DirectX.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article710.asp">Streaming Wave Files with DirectSound</a><br><span class="threadtime">[Added: 9/14/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mark McCulley&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">An overview on DirectSound from 
+Microsoft. Note that this was written with DirectX 2 in mind, so it's a 
+little out of date.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1689.asp">Using DirectX Audio 8</a><br><span class="threadtime">[Added: 2/6/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mason Smith&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Covers the basics of setting up DirectX Audio and playing sounds.&nbsp;</td>
+  </tr>
+
+  <tr><td colspan="5">&nbsp;</td></tr>
+
+  <tr>
+    <td colspan="5" class="boxheadr">Subcategory: <a name="158"></a>General</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="boxtext"><b>Topic</b></td>
+    <td class="boxtext"><b>Author</b></td>
+    <td class="boxtext"><b>Description</b></td>
+  </tr>          
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article542.asp">Borland C++ 5.0 Setup For DirectX 5.0</a><br><span class="threadtime">[Added: 7/25/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Bruce Veazie&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">How to make DirectX work with BC++ 5&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1495.asp">Building an .X File Frame Hierarchy</a><br><span class="threadtime">[Added: 9/24/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Jim Adams&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Shows you how to load and create a frame hierarchy from an .X file.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/html.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article2528.asp">Building Game Explorer Support Into Your XNA Project</a><br><span class="threadtime">[Added: 6/18/2008]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Chris Charabaruk&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Learn how to take advantage of Vista's Game Explorer in your XNA project&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1653.asp">Character Animation with DirectX 8.0</a><br><span class="threadtime">[Added: 1/16/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Johannes Leimbach&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Provides instructions and a wrapper class for loading and MD2 model in DirectX 8.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article609.asp">Converting MS-DOS-based Games to Windows 95: A Report from the Trenches</a><br><span class="threadtime">[Added: 8/7/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Zachary Simpson&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">While the urgency of this topic 
+has subsided slightly as the masses have generally moved to Windows, 
+this article still is useful to those who are wanting to convert that 
+DOS game to Windows.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article994.asp">Developing a GUI Using C++ and DirectX Part 1</a><br><span class="threadtime">[Added: 5/17/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mason McCuskey&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Mason kicks off the series with a look at handling mouse input.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article999.asp">Developing a GUI Using C++ and DirectX Part 2</a><br><span class="threadtime">[Added: 5/17/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mason McCuskey&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This installment gets into the meat of the GUI, implementing the windows and message handler.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1000.asp">Developing a GUI Using C++ and DirectX Part 3</a><br><span class="threadtime">[Added: 5/17/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mason McCuskey&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This issue covers the controls you'll be adding to your GUI.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article737.asp">Developing A GUI Using C++ and DirectX Part 4</a><br><span class="threadtime">[Added: 9/15/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mason McCuskey&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Mason wraps up the series, covering resource editors and a few loose ends.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article589.asp">Direct X-tasy</a><br><span class="threadtime">[Added: 7/31/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+André LaMothe&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">An introduction to DirectX by the well-known author.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article782.asp">DirectX 7 Enumeration</a><br><span class="threadtime">[Added: 10/11/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Nathan Davies&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Takes you through how to 
+enumerate available devices and modes to allow you to adapt to different
+ hardware, or let the user select a mode.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/zip.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1799.asp">DirectX AppWizard for VS.Net</a><br><span class="threadtime">[Added: 4/7/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Scott Chappel&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">283 K&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/html.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article548.asp">Downloading the DirectX SDK</a><br><span class="threadtime">[Added: 7/29/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+N/A&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Get the DirectX SDK and other official resources here.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article715.asp">Fast Graphics Under Windows</a><br><span class="threadtime">[Added: 9/14/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Seumas McNally&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Covers the basics of fast graphics in Windows using either DirectDraw or CreateDIBSection().&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1844.asp">Generating a Screenshot in DirectX 8.1</a><br><span class="threadtime">[Added: 7/2/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Keith Newton&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Explains how to output a screenshot using only a few lines of code.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article2067.asp">Getting DirectX 8.1 to Work with Dev-C++</a><br><span class="threadtime">[Added: 3/16/2004]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Sherman Chin&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Walks through some of the problems encountered setting up DX with DevC++.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1493.asp">How to parse .X files</a><br><span class="threadtime">[Added: 9/13/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Jim Adams&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Provides coverage of what you need to know to start working with .X file-based meshes.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1778.asp">Integrating Direct3D 8.1 With MFC Using Visual Studio 6.0</a><br><span class="threadtime">[Added: 3/2/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Frank D. Luna V&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This paper walks the reader 
+through setting up a simple DirectX application in the MFC framework 
+using wizards and the document/view architecture.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1992.asp">Loading a Texture From a Zip File in DirectX 9</a><br><span class="threadtime">[Added: 9/11/2003]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Greg Stewart&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This is a simple article on how to load textures from .ZIP files using DirectX 9.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/html.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1981.asp">Managed DirectX</a><br><span class="threadtime">[Added: 8/17/2003]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Craig Andera&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">A couple of articles covering managed Direct3D and DirectSound.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article960.asp">Moving from Exclusive Mode to Windowed Mode in DirectX Part I</a><br><span class="threadtime">[Added: 3/20/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+null_pointer&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">If you've had trouble moving your
+ DirectX game to windowed mode, or want it to be able to switch back and
+ forth while running, this article will get you there.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1034.asp">Moving from Exclusive Mode to Windowed Mode in DirectX Part II</a><br><span class="threadtime">[Added: 6/6/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+null_pointer&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This installment improves the 
+functions presented in part 1, and shows you how to improve the 
+responsiveness and look of your game in both modes.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1179.asp">Multiple Monitor Support Code</a><br><span class="threadtime">[Added: 8/15/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+David Stubbs&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This code allows the user to select which video card to use if there are more than one present.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article756.asp">Playing AVI Files with DirectX</a><br><span class="threadtime">[Added: 9/21/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Gert Wollny&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Provides a class for playing AVI files and describes how to use it.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1943.asp">Starting Direct3D9: Setting Up a Window</a><br><span class="threadtime">[Added: 5/20/2003]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Mason Smith&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This article will teach you the basics of Direct3D and using it to setup a Direct3D-enabled window.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article2079.asp">Working with the DirectX .X File Format and Animation in DirectX 9.0</a><br><span class="threadtime">[Added: 3/30/2004]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Jason Jurecka&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Sets up a working model and plays animations for that model using the .X format.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article590.asp">Xtreme Debugging</a><br><span class="threadtime">[Added: 7/31/1999]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+André LaMothe&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">In this article, André LaMothe 
+describes how to overcome the challenge of debugging in full-screen 
+DirectX by using two monitors.&nbsp;</td>
+  </tr>
+
+  <tr><td colspan="5">&nbsp;</td></tr>
+
+  <tr>
+    <td colspan="5" class="boxheadr">Subcategory: <a name="229"></a>DirectX Graphics </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="boxtext"><b>Topic</b></td>
+    <td class="boxtext"><b>Author</b></td>
+    <td class="boxtext"><b>Description</b></td>
+  </tr>          
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1972.asp">2D in Direct3D using Textured Quads</a><br><span class="threadtime">[Added: 7/31/2003]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Eamonn Doherty&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This article is for people trying to make a 2D graphics engine using Direct3D 9.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/gamasutra.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1387.asp">2D Programming in a 3D World</a><br><span class="threadtime">[Added: 6/16/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+George Geczy&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Focuses on how to use DirectX 8 for 2D games.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1434.asp">2D Rendering in DirectX 8</a><br><span class="threadtime">[Added: 7/6/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Kelly Dempski&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This article will present a framework for 2D rendering in DirectX 8 to ease the transition from DirectDraw to Direct3D. &nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/gamasutra.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1935.asp">A Non-Integer Power Function on the Pixel Shader</a><br><span class="threadtime">[Added: 5/7/2003]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Phillippe Beaudoin and Juan Guardado&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Presents a simple shader trick that performs a good per pixel approximation of a non-integer power function.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article2280.asp">An Overview of Microsoft's Direct3D 10 API</a><br><span class="threadtime">[Added: 12/15/2005]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Jack Hoxley&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">A high-level overview of Microsoft's upcoming evolution of Direct3D.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article2249.asp">Direct3D 9.0 with SDL</a><br><span class="threadtime">[Added: 5/17/2005]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Michael Conway&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Illustrates how to use SDL instead of native Win32 to set up a Direct3D application.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1247.asp">DirectX 8 Graphics and Video: A Fresh Start</a><br><span class="threadtime">[Added: 11/30/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Toby Jones&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">DirectX 8 is easily the most 
+significant update to the API yet. In this article, the author covers 
+what's new and provides you with samples of how to use it.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1308.asp">DirectX Graphics for Visual Basic Part 1</a><br><span class="threadtime">[Added: 2/17/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Jack Hoxley&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">The series begins with an introduction to using DirectX 8 in Visual Basic and created a simple Direct3D application.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1350.asp">DirectX Graphics for Visual Basic Part 2</a><br><span class="threadtime">[Added: 4/6/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Jack Hoxley&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">The second installment in this 
+series covers Direct3D essentials in Visual Basics, including geometry 
+and vertex and index lists.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1606.asp">DirectXGraphics for Visual Basic Part 3</a><br><span class="threadtime">[Added: 12/31/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Jack Hoxley&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">The final installment in this 
+series covers using textures in Direct3D, loading 3D models from files, 
+and using the Direct3D lighting engine.
+&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1608.asp">Dissecting Sprites in Direct3D</a><br><span class="threadtime">[Added: 1/5/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+R. Parker&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This article explores the inner 
+workings of sprite drawing in DirectX 8. Using a low level approach, 
+programmers can gain more control over their rendering code and address 
+the shortcomings of any DirectX blitter.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1249.asp">Getting Rid of the Windows Message Pump &amp; Solving the ALT-TAB Problem</a><br><span class="threadtime">[Added: 12/5/2000]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Javier F. Otaegui&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Discusses how to use multiple 
+threads to avoid having to use a finite state machine and use a 
+traditional linear programming model. Also covers how to suspend your 
+game when it's not active.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1961.asp">Implementing Immediate Mode in Direct3D</a><br><span class="threadtime">[Added: 7/13/2003]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Promit Roy&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Covers the creation of a set of 
+wrappers emulating OpenGL's immediate mode functions for use in porting 
+or quickly prototyping code.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1835.asp">Implementing Skin Meshes with DirectX 8</a><br><span class="threadtime">[Added: 6/7/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Sarmad Kh Abdulla&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">This article covers the implementation of skinned meshes in D3D and D3DX, including sample source code.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1807.asp">Introduction to Shader Programming Part II: Programming Vertex Shaders</a><br><span class="threadtime">[Added: 4/24/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Wolfgang F. Engel&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">The second installment demonstrates the use of vertex shaders in a program that evolves through several stages.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1820.asp">Introduction to Shader Programming Part III Fundamentals of Pixel Shaders</a><br><span class="threadtime">[Added: 5/15/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Wolfgang F. Engel&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">The third installment in this series moves on to pixel shaders, providing a complete introduction to them.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1837.asp">Introduction to Shader Programming Part IV: Programming Pixel Shaders</a><br><span class="threadtime">[Added: 6/11/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Wolfgang F. Engel&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">The fourth and final installment of this series digs into the details of implementing pixel shaders.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article2128.asp">Occlusion Culling Using DirectX 9</a><br><span class="threadtime">[Added: 8/6/2004]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Dustin Franklin&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Explains how to do occlusion culling using occlusion queries.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1496.asp">Shader Programming Part I: Fundamentals of Vertex Shaders</a><br><span class="threadtime">[Added: 4/9/2002]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Wolfgang Engel&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">The first article in this series 
+provides a brief overview of shaders in general and a high-level 
+discussion of vertex shaders in particular.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1946.asp">Using Vertex Buffers With DirectX</a><br><span class="threadtime">[Added: 5/26/2003]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Erik Yuzwa&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">A few tips and pointers for working with vertex buffers.&nbsp;</td>
+  </tr>
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article2017.asp">Using Vertex Tweening for Animation</a><br><span class="threadtime">[Added: 11/26/2003]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Brian Jorgensen&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">Explains how to use DirectX's built-in vertex tweening functionality for animation.&nbsp;</td>
+  </tr>
+
+  <tr><td colspan="5">&nbsp;</td></tr>
+
+  <tr>
+    <td colspan="5" class="boxheadr">Subcategory: <a name="234"></a>DirectShow</td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="boxtext"><b>Topic</b></td>
+    <td class="boxtext"><b>Author</b></td>
+    <td class="boxtext"><b>Description</b></td>
+  </tr>          
+
+  <tr class="forumcell" valign="top">
+    <td width="16">
+      <img src="DirectX_files/localart.gif" width="16" height="16">
+    </td>
+    <td class="maintext-1" width="40%">
+
+      <a href="http://www.gamedev.net/reference/articles/article1345.asp">The Basics to Using DirectShow</a><br><span class="threadtime">[Added: 3/13/2001]</span>
+</td>
+    <td span="" class="maintext-2" width="15%">
+Kurifu Roushu&nbsp;
+
+    </td>
+    <td class="maintext-2" width="45%">A simple explanation and example of using DirectShow&nbsp;</td>
+  </tr>
+
+  <tr><td colspan="5">&nbsp;</td></tr>
+
+</tbody></table></center>
+</td><td align="center" width="130">
+<!-- Begin -  Site: GameDev.net Zone: Skyscraper: GameDev.net -->
+<script language="javascript" type="text/javascript">
+<!--
+var browName = navigator.appName;
+var browDateTime = (new Date()).getTime();
+var browVersion = parseInt(navigator.appVersion);
+var ua=navigator.userAgent.toLowerCase();
+var adcode='';
+if (browName=='Netscape'){
+     if (browVersion>=5) 
+          { document.write('<ifr'+'ame src="http://www.gamedev.net/banman/a.aspx?ZoneID=9&amp;Task=Get&amp;Browser=NETSCAPE6&amp;SiteID=1&amp;X=' + browDateTime + '" width=160 height=600 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+     else if ((browVersion>=4)&&(ua.indexOf("mac")==-1))
+          { document.write('<s'+'cript src="http://www.gamedev.net/banman/a.aspx?ZoneID=9&amp;Task=Get&amp;Browser=NETSCAPE4&amp;SiteID=1">');
+          document.write('</'+'scr'+'ipt>');
+          document.write(adcode); }
+     else if (browVersion>=3) 
+          { document.write('<a href="http://www.gamedev.net/banman/a.aspx?ZoneID=9&amp;Task=Click&amp;Mode=HTML&amp;SiteID=1&amp;PageID=' + browDateTime + '&RandomNumber=' + browDateTime + '" target="_blank"><img src="http://www.gamedev.net/banman/a.aspx?ZoneID=9&amp;Task=Get&amp;Mode=HTML&amp;SiteID=1&PageID=' + browDateTime + '&RandomNumber=' + browDateTime + '" width="160" height="600" border="0" alt=""></a>'); } }
+else
+     { document.write('<ifr'+'ame src="http://www.gamedev.net/banman/a.aspx?ZoneID=9&amp;Task=Get&amp;SiteID=1&amp;X=' + browDateTime + '" width=160 height=600 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+// --> 
+</script><iframe src="DirectX_files/a.htm" marginwidth="0" marginheight="0" hspace="0" vspace="0" width="160" frameborder="0" height="600" scrolling="No"></iframe>
+<noscript>
+    <a href="http://www.gamedev.net/banman/a.aspx?ZoneID=9&amp;Task=Click&amp;Mode=HTML&amp;SiteID=1&amp;PageID=31688" target="_blank">
+    <img src="http://www.gamedev.net/banman/a.aspx?ZoneID=9&amp;Task=Get&amp;Mode=HTML&amp;SiteID=1&amp;PageID=31688" width="160" height="600" border="0"  alt=""></a>
+</noscript>
+<!-- End -  Site: GameDev.net Zone: Skyscraper: GameDev.net --></td></tr></tbody></table>
+<span class="maintext-2">&nbsp;<b>Key:</b> <img src="DirectX_files/localart.gif" align="absbottom">= HTML article hosted here&nbsp;&nbsp;<img src="DirectX_files/html.gif" align="absbottom">, <img src="DirectX_files/gamasutra.gif" align="absbottom">= HTML article hosted elsewhere&nbsp;&nbsp;<img src="DirectX_files/www.gif" align="absbottom">= link to another web site&nbsp;&nbsp;<img src="DirectX_files/pdf.jpg" align="absbottom">= Adobe Acrobat document&nbsp;&nbsp;<img src="DirectX_files/zip.gif" align="absbottom">= Zip files&nbsp;&nbsp;<img src="DirectX_files/doc.gif" align="absbottom">= Word or text document</span>
+
+
+</div>
+</div>
+
+
+<div id="footer">
+	<span><a href="http://www.gamedev.net/info/about">About Us</a> | <a href="http://www.gamedev.net/info/media/">Advertise on GameDev.net</a> | <a href="http://www.gamedev.net/info/writers.asp">Write for us</a></span>
+	<span>© 1999-2011 Gamedev.net. All rights reserved. <a href="http://www.gamedev.net/info/legal.asp#copyright"><u>Terms of Use</u></a> <a href="http://www.gamedev.net/info/legal.asp#privacy"><u>Privacy Policy</u></a></span>
+	<span class="maintext-2">GameDev.net&#8482;, the GameDev.net logo, and GDNet&#8482; are trademarks of GameDev.net, LLC</span>
+    <span class="maintext-1">Comments? Questions? Feedback? <a href="http://www.gamedev.net/info/faq.asp">Click here!</a></span>
+</div>
+
+<script type="text/javascript" src="DirectX_files/front.js"></script>
+
+</body></html>

@@ -1,0 +1,1017 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Lesson 7: Simple Modeling
+</title><link href="dx9B7.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B7.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B7.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B7.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B7.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+        Lesson 7:&nbsp; Simple Modeling</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B7.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B6.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B9.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+    Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    So far we have only built single triangles.&nbsp; Sometimes (such as in the last
+    lesson) we have gotten advanced and drawn two triangles, but they were not connected.</p>
+    <p>
+        3D models are made out of many triangles connected together to form geometry.&nbsp;
+        In this lesson, we will cover how to build some simple geometry out of triangles,
+        and how to move them, rotate them and size them as a whole.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Building a Quad</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Quad, as we should all know, means four.&nbsp; In geometry, a quad is a four-sided
+    shape of any kind.&nbsp; The following are each quads.</p>
+    <center>
+        <img alt="Image 7.1 - Various Quads" src="dx9B7.aspx_files/dx9B7-1.PNG"><br>
+        <br>
+        Image 7.1 - Various Quads
+    </center>
+    <p>
+        Earlier I said that triangles make up all shapes in a 3D world.&nbsp; If you look
+        carefully, each of these quads is made up of two triangles placed side by side.</p>
+    <center>
+        <img alt="Image 7.2 - Quads Are Dual Triangles" src="dx9B7.aspx_files/dx9B7-2.PNG"><br>
+        <br>
+        Image 7.2 - Quads Are Dual Triangles
+    </center>
+    <p>
+        As a matter of fact, this is true of all quads, regardless of shape.&nbsp; These
+        two triangles combined can make quite a variety of
+    useful shapes in game programming,
+        such as building terrain, walls, boxes, and any other shape with four sides.</p>
+    <p>
+        The prime question is, how do you make them?&nbsp;
+    We are already familiar with
+        building triangles, so now let's look at how that code could be changed to draw
+        a square instead.&nbsp; First, let's look at the init_graphics() function we were
+        using earlier.&nbsp; This time, it has been changed to represent a quad, rather
+        than a triangle.&nbsp; Notice there are four points here.&nbsp; The changes, as
+        usual, are in <strong>bold</strong>.</p>
+    <div class="codebox" style="left: 0px; top: 0px;">
+        // this is the function that puts the 3D models into video RAM<br>
+        void init_graphics(void)<br>
+        {<br>
+        &nbsp; &nbsp; // create the vertices using the CUSTOMVERTEX struct<br>
+        &nbsp; &nbsp; CUSTOMVERTEX vertices[] =
+        <br>
+        &nbsp; &nbsp; {<br>
+        <strong>&nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, 0.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 0.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 255), },<br>
+        </strong>&nbsp; &nbsp; };&nbsp;<br>
+        <br>
+        &nbsp; &nbsp; // create a vertex buffer interface called i_buffer<br>
+        &nbsp; &nbsp; d3ddev-&gt;CreateVertexBuffer(<strong>4*sizeof(CUSTOMVERTEX)</strong>,
+        &nbsp;&nbsp; // change to 4, instead of 3<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; 0,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; CUSTOMFVF,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; &amp;v_buffer,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; NULL);<br>
+        <br>
+        &nbsp; &nbsp; VOID* pVoid; &nbsp;&nbsp; // a void pointer<br>
+        <br>
+        &nbsp; &nbsp; // lock v_buffer and load the vertices into it<br>
+        &nbsp; &nbsp; &nbsp; v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+        &nbsp; &nbsp; memcpy(pVoid, vertices, sizeof(vertices));<br>
+        &nbsp; &nbsp; &nbsp; v_buffer-&gt;Unlock();<br>
+        <br>
+        &nbsp; &nbsp; return;<br>
+        }</div>
+    <p>
+        Now we have a full square in memory.&nbsp; Now how do we show it?&nbsp; Let's take
+        a look at the code that draws them from the render_frame() function.</p>
+    <div class="codebox">
+        d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+        <br>
+        d3ddev-&gt;DrawPrimitive(<strong>D3DPT_TRIANGLESTRIP</strong>, 0, <strong>2</strong>);</div>
+    <p>
+        Of course, there is also code to set up the pipeline, but that isn't relevant here.&nbsp;
+        What is relevant is what is different about the DrawPrimitive() function.&nbsp;
+        Notice that the first parameter now says D3DPT_TRIANGLESTRIP rather than D3DPT_TRIANGLELIST.&nbsp;
+        Also notice that the third parameter was changed to a
+                2.</p>
+    <p>
+        In case you are foggy on what each of these parameters do, the first parameter says
+        what kind of primitive is being drawn (see <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B3.aspx#PrimTable">
+            Lesson 3</a>), the second parameter says
+        what vertex in the buffer should be started with (0 is the first vertex), and the
+        third parameter says how many primitives should be drawn.&nbsp; In a triangle strip,
+        the primitives are triangles, so a 2 means show up to 2 triangles, and stop.&nbsp;
+        Well, that's the end of the vertex buffer anyway, but if we had put a 1 here, it
+        would have stopped at one triangle.&nbsp; This is illustrated here:</p>
+    <center>
+        <img alt="Image 7.3 - Making Triangles" src="dx9B7.aspx_files/dx9B7-3.PNG"><br>
+        <br>
+        Image 7.3 - Making Triangles
+    </center>
+    <p>
+        And that's all there is to building a quad!&nbsp; Now let's combine our quads to
+        make a cube, our first 3D model!</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                Combining Quad to Make a Cube</div>
+        <div class="maintext" style="position: relative;"> 
+        <p>
+                It doesn't really make sense to create four vertices for every quad.&nbsp; &nbsp;If
+                    we made a cube, it would end up using twenty-four vertices, while it would really
+                    only have eight vertex positions.&nbsp;
+                It would truly be easier if we could create eight vertices, then combine them to
+                make six quads.</p>
+                <p>
+                    Well we can do this, and it does make creating simple models in code much easier.&nbsp;
+                    The solution is the index buffer.</p>
+                <p>
+                    In DirectX, an <em>index</em> is an <em>int</em> storing the number of a vertex.&nbsp; They
+                    are given in order, so the first vertex in a buffer is vertex number 0, the
+                    second is vertex number 1, the third is 2, and so on.</p>
+                <p>
+                    And <em>index buffer</em> is a buffer in memory that stores the order in which vertices
+                    should be rendered.&nbsp; Instead of storing a long list of coordinates, it instead
+                    stores a long list containing indexes (or <em>indices</em>).</p>
+                <p>
+                    Let's learn by example.</p>
+                <p>
+                    Here we have eight corners of a cube.&nbsp; Each corner has a coordinate
+                    in space, but is labeled with an index number.</p>
+                <center>
+                    <img alt="Image 7.5 - A Cube Made of Eight Indices" src="dx9B7.aspx_files/dx9B7-4.GIF" width="148" height="157"><br>
+                    <br>
+                    Image 7.5 - A Cube Made of Eight Indices
+                </center>
+                <p>
+                    We make this by building a vertex buffer with eight different vertices, each representing one
+                    corner of the cube, including its coordinates and color.</p>
+                    <div class="codebox">
+                        CUSTOMVERTEX vertices[] =<br>
+                        {<br>
+                        &nbsp; &nbsp; { -3.0f, 3.0f, -3.0f, D3DCOLOR_XRGB(0, 0, 255), }, &nbsp;&nbsp; //
+                        vertex 0<br>
+                        &nbsp; &nbsp; { 3.0f, 3.0f, -3.0f, D3DCOLOR_XRGB(0, 255, 0), }, &nbsp; &nbsp; //
+                        vertex 1<br>
+                        &nbsp; &nbsp; { -3.0f, -3.0f, -3.0f, D3DCOLOR_XRGB(255, 0, 0), }, &nbsp; // 2<br>
+                        &nbsp; &nbsp; { 3.0f, -3.0f, -3.0f, D3DCOLOR_XRGB(0, 255, 255), }, &nbsp;// 3<br>
+                        &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f, D3DCOLOR_XRGB(0, 0, 255), }, &nbsp; &nbsp; //
+                        ...<br>
+                        &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+                        &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+                        &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f, D3DCOLOR_XRGB(0, 255, 255), },<br>
+                        };</div>
+                <p>
+                    However, this doesn't create any triangles or quads, just corners.&nbsp; To build a triangle,
+                    we simply refer to three indices in a row.&nbsp; If we used "0, 1, 2" and "2, 1,
+                    3", we would get these two triangles.&nbsp; Notice that we could do the
+                    same to each side of the cube, making one quad for each.</p>
+                <center>
+                    <img alt="Image 7.6 - Two Triangles on the Cube" src="dx9B7.aspx_files/dx9B7-5.GIF" width="148" height="157"><br>
+                    <br>
+                    Image 7.6 - Two Triangles on the Cube
+                </center>
+                <p>
+                    Before we say which indices we want to use, we need to make an index buffer, so
+                    let's build one.&nbsp; We do this using a function called CreateIndexBuffer().</p>
+                <div class="codebox">
+                    HRESULT CreateIndexBuffer(<br>
+                    &nbsp; &nbsp; UINT Length,<br>
+                    &nbsp; &nbsp; DWORD Usage,<br>
+                    &nbsp; &nbsp; D3DFORMAT Format,<br>
+                    &nbsp; &nbsp; D3DPOOL Pool,<br>
+                    &nbsp; &nbsp; <span class="Apple-style-span" style="word-spacing: 0px; font: 12px 'Courier New'; text-transform: none; color: rgb(204, 204, 204); text-indent: 0px; white-space: normal; letter-spacing: normal; border-collapse: separate; text-align: left; orphans: 2; widows: 2;">
+                        LPDIRECT3DINDEXBUFFER9 ppIndexBuffer,<br>
+                        &nbsp; &nbsp; HANDLE* pSharedHandle);</span></div>
+                <p>
+                    This is almost exactly the same as CreateVertexBuffer().&nbsp; Only one parameter
+                    is different, but let's go ahead and look at them all briefly.</p>
+                <p class="subheader">
+                    UINT Length,</p>
+                <p>
+                    This is the size of the buffer.&nbsp; Each index is 
+stored in an int or a short.&nbsp;
+                    For compatibility reasons, we'll use short, so this 
+will sizeof(short) multiplied by the number of indices you want to use.</p>
+                <p class="subheader">
+                    DWORD Usage,</p>
+                <p>
+                    Just as before, we won't get into this parameter, but set it to 0.</p>
+                <p class="subheader">
+                    D3DFORMAT Format,</p>
+                <p>
+                    This parameter is new.&nbsp; Here we can put flags to tell DirectX how much space
+                    in memory we will give to each index.&nbsp; It can be D3DFMT_INDEX16 or D3DFMT_INDEX32.&nbsp;
+                    With 16, the indices will go to the video card twice as fast.&nbsp; However, you
+                    can only have up to 65536 indices.&nbsp; Occasionally you will need more than this.&nbsp;
+                    For our example, we will use D3DFMT_INDEX16, because not all video cards support
+                    32-bits per index.</p>
+                <p class="subheader">
+                    D3DPOOL Pool,</p>
+                <p>
+                    This is the same as with the vertex buffer.&nbsp; It tells DirectX where to store
+                    this buffer.&nbsp; As before, we'll use D3DPOOL_MANAGED, meaning it will be located
+                    in video memory.</p>
+                <p class="subheader">
+                    LPDIRECT3DINDEXBUFFER9 ppIndexBuffer,</p>
+                <p>
+                    This is the pointer to the index buffer we'll create.&nbsp; We put a blank pointer
+                    in, and CreateIndexBuffer() will fill it in for us so we can refer to it later.</p>
+                <p class="subheader">
+                    HANDLE* pSharedHandle</p>
+                <p>
+                    As with the vertex buffer, we'll set this to NULL.</p>
+                <p>
+                    For the most part, this function appears the same.&nbsp; There are only a few, small
+                    differences.</p>
+                <div class="codebox">
+                    <span class="Apple-style-span" style="word-spacing: 0px; font: 12px 'Courier New'; text-transform: none; color: rgb(204, 204, 204); text-indent: 0px; white-space: normal; letter-spacing: normal; border-collapse: separate; text-align: left; orphans: 2; widows: 2;">
+                        LPDIRECT3DINDEXBUFFER9 i_buffer;<br>
+                        <br>
+                        d3ddev-&gt;CreateIndexBuffer(36*sizeof(short), &nbsp;&nbsp; // 3 per triangle, 12
+                        triangles<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp;&nbsp; 0,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp;&nbsp; D3DFMT_INDEX16,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp;&nbsp; &amp;i_buffer,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp;NULL);</span></div>
+                <p>
+                    Just as with the vertex buffer, we need to build an 
+array of indices then copy the indices into the index buffer.&nbsp;
+                    It's done exactly the same way:</p>
+                    <div class="codebox">
+                        // create the indices using an int array<br>
+                        short indices[] =<br>
+                        {<br>
+                        &nbsp; &nbsp; 0, 1, 2, &nbsp;&nbsp; // side 1<br>
+                        &nbsp; &nbsp; 2, 1, 3,<br>
+                        &nbsp; &nbsp; 4, 0, 6, &nbsp;&nbsp; // side 2<br>
+                        &nbsp; &nbsp; 6, 0, 2,<br>
+                        &nbsp; &nbsp; 7, 5, 6, &nbsp;&nbsp; // side 3<br>
+                        &nbsp; &nbsp; 6, 5, 4,<br>
+                        &nbsp; &nbsp; 3, 1, 7, &nbsp;&nbsp; // side 4<br>
+                        &nbsp; &nbsp; 7, 1, 5,<br>
+                        &nbsp; &nbsp; 4, 5, 0, &nbsp;&nbsp; // side 5<br>
+                        &nbsp; &nbsp; 0, 5, 1,<br>
+                        &nbsp; &nbsp; 3, 7, 2, &nbsp;&nbsp; // side 6<br>
+                        &nbsp; &nbsp; 2, 7, 6,<br>
+                        };<br>
+                        <br>
+                        // create an index buffer interface called i_buffer<br>
+                        d3ddev-&gt;CreateIndexBuffer(36*sizeof(short),<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; 0,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; D3DFMT_INDEX16,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; D3DPOOL_MANAGED,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &amp;i_buffer,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; NULL);<br>
+                        <br>
+                        // lock i_buffer and load the indices into it<br>
+                        i_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                        memcpy(pVoid, indices, sizeof(indices));<br>
+                        i_buffer-&gt;Unlock();
+                    </div>
+                <p>
+                    And if you put the whole thing together:</p>
+                    <div class="codebox">
+                        // this is the function that puts the 3D models into video RAM<br>
+                        void init_graphics(void)<br>
+                        {<br>
+                        &nbsp; &nbsp; // create the vertices using the CUSTOMVERTEX struct<br>
+                        &nbsp; &nbsp; CUSTOMVERTEX vertices[] =<br>
+                        &nbsp; &nbsp; {<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, -3.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, -3.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, -3.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, -3.0f, D3DCOLOR_XRGB(0, 255, 255), },<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f, D3DCOLOR_XRGB(0, 255, 255), },<br>
+                        &nbsp; &nbsp; };<br>
+                        <br>
+                        &nbsp; &nbsp; // create a vertex buffer interface called v_buffer<br>
+                        &nbsp; &nbsp; d3ddev-&gt;CreateVertexBuffer(8*sizeof(CUSTOMVERTEX),<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp;&nbsp; 0,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp;&nbsp; CUSTOMFVF,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp;&nbsp; &amp;v_buffer,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp;&nbsp; NULL);<br>
+                        <br>
+                        &nbsp; &nbsp; VOID* pVoid; &nbsp;&nbsp; // a void pointer<br>
+                        <br>
+                        &nbsp; &nbsp; // lock v_buffer and load the vertices into it<br>
+                        &nbsp; &nbsp; v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                        &nbsp; &nbsp; memcpy(pVoid, vertices, sizeof(vertices));<br>
+                        &nbsp; &nbsp; v_buffer-&gt;Unlock();<br>
+                        <br>
+                        &nbsp; &nbsp; // create the indices using an int array<br>
+                        &nbsp; &nbsp; short indices[] =<br>
+                        &nbsp; &nbsp; {<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 0, 1, 2, &nbsp;&nbsp; // side 1<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 2, 1, 3,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 4, 0, 6, &nbsp;&nbsp; // side 2<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 6, 0, 2,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 7, 5, 6, &nbsp;&nbsp; // side 3<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 6, 5, 4,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 3, 1, 7, &nbsp;&nbsp; // side 4<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 7, 1, 5,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 4, 5, 0, &nbsp;&nbsp; // side 5<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 0, 5, 1,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 3, 7, 2, &nbsp;&nbsp; // side 6<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; 2, 7, 6,<br>
+                        &nbsp; &nbsp; };<br>
+                        <br>
+                        &nbsp; &nbsp; // create an index buffer interface called i_buffer<br>
+                        &nbsp; &nbsp; d3ddev-&gt;CreateIndexBuffer(36*sizeof(short),<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; 0,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; D3DFMT_INDEX16,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; D3DPOOL_MANAGED,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &amp;i_buffer,<br>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; NULL);<br>
+                        <br>
+                        &nbsp; &nbsp; // lock i_buffer and load the indices into it<br>
+                        &nbsp; &nbsp; i_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                        &nbsp; &nbsp; memcpy(pVoid, indices, sizeof(indices));<br>
+                        &nbsp; &nbsp; i_buffer-&gt;Unlock();<br>
+                        }</div>
+                <p>
+                    So how do we draw all this?&nbsp; It's pretty simple, but it needs some new functions.&nbsp;
+                    Here's the drawing code.&nbsp; This comes after all the transforms are set and before
+                    EndScene() is called.</p>
+                <div class="codebox">
+                    // select the vertex and index buffers to use<br>
+                    d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+                    d3ddev-&gt;SetIndices(i_buffer);<br>
+                    <br>
+                    // draw the cube<br>
+                    d3ddev-&gt;DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, 8, 0, 12);
+                </div>
+                <p class="subheader">
+                    SetStreamSource()</p>
+                <p>
+                    This is exactly the same as before.&nbsp; All it does is tell Direct3D which vertex
+                    buffer we are drawing from.</p>
+                <p class="subheader">
+                    SetIndices()</p>
+                <p>
+                    This function is similar, but much simpler.&nbsp; It's purpose is to set the index
+                    buffer we will use.</p>
+                <p>
+                    It has one parameter, the address of the index buffer.&nbsp; We only have one index
+                    buffer, so the parameter will be i_buffer.&nbsp; Remember that i_buffer is already
+                    a pointer, so we don't put &amp;i_buffer.</p>
+                <p class="subheader">
+                    DrawIndexedPrimitive()</p>
+                <p>
+                    This one is quite different than DrawPrimitive().&nbsp; It essentially does the
+                    same
+                    thing, but it only draws shapes using an index buffer.&nbsp; Here's the prototype:</p>
+                <div class="codebox">
+                    HRESULT DrawIndexedPrimitive(D3DPRIMITIVETYPE Type,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;&nbsp; INT BaseVertexIndex,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;&nbsp; UINT MinIndex,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;&nbsp; UINT NumVertices,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;&nbsp; UINT StartIndex,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;&nbsp; UINT PrimitiveCount);</div>
+                <p>
+                    The first parameter is familiar to us.&nbsp; It's the style of drawing, such as
+                    triangle strips, or line lists.&nbsp; We're going to use D3DPT_TRIANGLELIST, because
+                    each set of three indices represents a whole triangle.</p>
+                <p>
+                    The second parameter tells how many vertices into the buffer we want to start.&nbsp;
+                    We're going to put 0 here, but just so you get what this is, let's take a simple
+                    example.&nbsp; If we put 4 here, then index 0 would point to vertex 4, index 1 would
+                    point to vertex 5, and so on.</p>
+                <p>
+                    The next number is the lowest index we'll use.&nbsp; We want 0, so we'll put 0.&nbsp;
+                    It's really just a hint to Direct3D on how to best optimize memory for us behind
+                    the scenes.</p>
+                <p>
+                    The fourth parameter is the number of vertices we'll use.&nbsp; We use 8 in the
+                    cube.&nbsp; Again, this helps Direct3D with optimization.</p>
+                <p>
+                    The fifth parameter tells DirectX where to start on the index buffer.&nbsp; This
+                    is used for more complicated situations where you have more than one shape stored
+                    in a single index buffer.&nbsp; For example, if we had a cube take up spaces 0 to
+                    35, and a completely different shape take from 36 to 51, we could put 36 in this
+                    parameter, and DirectX would know where to start reading on the buffer.&nbsp; We
+                    aren't doing this, so we'll set it to 0, the beginning of the index buffer.</p>
+                <p>
+                    The last parameter is the number of triangles we will draw.&nbsp; This cube draws
+                    twelve, two for each side.</p>
+                <p>
+                    If you take the new code and put it into your program, you'll get a nice rotating
+                    cube (provided you still have the right transforms there).&nbsp; Here's a picture
+                    of a cube I got with one transform:</p>
+                <center>
+                    <img alt="Image 7.6 - A Rotating Cube" src="dx9B7.aspx_files/dx9B7-6.PNG"><br>
+                    <br>
+                    Image 7.6 - A Rotating Cube
+                </center>
+                <p>
+                Try building the cube in your program and spinning it in various ways.</p>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+    More Shapes</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Well, I don't know about you, but I'm really excited!&nbsp; We've built our first
+    3D object for real!&nbsp; Let's look at a couple more simple models we can make
+    using quads and triangles.</p>
+    <hr>
+    <p class="subheader">
+        A Square Pyramid</p>
+    <p>
+        Let's look at how to build this shape.
+    </p>
+    <center>
+        <img alt="Image 7.7 - A Square Pyramid" src="dx9B7.aspx_files/dx9B7-7.PNG"><br>
+        <br>
+        Image 7.7 - A Square Pyramid
+    </center>
+    <p>
+        Here is the code for the vertex buffer:</p>
+    <div class="codebox">
+        // create the vertices using the CUSTOMVERTEX<br>
+        struct CUSTOMVERTEX vertices[] =<br>
+        {<br>
+        &nbsp; &nbsp; // base<br>
+        &nbsp; &nbsp; { -3.0f, 0.0f, 3.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+        &nbsp; &nbsp; { 3.0f, 0.0f, 3.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+        &nbsp; &nbsp; { -3.0f, 0.0f, -3.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+        &nbsp; &nbsp; { 3.0f, 0.0f, -3.0f, D3DCOLOR_XRGB(0, 255, 255), },<br>
+        <br>
+        &nbsp; &nbsp; // top<br>
+        &nbsp; &nbsp; { 0.0f, 7.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+        };<br>
+        <br>
+        // create a vertex buffer interface called v_buffer<br>
+        d3ddev-&gt;CreateVertexBuffer(5*sizeof(CUSTOMVERTEX),<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; 0,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; CUSTOMFVF,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; &amp;v_buffer,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; NULL);</div>
+    <p>
+        And for the index buffer:</p>
+        <div class="codebox">
+            // create the indices using an int array<br>
+            short indices[] =<br>
+            {<br>
+            &nbsp; &nbsp; 0, 2, 1, &nbsp;&nbsp; // base<br>
+            &nbsp; &nbsp; 1, 2, 3,<br>
+            &nbsp; &nbsp; 0, 1, 4, &nbsp;&nbsp; // sides<br>
+            &nbsp; &nbsp; 1, 3, 4,<br>
+            &nbsp; &nbsp; 3, 2, 4,<br>
+            &nbsp; &nbsp; 2, 0, 4,<br>
+            };<br>
+            <br>
+            // create a index buffer interface called i_buffer<br>
+            d3ddev-&gt;CreateIndexBuffer(18*sizeof(short),<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; 0,<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; D3DFMT_INDEX16,<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; D3DPOOL_MANAGED,<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &amp;i_buffer,<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; NULL);
+        </div>
+        <p>
+            And then to draw the shape:</p>
+    <div class="codebox">
+        // select the vertex buffer to display<br>
+        d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+        d3ddev-&gt;SetIndices(i_buffer);<br>
+        <br>
+        // draw the pyramid<br>
+        d3ddev-&gt;DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, 5, 0, 6);</div>
+    <p>
+        Take a moment to study how this code differs from the cube's.</p>
+    <hr>
+    <p class="subheader">
+        The Hypercraft</p>
+    <p>
+        Now let's do something a little bit more exciting.&nbsp; We'll take a break from
+        boring geometry and get into some real stuff.&nbsp; Let's build a "Hypercraft",
+        which is a ship from the first 3D game I ever wrote (and I've used ever since).&nbsp;
+        Here's what this ship looks like:</p>
+    <center>
+        <img alt="Image 7.8 - The Hypercraft" src="dx9B7.aspx_files/dx9B7-8.PNG"><br>
+        <br>
+        Image 7.8 - The Hypercraft
+    </center>
+    <p>
+        Here's the code for the vertex buffer:</p>
+    <div class="codebox">
+        // create the vertices using the CUSTOMVERTEX<br>
+        struct CUSTOMVERTEX vertices[] =<br>
+        {<br>
+        &nbsp; &nbsp; // fuselage<br>
+        &nbsp; &nbsp; { 3.0f, 0.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+        &nbsp; &nbsp; { 0.0f, 3.0f, -3.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+        &nbsp; &nbsp; { 0.0f, 0.0f, 10.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+        &nbsp; &nbsp; { -3.0f, 0.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 255), },<br>
+        <br>
+        &nbsp; &nbsp; // left gun<br>
+        &nbsp; &nbsp; { 3.2f, -1.0f, -3.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+        &nbsp; &nbsp; { 3.2f, -1.0f, 11.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+        &nbsp; &nbsp; { 2.0f, 1.0f, 2.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+        <br>
+        &nbsp; &nbsp; // right gun<br>
+        &nbsp; &nbsp; { -3.2f, -1.0f, -3.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+        &nbsp; &nbsp; { -3.2f, -1.0f, 11.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+        &nbsp; &nbsp; { -2.0f, 1.0f, 2.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+        };<br>
+        <br>
+        // create a vertex buffer interface called v_buffer<br>
+        d3ddev-&gt;CreateVertexBuffer(10*sizeof(CUSTOMVERTEX),<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; 0,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; CUSTOMFVF,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; &amp;v_buffer,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp;NULL);</div>
+    <p>
+        And for the index buffer:</p>
+        <div class="codebox">
+            // create the indices using an int array<br>
+            short indices[] =<br>
+            {<br>
+            &nbsp; &nbsp; 0, 1, 2, &nbsp;&nbsp; // fuselage<br>
+            &nbsp; &nbsp; 2, 1, 3,<br>
+            &nbsp; &nbsp; 3, 1, 0,<br>
+            &nbsp; &nbsp; 0, 2, 3,<br>
+            &nbsp; &nbsp; 4, 5, 6, &nbsp;&nbsp; // wings<br>
+            &nbsp; &nbsp; 7, 8, 9,<br>
+            };<br>
+            <br>
+            // create a index buffer interface called i_buffer<br>
+            d3ddev-&gt;CreateIndexBuffer(18*sizeof(short),<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; 0,<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; D3DFMT_INDEX16,<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; D3DPOOL_MANAGED,<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &amp;i_buffer,<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; NULL);
+        </div>
+        <p>
+            And then to draw the shape:</p>
+    <div class="codebox">
+        // select the vertex buffer to display<br>
+        d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+        d3ddev-&gt;SetIndices(i_buffer);<br>
+        <br>
+        // draw the Hypercraft<br>
+        d3ddev-&gt;DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, 10, 0, 6);</div>
+    <p>
+        And there you have it!&nbsp; We've got a functioning 3D model of a spaceship.&nbsp;
+        Admittedly it could improve a little on the aerodynamics, but we'll get there for
+        sure.&nbsp; For now, let's put in a rotation matrix and see what she looks like.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    The Finished Program</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                I chose to use the Hypercraft model for this demo.&nbsp; It rotates around much
+                like a car advertisement, only it looks somewhat more polygonal than an actual car.</p>
+
+            [<a href="#still" onclick="Toggle('lessonprog')" class="mainlink">Show Code</a>]<br>
+            <br>
+
+            <div class="codebox" id="lessonprog" style="display: none;">
+                // include the basic windows header files and the Direct3D header file<br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                #include &lt;d3d9.h&gt;<br>
+                #include &lt;d3dx9.h&gt;<br>
+                <br>
+                // define the screen resolution<br>
+                #define SCREEN_WIDTH 800<br>
+                #define SCREEN_HEIGHT 600<br>
+                <br>
+                // include the Direct3D Library files<br>
+                #pragma comment (lib, "d3d9.lib")<br>
+                #pragma comment (lib, "d3dx9.lib")<br>
+                <br>
+                // global declarations<br>
+                LPDIRECT3D9 d3d;<br>
+                LPDIRECT3DDEVICE9 d3ddev;<br>
+                LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL; &nbsp;&nbsp; // the pointer to the vertex
+                buffer<br>
+                <strong>
+                LPDIRECT3DINDEXBUFFER9 i_buffer = NULL; &nbsp;&nbsp; // the pointer to the index
+                buffer<br>
+                </strong>
+                <br>
+                // function prototypes<br>
+                void initD3D(HWND hWnd);<br>
+                void render_frame(void);<br>
+                void cleanD3D(void);<br>
+                void init_graphics(void);<br>
+                <br>
+                struct CUSTOMVERTEX {FLOAT X, Y, Z; DWORD COLOR;};<br>
+                #define CUSTOMFVF (D3DFVF_XYZ | D3DFVF_DIFFUSE)<br>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);<br>
+                <br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+                {<br>
+                &nbsp; &nbsp; HWND hWnd;<br>
+                &nbsp; &nbsp; WNDCLASSEX wc;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+                <br>
+                &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+                &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+                &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+                &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+                &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+                &nbsp; &nbsp; wc.lpszClassName = L"WindowClass";<br>
+                <br>
+                &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+                <br>
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL, L"WindowClass", L"Our Direct3D Program",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WS_OVERLAPPEDWINDOW, 0, 0, 
+SCREEN_WIDTH, SCREEN_HEIGHT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NULL, NULL, hInstance, NULL);<br>
+                <br>
+                &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+                <br>
+                &nbsp; &nbsp; initD3D(hWnd);<br>
+                <br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; while(TRUE)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; render_frame();<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; cleanD3D();<br>
+                <br>
+                &nbsp; &nbsp; return msg.wParam;<br>
+                }<br>
+                <br>
+                <br>
+                // this is the main message handler for the program<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+                {<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+                }<br>
+                <br>
+                <br>
+                // this function initializes and prepares Direct3D for use<br>
+                void initD3D(HWND hWnd)<br>
+                {<br>
+                &nbsp; &nbsp; d3d = Direct3DCreate9(D3D_SDK_VERSION);<br>
+                <br>
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp));<br>
+                &nbsp; &nbsp; d3dpp.Windowed = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;<br>
+                &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferWidth = SCREEN_WIDTH;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferHeight = SCREEN_HEIGHT;<br>
+                &nbsp; &nbsp; d3dpp.EnableAutoDepthStencil = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.AutoDepthStencilFormat = D3DFMT_D16;<br>
+                <br>
+                &nbsp; &nbsp; d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D3DDEVTYPE_HAL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; D3DCREATE_SOFTWARE_VERTEXPROCESSING,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3dpp,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3ddev);<br>
+                <br>
+                &nbsp; &nbsp; init_graphics();<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, FALSE); &nbsp; &nbsp;//
+                turn off the 3D lighting<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); &nbsp;&nbsp;
+                // turn off culling<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_ZENABLE, TRUE); &nbsp;&nbsp; //
+                    turn on the z-buffer<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function used to render a single frame<br>
+                void render_frame(void)<br>
+                {<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0),
+                1.0f, 0);<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0,
+                    0), 1.0f, 0);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;BeginScene();<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;SetFVF(CUSTOMFVF);<br>
+                <br>
+                &nbsp; &nbsp; // set the view transform<br>
+                &nbsp; &nbsp; D3DXMATRIX matView; &nbsp; &nbsp;// the view transform
+                matrix<br>
+                &nbsp; &nbsp;
+                D3DXMatrixLookAtLH(&amp;matView,<br>
+                &nbsp; &nbsp;
+                &amp;D3DXVECTOR3 (0.0f, 8.0f, 25.0f), &nbsp; &nbsp;// the camera position<br>
+                &nbsp; &nbsp;
+                &amp;D3DXVECTOR3 (0.0f, 0.0f, 0.0f), &nbsp; &nbsp;
+                &nbsp;// the look-at position<br>
+                &nbsp; &nbsp;
+                &amp;D3DXVECTOR3 (0.0f, 1.0f, 0.0f)); &nbsp; &nbsp;// the up direction<br>
+                &nbsp; &nbsp;
+                d3ddev-&gt;SetTransform(D3DTS_VIEW, &amp;matView); &nbsp; &nbsp;// set the view transform to matView
+                <br>
+                <br>
+                &nbsp; &nbsp; // set the projection transform<br>
+                &nbsp; &nbsp;
+                D3DXMATRIX matProjection; &nbsp; &nbsp;// the projection transform matrix<br>
+                &nbsp; &nbsp;
+                D3DXMatrixPerspectiveFovLH(&amp;matProjection,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp;
+                D3DXToRadian(45), &nbsp; &nbsp;// the horizontal field of view<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp; (FLOAT)SCREEN_WIDTH / (FLOAT)SCREEN_HEIGHT, // aspect ratio<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp;
+                1.0f, &nbsp;&nbsp;// the near view-plane<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp;
+                100.0f); &nbsp; &nbsp;// the far view-plane<br>
+                &nbsp; &nbsp;
+                d3ddev-&gt;SetTransform(D3DTS_PROJECTION, &amp;matProjection); // set the projection<br>
+                <br>
+                &nbsp; &nbsp; // set the world transform<br>
+                &nbsp; &nbsp;
+                static float index = 0.0f; index+=0.03f; // an ever-increasing float value<br>
+                &nbsp; &nbsp;
+                D3DXMATRIX matRotateY;
+                &nbsp;&nbsp; // a matrix to store the rotation for each triangle<br>
+                &nbsp; &nbsp;
+                D3DXMatrixRotationY(&amp;matRotateY, index);
+                &nbsp; &nbsp;// the rotation matrix<br>
+                &nbsp; &nbsp;
+                d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;(matRotateY));
+                &nbsp; &nbsp;// set the world transform<br>
+                <br>
+                &nbsp; &nbsp;&nbsp; // select the vertex buffer to display<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+                <strong>
+                &nbsp; &nbsp; d3ddev-&gt;SetIndices(i_buffer);<br>
+                </strong>
+                <br>
+                &nbsp; &nbsp; // draw the Hypercraft<br>
+                <strong>
+                &nbsp; &nbsp; d3ddev-&gt;DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, 10, 0, 6);<br>
+                </strong>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;EndScene();&nbsp;<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL);<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that cleans up Direct3D and COM<br>
+                void cleanD3D(void)<br>
+                {<br>
+                &nbsp; &nbsp; v_buffer-&gt;Release();<br>
+                <strong>
+                &nbsp; &nbsp; i_buffer-&gt;Release();<br>
+                </strong>
+                &nbsp; &nbsp; d3ddev-&gt;Release();<br>
+                &nbsp; &nbsp; d3d-&gt;Release();<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that puts the 3D models into video RAM<br>
+                void init_graphics(void)<br>
+                {<br>
+                &nbsp; &nbsp; // create the vertices using the CUSTOMVERTEX<br>
+                &nbsp; &nbsp; struct CUSTOMVERTEX vertices[] =<br>
+                &nbsp; &nbsp; {<br>
+                <strong>
+                &nbsp; &nbsp; &nbsp; &nbsp; // fuselage<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 0.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 0.0f, 3.0f, -3.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 0.0f, 0.0f, 10.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 0.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 255), },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; // left gun<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.2f, -1.0f, -3.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.2f, -1.0f, 11.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 2.0f, 1.0f, 2.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; // right gun<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.2f, -1.0f, -3.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.2f, -1.0f, 11.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -2.0f, 1.0f, 2.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+                </strong>
+                &nbsp; &nbsp; };<br>
+                <br>
+                &nbsp; &nbsp; // create a vertex buffer interface called v_buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;CreateVertexBuffer(<strong>10</strong>*sizeof(CUSTOMVERTEX),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CUSTOMFVF,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&amp;v_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NULL);<br>
+                <br>
+                &nbsp; &nbsp; VOID* pVoid; &nbsp;&nbsp; // a void pointer<br>
+                <br>
+                &nbsp; &nbsp; // lock v_buffer and load the vertices into it<br>
+                &nbsp; &nbsp; v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                &nbsp; &nbsp; memcpy(pVoid, vertices, sizeof(vertices));<br>
+                &nbsp; &nbsp; v_buffer-&gt;Unlock();<br>
+                <br>
+                <strong>
+                &nbsp; &nbsp; // create the indices using an int array<br>
+                &nbsp; &nbsp; short indices[] =<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 0, 1, 2, &nbsp;&nbsp; // fuselage<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 2, 1, 3,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 3, 1, 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 0, 2, 3,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 4, 5, 6, &nbsp;&nbsp; // wings<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 7, 8, 9,<br>
+                &nbsp; &nbsp; };<br>
+                <br>
+                &nbsp; &nbsp; // create a index buffer interface called i_buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;CreateIndexBuffer(18*sizeof(short),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; D3DFMT_INDEX16,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &amp;i_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; // lock i_buffer and load the indices into it<br>
+                &nbsp; &nbsp; i_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                &nbsp; &nbsp; memcpy(pVoid, indices, sizeof(indices));<br>
+                &nbsp; &nbsp; i_buffer-&gt;Unlock();
+                <br>
+                </strong>
+                }</div>
+            <p>
+                Run the code, and see the family vehicle of the future!&nbsp; Well, maybe the virtual
+                future.&nbsp; Well, maybe not...</p>
+            <center>
+                <img alt="Image 7.9 - The Hypercraft In Action" src="dx9B7.aspx_files/dx9B7-9.PNG"><br><br>
+                Image 7.9 - The Hypercraft In Action
+            </center>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                Summary</div>
+        <div class="maintext" style="position: relative;">
+            <p>
+                Wow!&nbsp; Now we are getting somewhere with 3D!&nbsp; Get good at everything up
+                to this point, and then let's move on and make the Hypercraft look decent with
+                some 3D lighting.&nbsp; In the meantime, try doing these exercises:</p>
+            <p>
+                1.&nbsp; Make a square<br>
+                2.&nbsp; Make a triangular pyramid<br>
+                3.&nbsp; Draw 20 copies of your triangular pyramid on the screen at once<br>
+                4.&nbsp; Add a tail fin in the back of the Hypercraft<br>
+                5.&nbsp; Design and build your own mini-spaceship</p>
+                    <p>
+                        Now let's get on to lighting!&nbsp; Let's make these objects look cool!</p>
+            <center>
+                <p>
+                    Next Lesson:&nbsp; Rendering with Vertex Lighting</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B9.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Help make DirectX Tutorial better.  Give your <a class="feedlink" href="javascript:RunFeedback(27)">feedback</a>.</p>
+            </center>
+        </div>
+                
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B7.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

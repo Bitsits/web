@@ -1,0 +1,1091 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Create Audio Waveforms with the Scribble Effect | Vectortuts+</title>
+
+<!-- Styles -->
+<link href="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/style_002.css" rel="stylesheet" type="text/css" media="screen">
+<link href="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/theme.css" rel="stylesheet" type="text/css" media="screen">
+<link href="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/print.css" rel="stylesheet" type="text/css" media="print">
+
+<link rel="shortcut icon" href="http://vector.tutsplus.com/wp-content/themes/tuts/images/theme/vectortuts/favicon.ico">
+
+<!-- Page Size CSS -->
+<link href="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/small.css" rel="stylesheet" type="text/css" media="screen">
+
+<!-- Scripts -->
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/jsapi"></script>
+<script type="text/javascript">google.load("jquery", "1.4.0");</script><script src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/tutsResize.js"></script>
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/lazyload.js"></script>
+<script type="text/javascript">
+
+  // Tutsplus Resize
+  $("#sidebar").tutsResize({
+    small_css_path: "http://vector.tutsplus.com/wp-content/themes/tuts/css/small.css",
+    large_css_path: "http://vector.tutsplus.com/wp-content/themes/tuts/css/large.css",
+    small_sessions_path: "http://creativesessions.s3.amazonaws.com/content/2010/cs4_interface_design/cs4_graphics/sidebar_sm.jpg",
+    large_sessions_path: "http://creativesessions.s3.amazonaws.com/content/2010/cs4_interface_design/cs4_graphics/sidebar_lg.jpg"
+  });
+  
+  $(function() {
+    
+    // Extra Posts Div 
+    var left = 15;
+  	$('.extra_posts li div').each(function() {
+  		$(this).css('left', left);
+  		left += 114;
+  	});
+  	
+    // Subnavigation
+    $(".navigation li:has(ul)").addClass("parent");
+    
+    // Lazy Loading
+    $(".tutorial_image img").lazyload({
+      placeholder : "http://vector.tutsplus.com/wp-content/themes/tuts/images/global/box.gif",
+      threshold : 200
+    });
+    $(".post_image img").lazyload({
+      placeholder : "http://vector.tutsplus.com/wp-content/themes/tuts/images/global/box.gif",
+      threshold : 200
+    });
+    $(".comment_author img").lazyload({
+      placeholder : "http://vector.tutsplus.com/wp-content/themes/tuts/images/global/box.gif",
+      threshold : 200
+    });
+    
+  });
+  
+  //External links 
+  $(function() {
+    $('a[rel~=external]').attr('target', 'blank');
+  });
+</script>
+
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/jquery_002.js"></script>
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/jquery_003.js"></script>
+
+<link rel="alternate" type="application/rss+xml" title="Vectortuts+ RSS Feed" href="http://vector.tutsplus.com/feed/">
+<link rel="pingback" href="http://vector.tutsplus.com/xmlrpc.php">
+<meta name="google-site-verification" content="SOPYMpXvuXhm5P8TUlyZBN7Jj8MZhi5a6QS34iJ7OLo">
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/single.js"></script><link rel="alternate" type="application/rss+xml" title="Vectortuts+ » Create Audio Waveforms with the Scribble Effect Comments Feed" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/feed/">
+<link rel="stylesheet" id="A2A_SHARE_SAVE-css" href="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/addtoany.css" type="text/css" media="all">
+<link rel="stylesheet" id="site-switcher-css-css" href="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/style.css" type="text/css" media="all">
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/comment-reply.js"></script>
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/switcher.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://vector.tutsplus.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://vector.tutsplus.com/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Vectortuts+" href="http://vector.tutsplus.com/">
+<link rel="start" title="Contributions are Open" href="http://vector.tutsplus.com/articles/news/contributions-are-open/">
+<link rel="prev" title="Envato Sponsors the 2010 Annual Design Awards" href="http://vector.tutsplus.com/articles/news/envato-sponsors-the-2010-annual-design-awards/">
+<link rel="next" title="Fantastic Sci-Fi and Fantasy Movie Poster Inspiration, 1925 to 2010" href="http://vector.tutsplus.com/articles/inspiration/fantastic-sci-fi-and-fantasy-movie-poster-inspiration-1925-to-2010/">
+<link rel="shortlink" href="http://vector.tutsplus.com/?p=3344">
+<!--[if IE]>
+<style type="text/css">
+ul.addtoany_list a img{filter:alpha(opacity=70)}
+ul.addtoany_list a:hover img,ul.addtoany_list a.addtoany_share_save img{filter:alpha(opacity=100)}
+</style>
+<![endif]-->
+
+<!-- All in One SEO Pack 1.6.11 by Michael Torbert of Semper Fi Web Design[231,306] -->
+<meta name="description" content="Some people might think of Illustrator's Scribble effect as child's play. In fact, one of its presets is called Childlike. But by tweaking its custom">
+<link rel="canonical" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/">
+<!-- /all in one seo pack -->
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/audio-player.js"></script>
+<script type="text/javascript">AudioPlayer.setup("http://vector.tutsplus.com/wp-content/plugins/audio-player/assets/player.swf?ver=2.0.4.1", {width:"290",animation:"yes",encode:"no",initialvolume:"60",remaining:"no",noinfo:"yes",buffer:"5",checkpolicy:"no",rtl:"no",bg:"194c8b",text:"ffffff",leftbg:"194c8b",lefticon:"ffffff",volslider:"97b6db",voltrack:"ffffff",rightbg:"194c8b",rightbghover:"4478b8",righticon:"ffffff",righticonhover:"ffffff",track:"194c8b",loader:"7a99c2",border:"194c8b",tracker:"7a99c2",skip:"ffffff",pagebg:"FFFFFF",transparentpagebg:"yes"});</script><style media="screen" type="text/css">p.audioplayer_container span {visibility:hidden;height:24px;overflow:hidden;padding:0;border:none;}</style>
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/swfobject.js"></script><meta name="tweetmeme-title" content="Create Audio Waveforms with the Scribble Effect">
+<script async="true" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/ga.js"></script><script src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/bsa.js" type="text/javascript"></script><script async="async" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/s_505f2b5da55d79b1b4a88b2d82286808.js" id="_bsap_js_505f2b5da55d79b1b4a88b2d82286808" type="text/javascript"></script><style type="text/css">div.bsap_1245835{width:100%;display:block;}div.bsap_1245835 a{width:728px;}div.bsap_1245835 a img{padding:0;}div.bsap_1245835 a em{font-style:normal;}div.bsap_1245835 a{display:block;font-size:11px;color:#888;font-family:verdana,sans-serif;margin:0 4px 10px 0;text-align:center;text-decoration:none;overflow:hidden;}div.bsap_1245835 img{border:0;clear:right;}div.bsap_1245835 a.adhere{color:#666;font-weight:bold;font-size:12px;border:1px solid #ccc;background:#e7e7e7;text-align:center;}div.bsap_1245835 a.adhere:hover{border:1px solid #999;background:#ddd;color:#333;}div.bsap_1245835 a.adhere{width:728px;height:90px;line-height:720%;}html>body div.bsap_1245835 a.adhere{width:726px;height:88px;}div.bsap_1245835 img.s{height:0;width:0;}</style><style type="text/css">.a2a_menu *{margin:0;padding:0}.a2a_menu table{border-collapse:collapse;border-spacing:0;width:auto}.a2a_menu table,.a2a_menu tbody,.a2a_menu td,.a2a_menu tr{border:0;margin:0;padding:0;background-color:#FFF}.a2a_menu td{vertical-align:top}.a2a_menu,.a2a_menu_inside{-webkit-border-radius:16px;-moz-border-radius:16px}.a2a_menu{display:none;z-index:9999999;position:absolute;direction:ltr;min-width:200px;background:#EEE;background:rgba(238,238,238,.6);font:12px Arial,Helvetica,sans-serif;color:#000;line-height:12px;border:1px solid transparent;_border:1px solid #EEE;padding:7px;vertical-align:baseline;overflow:hidden}.a2a_menu_inside{background-color:#FFF;border:1px solid #CCC;padding:8px}.a2a_menu a,#a2a_hist_list a,.a2a_tabs div{color:#00F;text-decoration:none;font:12px Arial,Helvetica,sans-serif;line-height:12px;height:auto;width:auto;clear:none;outline:none;-moz-outline:none;-webkit-border-radius:8px;-moz-border-radius:8px}.a2a_menu a:visited,#a2a_hist_list a:visited{color:#00F;clear:right}.a2a_menu a:hover,.a2a_menu a:active,.a2a_menu a.a2a_i:focus,.a2a_tabs div:hover{color:#000;border:1px solid #CCC;background-color:#EEE;text-decoration:none}.a2a_menu span,.a2a_img{background:url(http://static.addtoany.com/menu/icons_19.png) no-repeat;border:0;display:block;line-height:16px}.a2a_menu span.a2a_i_find{height:16px;left:5px;position:absolute;top:2px;width:16px}.a2a_menu input,.a2a_menu input[type="text"]{display:block;background-image:none;box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none}#a2a_menu_container{display:inline-block}#a2a_menu_container{_display:inline}.a2a_menu_title_container{margin-bottom:2px;padding:6px}.a2a_menu_find_container{position:relative;text-align:left;margin:4px 1px;padding:1px 24px 1px 0;border:1px solid #CCC;-webkit-border-radius:8px;-moz-border-radius:8px}.a2a_menu_title_container input.a2a_menu_title{color:#000;background-color:#FFF;border:0;margin:0;padding:0;width:100%}.a2a_menu_find_container input.a2a_menu_find{position:relative;left:24px;color:#000;font-size:12px;padding:2px 0;outline:0;border:0;background-color:transparent;_background-color:#FFF;width:250px}table.a2a_cols_container{width:100%}.a2a_cols{width:50%}.a2a_clear{clear:both} .a2a_default_style a{float:left;padding:0 2px}.a2a_default_style .a2a_img{display:block;height:16px;line-height:16px;overflow:hidden;width:16px}.a2a_default_style .a2a_img,.a2a_default_style .a2a_dd{float:left}.a2a_kit a{cursor:pointer}.a2a_hr{margin:0 12px 12px;padding:1px;background:none;background-color:#EEE}.a2a_nowrap{white-space:nowrap}.a2a_note{margin:0 auto;padding:9px;font-size:11px;text-align:center}.a2a_note .a2a_note_note{margin:0 0 9px;color:#000}.a2a_wide a{display:block;margin-top:3px;border:1px solid #EEE;padding:3px;text-align:center}.a2a_tabs{float:left;margin:0 0 3px}.a2a_tabs a,.a2a_tabs div{margin:1px;background-color:#EEE;border:1px solid #EEE;font-size:11px;padding:6px 12px 2px;white-space:nowrap}.a2a_tabs a span,.a2a_tabs div span{margin-bottom:4px;padding-left:20px}.a2a_tabs a,.a2a_tabs a:visited,.a2a_tabs a:hover,.a2a_tabs div,.a2a_tabs div:hover{cursor:pointer;border-bottom:1px solid #EEE;color:#000;-webkit-border-bottom-left-radius:0;-moz-border-radius-bottomleft:0;-webkit-border-bottom-right-radius:0;-moz-border-radius-bottomright:0}a.a2a_tab_selected,a.a2a_tab_selected:visited,a.a2a_tab_selected:hover,a.a2a_tab_selected:active,a.a2a_tab_selected:focus,div.a2a_tab_selected,div.a2a_tab_selected:hover{color:#00F;background-color:#FFF;border:1px solid #CCC;border-bottom:1px solid #FFF}a.a2a_i{display:block;padding:4px 6px;border:1px solid #FFF;text-align:left;white-space:nowrap}a.a2a_i span{padding-left:20px}a.a2a_sss{font-weight:700}a.a2a_ind{display:inline;margin:0;padding:0}a.a2a_emailer{display:inline-block;border:1px solid #EEE;margin:0 9px;text-align:center}#a2apage_email_client{padding-left:6px}#a2apage_email_client span{display:inline-block;height:16px;line-height:16px;margin:0 2px;padding-left:0;width:16px}a.a2a_menu_show_more_less{margin:4px 0 8px;padding:0}a.a2a_menu_show_more_less span{display:inline-block;height:14px;margin:0 auto;vertical-align:baseline;width:16px}a.a2a_menu_powered_by,a.a2a_menu_powered_by:visited{background-color:#EEE;font-size:9px;color:#999}iframe.a2a_shim{border:0;position:absolute;z-index:999999}.a2a_i_a2a{background-position:0 0!important}.a2a_i_agregator{background-position:0 -17px!important}.a2a_i_aiderss{background-position:0 -34px!important}.a2a_i_aim{background-position:0 -51px!important}.a2a_i_allvoices{background-position:0 -68px!important}.a2a_i_amazon{background-position:0 -85px!important}.a2a_i_aol{background-position:0 -102px!important}.a2a_i_apple_mail{background-position:0 -119px!important}.a2a_i_arto{background-position:0 -136px!important}.a2a_i_ask{background-position:0 -153px!important}.a2a_i_avantgo{background-position:0 -170px!important}.a2a_i_backflip{background-position:0 -187px!important}.a2a_i_bebo{background-position:0 -204px!important}.a2a_i_bibsonomy{background-position:0 -221px!important}.a2a_i_bitty{background-position:0 -238px!important}.a2a_i_blinklist{background-position:0 -255px!important}.a2a_i_blogger{background-position:0 -272px!important}.a2a_i_bloglines{background-position:0 -289px!important}.a2a_i_blogmarks{background-position:0 -306px!important}.a2a_i_blogrovr{background-position:0 -323px!important}.a2a_i_bookmark{background-position:0 -340px!important}.a2a_i_bookmarks_fr{background-position:0 -357px!important}.a2a_i_box{background-position:0 -374px!important}.a2a_i_buddymarks{background-position:0 -391px!important}.a2a_i_buzmob{background-position:0 -408px!important}.a2a_i_buzz{background-position:0 -425px!important}.a2a_i_bzzster{background-position:0 -442px!important}.a2a_i_care2{background-position:0 -459px!important}.a2a_i_chrome{background-position:0 -476px!important}.a2a_i_citeulike{background-position:0 -493px!important}.a2a_i_clear{background-position:0 -510px!important}.a2a_i_connotea{background-position:0 -527px!important}.a2a_i_current{background-position:0 -544px!important}.a2a_i_dailyme{background-position:0 -561px!important}.a2a_i_dailyrotation{background-position:0 -578px!important}.a2a_i_darr{background-position:0 -595px!important}.a2a_i_darr_wt{background-position:0 -612px!important}.a2a_i_default{background-position:0 -629px!important}.a2a_i_delicious{background-position:0 -646px!important}.a2a_i_designfloat{background-position:0 -663px!important}.a2a_i_digg{background-position:0 -680px!important}.a2a_i_diglog{background-position:0 -697px!important}.a2a_i_diigo{background-position:0 -714px!important}.a2a_i_dzone{background-position:0 -731px!important}.a2a_i_email{background-position:0 -748px!important}.a2a_i_eskobo{background-position:0 -765px!important}.a2a_i_evernote{background-position:0 -782px!important}.a2a_i_excitemix{background-position:0 -799px!important}.a2a_i_expression{background-position:0 -816px!important}.a2a_i_facebook{background-position:0 -833px!important}.a2a_i_fark{background-position:0 -850px!important}.a2a_i_faves{background-position:0 -867px!important}.a2a_i_feed{background-position:0 -884px!important}.a2a_i_feedblitz{background-position:0 -901px!important}.a2a_i_feedbucket{background-position:0 -918px!important}.a2a_i_feedlounge{background-position:0 -935px!important}.a2a_i_feedm8{background-position:0 -952px!important}.a2a_i_feedmailer{background-position:0 -969px!important}.a2a_i_feedreader_net{background-position:0 -986px!important}.a2a_i_feedshow{background-position:0 -1003px!important}.a2a_i_find{background-position:0 -1020px!important}.a2a_i_fireant{background-position:0 -1037px!important}.a2a_i_firefox{background-position:0 -1054px!important}.a2a_i_flurry{background-position:0 -1071px!important}.a2a_i_folkd{background-position:0 -1088px!important}.a2a_i_foxiewire{background-position:0 -1105px!important}.a2a_i_friendfeed{background-position:0 -1122px!important}.a2a_i_friendster{background-position:0 -1139px!important}.a2a_i_funp{background-position:0 -1156px!important}.a2a_i_furl{background-position:0 -1173px!important}.a2a_i_fwicki{background-position:0 -1189px!important}.a2a_i_gabbr{background-position:0 -1206px!important}.a2a_i_global_grind{background-position:0 -1223px!important}.a2a_i_gmail{background-position:0 -1240px!important}.a2a_i_google{background-position:0 -1257px!important}.a2a_i_google_buzz{background-position:0 -1274px!important}.a2a_i_healthranker{background-position:0 -1291px!important}.a2a_i_hellotxt{background-position:0 -1308px!important}.a2a_i_hemidemi{background-position:0 -1325px!important}.a2a_i_hi5{background-position:0 -1342px!important}.a2a_i_hubdog{background-position:0 -1359px!important}.a2a_i_hugg{background-position:0 -1376px!important}.a2a_i_hyves{background-position:0 -1393px!important}.a2a_i_identica{background-position:0 -1410px!important}.a2a_i_im{background-position:0 -1427px!important}.a2a_i_imera{background-position:0 -1444px!important}.a2a_i_instapaper{background-position:0 -1461px!important}.a2a_i_iterasi{background-position:0 -1478px!important}.a2a_i_itunes{background-position:0 -1495px!important}.a2a_i_jamespot{background-position:0 -1512px!important}.a2a_i_jots{background-position:0 -1529px!important}.a2a_i_jumptags{background-position:0 -1546px!important}.a2a_i_khabbr{background-position:0 -1563px!important}.a2a_i_kledy{background-position:0 -1580px!important}.a2a_i_klipfolio{background-position:0 -1597px!important}.a2a_i_linkagogo{background-position:0 -1614px!important}.a2a_i_linkatopia{background-position:0 -1631px!important}.a2a_i_linkedin{background-position:0 -1648px!important}.a2a_i_live{background-position:0 -1665px!important}.a2a_i_livejournal{background-position:0 -1682px!important}.a2a_i_ma_gnolia{background-position:0 -1699px!important}.a2a_i_maple{background-position:0 -1716px!important}.a2a_i_meneame{background-position:0 -1733px!important}.a2a_i_mindbodygreen{background-position:0 -1750px!important}.a2a_i_miro{background-position:0 -1767px!important}.a2a_i_mister-wong{background-position:0 -1784px!important}.a2a_i_mixx{background-position:0 -1801px!important}.a2a_i_mobile{background-position:0 -1818px!important}.a2a_i_mozillaca{background-position:0 -1835px!important}.a2a_i_msdn{background-position:0 -1852px!important}.a2a_i_multiply{background-position:0 -1869px!important}.a2a_i_my_msn{background-position:0 -1886px!important}.a2a_i_mylinkvault{background-position:0 -1903px!important}.a2a_i_myspace{background-position:0 -1920px!important}.a2a_i_netimechannel{background-position:0 -1937px!important}.a2a_i_netlog{background-position:0 -1954px!important}.a2a_i_netomat{background-position:0 -1971px!important}.a2a_i_netvibes{background-position:0 -1988px!important}.a2a_i_netvouz{background-position:0 -2005px!important}.a2a_i_newgie{background-position:0 -2022px!important}.a2a_i_newsalloy{background-position:0 -2039px!important}.a2a_i_newscabby{background-position:0 -2056px!important}.a2a_i_newsgator{background-position:0 -2073px!important}.a2a_i_newshutch{background-position:0 -2090px!important}.a2a_i_newsisfree{background-position:0 -2107px!important}.a2a_i_newstrust{background-position:0 -2124px!important}.a2a_i_newsvine{background-position:0 -2141px!important}.a2a_i_nowpublic{background-position:0 -2158px!important}.a2a_i_odeo{background-position:0 -2175px!important}.a2a_i_oneview{background-position:0 -2192px!important}.a2a_i_openbm{background-position:0 -2209px!important}.a2a_i_orkut{background-position:0 -2226px!important}.a2a_i_outlook{background-position:0 -2243px!important}.a2a_i_pageflakes{background-position:0 -2260px!important}.a2a_i_pdf{background-position:0 -2277px!important}.a2a_i_phonefavs{background-position:0 -2294px!important}.a2a_i_ping{background-position:0 -2311px!important}.a2a_i_plaxo{background-position:0 -2328px!important}.a2a_i_plurk{background-position:0 -2345px!important}.a2a_i_plusmo{background-position:0 -2362px!important}.a2a_i_podnova{background-position:0 -2379px!important}.a2a_i_posterous{background-position:0 -2396px!important}.a2a_i_print{background-position:0 -2413px!important}.a2a_i_printfriendly{background-position:0 -2430px!important}.a2a_i_propeller{background-position:0 -2447px!important}.a2a_i_protopage{background-position:0 -2464px!important}.a2a_i_pusha{background-position:0 -2481px!important}.a2a_i_rapidfeeds{background-position:0 -2498px!important}.a2a_i_rasasa{background-position:0 -2515px!important}.a2a_i_reader{background-position:0 -2532px!important}.a2a_i_reddit{background-position:0 -2549px!important}.a2a_i_rssfwd{background-position:0 -2566px!important}.a2a_i_segnalo{background-position:0 -2583px!important}.a2a_i_share{background-position:0 -2600px!important}.a2a_i_shoutwire{background-position:0 -2617px!important}.a2a_i_shyftr{background-position:0 -2634px!important}.a2a_i_simpy{background-position:0 -2651px!important}.a2a_i_sitejot{background-position:0 -2668px!important}.a2a_i_skimbit{background-position:0 -2685px!important}.a2a_i_slashdot{background-position:0 -2702px!important}.a2a_i_smaknews{background-position:0 -2719px!important}.a2a_i_sodahead{background-position:0 -2736px!important}.a2a_i_sofomo{background-position:0 -2753px!important}.a2a_i_spaces{background-position:0 -2770px!important}.a2a_i_sphere{background-position:0 -2787px!important}.a2a_i_sphinn{background-position:0 -2803px!important}.a2a_i_spurl{background-position:0 -2820px!important}.a2a_i_squidoo{background-position:0 -2837px!important}.a2a_i_startaid{background-position:0 -2854px!important}.a2a_i_strands{background-position:0 -2871px!important}.a2a_i_stumbleupon{background-position:0 -2888px!important}.a2a_i_stumpedia{background-position:0 -2905px!important}.a2a_i_symbaloo{background-position:0 -2922px!important}.a2a_i_taggly{background-position:0 -2939px!important}.a2a_i_tagza{background-position:0 -2956px!important}.a2a_i_tailrank{background-position:0 -2973px!important}.a2a_i_technet{background-position:0 -2990px!important}.a2a_i_technorati{background-position:0 -3007px!important}.a2a_i_technotizie{background-position:0 -3024px!important}.a2a_i_thefreedictionary{background-position:0 -3041px!important}.a2a_i_thefreelibrary{background-position:0 -3058px!important}.a2a_i_thunderbird{background-position:0 -3075px!important}.a2a_i_tipd{background-position:0 -3092px!important}.a2a_i_toolbar_google{background-position:0 -3109px!important}.a2a_i_tumblr{background-position:0 -3126px!important}.a2a_i_twiddla{background-position:0 -3143px!important}.a2a_i_twine{background-position:0 -3160px!important}.a2a_i_twitter{background-position:0 -3177px!important}.a2a_i_txtvox{background-position:0 -3194px!important}.a2a_i_typepad{background-position:0 -3211px!important}.a2a_i_uarr{background-position:0 -3228px!important}.a2a_i_uarr_wt{background-position:0 -3245px!important}.a2a_i_unalog{background-position:0 -3262px!important}.a2a_i_viadeo{background-position:0 -3279px!important}.a2a_i_webnews{background-position:0 -3296px!important}.a2a_i_webwag{background-position:0 -3314px!important}.a2a_i_wikio{background-position:0 -3331px!important}.a2a_i_windows_mail{background-position:0 -3348px!important}.a2a_i_wink{background-position:0 -3365px!important}.a2a_i_winksite{background-position:0 -3382px!important}.a2a_i_wists{background-position:0 -3399px!important}.a2a_i_wordpress{background-position:0 -3416px!important}.a2a_i_xanga{background-position:0 -3433px!important}.a2a_i_xerpi{background-position:0 -3450px!important}.a2a_i_xianguo{background-position:0 -3467px!important}.a2a_i_yahoo{background-position:0 -3484px!important}.a2a_i_yample{background-position:0 -3501px!important}.a2a_i_yigg{background-position:0 -3518px!important}.a2a_i_yim{background-position:0 -3535px!important}.a2a_i_yoolink{background-position:0 -3552px!important}.a2a_i_youmob{background-position:0 -3569px!important}.a2a_i_yourminis{background-position:0 -3586px!important}.a2a_i_zaptxt{background-position:0 -3603px!important}.a2a_i_zhuaxia{background-position:0 -3620px!important}.a2a_i_zune{background-position:0 -3637px;  }</style><style type="text/css">div.bsap_2114{width:100%;display:block;}div.bsap_2114 a{width:200px;}div.bsap_2114 a img{padding:0;}div.bsap_2114 a em{font-style:normal;}div.bsap_2114 a{display:block;font-size:11px;color:#888;font-family:verdana,sans-serif;margin:0 4px 10px 0;text-align:center;text-decoration:none;overflow:hidden;}div.bsap_2114 img{border:0;clear:right;}div.bsap_2114 a.adhere{color:#666;font-weight:bold;font-size:12px;border:1px solid #ccc;background:#e7e7e7;text-align:center;}div.bsap_2114 a.adhere:hover{border:1px solid #999;background:#ddd;color:#333;}div.bsap_2114 a.adhere{width:200px;height:125px;line-height:1000%;}html>body div.bsap_2114 a.adhere{width:198px;height:123px;}div.bsap_2114 img.s{height:0;width:0;}</style></head><body><iframe src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/sm1.htm" allowtransparency="true" transparency="true" style="border: 0pt none ; left: 0pt; top: 0pt; position: absolute; z-index: 100000; display: none;" id="a2apage_sm_ifr" width="1" frameborder="0" height="1"></iframe><div style="position: static;"><div id="a2apage_dropdown" class="a2a_menu" onmouseover="a2a.onMouseOver_stay()" onmouseout="a2a.onMouseOut_delay()"><div class="a2a_menu_inside"><table><tbody><tr><td><div id="a2apage_title_container" class="a2a_menu_title_container" style="display: none;"><input id="a2apage_title" class="a2a_menu_title"></div><div class="a2apage_wide a2a_wide"><div class="a2a_tabs"><div id="a2apage_DEFAULT" class="a2a_tab_selected" style="margin-right: 1px;" onclick="return a2a.tabs('DEFAULT')"><span class="a2a_i_share">Share / Save</span></div></div><div class="a2a_tabs"><div title="Share via e-mail" id="a2apage_EMAIL" style="margin-right: 1px;" onclick="return a2a.tabs('EMAIL',true)"><span class="a2a_i_email">E-mail</span></div></div><div class="a2a_tabs"><div onclick="a2a.bmBrowser()" title="Bookmark in your browser" id="a2apage_BROWSER" style="margin-left: 1px;"><span class="a2a_i_bookmark">Bookmark</span></div></div></div><div class="a2a_clear"></div><div id="a2apage_find_container" class="a2a_menu_find_container"><input id="a2apage_find" class="a2a_menu_find" onclick="a2a.focus_find()" onkeyup="a2a.do_find()" autocomplete="off" onfocus="a2a['page'].find_focused=true;a2a.onMouseOver_stay()" onblur="a2a.blur_find()" title="Instantly find any service to add to" type="text"><span id="a2apage_find_icon" class="a2a_i_find" onclick="a2a.focus_find()"></span></div><table id="a2apage_cols_container" class="a2a_cols_container"><tbody><tr><td class="a2a_cols"><div id="a2apage_col1"><a style="" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i a2a_sss" rel="nofollow" id="a2apage_blogger_post"><span class="a2a_i_blogger">Blogger Post</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_facebook"><span class="a2a_i_facebook">Facebook</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_delicious"><span class="a2a_i_delicious">Delicious</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_google_bookmarks"><span class="a2a_i_google">Google Bookmarks</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_myspace"><span class="a2a_i_myspace">MySpace</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_yahoo_buzz"><span class="a2a_i_buzz">Yahoo Buzz</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_stumbleupon"><span class="a2a_i_stumbleupon">StumbleUpon</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_bebo"><span class="a2a_i_bebo">Bebo</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_wordpress"><span class="a2a_i_wordpress">WordPress</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_orkut"><span class="a2a_i_orkut">Orkut</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_netvibes_share"><span class="a2a_i_netvibes">Netvibes Share</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_strands"><span class="a2a_i_strands">Strands</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_dailyme"><span class="a2a_i_dailyme">DailyMe</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_technet"><span class="a2a_i_technet">TechNet</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_arto"><span class="a2a_i_arto">Arto</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_smaknews"><span class="a2a_i_smaknews">SmakNews</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_aim"><span class="a2a_i_aim">AIM</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_identi_ca"><span class="a2a_i_identica">Identi.ca</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_box_net"><span class="a2a_i_box">Box.net</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_netlog"><span class="a2a_i_netlog">Netlog</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_shoutwire"><span class="a2a_i_shoutwire">Shoutwire</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_jumptags"><span class="a2a_i_jumptags">Jumptags</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_hemidemi"><span class="a2a_i_hemidemi">Hemidemi</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_instapaper"><span class="a2a_i_instapaper">Instapaper</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_xerpi"><span class="a2a_i_xerpi">Xerpi</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_wink"><span class="a2a_i_wink">Wink</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_bibsonomy"><span class="a2a_i_bibsonomy">BibSonomy</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_tailrank"><span class="a2a_i_tailrank">Tailrank</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_kledy"><span class="a2a_i_kledy">Kledy</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_meneame"><span class="a2a_i_meneame">Meneame</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_bookmarks_fr"><span class="a2a_i_bookmarks_fr">Bookmarks.fr</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_newsvine"><span class="a2a_i_newsvine">NewsVine</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_friendfeed"><span class="a2a_i_friendfeed">FriendFeed</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_ping"><span class="a2a_i_ping">Ping</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_protopage_bookmarks"><span class="a2a_i_protopage">Protopage Bookmarks</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_faves"><span class="a2a_i_faves">Faves</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_webnews"><span class="a2a_i_webnews">Webnews</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_pusha"><span class="a2a_i_pusha">Pusha</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_slashdot"><span class="a2a_i_slashdot">Slashdot</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_allvoices"><span class="a2a_i_allvoices">Allvoices</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_imera_brazil"><span class="a2a_i_imera">Imera Brazil</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_linkagogo"><span class="a2a_i_linkagogo">LinkaGoGo</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_unalog"><span class="a2a_i_unalog">unalog</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_diglog"><span class="a2a_i_diglog">Diglog</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_propeller"><span class="a2a_i_propeller">Propeller</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_livejournal"><span class="a2a_i_livejournal">LiveJournal</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_hellotxt"><span class="a2a_i_hellotxt">HelloTxt</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_yample"><span class="a2a_i_yample">Yample</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_linkatopia"><span class="a2a_i_linkatopia">Linkatopia</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_linkedin"><span class="a2a_i_linkedin">LinkedIn</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_ask_com_mystuff"><span class="a2a_i_ask">Ask.com MyStuff</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_maple"><span class="a2a_i_maple">Maple</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_connotea"><span class="a2a_i_connotea">Connotea</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_mylinkvault"><span class="a2a_i_mylinkvault">MyLinkVault</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_sphinn"><span class="a2a_i_sphinn">Sphinn</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_care2_news"><span class="a2a_i_care2">Care2 News</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_sphere"><span class="a2a_i_sphere">Sphere</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_gabbr"><span class="a2a_i_gabbr">Gabbr</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_tagza"><span class="a2a_i_tagza">Tagza</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_folkd"><span class="a2a_i_folkd">Folkd</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_newstrust"><span class="a2a_i_newstrust">NewsTrust</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_printfriendly"><span class="a2a_i_printfriendly">PrintFriendly</span></a></div><div id="a2apage_2_col1" style="display: none;"><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_yahoo_mail"><span class="a2a_i_yahoo">Yahoo Mail</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_aol_mail"><span class="a2a_i_aol">AOL Mail</span></a></div></td><td class="a2a_cols"><div id="a2apage_col2"><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i a2a_sss" rel="nofollow" id="a2apage_twitter"><span class="a2a_i_twitter">Twitter</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_digg"><span class="a2a_i_digg">Digg</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_google_buzz"><span class="a2a_i_google_buzz">Google Buzz</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_reddit"><span class="a2a_i_reddit">Reddit</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_windows_live_favorites"><span class="a2a_i_live">Windows Live Favorites</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_yahoo_bookmarks"><span class="a2a_i_yahoo">Yahoo Bookmarks</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_mister_wong"><span class="a2a_i_mister-wong">Mister-Wong</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_google_reader"><span class="a2a_i_reader">Google Reader</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_evernote"><span class="a2a_i_evernote">Evernote</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_stumpedia"><span class="a2a_i_stumpedia">Stumpedia</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_posterous"><span class="a2a_i_posterous">Posterous</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_msdn"><span class="a2a_i_msdn">MSDN</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_expression"><span class="a2a_i_expression">Expression</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_tipd"><span class="a2a_i_tipd">Tipd</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_plurk"><span class="a2a_i_plurk">Plurk</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_yahoo_messenger"><span class="a2a_i_yim">Yahoo Messenger</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_mozillaca"><span class="a2a_i_mozillaca">Mozillaca</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_typepad_post"><span class="a2a_i_typepad">TypePad Post</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_mixx"><span class="a2a_i_mixx">Mixx</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_technorati_favorites"><span class="a2a_i_technorati">Technorati Favorites</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_citeulike"><span class="a2a_i_citeulike">CiteULike</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_windows_live_spaces"><span class="a2a_i_spaces">Windows Live Spaces</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_funp"><span class="a2a_i_funp">FunP</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_phonefavs"><span class="a2a_i_phonefavs">PhoneFavs</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_netvouz"><span class="a2a_i_netvouz">Netvouz</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_diigo"><span class="a2a_i_diigo">Diigo</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_blogmarks"><span class="a2a_i_blogmarks">BlogMarks</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_startaid"><span class="a2a_i_startaid">StartAid</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_khabbr"><span class="a2a_i_khabbr">Khabbr</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_yoolink"><span class="a2a_i_yoolink">Yoolink</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_technotizie"><span class="a2a_i_technotizie">Technotizie</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_multiply"><span class="a2a_i_multiply">Multiply</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_plaxo_pulse"><span class="a2a_i_plaxo">Plaxo Pulse</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_squidoo"><span class="a2a_i_squidoo">Squidoo</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_blinklist"><span class="a2a_i_blinklist">Blinklist</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_yigg"><span class="a2a_i_yigg">YiGG</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_segnalo"><span class="a2a_i_segnalo">Segnalo</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_youmob"><span class="a2a_i_youmob">YouMob</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_fark"><span class="a2a_i_fark">Fark</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_jamespot"><span class="a2a_i_jamespot">Jamespot</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_twiddla"><span class="a2a_i_twiddla">Twiddla</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_mindbodygreen"><span class="a2a_i_mindbodygreen">MindBodyGreen</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_hugg"><span class="a2a_i_hugg">Hugg</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_nowpublic"><span class="a2a_i_nowpublic">NowPublic</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_tumblr"><span class="a2a_i_tumblr">Tumblr</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_current"><span class="a2a_i_current">Current</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_spurl"><span class="a2a_i_spurl">Spurl</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_oneview"><span class="a2a_i_oneview">Oneview</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_simpy"><span class="a2a_i_simpy">Simpy</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_buddymarks"><span class="a2a_i_buddymarks">BuddyMarks</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_viadeo"><span class="a2a_i_viadeo">Viadeo</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_wists"><span class="a2a_i_wists">Wists</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_backflip"><span class="a2a_i_backflip">Backflip</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_sitejot"><span class="a2a_i_sitejot">SiteJot</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_dzone"><span class="a2a_i_dzone">DZone</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_hyves"><span class="a2a_i_hyves">Hyves</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_bitty_browser"><span class="a2a_i_bitty">Bitty Browser</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_symbaloo_feeds"><span class="a2a_i_symbaloo">Symbaloo Feeds</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_foxiewire"><span class="a2a_i_foxiewire">Foxiewire</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_vodpod"><span class="a2a_i_default">VodPod</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_amazon_wish_list"><span class="a2a_i_amazon">Amazon Wish List</span></a><a style="display: none;" target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_read_it_later"><span class="a2a_i_default">Read It Later</span></a></div><div id="a2apage_2_col2" style="display: none;"><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_google_gmail"><span class="a2a_i_gmail">Google Gmail</span></a><a target="_blank" href="http://vector.tutsplus.com/" class="a2a_i" rel="nofollow" id="a2apage_hotmail"><span class="a2a_i_live">Hotmail</span></a></div></td></tr></tbody></table><div id="a2apage_note_BROWSER" class="a2a_note" style="display: none;"></div><div id="a2apage_note_EMAIL" class="a2a_note" style="display: none;"><div class="a2a_hr"></div><div class="a2a_note_note">Send from any other e-mail address or e-mail program:</div><div class="a2a_nowrap"><a href="http://vector.tutsplus.com/" id="a2apage_any_email" class="a2a_i a2a_emailer" target="_blank" servicename="Email (form)" safename="email_form" customserviceuri="http://www.addtoany.com/email?linkurl=A2A_LINKURL_ENC&amp;linkname=A2A_LINKNAME_ENC" onkeydown="a2a.linker(this)" onmousedown="a2a.linker(this)" onmouseup="a2a.a2a_track('testShare1', 'Email');if(a2a.c.track_pub)a2a.a2a_track('z_'+a2a.c.track_pub+'Share', 'Email')" style="margin-right: 9px;"><span class="a2a_i_email">Any e-mail</span></a><a href="http://vector.tutsplus.com/" class="a2a_i a2a_emailer" id="a2apage_email_client" servicename="Email (mailto)" safename="email_mailto" customserviceuri="mailto:?subject=A2A_LINKNAME_ENC&amp;body=A2A_LINKURL_ENC" onkeydown="a2a.linker(this)" onmousedown="a2a.linker(this)" onmouseup="a2a.a2a_track('testShare1', 'Email');if(a2a.c.track_pub)a2a.a2a_track('z_'+a2a.c.track_pub+'Share', 'Email')" style="margin-left: 9px;"><span class="a2a_i_outlook">&nbsp;</span><span class="a2a_i_windows_mail">&nbsp;</span><span class="a2a_i_apple_mail">&nbsp;</span><span class="a2a_i_thunderbird">&nbsp;</span></a></div></div><div class="a2apage_wide a2a_wide"><a href="javascript:void(0)" id="a2apage_show_more_less" class="a2a_menu_show_more_less" onclick="return a2a.show_more_less(0)" onmouseover="img=this.firstChild;if(a2a.c.color_arrow_hover=='fff'){if(img.className.indexOf('_wt')==-1)img.className+='_wt'}else img.className=img.className.replace(/_wt/,'')" onmouseout="img=this.firstChild;if(a2a.c.color_arrow=='fff'){if(img.className.indexOf('_wt')==-1)img.className+='_wt'}else img.className=img.className.replace(/_wt/,'')" title="Show all"><span class="a2a_i_darr"></span></a></div><div class="a2apage_wide a2a_wide"><a href="http://www.addtoany.com/" id="a2apage_powered_by" class="a2a_menu_powered_by" target="_blank" title="Share &amp; Subscribe buttons" onmouseover="if(!window.opera)this.innerHTML=this.orig;this.style.textAlign='center'">Powered by AddToAny</a></div></td></tr></tbody></table></div></div></div>
+
+<!-- Tracking Code -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11792865-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+        'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  })();
+</script>
+<!-- END Tracking Code -->
+
+<!-- BuySellAds.com Ad Code -->
+<script type="text/javascript">
+(function(){
+  var bsa = document.createElement('script');
+     bsa.type = 'text/javascript';
+     bsa.async = true;
+     bsa.src = '//s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+})();
+</script>
+<!-- END BuySellAds.com Ad Code -->
+
+<!-- Header -->
+<div id="header_wrap">
+  <div id="header">
+	
+    <a href="http://vector.tutsplus.com/" class="logo">Vectortuts+</a>
+    
+    <ul class="top_navigation">
+      <li><a href="http://buysellads.com/buy/detail/521">Advertise</a></li>
+      <li><a href="http://vector.tutsplus.com/about/write-a-tutorial/">Write for Us</a></li>
+      <li><a href="http://vector.tutsplus.com/about/">About</a></li>
+      <li><a href="http://vector.tutsplus.com/about/terms/">Usage</a></li>
+    </ul>
+    
+    <div id="navigation">
+    	<ul class="navigation">
+    	  <li><a href="http://vector.tutsplus.com/">Home</a></li>
+    	  <li class="parent"><a href="http://vector.tutsplus.com/category/tutorials/">Tutorials</a><ul class="child-nav">	<li class="cat-item cat-item-18"><a href="http://vector.tutsplus.com/category/tutorials/animation/" title="View all posts filed under Animation">Animation</a>
+</li>
+	<li class="cat-item cat-item-36"><a href="http://vector.tutsplus.com/category/tutorials/art/" title="View all posts filed under Art">Art</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://vector.tutsplus.com/category/tutorials/cartoons/" title="View all posts filed under Cartoons">Cartoons</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="http://vector.tutsplus.com/category/tutorials/character-design/" title="View all posts filed under Character Design">Character Design</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="http://vector.tutsplus.com/category/tutorials/comics/" title="View all posts filed under Comics">Comics</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://vector.tutsplus.com/category/tutorials/designing/" title="View all posts filed under Designing">Designing</a>
+</li>
+	<li class="cat-item cat-item-26"><a href="http://vector.tutsplus.com/category/tutorials/effects/" title="View all posts filed under Effects">Effects</a>
+</li>
+	<li class="cat-item cat-item-27"><a href="http://vector.tutsplus.com/category/tutorials/icon-design/" title="View all posts filed under Icon Design">Icon Design</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://vector.tutsplus.com/category/tutorials/illustration/" title="View all posts filed under Illustration">Illustration</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="http://vector.tutsplus.com/category/tutorials/layout/" title="View all posts filed under Layout">Layout</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="http://vector.tutsplus.com/category/tutorials/scripting/" title="View all posts filed under Scripting">Scripting</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://vector.tutsplus.com/category/tutorials/text-effects/" title="View all posts filed under Text Effects">Text Effects</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://vector.tutsplus.com/category/tutorials/tools-tips/" title="View all posts filed under Tools &amp; Tips">Tools &amp; Tips</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://vector.tutsplus.com/category/tutorials/web-design/" title="View all posts filed under Web Design">Web Design</a>
+</li>
+</ul></li>
+    	  <li class="parent"><a href="http://vector.tutsplus.com/category/articles/">Articles</a><ul class="child-nav">	<li class="cat-item cat-item-57"><a href="http://vector.tutsplus.com/category/articles/case-study/" title="View all posts filed under Case Study">Case Study</a>
+</li>
+	<li class="cat-item cat-item-20"><a href="http://vector.tutsplus.com/category/articles/contests/" title="View all posts filed under Contests">Contests</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://vector.tutsplus.com/category/articles/inspiration/" title="View all posts filed under Inspiration">Inspiration</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://vector.tutsplus.com/category/articles/interviews/" title="View all posts filed under Interviews">Interviews</a>
+</li>
+	<li class="cat-item cat-item-34"><a href="http://vector.tutsplus.com/category/articles/making/" title="View all posts filed under Making">Making</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://vector.tutsplus.com/category/articles/news/" title="View all posts filed under News">News</a>
+</li>
+	<li class="cat-item cat-item-35"><a href="http://vector.tutsplus.com/category/articles/reviews/" title="View all posts filed under Reviews">Reviews</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="http://vector.tutsplus.com/category/articles/techniques/" title="View all posts filed under Techniques">Techniques</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="http://vector.tutsplus.com/category/articles/theory/" title="View all posts filed under Theory">Theory</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://vector.tutsplus.com/category/articles/web-roundups/" title="View all posts filed under Web Roundups">Web Roundups</a>
+</li>
+</ul></li>
+    	  <li class="parent"><a href="http://vector.tutsplus.com/tag/tips/">Tips</a><ul class="child-nav"><li><a href="http://vector.tutsplus.com/category/tutorials/tools-tips/?tag=tips" title="Tools &amp; Tips">Tools &amp; Tips</a></li><li><a href="http://vector.tutsplus.com/category/tutorials/effects/?tag=tips" title="Effects">Effects</a></li><li><a href="http://vector.tutsplus.com/category/tutorials/layout/?tag=tips" title="Layout">Layout</a></li></ul></li>    	  <li class="parent"><a href="http://vector.tutsplus.com/category/freebies/">Freebies</a><ul class="child-nav">	<li class="cat-item cat-item-14"><a href="http://vector.tutsplus.com/category/freebies/brushes/" title="View all posts filed under Brushes">Brushes</a>
+</li>
+	<li class="cat-item cat-item-29"><a href="http://vector.tutsplus.com/category/freebies/learning/" title="View all posts filed under Learning">Learning</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="http://vector.tutsplus.com/category/freebies/patterns/" title="View all posts filed under Patterns">Patterns</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://vector.tutsplus.com/category/freebies/vectors/" title="View all posts filed under Vectors">Vectors</a>
+</li>
+</ul></li>
+    	  <li class="parent"><a href="http://vector.tutsplus.com/tag/basix/">Basix</a><ul class="child-nav"><li><a href="http://vector.tutsplus.com/category/articles/theory/?tag=basix" title="Theory">Theory</a></li><li><a href="http://vector.tutsplus.com/category/tutorials/tools-tips/?tag=basix" title="Tools &amp; Tips">Tools &amp; Tips</a></li></ul></li>    	  <li class="parent"><a href="http://vector.tutsplus.com/tag/videos/">Videos</a><ul class="child-nav"><li><a href="http://vector.tutsplus.com/category/tutorials/tools-tips/?tag=videos" title="Tools &amp; Tips">Tools &amp; Tips</a></li><li><a href="http://vector.tutsplus.com/category/tutorials/effects/?tag=videos" title="Effects">Effects</a></li><li><a href="http://vector.tutsplus.com/category/tutorials/illustration/?tag=videos" title="Illustration">Illustration</a></li><li><a href="http://vector.tutsplus.com/category/tutorials/?tag=videos" title="Tutorials">Tutorials</a></li></ul></li>    	  <li><a href="http://vector.tutsplus.com/tag/premium/">Premium</a></li>
+    	</ul>
+    	<a href="http://vector.tutsplus.com/tag/premium/" class="small_plus">Plus Premium</a>
+    	    </div>
+    
+    <div class="switcher_wrap"><div class="swither_header"><span class="switcher_arrow">Tuts+ Network</span></div><div id="links"><ul id="left_items"><li><a href="http://envato.com/">Envato</a></li>
+<li><a href="http://activeden.net/">ActiveDen</a></li>
+<li><a href="http://audiojungle.net/">AudioJungle</a></li>
+<li><a href="http://themeforest.net/">ThemeForest</a></li>
+<li><a href="http://videohive.net/">VideoHive</a></li>
+<li><a href="http://graphicriver.net/">GraphicRiver</a></li>
+<li><a href="http://3docean.net/">3DOcean</a></li>
+<li><a href="http://codecanyon.net/">CodeCanyon</a></li>
+<li><a href="http://creattica.com/">Creattica</a></li>
+<li><a href="http://appstorm.net/">Appstorm</a></li>
+<li><a href="http://mac.appstorm.net/">Mac.Appstorm</a></li>
+<li><a href="http://web.appstorm.net/">Web.Appstorm</a></li>
+<li><a href="http://iphone.appstorm.net/">iPhone.Appstorm</a></li>
+<li><a href="http://thenetsetter.com/">TheNetsetter</a></li>
+</ul>
+<ul id="right_items"><li><a href="http://tutsplus.com/">Plus</a></li>
+<li><a href="http://psd.tutsplus.com/">Psdtuts+</a></li>
+<li><a href="http://net.tutsplus.com/">Nettuts+</a></li>
+<li><a href="http://vector.tutsplus.com/">Vectortuts+</a></li>
+<li><a href="http://audio.tutsplus.com/">Audiotuts+</a></li>
+<li><a href="http://ae.tutsplus.com/">Aetuts+</a></li>
+<li><a href="http://active.tutsplus.com/">Activetuts+</a></li>
+<li><a href="http://cg.tutsplus.com/">Cgtuts+</a></li>
+<li><a href="http://photo.tutsplus.com/">Phototuts+</a></li>
+<li><a href="http://mobile.tutsplus.com/">Mobiletuts+</a></li>
+<li><a href="http://rockablepress.com/">Rockable Press</a></li>
+<li><a href="http://freelanceswitch.com/">FreelanceSwitch</a></li>
+<li><a href="http://workawesome.com/">WorkAwesome</a></li>
+<li><a href="http://sessions.tutsplus.com/creative/">Creative Sessions</a></li>
+</ul>
+</div></div>    
+    <ul class="rss_subscribe">
+      <li><a href="http://feedproxy.google.com/vectortuts" class="header_subscribe">Subscribe</a>
+        <ul>
+          <li><a href="http://feedproxy.google.com/vectortuts">Full Post RSS</a></li>
+          <li><a href="http://feedproxy.google.com/vectortuts-summary">Summary RSS</a></li>
+          <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=vectortuts&amp;loc=en_U">Subscribe via Email</a></li>
+        </ul>
+      </li>
+    </ul>
+    
+    <ul class="twitter_subscribe">
+      <li><a href="http://twitter.com/vectortuts" class="header_twitter">Twitter Updates</a>
+        <ul>
+          <li><a href="http://twitter.com/vectortuts">Vectortuts+</a></li>
+          <li><a href="http://twitter.com/tutsplus">Plus Network</a></li>
+        </ul>
+      </li>
+    </ul>
+    
+    <div class="search_form">
+      <form method="get" action="http://vector.tutsplus.com">
+        <fieldset>
+          <input id="search_term" onclick="if(this.value == 'Search...') this.value='';" onblur="if(this.value.length == 0) this.value='Search...';" value="Search..." name="s" type="text">
+          <input class="submit_button" value="Search" type="submit">
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+</div>
+<!-- [END] Header -->
+<!-- Content Wrap -->
+<div id="content_wrap">
+  
+  <!-- Content -->
+  <div id="content" class="clearfix">
+    
+    <!-- Page Wrap -->
+    <div class="page_wrap">
+      
+      <!-- Leader Board -->
+<div class="leader_board">
+  <a href="http://buysellads.com/buy/detail/521" class="LB_advert">Advertise Here</a>
+  <div class="lb_inner">
+    <div id="bsap_1245835" class="bsap_1245835 bsap"><a href="http://buysellads.com/buy/detail/521/zone/1245835?utm_source=site_521_zone_1245835&amp;utm_medium=website&amp;utm_campaign=adhere" title="Advertise Here" class="adhere ad1 odd" target="_blank">Advertise Here</a></div>  </div>
+</div>
+<!-- [END] Leader Board -->  	
+      <!-- Page -->
+      <div id="page" class="single_post">
+      
+        <div class="page_inner">
+          
+                    
+            <div class="post post_inner" id="post-3344">
+  
+  <div class="tut_top">
+    
+    <!-- Post Image -->
+    <div class="post_image">
+      <a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/"><img original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/preview.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/box.gif" alt="preview" width="200" height="200">
+</a>    </div>
+    
+    <div class="preview">
+    
+      <!-- Post Taxonomies -->
+      <div class="post_taxonomy">
+        <ul><li><a href="http://vector.tutsplus.com/category/tutorials/">Tutorials</a><span>\</span></li><li><a href="http://vector.tutsplus.com/category/tutorials/tools-tips/">Tools &amp; Tips</a></li></ul>      </div>
+      
+      <!-- Post Title -->
+      <h1 class="post_title">
+        Create Audio Waveforms with the Scribble Effect      </h1>
+      
+      <!-- Post Meta -->
+      <div class="post_meta">
+        <a href="http://vector.tutsplus.com/author/cheryl-graham/" title="Posts by Cheryl Graham">Cheryl Graham</a> on Jan 25th 2010 with <a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/#comments" title="Comment on Create Audio Waveforms with the Scribble Effect">14 comments</a>      </div>
+    
+    </div>
+  
+  </div>
+  
+</div>
+
+<div class="tut_bottom">
+
+  
+  
+    
+    <div class="tutorial_details">
+    <h5>Download Source Files</h5>
+    <ul>
+            <li>Source files for this tutorial are available to Premium members. <br>Get a <a href="http://tutsplus.com/amember/signup.php">Premium Membership</a></li>
+          </ul>
+  </div>
+    
+  <!-- Social Media -->
+  <div class="article_social_media">
+    
+    <div class="tweetmeme_btn">
+      <div class="tweetmeme_button" style=""><iframe src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/button_002.htm" width="90" frameborder="0" height="20" scrolling="no"></iframe></div>    </div>
+    
+    <div class="facebook_btn">
+      <iframe src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/like_002.htm" style="border: medium none ; overflow: hidden; width: 100px; height: 21px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+    </div>
+    
+    <a class="a2a_dd addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fvector.tutsplus.com%2Ftutorials%2Ftools-tips%2Fcreate-audio-waveforms-with-the-scribble-effect%2F&amp;title=Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect&amp;description=Some%20people%20might%20think%20of%20Illustrator%27s%20Scribble%20effect%20as%20child%27s%20play.%20In%20fact%2C%20one%20of%20its%20presets%20is%20called%20Childlike.%20But%20by%20tweaking%20its%20custom" style="padding: 0pt 0pt 0pt 30px; background: transparent url(http://vector.tutsplus.com/wp-content/plugins/add-to-any/share_16_16.png) no-repeat scroll 9px 0px ! important; -moz-background-clip: border ! important; -moz-background-origin: padding ! important; -moz-background-inline-policy: continuous ! important; display: inline-block; height: 16px; line-height: 16px; vertical-align: middle;">Share</a>
+<script type="text/javascript">
+var a2a_config = a2a_config || {};
+a2a_config.linkname="Create Audio Waveforms with the Scribble Effect";
+a2a_config.linkurl="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/";
+</script><script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/page.js"></script>
+
+      
+  </div>
+  <!-- [END] Social Media -->
+  
+</div>
+
+
+
+<div class="post post_inner_article">
+
+    
+  <p>Some people might
+think of Illustrator’s Scribble effect as child’s play. In fact, one of
+its presets is called “Childlike.” But by tweaking its custom settings,
+the Scribble effect can be used to produce an infinite array of visual
+effects &amp;mdash some with a single line. This is an easy tutorial
+that will get you started with the Scribble effect. What you do with it
+after that is limited only by your imagination. Let’s get started!</p>
+<p><span id="more-3344"></span></p>
+<h3>Final Image Preview</h3>
+<p>Below is the final image we will be working towards. Want access to
+the full Vector Source files and downloadable copies of every tutorial,
+including this one? Join <a href="http://tutsplus.com/premium-program/vector-premium/">Vector Plus</a> for just 9$ a month.</p>
+<h4>Tutorial Details</h4>
+<ul>
+<li><strong>Program</strong>: Adobe Illustrator CS4</li>
+<li><strong>Difficulty</strong>: Beginner</li>
+<li><strong>Estimated Completion Time</strong>: 1 hour</li>
+</ul>
+<h3>Step 1</h3>
+<p>Create a new document that is 800 px by 400 px. It can be RGB or
+CMYK &amp;mdash your preference. For this tutorial, I’ll be using RGB
+values to specify colors. Now draw a rectangle the size of the artboard
+and fill it with black (R=0, G=0, B=0). Lock the layer and create a new
+one above it.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/01_new-layer.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/01_new-layer.jpg" border="0"></div>
+<h3>Step 2</h3>
+<p>Choose the Line Segment Tool (\), click on the background and
+specify a 0&amp;deg line, about 100px long. I’m using a bright green
+for the stroke (R=0, G=255, B=0).</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/02_line-segment.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/02_line-segment.jpg" border="0"></div>
+<h3>Step 3</h3>
+<p>Select the line, and go to Effect &gt; Stylize &gt; Scribble. Enter the following numbers in the dialog box.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/03_scribble.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/03_scribble.jpg" border="0"></div>
+<h3>Step 4</h3>
+<p>Before proceeding, make a copy of the scribbled line, and set it aside. Always keep a copy of the line containing the <em>live</em> effect. Select the original scribbled line, and go to Object &gt; Expand Appearance.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/04_expand.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/04_expand.jpg" border="0"></div>
+<h3>Step 5</h3>
+<p>With the expanded scribble still selected, choose the Free Transform
+(E) tool. Click the upper right handle of the bounding box, then hold
+down the Command + Shift + Alt keys. Then drag the corner downward, so
+that the object transforms in perspective, narrowing on the right side.
+It may take a few tries to get the hang of it &amp;mdash remember to
+click the corner <em>before</em> holding down the modifier keys.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/05_free-transform.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/05_free-transform.jpg" border="0"></div>
+<h3>Step 6</h3>
+<p>Drag the transformed scribble to scrunch it up a bit. This is the first <em>beat</em> of the waveform.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/06_scrunch.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/06_scrunch.jpg" border="0"></div>
+<h3>Step 7</h3>
+<p>Draw a new line as before, then go to Effect &gt; Distort &amp;
+Transform &gt; Zig Zag. Enter the following values in the dialog.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/07_zigzag.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/07_zigzag.jpg" border="0"></div>
+<h3>Step 8</h3>
+<p>Go back to the Effects menu, and this time select Warp &gt; Fish. A 50% Horizontal bend will give the line a diminishing effect.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/08_warp.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/08_warp.jpg" border="0"></div>
+<h3>Step 9</h3>
+<p>As before, make a copy of the zig-zagged and warped line. Expand the
+effects on the original (Object &gt; Expand Appearance). Now take the
+Convert Anchor Point Tool (Shift + C) and click once on the left-most
+point of the line. Use the Direct Selection tool (A) to drag that point
+upward.</p><div class="tutorial_image"><script type="text/javascript"><!--
+google_ad_client = "pub-9093712935949486";
+/* 300x250 vectortuts middle tutsads */
+google_ad_slot = "3046242017";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/show_ads.js">
+</script><script src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/expansion_embed.js"></script><script src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 250px; position: relative; visibility: visible; width: 300px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 250px; position: relative; visibility: visible; width: 300px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/ads.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="300" frameborder="0" height="250" scrolling="no"></iframe></ins></ins></div>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/09_convert-anchor.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/09_convert-anchor.jpg" border="0"></div>
+<h3>Step 10</h3>
+<p>Now slide this line over to meet the first scribbled line.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/10_connect.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/10_connect.jpg" border="0"></div>
+<h3>Step 11</h3>
+<p>Go back to the scribbled line copy you made in Step 4. Make another
+copy of it and set it aside. Click the Scribble effect in the
+Appearance panel to edit the effect. Be sure to check the Preview box,
+then just experiment with changing the values. You still want it to
+look like a spike in the waveform, but not identical to the first one.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/11_edit-scribble.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/11_edit-scribble.jpg" border="0"></div>
+<p>Continue as before, expanding then free-transforming the scribble.
+Do the same with the zig-zag line copy, and line them up with the
+previous objects. Select all, then make sure the stroke weight is the
+same on each line. You should now have the basic waveform constructed.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/11_wave.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/11_wave.jpg" border="0"></div>
+<h3>Step 12</h3>
+<p>Now let’s add some finishing touches. Click on the “Waveform” layer
+in the Layers panel, and drag it to the Duplicate icon to make a copy. </p>
+<div class="tutorial_image"><img original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/12_drag-copy-layer.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/12_drag-copy-layer.jpg" border="0"></div>
+<p>Now select everything on the original “Waveform” layer and go to
+Effect &gt; Blur &gt; Gaussian Blur. Enter 20 to 30 pixels. You may
+wish to rename this layer “Blur.”</p>
+<div class="tutorial_image"><img original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/12_G-blur.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/12_G-blur.jpg" border="0"></div>
+<p>Make one more layer, this time above the “Background” layer. Choose
+the Rectangular Grid Tool, and click on the top left corner of the
+background. Make the size the same as the artboard/background, then
+enter values for the horizontal and vertical dividers. Change the
+stroke weight to .25 points. And your done!</p>
+<p>After completing this tutorial check out another <a href="http://vector.tutsplus.com/tutorials/tools-tips/how-to-use-scribble-effects-in-illustrator/">tutorial on Vectortuts+ that covers using the Scribble Effect</a> as well.</p>
+<div class="tutorial_image"><img original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/12_grid.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/12_grid.jpg" border="0"></div>
+<h3>Variations</h3>
+<p>This technique has many applications. Experiment with the Scribble
+settings to create an ECG (electrocardiogram) effect, a multi-channel
+audio waveform, or just an electric abstract background.</p>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/variation1.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/variation1.jpg" border="0"></div>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/variation2.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/variation2.jpg" border="0"></div>
+<div class="tutorial_image"><img style="display: inline;" original="http://vectortuts.s3.amazonaws.com/tuts/259_Audio_Waveform/variation3.jpg" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/variation3.jpg" border="0"></div>
+<p>Subscribe to the <a href="http://feeds.feedburner.com/VECTORTUTS">Vectortuts+ RSS Feed</a> to stay up to date with the latest vector tutorials and articles.</p>
+<p style="text-align: center;"></p><div class="tutorial_image"><script type="text/javascript"><!--
+google_ad_client = "pub-9093712935949486";
+/* 300x250 Vectortuts Week 2 Btm */
+google_ad_slot = "3295671522";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/show_ads.js">
+</script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 250px; position: relative; visibility: visible; width: 300px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 250px; position: relative; visibility: visible; width: 300px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/ads_002.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="300" frameborder="0" height="250" scrolling="no"></iframe></ins></ins></div>  
+    
+</div>            
+            <div class="post_footer" style="padding-bottom: 170px;">
+            
+              <div class="enjoyed_post">
+                <span class="thumb_icon">&nbsp;</span>
+                <h5>Enjoyed this Post?</h5>
+                <p>Subscribe to our <a href="http://feedproxy.google.com/vectortuts">RSS Feed</a>, <a href="http://twitter.com/vectortuts">Follow us on Twitter</a> or simply recommend us to friends and colleagues!</p>
+                <!-- Social Media -->
+                <div class="article_social_media">
+                  <div class="tweetmeme_btn">
+                    <div class="tweetmeme_button" style=""><iframe src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/button_002.htm" width="90" frameborder="0" height="20" scrolling="no"></iframe></div>                  </div>
+                  <div class="facebook_btn">
+                    <iframe src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/like_002.htm" style="border: medium none ; overflow: hidden; width: 100px; height: 21px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+                  </div>
+                  <a class="a2a_dd addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fvector.tutsplus.com%2Ftutorials%2Ftools-tips%2Fcreate-audio-waveforms-with-the-scribble-effect%2F&amp;title=Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect&amp;description=Some%20people%20might%20think%20of%20Illustrator%27s%20Scribble%20effect%20as%20child%27s%20play.%20In%20fact%2C%20one%20of%20its%20presets%20is%20called%20Childlike.%20But%20by%20tweaking%20its%20custom" style="padding: 0pt 0pt 0pt 30px; background: transparent url(http://vector.tutsplus.com/wp-content/plugins/add-to-any/share_16_16.png) no-repeat scroll 9px 0px ! important; -moz-background-clip: border ! important; -moz-background-origin: padding ! important; -moz-background-inline-policy: continuous ! important; display: inline-block; height: 16px; line-height: 16px; vertical-align: middle;">Share</a>
+<script type="text/javascript">
+a2a_config.linkname="Create Audio Waveforms with the Scribble Effect";
+a2a_config.linkurl="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/";
+a2a.init("page");</script>
+
+                </div>
+                <!-- [END] Social Media -->
+              </div>
+              
+              <div class="the_author">
+                <img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/d4c29b5ae99e6e7de77af7452e0d8fd0.jpg" class="avatar avatar-40 photo" width="40" height="40">                <h5>By <a href="http://vector.tutsplus.com/author/cheryl-graham/" title="Posts by Cheryl Graham">Cheryl Graham</a></h5>
+                <p class="the_author_p">Rollover to read this author's bio or click through to see a full list of posts by this author.</p>
+                <div class="autor_div">
+Cheryl Graham trained as a traditional artist in drawing and painting.
+These days she spends more time in front of the computer than the
+easel. Her Illustrator work has been featured in the "The Adobe
+Illustrator WOW! Book" and "Real World Illustrator CS4." She
+occasionally updates her Illustrator blog at <a href="http://freetransform.net/">freetransform.net</a>.                  <span class="arrow">&nbsp;</span>
+                </div>
+              </div>
+              
+              <br class="clear">
+              
+                            <div class="plus_membership">
+                <div class="plus_membership_text">
+                  <a href="" class="plus_icon">Plus Premium</a>
+                  
+                                    
+                  <div class="plus_content">
+                    <h3>Premium Members</h3>
+                    <p>Source Files, Bonus Tutorials &amp; More for all relevant Tuts+ sites in one subscription. <a href="http://tutsplus.com/amember/signup.php">Join Now</a></p>
+                  </div>
+                  <div class="plus_form">
+                    <form name="login" method="post" action="http://tutsplus.com/amember/member.php?amember_redirect_url=http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/" id="signIn">
+          	          <fieldset>
+          	          <input name="amember_login" id="username" class="input" type="text">
+          	          <input name="amember_pass" id="password" class="input" type="password">
+          	          <input id="submit_plus" class="submit_plus" value="Sign In" type="submit">
+          	          </fieldset>
+          	        </form>
+                  </div>
+                  
+                                    
+                </div>
+                <div class="left_corner">&nbsp;</div>
+                <div class="right_corner">&nbsp;</div>
+              </div>
+                            
+            </div>
+            
+            <div class="post extra_posts single">
+              <h3>Related Posts</h3>
+              <ul class="related_list"><li><a href="http://vector.tutsplus.com/tutorials/illustration/tips-for-working-with-the-gradient-mesh-tool-in-illustrator/" rel="nofollow"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/preview_002.jpg" alt="Tips for Working with the Gradient Mesh Tool In Illustrator" width="100" height="100"></a> <div style="left: 15px;"><a href="http://vector.tutsplus.com/tutorials/illustration/tips-for-working-with-the-gradient-mesh-tool-in-illustrator/" rel="nofollow"><span>Tips for Working with the Gradient Mesh Tool In Illustrator</span> 65 Comments <span class="arrow"></span></a></div></li><li><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-a-gold-chain-pattern-brush-with-illustrator/" rel="nofollow"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/preview_004.jpg" alt="Create a Gold Chain Pattern Brush with Illustrator" width="100" height="100"></a> <div style="left: 129px;"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-a-gold-chain-pattern-brush-with-illustrator/" rel="nofollow"><span>Create a Gold Chain Pattern Brush with Illustrator</span> 26 Comments <span class="arrow"></span></a></div></li><li><a href="http://vector.tutsplus.com/tutorials/tools-tips/the-basics-of-clipping-paths-and-opacity-masks/" rel="nofollow"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/preview.jpg" alt="The Basics of Clipping Paths and Opacity Masks" width="100" height="100"></a> <div style="left: 243px;"><a href="http://vector.tutsplus.com/tutorials/tools-tips/the-basics-of-clipping-paths-and-opacity-masks/" rel="nofollow"><span>The Basics of Clipping Paths and Opacity Masks</span> 24 Comments <span class="arrow"></span></a></div></li><li><a href="http://vector.tutsplus.com/tutorials/tools-tips/quick-tip-how-to-make-a-glossy-web-style-rounded-button/" rel="nofollow"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/preview_003.jpg" alt="Quick Tip: How to Make a Glossy Web Style Rounded Button" width="100" height="100"></a> <div style="left: 357px;"><a href="http://vector.tutsplus.com/tutorials/tools-tips/quick-tip-how-to-make-a-glossy-web-style-rounded-button/" rel="nofollow"><span>Quick Tip: How to Make a Glossy Web Style Rounded Button</span> 27 Comments <span class="arrow"></span></a></div></li><li><a href="http://vector.tutsplus.com/tutorials/tools-tips/basix-how-to-tame-the-gradient-mesh/" rel="nofollow"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/00.jpg" alt="Quick Tip: How to Tame the Gradient Mesh" width="100" height="100"></a> <div style="left: 471px;"><a href="http://vector.tutsplus.com/tutorials/tools-tips/basix-how-to-tame-the-gradient-mesh/" rel="nofollow"><span>Quick Tip: How to Tame the Gradient Mesh</span> 9 Comments <span class="arrow"></span></a></div></li><li><a href="http://vector.tutsplus.com/tutorials/tools-tips/quick-tip-make-eye-catching-designs-with-inkscape/" rel="nofollow"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/preview_image.jpg" alt="Quick Tip: Make Eye Catching Designs with Inkscape" width="100" height="100"></a> <div style="left: 585px;"><a href="http://vector.tutsplus.com/tutorials/tools-tips/quick-tip-make-eye-catching-designs-with-inkscape/" rel="nofollow"><span>Quick Tip: Make Eye Catching Designs with Inkscape</span> 11 Comments <span class="arrow"></span></a></div></li></ul>            </div>
+            
+            <div class="comments">  
+              
+<!-- You can start editing here. -->
+<a href="#respond" name="comments" class="add_comment_link">Add Comment</a>
+<h1 class="comments-header">Discussion <span>14 Comments</span></h1>
+
+    
+  <ol class="commentlist">
+  			<li class="comment even thread-even depth-1" id="comment-84445">
+				<div id="div-comment-84445" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/525b1ca430614664f049df67a28945c1.jpg" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn"><a target="blank" href="http://sexidesign.com/" rel="external nofollow" class="url">Melody</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-84445">
+			January 25, 2010 at 9:38 am</a>		</div>
+
+		<p>I kinda did something like this once..one of those..pulse..heart..thingies lol..<br>
+Reminds me of those audio things on windows media player…</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=84445#respond" onclick='return addComment.moveForm("div-comment-84445", "84445", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-84449">
+				<div id="div-comment-84449" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/589a977133db733c011cca9b0b9d468a.png" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn"><a target="blank" href="http://resourcehive.com/" rel="external nofollow" class="url">JC</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-84449">
+			January 25, 2010 at 9:52 am</a>		</div>
+
+		<p>That’s a great short tip….tons easier than hand drawing something like that. Thanks for the tip!</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=84449#respond" onclick='return addComment.moveForm("div-comment-84449", "84449", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-84466">
+				<div id="div-comment-84466" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/ccf3b8c638f15d005e5d070aeb1a3923.png" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn"><a target="blank" href="http://www.freshclickmedia.com/" rel="external nofollow" class="url">Shane</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-84466">
+			January 25, 2010 at 10:21 am</a>		</div>
+
+		<p>I always like reading your tutorials Cheryl <img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+<p>Thanks</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=84466#respond" onclick='return addComment.moveForm("div-comment-84466", "84466", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-84532">
+				<div id="div-comment-84532" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/f05dc2d49161cbe8fe2dacd6284ee6da.jpg" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn">I hate Melody</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-84532">
+			January 25, 2010 at 12:29 pm</a>		</div>
+
+		<p>I seriously hate you, Melody</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=84532#respond" onclick='return addComment.moveForm("div-comment-84532", "84532", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-84536">
+				<div id="div-comment-84536" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/8a396c0f25035972f27e353a3e6ff1c9.png" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn"><a target="blank" href="http://www.cashbackprinting.com/" rel="external nofollow" class="url">Tom</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-84536">
+			January 25, 2010 at 12:36 pm</a>		</div>
+
+		<p>Music, heartbeats and lights are all waves!<br>
+Looking nice, good work.</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=84536#respond" onclick='return addComment.moveForm("div-comment-84536", "84536", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-84569">
+				<div id="div-comment-84569" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/27e348d25bf03d835cacce5bafb3861a.jpg" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn">Hoku</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-84569">
+			January 25, 2010 at 3:03 pm</a>		</div>
+
+		<p>Thanks Cheryl for another fun and useful tutorial.</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=84569#respond" onclick='return addComment.moveForm("div-comment-84569", "84569", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-84606">
+				<div id="div-comment-84606" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/85205577c33aca3455b1b09384739caf.jpg" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn">phil</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-84606">
+			January 25, 2010 at 4:51 pm</a>		</div>
+
+		<p>nice tip <img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/icon_wink.gif" alt=";)" class="wp-smiley"> </p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=84606#respond" onclick='return addComment.moveForm("div-comment-84606", "84606", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-84734">
+				<div id="div-comment-84734" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/b0703da356d82bae2b7ee17ae3bbf955.jpg" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn">mbselmy</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-84734">
+			January 26, 2010 at 12:02 am</a>		</div>
+
+		<p>Really nice tips, thanks!</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=84734#respond" onclick='return addComment.moveForm("div-comment-84734", "84734", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-88263">
+				<div id="div-comment-88263" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/9f4bcb83474d2c1d0ba5b7ae1a410ebb.jpg" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn">Paul</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-88263">
+			February 2, 2010 at 7:43 am</a>		</div>
+
+		<p>Simply great &amp; clear</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=88263#respond" onclick='return addComment.moveForm("div-comment-88263", "88263", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-89441">
+				<div id="div-comment-89441" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/9258a52e7344ffc5aac6da3b0072e33d.jpg" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn">Aswin Thomas</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-89441">
+			February 4, 2010 at 5:01 am</a>		</div>
+
+		<p>GOOD ONE …CHERY</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=89441#respond" onclick='return addComment.moveForm("div-comment-89441", "89441", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-95475">
+				<div id="div-comment-95475" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/4e55a48502c01fee9cc60b94d62d36b1.png" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn"><a target="blank" href="http://jamesburton.me/" rel="external nofollow" class="url">James Burton</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-95475">
+			February 19, 2010 at 10:50 am</a>		</div>
+
+		<p>Great tutorial, thanks!</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=95475#respond" onclick='return addComment.moveForm("div-comment-95475", "95475", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-96580">
+				<div id="div-comment-96580" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/d1e73bfc9c3884709c8432bd8ef52db9.jpg" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn">Russ</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-96580">
+			February 24, 2010 at 12:52 am</a>		</div>
+
+		<p>Thanks for this man……..   Good Job</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=96580#respond" onclick='return addComment.moveForm("div-comment-96580", "96580", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-96762">
+				<div id="div-comment-96762" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/30613658a09eb3dde88984b65f5b0d70.jpg" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn"><a target="blank" href="http://www.go-shape.com/" rel="external nofollow" class="url">Daniel Bidmon</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-96762">
+			February 24, 2010 at 8:41 am</a>		</div>
+
+		<p>This is very useful to create nice effects at a DJ website!</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=96762#respond" onclick='return addComment.moveForm("div-comment-96762", "96762", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-103778">
+				<div id="div-comment-103778" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/a85d06df982e41b6628e08878df46443.jpg" class="avatar avatar-80 photo" width="80" height="80">		<cite class="fn">Bill Gerington</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/comment-page-1/#comment-103778">
+			March 16, 2010 at 5:51 am</a>		</div>
+
+		<p>I have no life and go on illustrator all the time</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/?replytocom=103778#respond" onclick='return addComment.moveForm("div-comment-103778", "103778", "respond", "3344")'>Reply</a>		</div>
+				</div>
+		</li>
+  </ol>
+  
+  	
+
+
+<div id="respond">
+  
+  <a name="respond"></a>
+	<h1>Add a Comment</h1>
+
+		
+		<form action="http://vector.tutsplus.com/wp-comments-post.php" method="post" id="commentform">
+
+		
+			<p class="input_block">
+		    <label for="author">Name</label>
+				<input name="author" class="txt" id="author" size="22" tabindex="1" type="text">
+			</p>
+
+			<p class="input_block">
+		    <label for="email">Email Address</label>
+				<input name="email" class="txt" id="email" size="22" tabindex="2" type="text">
+			</p>
+
+			<p class="input_block">
+		    <label for="url">URL</label>
+				<input name="url" class="txt" id="url" size="22" tabindex="3" type="text">
+			</p>
+
+		
+		<p class="textarea_block">
+		  <label for="comment">Your Comments</label>
+		  <textarea name="comment" id="comment" rows="15" cols="50" tabindex="4"></textarea>
+		</p>
+		
+		<div class="cancel-comment-reply">
+		  <a rel="nofollow" id="cancel-comment-reply-link" href="http://vector.tutsplus.com/tutorials/tools-tips/create-audio-waveforms-with-the-scribble-effect/#respond" style="display: none;">Click here to cancel reply.</a>    </div>
+
+		<input name="submit" id="add_comment" tabindex="5" value="Add Comment" type="submit">
+		<input name="comment_post_ID" value="3344" type="hidden">
+		
+		<input name="comment_post_ID" value="3344" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+		
+		</form><!-- /#commentform -->
+
+	
+</div><!-- /#respond -->
+
+            </div>
+          
+            	
+            
+              		  
+        </div>
+        
+      </div>
+      <!-- [END] Page -->
+      
+    </div>
+    <!-- [END] Page Wrap -->
+		
+    <!-- sidebar -->
+    <div id="sidebar">
+
+      <!-- Sidebar Ad Zone -->
+<div id="ads">
+  <div id="bsap_2114" class="bsap_2114 bsap"><a href="http://stats.buysellads.com/click.go?z=2114&amp;b=392231&amp;g=&amp;s=&amp;sw=1024&amp;sh=600&amp;br=firefox,3.5,win&amp;r=0.688038058496769&amp;link=http://www.shutterstock.com/?sid=bsa1215&amp;utm_source=Vectortuts.com&amp;utm_medium=image_ad&amp;utm_content=200x125_snake_stat_10.jpg&amp;utm_campaign=BuySellAds%2B-%20Graphic%20Design%20%232" onmouseover="window.status = 'http://www.shutterstock.com/?sid=bsa1215&amp;utm_source=Vectortuts.com&amp;utm_medium=image_ad&amp;utm_content=200x125_snake_stat_10.jpg&amp;utm_campaign=BuySellAds%2B-%20Graphic%20Design%20%232'; return true;" onmouseout="window.status=''; return true;" class="ad1 odd" title="download stock images" id="bsa_392231" target="_blank"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/24180-1272296841.jpg" alt="download stock images" width="200" height="125"></a><a href="http://stats.buysellads.com/click.go?z=2114&amp;b=209723&amp;g=&amp;s=&amp;sw=1024&amp;sh=600&amp;br=firefox,3.5,win&amp;r=0.10590525380447358&amp;link=http://www.vectorstock.com/free-vectors" onmouseover="window.status = 'http://www.vectorstock.com/free-vectors'; return true;" onmouseout="window.status=''; return true;" class="ad2 even" title="Download Free Vector Graphics" id="bsa_209723" target="_blank"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/17913-1267844898.png" alt="Download Free Vector Graphics" width="200" height="125"></a><a href="http://stats.buysellads.com/click.go?z=2114&amp;b=7452&amp;g=&amp;s=&amp;sw=1024&amp;sh=600&amp;br=firefox,3.5,win&amp;r=0.9014312430607502&amp;link=http://www.mailchimp.com/v5-2/?pid=blogs&amp;source=website" onmouseover="window.status = 'http://www.mailchimp.com/v5-2/?pid=blogs&amp;source=website'; return true;" onmouseout="window.status=''; return true;" class="ad3 odd" title="MailChimp Email Marketing" id="bsa_7452" target="_blank"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/31303-1279041711.jpg" alt="MailChimp Email Marketing" width="200" height="125"></a><a href="http://stats.buysellads.com/click.go?z=2114&amp;b=2964&amp;g=&amp;s=&amp;sw=1024&amp;sh=600&amp;br=firefox,3.5,win&amp;r=0.7459074749440622&amp;link=http://www.myvectorstore.com" onmouseover="window.status = 'http://www.myvectorstore.com'; return true;" onmouseout="window.status=''; return true;" class="ad4 even" title="Stock Vector Illustrations" id="bsa_2964" target="_blank"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/17919-1267845746.png" alt="Stock Vector Illustrations" width="200" height="125"></a><a href="http://stats.buysellads.com/click.go?z=2114&amp;b=3916&amp;g=&amp;s=&amp;sw=1024&amp;sh=600&amp;br=firefox,3.5,win&amp;r=0.5006457519849348&amp;link=http://www.wix.com/start/matrix?utm_campaign=ma_vectortuts.com&amp;experiment_id=vectortuts.com" onmouseover="window.status = 'http://www.wix.com/start/matrix?utm_campaign=ma_vectortuts.com&amp;experiment_id=vectortuts.com'; return true;" onmouseout="window.status=''; return true;" class="ad5 odd" title="Flash Website" id="bsa_3916" target="_blank"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/16883-1267041326.jpg" alt="Flash Website" width="200" height="125"></a><a href="http://buysellads.com/buy/detail/521/zone/2114?utm_source=site_521_zone_2114&amp;utm_medium=website&amp;utm_campaign=adhere" title="Advertise Here" class="adhere ad6 even" target="_blank">Advertise Here</a></div>  <a href="http://buysellads.com/buy/detail/521" class="side_advert_here">Advertise Here</a>
+  
+</div>
+<!-- [END] Sidebar Ad Zone -->
+
+<!-- Plus Members -->
+<div class="plus_member">
+  <div class="plus_icon">
+    Plus Icon
+  </div>
+  <div class="plus_text">
+  		<h3 class="side-link"><a href="http://tutsplus.com/premium-program/vector-premium/">Premium Membership</a></h3>
+    <p>Source Files, Bonus Tutorials &amp; More for all relevant Tuts+ sites in one subscription</p>
+    <ul>
+      <li><a href="http://tutsplus.com/premium-program/vector-premium/">Learn More</a></li>
+      <li><a href="http://tutsplus.com/amember/login.php">Login</a></li>
+    </ul>
+    </div>
+</div>
+<!-- [END] Plus Members -->
+
+<!-- Sessions -->
+<a href="http://sessions.tutsplus.com/creative" class="sessions_image"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/sidebar_sm.jpg" alt="Creative Sessions"></a>
+<!-- [END] Sessions -->
+
+<!-- Creattica Images -->
+<div class="creattica">
+  <a target="blank" href="http://feedproxy.google.com/%7Er/creattica-logos/%7E3/7b6H_3iZ05Q/39581" rel="external nofollow"><img src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/fantasy_small.jpg" alt="" class="creattica_item"></a><p>Fantasy - <a target="blank" href="http://creattica.com/logos/latest-designs" rel="external nofollow">More</a></p><span class="creattica_img"></span></div>
+<!-- [END] Creattica Images -->
+
+<!-- Social Networking -->
+<div id="social_networking">
+
+  <ul class="tabs">
+		<li><a href="#twitter_tab" class="tab_1">Twitter</a></li>		<li><a href="#facebook_tab" class="tab_2">Facebook</a></li>
+			</ul>
+  
+  <!-- Twitter -->
+    <div id="twitter_tab" class="tab_div">
+    <h3>Follow <a href="http://twitter.com/vectortuts">Vectortuts+</a> and <a href="http://twitter.com/tutsplus">Tuts+</a> on Twitter</h3>
+    <ul><li>Quick Tip: Paragraph Styles <a href="http://enva.to/cL9l6w">http://enva.to/cL9l6w</a></li><li>Quick Tip: How Create an Abstract Desktop Wallpaper <a href="http://enva.to/9FzgQG">http://enva.to/9FzgQG</a></li><li>Core Art Skills: Part 4, Working in Traditional 3D <a href="http://enva.to/a0Ajgl">http://enva.to/a0Ajgl</a></li><li>Introducing The Netsetter 2.0 <a href="http://enva.to/cvm65e">http://enva.to/cvm65e</a></li></ul>  </div>
+    <!-- [END] Twitter -->
+
+  <!-- Facebook -->  
+  <div id="facebook_tab" class="tab_div">
+    <h3>Join <a href="http://facebook.com/vectortuts">Vectortuts+</a> on Facebook!</h3>    
+    <div class="facebook_wrap">
+      <div class="facebook_header">
+        <a target="blank" href="http://www.facebook.com/home.php" rel="external nofollow" class="fb_home">Facebook</a>
+      </div>
+      <div class="facebook_widget">
+        
+        <div class="facebook_site">
+          <a target="blank" href="http://www.facebook.com/activetuts" class="facebook_avatar activetuts" rel="external nofollow">Activetuts+</a>
+          <div class="facebook_text">
+            <a target="blank" href="http://www.facebook.com/activetuts" class="fan_text" rel="external nofollow"><span>Activetuts+</span> on Facebook</a>
+            <a target="blank" href="http://www.facebook.com/activetuts" class="fan_button" rel="external nofollow">Become a Fan</a>
+          </div>
+        </div>
+        
+        <div class="facebook_site">
+          <a target="blank" href="http://www.facebook.com/aetuts" class="facebook_avatar aetuts" rel="external nofollow">Aetuts+</a>
+          <div class="facebook_text">
+            <a target="blank" href="http://www.facebook.com/aetuts" class="fan_text" rel="external nofollow"><span>Aetuts+</span> on Facebook</a>
+            <a target="blank" href="http://www.facebook.com/aetuts" class="fan_button" rel="external nofollow">Become a Fan</a>
+          </div>
+        </div>
+        
+        <div class="facebook_site">
+          <a target="blank" href="http://www.facebook.com/audiotuts" class="facebook_avatar audiotuts" rel="external nofollow">Audiotuts+</a>
+          <div class="facebook_text">
+            <a target="blank" href="http://www.facebook.com/audiotuts" class="fan_text" rel="external nofollow"><span>Audiotuts+</span> on Facebook</a>
+            <a target="blank" href="http://www.facebook.com/audiotuts" class="fan_button" rel="external nofollow">Become a Fan</a>
+          </div>
+        </div>
+        
+        <div class="facebook_site">
+          <a target="blank" href="http://www.facebook.com/cgtuts" class="facebook_avatar cgtuts" rel="external nofollow">Cgtuts+</a>
+          <div class="facebook_text">
+            <a target="blank" href="http://www.facebook.com/cgtuts" class="fan_text" rel="external nofollow"><span>Cgtuts+</span> on Facebook</a>
+            <a target="blank" href="http://www.facebook.com/cgtuts" class="fan_button" rel="external nofollow">Become a Fan</a>
+          </div>
+        </div>
+        
+        <div class="facebook_site">
+          <a target="blank" href="http://www.facebook.com/nettutsplus" class="facebook_avatar nettuts" rel="external nofollow">Nettuts+</a>
+          <div class="facebook_text">
+            <a target="blank" href="http://www.facebook.com/nettutsplus" class="fan_text" rel="external nofollow"><span>Nettuts+</span> on Facebook</a>
+            <a target="blank" href="http://www.facebook.com/nettutsplus" class="fan_button" rel="external nofollow">Become a Fan</a>
+          </div>
+        </div>
+        
+        <div class="facebook_site">
+          <a target="blank" href="http://www.facebook.com/phototuts" class="facebook_avatar phototuts" rel="external nofollow">Phototuts+</a>
+          <div class="facebook_text">
+            <a target="blank" href="http://www.facebook.com/phototuts" class="fan_text" rel="external nofollow"><span>Phototuts+</span> on Facebook</a>
+            <a target="blank" href="http://www.facebook.com/phototuts" class="fan_button" rel="external nofollow">Become a Fan</a>
+          </div>
+        </div>
+        
+        <div class="facebook_site">
+          <a target="blank" href="http://www.facebook.com/psdtuts" class="facebook_avatar psdtuts" rel="external nofollow">Psdtuts+</a>
+          <div class="facebook_text">
+            <a target="blank" href="http://www.facebook.com/psdtuts" class="fan_text" rel="external nofollow"><span>Psdtuts+</span> on Facebook</a>
+            <a target="blank" href="http://www.facebook.com/psdtuts" class="fan_button" rel="external nofollow">Become a Fan</a>
+          </div>
+        </div>
+        
+        <div class="facebook_site">
+          <a target="blank" href="http://www.facebook.com/vectortuts" class="facebook_avatar vectortuts" rel="external nofollow">Vectortuts+</a>
+          <div class="facebook_text">
+            <a target="blank" href="http://www.facebook.com/vectortuts" class="fan_text" rel="external nofollow"><span>Vectortuts+</span> on Facebook</a>
+            <a target="blank" href="http://www.facebook.com/vectortuts" class="fan_button" rel="external nofollow">Become a Fan</a>
+          </div>
+        </div>
+        
+        <div class="facebook_site">
+          <a target="blank" href="http://www.facebook.com/mobiletuts" class="facebook_avatar mobiletuts" rel="external nofollow">Mobiletuts+</a>
+          <div class="facebook_text">
+            <a target="blank" href="http://www.facebook.com/mobiletuts" class="fan_text" rel="external nofollow"><span>Mobiletuts+</span> on Facebook</a>
+            <a target="blank" href="http://www.facebook.com/mobiletuts" class="fan_button" rel="external nofollow">Become a Fan</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  <!-- [END] Facebook -->
+  
+  <!-- Flickr -->
+    <!-- [END] Flickr -->
+
+</div>
+<!-- [END] Social Networking -->
+
+<!-- Subscriptions -->
+<div class="sidebar_subscribe">
+
+  <ul class="get_updates">
+    <li class="sm_rss"><a href="http://feedproxy.google.com/vectortuts">RSS Updates</a></li>
+    <li class="sm_email"><a href="http://feedburner.google.com/fb/a/mailverify?uri=vectortuts&amp;loc=en_U">Email Updates</a></li>
+    <li class="sm_twitter"><a href="http://twitter.com/vectortuts">Twitter</a></li>
+    <li class="sm_facebook"><a href="http://facebook.com/vectortuts">Facebook</a></li>
+  </ul>
+  
+    <div class="feedburner_count s_count">
+    <span class="side-link"><em>Subscribers</em> <a href="http://feedproxy.google.com/vectortuts">31,297</a></span>
+  </div>
+    
+    <div class="twitter_count s_count">
+    <span class="side-link"><em>Followers</em> <a href="http://twitter.com/vectortuts">14,844</a></span>
+  </div>
+    
+  <div class="tutorial_count s_count">
+    <span><em>Posts</em> 870</span>
+  </div>
+  
+</div>
+<!-- [END] Subscriptions -->
+
+<!-- Basix -->
+<div class="side_basix">
+
+  <div class="basix_logo">
+    Basix
+  </div>
+  
+  <div class="basix_text">
+    <h3 class="side-link"><a href="http://vector.tutsplus.com/tag/basix/">
+    Vector Basix</a></h3>
+    <p>Just getting started? Start with our basix tutorials on the fundamentals. <a href="http://vector.tutsplus.com/tag/basix/">View All Basix Tutorials</a></p>
+  </div>
+  
+</div>
+<!-- [END] Basix -->
+
+<!-- Other Plus Sites -->
+<div class="other_plus">
+  <h3>Other Plus Sites ...</h3>
+  <a href="http://ae.tutsplus.com/" class="aetuts_icon site_icon_sm">aetuts+</a>
+<a href="http://audio.tutsplus.com/" class="audiotuts_icon site_icon_sm">audiotuts+</a>
+<a href="http://vector.tutsplus.com/" class="vectortuts_icon site_icon_sm">vectortuts+</a>
+<a href="http://tutsplus.com/" class="tuts_icon site_icon_sm">tuts+</a>
+<a href="http://photo.tutsplus.com/" class="phototuts_icon site_icon_sm">phototuts+</a>
+<a href="http://cg.tutsplus.com/" class="cgtuts_icon site_icon_sm">cgtuts+</a>
+<a href="http://net.tutsplus.com/" class="nettuts_icon site_icon_sm">nettuts+</a>
+<a href="http://psd.tutsplus.com/" class="psdtuts_icon site_icon_sm">psdtuts+</a>
+<a href="http://active.tutsplus.com/" class="activetuts_icon site_icon_sm">activetuts+</a>
+<a href="http://mobile.tutsplus.com/" class="mobiletuts_icon site_icon_sm">mobiletuts+</a>
+</div>
+<!-- [END] Other Plus Sites -->
+
+<!-- Write For Us -->
+<div class="write_for_us">
+
+  <h3 class="side-link"><a href="http://vector.tutsplus.com/about/write-a-tutorial/">Create a Tutorial, Get Paid!</a></h3>
+  <p>Have
+something to teach the world? Want to earn money doing it? Tutorials,
+screencasts, and articles published here on Vectortuts+ are largely
+contributed by readers just like you! We'll pay you great money for
+good content. <a href="http://vector.tutsplus.com/about/write-a-tutorial/">Find Out More</a></p>
+  
+</div>
+<!-- [END] Write For Us -->      
+    </div>
+    <!-- [END] Sidebar -->
+	
+  </div>
+  <!-- [END] Content -->
+  
+</div>
+<!-- [END] Content Wrap -->
+
+<!-- Footer -->
+<div id="footer_wrap">
+  <div id="footer">
+    <div class="footer_inner">
+    
+      <div class="power_up">
+        <a href="http://vector.tutsplus.com/" class="footer_logo">Vectortuts+</a>
+        <p class="plus_network">Part of the Plus education network</p>
+        <a href="http://envato.com/" class="powered_by">Powered by: Envato</a>
+      </div>
+      
+      <ul class="get_updates">
+        <li class="sm_rss"><a href="http://feedproxy.google.com/vectortuts">RSS Updates</a></li>
+        <li class="sm_email"><a href="http://feedburner.google.com/fb/a/mailverify?uri=vectortuts&amp;loc=en_U">Email Updates</a></li>
+        <li class="sm_twitter"><a href="http://twitter.com/vectortuts">Twitter</a></li>
+        <li class="sm_facebook"><a href="http://facebook.com/vectortuts">Facebook</a></li>
+      </ul>
+      
+      <ul class="footer_links">
+        <li class="first">Copyright © 2010 <a href="http://envato.com/">Envato</a></li>
+        <li><a href="http://buysellads.com/buy/detail/521">Advertise</a></li>
+        <li><a href="http://psdtuts.uservoice.com/forums/2999-vectortuts-site-suggestions-and-feedback">Suggestions</a></li>
+        <li><a href="http://vector.tutsplus.com/about/">About Us</a></li>
+        <li><a target="blank" href="http://wefunction.com/" rel="nofollow external">Icons by WeFunction</a></li>
+              </ul>
+      
+    </div>
+  </div>
+</div>
+<!-- [END] Footer -->
+
+<script type="text/javascript">
+  // Sample image replacement
+  $(window).load(function(){
+    var regex = /sample.png/;
+    var newimage = 'http://vector.tutsplus.com/wp-content/themes/tuts/images/global/adhere_330.jpg';
+    if($('img', '.bsa_it_i').attr("src",regex)) {
+      $('img', '.bsa_it_i').attr("src",newimage);
+    } 
+  });
+</script>
+<script class="javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/shCore.js"></script>
+<script class="javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/shBrushAll.js"></script>
+	<script class="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'http://vector.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<script type="text/javascript" src="Create%20Audio%20Waveforms%20with%20the%20Scribble%20Effect%20_%20Vectortuts+_files/skimlinks.js"></script>
+<script type="text/javascript">
+var skimlinks_pub_id = '1342X589341';
+skimlinks();
+</script> 
+<!-- Dynamic Page Served (once) in 0.360 seconds -->
+</body></html>

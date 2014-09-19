@@ -1,0 +1,1150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="generator" content="MediaWiki 1.13.1">
+		<meta name="keywords" content="PopCap:Tutorials:Breakout:Part5,PopCap:Tutorials:Breakout:Part1,PopCap:Tutorials:Breakout:Part2,PopCap:Tutorials:Breakout:Part3,PopCap:Tutorials:Breakout:Part4,PopCap:Tutorials:Breakout:Part6">
+		<link rel="shortcut icon" href="http://wiki.gamedev.net/favicon.ico">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.gamedev.net/opensearch_desc.php" title="GDWiki (en)">
+		<link title="Creative Commons" type="application/rdf+xml" href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=creativecommons" rel="meta">
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html">
+		<link rel="alternate" type="application/rss+xml" title="GDWiki RSS Feed" href="http://wiki.gamedev.net/index.php?title=Special:RecentChanges&amp;feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="GDWiki Atom Feed" href="http://wiki.gamedev.net/index.php?title=Special:RecentChanges&amp;feed=atom">
+		<title>PopCap:Tutorials:Breakout:Part5 - GDWiki</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins/common/shared.css?164";
+			@import "/skins/monobook/main.css?164";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="PopCap%20Tutorials%20Breakout%20Part5_files/commonPrint.css">
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins/monobook/IE50Fixes.css?164";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins/monobook/IE55Fixes.css?164";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins/monobook/IE60Fixes.css?164";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins/monobook/IE70Fixes.css?164";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?164"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type="text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins";
+var wgArticlePath = "/index.php/$1";
+var wgScriptPath = "";
+var wgScript = "/index.php";
+var wgVariantArticlePath = false;
+var wgActionPaths = [];
+var wgServer = "http://wiki.gamedev.net";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "PopCap:Tutorials:Breakout:Part5";
+var wgTitle = "PopCap:Tutorials:Breakout:Part5";
+var wgAction = "view";
+var wgArticleId = "5870";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "26156";
+var wgVersion = "1.13.1";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="PopCap%20Tutorials%20Breakout%20Part5_files/wikibits.js"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="PopCap%20Tutorials%20Breakout%20Part5_files/ajax.js"></script>
+		<script type="text/javascript" src="PopCap%20Tutorials%20Breakout%20Part5_files/index.php"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+	</head><body class="mediawiki ns-0 ltr page-PopCap_Tutorials_Breakout_Part5">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">PopCap:Tutorials:Breakout:Part5</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From GDWiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Smooth_move"><span class="tocnumber">2</span> <span class="toctext">Smooth move</span></a></li>
+<li class="toclevel-1"><a href="#Designing_a_brick_manager"><span class="tocnumber">3</span> <span class="toctext">Designing a brick manager</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Coding_the_BrickManager"><span class="tocnumber">3.1</span> <span class="toctext">Coding the BrickManager</span></a></li>
+<li class="toclevel-2"><a href="#Implementing_the_Brickmanager"><span class="tocnumber">3.2</span> <span class="toctext">Implementing the Brickmanager</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#What_we_have_done_in_this_tutorial"><span class="tocnumber">4</span> <span class="toctext">What we have done in this tutorial</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Until_next_time.E2.80.A6"><span class="tocnumber">4.1</span> <span class="toctext">Until next time…</span></a></li>
+<li class="toclevel-2"><a href="#Legal_Stuff"><span class="tocnumber">4.2</span> <span class="toctext">Legal Stuff</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Introduction"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=edit&amp;section=1" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline">Introduction</span></h2>
+<p>Hello and welcome to part 5 in my PopCap game development tutorial 
+series. After a long break from working on these tutorials I am back 
+although how long it will last really depends on how busy my life gets. 
+It takes a really long time to create these tutorials and so it has to 
+wait until I have plenty of free time.
+</p><p>If you haven’t read the first four tutorials then they can be found here:
+</p><p><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part1" title="PopCap:Tutorials:Breakout:Part1">Part 1</a>
+</p><p><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part2" title="PopCap:Tutorials:Breakout:Part2">Part 2</a>
+</p><p><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part3" title="PopCap:Tutorials:Breakout:Part3">Part 3</a>
+</p><p><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part4" title="PopCap:Tutorials:Breakout:Part4">Part 4</a>
+</p><p>In the last tutorial we learned how to work with sprite 
+collisions. In this tutorial we are going to learn how to do smooth 
+movements and we are going to learn how to use PopCap for storing our 
+media files.
+</p>
+<a name="Smooth_move"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=edit&amp;section=2" title="Edit section: Smooth move">edit</a>]</span> <span class="mw-headline">Smooth move</span></h2>
+<p>We want our Ball to move smoothly around on the screen without 
+appearing jumpy. To do this we need to do two things: A) Use UpdateF to 
+move the ball at fractional values and B) Use DrawImageF to draw the 
+sprite at these fractional values.
+</p><p>Normally Update is called 100 times a second and Draw is called 
+whenever it can be. So even if you call MarkDirty, Draw isn’t 
+necessarily going to be called right away. This can make your moving 
+graphics appear jerky instead of smooth. 
+</p><p>UpdateF on the other hand guarantees that Draw is called right 
+after it and as a result UpdateF is called at an irregular interval. 
+That is why it has a float parameter called theFrac. This is the value 
+that you need to multiply your movement values by to get the correct 
+movement. 
+</p><p>The first step is to go to <b>Board.h</b> and below the Update prototype add:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> UpdateF<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> theFrac<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now we can write code in UpdateF that moves objects by fractional values.
+</p><p>So go to <b>Board.cpp</b> and below the <b>Update</b> method add the following:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">UpdateF</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> theFrac<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+&nbsp;
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>This is where we will place the code to make our ball move smoothly.
+</p><p>Now we need to add two new methods to our Sprite class <b>UpdateF</b> and <b>DrawF</b>.
+ UpdateF will take the float parameter that is passed to our Board 
+widget’s UpdateF method, and DrawF will call the DrawImageF function of 
+our graphics class.
+</p><p>Go to <b>Sprite.h</b> and add the following prototype after the Update prototype:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> UpdateF<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pFrac<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Then add this prototype after the Draw prototype:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> DrawF<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span><span style="color: rgb(0, 0, 64);">*</span>pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So we have prototyped two methods here. The UpdateF method takes the 
+same movement multiplier that we have from our Board widget’s UpdateF 
+method. The DrawF method will call a special method of our graphics 
+class to draw an image using fractional values.
+</p><p><b>WAIT A MINUTE!</b> I hear you scream as you read this. Our 
+position values are currently integers! We need to adjust our position 
+values so that they are floats. 
+</p><p>Floating point values have more precision then integers and so we can store when our ball sprite is “inbetween” two pixels. 
+</p><p>We basically need to change everything that says integer to float, except for the pixel checking stuff. 
+</p><p>Here is the complete code for <b>Sprite.h</b>
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#ifndef __SPRITE_H__ </span>
+<span style="color: rgb(51, 153, 0);">#define __SPRITE_H__ </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">namespace</span> Sexy 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> DDImage<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Graphics<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Sprite 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">protected</span><span style="color: rgb(0, 128, 128);">:</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> mX,mY,mVX,mVY,mSpeed<span style="color: rgb(0, 128, 128);">;</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span>mImg<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">public</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Sprite<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,<span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY,<span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        ~Sprite<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">void</span> SetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetSpeed<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetSpeed<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">void</span> SetImage<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span>pImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span> GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">bool</span> CheckPixel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> px, <span style="color: rgb(0, 0, 255);">int</span> py<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">bool</span> CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>Sprite<span style="color: rgb(0, 0, 64);">*</span> pOtherSprite<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> UpdateF<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pFrac<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> Draw<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span><span style="color: rgb(0, 0, 64);">*</span> pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> DrawF<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span><span style="color: rgb(0, 0, 64);">*</span>pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#endif</span></pre>
+<p>Now we need to change <b>Sprite.cpp</b> to match our header and we need to add the code for the UpdateF and DrawF methods! 
+</p><p>I am going to stop for a second and take a bit of time to explain
+ the logic of what we are doing here. Currently we are expanding our 
+sprite class to give us two new methods and to change our position 
+related stuff to use floats instead of integers. 
+</p><p>In order to get smoother movement we have to use floating point 
+values because if we move by integers then the movement will appear to 
+be jerky. The object will appear to “jump” sometimes and this is never a
+ good thing! 
+</p><p>However this is only good for objects that need to move in a 
+continous fassion like our Ball sprite. Our paddle on the other hand is a
+ representation of the mouse and it really wouldn’t do any good to draw 
+that using floating point values and such because the horizontal mouse 
+position will always be an integer and the paddle is not meant to travel
+ on the Y axis. 
+</p><p>Looks matter when it comes to games and we really want the ball 
+to look as though it is flying through the air and not leaping from 
+position to position like it is teleporting.
+</p><p>Let’s get back on track!
+</p><p><br>
+In <b>Sprite.cpp</b> add the following method below the sprite update method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">UpdateF</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pFrac<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mX<span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 128);">=</span>mVX<span style="color: rgb(0, 0, 64);">*</span>pFrac<span style="color: rgb(0, 128, 128);">;</span> 
+    mY<span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 128);">=</span>mVY<span style="color: rgb(0, 0, 64);">*</span>pFrac<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>This is just like our original Update method except we are now 
+multiplying our vector x and y components by the pFrac float value.
+</p><p>Ok now let’s look at the Draw method for our Sprite object. 
+Currently the code does not do any typecasting because our position 
+variables were intergers, however how we need to typecast our float 
+position variables into integers. 
+</p><p>Here is the corrected code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span> <span style="color: rgb(0, 0, 64);">*</span>pG<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mImg<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        pG<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DrawImage<span style="color: rgb(0, 128, 0);">(</span>mImg,<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span><span style="color: rgb(0, 128, 0);">)</span>mX,<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span><span style="color: rgb(0, 128, 0);">)</span>mY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now after this method we add our new DrawF method, this will be 
+almost exactly the same as the Draw method, except it will call the 
+DrawImageF method of the graphics class.
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DrawF</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span> <span style="color: rgb(0, 0, 64);">*</span>pG<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mImg<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        pG<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DrawImageF<span style="color: rgb(0, 128, 0);">(</span>mImg,mX,mY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now that our Sprite class is done, we need to modify our ball class. 
+Remember that our ball class inherits from our sprite class and now that
+ we have an <b>UpdateF</b> method, our ball class will need an UpdateF method that calls the Sprite base class UpdateF method.
+</p><p>So go to <b>Ball.h</b>
+</p><p>After the Update method prototype add:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> UpdateF<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pFrac<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now let’s go to <b>Ball.cpp</b> and add this new method right after the Update method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">UpdateF</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pFrac<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    CheckBoundry<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">UpdateF</span><span style="color: rgb(0, 128, 0);">(</span>pFrac<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now let’s take a look at the <b>Board.cpp</b> source file. 
+</p><p>Just for a refresher we are going to look at the current <b>Update</b> method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>  
+<span style="color: rgb(0, 128, 0);">{</span>  
+    Widget<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+    <span style="color: rgb(102, 102, 102);">//Your update code here!  </span>
+    <span style="color: rgb(0, 0, 255);">float</span> PaddleSpeed<span style="color: rgb(0, 0, 128);">=</span>min<span style="color: rgb(0, 128, 0);">(</span>max<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(128, 0, 128);">2.0f</span>,<span style="color: rgb(0, 0, 221);">4</span><span style="color: rgb(0, 128, 0);">)</span>,<span style="color: rgb(0, 0, 221);">10</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+    <span style="color: rgb(0, 0, 255);">int</span> PaddleDir<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>  
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span>  
+        PaddleDir<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>mPaddle<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span>  
+    <span style="color: rgb(0, 128, 0);">{</span>  
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetY<span style="color: rgb(0, 128, 0);">(</span>mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span>PaddleDir<span style="color: rgb(0, 0, 64);">*</span>PaddleSpeed,<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">6</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+    <span style="color: rgb(0, 128, 0);">}</span>  
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVY<span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(128, 0, 128);">0.02</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+    mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+    mOldMouseX<span style="color: rgb(0, 0, 128);">=</span>mMouseX<span style="color: rgb(0, 128, 128);">;</span>  
+    mOldMouseY<span style="color: rgb(0, 0, 128);">=</span>mMouseY<span style="color: rgb(0, 128, 128);">;</span>  
+    MarkDirty<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>I am going to modify this method by removing the Ball update from 
+this method as well as the code to change the mOldMouseX and mOldMouseY 
+variables. This code will be moved to the UpdateF method and we will 
+call the fancy UpdateF method of our Ball class.
+</p><p>So here is the modified <b>Update</b> method.
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    Widget<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">float</span> PaddleSpeed<span style="color: rgb(0, 0, 128);">=</span>min<span style="color: rgb(0, 128, 0);">(</span>max<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(128, 0, 128);">2.0f</span>,<span style="color: rgb(0, 0, 221);">4</span><span style="color: rgb(0, 128, 0);">)</span>,<span style="color: rgb(0, 0, 221);">10</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">int</span> PaddleDir<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> 
+        PaddleDir<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>mPaddle<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetY<span style="color: rgb(0, 128, 0);">(</span>mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span>PaddleDir<span style="color: rgb(0, 0, 64);">*</span>PaddleSpeed,<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">6</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVY<span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(128, 0, 128);">0.02</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    MarkDirty<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p><br>
+Right after this method we have our <b>UpdateF</b> method which looks like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">UpdateF</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> theFrac<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+&nbsp;
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Inside of this method we want to call the UpdateF method of our Ball 
+class and change the mOldMouseX and mOldMouseY variables to reflect the 
+current mouse positions. 
+</p><p>Here is the <b>UpdateF</b> method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">UpdateF</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> theFrac<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>UpdateF<span style="color: rgb(0, 128, 0);">(</span>theFrac<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mOldMouseX<span style="color: rgb(0, 0, 128);">=</span>mMouseX<span style="color: rgb(0, 128, 128);">;</span> 
+    mOldMouseY<span style="color: rgb(0, 0, 128);">=</span>mMouseY<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>We now have to change our <b>Draw</b> method to call the DrawF method of our Ball class.
+</p><p>Here is the new method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Graphics<span style="color: rgb(0, 0, 64);">*</span> g<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColor<span style="color: rgb(0, 128, 0);">(</span>Color<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Set dark red color </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>FillRect<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>, <span style="color: rgb(0, 0, 221);">0</span>, mWidth, mHeight<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Fill screen with current color </span>
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DrawF<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//calls the DrawF method which calls DrawImageF </span>
+    mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//calls the Draw method which calls DrawImage </span>
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>The final step in making all of this work is to go into the <b>Constructor</b> method of our <b>GameApp</b> class and set some flags that will enable a technology called <b>VSYNC</b>.
+</p><p>So go to <b>GameApp.cpp</b> and add the following four flags to the GameApp constructor:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(102, 102, 102);">//</span>
+    mAutoEnable3D<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 128);">;</span>    
+    mVSyncUpdates <span style="color: rgb(0, 0, 128);">=</span> <span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Tells the framework to call the UpdateF stuff </span>
+    mWaitForVSync<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 128);">;</span>  <span style="color: rgb(102, 102, 102);">//Don't update the display until the screen refreshes. </span>
+    mSoftVSyncWait<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">false</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//We set this flag to stop shearing in windows mode</span></pre>
+<p>Your GameApp constructor should now look like this:
+</p>
+<pre class="cpp" style="font-family: monospace;">GameApp<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GameApp</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>
+<span style="color: rgb(0, 128, 0);">{</span>
+    mProdName <span style="color: rgb(0, 0, 128);">=</span> <span style="color: rgb(255, 0, 0);">"Breakout Game"</span><span style="color: rgb(0, 128, 128);">;</span>
+&nbsp;
+    mProductVersion <span style="color: rgb(0, 0, 128);">=</span> <span style="color: rgb(255, 0, 0);">"1.0"</span><span style="color: rgb(0, 128, 128);">;</span>
+&nbsp;
+    mTitle <span style="color: rgb(0, 0, 128);">=</span> StringToSexyStringFast<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(255, 0, 0);">"SexyAppFramework: "</span> <span style="color: rgb(0, 0, 64);">+</span> mProdName <span style="color: rgb(0, 0, 64);">+</span> <span style="color: rgb(255, 0, 0);">" - "</span> <span style="color: rgb(0, 0, 64);">+</span> mProductVersion<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>
+&nbsp;
+    mRegKey <span style="color: rgb(0, 0, 128);">=</span> <span style="color: rgb(255, 0, 0);">"PopCap<span style="color: rgb(102, 102, 102); font-weight: bold;">\\</span>SexyAppFramework<span style="color: rgb(102, 102, 102); font-weight: bold;">\\</span>BreakoutGame"</span><span style="color: rgb(0, 128, 128);">;</span>
+&nbsp;
+    mWidth <span style="color: rgb(0, 0, 128);">=</span> <span style="color: rgb(0, 0, 221);">800</span><span style="color: rgb(0, 128, 128);">;</span>
+    mHeight <span style="color: rgb(0, 0, 128);">=</span> <span style="color: rgb(0, 0, 221);">600</span><span style="color: rgb(0, 128, 128);">;</span>
+&nbsp;
+    mBoard <span style="color: rgb(0, 0, 128);">=</span> <span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 128);">;</span>
+    mNoSoundNeeded<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 128);">;</span>
+&nbsp;
+    mAutoEnable3D<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 128);">;</span>
+    mVSyncUpdates <span style="color: rgb(0, 0, 128);">=</span> <span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Tells the framework to call the UpdateF stuff</span>
+    mWaitForVSync<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 128);">;</span>  <span style="color: rgb(102, 102, 102);">//Don't update the display until the screen refreshes.</span>
+    mSoftVSyncWait<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">false</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//We set this flag to stop shearing in windows mode </span>
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Alright let’s take a minute to talk about why we have been doing all 
+of this. Our game features a ball that moves around the screen. This 
+ball is moving quite fast and before all of this work when the ball 
+moved there were times when the ball would appear to move more pixels 
+then it should in a frame due to the refresh rate of the monitor. To fix
+ this problem we decided to move our ball a variable amount based on the
+ frame rate of the monitor. 
+</p><p>Now mVSyncUpdates enables our UpdateF method being called and so 
+without that particular flag our Ball wouldn’t move. mWaitForVSync and 
+mSoftVSyncWait are to stop the shearing effect that can happen where our
+ ball is drawn inbetween refreshes and it causes a visual glitch. 
+</p><p>A note of caution is to not do game logic inside of the UpdateF 
+method because it is called a variable number of times per second and 
+thus the code will run at a different speed per machine.
+</p><p>Test out your new code and you should see much smoother movement then before!
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_SmoothBall.jpg" class="image" title="Image:PopCap_Tutorials_SmoothBall.jpg"><img alt="Image:PopCap_Tutorials_SmoothBall.jpg" src="PopCap%20Tutorials%20Breakout%20Part5_files/PopCap_Tutorials_SmoothBall.jpg" width="800" border="0" height="627"></a>
+</p><p>Right so this is a breakout game and it would be a good idea to 
+add some bricks to hit. To add some bricks we need to add another image 
+to our project in the same manner that we added both the ball and the 
+bat. 
+</p><p>Now we want our game to have multiple brick colors and there are 
+several methods to attacking this sort of problem. We could have a ton 
+of images for each brick, but this method would clog up our folder with 
+images and would be fairly involved to program. Another approach would 
+be to store all the brick types on an sprite sheet and draw the required
+ image based on a random value. While this approach is perfectly 
+reasonable and one we will investigate, the method I am going to show 
+you currently involves a different strategy. 
+</p><p>If you have variations on a single object that need to be 
+different colors, you don’t necessarly have to create each variation! 
+The PopCap framework has a bit of a shortcut called <b>colorization</b> that will allow you to apply color to a greyscale image.
+</p><p>I used this technique to create the colored fireworks at the end of <b>Speedy Solitare</b> and now we are going to see how we can implement it in this game. 
+</p><p>The first step is that we need a brick image. Open up your 
+favorite image editing application and draw one in greyscale (shades of 
+grey). 
+</p><p>Here is my attempt:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:Brick.png" class="image" title="Image:Brick.png"><img alt="Image:Brick.png" src="PopCap%20Tutorials%20Breakout%20Part5_files/Brick.png" width="64" border="0" height="32"></a>
+</p><p>Even though I probally won’t win an artist of the year award or this image, it will work for our purposes.
+</p><p>Now go to <b>GameApp.h</b> and add the following line after the other image declartions:
+</p>
+<pre class="cpp" style="font-family: monospace;">DDImage<span style="color: rgb(0, 0, 64);">*</span> mBrickImg<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So you should see this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">public</span><span style="color: rgb(0, 128, 128);">:</span> 
+        DDImage<span style="color: rgb(0, 0, 64);">*</span> mBallImg<span style="color: rgb(0, 128, 128);">;</span> 
+        DDImage<span style="color: rgb(0, 0, 64);">*</span> mPaddleImg<span style="color: rgb(0, 128, 128);">;</span> 
+        DDImage<span style="color: rgb(0, 0, 64);">*</span> mBrickImg<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>In the GameApp class.
+</p><p><br>
+Now we go to <b>GameApp.cpp</b> and add the following code in our <b>LoadingThreadProc</b>:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBrickImg<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>DDImage<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">)</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(255, 0, 0);">"Brick"</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So that our <b>LoadingThreadProc</b> method looks like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> GameApp<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">LoadingThreadProc</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mBallImg<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>DDImage<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">)</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(255, 0, 0);">"BlueBall"</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mPaddleImg<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>DDImage<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">)</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(255, 0, 0);">"GreenBat"</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBrickImg<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>DDImage<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">)</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(255, 0, 0);">"Brick"</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>We could keep loading images like this indefinately but eventually it
+ would become too hard to manage, plus all of our assets are exposed to 
+anyone who wants to use them. In the next installment I am going to show
+ you a few ways to manage your assets, but for now we are going to work 
+on our brick manager.
+</p><p><br>
+In the GameApp <b>deconstructor</b> we need to add a line of code to delete our image once the GameApp class is destroyed:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 221);">delete</span> mBrickImg<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Here is how your GameApp deconstructor should look:
+</p>
+<pre class="cpp" style="font-family: monospace;">GameApp<span style="color: rgb(0, 128, 128);">::</span>~GameApp<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mWidgetManager<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>RemoveWidget<span style="color: rgb(0, 128, 0);">(</span>mBoard<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBoard<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBallImg<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mPaddleImg<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBrickImg<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>I want to take a look at how this brick will look on the screen so far, so in our <b>Board.cpp</b> file add the following line of code in the <b>Draw</b> method:
+</p>
+<pre class="cpp" style="font-family: monospace;">g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DrawImage<span style="color: rgb(0, 128, 0);">(</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBrickImg,mWidth<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span><span style="color: rgb(0, 0, 64);">-</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBrickImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mWidth<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span>,mHeight<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span><span style="color: rgb(0, 0, 64);">-</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBrickImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mHeight<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>This line of code will draw our brick image dead center on screen and when you run the game you should see this:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BrickCenter.jpg" class="image" title="Image:PopCap_Tutorials_BrickCenter.jpg"><img alt="Image:PopCap_Tutorials_BrickCenter.jpg" src="PopCap%20Tutorials%20Breakout%20Part5_files/PopCap_Tutorials_BrickCenter.jpg" width="800" border="0" height="627"></a>
+</p><p>Right now this is not very impressive. What we really want is to see different colored bricks instead of just greyscale. 
+</p><p>Before your <b>DrawImage</b> method add the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(102, 102, 102);">//</span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColorizeImages<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//We want to colorize the images we draw next </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColor<span style="color: rgb(0, 128, 0);">(</span>Color<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">255</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//set the color that we want to colorize with</span></pre>
+<p>The first line tells the framework that we want to draw the next 
+images with colorization. The next line of code sets the current color 
+and that is the color that our image will be colorized with.
+</p><p>Then after our DrawImage method we add the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;">g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColorizeImages<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">false</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//we no longer want to colorize any images</span></pre>
+<p>Colorizing images can be a slow process and so it is a wise idea to turn off colorization when we no longer need it.
+</p><p>The complete code for the <b>Draw</b> method of our <b>Board</b> class is:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Graphics<span style="color: rgb(0, 0, 64);">*</span> g<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColor<span style="color: rgb(0, 128, 0);">(</span>Color<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Set black color </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>FillRect<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>, <span style="color: rgb(0, 0, 221);">0</span>, mWidth, mHeight<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Fill screen with current color </span>
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DrawF<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//calls the DrawF method which calls DrawImageF </span>
+    mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//calls the Draw method which calls DrawImage </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColorizeImages<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//We want to colorize the images we draw next </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColor<span style="color: rgb(0, 128, 0);">(</span>Color<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">255</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//set the color that we want to colorize with </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DrawImage<span style="color: rgb(0, 128, 0);">(</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBrickImg,mWidth<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span><span style="color: rgb(0, 0, 64);">-</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBrickImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mWidth<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span>,mHeight<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span><span style="color: rgb(0, 0, 64);">-</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBrickImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mHeight<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColorizeImages<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">false</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//we no longer want to colorize any images </span>
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now if we run this code we should get the following result:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_RedBrickCenter.jpg" class="image" title="Image:PopCap_Tutorials_RedBrickCenter.jpg"><img alt="Image:PopCap_Tutorials_RedBrickCenter.jpg" src="PopCap%20Tutorials%20Breakout%20Part5_files/PopCap_Tutorials_RedBrickCenter.jpg" width="800" border="0" height="627"></a>
+</p><p>We can of course use any color we want instead of red, like yellow:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_YellowBrickCenter.jpg" class="image" title="Image:PopCap_Tutorials_YellowBrickCenter.jpg"><img alt="Image:PopCap_Tutorials_YellowBrickCenter.jpg" src="PopCap%20Tutorials%20Breakout%20Part5_files/PopCap_Tutorials_YellowBrickCenter.jpg" width="800" border="0" height="627"></a>
+</p><p>So as you can see we can now have a lot of different brick colors
+ without needing a lot of different brick images. Now if all of our 
+bricks were to remain exactly the same and we required no variation then
+ colorization is a fine approach and one that saves a great deal of 
+headache. However this approach falls short if we wanted to have various
+ bricks with special abilities or other faces on the bricks besides just
+ a weird disamused expression. So later we will look into adding more 
+variation but for now we are going to stick with our colorization 
+technique because it is fast and will get the job done, which is 
+important when you are working on a game and ever expect to finish.
+</p>
+<a name="Designing_a_brick_manager"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=edit&amp;section=3" title="Edit section: Designing a brick manager">edit</a>]</span> <span class="mw-headline">Designing a brick manager</span></h2>
+<p>In this part of the tutorial we are going to begin work on our brick 
+manager. Now that we have the technology to draw many different colors 
+of brick, we need a way to represent a large volume of bricks without 
+having to code each brick individually as with around 100+ bricks that 
+approach would be very time consuming and boring, not to mention hard to
+ adjust and manage.
+</p><p>So our bricks will be sprites and we need a new class capable of 
+handling a large and undefined number of bricks. To handle this we are 
+going to use a dynamic array or as the STL (Standard Templte Library) 
+calls it, a vector. A dynamic array can grow to fit the amount of bricks
+ we need and we can access it just like a regular array. 
+</p><p>Now for all of you computer science buffs out there I know a 
+linked list “could” be used in this situation but when it comes to a lot
+ of deletions (as with the blocks being destroyed) this results in a lot
+ of traversals of the list. I do not believe that a list is the most 
+efficent data structure to use here and so I am opting to use a vector 
+instead. 
+</p><p>The deal is that I want three rows of bricks on the screen each 
+with various colors (just for astetics, there is no game mechanic based 
+on color currently). When the user hits a brick I want the brick to 
+vanish from the screen and for the ball to bounce from the brick. 
+</p><p>Because we want to colorize the bricks on the fly we will need to
+ store color information for each brick. That means that instead of a 
+vector of sprite objects we will need to have a vector of brick objects 
+and give our brick class a color member so that we can keep track of 
+what color our brick is.
+</p><p>Let’s create a new header called <b>BrickManager.h</b>
+</p><p>Inside of this header we will add the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#ifndef __BRICKMANAGER_H__ </span>
+<span style="color: rgb(51, 153, 0);">#define __BRICKMANAGER_H__ </span>
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#include "Sprite.h" </span>
+<span style="color: rgb(51, 153, 0);">#include &lt;vector&gt; </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Color.h" </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(51, 153, 0);">#endif</span></pre>
+<p>This is the simple layout for our header and we have our namespace 
+Breakout in there. Now we need a Brick class so let’s go ahead and 
+define that:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">class</span> Brick<span style="color: rgb(0, 128, 128);">:</span> <span style="color: rgb(0, 0, 255);">public</span> Sprite 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">private</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Color</span> mColor<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">public</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Brick<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Color</span> <span style="color: rgb(0, 0, 64);">&amp;</span>pColor<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> Draw<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span><span style="color: rgb(0, 0, 64);">*</span> pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Ok so all we needed to add to our sprite was a new color member and a
+ draw method so we can change the current color prior to drawing the 
+image.
+</p><p>The <b>BrickManager</b> class will need to be able to do the following:
+</p><p>A) Create a level. This will need to allow us to specify the 
+number of rows and colums of bricks that we want to have as well as the 
+spacing between them.
+</p><p>B) Add a row. Every so often we will want to add a new row to the
+ number of blocks and this time period will be determined by the current
+ level.
+</p><p>C) Move all bricks down. We want to be able to move all of the bricks down by a specified amount.
+</p><p>D) Update the manager. We will have a variable to keep track of 
+the time and since the code will be called 100 times a second we can 
+increment the value of this variable. When the value modulated 
+(remainder of division) by the maximum time is equal to 0 then we know 
+our time has elapsed and we can shift all of our bricks down by one.
+</p><p>E) Draw all our bricks. We want the be able to iterate all of our bricks and draw each brick to the screen.
+</p><p>F) Test all bricks for a collision by another sprite. This method
+ will iterate all of the bricks and if we find one that is colliding 
+with our sprite parameter then we will return the index of this sprite 
+from our brick vector. 
+</p><p>H) Delete a brick from the vector at an index.
+</p><p>I) Get a brick given an index and get the total number of bricks. 
+</p><p><br>
+Let’s look at how this would be written in terms of code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">class</span> BrickManager 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">private</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span>mBrickImg<span style="color: rgb(0, 128, 128);">;</span> 
+        std<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">vector</span><span style="color: rgb(0, 0, 128);">&lt;</span>Brick<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 0, 64);">*</span>mBrickAry<span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> mCurTime,mMaxTime,mRows,mCols,mHorzSpacing,mVertSpacing<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">public</span><span style="color: rgb(0, 128, 128);">:</span> 
+        BrickManager<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span> <span style="color: rgb(0, 0, 64);">*</span>pBrickImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        ~BrickManager<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> CreateLevel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pRows, <span style="color: rgb(0, 0, 255);">int</span> pCols, <span style="color: rgb(0, 0, 255);">int</span> pHorzSpacing, <span style="color: rgb(0, 0, 255);">int</span> pVertSpacing,<span style="color: rgb(0, 0, 255);">int</span> pMaxTime<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> ClearLevel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> AddRow<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> MoveDown<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pAmt<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> Draw<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span> <span style="color: rgb(0, 0, 64);">*</span> pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> DeleteBrick<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pIndex<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> TestCollision<span style="color: rgb(0, 128, 0);">(</span>Sprite <span style="color: rgb(0, 0, 64);">*</span>pSpr<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        Brick <span style="color: rgb(0, 0, 64);">*</span> GetBrick<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pIndex<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Here is the complete code for our <b>BrickManager.h</b> file:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#ifndef __BRICKMANAGER_H__ </span>
+<span style="color: rgb(51, 153, 0);">#define __BRICKMANAGER_H__ </span>
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#include "Sprite.h" </span>
+<span style="color: rgb(51, 153, 0);">#include &lt;vector&gt; </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Color.h" </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Brick<span style="color: rgb(0, 128, 128);">:</span> <span style="color: rgb(0, 0, 255);">public</span> Sprite 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">private</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Color</span> mColor<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">public</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Brick<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Color</span> <span style="color: rgb(0, 0, 64);">&amp;</span>pColor<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> Draw<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span><span style="color: rgb(0, 0, 64);">*</span> pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">class</span> BrickManager 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">private</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span>mBrickImg<span style="color: rgb(0, 128, 128);">;</span> 
+        std<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">vector</span><span style="color: rgb(0, 0, 128);">&lt;</span>Brick<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 0, 64);">*</span>mBrickAry<span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> mCurTime,mMaxTime,mRows,mCols,mHorzSpacing,mVertSpacing<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">public</span><span style="color: rgb(0, 128, 128);">:</span> 
+        BrickManager<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span> <span style="color: rgb(0, 0, 64);">*</span>pBrickImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        ~BrickManager<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> CreateLevel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pRows, <span style="color: rgb(0, 0, 255);">int</span> pCols, <span style="color: rgb(0, 0, 255);">int</span> pHorzSpacing, <span style="color: rgb(0, 0, 255);">int</span> pVertSpacing,<span style="color: rgb(0, 0, 255);">int</span> pMaxTime<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> ClearLevel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> AddRow<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> MoveDown<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pAmt<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> Draw<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span> <span style="color: rgb(0, 0, 64);">*</span> pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> DeleteBrick<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pIndex<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> TestCollision<span style="color: rgb(0, 128, 0);">(</span>Sprite <span style="color: rgb(0, 0, 64);">*</span>pSpr<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        Brick <span style="color: rgb(0, 0, 64);">*</span> GetBrick<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pIndex<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#endif</span></pre>
+<a name="Coding_the_BrickManager"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=edit&amp;section=4" title="Edit section: Coding the BrickManager">edit</a>]</span> <span class="mw-headline">Coding the BrickManager</span></h3>
+<p>Now go to <b>BrickManager.cpp</b> and let’s take a look at how to start programming this beast!
+</p><p>The first thing we are going to do is include our headers like so:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "BrickManager.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Graphics.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h" </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">using</span> <span style="color: rgb(0, 0, 255);">namespace</span> Breakout<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>We included our BrickManager header and our graphics and image classes. Now we can define the methods for our Brick class.
+</p>
+<pre class="cpp" style="font-family: monospace;">Brick<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Brick</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Color</span> <span style="color: rgb(0, 0, 64);">&amp;</span>pColor<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">:</span>Sprite<span style="color: rgb(0, 128, 0);">(</span>pX,pY,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mColor<span style="color: rgb(0, 0, 128);">=</span>pColor<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Brick<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span> <span style="color: rgb(0, 0, 64);">*</span>pG<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    pG<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColor<span style="color: rgb(0, 128, 0);">(</span>mColor<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Nothing too complex eh? We call the constructor of our base class and
+ set the mColor member of our brick class in the constructor. We don’t 
+want the bricks to have a velocity so we pass zero to them. In the Draw 
+method we set the member color as the current color and then call the 
+draw method of the sprite class.
+</p><p>Now for the constructor of our BrickManager class:
+</p>
+<pre class="cpp" style="font-family: monospace;">BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">BrickManager</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span> <span style="color: rgb(0, 0, 64);">*</span>pBrickImg<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mBrickImg<span style="color: rgb(0, 0, 128);">=</span>pBrickImg<span style="color: rgb(0, 128, 128);">;</span> 
+    mBrickAry<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> std<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">vector</span><span style="color: rgb(0, 0, 128);">&lt;</span>Brick<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>We save the passed image so we can use it later on to set the image 
+to our brick sprites. Then we create our brick vector using the new 
+keyword. 
+</p><p>Now let’s look at the deconstructor: 
+</p>
+<pre class="cpp" style="font-family: monospace;">BrickManager<span style="color: rgb(0, 128, 128);">::</span>~BrickManager<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    ClearLevel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>clear<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBrickAry<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>We call ClearLevel to destroy all of the bricks in the vector and 
+then we clear the vector just to be sure, finally we delete the vector 
+itself. 
+</p><p>Here is the ClearLevel method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">ClearLevel</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        std<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">vector</span><span style="color: rgb(0, 0, 128);">&lt;</span>Brick<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">iterator</span> i<span style="color: rgb(0, 0, 128);">=</span>mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>begin<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">while</span><span style="color: rgb(0, 128, 0);">(</span>i<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span>mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>end<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+        <span style="color: rgb(0, 128, 0);">{</span> 
+            <span style="color: rgb(0, 0, 221);">delete</span> <span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 64);">*</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+            <span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 64);">*</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 128);">;</span> 
+            i<span style="color: rgb(0, 0, 128);">=</span>mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>erase<span style="color: rgb(0, 128, 0);">(</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 128, 0);">}</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>If the number of bricks is greater then zero, then we need to destroy
+ bricks from the array. If so then we create a new iterator starting at 
+the beginning of the vector and then while the iterate is not equal to 
+the end of the array we delete the object at the iterator, set it to 
+null, and then erase this iterator from the vector. This will 
+effectively remove all bricks from our vector.
+</p><p>So now we want to add a new row. This will be part of the code 
+used to create a new level and add a row at runtime. Here is the code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">AddRow</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pY<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> ic<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>ic<span style="color: rgb(0, 0, 128);">&lt;</span>mCols<span style="color: rgb(0, 128, 128);">;</span>ic<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> tR<span style="color: rgb(0, 0, 128);">=</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 0, 221);">Rand</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">235</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 221);">20</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> tG<span style="color: rgb(0, 0, 128);">=</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 0, 221);">Rand</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">235</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 221);">20</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> tB<span style="color: rgb(0, 0, 128);">=</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 0, 221);">Rand</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">235</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 221);">20</span><span style="color: rgb(0, 128, 128);">;</span> 
+        Brick<span style="color: rgb(0, 0, 64);">*</span>tBrick<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Brick<span style="color: rgb(0, 128, 0);">(</span>ic<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">(</span>mBrickImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mHorzSpacing<span style="color: rgb(0, 128, 0);">)</span>,pY,Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Color</span><span style="color: rgb(0, 128, 0);">(</span>tR,tG,tB<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        tBrick<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>mBrickImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>push_back<span style="color: rgb(0, 128, 0);">(</span>tBrick<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>mCols is the number of columns that we want to create and we run for 
+loop to create this many bricks across the screen. tR, tG, and tB hold 
+color values between 20 and 255. This will determine the color of each 
+brick. We then create a new brick using the formula ic (current column) 
+multipled by the width of the brick plus the spacing between each brick 
+is the X coordinate. The y coordinate is the parameter passed to the 
+AddRow method. We then set the brick image to the brick sprite and add 
+it to the brick vector.
+</p><p>Now let’s look at how we can create a level. We create a level using the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">CreateLevel</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pRows, <span style="color: rgb(0, 0, 255);">int</span> pCols, <span style="color: rgb(0, 0, 255);">int</span> pHorzSpacing, <span style="color: rgb(0, 0, 255);">int</span> pVertSpacing, <span style="color: rgb(0, 0, 255);">int</span> pMaxTime<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mRows<span style="color: rgb(0, 0, 128);">=</span>pRows<span style="color: rgb(0, 128, 128);">;</span> 
+    mCols<span style="color: rgb(0, 0, 128);">=</span>pCols<span style="color: rgb(0, 128, 128);">;</span> 
+    mHorzSpacing<span style="color: rgb(0, 0, 128);">=</span>pHorzSpacing<span style="color: rgb(0, 128, 128);">;</span> 
+    mVertSpacing<span style="color: rgb(0, 0, 128);">=</span>pVertSpacing<span style="color: rgb(0, 128, 128);">;</span> 
+    mMaxTime<span style="color: rgb(0, 0, 128);">=</span>pMaxTime<span style="color: rgb(0, 128, 128);">;</span> 
+    ClearLevel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> ir<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>ir<span style="color: rgb(0, 0, 128);">&lt;</span>pRows<span style="color: rgb(0, 128, 128);">;</span>ir<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        AddRow<span style="color: rgb(0, 128, 0);">(</span>ir<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">(</span>mBrickImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mVertSpacing<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>We pass the number of rows, columns, the horizontal and vertical spacing, and the time taken to add one row. 
+</p><p>We then save all of this information in the member variables of the BrickManager class.
+</p><p>We call ClearLevel to make sure the brick vector starts off empty. 
+</p><p>Then we run a for loop for the number of rows and each time add a row. 
+</p><p>To get the total number of bricks we use the following method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">int</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetBrickCnt</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span>    mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>size<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Here we just return the size of our brick vector. Nothing really complex about it!
+</p><p>To get a brick from the vector we use the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;">Brick<span style="color: rgb(0, 0, 64);">*</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetBrick</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pIndex<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>pIndex<span style="color: rgb(0, 0, 128);">&gt;=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 0, 64);">&amp;&amp;</span>pIndex<span style="color: rgb(0, 0, 128);">&lt;</span>GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+        <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 64);">*</span>mBrickAry<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">[</span>pIndex<span style="color: rgb(0, 128, 0);">]</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>In this method we check to make sure the index is in range and if so 
+we return that object from our vector. If the index is not in range then
+ we return NULL. 
+</p><p>Right so here is how we can delete a brick:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DeleteBrick</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pIndex<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    Brick<span style="color: rgb(0, 0, 64);">*</span> tBrick<span style="color: rgb(0, 0, 128);">=</span>GetBrick<span style="color: rgb(0, 128, 0);">(</span>pIndex<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>erase<span style="color: rgb(0, 128, 0);">(</span>mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>begin<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>pIndex<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> tBrick<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>We get the brick, remove it from the vector, and then delete the brick. 
+</p><p>To test for a collision between a different sprite we do the following:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">int</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">TestCollision</span><span style="color: rgb(0, 128, 0);">(</span>Sprite <span style="color: rgb(0, 0, 64);">*</span> pSpr<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> i<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 128);">&lt;</span>GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>GetBrick<span style="color: rgb(0, 128, 0);">(</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>pSpr<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">==</span><span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 0);">)</span> 
+            <span style="color: rgb(0, 0, 255);">return</span> i<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>We iterate all of the bricks and check collision with the passed 
+sprite. If it is true then we return the index of the brick we just 
+collided with. If we find no colliding sprites then we return -1 to 
+indicate that no brick was found because -1 is not a valid array index.
+</p><p>To move the bricks down a certain amount we define this method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">MoveDown</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pAmt<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> i<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 128);">&lt;</span>GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        Brick<span style="color: rgb(0, 0, 64);">*</span> tBrick<span style="color: rgb(0, 0, 128);">=</span>GetBrick<span style="color: rgb(0, 128, 0);">(</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        tBrick<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetY<span style="color: rgb(0, 128, 0);">(</span>tBrick<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 128, 0);">(</span>mBrickImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mVertSpacing<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*</span>pAmt<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>The update method to our brick manager needs to add to the time, 
+check if it is equal to the max time and if so move the bricks down and 
+add a new row of bricks at the top. The code looks like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mCurTime<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mCurTime<span style="color: rgb(0, 0, 64);">%</span>mMaxTime<span style="color: rgb(0, 0, 128);">==</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        mCurTime<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span> 
+        MoveDown<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        AddRow<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now the last method we need to concern ourselves with is the draw 
+method. This will iterate all of the bricks and call the draw method of 
+each one and it looks like the following:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span> <span style="color: rgb(0, 0, 64);">*</span>pG<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> i<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 128);">&lt;</span>GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        Brick<span style="color: rgb(0, 0, 64);">*</span> tBrick<span style="color: rgb(0, 0, 128);">=</span>GetBrick<span style="color: rgb(0, 128, 0);">(</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        tBrick<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Here is the complete code of <b>BrickManager.cpp</b>
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "BrickManager.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Graphics.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h" </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">using</span> <span style="color: rgb(0, 0, 255);">namespace</span> Breakout<span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+Brick<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Brick</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Color</span> <span style="color: rgb(0, 0, 64);">&amp;</span>pColor<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">:</span>Sprite<span style="color: rgb(0, 128, 0);">(</span>pX,pY,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mColor<span style="color: rgb(0, 0, 128);">=</span>pColor<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Brick<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span> <span style="color: rgb(0, 0, 64);">*</span>pG<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    pG<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColor<span style="color: rgb(0, 128, 0);">(</span>mColor<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">BrickManager</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span> <span style="color: rgb(0, 0, 64);">*</span>pBrickImg<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mBrickImg<span style="color: rgb(0, 0, 128);">=</span>pBrickImg<span style="color: rgb(0, 128, 128);">;</span> 
+    mBrickAry<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> std<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">vector</span><span style="color: rgb(0, 0, 128);">&lt;</span>Brick<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+BrickManager<span style="color: rgb(0, 128, 128);">::</span>~BrickManager<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    ClearLevel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>clear<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBrickAry<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">ClearLevel</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        std<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">vector</span><span style="color: rgb(0, 0, 128);">&lt;</span>Brick<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">iterator</span> i<span style="color: rgb(0, 0, 128);">=</span>mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>begin<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">while</span><span style="color: rgb(0, 128, 0);">(</span>i<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span>mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>end<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+        <span style="color: rgb(0, 128, 0);">{</span> 
+            <span style="color: rgb(0, 0, 221);">delete</span> <span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 64);">*</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+            <span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 64);">*</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 128);">;</span> 
+            i<span style="color: rgb(0, 0, 128);">=</span>mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>erase<span style="color: rgb(0, 128, 0);">(</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 128, 0);">}</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">AddRow</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pY<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> ic<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>ic<span style="color: rgb(0, 0, 128);">&lt;</span>mCols<span style="color: rgb(0, 128, 128);">;</span>ic<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> tR<span style="color: rgb(0, 0, 128);">=</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 0, 221);">Rand</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">235</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 221);">20</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> tG<span style="color: rgb(0, 0, 128);">=</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 0, 221);">Rand</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">235</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 221);">20</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> tB<span style="color: rgb(0, 0, 128);">=</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 0, 221);">Rand</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">235</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 221);">20</span><span style="color: rgb(0, 128, 128);">;</span> 
+        Brick<span style="color: rgb(0, 0, 64);">*</span>tBrick<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Brick<span style="color: rgb(0, 128, 0);">(</span>ic<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">(</span>mBrickImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mHorzSpacing<span style="color: rgb(0, 128, 0);">)</span>,pY,Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Color</span><span style="color: rgb(0, 128, 0);">(</span>tR,tG,tB<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        tBrick<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>mBrickImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>push_back<span style="color: rgb(0, 128, 0);">(</span>tBrick<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">CreateLevel</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pRows, <span style="color: rgb(0, 0, 255);">int</span> pCols, <span style="color: rgb(0, 0, 255);">int</span> pHorzSpacing, <span style="color: rgb(0, 0, 255);">int</span> pVertSpacing, <span style="color: rgb(0, 0, 255);">int</span> pMaxTime<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mRows<span style="color: rgb(0, 0, 128);">=</span>pRows<span style="color: rgb(0, 128, 128);">;</span> 
+    mCols<span style="color: rgb(0, 0, 128);">=</span>pCols<span style="color: rgb(0, 128, 128);">;</span> 
+    mHorzSpacing<span style="color: rgb(0, 0, 128);">=</span>pHorzSpacing<span style="color: rgb(0, 128, 128);">;</span> 
+    mVertSpacing<span style="color: rgb(0, 0, 128);">=</span>pVertSpacing<span style="color: rgb(0, 128, 128);">;</span> 
+    mMaxTime<span style="color: rgb(0, 0, 128);">=</span>pMaxTime<span style="color: rgb(0, 128, 128);">;</span> 
+    ClearLevel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> ir<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>ir<span style="color: rgb(0, 0, 128);">&lt;</span>pRows<span style="color: rgb(0, 128, 128);">;</span>ir<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        AddRow<span style="color: rgb(0, 128, 0);">(</span>ir<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">(</span>mBrickImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mVertSpacing<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">int</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetBrickCnt</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span>    mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>size<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+Brick<span style="color: rgb(0, 0, 64);">*</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetBrick</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pIndex<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>pIndex<span style="color: rgb(0, 0, 128);">&gt;=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 0, 64);">&amp;&amp;</span>pIndex<span style="color: rgb(0, 0, 128);">&lt;</span>GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+        <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 64);">*</span>mBrickAry<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">[</span>pIndex<span style="color: rgb(0, 128, 0);">]</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DeleteBrick</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pIndex<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    Brick<span style="color: rgb(0, 0, 64);">*</span> tBrick<span style="color: rgb(0, 0, 128);">=</span>GetBrick<span style="color: rgb(0, 128, 0);">(</span>pIndex<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>erase<span style="color: rgb(0, 128, 0);">(</span>mBrickAry<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>begin<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>pIndex<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> tBrick<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">int</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">TestCollision</span><span style="color: rgb(0, 128, 0);">(</span>Sprite <span style="color: rgb(0, 0, 64);">*</span> pSpr<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> i<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 128);">&lt;</span>GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>GetBrick<span style="color: rgb(0, 128, 0);">(</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>pSpr<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">==</span><span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 0);">)</span> 
+            <span style="color: rgb(0, 0, 255);">return</span> i<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">MoveDown</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> pAmt<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> i<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 128);">&lt;</span>GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        Brick<span style="color: rgb(0, 0, 64);">*</span> tBrick<span style="color: rgb(0, 0, 128);">=</span>GetBrick<span style="color: rgb(0, 128, 0);">(</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        tBrick<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetY<span style="color: rgb(0, 128, 0);">(</span>tBrick<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 128, 0);">(</span>mBrickImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mVertSpacing<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*</span>pAmt<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mCurTime<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mCurTime<span style="color: rgb(0, 0, 64);">%</span>mMaxTime<span style="color: rgb(0, 0, 128);">==</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        mCurTime<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span> 
+        MoveDown<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        AddRow<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> BrickManager<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span> <span style="color: rgb(0, 0, 64);">*</span>pG<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> i<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 128);">&lt;</span>GetBrickCnt<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>i<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        Brick<span style="color: rgb(0, 0, 64);">*</span> tBrick<span style="color: rgb(0, 0, 128);">=</span>GetBrick<span style="color: rgb(0, 128, 0);">(</span>i<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        tBrick<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<a name="Implementing_the_Brickmanager"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=edit&amp;section=5" title="Edit section: Implementing the Brickmanager">edit</a>]</span> <span class="mw-headline">Implementing the Brickmanager</span></h3>
+<p>To implement this class first go to <b>Board.h</b> and locate the Breakout namespace. We need to add a prototype of our BrickManager class so it should look like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Sprite<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Ball<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> BrickManager<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>After the paddle sprite defenition add the followng:
+</p>
+<pre class="cpp" style="font-family: monospace;">Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">BrickManager</span><span style="color: rgb(0, 0, 64);">*</span> mBrickManager<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So the member variables of our Board widget should look like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">private</span><span style="color: rgb(0, 128, 128);">:</span> 
+&nbsp;
+        GameApp<span style="color: rgb(0, 0, 64);">*</span>    mApp<span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 0, 64);">*</span> mBall<span style="color: rgb(0, 128, 128);">;</span> 
+        Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Sprite</span> <span style="color: rgb(0, 0, 64);">*</span>mPaddle<span style="color: rgb(0, 128, 128);">;</span> 
+        Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">BrickManager</span><span style="color: rgb(0, 0, 64);">*</span> mBrickManager<span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> mOldMouseX,mOldMouseY,mMouseX,mMouseY<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now go to <b>Board.cpp</b> and add the following to your include statements:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "BrickManager.h"</span></pre>
+<p>In the Board <b>constructor</b> right after we set the image for our paddle sprite we need to create a new brick manager and create a new level.
+</p>
+<pre class="cpp" style="font-family: monospace;">mBrickManager<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">BrickManager</span><span style="color: rgb(0, 128, 0);">(</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBrickImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBrickManager<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CreateLevel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">5</span>,<span style="color: rgb(0, 0, 221);">12</span>,<span style="color: rgb(0, 0, 221);">3</span>,<span style="color: rgb(0, 0, 221);">2</span>,<span style="color: rgb(0, 0, 221);">1000</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>In the Board <b>deconstructor</b> we need to delete the brick manager so add the following:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 221);">delete</span> mBrickManager<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>In the <b>Update</b> method we need to add the following code right after we update the paddle:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBrickManager<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">int</span> ColIndex<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">(</span>ColIndex<span style="color: rgb(0, 0, 128);">=</span>mBrickManager<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>TestCollision<span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span>,mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        mBrickManager<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DeleteBrick<span style="color: rgb(0, 128, 0);">(</span>ColIndex<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>We update the brick manager to increment the timer. The update loop 
+is called 100 times per second so our timer will need to be 100 times 
+the number of seconds we want before a new row is created. Then we test 
+to see if there is a collision between the ball and a brick and if there
+ is then we reflect the direction of the ball and delete the brick. 
+</p><p>The last thing we need to do is to draw the manager to the screen between the colorize methods. 
+</p>
+<pre class="cpp" style="font-family: monospace;">mBrickManager<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So here is the new Draw method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Graphics<span style="color: rgb(0, 0, 64);">*</span> g<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColor<span style="color: rgb(0, 128, 0);">(</span>Color<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Set black color </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>FillRect<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>, <span style="color: rgb(0, 0, 221);">0</span>, mWidth, mHeight<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Fill screen with current color </span>
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DrawF<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//calls the DrawF method which calls DrawImageF </span>
+    mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//calls the Draw method which calls DrawImage </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColorizeImages<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//We want to colorize the images we draw next </span>
+    mBrickManager<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//draw the bricks </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColorizeImages<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">false</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//we no longer want to colorize any images </span>
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now when we run this code we should see the following:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BricksAdded.jpg" class="image" title="Image:PopCap_Tutorials_BricksAdded.jpg"><img alt="Image:PopCap_Tutorials_BricksAdded.jpg" src="PopCap%20Tutorials%20Breakout%20Part5_files/PopCap_Tutorials_BricksAdded.jpg" width="800" border="0" height="627"></a>
+</p>
+<a name="What_we_have_done_in_this_tutorial"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=edit&amp;section=6" title="Edit section: What we have done in this tutorial">edit</a>]</span> <span class="mw-headline">What we have done in this tutorial</span></h2>
+<p>In this tutorial we made the ball move smoothly and implemented a brick manager to manage our bricks. 
+</p>
+<a name="Until_next_time.E2.80.A6"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=edit&amp;section=7" title="Edit section: Until next time…">edit</a>]</span> <span class="mw-headline">Until next time…</span></h3>
+<p>Like always I hope you enjoyed this part of my tutorial. I know this 
+tutorial took a long time to get out the door but as you can see it 
+ended up being quite long! In the next installment we focus on improving
+ the graphics and tweaking the game mechanics to make it more playable. 
+</p><p>Continue to <a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part6" title="PopCap:Tutorials:Breakout:Part6">part 6</a>
+</p><p><a href="http://wiki.gamedev.net/images/0/01/PopCap_Tutorials_BreakoutGame_part5.zip" class="internal" title="PopCap Tutorials BreakoutGame part5.zip">Attached</a> is the latest code for this project.
+</p>
+<a name="Legal_Stuff"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=edit&amp;section=8" title="Edit section: Legal Stuff">edit</a>]</span> <span class="mw-headline">Legal Stuff</span></h3>
+<p><b>I take no responsibility what so ever for any damages or 
+liabilities from the code and/or information presented in this tutorial.
+ This tutorial is provided AS-IS with no warranty what so ever.</b>
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 174/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key gpwiki:pcache:idhash:5870-0!1!0!!en!2 and timestamp 20101224084113 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part5">http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part5</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part5" title="View the content page [alt-shift-c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki.gamedev.net/index.php?title=Talk:PopCap:Tutorials:Breakout:Part5&amp;action=edit" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-edit"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=edit" title="You can edit this page.
+Please use the preview button before saving. [alt-shift-e]" accesskey="e">Edit</a></li>
+				 <li id="ca-history"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;action=history" title="Past versions of this page. [alt-shift-h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://wiki.gamedev.net/index.php?title=Special:UserLogin&amp;returnto=PopCap:Tutorials:Breakout:Part5" title="You are encouraged to log in, it is not mandatory however. [alt-shift-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(&quot;/stylesheets/images/wiki.png&quot;);" href="http://wiki.gamedev.net/index.php/Main_Page" title="Visit the Main Page [alt-shift-z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="http://gpwiki.org/" title="Visit the Main Page [alt-shift-z]" accesskey="z">Main Page</a></li>
+				<li id="n-Message-Board"><a href="http://gpwiki.org/forums">Message Board</a></li>
+				<li id="n-currentevents"><a href="http://wiki.gamedev.net/index.php/GDWiki:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="http://wiki.gamedev.net/index.php/Special:Recentchanges" title="The list of recent changes in the wiki. [alt-shift-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="http://wiki.gamedev.net/index.php/Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="http://wiki.gamedev.net/index.php/Help:Contents" title="The place to find out.">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-categories">
+		<h5>Categories</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-introduction"><a href="http://wiki.gamedev.net/index.php/Introduction">introduction</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" title="Search GDWiki [alt-shift-f]" accesskey="f" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" title="Go to a page with this exact name if exists" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://wiki.gamedev.net/index.php/Special:WhatLinksHere/PopCap:Tutorials:Breakout:Part5" title="List of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://wiki.gamedev.net/index.php/Special:RecentChangesLinked/PopCap:Tutorials:Breakout:Part5" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="http://wiki.gamedev.net/index.php/Special:Upload" title="Upload files [alt-shift-u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="http://wiki.gamedev.net/index.php/Special:SpecialPages" title="List of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;printable=yes" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part5&amp;oldid=26156" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="PopCap%20Tutorials%20Breakout%20Part5_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="PopCap%20Tutorials%20Breakout%20Part5_files/gnu-fdl.png" alt="GNU Free Documentation License 1.2"></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified on 9 January 2009, at 14:19.</li>
+				<li id="copyright">Content is available under <a href="http://www.gnu.org/copyleft/fdl.html" class="external " title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License 1.2</a>.</li>
+				<li id="privacy"><a href="http://wiki.gamedev.net/index.php/GDWiki:Privacy_policy" title="GDWiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://wiki.gamedev.net/index.php/GDWiki:About" title="GDWiki:About">About GDWiki</a></li>
+				<li id="disclaimer"><a href="http://wiki.gamedev.net/index.php/GDWiki:General_disclaimer" title="GDWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 1.740 secs. --><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? 
+"https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + 
+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="PopCap%20Tutorials%20Breakout%20Part5_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6779482-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body></html>

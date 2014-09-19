@@ -1,0 +1,843 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+
+
+
+	<title>Catalin’s XNA Experiments » Loading ToonBoom animations in XNA</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+	<meta name="generator" content="WordPress 2.9.2"> <!-- leave this for stats please -->
+
+<link rel="stylesheet" href="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/style.css" type="text/css" media="screen">
+<link rel="stylesheet" type="text/css" href="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/stylewp-green.css" title="green">
+<link rel="alternate stylesheet" type="text/css" href="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/stylewp-red.css" title="red">
+
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.catalinzima.com/?feed=rss2">
+	<link rel="alternate" type="text/xml" title="RSS .92" href="http://www.catalinzima.com/?feed=rss">
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.catalinzima.com/?feed=atom">
+	<link rel="pingback" href="http://www.catalinzima.com/xmlrpc.php">
+
+<script type="text/javascript" src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/styleswitcher.js"> </script>
+
+		<link rel="archives" title="May 2010" href="http://www.catalinzima.com/?m=201005">
+	<link rel="archives" title="April 2010" href="http://www.catalinzima.com/?m=201004">
+	<link rel="archives" title="November 2009" href="http://www.catalinzima.com/?m=200911">
+	<link rel="archives" title="October 2009" href="http://www.catalinzima.com/?m=200910">
+	<link rel="archives" title="September 2009" href="http://www.catalinzima.com/?m=200909">
+	<link rel="archives" title="August 2009" href="http://www.catalinzima.com/?m=200908">
+	<link rel="archives" title="July 2009" href="http://www.catalinzima.com/?m=200907">
+	<link rel="archives" title="June 2009" href="http://www.catalinzima.com/?m=200906">
+	<link rel="archives" title="April 2009" href="http://www.catalinzima.com/?m=200904">
+	<link rel="archives" title="March 2009" href="http://www.catalinzima.com/?m=200903">
+	<link rel="archives" title="February 2009" href="http://www.catalinzima.com/?m=200902">
+	<link rel="archives" title="January 2009" href="http://www.catalinzima.com/?m=200901">
+	<link rel="archives" title="December 2008" href="http://www.catalinzima.com/?m=200812">
+	<link rel="archives" title="November 2008" href="http://www.catalinzima.com/?m=200811">
+	<link rel="archives" title="October 2008" href="http://www.catalinzima.com/?m=200810">
+	<link rel="archives" title="September 2008" href="http://www.catalinzima.com/?m=200809">
+	<link rel="archives" title="August 2008" href="http://www.catalinzima.com/?m=200808">
+	<link rel="archives" title="July 2008" href="http://www.catalinzima.com/?m=200807">
+	<link rel="archives" title="June 2008" href="http://www.catalinzima.com/?m=200806">
+	<link rel="archives" title="May 2008" href="http://www.catalinzima.com/?m=200805">
+	<link rel="archives" title="April 2008" href="http://www.catalinzima.com/?m=200804">
+	<link rel="archives" title="March 2008" href="http://www.catalinzima.com/?m=200803">
+	<link rel="archives" title="February 2008" href="http://www.catalinzima.com/?m=200802">
+	<link rel="archives" title="January 2008" href="http://www.catalinzima.com/?m=200801">
+		<link rel="alternate" type="application/rss+xml" title="Catalin's XNA Experiments » Loading ToonBoom animations in XNA Comments Feed" href="http://www.catalinzima.com/?feed=rss2&amp;p=550">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.catalinzima.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.catalinzima.com/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Catalin's XNA Experiments" href="http://www.catalinzima.com/">
+<link rel="start" title="HLSL Learning Resources" href="http://www.catalinzima.com/?p=9">
+<link rel="prev" title="My experience with Toon Boom Studio" href="http://www.catalinzima.com/?p=545">
+<link rel="next" title="3 Red Rings…" href="http://www.catalinzima.com/?p=553">
+<meta name="generator" content="WordPress 2.9.2">
+<link rel="canonical" href="http://www.catalinzima.com/?p=550">
+<link rel="shortlink" href="http://wp.me/pbOOT-8S"></head><body><div id="container">
+
+   <div class="stylewp">
+   Options:
+    <ul>
+<li><a href="#" onclick="setActiveStyleSheet('green'); return false;">Green</a></li>
+<li><a href="#" onclick="setActiveStyleSheet('red'); return false;">Red</a></li>
+    </ul>
+  </div>
+
+<div id="menu">
+	<ul>
+		<li class="page_item"><a href="http://www.catalinzima.com/">Home</a></li>
+		<li class="page_item page-item-11"><a href="http://www.catalinzima.com/?page_id=11" title="Samples">Samples</a></li>
+<li class="page_item page-item-10"><a href="http://www.catalinzima.com/?page_id=10" title="Tutorials">Tutorials</a></li>
+<li class="page_item page-item-2"><a href="http://www.catalinzima.com/?page_id=2" title="About">About</a></li>
+	</ul>
+</div>
+
+<div id="wrapper">
+	<div id="page-wrapper"><div id="page">
+
+		<div id="header">
+			<h1>
+                           Catalin's XNA Experiments
+                        </h1>
+		<div id="description">
+                          Samples and tutorials for XNA Game Studio
+		</div>
+</div>
+		<div class="narrowcolumn">
+
+			<div class="posts-wrapper">	<div class="posts">
+							<h2><a href="http://www.catalinzima.com/?p=550" rel="bookmark" title="Loading ToonBoom animations in XNA">Loading ToonBoom animations in XNA</a></h2>
+
+					<div class="postinfo">
+						<ul>
+							<li class="author">by <a href="http://www.catalinzima.com/" title="Visit Catalin Zima’s website" rel="external">Catalin Zima</a></li>
+							<li class="date">on 08.29.09</li>
+							<li class="category-info">under <a href="http://www.catalinzima.com/?cat=12" title="View all posts in 2D" rel="category">2D</a>,  <a href="http://www.catalinzima.com/?cat=20" title="View all posts in Kitty" rel="category">Kitty</a>,  <a href="http://www.catalinzima.com/?cat=28" title="View all posts in ToonBoom" rel="category">ToonBoom</a>,  <a href="http://www.catalinzima.com/?cat=5" title="View all posts in XNA" rel="category">XNA</a></li>
+							<li class="comment-number"><a href="http://www.catalinzima.com/?p=550#respond" title="Comment on Loading ToonBoom animations in XNA">No Comments</a></li>
+							<li class="edit-info"></li>
+						</ul>
+					</div>
+
+					<div class="clear"></div>
+
+				<div class="entry">
+					<p><a href="http://www.catalinzima.com/?p=545">Last time</a>,
+I talked about my experience with drawing and animating 2D images with
+ToonBoom. In the end of that post, I said that one way to load ToonBoom
+animations in XNA was to export the animation as a sequence of images,
+and then load these images and animate them in XNA. So today we will
+look at a quick way to to just that.</p>
+<p>The exporting part is easy enough: just user <em>File-&gt;Export Movie</em> in ToonBoom, and then select <em>Image Sequence</em> as the <em>Export Format</em>.
+The result will be a collection of images, depending on the framerate
+you choose. The result from my cat animation can be seen in <a href="http://www.catalinzima.com/wp-content/uploads/2009/08/catwalk.zip">this</a> archive.</p>
+<p>The next step is assembling all the images in a single image,
+usually called a sprite-sheet. Of course, you could also simply load
+all the images as they are in several Texture2D variables, but working
+with sprite-sheets yields better performance. For the creation of the
+sprite-sheet, there are several options. </p>
+<p>The first one is to open an image processing application, load all
+small images, and assemble them in a single image manually. You can
+imagine this is time consuming, and only worthy if you plan on doing
+this operation for a very small number of sprites. </p>
+<p>The second option, which I used for this sample, is to write a small
+program that takes the images as input, and generates the sprite-sheet
+as you want it. My version of this was quickly hacked in a few minutes,
+so you can see from the source code (<a href="http://www.catalinzima.com/wp-content/uploads/2009/08/spritesheetcreator.zip">get it here</a>) that it makes several assumptions:</p>
+<ul>
+<li>all input images are the same size, and are rectangular </li>
+<li>the output sprite will contain all input sprites arranged on a single row </li>
+<li>the input files are all named similarly (cat1.png, cat2.png, …, cat14.png) </li>
+</ul>
+<p>While definitely not an elegant solution, it did it’s job, and I was
+quickly able to obtain the following image (click for larger size):</p>
+<p><a href="http://www.catalinzima.com/wp-content/uploads/2009/08/catwalk.png"><img style="border-width: 0px; display: inline;" title="catWalk" alt="catWalk" src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/catwalk-thumb.png" width="560" border="0" height="40"></a> </p>
+<p>The third option, which is the recommended one for a larger project,
+is to use a more complex program for creating sprite-sheets. You can
+either create one yourself, based on certain file formats you want to
+use internally, or around certain restrictions you want to impose on
+your engine; or you can use an existing one, such as <a href="http://www.ziggyware.com/news.php?readmore=538">Ziggyware’s Sprite Sheet Creator</a>.
+Note that if you go for this option, you’ll have to follow certain
+conventions in your runtime code, imposed by your program used for
+creating the sprite-sheets.</p>
+<p>That being said, we now have a sprite sheet with all the frames of
+the walking cat animation, and are ready to load this in XNA. </p>
+<p>After creating a new XNA project, I read through <a href="http://www.ziggyware.com/readarticle.php?article_id=138">Nick’s article about Sprite Sheet Animations</a>,
+and created the following class to hold all information needed for
+animations. For a detailed explanation, go ahead and read Nick’s
+article.</p>
+<div style="border: 1px solid silver; margin: 20px 0px 10px; padding: 4px; overflow: auto; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 97.5%; font-family: 'Courier New',courier,monospace; direction: ltr; max-height: 200px; font-size: 8pt; cursor: text;" id="codeSnippetWrapper">
+<div style="border-style: none; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;" id="codeSnippet">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum1">   1:</span> <span style="color: rgb(0, 0, 255);">class</span> Animation</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum2">   2:</span> {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum3">   3:</span>     Rectangle[] frames;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum4">   4:</span>     <span style="color: rgb(0, 0, 255);">float</span> frameLength = 1f / 5f;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum5">   5:</span>     <span style="color: rgb(0, 0, 255);">float</span> timer = 0f;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum6">   6:</span>     <span style="color: rgb(0, 0, 255);">int</span> currentFrame = 0;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum7">   7:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum8">   8:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;summary&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum9">   9:</span>     <span style="color: rgb(0, 128, 0);">/// Gets of sets the FPS of the animation</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum10">  10:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;/summary&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum11">  11:</span>     <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">int</span> FramesPerSecond</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum12">  12:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum13">  13:</span>         get { <span style="color: rgb(0, 0, 255);">return</span> (<span style="color: rgb(0, 0, 255);">int</span>)(1f / frameLength); }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum14">  14:</span>         set { frameLength = 1f / (<span style="color: rgb(0, 0, 255);">float</span>)<span style="color: rgb(0, 0, 255);">value</span>; }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum15">  15:</span>     }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum16">  16:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum17">  17:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;summary&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum18">  18:</span>     <span style="color: rgb(0, 128, 0);">/// Gets the Rectangle containing the current frame of animation</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum19">  19:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;/summary&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum20">  20:</span>     <span style="color: rgb(0, 0, 255);">public</span> Rectangle CurrentFrame</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum21">  21:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum22">  22:</span>         get { <span style="color: rgb(0, 0, 255);">return</span> frames[currentFrame]; }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum23">  23:</span>     }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum24">  24:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum25">  25:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;summary&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum26">  26:</span>     <span style="color: rgb(0, 128, 0);">/// Creates an animation object</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum27">  27:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;/summary&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum28">  28:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;param name="width"&gt; the total width of the input image&lt;/param&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum29">  29:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;param name="height"&gt; the height of the input image&lt;/param&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum30">  30:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;param name="numFrames"&gt; the number of frames in the sprite-sheet&lt;/param&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum31">  31:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;param name="xOffset"&gt; the X origin of the sprite-sheet&lt;/param&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum32">  32:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;param name="yOffset"&gt; the Y origin of the sprite-sheet&lt;/param&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum33">  33:</span>     <span style="color: rgb(0, 0, 255);">public</span> Animation(<span style="color: rgb(0, 0, 255);">int</span> width, <span style="color: rgb(0, 0, 255);">int</span> height, <span style="color: rgb(0, 0, 255);">int</span> numFrames, <span style="color: rgb(0, 0, 255);">int</span> xOffset, <span style="color: rgb(0, 0, 255);">int</span> yOffset)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum34">  34:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum35">  35:</span>         frames = <span style="color: rgb(0, 0, 255);">new</span> Rectangle[numFrames];</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum36">  36:</span>         <span style="color: rgb(0, 0, 255);">int</span> frameWidth = width / numFrames;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum37">  37:</span>         <span style="color: rgb(0, 0, 255);">for</span> (<span style="color: rgb(0, 0, 255);">int</span> i = 0; i &lt; numFrames; i++)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum38">  38:</span>         {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum39">  39:</span>             frames[i] = <span style="color: rgb(0, 0, 255);">new</span> Rectangle(xOffset + (frameWidth * i), yOffset,</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum40">  40:</span>                                       frameWidth, height);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum41">  41:</span>         }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum42">  42:</span>     }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum43">  43:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum44">  44:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;summary&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum45">  45:</span>     <span style="color: rgb(0, 128, 0);">/// update the animation</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum46">  46:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;/summary&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum47">  47:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;param name="elapsed"&gt; seconds since the last frame&lt;/param&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum48">  48:</span>     <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">void</span> Update(<span style="color: rgb(0, 0, 255);">float</span> elapsed)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum49">  49:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum50">  50:</span>         timer += elapsed;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum51">  51:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum52">  52:</span>         <span style="color: rgb(0, 0, 255);">if</span> (timer &gt;= frameLength)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum53">  53:</span>         {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum54">  54:</span>             timer = 0f;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum55">  55:</span>             currentFrame = (currentFrame + 1) % frames.Length;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum56">  56:</span>         }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum57">  57:</span>     }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum58">  58:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum59">  59:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;summary&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum60">  60:</span>     <span style="color: rgb(0, 128, 0);">/// resets the animation</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum61">  61:</span>     <span style="color: rgb(0, 128, 0);">/// &lt;/summary&gt;</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum62">  62:</span>     <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">void</span> Reset()</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum63">  63:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum64">  64:</span>         currentFrame = 0;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum65">  65:</span>         timer = 0f;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum66">  66:</span>     }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum67">  67:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum68">  68:</span> }</pre>
+<p><!--CRLF--></p></div>
+</div>
+<p>Next, I created a class for the cat, holding a few members we need for the animation.</p>
+<div style="border: 1px solid silver; margin: 20px 0px 10px; padding: 4px; overflow: auto; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 97.5%; font-family: 'Courier New',courier,monospace; direction: ltr; max-height: 200px; font-size: 8pt; cursor: text;" id="codeSnippetWrapper">
+<div style="border-style: none; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;" id="codeSnippet">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum1">   1:</span> <span style="color: rgb(0, 0, 255);">class</span> Cat</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum2">   2:</span> {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum3">   3:</span>     Texture2D texture;              <span style="color: rgb(0, 128, 0);">//sprite-sheet containing the cat animation</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum4">   4:</span>     Animation walkingAnimation;     <span style="color: rgb(0, 128, 0);">//animation object used for animating</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum5">   5:</span>     Vector2 velocity;               <span style="color: rgb(0, 128, 0);">//movement direction</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum6">   6:</span>     <span style="color: rgb(0, 0, 255);">float</span> movementSpeed;            <span style="color: rgb(0, 128, 0);">//movement speed</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum7">   7:</span>     Vector2 origin;                 <span style="color: rgb(0, 128, 0);">//origin of the image</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum8">   8:</span>     <span style="color: rgb(0, 0, 255);">bool</span> isMirrored = <span style="color: rgb(0, 0, 255);">false</span>;        <span style="color: rgb(0, 128, 0);">//draw the image mirrored</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum9">   9:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum10">  10:</span>     <span style="color: rgb(0, 0, 255);">public</span> Vector2 Position { get; set; }   //position on the screen</pre>
+<p><!--CRLF--></p></div>
+</div>
+<p>Nothing really special here… Maybe except the isMirrored variable.
+We use this because our image for the cat shows it facing left. So when
+we want it to move towards the right, rather than creating a separate
+sprite with the cat facing right, we mirror the existing sprite. Of
+course, you can’t always use this trick (or a right-handed character
+suddenly becomes left-handed), but there are many cases when this trick
+is enough.</p>
+<p>The constructor is straightforward, with some hard-coded values tweaked until I was satisfied with how things looked.</p>
+<div style="border: 1px solid silver; margin: 20px 0px 10px; padding: 4px; overflow: auto; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 97.5%; font-family: 'Courier New',courier,monospace; direction: ltr; max-height: 200px; font-size: 8pt; cursor: text;" id="codeSnippetWrapper">
+<div style="border-style: none; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;" id="codeSnippet">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum1">   1:</span> <span style="color: rgb(0, 0, 255);">public</span> Cat(Texture2D texture, <span style="color: rgb(0, 0, 255);">int</span> frameCount, Vector2 origin)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum2">   2:</span> {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum3">   3:</span>     <span style="color: rgb(0, 0, 255);">this</span>.texture = texture;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum4">   4:</span>     <span style="color: rgb(0, 128, 0);">//create a new animation object</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum5">   5:</span>     walkingAnimation = <span style="color: rgb(0, 0, 255);">new</span> Animation(texture.Width, texture.Height, frameCount, 0, 0);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum6">   6:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum7">   7:</span>     <span style="color: rgb(0, 128, 0);">//tweak the FramesPerSecond and movementSpeed values until you're satisfied with how things move</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum8">   8:</span>     walkingAnimation.FramesPerSecond = 14 * 3;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum9">   9:</span>     movementSpeed = 256;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum10">  10:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum11">  11:</span>     <span style="color: rgb(0, 128, 0);">//reset position</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum12">  12:</span>     Position = Vector2.Zero;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum13">  13:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum14">  14:</span>     <span style="color: rgb(0, 0, 255);">this</span>.origin = origin;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum15">  15:</span> }</pre>
+<p><!--CRLF--></p></div>
+</div>
+<p>For movement, input from both keyboard and gamepad is analyzed, and the velocity’s value is updated.</p>
+<div style="border: 1px solid silver; margin: 20px 0px 10px; padding: 4px; overflow: auto; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 97.5%; font-family: 'Courier New',courier,monospace; direction: ltr; max-height: 200px; font-size: 8pt; cursor: text;" id="codeSnippetWrapper">
+<div style="border-style: none; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;" id="codeSnippet">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum1">   1:</span> <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">void</span> HandleInput()</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum2">   2:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum3">   3:</span>         KeyboardState keyState = Keyboard.GetState();</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum4">   4:</span>         GamePadState gamepadState = GamePad.GetState(PlayerIndex.One);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum5">   5:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum6">   6:</span>         velocity = Vector2.Zero;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum7">   7:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum8">   8:</span>         <span style="color: rgb(0, 0, 255);">if</span> (gamepadState.IsConnected)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum9">   9:</span>         {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum10">  10:</span>             velocity = gamepadState.ThumbSticks.Left;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum11">  11:</span>             velocity.Y *= -1;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum12">  12:</span>         }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum13">  13:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum14">  14:</span>         <span style="color: rgb(0, 0, 255);">if</span> (keyState.IsKeyDown(Keys.Left))</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum15">  15:</span>             velocity.X = -1.0f;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum16">  16:</span>         <span style="color: rgb(0, 0, 255);">if</span> (keyState.IsKeyDown(Keys.Right))</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum17">  17:</span>             velocity.X = 1.0f;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum18">  18:</span>         <span style="color: rgb(0, 0, 255);">if</span> (keyState.IsKeyDown(Keys.Up))</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum19">  19:</span>             velocity.Y = -1.0f;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum20">  20:</span>         <span style="color: rgb(0, 0, 255);">if</span> (keyState.IsKeyDown(Keys.Down))</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum21">  21:</span>             velocity.Y = 1.0f;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum22">  22:</span>     }</pre>
+<p><!--CRLF--></p></div>
+</div>
+<p>In the Update function, we first look which way the cat is facing,
+and update the value of isMirrored. Then, if the cat is moving, we
+update the animation and position on the screen.</p>
+<div style="border: 1px solid silver; margin: 20px 0px 10px; padding: 4px; overflow: auto; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 97.5%; font-family: 'Courier New',courier,monospace; direction: ltr; max-height: 200px; font-size: 8pt; cursor: text;" id="codeSnippetWrapper">
+<div style="border-style: none; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;" id="codeSnippet">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum1">   1:</span> <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">void</span> Update(GameTime gameTime)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum2">   2:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum3">   3:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum4">   4:</span>         <span style="color: rgb(0, 128, 0);">//mirror the cat if we are moving towards the right</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum5">   5:</span>         <span style="color: rgb(0, 0, 255);">if</span> (velocity.X &gt; 0.1f)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum6">   6:</span>             isMirrored = <span style="color: rgb(0, 0, 255);">true</span>;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum7">   7:</span>         <span style="color: rgb(0, 0, 255);">if</span> (velocity.X &lt; -0.1f)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum8">   8:</span>             isMirrored = <span style="color: rgb(0, 0, 255);">false</span>;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum9">   9:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum10">  10:</span>         <span style="color: rgb(0, 128, 0);">//normalize velocity vector</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum11">  11:</span>         <span style="color: rgb(0, 0, 255);">if</span> (velocity.Length() &gt; 1.0f)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum12">  12:</span>             velocity.Normalize();</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum13">  13:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum14">  14:</span>         <span style="color: rgb(0, 128, 0);">//get elapsed seconds</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum15">  15:</span>         <span style="color: rgb(0, 0, 255);">float</span> elapsed = (<span style="color: rgb(0, 0, 255);">float</span>)gameTime.ElapsedGameTime.TotalSeconds;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum16">  16:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum17">  17:</span>         <span style="color: rgb(0, 128, 0);">//only animate if we are moving</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum18">  18:</span>         <span style="color: rgb(0, 0, 255);">float</span> speed = velocity.Length();</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum19">  19:</span>         <span style="color: rgb(0, 0, 255);">if</span> (speed &gt; 0.0f)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum20">  20:</span>             walkingAnimation.Update(elapsed * speed);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum21">  21:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum22">  22:</span>         <span style="color: rgb(0, 128, 0);">//update position</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum23">  23:</span>         Position += velocity * elapsed * movementSpeed;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum24">  24:</span>     }</pre>
+<p><!--CRLF--></p></div>
+</div>
+<p>Finally, the Draw function takes as a parameter the active
+spriteBatch, and draws the current animation frame using it. Here we
+can see how to mirror the sprite using SpriteEffects.FlipHorizontally.</p>
+<div style="border: 1px solid silver; margin: 20px 0px 10px; padding: 4px; overflow: auto; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 97.5%; font-family: 'Courier New',courier,monospace; direction: ltr; max-height: 200px; font-size: 8pt; cursor: text;" id="codeSnippetWrapper">
+<div style="border-style: none; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;" id="codeSnippet">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum1">   1:</span> <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">void</span> Draw(SpriteBatch spriteBatch)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum2">   2:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum3">   3:</span>         SpriteEffects spriteEffect = SpriteEffects.None;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum4">   4:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum5">   5:</span>         <span style="color: rgb(0, 128, 0);">//mirror the image if necessary</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum6">   6:</span>         <span style="color: rgb(0, 0, 255);">if</span> (isMirrored)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum7">   7:</span>             spriteEffect = SpriteEffects.FlipHorizontally;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum8">   8:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum9">   9:</span>         spriteBatch.Draw(texture, Position, walkingAnimation.CurrentFrame,</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum10">  10:</span>                         Color.White, 0.0f, origin, 1.0f, spriteEffect, 1.0f);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum11">  11:</span>     }</pre>
+<p><!--CRLF--></p></div>
+</div>
+<p>With this class created, using it in our Game class is trivial.
+Simply load the texture in LoadContent() and create a Cat object,
+update it’s input and internal state in Update() and draw it in Draw().</p>
+<div style="border: 1px solid silver; margin: 20px 0px 10px; padding: 4px; overflow: auto; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 97.5%; font-family: 'Courier New',courier,monospace; direction: ltr; max-height: 200px; font-size: 8pt; cursor: text;" id="codeSnippetWrapper">
+<div style="border-style: none; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;" id="codeSnippet">
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum1">   1:</span> <span style="color: rgb(0, 0, 255);">public</span> <span style="color: rgb(0, 0, 255);">class</span> Game1 : Microsoft.Xna.Framework.Game</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum2">   2:</span> {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum3">   3:</span>     GraphicsDeviceManager graphics;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum4">   4:</span>     SpriteBatch spriteBatch;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum5">   5:</span>     Cat cat;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum6">   6:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum7">   7:</span>     <span style="color: rgb(0, 0, 255);">public</span> Game1()</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum8">   8:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum9">   9:</span>         graphics = <span style="color: rgb(0, 0, 255);">new</span> GraphicsDeviceManager(<span style="color: rgb(0, 0, 255);">this</span>);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum10">  10:</span>         Content.RootDirectory = <span style="color: rgb(0, 96, 128);">"Content"</span>;</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum11">  11:</span>     }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum12">  12:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum13">  13:</span>     <span style="color: rgb(0, 0, 255);">protected</span> <span style="color: rgb(0, 0, 255);">override</span> <span style="color: rgb(0, 0, 255);">void</span> LoadContent()</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum14">  14:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum15">  15:</span>         spriteBatch = <span style="color: rgb(0, 0, 255);">new</span> SpriteBatch(GraphicsDevice);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum16">  16:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum17">  17:</span>         <span style="color: rgb(0, 128, 0);">//load cat texture</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum18">  18:</span>         Texture2D catTexture = Content.Load&lt;Texture2D&gt;(<span style="color: rgb(0, 96, 128);">"catWalk"</span>);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum19">  19:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum20">  20:</span>         <span style="color: rgb(0, 128, 0);">//create cat object</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum21">  21:</span>         cat = <span style="color: rgb(0, 0, 255);">new</span> Cat(catTexture,14,<span style="color: rgb(0, 0, 255);">new</span> Vector2(64,128));</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum22">  22:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum23">  23:</span>         <span style="color: rgb(0, 128, 0);">//place it in the center of the screen</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum24">  24:</span>         cat.Position = <span style="color: rgb(0, 0, 255);">new</span> Vector2(400, 300);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum25">  25:</span>     }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum26">  26:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum27">  27:</span>     <span style="color: rgb(0, 0, 255);">protected</span> <span style="color: rgb(0, 0, 255);">override</span> <span style="color: rgb(0, 0, 255);">void</span> Update(GameTime gameTime)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum28">  28:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum29">  29:</span>         <span style="color: rgb(0, 128, 0);">// Allows the game to exit</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum30">  30:</span>         <span style="color: rgb(0, 0, 255);">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum31">  31:</span>             <span style="color: rgb(0, 0, 255);">this</span>.Exit();</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum32">  32:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum33">  33:</span>         <span style="color: rgb(0, 128, 0);">//update cat's input</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum34">  34:</span>         cat.HandleInput();</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum35">  35:</span>         <span style="color: rgb(0, 128, 0);">//update cat's state</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum36">  36:</span>         cat.Update(gameTime);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum37">  37:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum38">  38:</span>         <span style="color: rgb(0, 0, 255);">base</span>.Update(gameTime);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum39">  39:</span>     }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum40">  40:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum41">  41:</span>     <span style="color: rgb(0, 0, 255);">protected</span> <span style="color: rgb(0, 0, 255);">override</span> <span style="color: rgb(0, 0, 255);">void</span> Draw(GameTime gameTime)</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum42">  42:</span>     {</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum43">  43:</span>         GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum44">  44:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum45">  45:</span>         spriteBatch.Begin();</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum46">  46:</span>         <span style="color: rgb(0, 128, 0);">//draw cat</span></pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum47">  47:</span>         cat.Draw(spriteBatch);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum48">  48:</span>         spriteBatch.End();</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum49">  49:</span>&nbsp; </pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum50">  50:</span>         <span style="color: rgb(0, 0, 255);">base</span>.Draw(gameTime);</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: white; width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum51">  51:</span>     }</pre>
+<p><!--CRLF--></p>
+<pre style="border-style: none; margin: 0em; padding: 0px; overflow: visible; text-align: left; line-height: 12pt; background-color: rgb(244, 244, 244); width: 100%; font-family: 'Courier New',courier,monospace; direction: ltr; color: black; font-size: 8pt;"><span style="color: rgb(96, 96, 96);" id="lnum52">  52:</span> }</pre>
+<p><!--CRLF--></p></div>
+</div>
+<p>If you run the game now, you’ll be able to move the cat around the
+screen with the keyboard or the mouse. As you can see, getting an
+animation from ToonBoom into an XNA game is not difficult at all.</p>
+<p>I hope you enjoyed this short post, and if you did, you can download the source for this sample here: T<a href="http://www.catalinzima.com/wp-content/uploads/2009/08/toonboomanimationsample.zip">oonBoomAnimationSample.zip</a></p>
+
+					<!-- 
+					<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+				xmlns:dc="http://purl.org/dc/elements/1.1/"
+				xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+			<rdf:Description rdf:about="http://www.catalinzima.com/?p=550"
+    dc:identifier="http://www.catalinzima.com/?p=550"
+    dc:title="Loading ToonBoom animations in XNA"
+    trackback:ping="http://www.catalinzima.com/wp-trackback.php?p=550" />
+</rdf:RDF>			 		-->
+				</div>
+
+				<div class="commentsbox">
+<!-- You can start editing here. -->
+
+
+	 
+				
+		
+
+
+	<h2 class="postcomment">Leave a comment</h2>
+	<div class="postcomment">
+	
+		
+		<form action="http://www.catalinzima.com/wp-comments-post.php" method="post" id="commentform">
+		
+			
+			<p>
+				<strong>Name: (Required)</strong><br>
+				<input name="author" id="author" tabindex="1" type="text">
+			</p>
+			
+			<p>
+				<strong>eMail: (Required)</strong><br>
+				<input name="email" id="email" tabindex="2" type="text">
+			</p>
+			
+			<p>
+				<strong>Website:</strong><br>
+				<input name="url" id="url" tabindex="3" type="text">
+			</p>
+
+								<p>
+				<strong>Comment:</strong><br>
+				<textarea name="comment" id="comment" rows="" cols="" tabindex="4"></textarea>
+			</p>
+	
+			<p>
+				<input name="submit" id="submit" tabindex="5" value="Post Comment!" type="submit">
+				<input name="comment_post_ID" value="550" type="hidden">
+			</p>
+	
+			
+		</form>
+
+		</div>
+
+</div>
+
+			
+									<div class="browse">« <a href="http://www.catalinzima.com/?p=545" rel="prev">My experience with Toon Boom Studio</a>  <a href="http://www.catalinzima.com/?p=553" rel="next">3 Red Rings…</a> »</div>
+				
+
+
+						</div></div>
+
+		</div>
+	<div id="narrowcolumn-wrapper">&nbsp;</div>
+	</div></div>
+
+	<div id="sidebar">
+<ul>
+
+
+<li class="Search">
+    <form action="/index.php" method="post">
+     <input name="s" class="keyword" style="width: 236px;" type="text">
+    </form>
+</li>
+
+
+	<li>
+
+<table style="width: 100%;">
+	<tbody><tr>
+	<td>
+		<h2>Author</h2>
+	</td>
+	<td>
+		<a href="http://www.catalinzima.com/?feed=rss2"><img style="vertical-align: middle;" src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/rss_icon.gif" alt="Subscribe to Catalin’s XNA Experiments"></a>
+	</td>
+	</tr>
+	</tbody></table>
+<ul>
+			<li><b> Catalin Zima (<a href="mailto:catalinzima@gmail.com">contact me</a>)</b></li>
+			<li><a href="http://www.linkedin.com/in/catalinzima"><b>Profile on LinkedIn</b></a></li>
+		</ul>
+	</li>
+
+
+	
+
+<li id="text-2" class="widget widget_text">			<div class="textwidget"><center><a href="https://mvp.support.microsoft.com/">
+<img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/mvplogo.jpg"></a></center></div>
+		</li>
+<li id="text-1" class="widget widget_text">			<div class="textwidget"><a href="http://profile.mygamercard.net/CatalinZima">
+<img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/CatalinZima.png" width="260px" border="0">
+</a></div>
+		</li>
+<li id="flexipages-2" class="widget flexipages_widget"><h2 class="widgettitle">Pages</h2>
+<ul>
+<li class="page_item page-item-11"><a href="http://www.catalinzima.com/?page_id=11" title="Samples">Samples</a>
+<ul>
+	<li class="page_item page-item-479"><a href="http://www.catalinzima.com/?page_id=479" title="Game Features Replicator">Game Features Replicator</a></li>
+	<li class="page_item page-item-470"><a href="http://www.catalinzima.com/?page_id=470" title="12 Months, 12 Samples 2008">12 Months, 12 Samples 2008</a></li>
+	<li class="page_item page-item-473"><a href="http://www.catalinzima.com/?page_id=473" title="Other Samples">Other Samples</a></li>
+</ul>
+</li>
+<li class="page_item page-item-10"><a href="http://www.catalinzima.com/?page_id=10" title="Tutorials">Tutorials</a>
+<ul>
+	<li class="page_item page-item-13"><a href="http://www.catalinzima.com/?page_id=13" title="Four Uses of VTF">Four Uses of VTF</a></li>
+	<li class="page_item page-item-14"><a href="http://www.catalinzima.com/?page_id=14" title="Deferred Rendering">Deferred Rendering</a></li>
+	<li class="page_item page-item-575"><a href="http://www.catalinzima.com/?page_id=575" title="Crash Course in HLSL">Crash Course in HLSL</a></li>
+	<li class="page_item page-item-406"><a href="http://www.catalinzima.com/?page_id=406" title="Fur Rendering">Fur Rendering</a></li>
+</ul>
+</li>
+<li class="page_item page-item-2"><a href="http://www.catalinzima.com/?page_id=2" title="About">About</a></li>
+</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Links</h2>
+
+	<ul class="xoxo blogroll">
+<li><a href="http://creators.xna.com/">Creator’s Club Online</a></li>
+<li><a href="http://sgtconker.com/">Sgt. Conker</a></li>
+<li><a href="http://creators.xna.com/en-US/community_resources" title="List of XNA sites and blogs">XNA Blogs</a></li>
+<li><a href="http://www.ziggyware.com/">Ziggyware</a></li>
+
+	</ul>
+</li>
+
+<li id="text-3" class="widget widget_text">			<div class="textwidget">My employer: <br>
+<center><a href="http://www.evozon.com/"><img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/evozon_logo.gif" alt="Evozon"></a></center></div>
+		</li>
+<li id="meta-2" class="widget widget_meta"><h2 class="widgettitle">Meta</h2>
+			<ul>
+						<li><a href="http://www.catalinzima.com/wp-login.php">Log in</a></li>
+			<li><a href="http://www.catalinzima.com/?feed=rss2" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://www.catalinzima.com/?feed=comments-rss2" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>
+						</ul>
+</li>
+<li id="archives-2" class="widget widget_archive"><h2 class="widgettitle">Archives</h2>
+		<ul>
+			<li><a href="http://www.catalinzima.com/?m=201005" title="May 2010">May 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=201004" title="April 2010">April 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200911" title="November 2009">November 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200910" title="October 2009">October 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200909" title="September 2009">September 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200908" title="August 2009">August 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200907" title="July 2009">July 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200906" title="June 2009">June 2009</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200904" title="April 2009">April 2009</a>&nbsp;(3)</li>
+	<li><a href="http://www.catalinzima.com/?m=200903" title="March 2009">March 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200902" title="February 2009">February 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200901" title="January 2009">January 2009</a>&nbsp;(5)</li>
+	<li><a href="http://www.catalinzima.com/?m=200812" title="December 2008">December 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200811" title="November 2008">November 2008</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200810" title="October 2008">October 2008</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200809" title="September 2008">September 2008</a>&nbsp;(5)</li>
+	<li><a href="http://www.catalinzima.com/?m=200808" title="August 2008">August 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200807" title="July 2008">July 2008</a>&nbsp;(7)</li>
+	<li><a href="http://www.catalinzima.com/?m=200806" title="June 2008">June 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200805" title="May 2008">May 2008</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200804" title="April 2008">April 2008</a>&nbsp;(3)</li>
+	<li><a href="http://www.catalinzima.com/?m=200803" title="March 2008">March 2008</a>&nbsp;(3)</li>
+	<li><a href="http://www.catalinzima.com/?m=200802" title="February 2008">February 2008</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200801" title="January 2008">January 2008</a>&nbsp;(2)</li>
+		</ul>
+</li>
+<li id="categories-1" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+	<li class="cat-item cat-item-12"><a href="http://www.catalinzima.com/?cat=12" title="View all posts filed under 2D">2D</a> (7)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.catalinzima.com/?cat=13" title="View all posts filed under 3D">3D</a> (8)
+</li>
+	<li class="cat-item cat-item-21"><a href="http://www.catalinzima.com/?cat=21" title="View all posts filed under Announcements">Announcements</a> (4)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.catalinzima.com/?cat=10" title="View all posts filed under contest">contest</a> (5)
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.catalinzima.com/?cat=16" title="View all posts filed under Dino">Dino</a> (3)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://www.catalinzima.com/?cat=22" title="View all posts filed under GFR">GFR</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.catalinzima.com/?cat=6" title="View all posts filed under HLSL">HLSL</a> (10)
+</li>
+	<li class="cat-item cat-item-24"><a href="http://www.catalinzima.com/?cat=24" title="View all posts filed under iQuest">iQuest</a> (1)
+</li>
+	<li class="cat-item cat-item-30"><a href="http://www.catalinzima.com/?cat=30" title="View all posts filed under ITS COMMING!!">ITS COMMING!!</a> (1)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://www.catalinzima.com/?cat=20" title="View all posts filed under Kitty">Kitty</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.catalinzima.com/?cat=11" title="View all posts filed under MVP">MVP</a> (4)
+</li>
+	<li class="cat-item cat-item-18"><a href="http://www.catalinzima.com/?cat=18" title="View all posts filed under Non-XNA">Non-XNA</a> (1)
+</li>
+	<li class="cat-item cat-item-19"><a href="http://www.catalinzima.com/?cat=19" title="View all posts filed under recap">recap</a> (1)
+</li>
+	<li class="cat-item cat-item-26"><a href="http://www.catalinzima.com/?cat=26" title="View all posts filed under sample">sample</a> (1)
+</li>
+	<li class="cat-item cat-item-29"><a href="http://www.catalinzima.com/?cat=29" title="View all posts filed under Sgt Conker">Sgt Conker</a> (1)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://www.catalinzima.com/?cat=15" title="View all posts filed under Tease">Tease</a> (1)
+</li>
+	<li class="cat-item cat-item-28"><a href="http://www.catalinzima.com/?cat=28" title="View all posts filed under ToonBoom">ToonBoom</a> (2)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.catalinzima.com/?cat=1" title="View all posts filed under Uncategorized">Uncategorized</a> (16)
+</li>
+	<li class="cat-item cat-item-27"><a href="http://www.catalinzima.com/?cat=27" title="View all posts filed under video">video</a> (1)
+</li>
+	<li class="cat-item cat-item-23"><a href="http://www.catalinzima.com/?cat=23" title="View all posts filed under World Of Goo">World Of Goo</a> (2)
+</li>
+	<li class="cat-item cat-item-25"><a href="http://www.catalinzima.com/?cat=25" title="View all posts filed under XBLCG">XBLCG</a> (1)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.catalinzima.com/?cat=5" title="View all posts filed under XNA">XNA</a> (42)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.catalinzima.com/?cat=17" title="View all posts filed under Ziggyware">Ziggyware</a> (5)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.catalinzima.com/?cat=14" title="View all posts filed under Zune">Zune</a> (2)
+</li>
+		</ul>
+</li>
+
+</ul>
+	</div>
+</div>
+
+<div id="footer">
+<p>Design by : <a href="http://www.searchopedia.org/">Searchopedia</a></p>
+</div>
+
+<script src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/e-201022.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'2816963',v:'ext',post:'550'});
+var load_cmc = function(){linktracker_init(2816963,550,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script><img id="wpstats" src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Loading%20ToonBoom%20animations%20in%20XNA_files/g.gif" alt="">
+</div></body></html>

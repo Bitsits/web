@@ -1,0 +1,68 @@
+/* Styles for body text in all page layouts */
+
+.dataTable THEAD TH {
+  text-align: left;
+  vertical-align: bottom;
+  padding: 2px 4px;
+}
+.dataTable TBODY TH {
+  text-align: right;
+  vertical-align: top;
+  padding: 2px 4px;
+}
+.dataTable TBODY TD {
+  text-align: left;
+  vertical-align: top;
+  padding: 2px 4px;
+}
+TD.num, TH.num {
+  text-align: right;
+}
+
+/* Figure table (for displaying images and captions) */
+
+.figureTable {
+  background-color: #e0e0e0;
+  border-collapse: collapse;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.figureTable TD {
+  padding: 0;
+  border: 5px solid #e0e0e0;
+  text-align: left;
+  vertical-align: top;
+  margin: 10px;
+}
+.figureTable TD.caption {
+  border-top-width: 0;
+  padding-top: 0;
+  font-size: 80%;
+}
+.captionTitle {
+  font-weight: bold;
+}
+
+.floating {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.borderTable {
+  border-collapse: collapse;
+}
+.borderTable TD, .borderTable TH {
+  border: 1px solid black;
+}
+
+/* Bare table (no borders or spacing, for alignment) */
+
+.bareTable {
+  border-collapse: collapse;
+}
+.bareTable TD, .bareTable TH {
+  padding: 0;
+}
+.bareTable IMG {
+  vertical-align: bottom;
+}

@@ -1,0 +1,428 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+<title>gotoAndPlay Flash Tutorials -- Tonypa's tile-based tutorials (updated)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="keywords" content="Flash, actionscript, flash game development, game programming, tutorials, flash tutorial, map,maze,movement,platform,scrolling,shooting,tile based,tiles,">
+<meta http-equiv="description" content="A long, well organized and in depth series of articles that cover all the aspects of tile-based games: moving, jumping, scrolling, shooting and much more!">
+<link rel="icon" href="http://www.gotoandplay.it/images/gtp_icon.png"><link href="LADDERS_files/main.css" rel="stylesheet" type="text/css">
+<link href="LADDERS_files/boxes.css" rel="stylesheet" type="text/css">
+<link href="LADDERS_files/skin.htm" rel="stylesheet" type="text/css"><script language="JavaScript" type="text/JavaScript" src="LADDERS_files/main.js"></script>
+<script language="JavaScript" type="text/JavaScript" src="LADDERS_files/cookies.js"></script>
+</head><body leftmargin="0" topmargin="0" class="bg" onload="preloadMenu()" marginheight="0" marginwidth="0">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+  <tbody><tr> 
+    <td colspan="3"><img src="LADDERS_files/spacer.gif" width="120" height="11"></td>
+  </tr>
+  <tr> 
+    <td rowspan="4" class="leftShadow" width="20">&nbsp;</td>
+    <td width="760"><img src="LADDERS_files/headLogo.jpg" border="0"></td>    
+    <td rowspan="4" class="rightShadow" width="20">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td> 
+      <script>menuSelected = 3</script>
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+  <tbody><tr>
+   <td colspan="25"><img name="navBar_r1_c1" src="LADDERS_files/navBar_r1_c1.gif" alt="" border="0" width="760" height="1"></td>
+  </tr>
+  <tr>
+   <td><img src="LADDERS_files/navBar_r2_c1.gif" alt="" border="0" width="1"></td>
+   <td><a href="http://www.gotoandplay.it/" title="Return to the homepage" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c2','','/images/navBar/navBar_r2_c2_f2.gif',1);"><img name="navBar_r2_c2" src="LADDERS_files/navBar_r2_c2.gif" alt="" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_gapBlog/" title="Latest news!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_news','','/images/navBar/navBar_news_f2.gif',12);"><img name="navBar_news" src="LADDERS_files/navBar_news.gif" alt="" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_games/" title="Play games!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c4','','/images/navBar/navBar_r2_c4_f2.gif',2);"><img name="navBar_r2_c4" src="LADDERS_files/navBar_r2_c4.gif" alt="" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_articles/" title="Learn how to make flash games!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c6','','/images/navBar/navBar_r2_c6_f2.gif',3);"><img name="navBar_r2_c6" src="LADDERS_files/navBar_r2_c6_sel.gif" alt="" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_articles/multiplayerCentral/" title="Learn the art of multiplayer games!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c8','','/images/navBar/navBar_r2_c8_f2.gif',9);"><img name="navBar_r2_c8" src="LADDERS_files/navBar_r2_c8.gif" alt="" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_reviews/" title="Game reviews, book reviews ..." onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('navBar_r2_c101','','/images/navBar/navBar_r2_c10_f2.gif',10)"><img src="LADDERS_files/navBar_r2_c10.gif" alt="" name="navBar_r2_c101" id="navBar_r2_c101" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/spotLight/" title="Read our interviews with the pros!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c12','','/images/navBar/navBar_r2_c12_f2.gif',11);"><img name="navBar_r2_c12" src="LADDERS_files/navBar_r2_c12.gif" alt="" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_forums/" title="The community forums" onmouseover="MM_swapImage('navBar_r2_c141','','/images/navBar/navBar_r2_c14_f2.gif',4)" onmouseout="MM_swapImgRestore()"><img src="LADDERS_files/navBar_r2_c14.gif" alt="" name="navBar_r2_c141" id="navBar_r2_c141" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_info/" title="Info, f.a.q. and more..." onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('navBar_r2_c161','','/images/navBar/navBar_r2_c16_f2.gif',5)"><img src="LADDERS_files/navBar_r2_c16.gif" alt="" name="navBar_r2_c161" id="navBar_r2_c161" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_links/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('navBar_r2_c181','','/images/navBar/navBar_r2_c18_f2.gif',6)"><img src="LADDERS_files/navBar_r2_c18.gif" alt="" name="navBar_r2_c181" id="navBar_r2_c181" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="javascript:spammersGoToHell()" title="Write us!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c20','','/images/navBar/navBar_r2_c20_f2.gif',7);"><img name="navBar_r2_c20" src="LADDERS_files/navBar_r2_c20.gif" alt="" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0"><img src="LADDERS_files/navBar_r2_c11.gif" alt="" border="0"></td>
+   <td><a href="http://www.gotoandplay.it/_credits/" title="Site credits" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c22','','/images/navBar/navBar_r2_c22_f2.gif',8);"><img name="navBar_r2_c22" src="LADDERS_files/navBar_r2_c22.gif" alt="" border="0"></a></td>
+   <td><img src="LADDERS_files/navBar_r2_c23.gif" alt="" border="0" width="1"></td>
+  </tr>
+ <tr>
+   <td colspan="25"><img name="navBar_r1_c1" src="LADDERS_files/navBar_r1_c1.gif" alt="" border="0" width="760" height="1"></td>
+  </tr>
+</tbody></table>
+<table background="LADDERS_files/titlebar_r2.gif" border="0" cellpadding="0" cellspacing="0" width="760"> 
+  <tbody><tr> 
+    <td><img src="LADDERS_files/titleBar_r1.gif" width="760"></td> 
+  </tr> 
+  <tr> 
+    <td style="background-image: url(/_advertisement/img/titlebar_r2.gif); background-repeat: no-repeat; background-color: rgb(253, 253, 253);">
+		<table align="center" border="0" cellpadding="0" cellspacing="0" width="470" height="62">
+          <tbody><tr>
+            <td align="center">
+			<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.adobe.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="468" height="60"><param name="movie" value="http://www.gotoandplay.it/phpAdsNew/adimage.php?filename=gtpbanner2.swf&amp;contenttype=swf&amp;clickTAG=http://www.gotoandplay.it/phpAdsNew/adclick.php%3Fbannerid=3%26zoneid=11%26source=%26dest=http%3A%2F%2Fwww.gotoandplay.it%2F_advertisement%2Findex.php"><param name="quality" value="high"><param name="allowScriptAccess" value="always"><embed src="LADDERS_files/adimage.php" quality="high" type="application/x-shockwave-flash" pluginspace="http://www.adobe.com/go/getflashplayer" allowscriptaccess="always" width="468" height="60"></object><div id="beacon_3" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="LADDERS_files/adlog.gif" alt="" style="width: 0px; height: 0px;" width="0" height="0"></div>			</td>
+          </tr>
+    </tbody></table>	</td>
+  </tr>
+  <tr> 
+    <td><img src="LADDERS_files/titleBar_r3.gif" width="760"></td> 
+  </tr> 
+</tbody></table>
+    </td>
+  </tr>
+  <tr> 
+    <td class="internalFrame" align="left" valign="top"> <table class="xsmall" border="0" cellpadding="6" cellspacing="0" width="758">
+        <tbody><tr> 
+          <td style="padding: 0px;" valign="top"> 
+            <img src="LADDERS_files/type_1.gif"><br><div style="padding: 6px;"><br><img src="LADDERS_files/rate_2.gif">&nbsp;<span class="articleTitle">Tonypa's tile-based tutorials (updated)</span><br>
+<span class="xsmall">[ September 03, 2004 ]<b> by Tonu Paldra, alias Tonypa</b></span><br>
+<span class="xsmall"><div style="padding-top: 6px; color: rgb(68, 68, 68);"><em>A
+long, well organized and in depth series of articles that cover all the
+aspects of tile-based games: moving, jumping, scrolling, shooting and
+much more!</em></div></span><br><hr>
+</div>          </td>
+        </tr>
+        <tr> 
+          <td class="articleText" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody><tr>
+                <td class="articleText" align="left" width="18%" valign="top"><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa.php">Intro</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p02.php">Why tiles?</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p03.php">Map format</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p04.php">More maps</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p05.php">Creating tiles</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p06.php">The hero</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p07.php">Keys to move</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p08.php">Hit the wall</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p09.php">Open the door</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p10.php">Jumping</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p11.php">Clouds</a><br><span style="color: rgb(102, 102, 102);"><b>Ladders</b></span><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p13.php">Stupid enemy</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p14.php">More on enemy</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p15.php">Shoot him</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p16.php">Getting items</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p17.php">Moving tiles</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p18.php">Scrolling</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p19.php">More scrolling</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p20.php">Depth</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p21.php">Isometric view</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p22.php">Mouse to move</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p23.php">Isometric mouse</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p24.php">Isometric scroll</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p25.php">Rotate hero</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p26.php">Rotate bground</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p27.php">Pathfinding</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p28.php">More pathfinding</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p29.php">Slopes</a><br></td>
+                <td class="articleText" align="left" width="82%" valign="top">
+				  <p class="articleParagraphTitle">LADDERS</p>
+                  <p>Ladders
+are common form of movement in platform games. Hero can use ladders to
+climb up or down (I bet you didnt know that). We will make character
+climb when up or down arrow key is pressed and character stands near
+the ladder:</p>
+                  <p align="center">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="240" height="180">
+                      <param name="movie" value="tonypa/img/p12_1.swf">
+                      <param name="quality" value="high">
+                      <embed src="LADDERS_files/p12_1.swf" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="240" height="180">
+                    </object>
+                  </p>
+                  <p>While ladders seam to be easy enough, there are some things to consider. First, what kind of ladders are there? </p>
+                  <p align="center"><img src="LADDERS_files/p12_2.gif" border="1" width="114" height="129"></p>
+                  <p>In
+the picture, there are 4 different types of ladders. In tile A ladder
+is inside wall tile, which normally is not walkable. What can hero do
+in tile A? He can climb up and down, but he shouldnt be able to walk
+left or right or he will be stuck in the wall. Ask anyone, who has been
+stuck in the wall and they all say it doesnt feel good. </p>
+                  <p>In
+tile B ladder tile itself is walkable and tile above it also have
+ladder, so hero should be able to climb up and down. Hero can also move
+left or right, but when he does, he should fall down after leaving the
+ladder. </p>
+                  <p>In tile C there isnt ladder below and hero shouldnt climb down, he can only climb up or walk left/right. </p>
+                  <p>Tile
+D is not available in all games. Some think thats just a bad level
+design, ladder doesnt lead anywhere, it ends in the air. Should hero be
+able to climb above it and stand on the ladder? Can he walk then to the
+right on the solid tile next to ladder? </p>
+                  <p>Those
+are just couple of examples, there are many more possible types of
+ladders, but I hope you can see how important it is to have strict
+definition before attempting to write code. As games are not all
+similar, then something fitting perfectly in one game, is waste of
+time, energy and world peace in other game. </p>
+				  <p class="articleParagraphTitle"><br>
+			      THE RULES</p>
+                  <p>Lets write down our rules for ladders and movement for hero:</p>
+                  <ol>
+                    <li> Hero can climb on the ladder using up and down arrow keys</li>
+                    <li>Hero can climb up if there is ladder at his current up or down center points</li>
+                    <li> Hero can climb down if the tile his down center point ends up, has ladder</li>
+                    <li>Hero can move left/right from the ladder if none of his corner points will end up in the wall</li>
+                    <li>Hero cant jump from the ladder</li>
+                  </ol>                  <p>That should do it. </p>
+				  <p class="articleParagraphTitle"><br>
+			      ONE LADDER, PLEASE</p>
+                  <p>We
+will use separate movie clip with ladder graphics that will be attached
+in the tile when tile has ladder. That way we dont have to draw
+different graphics for every ladder on different backgrounds. Make sure
+your ladder movie clip has "Export this movie" checked and it is linked
+as "ladder". </p>
+                  <p align="center"><img src="LADDERS_files/p12_3.gif" border="1" width="200" height="200"></p>
+                  <p>In the ladder movie clip draw ladder graphics same height as tile and place them in the center of tile horisontally. </p>
+                  <p>As with every other tile, we will declare new type of tile for ladders: </p>
+                  <pre class="quote">game.Tile4 = function () {};
+game.Tile4.prototype.walkable = false;
+game.Tile4.prototype.frame = 2;
+game.Tile4.prototype.ladder = true;
+game.Tile4.prototype.item = "ladder";
+
+game.Tile5 = function () {};
+game.Tile5.prototype.walkable = true;
+game.Tile5.prototype.frame = 1;
+game.Tile5.prototype.ladder = true;
+game.Tile5.prototype.item = "ladder";</pre>                  <p>Those
+two types of ladder have different frame number to show, but they both
+have property "ladder" set to true (we will use it to check if hero is
+anywhere near the ladder) and they both have property "item" equal to
+"ladder" (we will use this to attach ladder graphics to the tile). </p>
+                  <p>Attach the ladder movie to the tile in the buildMap function after sending tile to correct frame: </p>
+                  <pre class="quote">game.clip[name].gotoAndStop(game[name].frame);
+if (game[name].item != "")
+{
+	game.clip[name].attachMovie(game[name].item, "item", 1);
+}</pre>                  <p>This
+code checks if property "item" in the current tile has non-empty value.
+If "item" has value, then we attach movie clip linked with the name as
+value of "item" property to the current tile and it will have instance
+name "item". You can attach any other items same way, just dont try to
+put many items in the same tile. </p>
+                  <p>For not
+typing same code twice, lets move end of moveChar function and make
+separate function of it naming this new function updateChar. moveChar
+function will end with: </p>
+                  <pre class="quote">updateChar (ob, dirx, diry);
+return (true);</pre>                  <p>and updateChar function will have: </p>
+                  <pre class="quote">function updateChar (ob, dirx, diry)
+{
+	ob.clip._x = ob.x;
+	ob.clip._y = ob.y;
+	ob.clip.gotoAndStop(dirx + diry * 2 + 3);
+	ob.xtile = Math.floor(ob.clip._x / game.tileW);
+	ob.ytile = Math.floor(ob.clip._y / game.tileH);
+	if (game["t_" + ob.ytile + "_" + ob.xtile].door and ob == _root.char)
+	{
+		changeMap (ob);
+	}
+}</pre>                  <p>At the fall function add </p>
+                  <pre class="quote">ob.climb = false;</pre>                  <p>Modify detectKeys function for the arrow keys: </p>
+                   <pre class="quote">if (Key.isDown(Key.RIGHT))
+{
+	getMyCorners (ob.x - ob.speed, ob.y, ob);
+	if (!ob.climb or ob.downleft and ob.upleft and ob.upright and ob.downright)
+	{
+		keyPressed = _root.moveChar(ob, 1, 0);
+	}
+}
+else if (Key.isDown(Key.LEFT))
+{
+	getMyCorners (ob.x - ob.speed, ob.y, ob);
+	if (!ob.climb or ob.downleft and ob.upleft and ob.upright and ob.downright)
+	{
+		keyPressed = _root.moveChar(ob, -1, 0);
+	}
+}
+else if (Key.isDown(Key.UP))
+{
+	if (!ob.jump and checkUpLadder (ob))
+	{
+		keyPressed = _root.climb(ob, -1);
+	}
+}
+else if (Key.isDown(Key.DOWN))
+{
+	if (!ob.jump and checkDownLadder (ob))
+	{
+		keyPressed = _root.climb(ob, 1);
+	}
+}</pre>                  <p>After
+we have detected left or right arrow key, we will check if hero is not
+climbing (!ob.climb) or in case he is climbing, we will check that none
+of his corner points will be in the wall. </p>
+                  <p>For
+up and down arrow keys we first check if hero is not jumping (!ob.jump)
+and the conditions for climbing are met using two new functions:
+checkUpLadder and checkDownLadder. If everything is fine, we call new
+function "climb" to move our hero. </p>
+				  <p class="articleParagraphTitle"><br>
+			      CLIMBING FUNCTIONS</p>
+                  <p>We
+will make 3 new functions for climbing, 1 to check if it is fine to
+climb up, 1 to check if we can climb down and last function to move
+character. </p>
+                  <pre class="quote">function checkUpLadder (ob)
+{
+	var downY = Math.floor((ob.y + ob.height - 1) / game.tileH);
+	var upY = Math.floor((ob.y - ob.height) / game.tileH);
+	var upLadder = game["t_" + upY + "_" + ob.xtile].ladder;
+	var downLadder = game["t_" + downY + "_" + ob.xtile].ladder;
+	if (upLadder or downLadder)
+	{
+		return (true);
+	}
+	else
+	{
+		fall (ob);
+	}
+}</pre>                  <p>This
+code calculates first up and down center points of our hero. If one of
+the tiles in those points has ladder property set to true, we can climb
+up. If there isnt ladder up or down, we check if hero should fall. </p>
+                  <pre class="quote">function checkDownLadder (ob)
+{
+	var downY = Math.floor((ob.speed + ob.y + ob.height) / game.tileH);
+	var downLadder = game["t_" + downY + "_" + ob.xtile].ladder;
+	if (downLadder)
+	{
+		return (true);
+	}
+	else
+	{
+		fall (ob);
+	}
+}</pre>                  <p>To
+check for climbing down, we need "ladder" property of the tile below
+hero. But unlike climbing up, we have to look for the tile, where hero
+will be standing after he moves (ob.speed+ob.y+ob.height). </p>
+                  <pre class="quote">function climb (ob, diry)
+{
+	ob.climb = true;
+	ob.jump = false;
+	ob.y += ob.speed * diry;
+	ob.x = (ob.xtile * game.tileW) + game.tileW / 2;
+	updateChar (ob, 0, diry);
+	return (true);
+}</pre>                  <p>In
+the climb function we first set the flags climb to true and jump to
+false. Then we calculate new y position for the hero. Next we will
+position the hero horisontally in the center of ladder: </p>
+                  <pre class="quote">ob.x = (ob.xtile * game.tileW) + game.tileW / 2;</pre>                  <p>Hero
+can start climbing as long his center is in the tile with ladder, but
+it would look weird if he would climb in the left or right side of the
+ladder. </p>
+                  <p>Last we update the actual position of character using same updateChar function.</p>
+                  <p>You can download the source fla with all the code and movie set up <a href="http://www.gotoandplay.it/_articles/2004/02/tonypa/ladders.fla">here</a>.</p></td>
+              </tr>
+            </tbody></table></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="top">
+		  	<hr>
+            <a href="http://www.gotoandplay.it/_articles/index.php"><img src="LADDERS_files/btn_index.gif" border="0"></a>&nbsp;&nbsp;
+            <a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p11.php"><img src="LADDERS_files/btn_prev.gif" border="0" width="47" height="20"></a>&nbsp;&nbsp;
+			<a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p13.php"><img src="LADDERS_files/btn_next.gif" border="0" width="47" height="20"></a>
+            <hr></td>
+        </tr>
+        <tr> 
+          <td valign="top">
+		  	<!-- PAGE FOOTER: Related Articles and Author Data -->
+		  	<table border="0" cellpadding="0" cellspacing="0">
+              <tbody><tr>
+                	
+                <td width="238" valign="top"> 
+                  <table border="0" cellpadding="0" cellspacing="0" width="226">
+  <tbody><tr> 
+    <td width="220" height="19"><img src="LADDERS_files/title_boxRelArticles.gif" width="220" height="19"></td>
+    <td class="box_shadowTop"></td>
+  </tr>
+  <tr> 
+    <td class="box_Pattern">
+		<div style="padding-left: 1px; padding-right: 1px;">
+			<iframe name="relatedArticles" marginheight="0" marginwidth="0" src="LADDERS_files/box_relatedArt_frame.htm" width="218" frameborder="0" height="146" scrolling="auto"></iframe>
+		</div>
+	</td>
+    <td class="box_shadowMid">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="box_bgBottom" height="20"></td>
+    <td class="box_shadowBtm">&nbsp;</td>
+  </tr>
+</tbody></table>                </td>
+                <td width="515" valign="top"> 
+                  <table border="0" cellpadding="0" cellspacing="0" width="521">
+  <tbody><tr> 
+    <td width="509" height="19"><img src="LADDERS_files/title_boxAuthor.gif" width="515" height="19"></td>
+    <td class="box_shadowTop"></td>
+  </tr>
+  <tr> 
+    <td class="largeBox_Pattern">
+	<div class="box_inside">
+		<table class="articleText" border="0" cellpadding="4" cellspacing="0">
+			<tbody><tr>
+				<td align="right" width="118"><strong>Name:</strong></td>
+				<td>
+				Tonu Paldra, alias Tonypa				</td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Location:</strong></td>
+				<td>
+				Estonia				</td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Age:</strong></td>
+				<td>
+				34				</td>
+			</tr>
+			<tr>
+				<td align="right" valign="top"><strong>Flash experience:</strong></td>
+				<td>
+Discovered Flash4 in the year 2000 and fell in love with it. Abandoned
+Flash4, when they ended Flash4 help forum in Flashkit. Been playing
+with Flash only in spare time, thinking its great hobby </td>
+			</tr>
+			<tr>
+				<td align="right" valign="top"><strong>Job:</strong></td>
+				<td>
+				Magazine designer				</td>
+			</tr>
+			<tr>
+				<td align="right" valign="top"><strong>Website:</strong></td>
+				<td>
+				<a href="http://www.tonypa.pri.ee/" target="_blank">http://www.tonypa.pri.ee/</a>				</td>
+			</tr>
+		</tbody></table>
+	</div>
+	</td>
+    <td class="box_shadowMid">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="20"><img src="LADDERS_files/box_footer.gif" width="515" height="20"></td>
+    <td class="box_shadowBtm">&nbsp;</td>
+  </tr>
+</tbody></table>                </td>
+		  	  </tr>
+			</tbody></table>
+			<!-- END PAGE FOOTER -->
+          </td>
+        </tr>
+      </tbody></table></td>
+  </tr>
+  <tr> 
+    <td class="internalFrame" align="left" valign="top"></td>
+  </tr>
+  <tr> 
+    <td colspan="3" class="bgLeft04"> 
+      <img src="LADDERS_files/footer.png" border="0">    </td>
+  </tr>
+</tbody></table>
+<table align="center" border="0" cellpadding="2" cellspacing="0" width="740">
+  <tbody><tr>
+    <td class="footNote" align="center">| <a href="http://www.gotoandplay.it/" title="back to the homepage" class="footNoteLink">Homepage</a> 
+	  | <a href="http://www.gotoandplay.it/_gapBlog/" title="Latest news!" class="footNoteLink">News</a>
+      | <a href="http://www.gotoandplay.it/_games/" class="footNoteLink" title="flash games, dickDynamite">Games</a> 
+      | <a href="http://www.gotoandplay.it/_articles/" title="flash articles, tutorials" class="footNoteLink">Articles</a> 
+	  | <a href="http://www.gotoandplay.it/_articles/" title="multiplayer articles" class="footNoteLink">Multiplayer Central</a> 
+	  | <a href="http://www.gotoandplay.it/_reviews/" title="Game reviews, book reviews..." class="footNoteLink">Reviews</a> 
+	  | <a href="http://www.gotoandplay.it/spotlight/" title="Interviews with the pros!" class="footNoteLink">Spotlight</a> 
+      | <a href="http://www.gotoandplay.it/_forums/" title="gotoAndPlay() Forums" target="_blank" class="footNoteLink">Forums</a>
+      | <a href="http://www.gotoandplay.it/_info/" class="footNoteLink" title="general info and f.a.q.">Info</a> 
+      | <a href="http://www.gotoandplay.it/_links/" title="other great flash resources" class="footNoteLink">Links</a> 
+      | <a href="mailto:info@gotoandplay.it" title="contact us" class="footNoteLink">Contact us</a> 
+	  | <a href="http://www.gotoandplay.it/_advertisement/" title="advertisement on gotoAndPlay()" class="footNoteLink">Advertise</a>
+      | <a href="http://www.gotoandplay.it/_credits/" title="site credits" class="footNoteLink">Credits</a>    
+      |<br><br>| <a href="http://www.smartfoxserver.com/" title="SmartFoxServer" class="footNoteLink">www.smartfoxserver.com</a>  
+	  | <a href="http://www.gotoandplay.biz/" title="gotoAndPlay()" class="footNoteLink">www.gotoandplay.biz</a> 
+	  | <a href="http://www.openspace-engine.com/" title="OpenSpace" class="footNoteLink">www.openspace-engine.com</a>  
+      |</td>
+  </tr>
+  <tr> 
+    <td class="footNote" align="center"><br>
+      gotoAndPlay() v 3.0.0 -- (c)2003-2008 gotoAndPlay() Team -- P.IVA 03121770048</td>
+  </tr>
+</tbody></table>
+<p>&nbsp;</p>
+
+</body></html>

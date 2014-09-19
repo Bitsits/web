@@ -1,0 +1,553 @@
+html, body {
+	background:#fff; font-size:0.87em
+}
+.content-fragment.blog-links .navigation-item, .content-fragment.forum-links .navigation-item {
+	border-bottom: none
+}
+.breadcrumb-list {
+	font-size:1em;
+	padding:0
+}
+.wireframe-content-fragment-top .wireframe-r1, .wireframe-content-fragment-top .wireframe-r2, .wireframe-content-fragment-top .wireframe-r3, .wireframe-content-fragment-top .wireframe-r4, .wireframe-content-fragment-bottom .wireframe-r1, .wireframe-content-fragment-bottom .wireframe-r2, .wireframe-content-fragment-bottom .wireframe-r3, .wireframe-content-fragment-bottom .wireframe-r4 {
+	background-color:transparent;
+	border:none
+}
+.content-fragment-content {
+	border: 1px solid #D6D6D6;
+}
+.content-fragment.with-header .content-fragment-header {
+	border: 1px solid #D6D6D6
+}
+.content-fragment.blog-post-list div.filter {
+	border-bottom: none
+}
+.content-fragment.blog-post .content-fragment-header .internal-link.weblog span {
+	background:none
+}
+.header-fragment.site-banner .site-banner {
+	min-height:0;
+	padding:0
+}
+.content-fragment.blog-post-list .content-list.standard .content-item h4.post-name, .content-fragment.with-header .content-fragment-header div, .content-fragment-page.postlist .content-fragment.blog-banner .application-banner .application-name {
+	text-transform:none;
+	font-weight:bold;
+/* 5-24-2010 long post names were bleeding into the next column */
+overflow-x:hidden
+}
+.captcha-blog-post-comment-form .field-list-description, .content-fragment.blog-feedback-list .content-list-name .internal-link.rss, .content-fragment.blog-post-comment-form .field-list-description, .content-fragment.contact-blog .field-list-description {
+	text-transform:none;
+	font-size:14px;
+	font-weight:bold
+}
+.content-fragment.blog-banner .application-banner {
+	background:transparent;
+}
+.content-fragment.with-header .content-fragment-header div {
+	border-bottom:none;
+	padding-bottom:0
+}
+.content-fragment.blog-banner .application-banner {
+	padding: 0
+}
+.content-fragment-page {
+	background:white
+}
+.content-list .content-item {
+	border-bottom:none
+}
+.content-fragment.link-list .content-list-name {
+	font-size:inherit
+}
+.content-fragment.about-blog h4 {
+	margin:0
+}
+.layout {
+	background:#fff
+}
+.content-list-description {
+	padding-top:6px
+}
+.top-side-border-only .abbreviated-post, .full-border.with-header .content-fragment-content, .full-border .abbreviated-post, .layout-region.right-sidebar .full-border .content-fragment-content {
+	border: 1px solid #D6D6D6
+}
+.content-fragment.contact-blog .field-list-description {
+	border-bottom-color:#d6d6d6;
+}
+.top-side-border-only .content-list.standard .content-item, .top-side-border-only .content-fragment-content, .top-side-border-only .abbreviated-post, .content-fragment.blog-banner .top-side-border-only .content-fragment-content {
+	border-bottom:none;
+}
+.content-fragment.no-wrapper .content-fragment-content, .content-fragment.no-wrapper-with-spacing .content-fragment-content {
+	border:none
+}
+.side-border-only .content-fragment-content, .side-border-only.with-header .content-fragment-header {
+	border-top:none;
+	border-bottom:none
+}
+.side-bottom-border-only .content-fragment-content, .side-bottom-border-only .content-fragment-header, .side-bottom-border-only.with-header .content-fragment-header {
+	border-top:none
+}
+.content-fragment.with-header.no-wrapper .content-fragment-header, .content-fragment.with-header.no-wrapper .content-fragment-content {
+	padding-right:none;
+	padding-left:none;
+	border:none
+}
+.content-fragment.with-header.no-wrapper .with-spacing .content-fragment-header {
+	padding:6px 12px
+}
+.content-fragment.with-header.no-wrapper .content-fragment-header, .content-fragment.with-header.no-wrapper-with-spacing .content-fragment-header, .content-fragment.with-header.no-wrapper .with-spacing .content-fragment-header {
+	border:none
+}
+.content-fragment.no-wrapper-with-spacing .content-fragment-content {
+	padding:0 12px
+}
+.content-fragment.no-wrapper .content-fragment-content {
+	padding:0
+}
+.content-fragment.with-header .content-fragment-header div, .content-fragment.link-list .content-list-name {
+	font-size:14px;
+	color:#666
+}
+.content-fragment.with-header.no-wrapper-with-spacing .content-fragment-header {
+	padding: 6px 12px
+}
+.content-fragment.browse-blogs .content-fragment-content {
+	background-image: none
+}
+.content-fragment.blog-post-list .content-list.standard .content-item {
+	border-bottom:none
+}
+.top-side-border-only .content-fragment.blog-post-list .content-list.standard .content-item, .top-side-border-only.with-header .content-fragment.blog-post-list .content-list.standard .content-item, .side-border-only .content-fragment.blog-post-list .content-list.standard .content-item, .side-border-only.with-header .content-fragment.blog-post-list .content-list.standard .content-item {
+	border-bottom:1px dotted #CCCCCC;
+}
+.wireframe-content-fragment-top, .wireframe-content-fragment-bottom {
+	display:none;
+}
+.content-fragment.browse-blogs .content-fragment-header {
+	text-align:left;
+	background-image: none;
+	border-bottom:none;
+}
+.copyright-info .message.copyright {
+	margin:0;
+	padding:0
+}
+.content-fragment-page.postlist .content-fragment.blog-banner .application-banner .application-name {
+	font-size:30px;
+	margin-top:20px
+}
+.wireframe-header-fragment-outer.group-navigation {
+	display:none
+}
+.header-fragment.site-banner .site-banner .site-logo {
+	display:none
+}
+.wireframe-header-fragment-outer.wireframe-top-bar {
+	background-image:none;
+	z-index:1004
+}
+.admin-bar {
+	height:22px;
+	padding-right:10px
+}
+.admin-bar .navigation-item .internal-link, .admin-bar .internal-link.save-default-page, .admin-bar .internal-link.edit-page {
+	color:#fff
+}
+.header-fragments {
+	padding-left:10px;
+	padding-right:10px
+}
+.header-fragment.search fieldset {
+	display:none
+}
+.header-fragment.favorite-places .internal-link.favorite-list {
+	display:none
+}
+.site-banner .internal-link.edit-page, .site-banner .internal-link.save-page {
+	background:url("../../../wireframe/Images/customize-button-small.gif") no-repeat scroll left -20px transparent;
+	left:18px;
+	position:absolute;
+	right:0;
+	top:-23px;
+	width:58px
+}
+.layout-region.right-sidebar ul.content-list li.content-item:first-child, .layout-region.right-sidebar ul.navigation-list li.navigation-item:first-child {
+	padding-top:12px
+}
+.content-fragment.blog-feedback-list .full-post .post-content {
+	border-color: #d6d6d6
+}
+.content-fragment.blog-post-comment-form {
+	padding-left:0
+}
+.content-fragment.blog-feedback-list .content-list {
+	padding-top:0;
+	margin-top:0;
+	padding-left:5px
+}
+.content-fragment.blog-feedback-list .content-item, .content-fragment.blog-feedback-list .full-post.user-is-author .wireframe-full-post-inner {
+	padding-top:0;
+	padding-bottom:0
+}
+.content-fragment.blog-feedback-list .full-post .post-content {
+	padding-bottom:10px
+}
+.post-actions .navigation-list .navigation-item {
+	padding-bottom:0
+}
+.content-fragment.blog-feedback-list .content-list-name {
+	top:4px
+}
+.content-fragment-content .field-list-description {
+	padding-left:0;
+	position:relative;
+	left:-7px;
+	padding-top:4px
+}
+.content-fragment.blog-post-list .filter .view-type .filter-option {
+	padding-left:0
+}
+.content-fragment.blog-post .full-post .post-content {
+	border-top:none;
+	border-bottom:none
+}
+.content-fragment.search-form .field-list {
+	background:transparent
+}
+.content-fragment.search-form .search div {
+	background:url("../../../wireframe/Images/search-field-input-page-transparent.png") no-repeat scroll left center transparent;
+	width:224px;
+}
+.content-fragment.search-form .search .field-item-input {
+	background:url("../../../wireframe/Images/search-field-button-page-transparent.png") no-repeat scroll right center transparent;
+	width:224px
+}
+.content-fragment.search-form .field-item {
+	padding: 6px 0 0
+}
+.field-item {
+	padding-bottom:0
+}
+.abbreviated-post .avatar {
+	margin-left: 5px;
+	margin-top:2px
+}
+.content-fragment.blog-post .full-post .post-author {
+	padding-left:6px
+}
+.content-fragment.blog-post-list .content-list.standard .content-item .post-attributes, .content-fragment.blog-post-list .content-list.standard .post-rating {
+	padding-right:5px
+}
+.content-fragment.search-form .search .internal-link.advanced-search, .content-fragment.search-form .field-item.searchbutton {
+	display:none
+}
+/*Hide background images surrounding comments*/
+.content-fragment.blog-feedback-list .full-post-header.user-is-author .wireframe-r, .content-fragment.blog-feedback-list .full-post-header.user-is-author .wireframe-r, .content-fragment.blog-feedback-list .full-post-footer.user-is-author .wireframe-r, .content-fragment.blog-feedback-list .full-post.user-is-author, .content-fragment.blog-feedback-list .full-post-header.user-is-author, .content-fragment.blog-feedback-list .full-post.user-is-author .wireframe-full-post-inner, .content-fragment.blog-feedback-list .full-post-footer.user-is-author, .content-fragment.blog-feedback-list .full-post, .content-fragment.blog-feedback-list .full-post-header .wireframe-r, .content-fragment.blog-feedback-list .full-post-header, .content-fragment.blog-feedback-list .full-post-footer, .content-fragment.blog-feedback-list .full-post-footer .wireframe-r {
+	background:none
+}
+.content-fragment.blog-feedback-list .full-post.user-is-author .wireframe-full-post-inner {
+	padding-left:0
+}
+.content-fragment.blog-feedback-list .full-post .avatar {
+	left:-36px
+}
+.content-fragment.blog-feedback-list .full-post .post-author .avatar {
+	top:3px
+}
+.content-fragment-content .field-list-description {
+	left:auto
+}
+.content-fragment.blog-feedback-list .full-post {
+	padding-left:13px;
+	padding-top:0
+}
+/* 5-24-2010 Duplicated below with an overriding margin - remove for next build
+	.layout-content.content-left-sidebar-right .layout-region.content fieldset.field-list, .content-fragment.blog-feedback-list .content-list-name {
+	margin-left:10px
+}
+*/
+.content-fragment.blog-feedback-list .full-post.user-is-author .wireframe-full-post-inner .post-author .avatar {
+	left:-49px;
+}
+.layout-region.content .tag-cloud .tag-list {
+	background-color:#F7F7F7;
+	padding:6px
+}
+.content-fragment.contact-blog .internal-link.send-email {
+	position:relative
+}
+.content-fragment.blog-post-list .filter .view-type .filter-option {
+	margin:0 3px 0 0;
+	padding:2px;
+}
+.layout-content.content-left-sidebar-right .layout-region.content fieldset.field-list, .content-fragment.blog-feedback-list .content-list-name {
+	margin-left:0;
+}
+.content-fragment.blog-feedback-list .full-post.user-is-author .wireframe-full-post-inner, .content-fragment.blog-feedback-list .full-post {
+	padding-right:0
+}
+.content-fragment.blog-feedback-list .wireframe-full-post-outer {
+	margin-right:0
+}
+.content-fragment-page.common-login .content-fragment.login .field-item .internal-link.login span {
+	left:-9px
+}
+.header-fragment.welcome-message .message {
+	display:none
+}
+a.internal-link.view-post {
+	display:block
+}
+.content-fragment.about-blog h4 {
+	font-weight:normal
+}
+.content-fragment.blog-post .full-post .post-content {
+	margin-top:8px
+}
+.field-item.post-body .field-item-input textarea {
+	width:100%
+}
+.captcha-blog-post-comment-form img {
+	display:block;
+	margin-bottom:8px;
+}
+.captcha-blog-post-comment-form label {
+	margin-right:5px
+}
+.copyright-info ul.footer-fragment-links {
+	list-style:none outside none;
+	margin:0;
+	padding:3px 0;
+}
+.copyright-info ul.footer-fragment-links li {
+	color:#333333;
+	display:inline;
+	margin:0 6px 0 0;
+	padding:0 0 0 6px;
+}
+.copyright-info ul.footer-fragment-links li a {
+	color:#000000;
+}
+.copyright-info ul.footer-fragment-links li.trademarks, .copyright-info ul.footer-fragment-links li.privacy, .copyright-info ul.footer-fragment-links li.abuse {
+	border-left:1px solid #000000;
+}
+.copyright-info {
+	background:url("../../../wireframe/images/microsoft.gif") no-repeat scroll right top transparent;
+	height:28px;
+	text-align:left;
+	padding-left:8px;
+	padding-top:8px
+}
+.content-fragment.link-list .post-content.user-defined-markup {
+	display:none
+}
+.layout-content.header-top-content-left-sidebar-right .layout-region.right-sidebar .content-fragment.blog-post-list .content-list .post-date .value, .layout-content.header-top-content-left-sidebar-right .layout-region.right-sidebar .content-fragment.blog-post-list .abbreviated-post .post-author {
+	display:none
+}
+.layout-content.header-top-content-left-sidebar-right .layout-region.right-sidebar .content-fragment.blog-post-list .content-list.simple .post-name {
+	font-size:12px
+}
+.content-fragment.link-list .content-list-name {
+	padding-top:20px
+}
+.content-fragment.link-list.no-wrapper-with-spacing {
+	margin-top:-10px
+}
+.breadcrumb-list .breadcrumb-item:first-child {
+	margin-left:0
+}
+.content-fragment.captcha-blog-post-comment-form .internal-link.add-reply {
+	background:url("../../../wireframe/Images/button.gif") no-repeat scroll right -20px transparent;
+	color:#FFFFFF;
+	font-size:10px;
+	height:20px;
+	margin-left:10px;
+	padding:3px 12px 6px 2px;
+	position:relative;
+}
+.content-fragment.captcha-blog-post-comment-form .internal-link.add-reply span {
+	background:url("../../../wireframe/Images/button.gif") no-repeat scroll left top transparent;
+	display:block;
+	height:20px;
+	left:-10px;
+	position:absolute;
+	top:0;
+	width:18px;
+}
+/* Temp fix for IE7 issue with captcha post button */
+*+html .content-fragment.captcha-blog-post-comment-form .internal-link.add-reply span {
+	top:6px
+}
+.content-fragment.about-blog h3 {
+	display:inline;
+	font-size:14px;
+	color:#666;
+}
+.header-fragment.user-welcome-without-login .user-name {
+	border-right:none;
+	font-weight:bold;
+	margin-right:10px;
+	overflow:hidden;
+	width:200px;
+	padding-right:0
+}
+.header-fragment.user-welcome-without-login .user-name, .header-fragment.user-welcome-without-login .navigation-item a, .header-fragment.login-logout .navigation-item a {
+	border:medium none;
+	padding-right:0;
+}
+/* Fixes extra spacing above 'full post view' and 'excerpt view' buttons in IE8 w/ compatibility view turned on */
+*+html .blog-post-list.content-fragment .filter .view-type {
+	line-height: 14px
+}
+dd {
+	margin:0
+}
+.content-fragment.link-list div.full-post-footer, .content-fragment.link-list .full-post .post-content, .content-fragment.link-list .post-content.user-defined-markup {
+	display:none
+}
+.content-fragment.link-list h3.post-name {
+	padding:0;
+	margin:0
+}
+.content-fragment.contact-blog .field-list-description {
+	margin-top:0
+}
+.layout.active .layout-region.right-sidebar, .layout.active .layout-region.left-sidebar {
+	min-width:270px !important
+}
+.content-fragment-page.postlist .abbreviated-post .post-content ul li {
+	list-style-type:disc
+}
+*+html h4.description.user-defined-markup {
+	margin-top:8px
+}
+/* All CSS below this line was added 5-17-2010 **************************************************************************************************************************************************/
+.content-fragment.search-form .search input {
+	width:175px;
+}
+.user-defined-markup table {
+	margin-left:0;
+	max-width:100%;
+}
+.footer-fragments-header, .footer-fragments-footer {
+	display:none
+}
+.footer-fragments {
+	margin:0 auto;
+	/* Added 6-29. Left and right padding caused horizontal scrollbars */
+	padding: 10px 0;
+}
+.layout-header {
+	display:none
+}
+.content-fragment.blog-post-list .content-list.standard .post-summary, .abbreviated-post .post-summary {
+	overflow-x:hidden
+}
+.content-fragment.blog-feedback-list .content-list-name .internal-link.rss span {
+	left:120px;
+}
+.content-fragment.blog-feedback-list .content-list-name .internal-link.rss span:first-child + span {
+	background:none;
+	height:auto;
+	left:-14px;
+	width:auto;
+}
+
+*+html legend.field-list-description {
+	margin-left:-7px;
+}
+/* All CSS below this line was added 5-23-2010 **************************************************************************************************************************************************/
+/* RSS icon */
+.content-fragment.blog-feedback-list .content-list-name .internal-link.rss span {left:87px}
+/* Fix IE7 spacing within comments */
+.full-post .post-content p {margin-top:12px}
+
+/* H2 tags used within posts were not displaying correctly in IE7 */
+.abbreviated-post .post-content h1, .full-post .post-content h1 {font-size:1.5em; line-height:22px}
+.abbreviated-post .post-content h2, .full-post .post-content h2 {font-size:1.35em; line-height:20px}
+.abbreviated-post .post-content h3, .full-post .post-content h3 {font-size:1.15em; line-height:18px}
+.abbreviated-post .post-content h4, .full-post .post-content h4 {font-size:1.1em}
+.abbreviated-post .post-content h5, .full-post .post-content h5 {font-size:1em}
+.abbreviated-post .post-content h6, .full-post .post-content h6 {font-size:0.95em}
+
+/* Prevents long blog names from displaying behind comment bubble */
+.content-fragment.blog-post-list .content-list.standard .post-application {max-width:90%}
+/* Search form */
+.content-fragment.search-form .field-list-footer label {position:relative; top:-3px; margin-right:12px}
+.content-fragment.search-form .field-list-footer input {margin-left:0; margin-top:0}
+/*6-29, changed font size from 0.9em to 0.95 em as the font size was too small in IE8 (only)*/
+.content-fragment.search-form .field-list-footer {margin-top:5px; font-size:0.95em}
+pre.scroll {
+	border:1px solid #ddd;
+	margin-bottom:12px;
+	overflow:auto;
+	padding:2px 6px;
+	width:95%;
+	font-size:1.2em;
+}
+.content-fragment-page.postlist pre.scroll {
+	width:518px
+}
+.content-fragment-page.post pre.scroll {
+	width:561px
+}
+/* BEGIN: Microsoft Translator fixes ********************************************************************************/
+.content-fragment.blog-links .navigation-item .internal-link span:first-child {
+	height:10px;
+	left:0;
+	position:absolute;
+	top:3px;
+}
+.content-fragment.blog-links .navigation-item .internal-link span:first-child {
+	width:10px;
+}
+.content-fragment.blog-links .navigation-item .internal-link.edit-application.weblog span:first-child {
+	width:10px;
+}
+.content-fragment.blog-links .navigation-item .internal-link.edit-application.weblog span:first-child + span {
+	background:none
+}
+.content-fragment.blog-links li.navigation-item a.internal-link span:first-child + span {
+	padding-bottom:0.13em;
+	display:block;
+	padding-left:0;
+	position:relative;
+	height:auto;
+	width:auto;
+	background:none;
+	top:0
+}
+.site-banner .internal-link.edit-page, .site-banner .internal-link.save-page {
+	min-width:55px;
+}
+.site-banner .internal-link.edit-page span:first-child, .site-banner .internal-link.save-page span:first-child {
+	background:url("../../../msdn/Images/customize-button.gif") no-repeat scroll left top transparent;
+	display:block;
+	height:20px;
+	left:-18px;
+	position:absolute;
+	top:0;
+	width:18px;
+}
+.site-banner .internal-link.edit-page span:first-child + span, .site-banner .internal-link.save-page span:first-child + span {
+	background-image:none;
+	background-color:transparent;
+	left:4px;
+	top:3px;
+}
+
+.content-fragment.blog-post .full-post .post-actions .navigation-list .navigation-item a.favorite-on span:first-child + span,
+.content-fragment.blog-post .full-post .post-actions .navigation-list .navigation-item a.favorite-off span:first-child + span {
+position:relative;
+background:none;
+}
+.content-fragment.captcha-blog-post-comment-form .field-item span:first-child + span {
+display:inline;
+left:0;
+position:relative;
+}
+/* END: Microsoft Translator fixes ********************************************************************************/
+
+/* MB2010 */ .pager a {
+font-size:16px;
+padding:0 10px 3px;
+}

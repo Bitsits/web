@@ -1,0 +1,475 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" lang="en"><head>
+
+
+<title>DirectX - GPWiki</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="MediaWiki 1.16.0">
+<link rel="shortcut icon" href="http://gpwiki.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://gpwiki.org/opensearch_desc.php" title="GPWiki (en)">
+<link title="Creative Commons" type="application/rdf+xml" href="http://gpwiki.org/index.php?title=DirectX&amp;action=creativecommons" rel="meta">
+<link rel="copyright" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.txt">
+<link rel="alternate" type="application/atom+xml" title="GPWiki Atom feed" href="http://gpwiki.org/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="DirectX_files/shared.css" media="screen">
+<link rel="stylesheet" href="DirectX_files/commonPrint.css" media="print">
+<link rel="stylesheet" href="DirectX_files/main.css" media="screen">
+<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?270" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?270" media="screen" /><![endif]-->
+<link rel="stylesheet" href="DirectX_files/index.css">
+<link rel="stylesheet" href="DirectX_files/index_004.css" media="print">
+<link rel="stylesheet" href="DirectX_files/index_002.css">
+<link rel="stylesheet" href="DirectX_files/index_003.css">
+<script>
+var skin="monobook",
+stylepath="/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/index.php/$1",
+wgScriptPath="",
+wgScriptExtension=".php",
+wgScript="/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://gpwiki.org",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="DirectX",
+wgTitle="DirectX",
+wgAction="view",
+wgArticleId=1034,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=25991,
+wgVersion="1.16.0",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "GPWiki", "5": "GPWiki talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "gpwiki": 4, "gpwiki_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="GPWiki",
+wgCategories=["Tutorial", "C plus plus", "VB", "VBNET", "DirectX", "Library"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="DirectX_files/wikibits.js"></script>
+<script src="DirectX_files/ajax.js"></script>
+<script src="DirectX_files/index.php"></script>
+
+<style>.gc-bubbleDefault{text-align:left;padding:0 !important;margin:0 !important;border:0 !important}.gc-reset{margin:0 !important;border:0 !important;padding:0 !important}.pls-bubbleTop{border-bottom:1px solid #aaa}.pls-topTail{background:url("https://ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border.gif") repeat-x;background-position:bottom}.pls-vertShim{background:#fff;text-align:right}.pls-vertShimLeft{background:url("https://ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border.gif") repeat-y;background-position:right}.pls-confirm-container .pls-vertShim{background-color:#fff3c2}.pls-contentWrap{background:#fff}.pls-contentLeft{background:url("https://ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border.gif") repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background:url("https://ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR.png") repeat-y;vertical-align:top}.pls-dropBottomL,.pls-dropBottom{vertical-align:top}.pls-dropBottomR{vertical-align:top}.pls-dropBottom{background:url("https://ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB.png") repeat-x;width:100%}.pls-topLeft{text-align:right;vertical-align:bottom}.pls-topRight{text-align:left;vertical-align:bottom}.pls-bottomLeft{text-align:right}.pls-bottomRight{text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom{background:url("https://ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/topTail.png") no-repeat}.pls-confirm-container .pls-tailbottom{background:url("https://ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/topTailConfirm.png") no-repeat}.pls-tailtop{background:url("https://ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bottomTail.png") no-repeat}.pls-tailright{background:url("https://ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/leftTail.png") no-repeat}.pls-tailleft{background:url("https://ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/rightTail.png") no-repeat}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:1px;font-size:1px}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}</style></head><body class="mediawiki ltr ns-0 ns-subject page-DirectX skin-monobook">
+<div id="globalWrapper">
+<div id="column-content"><div id="content">
+	<a id="top"></a>
+	
+	<h1 id="firstHeading" class="firstHeading">DirectX</h1>
+	<div id="bodyContent">
+		<h3 id="siteSub">From GPWiki</h3>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>
+		<!-- start content -->
+<p>So what is this wonderful DirectX thing that game programmers are 
+always going on about? Basically, it is Microsoft's answer to game 
+programmers' complaints that Windows is a poor platform for game 
+development. You see, in the old days, the only thing that game 
+programmers had to create games with in Windows was the API. Anyone 
+who's ever tried using the API BitBlt function to make an action game 
+can tell you that it is far too slow! (Although it is suitable for 
+slower paced gaming.) 
+</p><p>Enter DirectX. DirectX is a collection of <a href="http://gpwiki.org/index.php?title=DLL&amp;action=edit&amp;redlink=1" class="new" title="DLL (page does not exist)">DLLs</a>
+ that contain functions useful to game programmers, and best of all, 
+these functions shield the programmer from issues arising from the 
+differences in hardware from system to system. In other words, DirectX 
+allows programmers access to fast graphics, sound, and input functions 
+while shielding them from having to test for the capabilities of the 
+computer on which their program is running. DirectX will assay these 
+capabilities for you, and even if they are not present, they may be 
+emulated for you (in many cases). You barely even have to think!
+</p><p>Since the release of DirectX 7.0, Visual Basic programmers have 
+had the power to access DirectX easily. You see, DirectX now comes with 
+it's own Visual Basic Type Libraries. A type library describes the 
+functions contained within a DLL or group of DLLs, thereby allowing a 
+programmer to access the capabilities contained within the DLLs. Before 
+DirectX 7.0, we had to rely on type libraries created by a man named 
+Patrice Scribe. These type libraries certainly did the job (and well) 
+but DirectX 7.0 has the added boon of coming with documentation and 
+sample programs. Now there are many resources a budding VB DirectX game 
+programmer can draw upon. 
+</p><p>DirectX is an API developed by Microsoft for Windows platforms. 
+DirectX Graphics, a component of DirectX, can be considered an 
+alternative for <a href="http://gpwiki.org/index.php/What_is_OpenGL" title="What is OpenGL" class="mw-redirect">OpenGL</a>
+ and according to Microsoft much more sophisticated than its competitor.
+ Like OpenGL this API is developed in cooperation with large graphic 
+chip manufacturers (like <a href="http://www.ati.com/" class="external text" rel="nofollow">ATI</a> or <a href="http://www.nvidia.com/" class="external text" rel="nofollow">nvidia</a>).
+</p><p>With the advent of DirectX 9, DirectX split into two different 
+flavors: Managed and Unmanaged.  Since they are separate .dll’s, you 
+can’t always count on user’s who have DirectX 9 to have the Managed 
+Libraries. Unmanaged DirectX 9 is the direct descendant of DirectX 8. It
+ has the same libraries, and works in the same general way. Unmanaged 
+DirectX is for programming languages that do not use the .NET runtimes. 
+Managed DirectX was invented for the .NET based languages, like Visual 
+Basic.NET, C#.NET, etc. Managed DirectX is simpler than unmanaged, but 
+is probably slightly slower (there are many arguments). Managed DirectX 
+has most of the same components as unmanaged DirectX, excepting 
+DirectShow and DirectMusic. Instead, music and videos are played with 
+the DirectAudioVideoPlayback library.
+</p><p>DirectX consists of these sublibraries
+</p>
+<ul><li> <a href="http://gpwiki.org/index.php/DirectX:DirectDraw" title="DirectX:DirectDraw">DirectDraw</a>
+</li><li> <a href="http://gpwiki.org/index.php/DirectX:DirectInput" title="DirectX:DirectInput">DirectInput</a>
+</li><li> <a href="http://gpwiki.org/index.php/DirectX:DirectPlay" title="DirectX:DirectPlay">DirectPlay</a>
+</li><li> <a href="http://gpwiki.org/index.php/DirectX:DirectSound" title="DirectX:DirectSound">DirectSound</a>
+</li><li> <a href="http://gpwiki.org/index.php/DirectX:Direct3D" title="DirectX:Direct3D">Direct3D</a>
+</li></ul>
+<h2> <span class="mw-headline" id="Features"> Features </span></h2>
+<table style="" border="&quot;0&quot;" cellpadding="&quot;2&quot;" cellspacing="&quot;1&quot;">
+
+<tbody><tr>
+<th> Feature </th><th> Yes </th><th> No
+</th></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> sound effects and music </td><td> X </td><td>
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> input </td><td> X </td><td>
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> timers </td><td> X </td><td>
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> font rendering </td><td> X </td><td>
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> windowing </td><td> X  </td><td>
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> scripting </td><td>  </td><td> X
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> GUI </td><td> X </td><td>
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> <a href="http://gpwiki.org/index.php/What_is_OpenGL" title="What is OpenGL" class="mw-redirect">OpenGL</a></td><td>  </td><td> X
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> networking </td><td> X </td><td>
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> math </td><td> X </td><td>
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> 3d math </td><td> X </td><td>
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> file management </td><td>  </td><td>&nbsp;?
+</td></tr>
+<tr align="&quot;center&quot;" bgcolor="&quot;#FFFFFF&quot;">
+<td> threading </td><td> X </td><td>
+</td></tr></tbody></table>
+<p>The chart may be slightly inaccurate. OpenGL is a programming API 
+similar to DirectX that accomplishes many of the same tasks as DirectX 
+in different ways, so its inclusion in the chart is irrelevant. Also, 
+math and file handling functions are provided by the programming 
+languages that are calling DirectX functions, and so do not need to be 
+included in the API. DirectX does however have some file handling for 
+specific file types such as .X meshes and .fx shader files since these 
+are proprietary to the DirectX API. While DirectX does not have a built 
+in scripting language, there are many other packages out there that do 
+allow for added scripting functionality (MonkeyScript being one of 
+them), it does allow for windowed functionality the same way any other 
+graphics API does.
+</p><p><br>
+</p>
+<h2> <span class="mw-headline" id="Platforms"> Platforms </span></h2>
+<ul><li>Windows
+</li><li>Xbox and Xbox 360
+</li><li>Very partially
+<ul><li>UNIX (including Linux, FreeBSD, Irix, Solaris, Darwin) using <a href="http://www.winehq.org/" class="external text" rel="nofollow">wine</a>, or Cedega (previously winex)
+</li><li>MacOS X using <a href="http://darwine.opendarwin.org/" class="external text" rel="nofollow">Darwine</a>
+</li></ul>
+</li></ul>
+<h2> <span class="mw-headline" id="Tutorials_and_Source_Code"> Tutorials and Source Code </span></h2>
+<h4> <span class="mw-headline" id="C.2B.2B">C++</span></h4>
+<h5> <span class="mw-headline" id="Introduction">Introduction</span></h5>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:Tutorials:Empty_DirectX_9_Project" title="DirectX:Tutorials:Empty DirectX 9 Project">Empty DirectX 9 Project</a>
+</li></ul>
+<h5> <span class="mw-headline" id="Direct3D"><a href="http://gpwiki.org/index.php/DirectX:Direct3D" title="DirectX:Direct3D">Direct3D</a></span></h5>
+<ul><li> <a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:Video" title="DirectX:Direct3D:Tutorials:Video">DirectX Video Tutorial</a>
+</li><li> <a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:Shaders_Introduction" title="DirectX:Direct3D:Tutorials:Shaders Introduction">Introduction to shaders</a>
+</li><li> <a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:Vertex_Shaders_Introduction" title="DirectX:Direct3D:Tutorials:Vertex Shaders Introduction">An introduction to vertex and pixel shaders</a>
+</li><li> <a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:Vertex_Blending_using_Shaders" title="DirectX:Direct3D:Tutorials:Vertex Blending using Shaders">Vertex Blending using Shaders (skeletal animation)</a>
+</li><li> <a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:Implementing_a_simple_renderstate_manager" title="DirectX:Direct3D:Tutorials:Implementing a simple renderstate manager">Implementing a simple renderstate manager</a>
+</li></ul>
+<h5> <span class="mw-headline" id="DirectInput"><a href="http://gpwiki.org/index.php/DirectX:DirectInput" title="DirectX:DirectInput">DirectInput</a></span></h5>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:DirectInput:Tutorials:Keyboard" title="DirectX:DirectInput:Tutorials:Keyboard">Using the Keyboard with DirectInput</a>
+</li></ul>
+<h5> <span class="mw-headline" id="Source_Code">Source Code</span></h5>
+<ul><li> <a href="http://gpwiki.org/index.php?title=Files:AsteroidMinerSourceCode.zip&amp;action=edit&amp;redlink=1" class="new" title="Files:AsteroidMinerSourceCode.zip (page does not exist)">Asteroid Miner, complete source code</a> - courtesy of <a href="http://www.positech.co.uk/" class="external text" rel="nofollow">Positech Games</a>.
+</li></ul>
+<h5> <span class="mw-headline" id="External_Links">External Links</span></h5>
+<ul><li><ul><li> <a href="http://msdn.microsoft.com/archive/en-us/directx9_m/directx/direct3d/tutorials/tutorial1.asp" class="external text" rel="nofollow">Official Direct3D tutorial</a>
+</li><li> <a href="http://www.directxtutorial.com/" class="external text" rel="nofollow">DirectX 9 tutorial at DirectXTutorial.com</a>
+</li><li> <a href="http://www.drunkenhyena.com/" class="external text" rel="nofollow">Drunken Hyena Direct3D Tutorials for DX8 and 9</a>
+</li><li> <a href="http://www.wazooenterprises.com/" class="external text" rel="nofollow">Wazoo's Direct3D Tutorials for DX8 and 9</a>
+</li><li> <a href="http://msdn.microsoft.com/library/en-us/directx9_c/directx/directx9cpp.asp" class="external text" rel="nofollow">Microsoft's DirectX9 SDK</a>
+</li><li> <a href="http://www.microsoft.com/directx" class="external text" rel="nofollow">Microsoft's DirectX Page</a>
+</li><li> <a href="http://www.andypike.com/tutorials/DirectX8/" class="external text" rel="nofollow">Andy Pike's DirectX 8 Tutorials</a>
+</li><li> <a href="http://www3.telus.net/alexander_russell/course_dx/introduction_dx.htm" class="external text" rel="nofollow">Alex Russell's Game Programming Tutorial Using DirectX</a>
+</li></ul>
+</li></ul>
+<h4> <span class="mw-headline" id="VB">VB</span></h4>
+<h5> <span class="mw-headline" id="DirectX_7.x_Tutorials"><strong class="selflink">DirectX</strong> 7.x Tutorials</span></h5>
+<p><b><a href="http://gpwiki.org/index.php/DirectX:DirectDraw" title="DirectX:DirectDraw">DirectDraw</a></b>
+</p>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VB:DX7:Animation" title="DirectX:DirectDraw:Tutorials:VB:DX7:Animation">Animation</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VB:DX7:Altering_the_Display_with_Gamma_Controls" title="DirectX:DirectDraw:Tutorials:VB:DX7:Altering the Display with Gamma Controls">Gamma Ramp Special Effects and Screen Fading</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VB:DX7:Efficient_Line_Drawing_and_Text_Display" title="DirectX:DirectDraw:Tutorials:VB:DX7:Efficient Line Drawing and Text Display">Efficient Line Drawing and Text Display</a> 
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VB:DX7:Loading_and_Displaying_Bitmaps" title="DirectX:DirectDraw:Tutorials:VB:DX7:Loading and Displaying Bitmaps">Loading and Displaying Bitmaps</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VB:DX7:Loading_Surfaces_from_Custom_Resource_Files" title="DirectX:DirectDraw:Tutorials:VB:DX7:Loading Surfaces from Custom Resource Files">Loading Surfaces from Custom Resource Files</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VB:DX7:Smooth_Scrolling_Tiles" title="DirectX:DirectDraw:Tutorials:VB:DX7:Smooth Scrolling Tiles">Smooth Scrolling Tiles</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VB:DX7:Special_Effects" title="DirectX:DirectDraw:Tutorials:VB:DX7:Special Effects">Special Effects</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VB:DX7:Transparency" title="DirectX:DirectDraw:Tutorials:VB:DX7:Transparency">Transparency</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VB:DX7:Easy_Transparency" title="DirectX:DirectDraw:Tutorials:VB:DX7:Easy Transparency">Direct Draw Colour Transparency Made Easy</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VB:DX7:Zooming" title="DirectX:DirectDraw:Tutorials:VB:DX7:Zooming">Zooming</a>
+</li></ul>
+<p><b><a href="http://gpwiki.org/index.php/DirectX:DirectInput" title="DirectX:DirectInput">DirectInput</a></b>
+</p>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:DirectInput:Tutorials:VB:DX7:Keyboard_Handling" title="DirectX:DirectInput:Tutorials:VB:DX7:Keyboard Handling">Keyboard Handling</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectInput:Tutorials:VB:DX7:Mouse_Handling" title="DirectX:DirectInput:Tutorials:VB:DX7:Mouse Handling">Mouse Handling</a>
+</li></ul>
+<p><b><a href="http://gpwiki.org/index.php/DirectX:DirectPlay" title="DirectX:DirectPlay">DirectPlay</a></b>
+</p>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:DirectPlay:Tutorials:VB:DX7:Introduction" title="DirectX:DirectPlay:Tutorials:VB:DX7:Introduction">Introduction</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectPlay:Tutorials:VB:DX7:Initialization" title="DirectX:DirectPlay:Tutorials:VB:DX7:Initialization">Initialization</a> 
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectPlay:Tutorials:VB:DX7:Enumeration" title="DirectX:DirectPlay:Tutorials:VB:DX7:Enumeration">Enumeration of Service Providers</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectPlay:Tutorials:VB:DX7:Initializing_a_Connection" title="DirectX:DirectPlay:Tutorials:VB:DX7:Initializing a Connection">Initializing a Connection</a> 
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectPlay:Tutorials:VB:DX7:Starting_and_Joining_a_Game" title="DirectX:DirectPlay:Tutorials:VB:DX7:Starting and Joining a Game">Starting/Joining a Game</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectPlay:Tutorials:VB:DX7:Create_a_Player" title="DirectX:DirectPlay:Tutorials:VB:DX7:Create a Player">Creating a Player</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectPlay:Tutorials:VB:DX7:Commencing_Gameplay" title="DirectX:DirectPlay:Tutorials:VB:DX7:Commencing Gameplay">Commencing Gameplay</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectPlay:Tutorials:VB:DX7:In-Game_Messaging" title="DirectX:DirectPlay:Tutorials:VB:DX7:In-Game Messaging">In-Game Messaging</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectPlay:Tutorials:VB:DX7:Termination" title="DirectX:DirectPlay:Tutorials:VB:DX7:Termination">Termination</a>
+</li></ul>
+<p><b><a href="http://gpwiki.org/index.php/DirectX:DirectSound" title="DirectX:DirectSound">DirectSound</a></b>
+</p>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:DirectSound:Tutorials:VB:DX7:Introduction" title="DirectX:DirectSound:Tutorials:VB:DX7:Introduction">Introduction</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectSound:Tutorials:VB:DX7:Loading_Sound_Buffers_from_Custom_Resource_Files" title="DirectX:DirectSound:Tutorials:VB:DX7:Loading Sound Buffers from Custom Resource Files">Loading Sound Buffers from Custom Resource Files</a>
+</li></ul>
+<p><b><a href="http://gpwiki.org/index.php/DirectX:Direct3D" title="DirectX:Direct3D">Direct3D</a></b>
+</p>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:VB:DX7:Hybrid_Engine" title="DirectX:Direct3D:Tutorials:VB:DX7:Hybrid Engine">Hybrid Engine</a>
+</li></ul>
+<p><b>Source Code</b>
+</p>
+<ul><li><a href="http://gpwiki.org/index.php?title=Files:VB_Galaxy.zip&amp;action=edit&amp;redlink=1" class="new" title="Files:VB Galaxy.zip (page does not exist)">'Galaxy' Space-based Action/Adventure Game</a>
+</li><li><a href="http://gpwiki.org/index.php?title=Files:VB_RPGDemo.zip&amp;action=edit&amp;redlink=1" class="new" title="Files:VB RPGDemo.zip (page does not exist)">Role Playing Game Demo</a>
+</li><li><a href="http://gpwiki.org/index.php?title=Files:ARPGv2.zip&amp;action=edit&amp;redlink=1" class="new" title="Files:ARPGv2.zip (page does not exist)">Another RPG demo</a>
+</li><li><a href="http://gpwiki.org/index.php?title=Files:Sidescroller.zip&amp;action=edit&amp;redlink=1" class="new" title="Files:Sidescroller.zip (page does not exist)">Side Scroller Demo</a>
+</li><li><a href="http://gpwiki.org/index.php?title=Files:VBInvaderssource.zip&amp;action=edit&amp;redlink=1" class="new" title="Files:VBInvaderssource.zip (page does not exist)">Invader Type Game</a>
+</li></ul>
+<h5> <span class="mw-headline" id="DirectX_8.x_Tutorials"><strong class="selflink">DirectX</strong> 8.x Tutorials</span></h5>
+<p><b><a href="http://gpwiki.org/index.php/DirectX:Direct3D" title="DirectX:Direct3D">Direct3D</a></b>
+</p>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:VB:DX8:Device_Restoration" title="DirectX:Direct3D:Tutorials:VB:DX8:Device Restoration">Device Restoration</a>
+</li></ul>
+<p><b>DirectShow</b>
+</p>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:VB:DX8:DirectShow" title="DirectX:Direct3D:Tutorials:VB:DX8:DirectShow">DirectShow Tutorial</a>
+</li></ul>
+<p><b>Source Code</b>
+</p>
+<ul><li><a href="http://gpwiki.org/index.php?title=Files:VB_ping.zip&amp;action=edit&amp;redlink=1" class="new" title="Files:VB ping.zip (page does not exist)">'Ping' - Pong Arcade Clone with Decent AI</a>
+</li></ul>
+<p><b>External Links</b>
+</p>
+<ul><li><a href="http://directx4vb.vbgamer.com/" class="external text" rel="nofollow">DirectX4VB</a>
+</li><li><a href="http://rookscape.com/vbgaming" class="external text" rel="nofollow">Lucky's VB Gaming Site</a>
+</li><li><a href="http://voodoovb.talosstudios.com/" class="external text" rel="nofollow">Voodoo VB</a>
+</li></ul>
+<h4> <span class="mw-headline" id="VB.NET">VB.NET</span></h4>
+<h5> <span class="mw-headline" id="General">General</span></h5>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:Tutorials:VBNET:DX9:Introduction" title="DirectX:Tutorials:VBNET:DX9:Introduction">Introduction</a>
+</li></ul>
+<h5> <span class="mw-headline" id="Direct3D_2"><a href="http://gpwiki.org/index.php/DirectX:Direct3D" title="DirectX:Direct3D">Direct3D</a></span></h5>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:VBNET:DX9:Initialization" title="DirectX:Direct3D:Tutorials:VBNET:DX9:Initialization">Initialization</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:VBNET:DX9:Handling_Device_Loss" title="DirectX:Direct3D:Tutorials:VBNET:DX9:Handling Device Loss">Handling Device Loss</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:VBNET:DX9:Better_Game_Loop" title="DirectX:Direct3D:Tutorials:VBNET:DX9:Better Game Loop">Better Game Loop</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:VBNET:DX9:Basic_HLSL_Shaders" title="DirectX:Direct3D:Tutorials:VBNET:DX9:Basic HLSL Shaders">Basic HLSL Shaders (video)</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:Direct3D:Tutorials:VBNET:DX9:Render_Monkey" title="DirectX:Direct3D:Tutorials:VBNET:DX9:Render Monkey">Introduction to ATI's Render Monkey HLSL shader development program (video)</a>
+</li></ul>
+<h5> <span class="mw-headline" id="DirectSound"><a href="http://gpwiki.org/index.php/DirectX:DirectSound" title="DirectX:DirectSound">DirectSound</a></span></h5>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:DirectSound:Tutorials:VBNET:DX9:Playing_Music" title="DirectX:DirectSound:Tutorials:VBNET:DX9:Playing Music">Playing Music</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectSound:Tutorials:VBNET:DX9:Playing_Sounds" title="DirectX:DirectSound:Tutorials:VBNET:DX9:Playing Sounds">Playing Sounds</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectSound:Tutorials:VBNET:DX9:Playing_Sounds_From_ResX_Files" title="DirectX:DirectSound:Tutorials:VBNET:DX9:Playing Sounds From ResX Files">Playing Sounds From ResX Files</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectSound:Tutorials:VBNET:DX9:3D_Sound" title="DirectX:DirectSound:Tutorials:VBNET:DX9:3D Sound">3D Sound</a>
+</li></ul>
+<h5> <span class="mw-headline" id="DirectInput_2"><a href="http://gpwiki.org/index.php/DirectX:DirectInput" title="DirectX:DirectInput">DirectInput</a></span></h5>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:DirectInput:Tutorials:VBNET:DX9:Keyboard_Handling" title="DirectX:DirectInput:Tutorials:VBNET:DX9:Keyboard Handling">Keyboard Handling</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectInput:Tutorials:VBNET:DX9:Keyboard_Handling_Immediate" title="DirectX:DirectInput:Tutorials:VBNET:DX9:Keyboard Handling Immediate">Keyboard Handling (Immediate)</a>
+</li><li><a href="http://gpwiki.org/index.php/DirectX:DirectInput:Tutorials:VBNET:DX9:Mouse_Handling" title="DirectX:DirectInput:Tutorials:VBNET:DX9:Mouse Handling">Mouse Handling</a>
+</li></ul>
+<h5> <span class="mw-headline" id="DirectDraw"><a href="http://gpwiki.org/index.php/DirectX:DirectDraw" title="DirectX:DirectDraw">DirectDraw</a></span></h5>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:DirectDraw:Tutorials:VBNET:DX9:Basics" title="DirectX:DirectDraw:Tutorials:VBNET:DX9:Basics">Basics</a>
+</li></ul>
+<h5> <span class="mw-headline" id="Source_Code_2">Source Code</span></h5>
+<ul><li> <a href="http://gpwiki.org/index.php?title=Files:Ms3d_tutorial.zip&amp;action=edit&amp;redlink=1" class="new" title="Files:Ms3d tutorial.zip (page does not exist)">Skeletal Animation Demo</a>
+</li><li> <a href="http://gpwiki.org/index.php?title=Files:Ray_Picking.zip&amp;action=edit&amp;redlink=1" class="new" title="Files:Ray Picking.zip (page does not exist)">Ray Picking Example for Direct3d</a>
+</li></ul>
+<h5> <span class="mw-headline" id="External_Links_2">External Links</span></h5>
+<ul><li><a href="http://www.createdbyx.com/Default.aspx?Feed=MDX9" class="external text" rel="nofollow">Created by: X - DirectX Example Code</a>
+</li><li><a href="http://www.thezbuffer.com/categories/tutorials.aspx" class="external text" rel="nofollow">The ZBuffer: News and resources for Managed DirectX</a>
+</li></ul>
+<h4> <span class="mw-headline" id="HLSL">HLSL</span></h4>
+<h5> <span class="mw-headline" id="General_2">General</span></h5>
+<ul><li><a href="http://gpwiki.org/index.php/DirectX:Tutorials:HLSL:Introduction" title="DirectX:Tutorials:HLSL:Introduction">Introduction</a>
+</li></ul>
+<h5> <span class="mw-headline" id="External_links_3">External links</span></h5>
+<ul><li><a href="http://en.wikipedia.org/wiki/HLSL" class="external text" rel="nofollow">Wikipedia: HLSL</a>
+</li><li><a href="http://www.riemers.net/eng/Tutorials/DirectX/Csharp/series3.php" class="external text" rel="nofollow">Riemer's HLSL Introduction &amp; Tutorial (includes sample code)</a>
+</li><li><a href="http://www.neatware.com/lbstudio/web/hlsl.html" class="external text" rel="nofollow">Netaware: HLSL Introduction</a>
+</li><li><a href="http://msdn2.microsoft.com/en-us/library/bb509561.aspx" class="external text" rel="nofollow">MSDN: HLSL</a>
+</li></ul>
+<h2> <span class="mw-headline" id="Related_Weblinks"> Related Weblinks</span></h2>
+<ul><li> <a href="http://www.microsoft.com/windows/directx/default.aspx" class="external text" rel="nofollow">DirectX web site</a>
+</li><li> <a href="http://www.drunkenhyena.com/cgi-bin/dx9_net.pl" class="external text" rel="nofollow">Tutorials's on DirectX 9 by Drunken Hyena (C#, VB.net)</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 39/1000000
+Post-expand include size: 7624/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key codehead_wiki_db-mw_:pcache:idhash:1034-0!1!0!!en!2!edit=0 and timestamp 20110105065136 -->
+<div class="printfooter">
+Retrieved from "<a href="http://gpwiki.org/index.php/DirectX">http://gpwiki.org/index.php/DirectX</a>"</div>
+		<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://gpwiki.org/index.php/Special:Categories" title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://gpwiki.org/index.php/Category:Tutorial" title="Category:Tutorial">Tutorial</a></span> | <span dir="ltr"><a href="http://gpwiki.org/index.php/Category:C_plus_plus" title="Category:C plus plus">C plus plus</a></span> | <span dir="ltr"><a href="http://gpwiki.org/index.php/Category:VB" title="Category:VB">VB</a></span> | <span dir="ltr"><a href="http://gpwiki.org/index.php?title=Category:VBNET&amp;action=edit&amp;redlink=1" class="new" title="Category:VBNET (page does not exist)">VBNET</a></span> | <span dir="ltr"><a href="http://gpwiki.org/index.php/Category:DirectX" title="Category:DirectX">DirectX</a></span> | <span dir="ltr"><a href="http://gpwiki.org/index.php/Category:Library" title="Category:Library">Library</a></span></div></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="http://gpwiki.org/index.php/DirectX" title="View the content page [alt-shift-c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk"><a href="http://gpwiki.org/index.php/Talk:DirectX" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="http://gpwiki.org/index.php?title=DirectX&amp;action=edit" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="http://gpwiki.org/index.php?title=DirectX&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://gpwiki.org/index.php?title=Special:UserLogin&amp;returnto=DirectX" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(&quot;/images/gpwikilogo.png&quot;);" href="http://gpwiki.org/index.php/Main_Page" title="Visit the main page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="http://www.gpwiki.org/" title="Visit the main page [alt-shift-z]" accesskey="z">Main Page</a></li>
+				<li id="n-Message-Board"><a href="http://www.gpwiki.org/forums">Message Board</a></li>
+				<li id="n-currentevents"><a href="http://gpwiki.org/index.php/GPWiki:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="http://gpwiki.org/index.php/Special:RecentChanges" title="The list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="http://gpwiki.org/index.php/Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="http://gpwiki.org/index.php/Help:Contents" title="The place to find out">Help</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div id="p-search" class="portlet">
+  <div class="cse-branding-logo">
+  <div class="cse-branding-text">
+    <img src="DirectX_files/poweredby_FFFFFF.gif" alt="Google">
+    Custom Search
+    </div>
+	</div> 
+	<div id="searchBody" class="pBody">
+   <style type="text/css">
+    @import url(http://www.google.com/cse/api/branding.css);
+   </style>
+   
+  <div class="cse-branding-bottom" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+   <div class="cse-branding-form">
+    <form action="http://www.google.co.uk/cse" id="cse-search-box" target="_blank">
+      <div>
+        <input name="cx" value="partner-pub-8199339419526862:0944576905" type="hidden">
+        <input name="ie" value="UTF-8" type="hidden">
+        <center>
+         <input name="q" size="17" type="text">
+         <input name="sa" value="Search" type="submit">
+        </center>
+      </div>
+    </form>
+   </div>
+ </div>
+
+</div>
+</div>
+
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://gpwiki.org/index.php/Special:WhatLinksHere/DirectX" title="List of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://gpwiki.org/index.php/Special:RecentChangesLinked/DirectX" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="http://gpwiki.org/index.php/Special:SpecialPages" title="List of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://gpwiki.org/index.php?title=DirectX&amp;printable=yes" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="http://gpwiki.org/index.php?title=DirectX&amp;oldid=25991" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		
+	 </div>	
+	 
+	 
+	 <div>
+	<p>
+     <script type="text/javascript"><!--
+      google_ad_client = "ca-pub-8199339419526862";
+      /* GPWiki Menu Sidebar */
+      google_ad_slot = "4458594054";
+      google_ad_width = 120;
+      google_ad_height = 600;
+      //-->
+     </script>
+     </p><center>
+      <script type="text/javascript" src="DirectX_files/show_ads.js">
+      </script><script src="DirectX_files/show_ads_impl.js"></script><script src="DirectX_files/gcm_66a225a4a9849ebff5b9f77536ce7311.js"></script><script src="DirectX_files/expansion_embed.js"></script><script src="DirectX_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 600px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 120px;"><ins id="google_ads_frame1_anchor" style="display: block; border: medium none; height: 600px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 120px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame1" src="DirectX_files/ads.htm" style="left: 0pt; position: absolute; top: 0pt;" tabindex="-1" vspace="0" width="120" frameborder="0" height="600" scrolling="no"></iframe></ins></ins>
+     </center>
+   </div>
+			
+		
+		
+	</div>
+	
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="DirectX_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a></div>
+	<div id="f-copyrightico"><a href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.txt"><img src="DirectX_files/gnu-fdl.png" alt="GNU Free Documentation License 1.2" width="88" height="31"></a></div>
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 18 November 2010, at 04:24.</li>
+		<li id="viewcount">This page has been accessed 308 times.</li>
+		<li id="copyright">Content is available under <a href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.txt" class="external ">GNU Free Documentation License 1.2</a>.</li>
+		<li id="privacy"><a href="http://gpwiki.org/index.php/GPWiki:Privacy_policy" title="GPWiki:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="http://gpwiki.org/index.php/GPWiki:About" title="GPWiki:About">About GPWiki</a></li>
+		<li id="disclaimer"><a href="http://gpwiki.org/index.php/GPWiki:General_disclaimer" title="GPWiki:General disclaimer">Disclaimers</a></li>
+	</ul>
+</div>
+</div>
+
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.182 secs. --></body></html>

@@ -1,0 +1,400 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+<title>gotoAndPlay Flash Tutorials -- Tonypa's tile-based tutorials (updated)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="keywords" content="Flash, actionscript, flash game development, game programming, tutorials, flash tutorial, map,maze,movement,platform,scrolling,shooting,tile based,tiles,">
+<meta http-equiv="description" content="A long, well organized and in depth series of articles that cover all the aspects of tile-based games: moving, jumping, scrolling, shooting and much more!">
+<link rel="icon" href="http://www.gotoandplay.it/images/gtp_icon.png"><link href="SLOPES_files/main.css" rel="stylesheet" type="text/css">
+<link href="SLOPES_files/boxes.css" rel="stylesheet" type="text/css">
+<link href="SLOPES_files/skin.htm" rel="stylesheet" type="text/css"><script language="JavaScript" type="text/JavaScript" src="SLOPES_files/main.js"></script>
+<script language="JavaScript" type="text/JavaScript" src="SLOPES_files/cookies.js"></script>
+</head><body leftmargin="0" topmargin="0" class="bg" onload="preloadMenu()" marginheight="0" marginwidth="0">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+  <tbody><tr> 
+    <td colspan="3"><img src="SLOPES_files/spacer.gif" width="120" height="11"></td>
+  </tr>
+  <tr> 
+    <td rowspan="4" class="leftShadow" width="20">&nbsp;</td>
+    <td width="760"><img src="SLOPES_files/headLogo.jpg" border="0"></td>    
+    <td rowspan="4" class="rightShadow" width="20">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td> 
+      <script>menuSelected = 3</script>
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+  <tbody><tr>
+   <td colspan="25"><img name="navBar_r1_c1" src="SLOPES_files/navBar_r1_c1.gif" alt="" border="0" width="760" height="1"></td>
+  </tr>
+  <tr>
+   <td><img src="SLOPES_files/navBar_r2_c1.gif" alt="" border="0" width="1"></td>
+   <td><a href="http://www.gotoandplay.it/" title="Return to the homepage" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c2','','/images/navBar/navBar_r2_c2_f2.gif',1);"><img name="navBar_r2_c2" src="SLOPES_files/navBar_r2_c2.gif" alt="" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_gapBlog/" title="Latest news!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_news','','/images/navBar/navBar_news_f2.gif',12);"><img name="navBar_news" src="SLOPES_files/navBar_news.gif" alt="" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_games/" title="Play games!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c4','','/images/navBar/navBar_r2_c4_f2.gif',2);"><img name="navBar_r2_c4" src="SLOPES_files/navBar_r2_c4.gif" alt="" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_articles/" title="Learn how to make flash games!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c6','','/images/navBar/navBar_r2_c6_f2.gif',3);"><img name="navBar_r2_c6" src="SLOPES_files/navBar_r2_c6_sel.gif" alt="" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_articles/multiplayerCentral/" title="Learn the art of multiplayer games!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c8','','/images/navBar/navBar_r2_c8_f2.gif',9);"><img name="navBar_r2_c8" src="SLOPES_files/navBar_r2_c8.gif" alt="" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_reviews/" title="Game reviews, book reviews ..." onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('navBar_r2_c101','','/images/navBar/navBar_r2_c10_f2.gif',10)"><img src="SLOPES_files/navBar_r2_c10.gif" alt="" name="navBar_r2_c101" id="navBar_r2_c101" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/spotLight/" title="Read our interviews with the pros!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c12','','/images/navBar/navBar_r2_c12_f2.gif',11);"><img name="navBar_r2_c12" src="SLOPES_files/navBar_r2_c12.gif" alt="" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_forums/" title="The community forums" onmouseover="MM_swapImage('navBar_r2_c141','','/images/navBar/navBar_r2_c14_f2.gif',4)" onmouseout="MM_swapImgRestore()"><img src="SLOPES_files/navBar_r2_c14.gif" alt="" name="navBar_r2_c141" id="navBar_r2_c141" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_info/" title="Info, f.a.q. and more..." onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('navBar_r2_c161','','/images/navBar/navBar_r2_c16_f2.gif',5)"><img src="SLOPES_files/navBar_r2_c16.gif" alt="" name="navBar_r2_c161" id="navBar_r2_c161" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="http://www.gotoandplay.it/_links/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('navBar_r2_c181','','/images/navBar/navBar_r2_c18_f2.gif',6)"><img src="SLOPES_files/navBar_r2_c18.gif" alt="" name="navBar_r2_c181" id="navBar_r2_c181" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0" width="2"></td>
+   <td><a href="javascript:spammersGoToHell()" title="Write us!" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c20','','/images/navBar/navBar_r2_c20_f2.gif',7);"><img name="navBar_r2_c20" src="SLOPES_files/navBar_r2_c20.gif" alt="" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0"><img src="SLOPES_files/navBar_r2_c11.gif" alt="" border="0"></td>
+   <td><a href="http://www.gotoandplay.it/_credits/" title="Site credits" onmouseout="MM_swapImgRestore();" onmouseover="MM_swapImage('navBar_r2_c22','','/images/navBar/navBar_r2_c22_f2.gif',8);"><img name="navBar_r2_c22" src="SLOPES_files/navBar_r2_c22.gif" alt="" border="0"></a></td>
+   <td><img src="SLOPES_files/navBar_r2_c23.gif" alt="" border="0" width="1"></td>
+  </tr>
+ <tr>
+   <td colspan="25"><img name="navBar_r1_c1" src="SLOPES_files/navBar_r1_c1.gif" alt="" border="0" width="760" height="1"></td>
+  </tr>
+</tbody></table>
+<table background="SLOPES_files/titlebar_r2.gif" border="0" cellpadding="0" cellspacing="0" width="760"> 
+  <tbody><tr> 
+    <td><img src="SLOPES_files/titleBar_r1.gif" width="760"></td> 
+  </tr> 
+  <tr> 
+    <td style="background-image: url(/_advertisement/img/titlebar_r2.gif); background-repeat: no-repeat; background-color: rgb(253, 253, 253);">
+		<table align="center" border="0" cellpadding="0" cellspacing="0" width="470" height="62">
+          <tbody><tr>
+            <td align="center">
+			<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.adobe.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="468" height="60"><param name="movie" value="http://www.gotoandplay.it/phpAdsNew/adimage.php?filename=gtpbanner2.swf&amp;contenttype=swf&amp;clickTAG=http://www.gotoandplay.it/phpAdsNew/adclick.php%3Fbannerid=3%26zoneid=11%26source=%26dest=http%3A%2F%2Fwww.gotoandplay.it%2F_advertisement%2Findex.php"><param name="quality" value="high"><param name="allowScriptAccess" value="always"><embed src="SLOPES_files/adimage.php" quality="high" type="application/x-shockwave-flash" pluginspace="http://www.adobe.com/go/getflashplayer" allowscriptaccess="always" width="468" height="60"></object><div id="beacon_3" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="SLOPES_files/adlog.gif" alt="" style="width: 0px; height: 0px;" width="0" height="0"></div>			</td>
+          </tr>
+    </tbody></table>	</td>
+  </tr>
+  <tr> 
+    <td><img src="SLOPES_files/titleBar_r3.gif" width="760"></td> 
+  </tr> 
+</tbody></table>
+    </td>
+  </tr>
+  <tr> 
+    <td class="internalFrame" align="left" valign="top"> <table class="xsmall" border="0" cellpadding="6" cellspacing="0" width="758">
+        <tbody><tr> 
+          <td style="padding: 0px;" valign="top"> 
+            <img src="SLOPES_files/type_1.gif"><br><div style="padding: 6px;"><br><img src="SLOPES_files/rate_2.gif">&nbsp;<span class="articleTitle">Tonypa's tile-based tutorials (updated)</span><br>
+<span class="xsmall">[ September 03, 2004 ]<b> by Tonu Paldra, alias Tonypa</b></span><br>
+<span class="xsmall"><div style="padding-top: 6px; color: rgb(68, 68, 68);"><em>A
+long, well organized and in depth series of articles that cover all the
+aspects of tile-based games: moving, jumping, scrolling, shooting and
+much more!</em></div></span><br><hr>
+</div>          </td>
+        </tr>
+        <tr> 
+          <td class="articleText" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody><tr>
+                <td class="articleText" align="left" width="18%" nowrap="nowrap" valign="top"><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa.php">Intro</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p02.php">Why tiles?</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p03.php">Map format</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p04.php">More maps</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p05.php">Creating tiles</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p06.php">The hero</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p07.php">Keys to move</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p08.php">Hit the wall</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p09.php">Open the door</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p10.php">Jumping</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p11.php">Clouds</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p12.php">Ladders</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p13.php">Stupid enemy</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p14.php">More on enemy</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p15.php">Shoot him</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p16.php">Getting items</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p17.php">Moving tiles</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p18.php">Scrolling</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p19.php">More scrolling</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p20.php">Depth</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p21.php">Isometric view</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p22.php">Mouse to move</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p23.php">Isometric mouse</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p24.php">Isometric scroll</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p25.php">Rotate hero</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p26.php">Rotate bground</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p27.php">Pathfinding</a><br><a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p28.php">More pathfinding</a><br><span style="color: rgb(102, 102, 102);"><b>Slopes</b></span><br>                </td><td class="articleText" align="left" width="82%" valign="top">
+				  <p class="articleParagraphTitle">SLOPES</p>
+                  <p>This time we will see how to add slopes: </p>
+                  <p align="center">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="350" height="180">
+                      <param name="movie" value="tonypa/img/p29_1.swf">
+                      <param name="menu" value="false">
+                      <param name="quality" value="high">
+                      <param name="bgcolor" value="#FFFFFF">
+                      <embed src="SLOPES_files/p29_1.swf" menu="false" quality="high" bgcolor="#FFFFFF" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" width="350" height="180">
+                    </object>
+                  </p>
+                  <p>Many
+people have asked me "How do I make my hero walk on the sloped tiles?".
+And I usually reply "Why on earth would you want your hero to walk on
+sloped tiles? Are you not happy with the rectangular tiles? Can't your
+hero just jump on the higher tiles?" And then they say "No, I must have
+sloped tiles". </p>
+                  <p>Perhaps you do not know what sloped tiles are. In this picture, hero (the Duck named Charlie) is walking on sloped tile: </p>
+                  <p align="center"><img src="SLOPES_files/p29_2.gif" border="1" width="170" height="170"> <br>
+                      <small>(Screenshot from the game "CHARLIE II"<br>
+                  by Mike Wiering / Wiering Software)</small></p>
+                  <p>The
+slope allows our hero to get on higher (or lower) height simply by
+walking right (or left) without jumping (or falling). So, the slope we
+will talk about, is connecting 2 tiles with different heights: </p>
+                  <p align="center"><img src="SLOPES_files/p29_3.gif" border="1" width="300" height="183"> </p>
+                  <p>When
+hero in left picture wants to continue moving right, he has to jump on
+the higher tile. But thanks to the slope, hero on the right picture is
+not forced into jumping. Sure, if our hero is jumper-type of hero, he
+could still jump in the right picture too, but normal heroes are very
+happy, if they can avoid jumping. </p>
+                  <p class="articleParagraphTitle"><br>
+                  PROBLEMS</p>
+                  <p>As
+soon as we want to add sloped tiles, we will face several problems (I
+bet you didn't expect any problems). First, the placement of hero on
+the sloped tile. If you remember, our hero is basically rectangle, all
+the movement and collisions are based on his corner points. We cant use
+same idea on the slope, since most heroes would end up standing on the
+slope without their feet touching the ground. Instead, we have to place
+center of hero on the sloped ground and move part of hero inside the
+ground. </p>
+                  <p align="center"><img src="SLOPES_files/p29_4.gif" border="1" width="300" height="162"> </p>
+                  <p>Next,
+the slopes in our game must always be from one corner of the tile to
+the opposite corner and you should be careful how you place the slopes.
+You can't make slopes with some other angle or shape and you cant make
+strange maps with slopes. </p>
+                  <p align="center"><img src="SLOPES_files/p29_5.gif" border="1" width="250" height="145"> </p>
+                  <h1 class="articleParagraphTitle"><br>
+                  CODE IT </h1>
+                  <p>Start with the code from tutorial 7 <a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p10.php">Jumping</a>. </p>
+                  <p>Declare new tile prototypes: </p>
+                  <pre class="quote">game.Tile4 = function() {};
+game.Tile4.prototype.walkable = true;
+game.Tile4.prototype.slope = 1;
+game.Tile4.prototype.frame = 4;
+game.Tile5 = function() {};
+game.Tile5.prototype.walkable = true;
+game.Tile5.prototype.slope = -1;
+game.Tile5.prototype.frame = 5;</pre>
+                  <p>Tile4
+has slope moving upward (/) and tile5 has slope moving down (\). Draw
+the slopes in frames you have set with frame property. </p>
+                  <p>New
+functions are such nice things. They are fresh, smell good and do
+things you never new could be done. Lets make checkForSlopes function: </p>
+                  <pre class="quote">function checkForSlopes (ob, diry, dirx)
+{
+  if (game["t_" + (ob.ytile + 1) + "_" + ob.xtile].slope and !ob.jump)
+  {
+    ob.ytile += 1;
+    ob.y += game.tileH;
+  }
+  if (game["t_" + ob.ytile + "_" + ob.xtile].slope and diry != -1)
+  {
+    if (diry == 1)
+    {
+      ob.y = (ob.ytile + 1) * game.tileH - ob.height;
+    }
+    var xpos = ob.x - ob.xtile * game.tileW;
+    ob.onSlope = game["t_" + ob.ytile + "_" + ob.xtile].slope;
+    ob.jump = false;
+    if(game["t_" + ob.ytile + "_" + ob.xtile].slope == 1)
+    {
+      ob.addy = xpos;
+      ob.clip._y = (ob.ytile + 1) * game.tileH - ob.height - ob.addy;
+    }
+    else
+    {
+      ob.addy = game.tileW - xpos;
+      ob.clip._y = (ob.ytile + 1) * game.tileH - ob.height - ob.addy;
+    }
+  }
+  else
+  {
+    if((ob.onSlope == 1 and dirx == 1) or (ob.onSlope == -1 and dirx == -1))
+    {
+      ob.ytile -= 1;
+      ob.y -= game.tileH;
+      ob.clip._y = ob.y;
+    }
+    ob.onSlope = false;
+  }
+}</pre>
+                  <p>This
+function will be called from moveChar function with movement variables
+dirx and diry. First if statement checks for the slope on the tile
+below current tile. This is for the situation, where hero currently
+stands on unwalkable tile, but moves left or right and there is slope
+going down from his current height. If there is slope below hero, we
+increase the ytile and y. However, we will not check for it, if hero is
+jumping. </p>
+                  <p>Next if statement checks for the
+slope on the tile hero currently is. The diry != -1 part ignores the
+check, if SPACE key has been pressed and hero jumps up. </p>
+                  <p>If
+we were falling down (diry == 1), we will set the y property as if hero
+would of landed on tile below. We set jump property to false and
+onSlope property equal to the slope value on current tile (1 or -1). </p>
+                  <p>xpos is the value of how far from the left edge of current tile center of our hero is: </p>
+                  <p align="center"><img src="SLOPES_files/p29_6.gif" border="1" width="300" height="120"> </p>
+                  <p>If
+slope is going up, then we move hero up by the value of xpos, if its
+going down, then by the value of tileW-xpos. Note that if you don't use
+square tile, then you would need to find xpos as percentage from tileW.
+</p>
+                  <p>Last part after else statement checks if we were standing on slope, but now we have moved off from it onto higher tile. </p>
+                  <p>Next take moveChar function. Modify the check for going left and right: </p>
+                  <pre class="quote">//left
+if ((ob.downleft and ob.upleft) or ob.onSlope)
+{
+  ...
+ 
+//right
+if ((ob.upright and ob.downright) or ob.onSlope)
+{
+  ...
+ </pre>
+                  <p>Here
+we will basically ignore all collision checks for left/right movement
+as long hero is on the slope. Remember, while on slope, he is standing
+partially inside the wall, so we can't use normal collision with his
+corners. </p>
+                  <p>After placing the hero movie clip, call checkForSlopes function: </p>
+                  <pre class="quote">ob.clip._x = ob.x;
+ob.clip._y = ob.y;
+checkForSlopes(ob, diry, dirx);</pre>
+                  <p>When we jump while standing on the slope, we have to update the y coordinate of the hero. Modify detectKeys function: </p>
+                  <pre class="quote">if (Key.isDown(Key.SPACE))
+{
+  if (!ob.jump)
+  {
+    //if we were on slope, update
+    if (ob.onSlope)
+    {
+      ob.y -= ob.addy;
+      ob.ytile = Math.floor(ob.y / game.tileH);
+    }
+    ob.jump = true;
+    ob.jumpspeed = ob.jumpstart;
+  }
+}
+else if (Key.isDown(Key.RIGHT))
+{
+  keyPressed = _root.moveChar(ob, 1, 0);
+}
+else if (Key.isDown(Key.LEFT))
+{
+  keyPressed = _root.moveChar(ob, -1, 0);
+}</pre>
+                  <p>If hero has onSlope property set to true, we will first update its y property and calculate new value for the ytile.</p>
+                  <p>You can download the source fla with all the code and movie set up <a href="http://www.gotoandplay.it/_articles/2004/02/tonypa/slopes.fla">here</a>.</p></td>
+              </tr>
+            </tbody></table></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="top">
+		  	<hr>
+            <a href="http://www.gotoandplay.it/_articles/index.php"><img src="SLOPES_files/btn_index.gif" border="0"></a>&nbsp;&nbsp;
+            <a href="http://www.gotoandplay.it/_articles/2004/02/tonypa_p28.php"><img src="SLOPES_files/btn_prev.gif" border="0" width="47" height="20"></a>
+            <hr></td>
+        </tr>
+        <tr> 
+          <td valign="top">
+		  	<!-- PAGE FOOTER: Related Articles and Author Data -->
+		  	<table border="0" cellpadding="0" cellspacing="0">
+              <tbody><tr>
+                	
+                <td width="238" valign="top"> 
+                  <table border="0" cellpadding="0" cellspacing="0" width="226">
+  <tbody><tr> 
+    <td width="220" height="19"><img src="SLOPES_files/title_boxRelArticles.gif" width="220" height="19"></td>
+    <td class="box_shadowTop"></td>
+  </tr>
+  <tr> 
+    <td class="box_Pattern">
+		<div style="padding-left: 1px; padding-right: 1px;">
+			<iframe name="relatedArticles" marginheight="0" marginwidth="0" src="SLOPES_files/box_relatedArt_frame.htm" width="218" frameborder="0" height="146" scrolling="auto"></iframe>
+		</div>
+	</td>
+    <td class="box_shadowMid">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="box_bgBottom" height="20"></td>
+    <td class="box_shadowBtm">&nbsp;</td>
+  </tr>
+</tbody></table>                </td>
+                <td width="515" valign="top"> 
+                  <table border="0" cellpadding="0" cellspacing="0" width="521">
+  <tbody><tr> 
+    <td width="509" height="19"><img src="SLOPES_files/title_boxAuthor.gif" width="515" height="19"></td>
+    <td class="box_shadowTop"></td>
+  </tr>
+  <tr> 
+    <td class="largeBox_Pattern">
+	<div class="box_inside">
+		<table class="articleText" border="0" cellpadding="4" cellspacing="0">
+			<tbody><tr>
+				<td align="right" width="118"><strong>Name:</strong></td>
+				<td>
+				Tonu Paldra, alias Tonypa				</td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Location:</strong></td>
+				<td>
+				Estonia				</td>
+			</tr>
+			<tr>
+				<td align="right"><strong>Age:</strong></td>
+				<td>
+				34				</td>
+			</tr>
+			<tr>
+				<td align="right" valign="top"><strong>Flash experience:</strong></td>
+				<td>
+Discovered Flash4 in the year 2000 and fell in love with it. Abandoned
+Flash4, when they ended Flash4 help forum in Flashkit. Been playing
+with Flash only in spare time, thinking its great hobby </td>
+			</tr>
+			<tr>
+				<td align="right" valign="top"><strong>Job:</strong></td>
+				<td>
+				Magazine designer				</td>
+			</tr>
+			<tr>
+				<td align="right" valign="top"><strong>Website:</strong></td>
+				<td>
+				<a href="http://www.tonypa.pri.ee/" target="_blank">http://www.tonypa.pri.ee/</a>				</td>
+			</tr>
+		</tbody></table>
+	</div>
+	</td>
+    <td class="box_shadowMid">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="20"><img src="SLOPES_files/box_footer.gif" width="515" height="20"></td>
+    <td class="box_shadowBtm">&nbsp;</td>
+  </tr>
+</tbody></table>                </td>
+		  	  </tr>
+			</tbody></table>
+			<!-- END PAGE FOOTER -->
+          </td>
+        </tr>
+      </tbody></table></td>
+  </tr>
+  <tr> 
+    <td class="internalFrame" align="left" valign="top"></td>
+  </tr>
+  <tr> 
+    <td colspan="3" class="bgLeft04"> 
+      <img src="SLOPES_files/footer.png" border="0">    </td>
+  </tr>
+</tbody></table>
+<table align="center" border="0" cellpadding="2" cellspacing="0" width="740">
+  <tbody><tr>
+    <td class="footNote" align="center">| <a href="http://www.gotoandplay.it/" title="back to the homepage" class="footNoteLink">Homepage</a> 
+	  | <a href="http://www.gotoandplay.it/_gapBlog/" title="Latest news!" class="footNoteLink">News</a>
+      | <a href="http://www.gotoandplay.it/_games/" class="footNoteLink" title="flash games, dickDynamite">Games</a> 
+      | <a href="http://www.gotoandplay.it/_articles/" title="flash articles, tutorials" class="footNoteLink">Articles</a> 
+	  | <a href="http://www.gotoandplay.it/_articles/" title="multiplayer articles" class="footNoteLink">Multiplayer Central</a> 
+	  | <a href="http://www.gotoandplay.it/_reviews/" title="Game reviews, book reviews..." class="footNoteLink">Reviews</a> 
+	  | <a href="http://www.gotoandplay.it/spotlight/" title="Interviews with the pros!" class="footNoteLink">Spotlight</a> 
+      | <a href="http://www.gotoandplay.it/_forums/" title="gotoAndPlay() Forums" target="_blank" class="footNoteLink">Forums</a>
+      | <a href="http://www.gotoandplay.it/_info/" class="footNoteLink" title="general info and f.a.q.">Info</a> 
+      | <a href="http://www.gotoandplay.it/_links/" title="other great flash resources" class="footNoteLink">Links</a> 
+      | <a href="mailto:info@gotoandplay.it" title="contact us" class="footNoteLink">Contact us</a> 
+	  | <a href="http://www.gotoandplay.it/_advertisement/" title="advertisement on gotoAndPlay()" class="footNoteLink">Advertise</a>
+      | <a href="http://www.gotoandplay.it/_credits/" title="site credits" class="footNoteLink">Credits</a>    
+      |<br><br>| <a href="http://www.smartfoxserver.com/" title="SmartFoxServer" class="footNoteLink">www.smartfoxserver.com</a>  
+	  | <a href="http://www.gotoandplay.biz/" title="gotoAndPlay()" class="footNoteLink">www.gotoandplay.biz</a> 
+	  | <a href="http://www.openspace-engine.com/" title="OpenSpace" class="footNoteLink">www.openspace-engine.com</a>  
+      |</td>
+  </tr>
+  <tr> 
+    <td class="footNote" align="center"><br>
+      gotoAndPlay() v 3.0.0 -- (c)2003-2008 gotoAndPlay() Team -- P.IVA 03121770048</td>
+  </tr>
+</tbody></table>
+<p>&nbsp;</p>
+
+</body></html>

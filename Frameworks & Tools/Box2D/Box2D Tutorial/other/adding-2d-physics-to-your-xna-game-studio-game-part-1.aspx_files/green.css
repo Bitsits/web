@@ -1,0 +1,104 @@
+/*  "Green" variant of "Gertrude" skin for CS 1.0.*/
+
+h1 a:visited,
+h1 a:active,
+h1 a:link {
+	color : #093;
+}
+
+h1 a:hover {
+	color : #093;
+}
+
+a:visited,
+a:active,
+a:link {
+	color : #093;
+}
+
+#header{
+	margin : 0px;
+	color : #009900;
+	font-size : 0.9em;
+	background-color : #CEA;
+	padding: 0px;
+}
+
+#header h1{
+	border-bottom : 2px solid #093;
+
+}
+#sidebar-a h3 {
+	color : #093;
+	background-color : #CEA;	
+	border : 1px solid #A99;
+	border-bottom : none;
+}
+
+#sidebar-a p {
+	border : 1px solid #A99;}
+
+#sidebar-a ul {
+	border : 1px solid #A99;}
+	
+#news{
+	border : 1px solid #A99;}
+
+
+
+
+#cal{	
+	border : 1px solid #A99;}
+	
+#Cal a,	
+#Cal a:active,
+#Cal a:visited,
+#Cal a:link {
+	color : #093;
+}
+	
+#footer {
+	border-top : 1px solid #093;;
+}
+
+#masthead {
+	color: #666;
+	background: #CEA;
+}
+#masthead a:link, #masthead a:visited, #masthead a:active, #masthead a:hover {
+	color: #093;
+}
+
+/* Tag Styles */
+
+.Tag1 a:link, .Tag1 a:visited, .Tag1 a:active
+{
+	color: #040;
+}
+
+.Tag2 a:link, .Tag2 a:visited, .Tag2 a:active
+{
+	color: #050;
+}
+
+.Tag3 a:link, .Tag3 a:visited, .Tag3 a:active
+{
+	color: #060;
+}
+
+.Tag4 a:link, .Tag4 a:visited, .Tag4 a:active
+{
+	color: #071;
+}
+
+.Tag5 a:link, .Tag5 a:visited, .Tag5 a:active
+{
+	color: #082;
+}
+
+.Tag6 a:link, .Tag6 a:visited, .Tag6 a:active
+{
+	color: #093;
+}
+
+

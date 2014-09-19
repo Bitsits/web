@@ -1,0 +1,837 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+
+
+
+	<title>Catalin’s XNA Experiments » Lightning Sample</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+	<meta name="generator" content="WordPress 2.9.2"> <!-- leave this for stats please -->
+
+<link rel="stylesheet" href="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/style.css" type="text/css" media="screen">
+<link rel="stylesheet" type="text/css" href="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/stylewp-green.css" title="green">
+<link rel="alternate stylesheet" type="text/css" href="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/stylewp-red.css" title="red">
+
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.catalinzima.com/?feed=rss2">
+	<link rel="alternate" type="text/xml" title="RSS .92" href="http://www.catalinzima.com/?feed=rss">
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.catalinzima.com/?feed=atom">
+	<link rel="pingback" href="http://www.catalinzima.com/xmlrpc.php">
+
+<script type="text/javascript" src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/styleswitcher.js"> </script>
+
+		<link rel="archives" title="May 2010" href="http://www.catalinzima.com/?m=201005">
+	<link rel="archives" title="April 2010" href="http://www.catalinzima.com/?m=201004">
+	<link rel="archives" title="November 2009" href="http://www.catalinzima.com/?m=200911">
+	<link rel="archives" title="October 2009" href="http://www.catalinzima.com/?m=200910">
+	<link rel="archives" title="September 2009" href="http://www.catalinzima.com/?m=200909">
+	<link rel="archives" title="August 2009" href="http://www.catalinzima.com/?m=200908">
+	<link rel="archives" title="July 2009" href="http://www.catalinzima.com/?m=200907">
+	<link rel="archives" title="June 2009" href="http://www.catalinzima.com/?m=200906">
+	<link rel="archives" title="April 2009" href="http://www.catalinzima.com/?m=200904">
+	<link rel="archives" title="March 2009" href="http://www.catalinzima.com/?m=200903">
+	<link rel="archives" title="February 2009" href="http://www.catalinzima.com/?m=200902">
+	<link rel="archives" title="January 2009" href="http://www.catalinzima.com/?m=200901">
+	<link rel="archives" title="December 2008" href="http://www.catalinzima.com/?m=200812">
+	<link rel="archives" title="November 2008" href="http://www.catalinzima.com/?m=200811">
+	<link rel="archives" title="October 2008" href="http://www.catalinzima.com/?m=200810">
+	<link rel="archives" title="September 2008" href="http://www.catalinzima.com/?m=200809">
+	<link rel="archives" title="August 2008" href="http://www.catalinzima.com/?m=200808">
+	<link rel="archives" title="July 2008" href="http://www.catalinzima.com/?m=200807">
+	<link rel="archives" title="June 2008" href="http://www.catalinzima.com/?m=200806">
+	<link rel="archives" title="May 2008" href="http://www.catalinzima.com/?m=200805">
+	<link rel="archives" title="April 2008" href="http://www.catalinzima.com/?m=200804">
+	<link rel="archives" title="March 2008" href="http://www.catalinzima.com/?m=200803">
+	<link rel="archives" title="February 2008" href="http://www.catalinzima.com/?m=200802">
+	<link rel="archives" title="January 2008" href="http://www.catalinzima.com/?m=200801">
+		<link rel="alternate" type="application/rss+xml" title="Catalin's XNA Experiments » Lightning Sample Comments Feed" href="http://www.catalinzima.com/?feed=rss2&amp;page_id=142">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.catalinzima.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.catalinzima.com/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Catalin's XNA Experiments" href="http://www.catalinzima.com/">
+<link rel="up" title="12 Months, 12 Samples 2008" href="http://www.catalinzima.com/?page_id=470">
+<meta name="generator" content="WordPress 2.9.2">
+<link rel="canonical" href="http://www.catalinzima.com/?page_id=142">
+<link rel="shortlink" href="http://wp.me/PbOOT-2i"></head><body><div id="container">
+
+   <div class="stylewp">
+   Options:
+    <ul>
+<li><a href="#" onclick="setActiveStyleSheet('green'); return false;">Green</a></li>
+<li><a href="#" onclick="setActiveStyleSheet('red'); return false;">Red</a></li>
+    </ul>
+  </div>
+
+<div id="menu">
+	<ul>
+		<li class="page_item"><a href="http://www.catalinzima.com/">Home</a></li>
+		<li class="page_item page-item-11 current_page_ancestor"><a href="http://www.catalinzima.com/?page_id=11" title="Samples">Samples</a></li>
+<li class="page_item page-item-10"><a href="http://www.catalinzima.com/?page_id=10" title="Tutorials">Tutorials</a></li>
+<li class="page_item page-item-2"><a href="http://www.catalinzima.com/?page_id=2" title="About">About</a></li>
+	</ul>
+</div>
+
+<div id="wrapper">
+	<div id="page-wrapper"><div id="page">
+
+		<div id="header">
+			<h1>
+                           Catalin's XNA Experiments
+                        </h1>
+		<div id="description">
+                          Samples and tutorials for XNA Game Studio
+		</div>
+</div>
+		<div class="narrowcolumn">
+
+			<div class="posts-wrapper">	<div class="posts">
+							<h2><a href="http://www.catalinzima.com/?page_id=142" rel="bookmark" title="Lightning Sample">Lightning Sample</a></h2>
+
+					<div class="postinfo">
+						<ul>
+							<li class="edit-info"></li>
+						</ul>
+					</div>
+
+					<div class="clear"></div>
+
+				<div class="entry">
+					<p>This sample shows an implementation of lightning rendering in XNA GS 2.0</p>
+<p>The technique and math is based on a <a href="http://developer.download.nvidia.com/SDK/10/direct3d/samples.html#Lightning">DirectX10 sample</a> made by NVIDIA. Since the NVIDIA sample was made for DirectX10, I had to move most of the simulation on the CPU.</p>
+<p>A GPU simulation can also be done, but it would need means of
+getting random numbers in the vertex shader. To do this, you can either
+use shader constants (though these give a limited range or numbers), or
+store them inside vertex textures. For this sample, I chose to stick to
+the CPU implementation, so the sample can be run by any PC owning a SM
+2.0 video card.</p>
+<p>The effect is very customizable. The LightningBolt class (looking
+back at this, I might have chosen a better name) takes as a constructor
+parameter an instance of LightningDescriptor. This LightningDescriptor
+contains a bunch of parameters that may be customized in order to
+obtain different shapes, appearances and behaviours for the lightning
+effects.</p>
+<p>One of the most important parameters is the topology, which is a
+list of operations that will be recursively applied on the lightning
+segments to obtain the lightning shape. These operations may be either <strong>Jitter</strong> (which takes a point on the segment and displaces it), or <strong>JitterAndFork</strong> (which also creates a new segment starting from the displaced points, towards a random point near the original segment).</p>
+<p>To see how these affect the lightning, please try and experiment with different settings.</p>
+<p>The sample includes 4 examples of such usages: lightning, energy bolt, graffiti-like shape, and wormy-laser-shape <img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/icon_smile.gif" alt=":)" class="wp-smiley"> .</p>
+<p><a href="http://www.catalinzima.com/wp-content/uploads/2008/04/lightning.jpg"><img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/lightning-thumb.jpg" alt="lightning" style="border: 0px none ;" width="244" border="0" height="184"></a><a href="http://www.catalinzima.com/wp-content/uploads/2008/04/electicity.jpg"><img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/electicity-thumb.jpg" alt="electicity" style="border: 0px none ;" width="244" border="0" height="184"></a></p>
+<p><a href="http://www.catalinzima.com/wp-content/uploads/2008/04/graffitti.jpg"><img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/graffitti-thumb.jpg" alt="graffitti" style="border: 0px none ;" width="244" border="0" height="184"></a> <a href="http://www.catalinzima.com/wp-content/uploads/2008/04/worm-laser.jpg"><img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/worm-laser-thumb.jpg" alt="worm_laser" style="border: 0px none ;" width="244" border="0" height="184"></a></p>
+<p>When running the sample, use the following controls:</p>
+<p>Cycle through examples: Gamepad A / Keyboard Space</p>
+<p>Toggle Background: Gamepad B / Keyboard B</p>
+<p>Freeze Animation: Gamepad Y / Keyboard F</p>
+<p>Exit Sample : Gamepad Back / Keyboard Escape</p>
+<p>The sample source code can be downloaded here: <a href="http://www.catalinzima.com/wp-content/uploads/2008/04/lightningsample.zip" title="Lightning Sample">Lightning Sample</a>.</p>
+					
+					<!-- 
+					<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+				xmlns:dc="http://purl.org/dc/elements/1.1/"
+				xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+			<rdf:Description rdf:about="http://www.catalinzima.com/?page_id=142"
+    dc:identifier="http://www.catalinzima.com/?page_id=142"
+    dc:title="Lightning Sample"
+    trackback:ping="http://www.catalinzima.com/wp-trackback.php?p=142" />
+</rdf:RDF>			 		-->
+				</div>
+				<div class="comments-template">
+					
+<!-- You can start editing here. -->
+
+
+	<h2 class="postcomment">
+		27 Comments					 so far <a href="#postcomment" title="Jump to the comments form">»</a>
+			</h2>
+	
+	<ol id="commentlist">
+
+	
+		<li class="alt" id="comment-76">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/?p=144" rel="external nofollow" class="url">Catalin Zima - XNA and HLSL blog » March Sample released: Lightning Sample</a>, on 04.01.08 
+			@ <a href="#comment-76">12:58 am</a>
+			</p>
+
+		<div class="comment-text"><p>[...] Check out the sample in the Samples section, where I have a short description. [...]</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-77">
+
+		<p class="comment-title">by <a href="http://nick.gravelyn.com/" rel="external nofollow" class="url">Nick</a>, on 04.01.08 
+			@ <a href="#comment-77">2:18 am</a>
+			</p>
+
+		<div class="comment-text"><p>That is really cool. I can’t wait to get home and play with it.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-78">
+
+		<p class="comment-title">by <a href="http://amapplease.blogspot.com/" rel="external nofollow" class="url">Pete</a>, on 04.01.08 
+			@ <a href="#comment-78">4:00 am</a>
+			</p>
+
+		<div class="comment-text"><p>Downloading it now … c’mon c’mon … hurry up!</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-79">
+
+		<p class="comment-title">by <a href="http://amapplease.blogspot.com/" rel="external nofollow" class="url">Pete</a>, on 04.01.08 
+			@ <a href="#comment-79">4:10 am</a>
+			</p>
+
+		<div class="comment-text"><p>Wow, great visual effects!</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-80">
+
+		<p class="comment-title">by <a href="http://nick.gravelyn.com/" rel="external nofollow" class="url">Nick</a>, on 04.01.08 
+			@ <a href="#comment-80">6:43 am</a>
+			</p>
+
+		<div class="comment-text"><p>Great
+stuff! One question though: why did you turn off fixed time step and
+syncing with vertical retrace? That caused some awful tearing on my
+machine. I re-enabled both and it still ran great. Any particular
+reason?</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-81">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 04.01.08 
+			@ <a href="#comment-81">7:24 am</a>
+			</p>
+
+		<div class="comment-text"><p>No particular reason.<br>
+I just disabled them so I could test the framerate of some configurations one last time, and forgot to re-enable them.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-83">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 04.01.08 
+			@ <a href="#comment-83">7:39 am</a>
+			</p>
+
+		<div class="comment-text"><p>I uploaded the modified version. Thanks, Nick for pointing it out.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-85">
+
+		<p class="comment-title">by <a href="http://nick.gravelyn.com/" rel="external nofollow" class="url">Nick</a>, on 04.01.08 
+			@ <a href="#comment-85">8:12 am</a>
+			</p>
+
+		<div class="comment-text"><p>No problem. Thanks for the awesome sample. This effect is so going into my code. <img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-87">
+
+		<p class="comment-title">by <a href="http://amapplease.blogspot.com/" rel="external nofollow" class="url">Pete</a>, on 04.01.08 
+			@ <a href="#comment-87">2:08 pm</a>
+			</p>
+
+		<div class="comment-text"><p>“This effect is so going into my code.”</p>
+<p>Ditto.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-88">
+
+		<p class="comment-title">by <a href="http://machaira.spaces.live.com/" rel="external nofollow" class="url">Jim Perry</a>, on 04.01.08 
+			@ <a href="#comment-88">6:34 pm</a>
+			</p>
+
+		<div class="comment-text"><p>The energy bolt effect will come in handy in a game I’ve got in the works. <img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-5340">
+
+		<p class="comment-title">by <a href="http://nsmn1.uh.edu:2000/?p=63" rel="external nofollow" class="url">UH COSC Interactive Game Development » XNA Lightning Sample</a>, on 05.21.08 
+			@ <a href="#comment-5340">6:24 pm</a>
+			</p>
+
+		<div class="comment-text"><p>[...] Read More [...]</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-10689">
+
+		<p class="comment-title">by Deana, on 09.01.08 
+			@ <a href="#comment-10689">10:37 pm</a>
+			</p>
+
+		<div class="comment-text"><p>Oh my god, i have nearly cum in my pants playing with this!!! It’s amazing!</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-14864">
+
+		<p class="comment-title">by JCW, on 01.04.09 
+			@ <a href="#comment-14864">11:40 am</a>
+			</p>
+
+		<div class="comment-text"><p>Hi Catalin</p>
+<p>This is an amazing sample.  May I ask for your advice?</p>
+<p>I am creating a RPG in 3d. I want to have a lightning spell that
+looks like this. However, since this lightning is drawn with the
+spritebatch and in the 2d background, my terrain model covers up most
+of the lightning, so you cannot see the lightning. How can I create a
+lightning spell that moves from one player to another in 3d?</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-14865">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 01.04.09 
+			@ <a href="#comment-14865">11:46 am</a>
+			</p>
+
+		<div class="comment-text"><p>The actual lightning branches are all 3D vertices.<br>
+To put them in a 3D scene, you would have to modify some code, and
+instead of rendering the lightning on a transparent render taget (liek
+I do), render it directly into your scene.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-14897">
+
+		<p class="comment-title">by JCW, on 01.04.09 
+			@ <a href="#comment-14897">7:31 pm</a>
+			</p>
+
+		<div class="comment-text"><p>Sorry, I am not very good with graphics.  Can you upload a sample if it is not too hard for you?  Thank you!</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-15565">
+
+		<p class="comment-title">by JCW, on 01.12.09 
+			@ <a href="#comment-15565">8:24 pm</a>
+			</p>
+
+		<div class="comment-text"><p>Hi again,</p>
+<p>If I want to render the lightning effect in a 3d world, should I
+change texture coordinates in the lightning vertex class to a vector3,
+and then change the lightningpoint.texturecoordinate in the lightning
+bolt class to the point in 3d space?</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-15574">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 01.12.09 
+			@ <a href="#comment-15574">10:41 pm</a>
+			</p>
+
+		<div class="comment-text"><p>No. The texture coordinates remain as they are. Each branch of the lighting should remains a billboard.</p>
+<p>You basically need to set to 3D the Positions of the points. You
+also need to Modify the GetJittered function to add a random Vector3
+vector instead of a random Vector2 vector.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-15575">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 01.12.09 
+			@ <a href="#comment-15575">10:42 pm</a>
+			</p>
+
+		<div class="comment-text"><p>I would make the modifications for 3D, but I don’t really have much free time for this.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-15580">
+
+		<p class="comment-title">by JCW, on 01.12.09 
+			@ <a href="#comment-15580">11:54 pm</a>
+			</p>
+
+		<div class="comment-text"><p>Sorry
+Catalin, I hate to keep asking you questions. I will gladly send you
+the final modifications if I can successfully alter this. </p>
+<p>The lightning vertex positions and lightningPoints already have
+vector 3s, so when you say set to 3d the positions of the points, are
+you referring to this code? </p>
+<p>            using (VertexDeclaration vdecl = new VertexDeclaration(device, LightningVertex.VertexElements))<br>
+            {<br>
+                device.VertexDeclaration = vdecl;<br>
+                device.RenderState.CullMode = CullMode.None;<br>
+                lightningDrawEffect.Begin();<br>
+                lightningDrawEffect.CurrentTechnique.Passes[0].Begin();<br>
+device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
+lightningPoints, 0, lightningPoints.Length, indices, 0, indices.Length
+/ 3);<br>
+                lightningDrawEffect.CurrentTechnique.Passes[0].End();<br>
+                lightningDrawEffect.End();<br>
+            }</p>
+<p>Sorry, this is the first time I am doing something advanced with graphics.  I have already learned a lot from your sample!</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-15581">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 01.12.09 
+			@ <a href="#comment-15581">11:59 pm</a>
+			</p>
+
+		<div class="comment-text"><p>No, that code is fine as it is.</p>
+<p>I mean when you set the StartPoint and EndPoint.<br>
+In truth, most code already works with Vector3 wherever possible. So as
+I said above, I believe chaging the GetJitter function to add a random
+Vector3 should do the trick.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-15584">
+
+		<p class="comment-title">by JCW, on 01.13.09 
+			@ <a href="#comment-15584">12:44 am</a>
+			</p>
+
+		<div class="comment-text"><p>Wow
+it was that simple?! I changed getJitter to use a random vector3 and
+created a new property called JitterRightDeviation and a new method
+called GetRight to match the GetLeft method that you have. The
+lightning renders with a point in 3d for its source, but the
+destination still seems to be a point somewhere in 2D. Here is an image
+of my program. <a href="http://img300.imageshack.us/my.php?image=lightningkq9.jpg" rel="nofollow">http://img300.imageshack.us/my.php?image=lightningkq9.jpg</a></p>
+<p>The lightning should go from the person on the left to the person on
+the right, but it is going to the background for some reason? Also, you
+can only see the lightning if the player is jumping and above the
+terrain.</p>
+<p>This is an amazing sample, beautifully made!</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-15585">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 01.13.09 
+			@ <a href="#comment-15585">12:53 am</a>
+			</p>
+
+		<div class="comment-text"><p>That’s probably related to the depth buffer.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-21620">
+
+		<p class="comment-title">by <a href="http://www.europeinruins.com/" rel="external nofollow" class="url">LuciferNZ</a>, on 06.29.09 
+			@ <a href="#comment-21620">9:12 am</a>
+			</p>
+
+		<div class="comment-text"><p>Hiya,
+Ive implemented a 3d version of this, but split it into its own Draw()
+function so that I can render it with a depth buffer.<br>
+This bit works, it creates a 3d Jitter.</p>
+<p>The only problem Im finding now, is that I cannot for the life of me, get the X/Y/Z coords to face the camera correctly.</p>
+<p>So, from some angles, it looks fine, and from others – really really bad.</p>
+<p>Is there something Im missing?</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-22272">
+
+		<p class="comment-title">by <a href="http://haxpor.org/" rel="external nofollow" class="url">haxpor</a>, on 07.11.09 
+			@ <a href="#comment-22272">8:35 am</a>
+			</p>
+
+		<div class="comment-text"><p>Thanks alot.</p>
+<p>I will try to integrate this stuff into my deferred shading, it probably works well in alpha drawing.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-22280">
+
+		<p class="comment-title">by <a href="http://haxpor.org/" rel="external nofollow" class="url">haxpor</a>, on 07.11.09 
+			@ <a href="#comment-22280">1:39 pm</a>
+			</p>
+
+		<div class="comment-text"><p>I have finished integrating this stuff into my deferred shading.<br>
+I use it for my rainy scene with the following setup.</p>
+<p>LightningDescriptor ld = new LightningDescriptor();<br>
+ld.AnimationFramerate = 12f;<br>
+ld.ExteriorColor = Color.WhiteSmoke;<br>
+ld.GlowIntensity = 3f;</p>
+<p>Also when the time to draw the lightning is come, I only randomize
+once for the source point, but then every frame for destination point.
+(For this case I have one flag indicates that the lightning is started
+to draw yet, so the only one time for randomization of source point can
+be accomplished.)</p>
+<p>One last note, I duration for the lightning in the rainy scene
+should not be more than 1 seconds, for my setup, I used 1, 0.75f, 0.5f
+seconds for many different pattern for my lightning.</p>
+<p>Thanks for this great stuff.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-22307">
+
+		<p class="comment-title">by <a href="http://www.lucidvisiongames.com/" rel="external nofollow" class="url">Todd</a>, on 07.13.09 
+			@ <a href="#comment-22307">3:11 am</a>
+			</p>
+
+		<div class="comment-text"><p>I
+am attempting to use your effect in 3D. All I had to do was comment out
+the render target code and it works perfectly fine on PC. However, when
+I run it on the 360 it looks horrible, the lighting bolts have black
+squares and black sections. Here are the changes I made to the code:</p>
+<p>       public void GenerateTexture(GameTime gameTime, Matrix world, Matrix view, Matrix projection)<br>
+        {<br>
+            GraphicsDevice device = game.GraphicsDevice;</p>
+<p>            //device.SetRenderTarget(0, lightningRT);<br>
+            //device.Clear(ClearOptions.Target,Color.TransparentBlack,1.0f,0);</p>
+<p>            lightningDrawEffect.Parameters["World"].SetValue(world);<br>
+            lightningDrawEffect.Parameters["View"].SetValue(view);<br>
+            lightningDrawEffect.Parameters["Projection"].SetValue(projection);<br>
+            lightningDrawEffect.Parameters["StartColor"].SetValue(properties.InteriorColor.ToVector3());<br>
+            lightningDrawEffect.Parameters["EndColor"].SetValue(properties.ExteriorColor.ToVector3());</p>
+<p>            device.RenderState.AlphaBlendEnable = true;<br>
+            device.RenderState.BlendFunction = BlendFunction.Max;</p>
+<p>            using (VertexDeclaration vdecl = new VertexDeclaration(device, LightningVertex.VertexElements))<br>
+            {<br>
+                device.VertexDeclaration = vdecl;<br>
+                device.RenderState.CullMode = CullMode.None;<br>
+                lightningDrawEffect.Begin();<br>
+                lightningDrawEffect.CurrentTechnique.Passes[0].Begin();<br>
+device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
+lightningPoints, 0, lightningPoints.Length, indices, 0, indices.Length
+/ 3);<br>
+                lightningDrawEffect.CurrentTechnique.Passes[0].End();<br>
+                lightningDrawEffect.End();<br>
+            }</p>
+<p>            //device.SetRenderTarget(0, null);<br>
+            //if(properties.IsGlowEnabled)<br>
+            //    postProcessGlow.ApplyEffect(lightningRT, lightningRT, properties.GlowIntensity);<br>
+        }</p>
+<p>        protected override void Draw(GameTime gameTime)<br>
+        {<br>
+            GraphicsDevice.Clear(Color.Black);</p>
+<p>            //draw it in 2D<br>
+            Matrix viewMatrix = Matrix.CreateLookAt(new Vector3(0, 0, 10), new Vector3(0, 0, 0), new Vector3(0, 1, 0));<br>
+Matrix projectionMatrix =
+Matrix.CreateOrthographic(GraphicsDevice.Viewport.Width / 20,
+GraphicsDevice.Viewport.Height / 20, 0.01f, 50);<br>
+            Matrix worldMatrix = Matrix.Identity;</p>
+<p>            //generate the lightning rendering<br>
+            lightnings[currentItem].GenerateTexture(gameTime, worldMatrix, viewMatrix, projectionMatrix);</p>
+<p>            Rectangle rect = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);</p>
+<p>            //GraphicsDevice.Clear(Color.Black);<br>
+            //spriteBatch.Begin(SpriteBlendMode.Additive);<br>
+            //if (showBackground)<br>
+            //    spriteBatch.Draw(background,rect,Color.White);<br>
+            ////draw lightning texture over the scene<br>
+            //spriteBatch.Draw(lightnings[currentItem].LightningTexture, rect, Color.White);<br>
+            //spriteBatch.End();</p>
+<p>            base.Draw(gameTime);<br>
+        }</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-26485">
+
+		<p class="comment-title">by Marco, on 02.02.10 
+			@ <a href="#comment-26485">6:20 pm</a>
+			</p>
+
+		<div class="comment-text"><p>Fantastic sample!<br>
+I’m trying to use lightning effect in a 2D game but I have some trouble
+to set source and destination point because I cannot understand how to
+“convert” from screen coordinates (the game use 1280×800 screen size)to
+lightning source/destination coordinates;<br>
+Can you help me?</p>
+<p>Thanks,<br>
+Marco</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+	</ol>
+	
+	<p align="left">
+		<a href="http://www.catalinzima.com/?feed=rss2&amp;page_id=142">Comment <abbr title="Really Simple Syndication">RSS</abbr></a>				· <a href="http://www.catalinzima.com/wp-trackback.php?p=142" rel="trackback">TrackBack <abbr title="Uniform Resource Identifier">URI</abbr></a>
+			</p>
+
+
+
+	<h2 class="postcomment">Leave a comment</h2>
+	<div class="postcomment">
+	
+		
+		<form action="http://www.catalinzima.com/wp-comments-post.php" method="post" id="commentform">
+		
+			
+			<p>
+				<strong>Name: (Required)</strong><br>
+				<input name="author" id="author" tabindex="1" type="text">
+			</p>
+			
+			<p>
+				<strong>eMail: (Required)</strong><br>
+				<input name="email" id="email" tabindex="2" type="text">
+			</p>
+			
+			<p>
+				<strong>Website:</strong><br>
+				<input name="url" id="url" tabindex="3" type="text">
+			</p>
+
+								<p>
+				<strong>Comment:</strong><br>
+				<textarea name="comment" id="comment" rows="" cols="" tabindex="4"></textarea>
+			</p>
+	
+			<p>
+				<input name="submit" id="submit" tabindex="5" value="Post Comment!" type="submit">
+				<input name="comment_post_ID" value="142" type="hidden">
+			</p>
+	
+			
+		</form>
+
+		</div>
+
+				</div>
+
+						</div></div>
+
+		</div>
+	<div id="narrowcolumn-wrapper">&nbsp;</div>
+	</div></div>
+
+	<div id="sidebar">
+<ul>
+
+
+<li class="Search">
+    <form action="/index.php" method="post">
+     <input name="s" class="keyword" style="width: 236px;" type="text">
+    </form>
+</li>
+
+
+	<li>
+
+<table style="width: 100%;">
+	<tbody><tr>
+	<td>
+		<h2>Author</h2>
+	</td>
+	<td>
+		<a href="http://www.catalinzima.com/?feed=rss2"><img style="vertical-align: middle;" src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/rss_icon.gif" alt="Subscribe to Catalin’s XNA Experiments"></a>
+	</td>
+	</tr>
+	</tbody></table>
+<ul>
+			<li><b> Catalin Zima (<a href="mailto:catalinzima@gmail.com">contact me</a>)</b></li>
+			<li><a href="http://www.linkedin.com/in/catalinzima"><b>Profile on LinkedIn</b></a></li>
+		</ul>
+	</li>
+
+
+	
+
+<li id="text-2" class="widget widget_text">			<div class="textwidget"><center><a href="https://mvp.support.microsoft.com/">
+<img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/mvplogo.jpg"></a></center></div>
+		</li>
+<li id="text-1" class="widget widget_text">			<div class="textwidget"><a href="http://profile.mygamercard.net/CatalinZima">
+<img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/CatalinZima.png" width="260px" border="0">
+</a></div>
+		</li>
+<li id="flexipages-2" class="widget flexipages_widget"><h2 class="widgettitle">Pages</h2>
+<ul>
+<li class="page_item page-item-11 current_page_ancestor"><a href="http://www.catalinzima.com/?page_id=11" title="Samples">Samples</a>
+<ul>
+	<li class="page_item page-item-479"><a href="http://www.catalinzima.com/?page_id=479" title="Game Features Replicator">Game Features Replicator</a></li>
+	<li class="page_item page-item-470 current_page_ancestor current_page_parent"><a href="http://www.catalinzima.com/?page_id=470" title="12 Months, 12 Samples 2008">12 Months, 12 Samples 2008</a></li>
+	<li class="page_item page-item-473"><a href="http://www.catalinzima.com/?page_id=473" title="Other Samples">Other Samples</a></li>
+</ul>
+</li>
+<li class="page_item page-item-10"><a href="http://www.catalinzima.com/?page_id=10" title="Tutorials">Tutorials</a>
+<ul>
+	<li class="page_item page-item-13"><a href="http://www.catalinzima.com/?page_id=13" title="Four Uses of VTF">Four Uses of VTF</a></li>
+	<li class="page_item page-item-14"><a href="http://www.catalinzima.com/?page_id=14" title="Deferred Rendering">Deferred Rendering</a></li>
+	<li class="page_item page-item-575"><a href="http://www.catalinzima.com/?page_id=575" title="Crash Course in HLSL">Crash Course in HLSL</a></li>
+	<li class="page_item page-item-406"><a href="http://www.catalinzima.com/?page_id=406" title="Fur Rendering">Fur Rendering</a></li>
+</ul>
+</li>
+<li class="page_item page-item-2"><a href="http://www.catalinzima.com/?page_id=2" title="About">About</a></li>
+</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Links</h2>
+
+	<ul class="xoxo blogroll">
+<li><a href="http://creators.xna.com/">Creator’s Club Online</a></li>
+<li><a href="http://sgtconker.com/">Sgt. Conker</a></li>
+<li><a href="http://creators.xna.com/en-US/community_resources" title="List of XNA sites and blogs">XNA Blogs</a></li>
+<li><a href="http://www.ziggyware.com/">Ziggyware</a></li>
+
+	</ul>
+</li>
+
+<li id="text-3" class="widget widget_text">			<div class="textwidget">My employer: <br>
+<center><a href="http://www.evozon.com/"><img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/evozon_logo.gif" alt="Evozon"></a></center></div>
+		</li>
+<li id="meta-2" class="widget widget_meta"><h2 class="widgettitle">Meta</h2>
+			<ul>
+						<li><a href="http://www.catalinzima.com/wp-login.php">Log in</a></li>
+			<li><a href="http://www.catalinzima.com/?feed=rss2" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://www.catalinzima.com/?feed=comments-rss2" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>
+						</ul>
+</li>
+<li id="archives-2" class="widget widget_archive"><h2 class="widgettitle">Archives</h2>
+		<ul>
+			<li><a href="http://www.catalinzima.com/?m=201005" title="May 2010">May 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=201004" title="April 2010">April 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200911" title="November 2009">November 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200910" title="October 2009">October 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200909" title="September 2009">September 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200908" title="August 2009">August 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200907" title="July 2009">July 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200906" title="June 2009">June 2009</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200904" title="April 2009">April 2009</a>&nbsp;(3)</li>
+	<li><a href="http://www.catalinzima.com/?m=200903" title="March 2009">March 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200902" title="February 2009">February 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200901" title="January 2009">January 2009</a>&nbsp;(5)</li>
+	<li><a href="http://www.catalinzima.com/?m=200812" title="December 2008">December 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200811" title="November 2008">November 2008</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200810" title="October 2008">October 2008</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200809" title="September 2008">September 2008</a>&nbsp;(5)</li>
+	<li><a href="http://www.catalinzima.com/?m=200808" title="August 2008">August 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200807" title="July 2008">July 2008</a>&nbsp;(7)</li>
+	<li><a href="http://www.catalinzima.com/?m=200806" title="June 2008">June 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200805" title="May 2008">May 2008</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200804" title="April 2008">April 2008</a>&nbsp;(3)</li>
+	<li><a href="http://www.catalinzima.com/?m=200803" title="March 2008">March 2008</a>&nbsp;(3)</li>
+	<li><a href="http://www.catalinzima.com/?m=200802" title="February 2008">February 2008</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200801" title="January 2008">January 2008</a>&nbsp;(2)</li>
+		</ul>
+</li>
+<li id="categories-1" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+	<li class="cat-item cat-item-12"><a href="http://www.catalinzima.com/?cat=12" title="View all posts filed under 2D">2D</a> (7)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.catalinzima.com/?cat=13" title="View all posts filed under 3D">3D</a> (8)
+</li>
+	<li class="cat-item cat-item-21"><a href="http://www.catalinzima.com/?cat=21" title="View all posts filed under Announcements">Announcements</a> (4)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.catalinzima.com/?cat=10" title="View all posts filed under contest">contest</a> (5)
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.catalinzima.com/?cat=16" title="View all posts filed under Dino">Dino</a> (3)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://www.catalinzima.com/?cat=22" title="View all posts filed under GFR">GFR</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.catalinzima.com/?cat=6" title="View all posts filed under HLSL">HLSL</a> (10)
+</li>
+	<li class="cat-item cat-item-24"><a href="http://www.catalinzima.com/?cat=24" title="View all posts filed under iQuest">iQuest</a> (1)
+</li>
+	<li class="cat-item cat-item-30"><a href="http://www.catalinzima.com/?cat=30" title="View all posts filed under ITS COMMING!!">ITS COMMING!!</a> (1)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://www.catalinzima.com/?cat=20" title="View all posts filed under Kitty">Kitty</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.catalinzima.com/?cat=11" title="View all posts filed under MVP">MVP</a> (4)
+</li>
+	<li class="cat-item cat-item-18"><a href="http://www.catalinzima.com/?cat=18" title="View all posts filed under Non-XNA">Non-XNA</a> (1)
+</li>
+	<li class="cat-item cat-item-19"><a href="http://www.catalinzima.com/?cat=19" title="View all posts filed under recap">recap</a> (1)
+</li>
+	<li class="cat-item cat-item-26"><a href="http://www.catalinzima.com/?cat=26" title="View all posts filed under sample">sample</a> (1)
+</li>
+	<li class="cat-item cat-item-29"><a href="http://www.catalinzima.com/?cat=29" title="View all posts filed under Sgt Conker">Sgt Conker</a> (1)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://www.catalinzima.com/?cat=15" title="View all posts filed under Tease">Tease</a> (1)
+</li>
+	<li class="cat-item cat-item-28"><a href="http://www.catalinzima.com/?cat=28" title="View all posts filed under ToonBoom">ToonBoom</a> (2)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.catalinzima.com/?cat=1" title="View all posts filed under Uncategorized">Uncategorized</a> (16)
+</li>
+	<li class="cat-item cat-item-27"><a href="http://www.catalinzima.com/?cat=27" title="View all posts filed under video">video</a> (1)
+</li>
+	<li class="cat-item cat-item-23"><a href="http://www.catalinzima.com/?cat=23" title="View all posts filed under World Of Goo">World Of Goo</a> (2)
+</li>
+	<li class="cat-item cat-item-25"><a href="http://www.catalinzima.com/?cat=25" title="View all posts filed under XBLCG">XBLCG</a> (1)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.catalinzima.com/?cat=5" title="View all posts filed under XNA">XNA</a> (42)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.catalinzima.com/?cat=17" title="View all posts filed under Ziggyware">Ziggyware</a> (5)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.catalinzima.com/?cat=14" title="View all posts filed under Zune">Zune</a> (2)
+</li>
+		</ul>
+</li>
+
+</ul>
+	</div>
+</div>
+
+<div id="footer">
+<p>Design by : <a href="http://www.searchopedia.org/">Searchopedia</a></p>
+</div>
+
+<script src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/e-201022.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'2816963',v:'ext',post:'142'});
+var load_cmc = function(){linktracker_init(2816963,142,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script><img id="wpstats" src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Lightning%20Sample_files/g.gif" alt="">
+</div></body></html>

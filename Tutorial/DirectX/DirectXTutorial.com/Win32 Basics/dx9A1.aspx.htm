@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Win32 Lesson 1: The Parts of a Game
+</title><link href="dx9A1.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9A1.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9A1.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9A1.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9A1.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+                    Lesson 1:&nbsp; The Parts of a Game</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/A-Win32/dx9A1.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A2.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+                        Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                        This lesson will cover the basic structure of a video game. It will give you some
+                        idea of where you are going with DirectX so you don’t dive in blind and unguided,
+                        as many rookie game programmers do. As video games can get very long and complex,
+                        I suggest that even experienced programmers new to game programming at least skim
+                        through this so they know where they’re going.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            The Seven Phases of a Game</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                A video game is, in essence, a continuous loop performing various actions which,
+                when run through once, bring about a single frame of animation. Programmers, when
+                entering the world of game programming, rarely consider all the components required
+                in even a simple animated game like Pong or Asteroids and can easily get overwhelmed.
+                This means no more event-driven programs you're probably used to.</p>
+            <p>
+                So let’s start out by looking at each phase of a game, in sequence, from beginning
+                to end and then describing each part of it.</p>
+            <center>
+                <img alt="Image 1.1 - The Sequence of a Computer Game" src="dx9A1.aspx_files/dx9A1-1.GIF" width="572" height="152"><br><br>
+                Image 1.1 - The Sequence of a Computer Game
+            </center>
+            <p class="subheader">
+                Phase 1: &nbsp;Initialize the program</p>
+            <p>
+                Here is where you start the show.&nbsp; You create a window to display your game,
+                you set up DirectX for use, load graphics, models and other media, allocate memory
+                and so on.</p>
+            <p class="subheader">
+                Phase 2:&nbsp; Start the game</p>
+            <p>
+                This part is basically setting up your game to be played. &nbsp;This is where you
+                might select a map, set the location of your player (and anyone else in your game
+                world) or set random values, such as random terrain, that are decided at the beginning
+                of the game only. &nbsp;After all of this, you enter the game loop itself for the
+                kickoff.</p>
+            <p class="subheader">
+                Phase 3:&nbsp; Get input from the player</p>
+            <p>
+                Here, you get all the information from the keyboard, mouse, joystick, controller
+                or whatever device your player is using. &nbsp;This phase is mostly covered in the
+                DirectInput tutorial.</p>
+            <p class="subheader">
+                Phase 4:&nbsp; Run the game logic, such as physics and AI</p>
+            <p>
+                In this part you process what is going on in your world.&nbsp; Where exactly did
+                your player move in the last sixtieth of a second? &nbsp;How much ammo does he have
+                left?&nbsp; Are his enemies coming or going?&nbsp; What about his allies?&nbsp;
+                Did his ship crash into a mountain?&nbsp; Or was that just a cloud he just ran into?&nbsp;
+                All this and more is determined in this phase.&nbsp; I don’t have any tutorials
+                on these yet, but I hope to get them up well before the end of the year, so stay
+                tuned.</p>
+            <p class="subheader">
+                Phase 5:&nbsp; Render graphics</p>
+            <p>
+                This is where DirectX is mostly used.&nbsp; Here you would process all your 3D (and
+                2D) graphics and render them to the screen.&nbsp; This will be gone over in the
+                Direct3D tutorials.&nbsp;</p>
+            <p class="subheader">
+                Phase 6:&nbsp; Restart</p>
+            <p>
+                Simply put, you go back to Phase 3 and do it all over again.</p>
+            <p class="subheader">
+                Phase 7:&nbsp; Cleanup</p>
+            <p>
+                Called for memory?&nbsp; Now is your last chance to clear everything up, because
+                the program is about to end. &nbsp;Also, DirectX calls for various interfaces to
+                be shut down or “released”.&nbsp; These are all done here.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            Combining the Phases and Adding More</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Ok, so how does all this fit together?&nbsp; Well, you will notice that most of
+                the above is done in a loop continuously until an exit is called for. The diagram
+                you saw above shows how all the above pieces are put together.</p>
+            <p>
+                Now, admittedly this is simplified, and more than somewhat, but I just want to give
+                you a quick overview of things.&nbsp; You can (and will need to) add all kinds of
+                details such as networking code, splash screens, an animated menu loop, sound, music,
+                and so on. Some of these are rather easy.&nbsp; For instance, a simple splash screen
+                is a piece of cake.&nbsp; You just add a window to the beginning of the program.</p>
+            <p>
+                Although some are easy, others can get more complex, such as networking and keeping
+                multiple computers (that run at different speeds) moving through the game at the
+                exact same pace.&nbsp; (I’ll go over this one in the Multiplayer tutorial, as well
+                as give you a simple timing example in the next couple of sections).</p>
+            <p>
+                But let's not concern ourselves with such things yet.&nbsp; We haven't entered in
+                a single line of code and we're already talking about how complex things are.&nbsp;
+                Let's get to the actual programming before we get into such topics.</p>
+            <p>
+                Next we'll cover how Windows programming works, make a simple window, and program
+                the basic game loop.</p>
+            <p>
+                So even though we haven’t programmed anything yet, we now know where we’re going.&nbsp;
+                And with that, let’s dive right in!</p>
+
+            <center>
+                Next Lesson: &nbsp;A Primer of Basic Windows<br><br>
+                <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A2.aspx">GO! GO! GO!</a>
+                <p class="feedback">Liked the Lesson?  Hated the lesson?  Give your <a class="feedlink" href="javascript:RunFeedback(1)">feedback</a>.</p>
+            </center>
+        </div>
+        
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9A1.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

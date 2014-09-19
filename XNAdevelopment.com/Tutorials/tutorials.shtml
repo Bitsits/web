@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+   
+      <link rel="shortcut icon" href="http://www.xnadevelopment.com/favicon.ico">
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+      <link rel="stylesheet" type="text/css" href="tutorials_files/styles.css">
+      <title>XNA Development: Game Development for the masses</title>
+      <meta name="description" content="Everything you want to know about XNA Development. News, Links, Information and Tutorials.">
+      <meta name="keywords" content="xna, xna development, xna tutorials, xna game development, xna 2D, game development, 2D game development">
+   <script charset="utf-8" id="injection_graph_func" src="tutorials_files/injection_graph_func.js"></script><script id="_nameHighlight_injection"></script><link class="skype_name_highlight_style" href="tutorials_files/injection_nh_graph.css" type="text/css" rel="stylesheet" charset="utf-8" id="_injection_graph_nh_css"><link href="tutorials_files/skypeplugin_dropdownmenu.css" type="text/css" rel="stylesheet" charset="utf-8" id="_skypeplugin_dropdownmenu_css"></head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="tutorials_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>Tutorials</h2>
+				<ul>
+				<li><a href="http://www.xnadevelopment.com/newesttutorials.shtml">Newest</a></li>
+				<li><a href="http://www.xnadevelopment.com/tutorials.shtml">XNA Tutorials</a></li>
+				<li><a href="http://www.xnadevelopment.com/gamedemos.shtml">Game Demos</a></li>
+				<li><a href="http://www.xnadevelopment.com/alltutorials.shtml">All</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="tutorials_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+
+<div class="page-wrapper">
+	<div class="page">
+            
+<ol class="tutorials">
+            
+<li>
+<a href="http://www.xnadevelopment.com/tutorials/gettingstartedwithxnadevelopment/GettingStartedWithXNADevelopment.shtml"><img src="tutorials_files/gettingstarted.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a>
+<div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/gettingstartedwithxnadevelopment/GettingStartedWithXNADevelopment.shtml">Getting started with XNA development (XNA 3.0 BETA)</a>
+</h2>
+
+<p>
+Everything you need to know to get starting making your game with the XNA framework. 
+</p></div>
+</li>
+
+
+            
+<li>
+<a href="http://www.xnadevelopment.com/tutorials/creatinganewxnagameproject/CreatingANewXNAWindowsGameProject.shtml"><img src="tutorials_files/newproject.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a>
+<div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/creatinganewxnagameproject/CreatingANewXNAWindowsGameProject.shtml">Creating a new XNA Windows Game Project (XNA 3.0 BETA)</a>
+</h2>
+
+<p>Getting a new game going with XNA starts with creating a new game
+project. This XNA tutorial walks you through setting up a new XNA
+Windows game project and seeing that first Cornflower Blue screen.
+</p></div></li>
+
+            
+<li>
+<a href="http://www.xnadevelopment.com/tutorials/addinganimagetothegameproject/AddingAnImageToTheGameProject.shtml"><img src="tutorials_files/addexisting.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a>
+<div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/addinganimagetothegameproject/AddingAnImageToTheGameProject.shtml">Adding an Image to the Game Project (XNA 3.0 BETA)</a>
+</h2>
+
+<p>Before you can start displaying your graphics and images on the
+screen, you first need to add them to the game project and make them
+available through the Content Pipeline. This XNA tutorial walks you
+through the steps required to add an image or images to your game.
+</p></div></li>
+
+
+
+
+
+
+
+            
+<li><a href="http://www.xnadevelopment.com/tutorials/creatinga2dsprite/CreatingA2DSprite.shtml"><img src="tutorials_files/firstsprite.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a><div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/creatinga2dsprite/CreatingA2DSprite.shtml">Creating a 2D Sprite (XNA 3.0 BETA)</a>
+</h2>
+
+<p>Creating a 2D sprite. Tutorial covers, creating a sprite, drawing it
+to the screen and introduces some object oriented programming.
+</p></div></li>
+
+
+            
+<li>
+<a href="http://www.xnadevelopment.com/tutorials/scrollinga2dbackground/ScrollingA2DBackground.shtml"><img src="tutorials_files/scrollingbackground.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a><div>
+<h2>
+<a href="http://www.xnadevelopment.com/tutorials/scrollinga2dbackground/ScrollingA2DBackground.shtml">Scrolling a 2D background (XNA 3.0 BETA)</a>
+</h2>
+
+<p>
+
+Tutorial covers loading background sprites and auto-scrolling them horizontally in a continuous loop. 
+</p></div></li>
+
+
+
+            
+<li>
+<a href="http://www.xnadevelopment.com/tutorials/thewizard/theWizard.shtml"><img src="tutorials_files/thewizard.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a>
+<div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/thewizard/theWizard.shtml">The Wizard - Part 1: Moving a Sprite (XNA 3.0 BETA)</a>
+</h2>
+
+<p>This is part one of a four part series covering sprite movement.
+Part one covers gathering input from the player via the keyboard and
+using it to move a sprite around on the screen.
+</p></div></li>
+
+
+
+
+
+
+
+            
+<li><a href="http://www.xnadevelopment.com/tutorials/thewizardjumping/thewizardjumping.shtml"><img src="tutorials_files/thewizardjumping.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a><div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/thewizardjumping/thewizardjumping.shtml">The Wizard - Part 2: Making a Sprite Jump (XNA 3.0 BETA)</a>
+</h2>
+
+<p>This is part two of a four part series covering sprite movement.
+Part two covers adding the code to the project to make the Wizard
+sprite jump around the screen.
+</p></div></li>
+
+
+
+
+
+
+
+            
+<li><a href="http://www.xnadevelopment.com/tutorials/thewizardducking/thewizardducking.shtml"><img src="tutorials_files/thewizardducking.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a><div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/thewizardducking/thewizardducking.shtml">The Wizard - Part 3: Making a Sprite Duck (XNA 3.0 BETA)</a>
+</h2>
+
+<p>This is part three of a four part series covering sprite movement.
+Part three covers adding the code to the project to make the Wizard
+sprite duck. This code introduces the concepts of frames and using a
+spritesheet.
+</p></div></li>
+
+
+
+
+
+
+            
+<li><a href="http://www.xnadevelopment.com/tutorials/thewizardshooting/thewizardshooting.shtml"><img src="tutorials_files/thewizardshooting.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a><div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/thewizardshooting/thewizardshooting.shtml">The Wizard - Part 4: Making a Sprite Shoot Fireballs(XNA 3.0 BETA)</a>
+</h2>
+
+<p>This is part four of a four part series covering sprite movement.
+Part four covers adding the code to the project to make the Wizard
+sprite shoot fireballs. This tutorial covers the basics of creating and
+maintaing projectiles.
+</p></div></li>
+
+
+
+
+
+
+
+            
+<li><a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/FadeInFadeOut.shtml"><img src="tutorials_files/fadein.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a><div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/FadeInFadeOut.shtml">Fade In, Fade Out (XNA 3.0 BETA)</a>
+</h2>
+
+<p>A tutorial developed to show how to achieve a fade in, fade out
+effect with a a 2D image. This tutorial walks you through creating a
+game project, adding an image to that project, displaying the image and
+adding the effect of fading the image in and out of the scene. Along
+with the tutorial and it's source code, there is an enhanced sample
+showing multiple images fading in and out of the scene Cheshire cat
+style which can be downloaded from within the tutorial. </p></div></li>
+
+
+
+
+
+
+
+            
+<li><a href="http://www.xnadevelopment.com/tutorials/youhavebeenselected/YouHaveBeenSelected.shtml"><img src="tutorials_files/beenselected.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a>
+<div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/youhavebeenselected/YouHaveBeenSelected.shtml">You have been Selected! (XNA 3.0 BETA)</a>
+</h2>
+
+<p>
+A tutorial developed to show how to create an RTS style selection box.
+This tutorial walks you through creating a game project, adding an
+image to that project, displaying the image, making the mouse pointer
+visible and using the mouse to create a selection box. Along with the
+tutorial and it's source code, there is an enhanced sample showing how
+you can use the selection box to select some simple "units" and move
+them around the game window. This "One Step Further" tutorial can be
+downloaded from within the "You have been Selected!" tutorial. </p></div></li>
+
+
+
+
+
+
+
+
+            
+<li>
+<a href="http://www.xnadevelopment.com/tutorials/notsohealthy/NotSoHealthy.shtml"><img src="tutorials_files/notsohealthy.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a><div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/notsohealthy/NotSoHealthy.shtml">Not so Healthy... (XNA 3.0 BETA)</a>
+</h2>
+
+<p>
+A tutorial developed to show the basics of how to create a Health bar.
+This tutorail will walk you through creating a game project, adding an
+image to that project, tracking the current health level and displaying
+that appropriately with a health bar. </p></div></li>
+
+
+
+
+
+
+            
+<li><a href="http://www.xnadevelopment.com/tutorials/introducingxnagamestudioexpress/introducingxnagamestudioexpress.shtml"><img src="tutorials_files/codemagazine.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a><div>
+<h2>
+<a href="http://www.xnadevelopment.com/tutorials/introducingxnagamestudioexpress/introducingxnagamestudioexpress.shtml">CoDe Magazine Article: Introducing XNA Game Studio Express (XNA 3.0 BETA)</a>
+</h2>
+
+<p>
+This is the images and source code for the article I wrote for the
+Sept/Oct 2007 issue of CoDe magazine. If you're following the code
+along in the book, the images and source code provided here should help
+you finish the project out.
+</p></div></li>
+
+
+
+
+
+            
+<li><a href="http://www.xnadevelopment.com/tutorials/theroadnottaken/theroadnottaken.shtml"><img src="tutorials_files/roadnottaken.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a><div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/theroadnottaken/theroadnottaken.shtml">The Road Not Taken (XNA 3.0 BETA)</a></h2>
+
+<p>This tutorial walks through step by step using a color key to do
+path collision. The example used is for a super sprint style track, but
+the code could be used for a variety of projects. By the end of the
+tutorial, the reader should be familiar with moving and rotating a
+sprite, using GetData() to get pixel information and have an
+introductory understanding of RenderTarget2D objects and how they can
+be used. </p></div></li>
+
+
+
+
+            
+<li>
+<a href="http://www.xnadevelopment.com/tutorials/thestateofthings/thestateofthings.shtml"><img src="tutorials_files/gamestate.png" style="border: 0px none ; margin: 0px 15px 15px;" alt="" align="left"></a>
+<div>
+<h2><a href="http://www.xnadevelopment.com/tutorials/thestateofthings/thestateofthings.shtml">The State of Things? (XNA 3.0)</a></h2>
+
+<p>This tutorial walks you through three different solutions for
+managing screen state in your game. From the basic of the basic to a
+final intermediate level sample. You're sure to pick up other neat
+litlee XNA game development tips along the way as well. This tutorial
+is a doozy! </p></div>
+</li>
+
+</ol>
+
+
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="tutorials_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+</body></html>

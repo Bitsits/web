@@ -1,0 +1,796 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Win32 Lesson 3: Creating a Window
+</title><link href="dx9A3.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9A3.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9A3.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9A3.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9A3.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+                    Lesson 3:&nbsp; Creating a Window</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/A-Win32/dx9A3.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A2.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A4.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+                        Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                            Unfortunately, and unlike the message box, there is no single function we can call
+                            to create a window.&nbsp; There are two reasons for this.&nbsp; First, Windows requires
+                            too much data for there to be a single function call.&nbsp; Second, windows are
+                            based on events, which require additional code to handle.&nbsp; In case you missed
+                            it, an event is some action that occurs on a window, such as a button click, window
+                            resize, key-press, and so on.&nbsp; When these occur, Windows sends a message to
+                            our program, which is handled by WinProc().</p>
+                            <p>
+                        This lesson is split into three parts.&nbsp; First, we will look at the code used
+                                to make a window, then we will look at each of the two main parts of the program
+                                in detail to find out how they work and how to manipulate them if necessary.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Our First Windowed Program</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Just like the previous lesson, we will be using the function WinMain() to start
+    out our program.&nbsp; We will also use another function called WinProc().&nbsp;
+    This function will handle any event messages Windows sends to us while the program
+    is running.</p>
+    <p>
+        Following is a program which contains the code to build and run a window.&nbsp;
+        If you can understand the program from the comments, great.&nbsp; If not, don't
+        worry.&nbsp; I'll explain everything right afterward.</p>
+    <div class="codebox">
+        // include the basic windows header file<br>
+        #include &lt;windows.h&gt;<br>
+        #include &lt;windowsx.h&gt;<br>
+        <br>
+        // the WindowProc function prototype<br>
+        LRESULT CALLBACK WindowProc(HWND hWnd,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;UINT message,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;WPARAM wParam,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;LPARAM lParam);<br>
+        <br>
+        // the entry point for any Windows program<br>
+        int WINAPI WinMain(HINSTANCE hInstance,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+        {<br>
+        &nbsp; &nbsp; // the handle for the window, filled by a function<br>
+        &nbsp; &nbsp; HWND hWnd;<br>
+        &nbsp; &nbsp; // this struct holds information for the window class<br>
+        &nbsp; &nbsp; WNDCLASSEX wc;<br>
+        <br>
+        &nbsp; &nbsp; // clear out the window class for use<br>
+        &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+        <br>
+        &nbsp; &nbsp; // fill in the struct with the needed information<br>
+        &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+        &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+        &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+        &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+        &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+        &nbsp; &nbsp; wc.hbrBackground = (HBRUSH)COLOR_WINDOW;<br>
+        &nbsp; &nbsp; wc.lpszClassName = L"WindowClass1";<br>
+        <br>
+        &nbsp; &nbsp; // register the window class<br>
+        &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+        <br>
+        &nbsp; &nbsp; // create the window and use the result as the handle<br>
+        &nbsp; &nbsp; hWnd = CreateWindowEx(NULL,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; L"WindowClass1", &nbsp;&nbsp; // name of the window class<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; L"Our First Windowed Program", &nbsp; // title of the window<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; WS_OVERLAPPEDWINDOW, &nbsp;&nbsp; // window style<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; 300, &nbsp; &nbsp;// x-position of the window<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; 300, &nbsp; &nbsp;// y-position of the window<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; 500, &nbsp; &nbsp;// width of the window<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; 400, &nbsp; &nbsp;// height of the window<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; NULL, &nbsp; &nbsp;// we have no parent window, NULL<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; NULL, &nbsp; &nbsp;// we aren't using menus, NULL<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; hInstance, &nbsp; &nbsp;// application handle<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; NULL); &nbsp;&nbsp; // used with multiple windows, NULL<br>
+        <br>
+        &nbsp; &nbsp; // display the window on the screen<br>
+        &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+        <br>
+        &nbsp; &nbsp; // enter the main loop:<br>
+        <br>
+        &nbsp; &nbsp; // this struct holds Windows event messages<br>
+        &nbsp; &nbsp; MSG msg;<br>
+        <br>
+        &nbsp; &nbsp; // wait for the next message in the queue, store the result in 'msg'<br>
+        &nbsp; &nbsp; while(GetMessage(&amp;msg, NULL, 0, 0))<br>
+        &nbsp; &nbsp; {<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; // translate keystroke messages into the right format<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+        <br>
+        &nbsp; &nbsp; &nbsp; &nbsp; // send the message to the WindowProc function<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+        &nbsp; &nbsp; }<br>
+        <br>
+        &nbsp; &nbsp; // return this part of the WM_QUIT message to Windows<br>
+        &nbsp; &nbsp; return msg.wParam;<br>
+        }<br>
+        <br>
+        // this is the main message handler for the program<br>
+        LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+        {<br>
+        &nbsp; &nbsp; // sort through and find what code to run for the message given<br>
+        &nbsp; &nbsp; switch(message)<br>
+        &nbsp; &nbsp; {<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; // this message is read when the window is closed<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // close the application
+        entirely<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+        &nbsp; &nbsp; }<br>
+        <br>
+        &nbsp; &nbsp; // Handle any messages the switch statement didn't<br>
+        &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+        }
+    </div>
+    <p>
+        Whoa!&nbsp; This is a quite a jump in size here.&nbsp; Let's go ahead and run this
+        program and see what happens before we go into details.&nbsp; The final result looks
+        like this on my computer:</p>
+    <center>
+        <img alt="Image 3.1 - Our First Windowed Program" src="dx9A3.aspx_files/dx9A3-1.PNG"><br><br>
+        Image 3.1 - Our First Windowed Program</center>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Building the Window</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    All right, I admit that the program we just wrote is not the easiest to remember
+    straight off.&nbsp; Fortunately, you won't need to.&nbsp; The code
+                you saw stays
+    pretty much the same.&nbsp; You'll be able to clean some of it up a bit when you
+    get to actual game programming, but for now, let's learn what each part of it does.</p>
+    <p>
+        Of the code in the program above, there are only three steps which are used to create
+        the window, while the rest is there to keep it running.&nbsp; These are the three
+        steps:</p>
+    <p>
+        1.&nbsp; Register the window class.<br>
+        2.&nbsp; Create the window.<br>
+        3.&nbsp; Show the window.</p>
+    <p>
+        These steps are fairly straightforward, if long and tedious.&nbsp; Without the initialization
+        of variables and parameters, it really just boils down to the following:</p>
+    <div class="codebox">
+        RegisterClassEx();<br>
+        CreateWindowEx();<br>
+        ShowWindow();</div>
+    <p>
+        Well, with that all made simple, let's take a quick look at each one of these with
+        all the details included.</p>
+    <hr>
+    <p class="subheader">
+        1.&nbsp; Registering the Window Class</p>
+    <p>
+                Simply put, a window class is a structure fundamental 
+used by Windows to handle
+        properties and actions of the various windows.&nbsp; We will not
+ worry ourselves with the details of this, but know that it is not a C++
+ 'class' by definition.&nbsp;
+        Basically, a window class is a kind of template for certain 
+properties of the window.&nbsp;
+        Image 3.2 illustrates how this is:</p>
+    <center>
+        <img alt="Image 3.2 - The Window Class" src="dx9A3.aspx_files/dx9A3-2.GIF" width="385" height="224"><br>
+        <br>
+        Image 3.2 - The Window Class</center>
+    <p>
+        In this diagram, "window class 1" is used to define the basic properties of "window
+        1" and "window 2", whereas "window class 2" is used to do the same for "window 3"
+        and "window 4".&nbsp; Each window has its own individual properties, such as window
+        size, position, contents, etc, but the basic properties are still that of the window
+        class.</p>
+    <p>
+        In this step, we will register a window class.&nbsp; What this means is that we
+        will tell Windows to create a window class based on the data we provide. &nbsp;In
+        order to do this, we have the following code in our program:</p>
+    <div class="codebox">
+        // this struct holds information for the window class<br>
+        WNDCLASSEX wc;<br>
+        <br>
+        // clear out the window class for use<br>
+        ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+        <br>
+        // fill in the struct with the needed information<br>
+        wc.cbSize = sizeof(WNDCLASSEX);<br>
+        wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+        wc.lpfnWndProc = WindowProc;<br>
+        wc.hInstance = hInstance;<br>
+        wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+        wc.hbrBackground = (HBRUSH)COLOR_WINDOW;<br>
+        wc.lpszClassName = L"WindowClass1";<br>
+        <br>
+        // register the window class<br>
+        RegisterClassEx(&amp;wc);</div>
+    <p>
+        Let's go over each of these.&nbsp; I don't want to spend too much time on needless
+        details, so it should go quickly.</p>
+    <p class="subheader">
+        WNDCLASSEX wc;</p>
+    <p>
+        This is a struct that contains the information for the window class.&nbsp; We will
+        not cover all of its contents, as some of it will not be needed in game programming.&nbsp;
+        If you want a full rundown of the struct, you can find it in the MSDN Library under
+        WNDCLASSEX.&nbsp; We will call our struct 'wc' for the sake of ease.</p>
+    <p>
+        By the way, the 'EX' is there to indicate that this is the new version of the struct
+        WNDCLASS, which is essentially the same, but without a couple extra things we won't
+        get into here.&nbsp; The same goes for the CreateWindowEx() and RegisterClassEx()
+        functions.&nbsp; Each have their older, obsoleted counterpart without the 'Ex'.</p>
+    <p class="subheader">
+        ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));</p>
+    <p>
+        ZeroMemory is a function that initializes an entire block of memory to NULL.&nbsp;
+        The address provided in the first parameter sets where the block is to start.&nbsp;
+        The second parameter indicates how long the block is.&nbsp; With the address and
+        size of our struct 'wc', we can quickly initialize the whole thing to NULL.&nbsp;
+        We will use this to initialize the values of 'wc' not covered in this tutorial.</p>
+    <p class="subheader">
+        wc.cbSize = sizeof(WNDCLASSEX);</p>
+    <p>
+        This one is fairly obvious.&nbsp; We need to size up this structure and tell it
+        what it's measurements are.&nbsp; We will do this with the sizeof() operator.</p>
+    <p class="subheader">
+        wc.style = CS_HREDRAW | CS_VREDRAW;</p>
+    <p>
+        In this member, we store the style of the window.&nbsp; There 
+are plenty of values
+        we can insert, but we will almost never use any of them in game 
+programming.&nbsp;
+        Possible values for this can be found in the MSDN Library under 
+WNDCLASSEX.&nbsp; For now, we will use CS_HREDRAW and logically OR it 
+with CS_VREDRAW.&nbsp; What
+        these two do is tell Windows to redraw the window if it is moved
+ vertically or horizontally.&nbsp;
+        This is useful for a window, but not a game.&nbsp; We will reset
+ this value later
+        when we get into fullscreen games.</p>
+    <p class="subheader">
+        wc.lpfnWndProc = WindowProc;</p>
+    <p>
+        This value tells the window class what function to use when it gets a message from
+        Windows.&nbsp; In our program, this function is WindowProc(), but it could be WndProc()
+        or WinProc() or even ASDF() if it suited us.&nbsp; It doesn't matter what the function
+        is called provided we tell the window class in this value.</p>
+    <p class="subheader">
+        wc.hInstance = hInstance;</p>
+    <p>
+        We covered this one in the last lesson.&nbsp; It is a handle to a copy of our application.&nbsp;
+        Just put the value Windows handed to us in WinMain().</p>
+    <p class="subheader">
+        wc.hCursor = LoadCursor(NULL, IDC_ARROW);</p>
+    <p>
+        This member stores the default mouse image for the window class.&nbsp; This is done
+        by using the return value from the function LoadCursor(), which has two parameters.&nbsp;
+        The first is the hInstance of the application that stores the pointer graphic.&nbsp;
+        We aren't getting into this, so we'll set it to NULL.&nbsp; The second one is a
+        value that contains the default mouse pointer.&nbsp; There are others in the MSDN
+        Library under LoadCursor().</p>
+    <p class="subheader">
+        wc.hbrBackground = (HBRUSH)COLOR_WINDOW;</p>
+    <p>
+        This member contains the 'brush' that will be used to color the background of our
+        window.&nbsp; Brushes are beyond the scope of this tutorial, but they are used here
+        to indicate the color of the background.&nbsp; COLOR_WINDOW indicates a brush that
+        paints the window white (at least, for my settings).</p>
+    <p class="subheader">
+        wc.lpszClassName = L"WindowClass1";</p>
+    <p>
+        This is the name of the window class we are building.&nbsp; We are naming it "WindowClass1",
+        even though we will only build one class.&nbsp; It doesn't matter what you name
+        it, so long as you indicate it correctly when making the window itself.</p>
+    <p>
+        The 'L' that appears before the string, simply tells the compiler that this string
+        should be made of 16-bit Unicode characters, rather than the usual 8-bit ANSI characters.</p>
+    <p class="subheader">
+        RegisterClassEx(&amp;wc);</p>
+    <p>
+        This function finally registers the window class.&nbsp; We fill its single parameter
+        with the address of the struct we put together and Windows takes care of the rest.&nbsp;
+        Easy, really.</p>
+    <hr>
+    <p class="subheader">
+        2.&nbsp; Create the Window</p>
+    <p>
+        The next step is to create a window.&nbsp; Now that we have our window class made,
+        we can make windows based on that class.&nbsp; We are only going to need one window,
+        so it won't be complex at all.&nbsp; To create the window, we just need the following:</p>
+    <div class="codebox">
+        // create the window and use the result as the handle<br>
+        hWnd = CreateWindowEx(NULL,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; L"WindowClass1",
+        &nbsp;&nbsp; // name of the window class<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; L"Our
+        First Windowed Program", &nbsp; // title of the window<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WS_OVERLAPPEDWINDOW,
+        &nbsp;&nbsp; // window style<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 300,
+        &nbsp; &nbsp;// x-position of the window<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 300,
+        &nbsp; &nbsp;// y-position of the window<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 500,
+        &nbsp; &nbsp;// width of the window<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 400,
+        &nbsp; &nbsp;// height of the window<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NULL,
+        &nbsp; &nbsp;// we have no parent window, NULL<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NULL,
+        &nbsp; &nbsp;// we aren't using menus, NULL<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hInstance,
+        &nbsp; &nbsp;// application handle<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NULL);
+        &nbsp;&nbsp; // used with multiple windows, NULL</div>
+    <p>
+        Fine. &nbsp;So I lied.&nbsp; There <em>is</em> just one function to create a window.&nbsp;
+        This function has a lot of parameters, but they're all very simple.&nbsp; Before
+        we go over them, let's take a glance at the prototype.</p>
+    <div class="codebox">
+        HWND CreateWindowEx(DWORD dwExStyle,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; LPCTSTR lpClassName,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; LPCTSTR lpWindowName,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DWORD dwStyle,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int x,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int y,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int nWidth,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int nHeight,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HWND hWndParent,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HMENU hMenu,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HINSTANCE
+        hInstance,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; LPVOID lpParam);</div>
+    <p>
+        Now let's go over them quickly:</p>
+    <p class="subheader">
+        DWORD dwExStyle,</p>
+    <p>
+        This first parameter was added when RegisterClass() was upgraded to the newer RegisterClassEx().&nbsp;
+        It is an extention of the fourth parameter, dwStyle, and simply adds more options
+        for the window style.&nbsp; We won't cover any of them here, but they can be seen
+        in the MSDN Library under CreateWindowEx().&nbsp; We will set this value to NULL
+        to indicate this.</p>
+    <p class="subheader">
+        LPCTSTR lpClassName,</p>
+    <p>
+        This is the name of the class our window will use.&nbsp; Because we only have one
+        class, we will use what we have, L"WindowClass1".&nbsp; This string also uses 16-bit
+        Unicode characters, thus we put an 'L' in front of it.</p>
+    <p class="subheader">
+        LPCTSTR lpWindowName,</p>
+    <p>
+        This is the name of the window, and it will be displayed in the window's title bar.&nbsp;
+        This also uses Unicode.</p>
+    <p class="subheader">
+        DWORD dwStyle,</p>
+    <p>
+        This is where we can define all kinds of options for the window.&nbsp; You can do
+        things like take out the minimize and maximize buttons, make it non-resizeable,
+        make it have scroll bars and all kinds of cool things.&nbsp; Again, these can be
+        seen in the MSDN Library under CreateWindowEx().</p>
+    <p>
+        We will use the single value WS_OVERLAPPEDWINDOW, which is a shortcut to including
+        other values that together build a basic window with standard features.</p>
+    <p class="subheader">
+        int x,</p>
+    <p>
+        This one determines the position of the window along the x-axis of the screen.</p>
+    <p class="subheader">
+        int y,</p>
+    <p>
+        This one determines the position of the window along the y-axis of the screen.</p>
+    <p class="subheader">
+        int nWidth,</p>
+    <p>
+        Here we set the initial width of the window.</p>
+    <p class="subheader">
+        int nHeight,</p>
+    <p>
+        Here we set the initial height of the window.</p>
+    <p class="subheader">
+        HWND hWndParent,</p>
+    <p>
+        This is a parameter which tells Windows what parent window created the window we
+        are now making.&nbsp; A parent window is a window that contains other windows.&nbsp;
+        We don't have any parent windows in our program, but to give you an example, Microsoft
+        Word, which can open multiple documents in the same window, consists of a parent
+        window with multiple 'child' windows.</p>
+    <p>
+        Because we aren't doing any of this, we are going to set this parameter to NULL.</p>
+    <p class="subheader">
+        HMENU hMenu,</p>
+    <p>
+        This is a handle to a menu bar.&nbsp; We don't have any menu bars either, so this
+        one is NULL as well.</p>
+    <p class="subheader">
+        HINSTANCE hInstance,</p>
+    <p>
+        This is the handle to the instance.&nbsp; Set it to hInstance.</p>
+    <p class="subheader">
+        LPVOID lpParam</p>
+    <p>
+        This is a parameter we would use if we were creating multiple windows.&nbsp; Because
+        we're not, we'll just keep it simple and leave it as NULL.</p>
+    <p class="subheader">
+        Return Value</p>
+    <p>
+        The return value of this function is the handle Windows will assign this new window.&nbsp;
+        We will store it directly into our hWnd variable, like this:</p>
+    <div class="codebox" style="left: 0px; top: 0px;">
+        hWnd = CreateWindowEx(NULL,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ...</div>
+    <p>
+        And that's all there is to creating a window.&nbsp; Now we have one last, and very
+        simple, step.&nbsp; We have to show the window to the user.</p>
+    <hr>
+    <p class="subheader">
+        3.&nbsp; Show the Window</p>
+    <p>
+        Showing the window is easier than creating a message box.&nbsp; It requires one
+        function with two parameters.&nbsp; The prototype:</p>
+    <div class="codebox">
+        BOOL ShowWindow(HWND hWnd,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int nCmdShow);</div>
+    <p class="subheader">
+        HWND hWnd,</p>
+    <p>
+        This is simply the handle to the window we just created, so we place in here the
+        value Windows gave back to us.</p>
+    <p class="subheader">
+        int nCmdShow</p>
+    <p>
+        Remember that last parameter from WinMain()?&nbsp; Well, this is where we get to
+        use it.&nbsp; Of course, we don't have to, but in this case we'll be nice and let
+        Windows tell us what to do.&nbsp; In your game it really won't matter what Windows
+        tells you to do here, because your window will be fullscreen.</p>
+    <p>
+        Needed or not, we will put the value we got from nCmdShow here, and leave it at
+        that.</p>
+    <hr>
+    <p>
+        If your program does not run at this point, it's actually because we aren't finished
+        yet.&nbsp; We've created a window, true.&nbsp;
+                But a window requires more than this.&nbsp;
+        And so at this point we move on to the next section of our program, the WinProc()
+        function and the message loop.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            Handling Windows Events and Messages</div>
+        <div class="maintext" style="position: relative;">
+            <p>
+                Once we have created our window, we need to keep the window going so that it can
+                be interacted with.&nbsp; Of course, if we just end our program off as it is now,
+                it won't so much as compile.&nbsp; But assuming it did, we would still only see
+                a flash as the window was created and destroyed once we reached end of WinMain().</p>
+            <p>
+                Instead of exiting, our program completes the creation of the window, and launches
+                into what is called the main loop.&nbsp; As we have talked about before, Windows
+                programming is based on events.&nbsp; This means that our window only needs to do
+                something when Windows gives us the go.&nbsp; Otherwise, we just wait.</p>
+            <p>
+                When Windows does pass us a message, several things immediately occur.&nbsp; The
+                message is placed in an event queue.&nbsp; We use the function GetMessage() to retrieve
+                that message from the queue, we use the function TranslateMessage() to handle certain
+                message formats, and we use the function DispatchMessage() to the WindowProc() function,
+                which then selects what code is to be run as a result of the message.</p>
+            <p>
+                In case that went over your head, following is a diagram which illustrates the sequence
+                in which this all occurs.</p>
+            <center>
+                <img alt="Image 3.3 - The Process of an Event Message" src="dx9A3.aspx_files/dx9A3-3.GIF" width="546" height="279">&nbsp;<br><br>
+                Image 3.3 - The Process of an Event Message
+                </center>
+            <p>
+                The handling of events comprises the other half of our program.&nbsp; It itself
+                is split into two parts:</p>
+            <p>
+                1.&nbsp; The Main Loop<br>
+                2.&nbsp; The WindowProc() Function</p>
+            <p>
+                The main loop only consists of the GetMessage(), TranslateMessage() and DispatchMessage()
+                functions.&nbsp; The WindowProc() function only consists of code to run when certain
+                messages are sent.&nbsp; It is surprisingly simple.&nbsp; Let's dig in and find
+                out about it now.</p>
+            <hr>
+            <p class="subheader">
+                1.&nbsp; The Main Loop</p>
+            <p>
+                As seen from the diagram above, this section consists of only three functions.&nbsp;
+                Each function is actually quite simple and we need not get into it in too much detail,
+                but we will cover them in brief.</p>
+            <p>
+                Following is the code required for the main loop:</p>
+            <div class="codebox">
+                &nbsp; &nbsp; // this struct holds Windows event messages<br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; // wait for the next message in the queue, store the result in 'msg'<br>
+                &nbsp; &nbsp; while(GetMessage(&amp;msg, NULL, 0, 0))<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; // translate keystroke messages into the right format<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; // send the message to the WindowProc function<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                &nbsp; &nbsp; }</div>
+            <p>
+                Without taking loads of time, let's go over each of these lines of code.</p>
+            <p class="subheader">
+                MSG msg;</p>
+            <p>
+                MSG is a struct which contains all the data regarding a single event message.&nbsp;
+                You will not usually need to directly access the contents this struct, but in case
+                you do, I'll give you a peek at what it contains:</p>
+            <p>
+            [<a class="mainlink" href="#still" onclick="Toggle('table1')">Table 3.1 - The MSG struct]</a></p>
+            <table id="table1" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 214px;">
+                        Member</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        HWND hWnd</td>
+                    <td>
+                        Contains the handle of the window which recieved the message.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        UINT message</td>
+                    <td>
+                        Contains the identifier of the message sent.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        WPARAM wParam</td>
+                    <td>
+                        Contains additional information about the message.&nbsp; The exact meaning depends
+                        on what message was sent.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        LPARAM lParam</td>
+                    <td>
+                        Identical to WPARAM, and simply contains more information.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        DWORD time</td>
+                    <td>
+                        Contains the exact time at which the message was posted in the event queue.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        POINT pt</td>
+                    <td>
+                        Contains the exact mouse position, in screen coordinates, when the message was posted.</td>
+                </tr>
+                <tr>
+                    <td style="width: 214px;">
+                        [<a class="mainlink" href="#still" onclick="Toggle('table1')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+            <p class="subheader">
+                while(GetMessage(&amp;msg, NULL, 0, 0))</p>
+            <p>
+                GetMessage() is the function that gets any messages out of the message queue and
+                into our msg struct.&nbsp; It always returns TRUE, except for when the program is
+                about to exit, in which case it returns FALSE.&nbsp; That way, our while() loop
+                is only broken when the program is completely finished anyway.</p>
+            <p>
+                The GetMessage() function has four parameters to cover, but we will first cover
+                its prototype:</p>
+            <div class="codebox">
+                BOOL GetMessage(LPMSG lpMsg,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; HWND hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; UINT wMsgFilterMin,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; UINT wMsgFilterMax);</div>
+            <p class="subheader">
+                LPMSG lpMsg,</p>
+            <p>
+                This parameter is a pointer to a message struct, like the one we just covered.&nbsp;
+                We will just put the address of our struct in here.</p>
+            <p class="subheader">
+                HWND hWnd,</p>
+            <p>
+                This is the handle to the window the message should come from.&nbsp; However, you
+                may notice that we put NULL in here.&nbsp; In this parameter, NULL means get the
+                next message for any of our windows.&nbsp; We could actually put the value hWnd
+                here and it wouldn't make any difference, but it would if we had multiple windows.&nbsp;
+                I put NULL in this parameter.</p>
+            <p class="subheader">
+                UINT wMsgFilterMin, UINT wMsgFilterMax</p>
+            <p>
+                These parameters can be used to limit the types of messages to retrieve off the
+                message queue.&nbsp; Example: using WM_KEYFIRST in the wMsgFilterMin and using WM_KEYLAST
+                limit the message type to keyboard messages.&nbsp; WM_KEYFIRST and WM_KEYLAST are
+                synonymous with the integer values of the first and last keyboard messages.&nbsp;
+                Likewise, WM_MOUSEFIRST and WM_MOUSELAST limit the message type to mouse messages.</p>
+            <p>
+                There is one special case with these parameters.&nbsp; If you fill each value with
+                '0', then GetMessage() assumes that you want to gather any message, no matter its
+                value.&nbsp; You may notice that we did this in our program.</p>
+            <p class="subheader">
+                TranslateMessage(&amp;msg);</p>
+            <p>
+                TranslateMessage() is a function that translates certain key-presses into the proper
+                format.&nbsp; We will not go into this in too much detail, as we will mostly use
+                DirectInput for our keystrokes, and this bypasses the Windows message system.&nbsp;
+                Its single parameter is filled with address of our msg struct.</p>
+            <p class="subheader">
+                DispatchMessage(&amp;msg);</p>
+            <p>
+                DispatchMessage() basically does what it says.&nbsp; It dispatches the message.&nbsp;
+                It dispatches it to our WindowProc() function, which we will cover next.&nbsp; This
+                function also has a single parameter filled with the address of our msg struct.</p>
+            <hr>
+            <p class="subheader">
+                2.&nbsp; The WindowProc() Function</p>
+            <p>
+                Now that we have covered the main loop, let's find out about this alleged WindowProc()
+                function you keep hearing about.</p>
+            <p>
+                Here is a brief rundown of what happens.&nbsp; GetMessage() gets a message, we translate
+                it, and we dispatch it using the DispatchMessage() function.</p>
+            <p>
+                The DispatchMessage() function then makes a call to the appropriate WindowProc()
+                function.&nbsp; Fortunately, we only have one WindowProc() function to worry about,
+                so things will stay relatively simple.</p>
+            <p>
+                When the WindowProc() function is called, four pieces of information from the MSG
+                struct get passed in.&nbsp; To see these, let's have a look at the prototype for
+                WindowProc().</p>
+            <div class="codebox">
+                LRESULT CALLBACK WindowProc(HWND hWnd,<br>
+                &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                &nbsp; &nbsp; UINT message,<br>
+                &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                &nbsp; &nbsp; WPARAM wParam,<br>
+                &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                &nbsp; &nbsp; LPARAM lParam);</div>
+            <p>
+                You've seen these already if you looked at the parameters of the MSG struct earlier,
+                so we won't go over them again here.</p>
+            <p>
+                What we will go over is the content of this function.&nbsp; As you saw from the
+                code, it is application-defined, meaning we supply its code.</p>
+            <p>
+                When a message enters WindowProc, we can use the uMsg argument to determine what
+                message it is.&nbsp; Many programmers, and all game programmers I know, use a switch()
+                statement to determine the message.&nbsp; Here is an example of how you might do
+                this (it's how we do it in our program).</p>
+            <div class="codebox">
+                &nbsp; &nbsp; // sort through and find what code to run for the message given<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; // this message is read when the window is closed<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // ...<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // ...<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+            </div>
+            <p>
+                Here, the switch statement looks for the code to run.&nbsp; Of course, we only provide
+                the WM_DESTROY message, meaning that if any other message is sent, we just ignore
+                it.&nbsp; The WM_DESTROY message is sent when the window is closing.&nbsp; So when
+                the window closes, we can do whatever we need to do to clean up our application.&nbsp;
+                Right now, all that consists of is telling the application that we're all done,
+                and to return a '0', indicating that all is cleaned up.&nbsp; We do this with the
+                following code:</p>
+            <div class="codebox">
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // close the application
+                entirely<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;</div>
+            <p>
+                The PostQuitMessage() function sends the message WM_QUIT, which has an integer value
+                of '0'.&nbsp; If you recall back to your main loop, you will remember that the GetMessage()
+                function only returns FALSE when the program is about to quit.&nbsp; Well, to be
+                a little more specific, it returns FALSE when a '0' is sent, as in the case of WM_QUIT.&nbsp;
+                So what this function basically does is tell our program to finish up the WinMain()
+                function properly.</p>
+            <p>
+                Next we return '0'.&nbsp; This is rather important, because it tells Windows that
+                we handled the message.&nbsp; If we returned something else, Windows could get confused.</p>
+            <p>
+                If you study the code for our program, you will find that there is one last function
+                to be described, DefWindowProc().&nbsp; What this function does is handle any messages
+                we did not handle ourselves.&nbsp; In short, it handles messages that we didn't
+                return a '0' for.&nbsp; We therefore place it at the end of the WindowProc() function
+                so that it catches anything we miss.</p>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+            Summary</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+            Well, if you are still reading this, congratulations!&nbsp; You are now a master
+            of Windows programming, and well on your way to game programming.</p>
+            <p>
+                If this is your first time through this type of program, don't expect to remember
+                it perfectly.&nbsp; I certainly won't demand it, and you can come back and dig through
+                the code as many times as you like until you are completely familiar with it.</p>
+            <p>
+                With that said, let's get a move on!&nbsp; We have two more short lessons to go
+                before you are officially into DirectX!&nbsp; There is no time to lose!</p>
+            <center>
+                <p>
+                    Next Lesson:&nbsp; The Real-Time Message Loop</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A4.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Help make DirectX Tutorial better.  Give your <a class="feedlink" href="javascript:RunFeedback(3)">feedback</a>.</p>
+            </center>
+        </div>
+
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9A3.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

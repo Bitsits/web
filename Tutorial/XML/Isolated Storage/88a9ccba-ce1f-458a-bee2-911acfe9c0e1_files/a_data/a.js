@@ -1,0 +1,1 @@
+document.write('<a href=\"http://ads.neudesicmediagroup.com/a.aspx?Task=Click&ZoneID=54&CampaignID=597&AdvertiserID=68&BannerID=481&SiteID=6&RandomNumber=1474772589&Keywords=\" target=\"_Blank\"><img src=\"http://ads.neudesicmediagroup.com/ads/Silverlight_RON_300x250_February.gif\"  width=\"300\" height=\"250\" alt=\"\" align=\"Center\" border=\"0\"></a><br>'); adcode=' '

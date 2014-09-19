@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="thewizardducking_files/styles.css">
+    <title>The Wizard: Part 3 - Making a Sprite Duck</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="thewizardducking_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>The Wizard - Part 3</h2>
+				<p>
+					<em>Making a sprite duck </em>
+				</p>
+				<ul>
+				<li><a href="http://www.xnadevelopment.com/tutorials/thewizardducking/thewizardducking.zip">Download the Source code</a></li>
+				
+				<li><a href="http://geekswithblogs.net/clingermangw/archive/2008/03/16/120578.aspx">View Comments or Leave Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="thewizardducking_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>The Wizard - Part 3</h2>
+<strong>Making a Sprite Duck</strong>
+<p>&nbsp;</p>
+
+<div style="margin: 0px; padding: 5px 10px 5px 5px; display: inline; float: right;">
+<object width="425" height="349"><param name="movie" value="http://www.youtube.com/v/Y2kAsouDuQk&amp;hl=en&amp;fs=1&amp;color1=0x2b405b&amp;color2=0x6b8ab6&amp;border=1"><param name="allowFullScreen" value="true"><embed src="thewizardducking_files/Y2kAsouDuQkhlenfs1color10x2b405bcolor20x6b8ab6border1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="349"></object>
+</div>
+
+<div style="padding-right: 19px; padding-left: 10px; padding-bottom: 15px;">
+
+
+<p>This is the third in a four part series to show you how to add some
+movement and action to your sprite. This first part was covered in "The
+Wizard - Part 1: Moving a Sprite on the Screen". The second part was
+covered in "The Wizard - Part 2: Making a Sprite Jump". Part three
+covers adding the ability to make your sprite have a little "ducking"
+animation. </p>
+<p><strong>Starting the game project:</strong>  </p>
+<p>We are going to be building off everything that we did in the second part of the Wizard series&nbsp; "<a href="http://www.xnadevelopment.com/tutorials/thewizardjumping/thewizardjumping.shtml">The Wizard - Part 2: Making a Sprite Jump</a>". Instead of creating a new XNA Game project, you can just <a href="http://www.xnadevelopment.com/tutorials/thewizardjumping/thewizardjumping.zip">download the source</a> for that project and begin working from that game project.  </p>
+<p><strong>Adding the images:</strong>  </p>
+<p><img src="thewizardducking_files/WizardSquare.png" alt="WizardSquare" style="border-width: 0px;" align="left" border="0" width="240" height="120">
+Now, let's add the new sprite image that we are going to be using in
+this tutorial to the game project. You can download the Wizard ducking
+image used in the project from <a href="http://www.xnadevelopment.com/tutorials/thewizardducking/wizardduckingimage.zip">here</a>.
+Once you have downloaded the image, add the new Wizard image to the
+Content folder in your game which should replace the existing Wizard
+image there. If you are having trouble remembering how to add an image
+to an XNA Game project, just follow the steps in <a href="http://www.xnadevelopment.com/tutorials/addinganimagetothegameproject/AddingAnImageToTheGameProject.shtml">this tutorial here</a> and come back to this tutorial after you've refreshed your memory.  </p>
+<p>&nbsp; </p>
+<p>&nbsp; </p>
+<p><strong>Enhancing the Sprite class:</strong>  </p>
+<p>To start out, we are going to make some more enhancements to the <strong>Sprite</strong>
+class.We need to enhance the Sprite class to be able to switch between
+different images on a "sprite sheet". A sprite sheet is a single image
+file with multiple images in it. Often these images will be used to
+build frames or an animation or maybe represent different tiles in a
+game. It is a wise idea when possible to add as many images as you can
+to a single image file, but always keep the size of the file in mind.
+You don't want the dimensions of the image file to get to large and you
+don't want it's file size to grow to big. So keep a balance of making
+separate images and combining as often as possible. </p>
+<p>When drawing from a sprite sheet, you don't want to draw every image
+in the sheet. Instead, what you want to do is specify which area in the
+sprite sheet represents the image that you want to draw. Imagine
+cutting a rectangular image out of the sprite sheet that you want to
+draw and giving that the the SpriteBatch. So you will want to know just
+how to define that rectangular area. You will need to know where the
+top left corner of the rectangle is and just how wide and high the
+rectangle is. That "source rectangle" now defines the area you want to
+be drawn from the original image. </p>
+<p>That is the first enhancement we need to make to the Sprite class.  </p>
+<p>Add the following Source object and property to the top of the Sprite.cs class.  </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//The Rectangular area from the original image that </span></pre>
+<pre>        <span class="rem">//defines the Sprite. </span></pre>
+<pre class="alt">        Rectangle mSource;</pre>
+<pre>        <span class="kwrd">public</span> Rectangle Source</pre>
+<pre class="alt">        {</pre>
+<pre>            get { <span class="kwrd">return</span> mSource; }</pre>
+<pre class="alt">            set</pre>
+<pre>            {</pre>
+<pre class="alt">                mSource = <span class="kwrd">value</span>;</pre>
+<pre>                Size = <span class="kwrd">new</span> Rectangle(0, 0, (<span class="kwrd">int</span>)(mSource.Width * Scale), (<span class="kwrd">int</span>)(mSource.Height * Scale));</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+<p>The property re-calculates the Size anytime the Source is redefined.
+That way the size always takes into account that you might not be
+drawing the entire original image, but just a portion of that image.</p>
+<p>Next, we need to change the Scale property to recalculate Size using
+source, it originally was using the height and width or the original
+image. Modify the Scale property in the Sprite.cs class to look like
+the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//When the scale is modified through he property, the Size of the </span></pre>
+<pre>        <span class="rem">//sprite is recalculated with the new scale applied.</span></pre>
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">float</span> Scale</pre>
+<pre>        {</pre>
+<pre class="alt">            get { <span class="kwrd">return</span> mScale; }</pre>
+<pre>            set</pre>
+<pre class="alt">            {</pre>
+<pre>                mScale = <span class="kwrd">value</span>;</pre>
+<pre class="alt">                <span class="rem">//Recalculate the Size of the Sprite with the new scale</span></pre>
+<pre>                Size = <span class="kwrd">new</span> Rectangle(0, 0, (<span class="kwrd">int</span>)(Source.Width * Scale), (<span class="kwrd">int</span>)(Source.Height * Scale));</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+<p>The LoadContent method should now be modified to calculate Source
+and then use Source when calculating Size. Modify the LoadContent
+method to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Load the texture for the sprite using the Content Pipeline</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">void</span> LoadContent(ContentManager theContentManager, <span class="kwrd">string</span> theAssetName)</pre>
+<pre class="alt">        {</pre>
+<pre>            mSpriteTexture = theContentManager.Load&lt;Texture2D&gt;(theAssetName);</pre>
+<pre class="alt">            AssetName = theAssetName;</pre>
+<pre>            Source = <span class="kwrd">new</span> Rectangle(0, 0, mSpriteTexture.Width, mSpriteTexture.Height);</pre>
+<pre class="alt">            Size = <span class="kwrd">new</span> Rectangle(0, 0, (<span class="kwrd">int</span>)(mSpriteTexture.Width * Scale), (<span class="kwrd">int</span>)(mSpriteTexture.Height * Scale));</pre>
+<pre>        }</pre>
+</div>
+<p>Finally, we need to change the Draw method to now use our Source
+rectangle when drawing instead of drawing the entire image. Modify the
+Draw method of the Sprite.cs class to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Draw the sprite to the screen</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">void</span> Draw(SpriteBatch theSpriteBatch)</pre>
+<pre class="alt">        {</pre>
+<pre>            theSpriteBatch.Draw(mSpriteTexture, Position, Source, </pre>
+<pre class="alt">                Color.White, 0.0f, Vector2.Zero, Scale, SpriteEffects.None, 0);</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong>&nbsp; </p>
+<p><strong>Enhancing the Wizard class:</strong>  </p>
+<p>With the changes done to the base sprite class, it's time to begin
+modifying the Wizard class to give it the ability to "duck". To start
+things off we need to modify the State enum in the Wizard.cs class to
+look like the following. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">enum</span> State</pre>
+<pre>        {</pre>
+<pre class="alt">            Walking,</pre>
+<pre>            Jumping, </pre>
+<pre class="alt">            Ducking</pre>
+<pre>        }</pre>
+<pre class="alt">        State mCurrentState = State.Walking;</pre>
+</div>
+<p>We have added a new state for our Wizard called "Ducking", we will
+use this to indicate when he is ducking since we don't want him to be
+able to jump or walk around when he is in that state. </p>
+<p>Next we need to modify the LoadContent method. Modify the Load
+Content method of the Wizard.cs class to look like the following. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">void</span> LoadContent(ContentManager theContentManager)</pre>
+<pre>        {</pre>
+<pre class="alt">            Position = <span class="kwrd">new</span> Vector2(START_POSITION_X, START_POSITION_Y);</pre>
+<pre>            <span class="kwrd">base</span>.LoadContent(theContentManager, WIZARD_ASSETNAME);</pre>
+<pre class="alt">            Source = <span class="kwrd">new</span> Rectangle(0, 0, 200, Source.Height);</pre>
+<pre>        }</pre>
+</div>
+<p>We added a line of code here to set the Source rectangles for our
+Wizard. Remember, the Sprite class now uses Source to only draw a
+smaller portion of the original image. In our case, we want only the
+left side of our image drawn to start with. That's the portion of our
+image with the Wizard standing. So we defined a rectangle that started
+in the upper left corner of the image and is only 200 pixels wide.</p>
+<p>You'll notice we set the SourceRectangle after LoadContent in the
+base sprite class is called. We need to do it in that order since the
+base Sprite class also sets Source and we don't want it to override
+ours.</p>
+<p>Now, we need to begin make some changes to the Update method so that
+the actual action of "ducking" can begin. Modify the Update method in
+the Wizard.cs class to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">void</span> Update(GameTime theGameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            KeyboardState aCurrentKeyboardState = Keyboard.GetState();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            UpdateMovement(aCurrentKeyboardState);</pre>
+<pre>            UpdateJump(aCurrentKeyboardState);</pre>
+<pre class="alt">            UpdateDuck(aCurrentKeyboardState);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            mPreviousKeyboardState = aCurrentKeyboardState;</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Update(theGameTime, mSpeed, mDirection);</pre>
+<pre>        }</pre>
+</div>
+<p>We just added a single line of code to the Update method. A call to
+a method named "UpdateDuck". We haven't created this method yet, so
+obviously that along is not going to be enough to make our Wizard start
+ducking (if only it were that simple!).</p>
+<p>Now that we have our method call, let's go ahead and add the UpdateDuck method. Add the following method to the Wizard.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> UpdateDuck(KeyboardState aCurrentKeyboardState)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (aCurrentKeyboardState.IsKeyDown(Keys.RightShift) == <span class="kwrd">true</span>)</pre>
+<pre>            {</pre>
+<pre class="alt">                Duck();</pre>
+<pre>            }</pre>
+<pre class="alt">            <span class="kwrd">else</span></pre>
+<pre>            {</pre>
+<pre class="alt">                StopDucking();</pre>
+<pre>            }</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>The UpdateDuck method checks to see if the right shift key is
+currently being pressed. If it is, then it calls the "Duck" method. If
+it isn't, then it calls the "StopDucking" method. So what this means is
+that our Wizard sprits is only going to "duck" while the right shift
+key is being pressed and when it's released, the Wizard will stop
+ducking immediately.</p>
+<p>We called two new methods that we haven't written yet. Let's add the
+"Duck" method first. Add the following method to the Wizard.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> Duck()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (mCurrentState == State.Walking)</pre>
+<pre>            {</pre>
+<pre class="alt">                mSpeed = Vector2.Zero;</pre>
+<pre>                mDirection = Vector2.Zero;</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>                Source = <span class="kwrd">new</span> Rectangle(200, 0, 200, Source.Height);</pre>
+<pre class="alt">                mCurrentState = State.Ducking;</pre>
+<pre>            }</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>The Duck method does the actual work of making the Wizard appear to
+be ducking. First, the Wizard can only duck if he's currently walking.
+We don't want him to be able to duck if he's in any other state like
+jumping. So if he is walking, then we first stop him from moving. We do
+that by zeroing out his Speed and Direction. Next, we change the
+"frame" of the Wizard image. This is just a way of saying that we
+change what Source image is now going to be drawn for the Wizard. We
+want the image on the right of our original image to be drawn, the one
+where the Wizard is hiding in his hate. So now we define a Source
+rectangle that starts at 200 pixels into the image and moves to the end
+of the image. Finally, we change the state of our Wizard to ducking.</p>
+<p>Now that we have our Wizard ducking, we need him to stop ducking
+when we release the right shift key. Add the following StopDucking
+method to the Wizard.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> StopDucking()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (mCurrentState == State.Ducking)</pre>
+<pre>            {</pre>
+<pre class="alt">                Source = <span class="kwrd">new</span> Rectangle(0, 0, 200, Source.Height);</pre>
+<pre>                mCurrentState = State.Walking;</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+You can see this is a pretty simple method. We first check to see if
+the Wizard is currently ducking, there's no need to make him stop
+ducking unless he actually is ducking right? Then we switch the frame
+or source rectangle of the Wizard back to the left side of the image.
+Finally, we change his state to Walking.
+<p>That's it! Go ahead and do a <strong>Build <img src="thewizardducking_files/CropperCapture26324_thumb4.jpg" alt="CropperCapture26324_thumb4" style="border: 0px none ;" border="0" width="31" height="27"> </strong>and
+move and jump and now duck your Wizard. You shouldn't be able to move
+or jump when the Wizard is ducking, and you shouldn't be able to duck
+when the Wizard is jumping. </p>
+<p align="center"><img src="thewizardducking_files/CropperCapture271.jpg" alt="CropperCapture[271]" style="border: 0px none ;" border="0" width="612" height="480"> </p>
+<p align="center">&nbsp;</p>
+<p>Congratulations! You have successfully figured out how to get a
+sprite to duck. More importantly, you have been introduced to how to
+use sprite sheets and switch frames for a sprite. What modifications
+can you make? Could you change the code so that the Wizard could duck
+while Jumping? Could you change it so he could move around while
+ducking? What about using a different key for jumping?&nbsp; </p>
+<p>Play with it, experiment and ask questions. Most of all make sure you&#8217;re having fun!  </p>
+
+
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="thewizardducking_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</div></body></html>

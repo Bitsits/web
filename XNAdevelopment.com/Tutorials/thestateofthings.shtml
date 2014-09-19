@@ -1,0 +1,1147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="thestateofthings_files/styles.css">
+    <title>The State of Things</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="thestateofthings_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>The State of Things</h2>
+				<p>
+					<em>This tutorial walks you through three different solutions for managing screen state in your game. </em>
+				</p>
+				<ul>
+				<li><em>Posted on:</em> <strong>05-07-2008</strong></li>
+                                <li><a href="http://www.xnadevelopment.com/tutorials/thestateofthings/TheStateOfThings.zip">Download the Source code</a></li>
+				
+				<li><a href="http://geekswithblogs.net/clingermangw/archive/2009/03/09/129971.aspx">View Comments or Leave Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="thestateofthings_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>The State of Things</h2>
+<strong>Using state to create game menus, display game screens and make your game characters come alive!</strong>
+
+<div style="padding-right: 19px; padding-left: 10px; padding-bottom: 15px;">
+
+<p>&nbsp;</p>
+<p><strong>An Introduction: Just what in the world is state?</strong></p>
+<p><a href="http://www.xnadevelopment.com/livewriter/TheStateofThings_790E/gcomics.jpg"><img src="thestateofthings_files/gcomics_thumb.jpg" alt="g-comics" style="border-width: 0px; margin: 0px 5px 5px 10px;" align="right" border="0" width="345" height="258"></a>
+Game state can be used to mean a variety of things and you'll find it
+used in many different ways in the game industry. In this case I'm
+using "game state" to provide a description of an object at a given
+point in time in a game. Clear as mud to you now? Don't worry, I'll try
+to describe it in a different way, one as a geek like me you might
+identify with a little better.</p>
+<p>Comic books. When buying used comic books, they often say what
+"state" or condition the comic book is in. The current state of the
+comic book gives you some indication of how the comic book is going to
+look when you purchase it. Mint, Fine and Poor all give an image in
+your mind of just how battered&nbsp; or worn the comic book is. </p>
+<p>The same is true for objects in your game. By defining the various
+valid states for your objects, your game will know just what to do when
+it is in that state. And just like the comic book industry has defined
+the various valid states for comic books, you as the governing board
+for your game must define valid states for your objects and just
+exactly how the game should respond when those objects are in any given
+state.</p>
+<p>&nbsp;</p>
+<p><strong>That's great...but what would I actually use "state" for in my game?</strong></p>
+<p>The real question is what <em>wouldn't</em> you use it for!
+Honestly, state is going to be used by just about every single object
+you can think of&nbsp; in your game. You'll use it to solve just about
+every single game problem. Take the following common Creator's forum
+questions for example.</p>
+<ul>
+    <li>How do I make a menu? </li>
+    <li>How do I create multiple screens in my game? </li>
+    <li>How do I re-start a level? </li>
+    <li>How do I pause a game? </li>
+    <li>How do I make it so the bad guys die? </li>
+    <li>How do I make is so my character flashes, runs, walks, sleeps? </li>
+</ul>
+<p>All of these questions have the exact same answer. You use state!</p>
+<p><strong></strong></p>
+<p><strong>Ok, so I know what it is and I think I know what I might use it for, so HOW do I use it?</strong></p>
+<p>That would be an important thing to learn right? Well, the truth is,
+there are many different ways you can use state in code and even more
+ways to implement it. State can be managed with a simple boolean, you
+might create large switch statements or maybe even take advantage of
+polymorphism! You can really make it as simple or complicated as you
+like. The important thing is to learn what it is and just how you might
+use it in your game.</p>
+<p>&nbsp;</p>
+<p><strong>Displaying Multiple Screens in a Game - let's see some code!</strong></p>
+<p>We're going to be looking at three different examples. Each sample
+solves the same problem, but implements a solution in a different
+way..and each sample solves the problem by using the concept of state.
+In the samples, we're going to be looking at the basics of how to
+display different screens. We will be displaying a "Controller Detect
+Screen" and a "Title Screen". These are two very common screens that
+need to be shown in many games. Understanding how to display different
+screens in your game is one of the first hurdles game coders encounter.
+It's also a problem that can be solved fairly easily with a basic
+understanding of the concept of state. So with that being said, let's
+start looking at some code. </p>
+<p>&nbsp;</p>
+<p><strong>1. Example 1 - Using boolean variables to indicate and track screen state</strong></p>
+<p>In this sample, we're going to show one of these easiest and
+simplest ways to implement state in your game to manage screens (this
+is often referred to as screen state). Using nothing more complicated
+than booleans, we'll be able to decided which screen should currently
+be displayed. </p>
+<p>&nbsp;</p>
+<p><strong>Creating the new game project:</strong></p>
+<p>First, let's start by opening XNA Game Studio Express and creating a
+new Windows Game project. If you are having trouble remembering how to
+create a new XNA Windows Game project just follow the steps in <a href="http://www.xnadevelopment.com/tutorials/creatinganewxnagameproject/CreatingANewXNAWindowsGameProject.shtml">this tutorial here</a> and come back to the this tutorial after you've refreshed your memory. </p>
+<p><strong></strong></p>
+<p><strong>Adding the images:</strong></p>
+<p>Now, let's add the images that we are going to be using in this
+tutorial to the game project. You can download the images used in the
+project from <a href="http://www.xnadevelopment.com/tutorials/thestateofthings/TheStateOfThingsImages.zip">here</a>. If you are having trouble remembering how to add images to an XNA Game project, just follow the steps in <a href="http://www.xnadevelopment.com/tutorials/addinganimagetothegameproject/AddingAnImageToTheGameProject.shtml">this tutorial here</a> and come back to this tutorial after you've refreshed your memory.</p>
+<p><strong>Setup the game to run at an ideal resolution for the 360:</strong></p>
+<p>The images created for this tutorial were designed at 1280x720. This
+is the ideal resolution for games on the XBox 360. We'll start by
+adding some code to the main game class (Game1.cs) in the constructor
+to change the height and width of our game to run at that resolution.</p>
+<p>Add the following code to the Game constructor in the Game class in the Game1.cs file</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> Game1()</pre>
+<pre>        {</pre>
+<pre class="alt">            graphics = <span class="kwrd">new</span> GraphicsDeviceManager(<span class="kwrd">this</span>);</pre>
+<pre>            Content.RootDirectory = <span class="str">"Content"</span>;</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Initialize screen size to an ideal resolution for the XBox 360</span></pre>
+<pre class="alt">            <span class="kwrd">this</span>.graphics.PreferredBackBufferWidth = 1280;</pre>
+<pre>            <span class="kwrd">this</span>.graphics.PreferredBackBufferHeight = 720;</pre>
+<pre class="alt">        }</pre>
+</div>
+<style type="text/css"><![CDATA[
+
+
+
+
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }]]></style>
+<p>Setting the PreferredBackBufferWidth and the
+PreferredBackBufferHeight of the graphics device manager object will
+attempt to run your game at the indicated resolution. Using 1280x720
+for your PC games is a good idea so that you can know how they might
+look when you finally move them over to the XBox 360.</p>
+<p><strong>Adding the variables to track state and the player one index:</strong></p>
+<p>Now let's setup our objects to store the background textures for
+each screen. We're also going to need some variables to track the
+current screen state, we're going to create a couple of boolean objects
+to track what screen is the current screen. And then finally we're
+going to store the PlayerIndex of the controller Player One is using.</p>
+<p>Add the following class level objects to the Game class in the Game1.cs file.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Background textures for the various screens in the game</span></pre>
+<pre>        Texture2D mControllerDetectScreenBackground;</pre>
+<pre class="alt">        Texture2D mTitleScreenBackground;</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">        <span class="rem">//Screen State variables to indicate what is the current screen</span></pre>
+<pre>        <span class="kwrd">bool</span> mIsControllerDetectScreenShown;</pre>
+<pre class="alt">        <span class="kwrd">bool</span> mIsTitleScreenShown;</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">        <span class="rem">//The index of the Player One controller</span></pre>
+<pre>        PlayerIndex mPlayerOne;</pre>
+</div>
+<p><strong></strong></p>
+<p>Now that we we have our backgrounds objects and state variable, we
+need to load and initialize them. We'll do that in the LoadContent
+method.</p>
+<p><strong>Load the Content and initialize the state variable:</strong></p>
+<p>Add the following code to the LoadContent method in the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadContent()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Create a new SpriteBatch, which can be used to draw textures.</span></pre>
+<pre>            spriteBatch = <span class="kwrd">new</span> SpriteBatch(GraphicsDevice);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Load the screen backgrounds</span></pre>
+<pre class="alt">            mControllerDetectScreenBackground = Content.Load&lt;Texture2D&gt;(<span class="str">"ControllerDetectScreen"</span>);</pre>
+<pre>            mTitleScreenBackground = Content.Load&lt;Texture2D&gt;(<span class="str">"TitleScreen"</span>);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Initialize the screen state variables</span></pre>
+<pre class="alt">            mIsTitleScreenShown = <span class="kwrd">false</span>;</pre>
+<pre>            mIsControllerDetectScreenShown = <span class="kwrd">true</span>;</pre>
+<pre class="alt">        }</pre>
+</div>
+<p><strong></strong></p>
+<p><strong></strong></p>
+<p>We start by loading the background images for our two screens. Then
+we initialize our screen state variables. We indicate that the Title
+screen is not currently shown and that the Controller Detect screen
+will be our starting screen when the game runs
+(mIsControllerDetectScreenShown = true).</p>
+<p><strong>Coding the Update method:</strong></p>
+<p>Now that we have our state variables we can use them in the Update
+method to make sure we're updating the correct screen based on the
+current screen state for our game.&nbsp; </p>
+<p>Add the following code to the Update method in the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Allows the game to exit</span></pre>
+<pre>            <span class="kwrd">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)</pre>
+<pre class="alt">                <span class="kwrd">this</span>.Exit();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">//Based on the screen state variables, call the</span></pre>
+<pre>            <span class="rem">//Update method associated with the current screen</span></pre>
+<pre class="alt">            <span class="kwrd">if</span> (mIsControllerDetectScreenShown)</pre>
+<pre>            {</pre>
+<pre class="alt">                UpdateControllerDetectScreen();</pre>
+<pre>            }</pre>
+<pre class="alt">            <span class="kwrd">else</span> <span class="kwrd">if</span> (mIsTitleScreenShown)</pre>
+<pre>            {</pre>
+<pre class="alt">                UpdateTitleScreen();</pre>
+<pre>            }</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Update(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p><strong></strong></p>
+<p><strong></strong>You can see that we check our screen state
+variables to see what screen is the current screen and then we call the
+Update method associated with that screen (we haven't written those
+methods yet, that's coming next!). As you add more screens, you would
+just add more code to check to see which screen is currently shown (as
+well as more boolean state variables at the class level). </p>
+<p>Let's go write the specific Update methods for each screen now.</p>
+<p><strong>Coding the UpdateControllerDetectScreen method:</strong></p>
+<p>The Controller Detect screen is that first screen you see in just
+about every XBox Live Arcade game (and XBox Live Community Game) with
+that "Press A to begin" text flashing. This screen is there to detect
+which controller the player is going to play the game with. A gamer
+might come into a room to play a game and just pick up any controller
+laying around to start a game, we as game developers can't assume it
+will always be controller one. In fact, often gamers leave their
+rockband guitar plugged in as controller one so they always play games
+using controller two. That's the purpose of the Controller Detect
+screen in games. It's there so we know what control the gamer is
+attempting to use as controller one.</p>
+<p>The code in the UpdateControllerDetectScreen was written to poll all
+the gamepads and wait for the games to press the A button. It then
+records what playerindex they were using (what controller they had in
+their hands) and then switches the screen state variables to indicate
+the Controller Detect screen is finished and the title screen should be
+displayed.</p>
+<p>Add the following method to the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> UpdateControllerDetectScreen()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">//Poll all the gamepads (and the keyboard) to check to see</span></pre>
+<pre>            <span class="rem">//which controller will be the player one controller</span></pre>
+<pre class="alt">            <span class="kwrd">for</span> (<span class="kwrd">int</span> aPlayer = 0; aPlayer &lt; 4; aPlayer++)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="kwrd">if</span> (GamePad.GetState((PlayerIndex)aPlayer).Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.A) == <span class="kwrd">true</span>)</pre>
+<pre>                {</pre>
+<pre class="alt">                    mPlayerOne = (PlayerIndex)aPlayer;</pre>
+<pre>                    mIsTitleScreenShown = <span class="kwrd">true</span>;</pre>
+<pre class="alt">                    mIsControllerDetectScreenShown = <span class="kwrd">false</span>;</pre>
+<pre>                    <span class="kwrd">return</span>;</pre>
+<pre class="alt">                }</pre>
+<pre>            }</pre>
+<pre class="alt">        }</pre>
+</div>
+<p><strong></strong></p>
+<p>You can see that the code cycles through all four controllers and
+checks to see if the A button has been pressed. Simple enough (but
+scarily enough it's one of the most commonly failed item for XBox Live
+Community Games during peer review!)</p>
+<p>Now that we have the Controller Detect screens Update method coded, let's code something for the Title screen's update method.</p>
+<p><strong>Coding the UpdateTitleScreen method:</strong></p>
+<p>Typically the Title screen would have a menu on it and the user
+would scroll through menu items and pick their next action (play game,
+options, return to dashboard, etc.). However for this tutorial, the
+only update logic our Title screen is going to have is to detect if the
+user wishes to move back to the Controller Detect screen. The typical
+"back" movement in XBox Live Arcade games is the "B" button so that's
+what we'll check for. When the controlling controller (which we
+discovered in our Controller Detect screen!) presses the "B" button,
+we'll switch our screen state variables so that the Controller Detect
+screen will become the current screen.</p>
+<p>Add the following method to the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> UpdateTitleScreen()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">//Move back to the Controller detect screen if the player moves</span></pre>
+<pre>            <span class="rem">//back (using B) from the Title screen (this is typical game behavior</span></pre>
+<pre class="alt">            <span class="rem">//and is used to switch to a new player one controller)</span></pre>
+<pre>            <span class="kwrd">if</span> (GamePad.GetState(mPlayerOne).Buttons.B == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.B) == <span class="kwrd">true</span>)</pre>
+<pre class="alt">            {</pre>
+<pre>                mIsTitleScreenShown = <span class="kwrd">false</span>;</pre>
+<pre class="alt">                mIsControllerDetectScreenShown = <span class="kwrd">true</span>;</pre>
+<pre>                <span class="kwrd">return</span>;</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p>You can see we use the "mPlayerOne" variable when checking the
+GamePad's current state. This holds the index of the player one
+controller we stored in our Controller Detect Screen. You can also see
+how we switch the state back to the Title screen when Player one
+presses "B".</p>
+<p>Now that we have the logic coded for updating our various screens,
+it's time we write some code to draw the various screens based on the
+current screen state.</p>
+<p><strong>Coding the Draw method:</strong></p>
+<p>Similar to the Update method, the Draw method checks the screen
+state variables and then calls the appropriate draw method for each
+screen based on the screen state.</p>
+<p>Add the following code to the Draw method in the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            spriteBatch.Begin();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">//Based on the screen state variables, call the</span></pre>
+<pre>            <span class="rem">//Draw method associated with the current screen</span></pre>
+<pre class="alt">            <span class="kwrd">if</span> (mIsControllerDetectScreenShown)</pre>
+<pre>            {</pre>
+<pre class="alt">                DrawControllerDetectScreen();</pre>
+<pre>            }</pre>
+<pre class="alt">            <span class="kwrd">else</span> <span class="kwrd">if</span> (mIsTitleScreenShown)</pre>
+<pre>            {</pre>
+<pre class="alt">                DrawTitleScreen();</pre>
+<pre>            }</pre>
+<pre class="alt">            </pre>
+<pre>            spriteBatch.End();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p><strong></strong></p>
+<p>Nothing too complicated there and it looks extremely similar to the
+Update method logic we wrote earlier. To add new screens to be drawn
+you would just add more "else if" blocks and call the appropriate new
+Draw methods you would create.</p>
+<p>Now let's write the specific Draw methods for each screen.</p>
+<p><strong>Coding the DrawControllerDetectScreen method:</strong></p>
+<p>Our screens are very simple and currently just have a background
+image. If you have more items such as sprites or fonts to be drawn to
+the screen, you would just add more code to the method.</p>
+<p>Add the following method to the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> DrawControllerDetectScreen()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">//Draw all of the elements that are part of the Controller detect screen</span></pre>
+<pre>            spriteBatch.Draw(mControllerDetectScreenBackground, Vector2.Zero, Color.White);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p><strong></strong></p>
+<p><strong>Coding the DrawTitleScreen method:</strong></p>
+<p>Another very simple screen. We're just drawing a background image
+for the Title screen. But to expand on the tutorial if you were to add
+Menu items that needed to be drawn you would add them here. All the
+draw code for the Title screen would be handled in the specific Draw
+method for that screen. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> DrawTitleScreen()</pre>
+<pre>        {   <span class="rem">//Draw all of the elements that are part of the Title screen</span></pre>
+<pre class="alt">            spriteBatch.Draw(mTitleScreenBackground, Vector2.Zero, Color.White);        </pre>
+<pre>        }</pre>
+</div>
+<p>&nbsp;</p>
+<p><strong>Run the Game</strong></p>
+<p>That's it! You've code all the logic you need to manage multiple
+screens in your game. Go ahead and click the run button to see the
+final result. When the game runs you should be greeted by the
+controller detect screen. If you're on a PC, hit the "A" key to move to
+the Title screen, with a gamepad, hit the "A" button. You should now
+see the Title screen. From here you can hit the "B" key on PC or the
+"B" button on the gamepad to move back to the Controller Detect screen.</p>
+<p>So how was that? Do you get the concept of state?&nbsp; Do you see
+how you could expand upon this tutorial and add in more screens? Ready
+to see another approach to managing screen state? Well then what are
+you waiting for! Let's get started on the next example of screen state.</p>
+<p>&nbsp;</p>
+<p><strong></strong></p>
+<p><strong>2. Example 2 - Using enumerations to indicate and track screen state</strong></p>
+<p>Now that we've shown a simple sample of tracking state using
+booleans, let's increase the difficulty and the sophistication of our
+solution a bit. We'll tackle the same problem, but instead of booleans,
+we'll create an enumeration of our various screen states and use a
+variable to indicate the current screen to be displayed. This technique
+can be used quite effectively for game and it's a technique I use often
+in most of my smaller games.</p>
+<p>The first steps for this example are the same as example 1. Just look above if you forget. </p>
+<blockquote>
+<p><strong>Creating the new game project:</strong> </p>
+</blockquote>  <blockquote>
+<p><strong>Adding the images:</strong> </p>
+</blockquote>  <blockquote>
+<p><strong>Setup the game to run at an ideal resolution for the 360:</strong></p>
+</blockquote>
+<p>Now that you've got that done. Let's start in on some of the differences in how we're going to manage screen state. </p>
+<p><strong>Adding the enumeration for screen state, creating a variable to track the current state and the player one index:</strong></p>
+<p>We're still going to need our background images for our screens and
+we're still going to need to track the Player one PlayerIndex, but
+we're going to add some new object to track our screen state. </p>
+<p>Add the following class level objects to the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Background textures for the various screens in the game        </span></pre>
+<pre>        Texture2D mControllerDetectScreenBackground;</pre>
+<pre class="alt">        Texture2D mTitleScreenBackground;</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">        <span class="rem">//The enumeration of the various screen states available in the game</span></pre>
+<pre>        <span class="kwrd">enum</span> ScreenState</pre>
+<pre class="alt">        {</pre>
+<pre>            ControllerDetect,</pre>
+<pre class="alt">            Title</pre>
+<pre>        }</pre>
+<pre class="alt">        <span class="rem">//The current screen state</span></pre>
+<pre>        ScreenState mCurrentScreen;</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>        <span class="rem">//The index of the Player One controller</span></pre>
+<pre class="alt">        PlayerIndex mPlayerOne;</pre>
+</div>
+<p><strong></strong></p>
+<p>You'll notice we added a enumeration for ScreenState. In it, we have
+our various screens that are currently available in our game. Then we
+create a new variable to track the current screen and make it of our
+enumeration type. We'll be able to query this variable in code to check
+and see which of our available screen states our game is currently in.</p>
+<p>Now let's load our content an initialize our screen state. (just like we did in the first example, well almost the same...)</p>
+<p><strong>Loading the Content:</strong></p>
+<p>Add the following code to the LoadContent method in the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadContent()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Create a new SpriteBatch, which can be used to draw textures.</span></pre>
+<pre>            spriteBatch = <span class="kwrd">new</span> SpriteBatch(GraphicsDevice);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">// TODO: use this.Content to load your game content here</span></pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Load the screen backgrounds</span></pre>
+<pre class="alt">            mControllerDetectScreenBackground = Content.Load&lt;Texture2D&gt;(<span class="str">"ControllerDetectScreen"</span>);</pre>
+<pre>            mTitleScreenBackground = Content.Load&lt;Texture2D&gt;(<span class="str">"TitleScreen"</span>);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Initialize the current screen state to the screen we want to display first</span></pre>
+<pre class="alt">            mCurrentScreen = ScreenState.ControllerDetect;</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p>The background images are being loaded exactly the same, but instead
+of the booleans we were setting in the first tutorial example to
+initialize our screen state, now we just have a single line of code
+setting our Current screen to the ControllerDetect screen. We have now
+initialize our screen state! Let's write the Update logic now to work
+with that screen state.</p>
+<p><strong>Coding the Update method:</strong></p>
+<p>The logic is very similar to the first tutorial example. Only this
+time instead of a big "if...then...else if" block, we have a big
+"switch" block that uses our Current screen variable. Based on the
+value of mCurrentScreen, we call the appropriate Update method for each
+screen. To add more screens, you would simply add more values to the
+enumeration, check them in the Update method here and then add a new
+specific Update method for that screen. Simple huh?</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Allows the game to exit</span></pre>
+<pre>            <span class="kwrd">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)</pre>
+<pre class="alt">                <span class="kwrd">this</span>.Exit();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">//Update method associated with the current screen</span></pre>
+<pre>            <span class="kwrd">switch</span> (mCurrentScreen)</pre>
+<pre class="alt">            {</pre>
+<pre>                <span class="kwrd">case</span> ScreenState.ControllerDetect:</pre>
+<pre class="alt">                    {</pre>
+<pre>                        UpdateControllerDetectScreen();</pre>
+<pre class="alt">                        <span class="kwrd">break</span>;</pre>
+<pre>                    }</pre>
+<pre class="alt">                <span class="kwrd">case</span> ScreenState.Title:</pre>
+<pre>                    {</pre>
+<pre class="alt">                        UpdateTitleScreen();</pre>
+<pre>                        <span class="kwrd">break</span>;</pre>
+<pre class="alt">                    }</pre>
+<pre>            }</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Update(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p><strong></strong></p>
+<p>Let's write those specific Update screen methods now. They're very
+similar to the ones you wrote in the first tutorial sample, but with
+just one simple little change.</p>
+<p><strong>Coding the UpdateControllerDetectScreen method:</strong></p>
+<p>Add the following method to the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> UpdateControllerDetectScreen()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">//Poll all the gamepads (and the keyboard) to check to see</span></pre>
+<pre>            <span class="rem">//which controller will be the player one controller</span></pre>
+<pre class="alt">            <span class="kwrd">for</span> (<span class="kwrd">int</span> aPlayer = 0; aPlayer &lt; 4; aPlayer++)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="kwrd">if</span> (GamePad.GetState((PlayerIndex)aPlayer).Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.A) == <span class="kwrd">true</span>)</pre>
+<pre>                {</pre>
+<pre class="alt">                    mPlayerOne = (PlayerIndex)aPlayer;</pre>
+<pre>                    mCurrentScreen = ScreenState.Title;</pre>
+<pre class="alt">                    <span class="kwrd">return</span>;</pre>
+<pre>                }</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p>At first glance the method looks exactly the same, but you'll see
+that instead of the booleans we were using to track state, we now have
+a single line we were change our CurrentScreen state variable to the
+Title screen state value.</p>
+<p><strong>Coding the UpdateTitleScreen method:</strong></p>
+<p>Add the following method to the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> UpdateTitleScreen()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">//Move back to the Controller detect screen if the player moves</span></pre>
+<pre>            <span class="rem">//back (using B) from the Title screen (this is typical game behavior</span></pre>
+<pre class="alt">            <span class="rem">//and is used to switch to a new player one controller)</span></pre>
+<pre>            <span class="kwrd">if</span> (GamePad.GetState(mPlayerOne).Buttons.B == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.B) == <span class="kwrd">true</span>)</pre>
+<pre class="alt">            {</pre>
+<pre>                mCurrentScreen = ScreenState.ControllerDetect;</pre>
+<pre class="alt">                <span class="kwrd">return</span>;</pre>
+<pre>            }</pre>
+<pre class="alt">        }</pre>
+</div>
+<p><strong></strong></p>
+<p>Again, very similar to the method you wrote in the first tutorial
+sample, but again we just have a single line of code where we change
+the CurrentScreen state variable.</p>
+<p>Now that our update logic is written using our CurrentScreen state variable, let's go ahead and write our Draw methods.</p>
+<p><strong>Coding the Draw method:</strong></p>
+<p>Again, instead of a big "if...then...else if" block we use a
+"switch" block to check the CurrentScreen state and then call the
+appropriate Draw method for that screen.</p>
+<p>Add the following code to the Draw method in the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">// TODO: Add your drawing code here</span></pre>
+<pre>            spriteBatch.Begin();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Call the Draw method associated with the current screen</span></pre>
+<pre class="alt">            <span class="kwrd">switch</span> (mCurrentScreen)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="kwrd">case</span> ScreenState.ControllerDetect:</pre>
+<pre>                    {</pre>
+<pre class="alt">                        DrawControllerDetectScreen();</pre>
+<pre>                        <span class="kwrd">break</span>;</pre>
+<pre class="alt">                    }</pre>
+<pre>                <span class="kwrd">case</span> ScreenState.Title:</pre>
+<pre class="alt">                    {</pre>
+<pre>                        DrawTitleScreen();</pre>
+<pre class="alt">                        <span class="kwrd">break</span>;</pre>
+<pre>                    }</pre>
+<pre class="alt">            }</pre>
+<pre>            </pre>
+<pre class="alt">            spriteBatch.End();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Draw(gameTime);</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p>You'll see that similar to the code we wrote in the Update method,
+we query the CurrentScreen variable and then based on it's value call
+the corresponding Draw method for that screen state.</p>
+<p>Now let's write the specific Draw methods for each screen state we
+have. The code for them is exactly the same as in the tutorial above.</p>
+<p><strong>Coding the DrawControllerDetectScreen method:</strong></p>
+<p>Add the following method to the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> DrawControllerDetectScreen()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">//Draw all of the elements that are part of the Controller detect screen</span></pre>
+<pre>            spriteBatch.Draw(mControllerDetectScreenBackground, Vector2.Zero, Color.White);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p><strong></strong></p>
+<p><strong>Coding the DrawTitleScreen method:</strong></p>
+<p>Add the following method to the Game class in the Game1.cs file. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> DrawTitleScreen()</pre>
+<pre>        {   <span class="rem">//Draw all of the elements that are part of the Title screen</span></pre>
+<pre class="alt">            spriteBatch.Draw(mTitleScreenBackground, Vector2.Zero, Color.White);</pre>
+<pre>        }</pre>
+</div>
+<p><strong>Run the Game</strong></p>
+<p>That's it! You've managed to solve the same problem you solved in
+the first tutorial sample, just in a slightly different way. When you
+run the game you should be once again greeted by the Controller Detect
+screen and with the simple press of the "A" button (or key) you should
+see the Title screen. Can you see how this method might a little
+simpler to manage than the first? Adding screen is just a little easier
+and not having to keep track of all those individual booleans to know
+what screen is the current screen makes your code just a little more
+readable. They both solve the problem, but one might be a better
+solution for your skill level or your game.</p>
+<p>Ready to give it another go? This final tutorial sample is going to
+take a bit deeper down the rabbit hole. We've covered some of the more
+entry level methods of managing screen state. With this next sample
+you're going to be introduced to classes, objects, polymorphism and
+events! Scared? You shouldn't be, any words you get stuck on just do a
+quick search online and read about it. It's one of the best ways to
+learn.</p>
+<p>So hang onto your hat and let's look at yet another method of managing screen state!</p>
+<p>&nbsp;</p>
+<p><strong>3. Example 3 - Using polymorphism to make managing screen state just a little easier</strong></p>
+<p><strong></strong></p>
+<p>You've seen screen state managed two different ways already, now
+let's get all object oriented on the issue and introduce the concept of
+classes and take advantage of polymorphism. This is a much more
+advanced way of solving the same problem, but "advanced" doesn't
+necessarily mean it's a better solution. It's just always good to know
+and understand various ways of solving problems. The more tricks you
+have in your hat as a coder, the better off you and your games will be!
+</p>
+<p>We'll start this example off the same way as the others. The first
+few steps are exactly the same as in the first sample. If you're not
+sure exactly how to do one of the steps below, just look at the sample
+above to jump start your memory.</p>
+<blockquote>
+<p><strong>Creating the new game project:</strong> </p>
+</blockquote>  <blockquote>
+<p><strong>Adding the images:</strong> </p>
+</blockquote>  <blockquote>
+<p><strong>Setup the game to run at an ideal resolution for the 360:</strong></p>
+</blockquote>
+<p>With that out of the way, lets start creating some of the base
+objects we're going to be using in our game. Since we're working with
+"screens" in our game, we're going to create a Screen class to give us
+a nice object to work with in code.</p>
+<p><strong>Create the Screen class</strong></p>
+<p>Add a new class to your game. (you do this by right-clicking on the
+project name in the Solution Explorer then selecting "Add" and
+then&nbsp; "Class"). Name the class "Screen". Once you've added the
+Screen class to your game, we need to start adding some code to the
+class.</p>
+<p>Start by adding the following "using" statements to the top of the Screen class. </p>
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework;</pre>
+<pre><span class="kwrd">using</span> Microsoft.Xna.Framework.Graphics;</pre>
+</div>
+<p>Those lines will help you when coding with the XNA framework so that
+you don't always have to fully quality of the XNA objects like
+PlayerIndex and SpriteBatch. Without them you'd have to type something
+like Microsoft.Xna.Framework.Graphics.SpriteBatch every time you'd want
+to create a new SpriteBatch object. That's a lot of typing and less
+typing is a good thing sometimes!</p>
+<p>With that added, let's start adding some functionality to the screen
+class. First, we're going to want a way to track the PlayerOne
+controller index. And we're going to want that tracking object to be
+available to all screens so they can use it when necessary. We'll do
+that by creating a "static" PlayerIndex object in our Screen class. The
+"static" keyword means that every instance of our screen classes will
+have the same value, so changing it in one changes it for all screens.</p>
+<p>Add the following line of code to the Screen class.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Stores the PlayerIndex for the controlling player, i.e. Player One</span></pre>
+<pre>        <span class="kwrd">protected</span> <span class="kwrd">static</span> PlayerIndex PlayerOne;</pre>
+</div>
+<p>Next, we're going to want a way for our screen to notify the main
+game class that something has happened. We'll do this by having an
+event handler who's value will be filled in when the Screen class is
+created.</p>
+<p>Add the following code to the Screen class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//The event associated with the Screen. This event is used to raise events</span></pre>
+<pre>        <span class="rem">//back in the main game class to notify the game that something has changed</span></pre>
+<pre class="alt">        <span class="rem">//or needs to be changed</span></pre>
+<pre>        <span class="kwrd">protected</span> EventHandler ScreenEvent;</pre>
+<pre class="alt">        <span class="kwrd">public</span> Screen(EventHandler theScreenEvent)</pre>
+<pre>        {</pre>
+<pre class="alt">            ScreenEvent = theScreenEvent;</pre>
+<pre>        }</pre>
+</div>
+<p>You can see that an EventHandler object is passed into the Screen
+constructor. We then store that value in our ScreenEvent object in our
+class. With the constructor finished, lets add our remaining two
+methods to the class. </p>
+<p>All screens are going to have Update logic and Draw logic so we'll
+add "virtual" methods to the screen class that subclasses can override
+and add any specific Update and Draw code they have. By making these
+methods part of our base Screen class, we'll be able to take advantage
+of a concept called "polymorphism" (great subject to go read up on if
+you're unfamiliar with the term!). </p>
+<p>Add the following virtual methods to the Screen class. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Update any information specific to the screen</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">virtual</span> <span class="kwrd">void</span> Update(GameTime theTime)</pre>
+<pre class="alt">        {</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Draw any objects specific to the screen</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">virtual</span> <span class="kwrd">void</span> Draw(SpriteBatch theBatch)</pre>
+<pre class="alt">        {</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p>And that's it for our screen class. Not much to see right now, but
+we're not quite done yet! Now that we have our base screen class let's
+start making some of our specific screen objects.</p>
+<p><strong>Create the Controller Detect Screen Class</strong></p>
+<p>We want to have a controller detect screen in our game, so let's go
+ahead and create a new class called ControllerDetectScreen. Once you
+have that new class added to your game project, add the following
+"using" statements to the top of the class.</p>
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework;</pre>
+<pre><span class="kwrd">using</span> Microsoft.Xna.Framework.Graphics;</pre>
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework.Content;</pre>
+<pre><span class="kwrd">using</span> Microsoft.Xna.Framework.Input;</pre>
+</div>
+<p>Next we're going to want to indicate that our ControllerDetectScreen
+is inheriting from our base Screen class so you'll need to modify your
+class line to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">    <span class="kwrd">class</span> ControllerDetectScreen : Screen</pre>
+</div>
+<blockquote>
+<p><strong>Constructor</strong></p>
+<p>With our code setup to indicate that we are inheriting from the
+Screen class, let's start adding some code specific to our
+ControllerDetectScreen. We'll start by adding our background texture
+and then writing the code for our constructor to load the texture (and
+pass on the event handler to the base class).</p>
+<p>Adding the following code to the ControllerDetectScreen class.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Background texture for the screen</span></pre>
+<pre>        Texture2D mControllerDetectScreenBackground;</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>        <span class="kwrd">public</span> ControllerDetectScreen(ContentManager theContent, EventHandler theScreenEvent): <span class="kwrd">base</span>(theScreenEvent)</pre>
+<pre class="alt">        {</pre>
+<pre>            <span class="rem">//Load the background texture for the screen</span></pre>
+<pre class="alt">            mControllerDetectScreenBackground = theContent.Load&lt;Texture2D&gt;(<span class="str">"ControllerDetectScreen"</span>);</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p><strong>Update</strong></p>
+<p>The Update logic for the ControllerDetectScreen class is going to be
+eerily familiar to the update methods we wrote in the previous two
+samples. The logic remains the same, the only real difference is that
+instead of changing to a new screen state we're invoke our ScreenEvent
+and notifying the main game class that something happened in the
+ControllerDetectScreen.</p>
+<p>Add the following Update method to the ControllerDetectScreen class.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Update all of the elements that need updating in the Controller Detect Screen</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime theTime)</pre>
+<pre class="alt">        {</pre>
+<pre>            <span class="rem">//Poll all the gamepads (and the keyboard) to check to see</span></pre>
+<pre class="alt">            <span class="rem">//which controller will be the player one controller. When the controlling</span></pre>
+<pre>            <span class="rem">//controller is detected, call the screen event associated with this screen</span></pre>
+<pre class="alt">            <span class="kwrd">for</span> (<span class="kwrd">int</span> aPlayer = 0; aPlayer &lt; 4; aPlayer++)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="kwrd">if</span> (GamePad.GetState((PlayerIndex)aPlayer).Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.A) == <span class="kwrd">true</span>)</pre>
+<pre>                {   </pre>
+<pre class="alt">                    PlayerOne = (PlayerIndex)aPlayer;</pre>
+<pre>                    ScreenEvent.Invoke(<span class="kwrd">this</span>, <span class="kwrd">new</span> EventArgs());</pre>
+<pre class="alt">                    <span class="kwrd">return</span>;</pre>
+<pre>                }</pre>
+<pre class="alt">            }</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Update(theTime);</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p><strong>Draw</strong></p>
+<p>Next up is our Draw method. Again, this is going to look very
+similar to the draw methods you wrote for the controller detect screen
+in the previous two samples. </p>
+<p>Add the following method to the ControllerDetectScreen class.</p>
+</blockquote>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Draw all of the elements that make up the Controller Detect Screen</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(SpriteBatch theBatch)</pre>
+<pre class="alt">        {</pre>
+<pre>            theBatch.Draw(mControllerDetectScreenBackground, Vector2.Zero, Color.White);</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Draw(theBatch);</pre>
+<pre>        }</pre>
+</div>
+<p>&nbsp;</p>
+<p>And now we're finished with our ControllerDetectScreen class, on to the Title screen!</p>
+<p><strong>Create the Title Screen Class</strong></p>
+<p>Add a new class to your game and call it TitleScreen. Once you have
+that created, add the following "using" statements to the top of the
+class.</p>
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework;</pre>
+<pre><span class="kwrd">using</span> Microsoft.Xna.Framework.Graphics;</pre>
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework.Content;</pre>
+<pre><span class="kwrd">using</span> Microsoft.Xna.Framework.Input;</pre>
+</div>
+<p>We want our title screen to also have the behaviors and properties
+of a screen so we need it to inherit from the base Screen class as
+well. Modify your class line to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">    <span class="kwrd">class</span> ControllerDetectScreen : Screen</pre>
+</div>
+<blockquote>
+<p><strong>Constructor</strong></p>
+<p>The constructor for the TitleScreen class is basically the same as
+the constructor you wrote for the ControllerDetectScreen. The only
+difference is that you're loading the TitleScreen background image.</p>
+<p>Add the following code to the TitleScreen class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Background texture for the Title screen</span></pre>
+<pre>        Texture2D mTitleScreenBackground;</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>        <span class="kwrd">public</span> TitleScreen(ContentManager theContent, EventHandler theScreenEvent): <span class="kwrd">base</span>(theScreenEvent)</pre>
+<pre class="alt">        {</pre>
+<pre>            <span class="rem">//Load the background texture for the screen</span></pre>
+<pre class="alt">            mTitleScreenBackground = theContent.Load&lt;Texture2D&gt;(<span class="str">"TitleScreen"</span>);</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p><strong>Update</strong></p>
+<p>Our TitleScreen also needs an Update (remember we want to move back
+to the ControllerDetectScreen when B is pressed!). So we will need to
+add in the Update method and it's logic.</p>
+<p>Add the following method to the TitleScreen class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Update all of the elements that need updating in the Title Screen        </span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime theTime)</pre>
+<pre class="alt">        {</pre>
+<pre>            <span class="rem">//Check to see if the Player one controller has pressed the "B" button, if so, then</span></pre>
+<pre class="alt">            <span class="rem">//call the screen event associated with this screen</span></pre>
+<pre>            <span class="kwrd">if</span> (GamePad.GetState(PlayerOne).Buttons.B == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.B) == <span class="kwrd">true</span>)</pre>
+<pre class="alt">            {                </pre>
+<pre>                ScreenEvent.Invoke(<span class="kwrd">this</span>, <span class="kwrd">new</span> EventArgs());</pre>
+<pre class="alt">            }</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Update(theTime);</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p>Notice that when the current gamepad state is queried we're using
+the PlayerOne object as the player index we pass into the method. This
+means that whatever controller the player pressed "A" with on the
+ControllerDetectScreen will be stored in that value. So if the player
+started the game with controller three, the controller three is what
+will be checked to see if the user pressed "B" to move back.</p>
+<p><strong>Draw</strong></p>
+<p>And now we add our Draw method to visually display all the elements
+that make up our title screen. In this sample this doesn't consist of
+much, just a simple background image, but you could fill this method
+with everything that needs to be drawn in your own title screen.</p>
+<p>Add the following method to the Title screen class.</p>
+</blockquote>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Draw all of the elements that make up the Title Screen</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(SpriteBatch theBatch)</pre>
+<pre class="alt">        {</pre>
+<pre>            theBatch.Draw(mTitleScreenBackground, Vector2.Zero, Color.White); </pre>
+<pre class="alt">            <span class="kwrd">base</span>.Draw(theBatch);</pre>
+<pre>        }</pre>
+</div>
+<p>So now we've created our base screen class (Screen) and our two
+screens that inherit from it (ControllerDetectScreen and TitleScreen).
+But really, we still don't have anything to show for our effort. It's
+time to add some code to our main Game class to finally hook this all
+up.</p>
+<p><strong>Add the screens to the main Game class</strong></p>
+<p>We'll start by adding some variables to the top our our Game class.
+We'll create one object for each specific screen type
+(ControllerDetectScreen and TitleScreen) and then we'll create an
+object called mCurrentScreen that is just our base Screen type. You'll
+see how we'll be using that in just a minute (remember polymorphism!)</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//The screens and the current screen</span></pre>
+<pre>        ControllerDetectScreen mControllerScreen;</pre>
+<pre class="alt">        TitleScreen mTitleScreen;</pre>
+<pre>        Screen mCurrentScreen;</pre>
+</div>
+<p><strong></strong></p>
+<p><strong>Loading the Content</strong></p>
+<p>We created the screen objects, but now it's time to load them. We'll
+do that in the LoadContent method. We'll be creating new instances of
+our ControllerDetectScreen and TitleScreen objects and we'll be passing
+in some specific events for each screen type (we haven't created the
+events yet, but we'll pass in the names we're planning on using).</p>
+<p>Add the following code to the LoadContent method in the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadContent()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Create a new SpriteBatch, which can be used to draw textures.</span></pre>
+<pre>            spriteBatch = <span class="kwrd">new</span> SpriteBatch(GraphicsDevice);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Initialize the various screens in the game</span></pre>
+<pre class="alt">            mControllerScreen = <span class="kwrd">new</span> ControllerDetectScreen(<span class="kwrd">this</span>.Content, <span class="kwrd">new</span> EventHandler(ControllerDetectScreenEvent));</pre>
+<pre>            mTitleScreen = <span class="kwrd">new</span> TitleScreen(<span class="kwrd">this</span>.Content, <span class="kwrd">new</span> EventHandler(TitleScreenEvent));</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Set the current screen</span></pre>
+<pre class="alt">            mCurrentScreen = mControllerScreen;</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p>You'll notice that we set the CurrentScreen equal to the
+ControllerScreen. This is possible even though the Controller screen is
+of the ControllerDetectScreen type because it inherits form Screen. The
+only restriction when using this to your advantage is that you can't
+access any specific properties or method that re only in the
+ControllerDetectScreen class, you only have the base Screen methods and
+properties available to you. Pretty neat trick huh? It gets even better
+in just a minute, but first we need to create those screen events!</p>
+<p><strong>Controller Detect Screen Event</strong></p>
+<p>Add the following method to the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//This event fires when the Controller detect screen is returning control back to the main game class</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">void</span> ControllerDetectScreenEvent(<span class="kwrd">object</span> obj, EventArgs e)</pre>
+<pre class="alt">        {</pre>
+<pre>            <span class="rem">//Switch to the title screen, the Controller detect screen is finished being displayed</span></pre>
+<pre class="alt">            mCurrentScreen = mTitleScreen;</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p>You saw in the ControllerDetectScreen class we wrote that we were
+"invoking" a screen event method and then when we created our
+ControllerDetect screen object just a minute ago we passed in a new
+EventHandler with this method named. This means that when the
+ControllerDetectScreen invokes the ScreenEvent method, this method will
+be fired. You can then put any logic you want in the method. In our
+case, I'm switching the current screen variable to the TitleScreen
+indicating that our screen state has changed to a new screen.</p>
+<p><strong>Title Screen Event</strong></p>
+<p>Now we need to write a similar method for the Title screen event.
+Add the following method to the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//This event is fired when the Title screen is returning control back to the main game class</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">void</span> TitleScreenEvent(<span class="kwrd">object</span> obj, EventArgs e)</pre>
+<pre class="alt">        {</pre>
+<pre>            <span class="rem">//Switch to the controller detect screen, the Title screen is finished being displayed</span></pre>
+<pre class="alt">            mCurrentScreen = mControllerScreen;</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p>With the methods for our ScreenEvents now coded, we can add our logic to the Update method. </p>
+<p><strong>Update</strong></p>
+<p>In our Update method, we basically just want to make sure that the
+Update method is being called for the current screen. And to do that,
+all you have to do is add a single line of code! Since the base screen
+class has an Update method, it's available to be called. And since the
+subclasses (our TitleScreen and ControllerDetectScreen) overrode that
+method, that special code in each class is what will be run all thanks
+to wonderful POLYMORPHISM! How great is that!</p>
+<p>So add the following single line of code to the Update method in the Game class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Allows the game to exit</span></pre>
+<pre>            <span class="kwrd">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)</pre>
+<pre class="alt">                <span class="kwrd">this</span>.Exit();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">//By taking advantage of Polymorphism, we can call update on the current screen class, </span></pre>
+<pre>            <span class="rem">//but the Update in the subclass is the one that will be executed.</span></pre>
+<pre class="alt">            mCurrentScreen.Update(gameTime);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Update(gameTime);</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p><strong>Draw</strong></p>
+<p>Can you guess what you need to do in the Draw method to make the
+current screen draw? Well, it's more than one line of code because we
+have to Begin and End our spriteBatch, but it <strong>IS</strong> just one line of code to draw the current screen. Thank your object oriented programming!</p>
+<p>Add the following lines of code to the Draw method in the Game1 class in the Game1.cs file.</p>
+<p><strong></strong></p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            spriteBatch.Begin();</pre>
+<pre>            <span class="rem">//Again, using Polymorphism, we can call draw on teh current screen class</span></pre>
+<pre class="alt">            <span class="rem">//and the Draw in the subclass is the one that will be executed.</span></pre>
+<pre>            mCurrentScreen.Draw(spriteBatch);</pre>
+<pre class="alt">            spriteBatch.End();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Draw(gameTime);</pre>
+<pre>        }</pre>
+</div>
+<p><strong></strong></p>
+<p><strong></strong></p>
+<p><strong></strong></p>
+<p>And that's it, we're all done with the sample! Go ahead and run it
+and watch it work. Again, no new functionality but we solved our screen
+state issue with yet another solution. Think you could figure out how
+to add another screen class and make it work? Maybe make it so you can
+switch to it from the Title screen when you hit the "A" button?</p>
+<p>&nbsp;</p>
+<p><strong>4. The Professional approach - taking game state just a little further...</strong></p>
+<p>So you think you've got state management nailed and you're wondering
+just where to go from here? Well it sounds like you might be ready to
+tackle the Game State management sample found over at the Creator's
+site. The Game State Management sample was created by some very big
+brains at Microsoft and will demonstrate a very professional way of
+managing your game state. The Game State management sample has been the
+base code for many of the current games you can find on Community
+Games. It's very well done, but can be difficult to digest if you're
+new to development and the concepts of game state. Definitely worth
+looking at if you are having difficulty managing your screen state
+using any of the other three methods I introduced above.</p>
+<p>&nbsp;</p>
+<p><strong>In Conclusion</strong></p>
+<p>Hopefully after walking through all of those samples, you've gotten
+just a little taste of what "state" is and just how you might use it.
+In this tutorial, we only closely looked at screen state specifically,
+but the concept would be the same whether you were looking at menu
+state (an enumeration of all available menu items, a currently selected
+menu item variable and then switch logic in the update and draw
+methods) or character state (an enumeration of characters states such
+as alive, powered up, dead, well, you get the point now right?). Now
+armed with the powerful concept of state, you should be ready to take
+your game development to the next level...literally!</p>
+<p>&nbsp;</p>
+
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="thestateofthings_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</div></body></html>

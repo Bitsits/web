@@ -1,0 +1,711 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="theroadnottaken_files/styles.css">
+    <title>The Road Not Taken</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="theroadnottaken_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>The Road Not Taken</h2>
+				
+				<ul>
+<li><img src="theroadnottaken_files/PC.png"><a href="http://www.xnadevelopment.com/tutorials/theroadnottaken/TheRoadNotTaken.zip">Download the PC Source Code</a></li>
+<li><img src="theroadnottaken_files/XBox360.png"><a href="http://www.xnadevelopment.com/tutorials/theroadnottaken/TheRoadNotTaken360.zip">Download the 360 Source Code</a></li>
+<li><img src="theroadnottaken_files/Zune.png"><a href="http://www.xnadevelopment.com/tutorials/theroadnottaken/TheRoadNotTakenZune.zip">Download the Zune Source Code</a></li>				
+				
+				<li><a href="http://geekswithblogs.net/clingermangw/archive/2007/10/28/116426.aspx">View Comments or Leave Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="theroadnottaken_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>The Road Not Taken</h2> 
+
+<b>An XNA tutorial on using a Color Key for Path Collisions</b> 
+
+<p>&nbsp;</p>
+<p>Telling a sprite where it can and cannot travel in a game is always
+a very crucial aspect of game development. If a character can walk
+through walls and move anywhere on the board, a lot of the challenge of
+a game disappears. There are several methods for creating paths in a
+game, some use tile based systems, some use bounding boxes and
+rectangles. The method we are going to go over today uses a Color key
+to define the allowed path. </p>
+<p>What is a color key? In this tutorial, what we are referring to as a
+color key is an image with a solid color on it that defines our
+walkable path. For "The Road Not Taken", the path is defined as all the
+"gray" areas. If the sprite is moving to a location that does not
+contain gray, then they are leaving the path and will not be allowed to
+move into those areas. </p>
+<p>What this gives us, is a very simple way of making new levels by
+simply opening up any simple paint application and drawing a new
+design. The newly drawn gray areas are new paths and simply dropping
+the image into the game with no other changes adds a new "level" to the
+game.</p>
+<p>Still not sure exactly what this color key is all about? Well, let's
+get started then. Sometimes a picture is worth a thousand words.</p>
+<p><strong>Creating the new game project:</strong></p>
+<p>First, let's start by opening XNA Game Studio Express and creating a
+new Windows Game project called "TheRoadNotTaken". If you are having
+trouble remembering how to create a new XNA Windows Game project just
+follow the steps in <a href="http://www.xnadevelopment.com/tutorials/creatinganewxnagameproject/CreatingANewXNAWindowsGameProject.shtml">this tutorial here</a> and come back to the "The Road Not Taken" tutorial after you've refreshed your memory. </p>
+<p><strong>Adding the images:</strong></p>
+<p>Now, let's add the images that we are going to be using in this
+tutorial to the game project. You can download the images used in the
+project from <a href="http://www.xnadevelopment.com/tutorials/theroadnottaken/TheRoadNotTakenImages.zip">here</a>. If you are having trouble remembering how to add images to an XNA Game project, just follow the steps in <a href="http://www.xnadevelopment.com/tutorials/addinganimagetothegameproject/AddingAnImageToTheGameProject.shtml">this tutorial here</a> and come back to the "The Road Not Taken" tutorial after you've refreshed your memory.</p>
+<p><strong>Resizing the Game Window:</strong></p>
+<p>The images we are going to use are 800x600, so let's resize the game
+window so that they fill the entire window. Change the Initialize()
+method to look like the code sample below.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Initialize()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">//Change the resolution to 800x600</span></pre>
+<pre>            graphics.PreferredBackBufferWidth = 800;</pre>
+<pre class="alt">            graphics.PreferredBackBufferHeight = 600;</pre>
+<pre>            graphics.ApplyChanges();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Initialize();</pre>
+<pre class="alt">        }</pre>
+</div>
+<div class="csharpcode">&nbsp;</div>
+<p>The code above, sets the properties of the GraphicsDeviceManager
+objects (graphics) that tell the display what size we would like it to
+be. Not all video cards support all display modes, so this will only be
+set if it's a valid resolution the card can handle. Let's do a quick
+build <img src="theroadnottaken_files/CropperCapture233.jpg" alt="CropperCapture[233]" style="border-width: 0px;" border="0" width="25" height="26"> of the game now just to make sure the game window is resized properly and everything is correct up to this point.</p>
+<p><strong>Draw the Track Color Key:</strong></p>
+<p>Next, let's draw the Color Key track to the screen. That's the image
+called "Track.png". To start, add the following class level objects to
+the top of the Game1.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        SpriteBatch mSpriteBatch;</pre>
+<pre>        Texture2D mTrack;</pre>
+</div>
+<p> </p>
+<p>This creates the SpriteBatch object we will be using for drawing to
+the screen and creates the Texture2D object we will be loading the
+Track color key image into.</p>
+<p>Now, let's initialize those objects. Modify the LoadGraphicsContent() method to look like the following block of code.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadGraphicsContent(<span class="kwrd">bool</span> loadAllContent)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (loadAllContent)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="rem">//Create the SpriteBatch used for drawing the Sprites</span></pre>
+<pre>                mSpriteBatch = <span class="kwrd">new</span> SpriteBatch(graphics.GraphicsDevice);</pre>
+<pre class="alt">                </pre>
+<pre>                <span class="rem">//Load the images from computer into the Texture2D objects</span></pre>
+<pre class="alt">                mTrack = content.Load&lt;Texture2D&gt;(<span class="str">"Track"</span>);</pre>
+<pre>            }</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>        }</pre>
+<pre>&nbsp;</pre>
+<p>&nbsp;</p>
+</div>
+<p>With the objects created, we can go ahead and draw them to the
+screen. Modify the Draw() method to look like the following block of
+code.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            mSpriteBatch.Begin();</pre>
+<pre>            mSpriteBatch.Draw(mTrack, <span class="kwrd">new</span> Rectangle(0, 0, mTrack.Width, mTrack.Height), Color.White);           </pre>
+<pre class="alt">            mSpriteBatch.End();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Draw(gameTime);</pre>
+<pre>        }</pre>
+<p>&nbsp;</p>
+</div>
+<p>So, we begin drawing our images with the Begin() call. Then we draw
+our Track color key image, positioning it at the top left of the screen
+and drawing the entire height and width of the image. Then we tell the
+batch object we are done drawing images with the End() call. </p>
+<p>Go ahead and do another build <img src="theroadnottaken_files/CropperCapture233_3.jpg" alt="CropperCapture[233]" style="border-width: 0px;" border="0" width="25" height="26">
+now. You should see a very plain track displayed in our 800x600 game
+window. Looks like this track is just begging for a car to race around
+it. Let's see what we can do about making that happen.</p>
+<p align="center"><img src="theroadnottaken_files/PlainTrack.png" alt="PlainTrack" style="border-width: 0px; margin: 15px;" border="0" width="400" height="314"></p>
+<p><strong>Drawing The Car:</strong></p>
+<p>To draw the Car on the track, first add the following code to the top of the Game1.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        Texture2D mCar;</pre>
+</div>
+<p>This provides the Texture2D object to load the Car.png image into
+for our game to use. To load the image, add the following line of code
+to the LoadGraphicsContent() method. This code will be placed directly
+below the code that is loading our Track.png into the mTrack Texture2D
+object.</p>
+<div class="csharpcode">
+<pre class="alt">        mCar = content.Load&lt;Texture2D&gt;(<span class="str">"Car"</span>);</pre>
+</div>
+<p>Now that the Content Pipeline has loaded our image, we can go ahead
+and draw our car to the screen. Change Draw() method to look like the
+following block of code.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            mSpriteBatch.Begin();</pre>
+<pre>            mSpriteBatch.Draw(mTrack, <span class="kwrd">new</span> Rectangle(0, 0, mTrack.Width, mTrack.Height), Color.White);</pre>
+<pre class="alt">            mSpriteBatch.Draw(mCar, <span class="kwrd">new</span> Rectangle(0, 0, mCar.Width, mCar.Height), Color.White);</pre>
+<pre>            mSpriteBatch.End();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>You can see that we have added a new Draw line that tells the
+SpriteBatch that now we want to draw the Car on top of the track.
+Remember, the order we write the Draw lines in matters. The track will
+be drawn first, then the car on top of the track.</p>
+<p>Do another build <img src="theroadnottaken_files/CropperCapture233_4.jpg" alt="CropperCapture[233]" style="border-width: 0px;" border="0" width="25" height="26"> now and we will see if this car is ready to race.</p>
+<p align="center"><img src="theroadnottaken_files/CarTrack.png" alt="CarTrack" style="border-width: 0px;" border="0" width="400" height="314"> </p>
+<p align="left">Not quite huh? Time to do some positioning and scaling for the car. </p>
+<p align="left"><strong>Car Positioning, Scaling, Rotation, Height and Width:</strong></p>
+<p align="left">To setup some of the extra metadata about the car for
+its position, current rotation, how to scale it and what its adjusted
+height and width (since we are scaling it) are, we need to add the
+following code to the top of the Game1.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        Vector2 mCarPosition = <span class="kwrd">new</span> Vector2(300, 150);</pre>
+<pre>        <span class="kwrd">int</span> mCarHeight;</pre>
+<pre class="alt">        <span class="kwrd">int</span> mCarWidth;</pre>
+<pre>        <span class="kwrd">float</span> mCarRotation = 0;</pre>
+<pre class="alt">        <span class="kwrd">double</span> mCarScale = .2;</pre>
+</div>
+<p align="left">&nbsp;</p>
+<p align="left">Now in the LoadGraphicsContent() method. Modify the
+method to now include setting the scaled Height and Width objects for
+the car. Modify the LoadGraphicsContent() method to look like the code
+block below.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadGraphicsContent(<span class="kwrd">bool</span> loadAllContent)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (loadAllContent)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="rem">//Create the SpriteBatch used for drawing the Sprites</span></pre>
+<pre>                mSpriteBatch = <span class="kwrd">new</span> SpriteBatch(graphics.GraphicsDevice);</pre>
+<pre class="alt">                </pre>
+<pre>                <span class="rem">//Load the images from computer into the Texture2D objects</span></pre>
+<pre class="alt">                mTrack = content.Load&lt;Texture2D&gt;(<span class="str">"Track"</span>);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">                mCar = content.Load&lt;Texture2D&gt;(<span class="str">"Car"</span>);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">                <span class="rem">//Scale the height and width of the car appropriately</span></pre>
+<pre>                mCarWidth = (<span class="kwrd">int</span>)(mCar.Width * mCarScale);</pre>
+<pre class="alt">                mCarHeight = (<span class="kwrd">int</span>)(mCar.Height * mCarScale);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+<p>We keep the scaled Height and Width for the car so we know how big
+the car is in the game and not just how big the original Car image was.
+Now, using our new information about the car with it's new position and
+scale. Let's try drawing it again and see if we get some better results.</p>
+<p>Change the Draw() method to look like the following block of code.
+You can see that the line where we draw the car has changed to include
+the scale and position of the car.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            mSpriteBatch.Begin();</pre>
+<pre>            mSpriteBatch.Draw(mTrack, <span class="kwrd">new</span> Rectangle(0, 0, mTrack.Width, mTrack.Height), Color.White);</pre>
+<pre class="alt">            mSpriteBatch.Draw(mCar, <span class="kwrd">new</span> Rectangle((<span class="kwrd">int</span>)mCarPosition.X, (<span class="kwrd">int</span>)mCarPosition.Y, mCarWidth, mCarHeight),</pre>
+<pre>                <span class="kwrd">new</span> Rectangle(0, 0, mCar.Width, mCar.Height), Color.White, mCarRotation, </pre>
+<pre class="alt">                <span class="kwrd">new</span> Vector2(mCar.Width / 2, mCar.Height / 2), SpriteEffects.None, 0);</pre>
+<pre>            mSpriteBatch.End();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>Do another quick build <img src="theroadnottaken_files/CropperCapture233_5.jpg" alt="CropperCapture[233]" style="border-width: 0px;" border="0" width="25" height="26"> now and make sure we have the car scaled and positioned correctly.</p>
+<p align="center"><img src="theroadnottaken_files/CarScaled.png" alt="CarScaled" style="border-width: 0px;" border="0" width="400" height="314"> </p>
+<p align="left">That looks like a car that's ready to burn some rubber
+around the track. Now we just need to start accepting some input from
+the user and making that little car zoom!</p>
+<p align="left"><strong>Making it Move:</strong></p>
+<p align="left">To make our car move, we're going to need to add some
+code to the Update() method to check for what input is coming in from
+the keyboard and XBox 360 controller and react accordingly. Modify the
+Update() method to look like the following block of code.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime gameTime)</pre>
+<pre>        {   </pre>
+<pre class="alt">            GamePadState aGamePad = GamePad.GetState(PlayerIndex.One);</pre>
+<pre>            KeyboardState aKeyboard = Keyboard.GetState();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Check to see if the game should be exited</span></pre>
+<pre class="alt">            <span class="kwrd">if</span> (aGamePad.Buttons.Back == ButtonState.Pressed || aKeyboard.IsKeyDown(Keys.Escape) == <span class="kwrd">true</span>)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="kwrd">this</span>.Exit();</pre>
+<pre>            }</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Rotate the Car sprite with the Left Thumbstick or the up and down arrows</span></pre>
+<pre class="alt">            mCarRotation += (<span class="kwrd">float</span>)(aGamePad.ThumbSticks.Left.X * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);</pre>
+<pre>            <span class="kwrd">if</span> (aKeyboard.IsKeyDown(Keys.Up) == <span class="kwrd">true</span> || aKeyboard.IsKeyDown(Keys.Left) == <span class="kwrd">true</span>)</pre>
+<pre class="alt">            {</pre>
+<pre>                mCarRotation -= (<span class="kwrd">float</span>)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);            </pre>
+<pre class="alt">            }</pre>
+<pre>            <span class="kwrd">else</span> <span class="kwrd">if</span> (aKeyboard.IsKeyDown(Keys.Down) == <span class="kwrd">true</span> || aKeyboard.IsKeyDown(Keys.Right) == <span class="kwrd">true</span>)</pre>
+<pre class="alt">            {</pre>
+<pre>                mCarRotation += (<span class="kwrd">float</span>)(1 * 3.0f * gameTime.ElapsedGameTime.TotalSeconds);            </pre>
+<pre class="alt">            }</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">//Setup the Movement increment.</span></pre>
+<pre>            <span class="kwrd">int</span> aMove = (<span class="kwrd">int</span>)(200 * gameTime.ElapsedGameTime.TotalSeconds);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Move the sprite</span></pre>
+<pre class="alt">            mCarPosition.X += (<span class="kwrd">float</span>)(aMove * Math.Cos(mCarRotation));</pre>
+<pre>            mCarPosition.Y += (<span class="kwrd">float</span>)(aMove * Math.Sin(mCarRotation));</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Update(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p align="left">Starting at the top of the Update() method, we first
+get the current state of player one's gamepad and of the keyboard.
+Next, we do a quick check to see if the player wants to exit the game.
+In this code, we're looking to see if they pressed the Back button on
+the gamepad or the Escape key on the keyboard. If they did, then we
+exit the game.</p>
+<p align="left">Next up, we work on rotating the car. Rotation with the
+Thumbstick on the gamepad is easy. We just increment the Rotation
+object (mRotation) by the amount of rotation on the left thumbstick
+using a multiplier and time to give us time based rotation.</p>
+<p align="left">Rotating the car with the arrow keys is similar, just
+takes a bit more code. We still do time based rotation for the keys, we
+just change the rotation direction manually depending on what arrow
+keys are being pressed.</p>
+<p align="left">Next, we create a movement amount. We want to move the
+car a certain distance, but we want that to be fairly consistent no
+matter how fast someone's computer might be so we use time to give us a
+time based movement amount.</p>
+<p align="left">Now, we move the sprite. We want the sprite to move in
+the direction of the rotation and that's where the Math functions come
+in handy.&nbsp; By multiplying the movement amount times the Cos for
+the X and Sin for the Y of the current rotation, we can move the car in
+direction of the rotation. Pretty handy and you will use that quite a
+bit in future projects so file that away. </p>
+<p align="left">So we have rotation and movement, let's do a build <img src="theroadnottaken_files/CropperCapture233_6.jpg" alt="CropperCapture[233]" style="border-width: 0px;" border="0" width="25" height="26">
+now to make sure we haven't introduced any compiler errors and see how
+the car handles the road. When you run the game, you should be able to
+steer the car (it moves automatically in the direction it is pointed)
+with either the left thumbstick on the 360 controller or with the arrow
+keys on the keyboard.</p>
+<p align="left">Runs like a charm, but unfortunately, does not seem to
+care whether it is driving on the road or not. Now comes the meat and
+potatoes of this whole tutorial. Let's make this car aware of the path.</p>
+<p align="left"><strong>Path Collision:</strong></p>
+<p align="left">The challenge we have now is to try and make the car
+realize where it's ok to drive and where it is not allowed to go. We
+want to try and do this in such a way, that we could just swap out our
+current image for the Track color key (Track.png) and modify it with a
+new track and the game should still work with no code changes. To do
+that, what we are going to do, is attempt to detect what pixel colors
+are beneath the car image and always make sure those pixels are the
+grey road color we used for our color key.</p>
+<p align="left">The logic is going to work like this.</p>
+
+<p align="left">1. In the Update() method, calculate how far the care was going to move in the X and Y directions.</p>
+<p align="left">2. Take a sample from the color key of a square patch
+of that area. Basically, pretend the car is sitting there on the color
+key. Then draw a square around where the car would be (if it had moved
+there) in the Track color key and make that an image.</p>
+<p align="left">3. The XNA framework has a method called GetData().
+This method will return information about a rectangular block of pixels
+for you from a texture. The issue we have is that area must always be
+rectangular, but we have a rectangular car that rotates. That's where
+this step three comes into play. Since we can't send a rotated
+rectangle to the GetData() method, we rotate the square sample texture
+we made in step two around the car using the car's current rotation.
+This gives us the picture we wanted and we make an image of that.</p>
+<p align="left">4. Use GetData() on the image made in step 3, pass in a
+rectangular area the size of our car and get the Color of all of the
+pixels in that area. This would be the rectangular area under the car,
+if the car had moved.</p>
+<p align="left">5. Loop through all of the Colors returned by
+GetData(). If any of the pixels is NOT gray, then the car is going to
+move off the track. Indicate a collision would have occurred and do not
+allow the car to move. If all of the pixels ARE gray, then apply the
+movement to the current position of the car, making it move.</p>
+
+<p align="left">To start coding, we are going to need to add two new
+object types to our game. We are going to be creating "screenshots" of
+a sort in the game and to achieve that we will be using an XNA framwork
+object called "RenderTarget2D". Add the following lines of code to the
+top of the Game1.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        RenderTarget2D mTrackRender;</pre>
+<pre>        RenderTarget2D mTrackRenderRotated;</pre>
+</div>
+<p align="left">These render targets will be used to help make the images described in steps two in three in the logic explanation above. </p>
+<p align="left">Now that we have our render target object, we need to
+initialize them. Add the following lines of code to the
+LoadGraphicsContent() method. They should follow directly after the
+loading of all of our textures and where we define the car's scaled
+down height and width.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Setup the render targets to be used in determining if the car is on the track</span></pre>
+<pre>        mTrackRender = <span class="kwrd">new</span> RenderTarget2D(graphics.GraphicsDevice, mCarWidth + 100, </pre>
+<pre class="alt">               mCarHeight + 100, 1, SurfaceFormat.Color);</pre>
+<pre>        mTrackRenderRotated = <span class="kwrd">new</span> RenderTarget2D(graphics.GraphicsDevice, mCarWidth + 100, </pre>
+<pre class="alt">               mCarHeight + 100, 1, SurfaceFormat.Color);</pre>
+</div>
+<p align="left">&nbsp;</p>
+<p align="left">Render targets are a way of drawing thing internally in
+code that you are not quite ready to draw to the screen. Often they are
+used to combine images together before you do rotations. Think about an
+image that has several moving parts that are drawn together. Rather
+than rotating each piece individually, you might combine them all by
+drawing them to a render target, then generating a texture in code that
+you can rotate.</p>
+<p align="left">We are setting up our render targets to use our
+Graphics device and saying how big they are. We don't need very large
+render targets, they are just going to hold a square area around the
+car, so we will just make them slightly larger than the scaled down
+car's height and width. The next two parameters indicate the mip levels
+and format to be used with the render target. You can try experimenting
+with these later, but for most 2D games you are going to be using 1 and
+SurfaceFormat.Color in most cases. Still good to read up on what other
+tricks you might be able to pull by changing these values. </p>
+<p align="left">Next, we are going to need to modify the Update()
+method. Before we actually move the car, we need to do a check first to
+see if a collision has occurred or not. Modify the Update() method to
+now have the IF..THEN block wrapping the lines of code where we applied
+the movement to the position of the car.</p>
+<div class="csharpcode">
+<pre class="alt">            <span class="rem">//Check to see if a collision occured. If a collision didn't occur, then move the sprite</span></pre>
+<pre>            <span class="kwrd">if</span> (CollisionOccurred(aMove) == <span class="kwrd">false</span>)</pre>
+<pre class="alt">            {</pre>
+<pre>                mCarPosition.X += (<span class="kwrd">float</span>)(aMove * Math.Cos(mCarRotation));</pre>
+<pre class="alt">                mCarPosition.Y += (<span class="kwrd">float</span>)(aMove * Math.Sin(mCarRotation));</pre>
+<pre>            }         </pre>
+</div>
+<p>We are calling a new method here called "CollisionOccurred" that
+does not exist yet. We need to create it. This method is going to
+determine if a collision would occur if the car moved the distance
+passed into the method.</p>
+<p>Add the following CollisionOcurred() method to the Game1.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//This method checks to see if the Sprite is going to move into an area that does</span></pre>
+<pre>        <span class="rem">//not contain all Gray pixels. If the move amount would cause a movement into a non-gray</span></pre>
+<pre class="alt">        <span class="rem">//pixel, then a collision has occurred.</span></pre>
+<pre>        <span class="kwrd">private</span> <span class="kwrd">bool</span> CollisionOccurred(<span class="kwrd">int</span> aMove)</pre>
+<pre class="alt">        {</pre>
+<pre>            <span class="rem">//Calculate the Position of the Car and create the collision Texture. This texture will contain</span></pre>
+<pre class="alt">            <span class="rem">//all of the pixels that are directly underneath the sprite currently on the Track image.</span></pre>
+<pre>            <span class="kwrd">float</span> aXPosition = (<span class="kwrd">float</span>)(-mCarWidth / 2 + mCarPosition.X + aMove * Math.Cos(mCarRotation));</pre>
+<pre class="alt">            <span class="kwrd">float</span> aYPosition = (<span class="kwrd">float</span>)(-mCarHeight / 2 + mCarPosition.Y + aMove * Math.Sin(mCarRotation));</pre>
+<pre>            Texture2D aCollisionCheck = CreateCollisionTexture(aXPosition, aYPosition);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Use GetData to fill in an array with all of the Colors of the Pixels in the area of the Collision Texture</span></pre>
+<pre class="alt">            <span class="kwrd">int</span> aPixels = mCarWidth * mCarHeight;</pre>
+<pre>            Color[] myColors = <span class="kwrd">new</span> Color[aPixels];</pre>
+<pre class="alt">            aCollisionCheck.GetData&lt;Color&gt;(0, <span class="kwrd">new</span> Rectangle((<span class="kwrd">int</span>)(aCollisionCheck.Width / 2 - mCarWidth / 2), </pre>
+<pre>                (<span class="kwrd">int</span>)(aCollisionCheck.Height / 2 - mCarHeight / 2), mCarWidth, mCarHeight), myColors, 0, aPixels);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">//Cycle through all of the colors in the Array and see if any of them</span></pre>
+<pre class="alt">            <span class="rem">//are not Gray. If one of them isn't Gray, then the Car is heading off the road</span></pre>
+<pre>            <span class="rem">//and a Collision has occurred</span></pre>
+<pre class="alt">            <span class="kwrd">bool</span> aCollision = <span class="kwrd">false</span>;</pre>
+<pre>            <span class="kwrd">foreach</span> (Color aColor <span class="kwrd">in</span> myColors)</pre>
+<pre class="alt">            {</pre>
+<pre>                <span class="rem">//If one of the pixels in that area is not Gray, then the sprite is moving</span></pre>
+<pre class="alt">                <span class="rem">//off the allowed movement area</span></pre>
+<pre>                <span class="kwrd">if</span> (aColor != Color.Gray)</pre>
+<pre class="alt">                {</pre>
+<pre>                    aCollision = <span class="kwrd">true</span>;</pre>
+<pre class="alt">                    <span class="kwrd">break</span>;</pre>
+<pre>                }</pre>
+<pre class="alt">            }</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">return</span> aCollision;</pre>
+<pre>        }</pre>
+</div>
+<p align="left">There's a lot going on there so we can walk through the
+method slowly.&nbsp; First, we need to figure out where the car would
+be moving to, if it moved the distance passed into the
+CollisionOccurred() method. So we apply aMove and obtain the X and Y
+coordinates of where the car would be.</p>
+<p align="left">Next, we create a new texture. This texture is the
+rotated square area of the track around where the car would be moving
+to. We don't currently have the "CreateCollisionTexture" method yet,
+but that will return that texture for us.</p>
+<p align="left">Now that we have the texture image from the color key
+of where the car would be moving, we gather the color information of
+the pixels&nbsp; of where the car would be sitting in that image. We do
+that but filling an array of colors using the GetData() method. By
+passing in a rectangle to represent the area the car would be taking
+up, we can obtain information about all of the pixels that would be
+directly beneath the car if it moved to that location.</p>
+<p align="left">With the color information collected, we now start
+looping through all of the colors returned for the rectangular area of
+the car. If a color is not Gray (our designated path color for this
+sample), then the car would be moving off the track. Indicate a
+collision would be occurring and stop looping.</p>
+<p align="left">Finally, we return whether the car would be colliding
+or not, which basically means whether there would be any non-gray
+pixels underneath the car if it moved to that new location. True if
+there was a non-gray pixel, false if they were all gray beneath the car.</p>
+<p align="left">So we have our function to determine collisions, but it
+relies on a method "CreateCollisionTexture" which we still need to
+create. Add the following block of code to the Game1.cs class to add
+the CreateCollisionTexture() method to the game.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Create the Collision Texture that contains the rotated Track image for determing</span></pre>
+<pre>        <span class="rem">//the pixels beneath the Car srite.</span></pre>
+<pre class="alt">        <span class="kwrd">private</span> Texture2D CreateCollisionTexture(<span class="kwrd">float</span> theXPosition, <span class="kwrd">float</span> theYPosition)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">//Grab a square of the Track image that is around the Car</span></pre>
+<pre>            graphics.GraphicsDevice.SetRenderTarget(0, mTrackRender);</pre>
+<pre class="alt">            graphics.GraphicsDevice.Clear(ClearOptions.Target, Color.Red, 0, 0);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            mSpriteBatch.Begin();</pre>
+<pre>            mSpriteBatch.Draw(mTrack, <span class="kwrd">new</span> Rectangle(0, 0, mCarWidth + 100, mCarHeight + 100), </pre>
+<pre class="alt">                <span class="kwrd">new</span> Rectangle((<span class="kwrd">int</span>)(theXPosition - 50), </pre>
+<pre>                (<span class="kwrd">int</span>)(theYPosition - 50), mCarWidth + 100, mCarHeight + 100), Color.White);</pre>
+<pre class="alt">            mSpriteBatch.End();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            graphics.GraphicsDevice.ResolveRenderTarget(0);</pre>
+<pre>            graphics.GraphicsDevice.SetRenderTarget(0, <span class="kwrd">null</span>);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            Texture2D aPicture = mTrackRender.GetTexture();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">//Rotate the snapshot of the area Around the car sprite and return that </span></pre>
+<pre>            graphics.GraphicsDevice.SetRenderTarget(0, mTrackRenderRotated);</pre>
+<pre class="alt">            graphics.GraphicsDevice.Clear(ClearOptions.Target, Color.Red, 0, 0);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            mSpriteBatch.Begin();</pre>
+<pre>            mSpriteBatch.Draw(aPicture, <span class="kwrd">new</span> Rectangle((<span class="kwrd">int</span>)(aPicture.Width / 2), (<span class="kwrd">int</span>)(aPicture.Height / 2), </pre>
+<pre class="alt">                aPicture.Width, aPicture.Height), <span class="kwrd">new</span> Rectangle(0, 0, aPicture.Width, aPicture.Width), </pre>
+<pre>                Color.White, -mCarRotation, <span class="kwrd">new</span> Vector2((<span class="kwrd">int</span>)(aPicture.Width / 2), (<span class="kwrd">int</span>)(aPicture.Height / 2)), </pre>
+<pre class="alt">                SpriteEffects.None, 0);</pre>
+<pre>            mSpriteBatch.End();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            graphics.GraphicsDevice.ResolveRenderTarget(0);</pre>
+<pre class="alt">            graphics.GraphicsDevice.SetRenderTarget(0, <span class="kwrd">null</span>);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">return</span> mTrackRenderRotated.GetTexture();</pre>
+<pre>        }</pre>
+</div>
+<p align="left">Phew. That one is a doozy. But it's not as scary as it
+seems. Again, we'll take it from the top and walk through it slowly
+explaining what is going on. The first thing that happens is we talk to
+our graphics device and say, hey, I don't want you to draw to the
+screen, I want to draw on this render target "mTrackRender" instead ok?
+It of course agrees because it's a good little graphics device. </p>
+<p align="left">Next, we clear the render target, this should start to
+look familiar. The code we write to draw to a render target is very
+similar to the code we write in the Draw() method.</p>
+<p align="left">Now, we begin drawing using our SpriteBatch. The only
+difference is when the batch starts drawing, it won't be drawing the
+sprites to the screen, but will instead be drawing them on our render
+target object. We want to draw the square area around the car (or more
+correctly, the area around the car would be if it is allowed to move
+there). So that's what we do here, we draw the part of our color key
+where the car would be to our render target.</p>
+<p align="left">So after we close the batch, letting it know we are
+done drawing, we need to tell the graphics device that we are ready for
+it to put everything on our render target. "ResolveRenderTarget" is the
+method that does that for us. Now our "mTrackRender" object has our
+image drawn on it. "SetRenderTarget" is now called just to flush out
+the graphics device so it no longer is using our render target to draw
+on.</p>
+<p align="left">Ok, so now we have the area of track where the car
+would be moving too, but we still need to compensate for our rotation.
+Well, we can take care of that rotating our image. The only issue is
+that we don't have a Texture2D to rotate, we only have a render target.
+Well, luckily, the XNA framework has given a handy method for
+RenderTarget2D called GetTexture() which will create a Texture2D object
+of the current scene on the render target.</p>
+<p align="left">Now that we have a Texture2D object of our square
+sample of the color key. We need to rotate it. So, we begin setting up
+the graphics device again. This time we're going to render on our
+mTrackRenderRotated render target.</p>
+<p align="left">We clear that render target to red and begin drawing.
+Now, when we draw the track, we are drawing the Texture2D we created in
+code and we rotate that according to the current rotation of the car. </p>
+<p align="left">Again, we draw our scene and let the graphics device
+know we don't want it to draw on our render target anymore. Now we have
+a render target that contains the square sample of the color key track
+where the car would be and it is rotated properly.</p>
+<p align="left">Finally, we return the texture generate by that render
+target. The CollisionOccured() method we wrote above then does it's
+GetData() magic and checks to see what colors the pixels are in that
+returned texture.</p>
+<p align="left">Do a build <img src="theroadnottaken_files/CropperCapture233_7.jpg" alt="CropperCapture[233]" style="border-width: 0px;" border="0" width="25" height="26"> now and see how it behaves. The car should now drive around the track and will not allow you to steer it through any walls. </p>
+<p align="center"><img src="theroadnottaken_files/Collision.png" alt="Collision" style="border-width: 0px;" border="0" width="400" height="314"> </p>
+<p align="left">Well, we have it working. You could at this point, open
+the track image up in your favorite image editing program and modify it
+or re-do it all. You could define new paths just by painting with a
+gray brush. With your newly created track, the car would behave the
+same. It would only be allowed to drive on the gray pixels. Pretty
+slick right?</p>
+<p align="left">We're not quite done though. The last step in this
+whole process to really show the power of the path color key is to add
+our overlay image. The power of the color key is that with it, you can
+make a fancy schmancy image to use as your display, but the simplistic
+paths in your image are stored in the color key. The player has no idea
+that the real paths are contained in the color key.</p>
+<p align="left"><strong>Adding the Overlay:</strong></p>
+<p align="left">To draw the track overlay, we are going to need a new
+Texture2D object to load in our image and draw it to the screen. Add
+the following code to the top of the Game1.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        Texture2D mTrackOverlay;</pre>
+</div>
+<p align="left">Next, we need to load our overlay image into our
+Texture2D object. Add the following code to the LoadGraphicsContent()
+method. It should be placed in the same location that all of the other
+Texture2D objects for our game have been added.</p>
+<div class="csharpcode">
+<pre class="alt">        mTrackOverlay = content.Load&lt;Texture2D&gt;(<span class="str">"TrackOverlay"</span>);</pre>
+</div>
+<p align="left">Now we need to modify the Draw() method. We no longer
+need to draw the Track color key. It's ugly and it's entire purpose is
+just for the code to use it to determine where it's safe to drive and
+where it isn't. Instead, we now want to draw our overlay image. So
+modify the Draw() method to look like the following block of code with
+the Track no longer being drawn and the TrackOverlay being drawn
+instead.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            mSpriteBatch.Begin();</pre>
+<pre>            mSpriteBatch.Draw(mTrackOverlay, <span class="kwrd">new</span> Rectangle(0, 0, mTrackOverlay.Width, mTrackOverlay.Height), Color.White);</pre>
+<pre class="alt">            mSpriteBatch.Draw(mCar, <span class="kwrd">new</span> Rectangle((<span class="kwrd">int</span>)mCarPosition.X, (<span class="kwrd">int</span>)mCarPosition.Y, mCarWidth, mCarHeight),</pre>
+<pre>                <span class="kwrd">new</span> Rectangle(0, 0, mCar.Width, mCar.Height), Color.White, mCarRotation, </pre>
+<pre class="alt">                <span class="kwrd">new</span> Vector2(mCar.Width / 2, mCar.Height / 2), SpriteEffects.None, 0);</pre>
+<pre>            mSpriteBatch.End();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>Now do a final build <img src="theroadnottaken_files/CropperCapture233_8.jpg" alt="CropperCapture[233]" style="border-width: 0px;" border="0" width="25" height="26">
+of the game now. You should see the much nicer looking track overlay
+and the path collision should still be working correctly off the track
+color key that the player never sees.</p>
+<p align="center"><img src="theroadnottaken_files/Finished.png" alt="Finished" style="border-width: 0px;" border="0" width="400" height="314"> </p>
+<p align="left"><strong>Congratulations!</strong></p>
+<p>You have completed the color key path collision tutorial. Now that
+you know the basics of using a color key to do path collision, can you
+think of some other ways you could us it? Could you make a dungeon
+crawler using it? Are there downsides to using this method? Play
+around, experiment a little. Try to make some new track color keys with
+your own track overlays. Do you know what code you'd need to change to
+make Black pathways? </p>
+<p>Now take what you know and make something with it. Most of all, make sure that you are <strong>having fun</strong>!  </p>
+<p><strong></strong>&nbsp; </p>
+
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="theroadnottaken_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</body></html>

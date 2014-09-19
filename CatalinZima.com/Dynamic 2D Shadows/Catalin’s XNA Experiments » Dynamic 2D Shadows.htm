@@ -1,0 +1,915 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+
+
+
+	<title>Catalin’s XNA Experiments » Dynamic 2D Shadows</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
+	<meta name="generator" content="WordPress 2.9.2"> <!-- leave this for stats please -->
+
+<link rel="stylesheet" href="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/style.css" type="text/css" media="screen">
+<link rel="stylesheet" type="text/css" href="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/stylewp-green.css" title="green">
+<link rel="alternate stylesheet" type="text/css" href="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/stylewp-red.css" title="red">
+
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.catalinzima.com/?feed=rss2">
+	<link rel="alternate" type="text/xml" title="RSS .92" href="http://www.catalinzima.com/?feed=rss">
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.catalinzima.com/?feed=atom">
+	<link rel="pingback" href="http://www.catalinzima.com/xmlrpc.php">
+
+<script type="text/javascript" src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/styleswitcher.js"> </script>
+
+		<link rel="archives" title="May 2010" href="http://www.catalinzima.com/?m=201005">
+	<link rel="archives" title="April 2010" href="http://www.catalinzima.com/?m=201004">
+	<link rel="archives" title="November 2009" href="http://www.catalinzima.com/?m=200911">
+	<link rel="archives" title="October 2009" href="http://www.catalinzima.com/?m=200910">
+	<link rel="archives" title="September 2009" href="http://www.catalinzima.com/?m=200909">
+	<link rel="archives" title="August 2009" href="http://www.catalinzima.com/?m=200908">
+	<link rel="archives" title="July 2009" href="http://www.catalinzima.com/?m=200907">
+	<link rel="archives" title="June 2009" href="http://www.catalinzima.com/?m=200906">
+	<link rel="archives" title="April 2009" href="http://www.catalinzima.com/?m=200904">
+	<link rel="archives" title="March 2009" href="http://www.catalinzima.com/?m=200903">
+	<link rel="archives" title="February 2009" href="http://www.catalinzima.com/?m=200902">
+	<link rel="archives" title="January 2009" href="http://www.catalinzima.com/?m=200901">
+	<link rel="archives" title="December 2008" href="http://www.catalinzima.com/?m=200812">
+	<link rel="archives" title="November 2008" href="http://www.catalinzima.com/?m=200811">
+	<link rel="archives" title="October 2008" href="http://www.catalinzima.com/?m=200810">
+	<link rel="archives" title="September 2008" href="http://www.catalinzima.com/?m=200809">
+	<link rel="archives" title="August 2008" href="http://www.catalinzima.com/?m=200808">
+	<link rel="archives" title="July 2008" href="http://www.catalinzima.com/?m=200807">
+	<link rel="archives" title="June 2008" href="http://www.catalinzima.com/?m=200806">
+	<link rel="archives" title="May 2008" href="http://www.catalinzima.com/?m=200805">
+	<link rel="archives" title="April 2008" href="http://www.catalinzima.com/?m=200804">
+	<link rel="archives" title="March 2008" href="http://www.catalinzima.com/?m=200803">
+	<link rel="archives" title="February 2008" href="http://www.catalinzima.com/?m=200802">
+	<link rel="archives" title="January 2008" href="http://www.catalinzima.com/?m=200801">
+		<link rel="alternate" type="application/rss+xml" title="Catalin's XNA Experiments » Dynamic 2D Shadows Comments Feed" href="http://www.catalinzima.com/?feed=rss2&amp;page_id=313">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.catalinzima.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.catalinzima.com/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Catalin's XNA Experiments" href="http://www.catalinzima.com/">
+<link rel="up" title="12 Months, 12 Samples 2008" href="http://www.catalinzima.com/?page_id=470">
+<meta name="generator" content="WordPress 2.9.2">
+<link rel="canonical" href="http://www.catalinzima.com/?page_id=313">
+<link rel="shortlink" href="http://wp.me/PbOOT-53"></head><body><div id="container">
+
+   <div class="stylewp">
+   Options:
+    <ul>
+<li><a href="#" onclick="setActiveStyleSheet('green'); return false;">Green</a></li>
+<li><a href="#" onclick="setActiveStyleSheet('red'); return false;">Red</a></li>
+    </ul>
+  </div>
+
+<div id="menu">
+	<ul>
+		<li class="page_item"><a href="http://www.catalinzima.com/">Home</a></li>
+		<li class="page_item page-item-11 current_page_ancestor"><a href="http://www.catalinzima.com/?page_id=11" title="Samples">Samples</a></li>
+<li class="page_item page-item-10"><a href="http://www.catalinzima.com/?page_id=10" title="Tutorials">Tutorials</a></li>
+<li class="page_item page-item-2"><a href="http://www.catalinzima.com/?page_id=2" title="About">About</a></li>
+	</ul>
+</div>
+
+<div id="wrapper">
+	<div id="page-wrapper"><div id="page">
+
+		<div id="header">
+			<h1>
+                           Catalin's XNA Experiments
+                        </h1>
+		<div id="description">
+                          Samples and tutorials for XNA Game Studio
+		</div>
+</div>
+		<div class="narrowcolumn">
+
+			<div class="posts-wrapper">	<div class="posts">
+							<h2><a href="http://www.catalinzima.com/?page_id=313" rel="bookmark" title="Dynamic 2D Shadows">Dynamic 2D Shadows</a></h2>
+
+					<div class="postinfo">
+						<ul>
+							<li class="edit-info"></li>
+						</ul>
+					</div>
+
+					<div class="clear"></div>
+
+				<div class="entry">
+					<p>This sample shows an implementation for dynamic 2D shadows in XNA. The code is based on an article from <a href="http://www.gamedev.net/reference/programming/features/2dsoftshadow/">GameDev.net, written by Orangy Tang</a>, but only implements hard-edged shadows.</p>
+<p>As exercises to further understand the sample, you could try some of the following:</p>
+<ul>
+<li>Make some objects (ConvexHull) move around</li>
+<li>Add other lights, and modify their parameters</li>
+<li>Add player-world collisions. This shouldn’t be too hard, since you already have the ConvexHull class.</li>
+<li>Switch on/off the light surrounding the wizard</li>
+<li>Try various texture for light</li>
+<li>Make the player drop shadows. (Hint: switch off player light, and
+make a ConvexHull object that surrounds the player, and moves together
+with him)</li>
+</ul>
+<p>The wizard character is controlled by the directional keyboard keys. My wired GamePad was not available these days <img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+<p>I want to credit <a href="http://www.xnadevelopment.com/">George</a> for the wizard sprite, and <a href="http://www.studioevil.com/downloads.php">Studio Evil</a> for the ground texture.</p>
+<p>The sample can be downloaded here: <a href="http://www.catalinzima.com/wp-content/uploads/2008/05/dynamicshadows.zip" title="dynamicshadows.zip">dynamicshadows.zip</a></p>
+<p><a href="http://www.catalinzima.com/wp-content/uploads/2008/05/dynamicshadows11.jpg"><img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/dynamicshadows1-thumb1.jpg" style="border: 0px none ;" alt="DynamicShadows1" width="244" border="0" height="183"></a> <a href="http://www.catalinzima.com/wp-content/uploads/2008/05/dynamicshadows21.jpg"><img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/dynamicshadows2-thumb1.jpg" style="border: 0px none ;" alt="DynamicShadows2" width="244" border="0" height="183"></a></p>
+<p><a href="http://www.catalinzima.com/wp-content/uploads/2008/05/dynamicshadows31.jpg"><img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/dynamicshadows3-thumb1.jpg" style="border: 0px none ;" alt="DynamicShadows3" width="244" border="0" height="183"></a></p>
+					
+					<!-- 
+					<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+				xmlns:dc="http://purl.org/dc/elements/1.1/"
+				xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+			<rdf:Description rdf:about="http://www.catalinzima.com/?page_id=313"
+    dc:identifier="http://www.catalinzima.com/?page_id=313"
+    dc:title="Dynamic 2D Shadows"
+    trackback:ping="http://www.catalinzima.com/wp-trackback.php?p=313" />
+</rdf:RDF>			 		-->
+				</div>
+				<div class="comments-template">
+					
+<!-- You can start editing here. -->
+
+
+	<h2 class="postcomment">
+		23 Comments					 so far <a href="#postcomment" title="Jump to the comments form">»</a>
+			</h2>
+	
+	<ol id="commentlist">
+
+	
+		<li class="alt" id="comment-3084">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/?p=323" rel="external nofollow" class="url">Catalin Zima - XNA and HLSL blog » April Sample Online!</a>, on 05.02.08 
+			@ <a href="#comment-3084">3:46 am</a>
+			</p>
+
+		<div class="comment-text"><p>[...]
+for April we have Dynamic 2D Shadows. Check it out in the Samples
+section, and let me know what you think. Or download it directly, [...]</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-10965">
+
+		<p class="comment-title">by 62316e, on 09.10.08 
+			@ <a href="#comment-10965">2:41 pm</a>
+			</p>
+
+		<div class="comment-text"><p>YO!
+Nice sample! I have some problems with adding soft shadows and unable
+to rotate convex hull. would u be so kind as to help me?</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-11033">
+
+		<p class="comment-title">by 62316e, on 09.13.08 
+			@ <a href="#comment-11033">3:54 pm</a>
+			</p>
+
+		<div class="comment-text"><p>How to add the Height property to the convex hull class? <img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-11049">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 09.14.08 
+			@ <a href="#comment-11049">6:50 pm</a>
+			</p>
+
+		<div class="comment-text"><p>I
+haven’t yet tried doing soft shadows, so I can’t help you there. As for
+rotating the objects…. you could probably transform each vertex
+manually.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-12119">
+
+		<p class="comment-title">by 62316e, on 11.17.08 
+			@ <a href="#comment-12119">5:31 pm</a>
+			</p>
+
+		<div class="comment-text"><p>Yeap. 10x i will try</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-16867">
+
+		<p class="comment-title">by <a href="http://www.xnascratch.com/?p=234" rel="external nofollow" class="url">XNA Game Development « XNA Scratch</a>, on 01.30.09 
+			@ <a href="#comment-16867">9:49 pm</a>
+			</p>
+
+		<div class="comment-text"><p>[...]
+two interesting takes on 2D shadow creation.&nbsp; The
+first&nbsp;is&nbsp;recently posted source code found here from Catalin
+Zima, a Tech student in Romania.&nbsp; I also found it when it showed
+up as a link&nbsp; at [...]</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-18471">
+
+		<p class="comment-title">by Greg, on 03.12.09 
+			@ <a href="#comment-18471">5:28 am</a>
+			</p>
+
+		<div class="comment-text"><p>Excellent sample.</p>
+<p>Can this code be used in a commercial project?</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-18476">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 03.12.09 
+			@ <a href="#comment-18476">9:57 am</a>
+			</p>
+
+		<div class="comment-text"><p>@greg: It’s fine by me to use it however you want.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-18685">
+
+		<p class="comment-title">by RoyalFraggy, on 03.24.09 
+			@ <a href="#comment-18685">1:05 am</a>
+			</p>
+
+		<div class="comment-text"><p>Just what I was looking for. Great stuff.</p>
+<p>Thanks, and keep up the good work!</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-22255">
+
+		<p class="comment-title">by <a href="http://rogue-eyebrow.com/" rel="external nofollow" class="url">VengantMjolnir</a>, on 07.11.09 
+			@ <a href="#comment-22255">1:37 am</a>
+			</p>
+
+		<div class="comment-text"><p>Hey
+Catalina, have a question for you if you have the time for a
+discussion. I downloaded and started up your sample and added a frame
+counter to it. With one added light to the player( just a different
+texture to simulate a cone light ) and the original 37 objects the
+framerate was running at 24 fps average. After profiling I discovered
+the called operations( and looking at the algorithm ) I discovered that
+the shadow generation algorithm was being called on each object for
+every light. This made sense to me as a sample so don’t think I’m
+knocking it in any way. </p>
+<p>So, I fixed that with a quick and dirty SAT test against a bounding
+box for the hull, and the bounding circle for the light. If it passes
+the test, then I do the light calculations. This brough the number of
+shadows being cast from 259 to 61 at the starting position.
+Additionally I wanted to speed up the shadow generation algorithm so I
+moved the edge creation code into the constructor. (I also added convex
+hull rotation and movement into it, but that is seperate)</p>
+<p>However, this only increased the frame rate from 22-24 up to 30-34.
+I know, around a 30 percent increase… but not good enough for a really
+robust system. It was apparent additional profiling was needed. That
+yielded the fact that calls were down to the shadow generation
+algorithm… but over 75% of the draw function was spent in draw
+lightmaps, and 52% of that was spent in the draw lightmaps function
+itself and not its callees.</p>
+<p>It seems the culprit might be the renderstate changes in between
+each light. There isn’t much more I can do to opt out of shadow
+generation, so my optomizations have to focus on the creation of the
+lightmap now. </p>
+<p>Here is where I was hoping you had an insight or a resource I have
+missed. Do you know of another technique for drawing the shadow areas
+besides using the alpha channel?</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-22271">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 07.11.09 
+			@ <a href="#comment-22271">8:25 am</a>
+			</p>
+
+		<div class="comment-text"><p>Yeah,
+those two are the bottlenecks at the moment. I tried to think of many
+ways to do the shadow generation in a vertex shader, but unfortunately
+didn’t find a solution.</p>
+<p>One possible solution could be replacing the usage of the alpha
+channel for lightmaps with the usage of the stencil buffer. This might
+cut down on the number of renderstates that need to be set for each
+light, and maybe it is faster. The idea is mainly the same. Draw the
+shadows and while doing that, the affected pixels are marked in the
+stencil buffer. And then, when drawing the light, a test is made and
+only unmarked pixels are written.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-22295">
+
+		<p class="comment-title">by <a href="http://rogue-eyebrow.com/" rel="external nofollow" class="url">VengantMjolnnir</a>, on 07.12.09 
+			@ <a href="#comment-22295">8:55 am</a>
+			</p>
+
+		<div class="comment-text"><p>Actually, a guy named Michael Anderson figured that one out and put it on his MSDN blog. Manders vs. Machine…<br>
+<a href="http://blogs.msdn.com/manders/archive/2007/03/14/shadows-in-2d.aspx" rel="nofollow">http://blogs.msdn.com/manders/archive/2007/03/14/shadows-in-2d.aspx</a><br>
+He even has the source for you to browse. I was thinking of using his
+shader program to speed up the shadow generation but that still leaves
+me with the main problem of render state switches.</p>
+<p>I’ll have a look into the stencil test method. Only thing I’m having
+a hard time warpping my head around is how a stencil test will handle
+overlapping shadows. Reason the current system works is because we
+clear the alpha map for each light… And I’m not currently sure how to
+clear the stencil buffer. If I can get it to work though I think it
+would eliminate the renderstate changes. I could render the shadows to
+a seperate render target just to fill in the stencil buffer. Then use
+that to render the lights.</p>
+<p>Do you think this discussion should be conducted in the Creator’s club forum?</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-22296">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/" rel="external nofollow" class="url">Catalin Zima</a>, on 07.12.09 
+			@ <a href="#comment-22296">8:59 am</a>
+			</p>
+
+		<div class="comment-text"><p>to clear the stencil buffer: GraphicsDevice.Clear(ClearOptions.Stencil, Color.Black, 0, 0);</p>
+<p>By moving it to Creator’s Club Forums, it’s possible you’ll have other people look at the problem and come up with more ideas.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-22694">
+
+		<p class="comment-title">by Rautapalli, on 07.31.09 
+			@ <a href="#comment-22694">9:11 pm</a>
+			</p>
+
+		<div class="comment-text"><p>How could i implement a scrolling background with this?<br>
+I tried messing around with the viewMatrix, but i have no idea how it’s supposed to work.</p>
+<p>Currently my spritebatch uses Matrix.CreateTranslation(new
+Vector3(-Position, 0f)) that formula to have a moving background, but i
+have no idea how i would apply it to the shadows too.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-24336">
+
+		<p class="comment-title">by <a href="http://www.catalinzima.com/?p=554" rel="external nofollow" class="url">Catalin’s XNA Experiments » Working on shadows…</a>, on 09.30.09 
+			@ <a href="#comment-24336">8:40 am</a>
+			</p>
+
+		<div class="comment-text"><p>[...]
+this one is very different from the last sample I made on the subject.
+In that one, you had to define the geometry of the shadow casters, and
+build [...]</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-25448">
+
+		<p class="comment-title">by william bechard, on 12.18.09 
+			@ <a href="#comment-25448">5:03 am</a>
+			</p>
+
+		<div class="comment-text"><p>Rautapalli:</p>
+<p>i have a camera that i apply to spritebatch so that i can use world
+coordinates for all my objects and just move the camera for movement.</p>
+<p>(i use World1.cam.get_transformation(GraphicsDevice)); in my spriteBatch.Begin())</p>
+<p>//I get all my hull objects from this call<br>
+  World1.GatherShadows();<br>
+            DrawLightmap();</p>
+<p>            graphics.GraphicsDevice.Clear(Color.White);</p>
+<p> // TODO: This is where i do my map drawing
+spriteBatch.Begin(SpriteBlendMode.None, SpriteSortMode.Immediate,
+SaveStateMode.SaveState,
+World1.cam.get_transformation(GraphicsDevice)); /*Send the variable
+that has your graphic device here*/</p>
+<p>            spriteBatch.End();</p>
+<p>//Now draw all shadows</p>
+<p> spriteBatch.Begin(SpriteBlendMode.None, SpriteSortMode.Immediate,
+SaveStateMode.SaveState,
+World1.cam.get_transformation(GraphicsDevice)); /*Send the variable
+that has your graphic device here*/</p>
+<p>//World1.Worldobjects are all my stored hull objects<br>
+            foreach (ConvexHull hull in World1.Worldobjects)<br>
+            {<br>
+                hull.Draw(gameTime, World1.cam.get_transformation(GraphicsDevice));<br>
+            }</p>
+<p>            spriteBatch.End();</p>
+<p>//Now draw the actual light<br>
+spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate,
+SaveStateMode.SaveState); /*Send the variable that has your graphic
+device here*/</p>
+<p>            GraphicsDevice.RenderState.SourceBlend = Blend.Zero;<br>
+            GraphicsDevice.RenderState.DestinationBlend = Blend.SourceColor;<br>
+            GraphicsDevice.RenderState.BlendFunction = BlendFunction.Add;<br>
+spriteBatch.Draw(lightMap.GetTexture(), Vector2.Zero + new
+Vector2(400,300), null, Color.White, 0.0f, new Vector2(400.0f, 300.0f),
+1.0f, 0, 0);</p>
+<p>            spriteBatch.End();</p>
+<p>            base.Draw(gameTime);</p>
+<p>//———————————————————<br>
+Now notice the changes in the class. I made no changes to the light
+class because it takes spritebatch in its draw and if you noticed above
+i already used the World1.cam.get_transformation(GraphicsDevice) in the
+spriteBatch.Begin(….</p>
+<p>however in the ConvexHull.cs<br>
+concentrate on 2 subs</p>
+<p>//Draw<br>
+        public void Draw(GameTime gameTime, Matrix TransformWorld)<br>
+        {<br>
+            GraphicsDevice device = game.GraphicsDevice;<br>
+            device.RenderState.CullMode = CullMode.None;<br>
+            device.RenderState.AlphaBlendEnable = false;</p>
+<p>            device.VertexDeclaration = vertexDecl;</p>
+<p>            drawingEffect.World = Matrix.CreateTranslation(position.X, position.Y, 0) * TransformWorld;<br>
+            drawingEffect.Begin();</p>
+<p>            foreach (EffectPass pass in drawingEffect.CurrentTechnique.Passes)<br>
+            {<br>
+                pass.Begin();<br>
+device.DrawUserIndexedPrimitives(PrimitiveType.TriangleFan, vertices,
+0, vertices.Length, indices, 0, vertexCount);<br>
+                pass.End();</p>
+<p>            }<br>
+            drawingEffect.End();<br>
+        }</p>
+<p>//DrawShadow<br>
+        public void DrawShadows(LightSource lightSource, Matrix TransformWorld)<br>
+        {<br>
+            //compute facing of each edge, using N*L<br>
+            for (int i = 0; i  0)<br>
+                    backFacing[i] = false;<br>
+                else<br>
+                    backFacing[i] = true;<br>
+            }</p>
+<p>            //find beginning and ending vertices which<br>
+            //belong to the shadow<br>
+            int startingIndex = 0;<br>
+            int endingIndex = 0;<br>
+            for (int i = 0; i  startingIndex)<br>
+                shadowVertexCount = endingIndex – startingIndex + 1;<br>
+            else<br>
+                shadowVertexCount = vertexCount + 1 – startingIndex + endingIndex;</p>
+<p>            shadowVertices = new VertexPositionColor[shadowVertexCount * 2];</p>
+<p>            //create a triangle strip that has the shape of the shadow<br>
+            int currentIndex = startingIndex;<br>
+            int svCount = 0;<br>
+            while (svCount != shadowVertexCount * 2)<br>
+            {<br>
+                Vector3 vertexPos = vertices[currentIndex].Position + new Vector3(position, 0);</p>
+<p>                //one vertex on the hull<br>
+                shadowVertices[svCount] = new VertexPositionColor();<br>
+                shadowVertices[svCount].Color = Color.TransparentBlack;<br>
+                shadowVertices[svCount].Position = vertexPos;</p>
+<p>                //one extruded by the light direction<br>
+                shadowVertices[svCount + 1] = new VertexPositionColor();<br>
+                shadowVertices[svCount + 1].Color = Color.TransparentBlack;<br>
+                Vector3 L2P = vertexPos – new Vector3(lightSource.Position, 0);<br>
+                L2P.Normalize();<br>
+                shadowVertices[svCount + 1].Position = new Vector3(lightSource.Position, 0) + L2P * 9000;</p>
+<p>                svCount += 2;<br>
+                currentIndex = (currentIndex + 1) % vertexCount;<br>
+            }<br>
+            Matrix NewTemp = Matrix.Identity;</p>
+<p>            //draw the shadow geometry<br>
+            game.GraphicsDevice.VertexDeclaration = vertexDecl;<br>
+            drawingEffect.World = TransformWorld;<br>
+            drawingEffect.Begin();<br>
+            drawingEffect.CurrentTechnique.Passes[0].Begin();</p>
+<p>            game.GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleStrip, shadowVertices, 0, shadowVertexCount * 2 – 2);</p>
+<p>            drawingEffect.CurrentTechnique.Passes[0].End();<br>
+            drawingEffect.End();</p>
+<p>        }</p>
+<p>//hope this helps.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-25449">
+
+		<p class="comment-title">by william bechard, on 12.18.09 
+			@ <a href="#comment-25449">5:04 am</a>
+			</p>
+
+		<div class="comment-text"><p>I
+do have a question though. With black the shadows dont cross past their
+hulls. However if i set the color to anythign else shadows show on the
+hulls. Is there a way to prevent this.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-25463">
+
+		<p class="comment-title">by william bechard, on 12.19.09 
+			@ <a href="#comment-25463">1:28 am</a>
+			</p>
+
+		<div class="comment-text"><p>hmm well i figured it out.</p>
+<p>within the DrawLightmap method</p>
+<p>I moved the</p>
+<p>                       foreach (ConvexHull hull in World1.Worldobjects)<br>
+                        {<br>
+                            hull.Draw(gT, World1.cam.get_transformation(GraphicsDevice));<br>
+                        }</p>
+<p>right after the</p>
+<p> foreach (ConvexHull ch in World1.Worldobjects)<br>
+                        {<br>
+                            //draw shadow<br>
+                            if (ch != null)<br>
+                            {</p>
+<p>                                ch.DrawShadows(light, World1.cam.get_transformation(GraphicsDevice));</p>
+<p>                            }<br>
+                        }</p>
+<p>so to recap in  DrawLightmap method it should look like the following:</p>
+<p> foreach (LightSource light in lights)<br>
+                {<br>
+                    //clear alpha to 1<br>
+                    ClearAlphaToOne();</p>
+<p>                    //draw all shadows<br>
+                    //write only to the alpha channel, which sets alpha to 0<br>
+                    GraphicsDevice.RenderState.ColorWriteChannels = ColorWriteChannels.Alpha;<br>
+                    GraphicsDevice.RenderState.CullMode = CullMode.None;<br>
+                    GraphicsDevice.RenderState.AlphaBlendEnable = true;<br>
+                    GraphicsDevice.RenderState.DestinationBlend = Blend.Zero;<br>
+                    GraphicsDevice.RenderState.SourceBlend = Blend.One;</p>
+<p>                        foreach (ConvexHull ch in World1.Worldobjects)<br>
+                        {<br>
+                            //draw shadow<br>
+                            if (ch != null)<br>
+                            {</p>
+<p>                                ch.DrawShadows(light, World1.cam.get_transformation(GraphicsDevice));</p>
+<p>                            }<br>
+                        }<br>
+                        foreach (ConvexHull hull in World1.Worldobjects)<br>
+                        {<br>
+                            hull.Draw(gT, World1.cam.get_transformation(GraphicsDevice));<br>
+                        }</p>
+<p>                    GraphicsDevice.RenderState.ColorWriteChannels = ColorWriteChannels.All;</p>
+<p>                    //draw the light shape<br>
+                    //where Alpha is 0, nothing will be written<br>
+                    //This is the light<br>
+spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate,
+SaveStateMode.SaveState, World1.cam.get_transformation(GraphicsDevice));<br>
+                    GraphicsDevice.RenderState.DestinationBlend = Blend.One;<br>
+                    GraphicsDevice.RenderState.SourceBlend = Blend.DestinationAlpha;<br>
+                    GraphicsDevice.RenderState.BlendFunction = BlendFunction.Add;<br>
+                    GraphicsDevice.RenderState.SeparateAlphaBlendEnabled = true;<br>
+                    light.Draw(spriteBatch);<br>
+                    spriteBatch.End();</p>
+<p>                }</p>
+<p>Now this will have the hulls lit up (fully) when light touches it</p>
+<p>If you would prefer them without light then make sure your color value is passed with an alpha of 0.</p>
+<p>this is my line to create the object (hull)</p>
+<p> objects = new ConvexHull(game2, Points, new Color(0,0,0,0), new Vector2(X, Y));</p>
+<p>Well this seems to have worked for me anyway.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-27018">
+
+		<p class="comment-title">by Pnikosis, on 02.25.10 
+			@ <a href="#comment-27018">6:14 pm</a>
+			</p>
+
+		<div class="comment-text"><p>Hi
+Catalin, I’m stuck with something and I though maybe you can help me
+out (please). I’m using your dynamic 2D shadows code (can I mention you
+in the credits in the game by the way?), and everything’s working fine.
+I’ve made some optimizations and it’s looking quite good.</p>
+<p>But now I’m trying to add some static shadows to my game, and for
+that I’m trying to calculate all the static shadows during the level
+loading period, and then just draw a texture with the static lights and
+shadows. The problem is that I’m not very good at graphics programming,
+and although I’m storing all the precalculated shadows in a big texture
+(with RenderTarget2D.GetTexture()) my problem is when my camera
+scrolls. RenderTarget2D gives me a texture with the viewport’s size, so
+when I move around and the camera moves, the rectangle containing the
+shadows stays in place :S What I need (I guess) is a bigger
+RenderTarget2D, with the size of the whole level, but I don’t know how
+to do this (gives me error when I try this. Any ideas?</p>
+<p>With dynamic shadows I have no problem, as it calculates on each
+frame the lights and shadows position related to the camera position.</p>
+<p>Thanks, sorry for the huge question.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-27020">
+
+		<p class="comment-title">by Pnikosis, on 02.25.10 
+			@ <a href="#comment-27020">6:23 pm</a>
+			</p>
+
+		<div class="comment-text"><p>Sorry, me again <img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/icon_razz.gif" alt=":P" class="wp-smiley"> </p>
+<p>What I want to do is only draw the cached “cutted” static lights (by
+cutted, I mean, the light source and removing the parts that are
+shadowed), as the shadows are already in the dynamic shadows’
+RenderTarget2D.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-27618">
+
+		<p class="comment-title">by <a href="http://awkwardgames.wordpress.com/2010/03/22/blind/" rel="external nofollow" class="url">Blind « AwkwardGames – Quote: "AwkwardGames ftw!"</a>, on 03.22.10 
+			@ <a href="#comment-27618">12:11 am</a>
+			</p>
+
+		<div class="comment-text"><p>[...]
+and XNA 3.1. The sfx used can be found on&nbsp;FreeSound.org Thanks go
+to Catalin Zima for his&nbsp;2D dynamic lighting sample. Inspiration
+source:&nbsp;Experimental Gameplay Project. The game itself is under
+the&nbsp;Creative Commons [...]</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="" id="comment-28228">
+
+		<p class="comment-title">by Stan, on 04.20.10 
+			@ <a href="#comment-28228">11:14 am</a>
+			</p>
+
+		<div class="comment-text"><p>I’m
+trying to get this to work with a camera and all is well except that
+the shadows will only draw correctly if the convex hull position is at
+(0,0). Any suggestions? Thanks.</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+		<li class="alt" id="comment-28391">
+
+		<p class="comment-title">by Christopher Harris, on 04.26.10 
+			@ <a href="#comment-28391">9:53 am</a>
+			</p>
+
+		<div class="comment-text"><p>Is anyone interested in a GPU based shadowing method?</p>
+<div style="clear: both;"></div></div>
+		</li>
+
+		
+	
+	</ol>
+	
+	<p align="left">
+		<a href="http://www.catalinzima.com/?feed=rss2&amp;page_id=313">Comment <abbr title="Really Simple Syndication">RSS</abbr></a>				· <a href="http://www.catalinzima.com/wp-trackback.php?p=313" rel="trackback">TrackBack <abbr title="Uniform Resource Identifier">URI</abbr></a>
+			</p>
+
+
+
+	<h2 class="postcomment">Leave a comment</h2>
+	<div class="postcomment">
+	
+		
+		<form action="http://www.catalinzima.com/wp-comments-post.php" method="post" id="commentform">
+		
+			
+			<p>
+				<strong>Name: (Required)</strong><br>
+				<input name="author" id="author" tabindex="1" type="text">
+			</p>
+			
+			<p>
+				<strong>eMail: (Required)</strong><br>
+				<input name="email" id="email" tabindex="2" type="text">
+			</p>
+			
+			<p>
+				<strong>Website:</strong><br>
+				<input name="url" id="url" tabindex="3" type="text">
+			</p>
+
+								<p>
+				<strong>Comment:</strong><br>
+				<textarea name="comment" id="comment" rows="" cols="" tabindex="4"></textarea>
+			</p>
+	
+			<p>
+				<input name="submit" id="submit" tabindex="5" value="Post Comment!" type="submit">
+				<input name="comment_post_ID" value="313" type="hidden">
+			</p>
+	
+			
+		</form>
+
+		</div>
+
+				</div>
+
+						</div></div>
+
+		</div>
+	<div id="narrowcolumn-wrapper">&nbsp;</div>
+	</div></div>
+
+	<div id="sidebar">
+<ul>
+
+
+<li class="Search">
+    <form action="/index.php" method="post">
+     <input name="s" class="keyword" style="width: 236px;" type="text">
+    </form>
+</li>
+
+
+	<li>
+
+<table style="width: 100%;">
+	<tbody><tr>
+	<td>
+		<h2>Author</h2>
+	</td>
+	<td>
+		<a href="http://www.catalinzima.com/?feed=rss2"><img style="vertical-align: middle;" src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/rss_icon.gif" alt="Subscribe to Catalin’s XNA Experiments"></a>
+	</td>
+	</tr>
+	</tbody></table>
+<ul>
+			<li><b> Catalin Zima (<a href="mailto:catalinzima@gmail.com">contact me</a>)</b></li>
+			<li><a href="http://www.linkedin.com/in/catalinzima"><b>Profile on LinkedIn</b></a></li>
+		</ul>
+	</li>
+
+
+	
+
+<li id="text-2" class="widget widget_text">			<div class="textwidget"><center><a href="https://mvp.support.microsoft.com/">
+<img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/mvplogo.jpg"></a></center></div>
+		</li>
+<li id="text-1" class="widget widget_text">			<div class="textwidget"><a href="http://profile.mygamercard.net/CatalinZima">
+<img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/CatalinZima.png" width="260px" border="0">
+</a></div>
+		</li>
+<li id="flexipages-2" class="widget flexipages_widget"><h2 class="widgettitle">Pages</h2>
+<ul>
+<li class="page_item page-item-11 current_page_ancestor"><a href="http://www.catalinzima.com/?page_id=11" title="Samples">Samples</a>
+<ul>
+	<li class="page_item page-item-479"><a href="http://www.catalinzima.com/?page_id=479" title="Game Features Replicator">Game Features Replicator</a></li>
+	<li class="page_item page-item-470 current_page_ancestor current_page_parent"><a href="http://www.catalinzima.com/?page_id=470" title="12 Months, 12 Samples 2008">12 Months, 12 Samples 2008</a></li>
+	<li class="page_item page-item-473"><a href="http://www.catalinzima.com/?page_id=473" title="Other Samples">Other Samples</a></li>
+</ul>
+</li>
+<li class="page_item page-item-10"><a href="http://www.catalinzima.com/?page_id=10" title="Tutorials">Tutorials</a>
+<ul>
+	<li class="page_item page-item-13"><a href="http://www.catalinzima.com/?page_id=13" title="Four Uses of VTF">Four Uses of VTF</a></li>
+	<li class="page_item page-item-14"><a href="http://www.catalinzima.com/?page_id=14" title="Deferred Rendering">Deferred Rendering</a></li>
+	<li class="page_item page-item-575"><a href="http://www.catalinzima.com/?page_id=575" title="Crash Course in HLSL">Crash Course in HLSL</a></li>
+	<li class="page_item page-item-406"><a href="http://www.catalinzima.com/?page_id=406" title="Fur Rendering">Fur Rendering</a></li>
+</ul>
+</li>
+<li class="page_item page-item-2"><a href="http://www.catalinzima.com/?page_id=2" title="About">About</a></li>
+</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Links</h2>
+
+	<ul class="xoxo blogroll">
+<li><a href="http://creators.xna.com/">Creator’s Club Online</a></li>
+<li><a href="http://sgtconker.com/">Sgt. Conker</a></li>
+<li><a href="http://creators.xna.com/en-US/community_resources" title="List of XNA sites and blogs">XNA Blogs</a></li>
+<li><a href="http://www.ziggyware.com/">Ziggyware</a></li>
+
+	</ul>
+</li>
+
+<li id="text-3" class="widget widget_text">			<div class="textwidget">My employer: <br>
+<center><a href="http://www.evozon.com/"><img src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/evozon_logo.gif" alt="Evozon"></a></center></div>
+		</li>
+<li id="meta-2" class="widget widget_meta"><h2 class="widgettitle">Meta</h2>
+			<ul>
+						<li><a href="http://www.catalinzima.com/wp-login.php">Log in</a></li>
+			<li><a href="http://www.catalinzima.com/?feed=rss2" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://www.catalinzima.com/?feed=comments-rss2" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>
+						</ul>
+</li>
+<li id="archives-2" class="widget widget_archive"><h2 class="widgettitle">Archives</h2>
+		<ul>
+			<li><a href="http://www.catalinzima.com/?m=201005" title="May 2010">May 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=201004" title="April 2010">April 2010</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200911" title="November 2009">November 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200910" title="October 2009">October 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200909" title="September 2009">September 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200908" title="August 2009">August 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200907" title="July 2009">July 2009</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200906" title="June 2009">June 2009</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200904" title="April 2009">April 2009</a>&nbsp;(3)</li>
+	<li><a href="http://www.catalinzima.com/?m=200903" title="March 2009">March 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200902" title="February 2009">February 2009</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200901" title="January 2009">January 2009</a>&nbsp;(5)</li>
+	<li><a href="http://www.catalinzima.com/?m=200812" title="December 2008">December 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200811" title="November 2008">November 2008</a>&nbsp;(2)</li>
+	<li><a href="http://www.catalinzima.com/?m=200810" title="October 2008">October 2008</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200809" title="September 2008">September 2008</a>&nbsp;(5)</li>
+	<li><a href="http://www.catalinzima.com/?m=200808" title="August 2008">August 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200807" title="July 2008">July 2008</a>&nbsp;(7)</li>
+	<li><a href="http://www.catalinzima.com/?m=200806" title="June 2008">June 2008</a>&nbsp;(1)</li>
+	<li><a href="http://www.catalinzima.com/?m=200805" title="May 2008">May 2008</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200804" title="April 2008">April 2008</a>&nbsp;(3)</li>
+	<li><a href="http://www.catalinzima.com/?m=200803" title="March 2008">March 2008</a>&nbsp;(3)</li>
+	<li><a href="http://www.catalinzima.com/?m=200802" title="February 2008">February 2008</a>&nbsp;(4)</li>
+	<li><a href="http://www.catalinzima.com/?m=200801" title="January 2008">January 2008</a>&nbsp;(2)</li>
+		</ul>
+</li>
+<li id="categories-1" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+	<li class="cat-item cat-item-12"><a href="http://www.catalinzima.com/?cat=12" title="View all posts filed under 2D">2D</a> (7)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.catalinzima.com/?cat=13" title="View all posts filed under 3D">3D</a> (8)
+</li>
+	<li class="cat-item cat-item-21"><a href="http://www.catalinzima.com/?cat=21" title="View all posts filed under Announcements">Announcements</a> (4)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.catalinzima.com/?cat=10" title="View all posts filed under contest">contest</a> (5)
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.catalinzima.com/?cat=16" title="View all posts filed under Dino">Dino</a> (3)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://www.catalinzima.com/?cat=22" title="View all posts filed under GFR">GFR</a> (5)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.catalinzima.com/?cat=6" title="View all posts filed under HLSL">HLSL</a> (10)
+</li>
+	<li class="cat-item cat-item-24"><a href="http://www.catalinzima.com/?cat=24" title="View all posts filed under iQuest">iQuest</a> (1)
+</li>
+	<li class="cat-item cat-item-30"><a href="http://www.catalinzima.com/?cat=30" title="View all posts filed under ITS COMMING!!">ITS COMMING!!</a> (1)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://www.catalinzima.com/?cat=20" title="View all posts filed under Kitty">Kitty</a> (2)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.catalinzima.com/?cat=11" title="View all posts filed under MVP">MVP</a> (4)
+</li>
+	<li class="cat-item cat-item-18"><a href="http://www.catalinzima.com/?cat=18" title="View all posts filed under Non-XNA">Non-XNA</a> (1)
+</li>
+	<li class="cat-item cat-item-19"><a href="http://www.catalinzima.com/?cat=19" title="View all posts filed under recap">recap</a> (1)
+</li>
+	<li class="cat-item cat-item-26"><a href="http://www.catalinzima.com/?cat=26" title="View all posts filed under sample">sample</a> (1)
+</li>
+	<li class="cat-item cat-item-29"><a href="http://www.catalinzima.com/?cat=29" title="View all posts filed under Sgt Conker">Sgt Conker</a> (1)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://www.catalinzima.com/?cat=15" title="View all posts filed under Tease">Tease</a> (1)
+</li>
+	<li class="cat-item cat-item-28"><a href="http://www.catalinzima.com/?cat=28" title="View all posts filed under ToonBoom">ToonBoom</a> (2)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.catalinzima.com/?cat=1" title="View all posts filed under Uncategorized">Uncategorized</a> (16)
+</li>
+	<li class="cat-item cat-item-27"><a href="http://www.catalinzima.com/?cat=27" title="View all posts filed under video">video</a> (1)
+</li>
+	<li class="cat-item cat-item-23"><a href="http://www.catalinzima.com/?cat=23" title="View all posts filed under World Of Goo">World Of Goo</a> (2)
+</li>
+	<li class="cat-item cat-item-25"><a href="http://www.catalinzima.com/?cat=25" title="View all posts filed under XBLCG">XBLCG</a> (1)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.catalinzima.com/?cat=5" title="View all posts filed under XNA">XNA</a> (42)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.catalinzima.com/?cat=17" title="View all posts filed under Ziggyware">Ziggyware</a> (5)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.catalinzima.com/?cat=14" title="View all posts filed under Zune">Zune</a> (2)
+</li>
+		</ul>
+</li>
+
+</ul>
+	</div>
+</div>
+
+<div id="footer">
+<p>Design by : <a href="http://www.searchopedia.org/">Searchopedia</a></p>
+</div>
+
+<script src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/e-201022.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'2816963',v:'ext',post:'313'});
+var load_cmc = function(){linktracker_init(2816963,313,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script><img id="wpstats" src="Catalin%E2%80%99s%20XNA%20Experiments%20%C2%BB%20Dynamic%202D%20Shadows_files/g.gif" alt="">
+</div></body></html>

@@ -1,0 +1,534 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="YouHaveBeenSelected_files/styles.css">
+    <title>You have been Selected!</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="YouHaveBeenSelected_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>You Have Been Selected</h2>
+				<p>
+					<em>This tutorial walks you through creating a selection box using the XNA framework</em>
+				</p>
+				<ul>
+				<li><a href="http://www.xnadevelopment.com/tutorials/youhavebeenselected/SelectionBox.zip">Download the Source code</a></li>
+				
+				<li><a href="http://www.xnadevelopment.com/tutorials/youhavebeenselected/SelectionBoxOneStepFurther.zip">Download the Enhanced Source Code</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="YouHaveBeenSelected_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>You have been Selected!</h2> 
+
+<b>How to create a selection box.</b> 
+
+<p>In this tutorial, we will show how to create a selection box. A
+selection box is the dotted line&nbsp;rectangle that&nbsp;you see in
+most real time strategy (RTS) games that is used to select your units.
+This tutorial will cover how to go about creating a dynamically sized
+rectangular selection box that could be useful in creating your own RTS
+game. </p> <p><strong><u>Creating the new game project:</u></strong></p> <p>To
+start, first create a new Windows Game Project. This can be done by
+launching XNA Game Studio Express and then selecting File -&gt; New
+Project from the Menu.</p> <p>In the New Project window, select the
+"Windows Game" template and then give the project a name and choose a
+location to save the project.</p> <p align="center"><a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1352.jpg" atomicselection="true"><img style="border-width: 0px;" src="YouHaveBeenSelected_files/CropperCapture135_thumb.jpg" border="0" width="640" height="467"></a> </p> <p>Let's stop here and do a quick <strong>build</strong> <a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1335.jpg" atomicselection="true"><img style="border-width: 0px;" src="YouHaveBeenSelected_files/CropperCapture133_thumb3.jpg" border="0" width="40" height="36"></a>
+so you can see the power of XNA (and so we can verify that the project
+was created correctly and that your video card supports the minimum XNA
+requirements).</p> <p>When you run the project, you should be greeted
+with a Cornflower blue window. If you're seeing this lovely shade of
+blue, then you have successfully setup your new game project.</p> <div align="center"><a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1372.jpg" atomicselection="true"><img style="border-width: 0px;" src="YouHaveBeenSelected_files/CropperCapture137_thumb.jpg" border="0" width="614" height="480"></a> &nbsp;</div> <div align="center">&nbsp;</div> <p>If you have an error, then your video card most likely does not meet the minimum requirements for XNA. See the <a href="http://msdn.microsoft.com/directx/xna/faq/">XNA FAQ</a>
+from the Microsoft site for the minimum requirements and verify that
+your video card does&nbsp;meet those requirements. If you believe your
+video card does meet those requirement and are still getting an error,
+then I recommend you&nbsp;head on over to the <a href="http://forums.microsoft.com/MSDN/default.aspx?ForumGroupID=20&amp;SiteID=1">MSDN XNA Forums</a>
+and describe the error you are getting ask for some&nbsp; help there
+(you will probably see me around there, I find them to be a great place
+to hang out).</p> <div align="left">&nbsp;</div> <div align="left">&nbsp;</div> <div align="left"><strong><u>Making the&nbsp;Mouse Pointer&nbsp;Visible:</u></strong></div> <div align="left"><strong><u></u></strong>&nbsp;</div> <p>We
+will start things off in this little project by making the mouse
+pointer visible for our game. By default, XNA games start out with the
+mouse pointer being invisible. This is because for most games you will
+most likely want to make a custom mouse pointer to be displayed instead
+of the standard windows mouse pointer. For us however, the standard
+windows mouse pointer will work just fine so we will go ahead and make
+it visible now.</p></div> <div align="left">&nbsp; <p>To make the mouse pointer visible in the game, add the following line of code to the Initialize method.</p> <div align="left">&nbsp;</div> <div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Initialize()</pre><pre>        {</pre><pre class="alt">            <span class="rem">//Make the mouse pointer visible in the game window</span></pre><pre>            <span class="kwrd">this</span>.IsMouseVisible = <span class="kwrd">true</span>;</pre><pre class="alt">        }</pre></div>
+<style type="text/css">.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<div align="left">&nbsp;</div>
+<p>Time to do a quick <strong>build</strong> &nbsp;<a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1335.jpg" atomicselection="true"><img style="border-width: 0px;" src="YouHaveBeenSelected_files/CropperCapture133_thumb3.jpg" border="0" width="40" height="36"></a>&nbsp;of the project again so you can wave your newly visible mouse pointer around the game window with pride. </p>
+<div align="left">&nbsp;</div>
+<div align="left">&nbsp;</div>
+<div align="left"><strong><u>Adding the image:</u></strong></div>
+<div align="left"><strong><u></u></strong>&nbsp;</div>
+<p>
+Next, let's add the image to the project that we are going to use when
+we draw the selection box rectangle. This image consists of a
+transparent area, a rectangular white dash and then some more
+transparent area. (the image does not appear transparent when viewed
+through the web, but the dark areas are the transparent areas)</p>
+<div align="left">&nbsp;</div>
+<div align="center"><a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/DottedLine3.png" atomicselection="true"><img style="border-width: 0px;" src="YouHaveBeenSelected_files/DottedLine_thumb1.png" border="0" width="240" height="55"></a> </div>
+<div align="center">&nbsp;</div>
+<p>
+The image is provided in the source file for this tutorial. Save the
+image to your project folder and now we will add it to the project
+itself.
+</p>
+<div align="left">&nbsp;</div>
+<p>
+To add an image to the game project. <b>Right-click on the project</b> name and select "Add -&gt; Existing Item". This will open the "Add Existing Item" dialog.
+</p>
+<div align="left">&nbsp;</div>
+<div align="left">
+<p>This dialog box defaults to show only Visual C# Files which mean you
+will not see any&nbsp;images&nbsp;until you change this. We want to use
+the Content Pipeline to manage our images so from the "Files of type:"
+combo box, select "Content Pipeline Files". Now you should be able to
+navigate to your image. Select&nbsp;the image&nbsp;and then click the
+"Add" button. You have now <b>successfully added an image</b> to your game project.</p>
+<div align="left">&nbsp;</div>
+<div align="center"><a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1382.jpg" atomicselection="true"><img style="border: 0px none ;" src="YouHaveBeenSelected_files/CropperCapture138_thumb.jpg" border="0" width="640" height="415"></a> </div>
+<div align="center">&nbsp;</div>
+<div align="left">&nbsp;</div>
+<div align="left"><b><u>Drawing the Image:</u></b></div>
+<div align="left">&nbsp;</div>
+<div align="left">
+<p>We have created the game project, made the mouse pointer visible and
+added an image, now let's go ahead and write a little code to make that
+image <b>draw on the screen</b>.&nbsp;</p></div>
+<div align="left">
+<p>Start by adding two new objects to the class. These objects will take care of drawing the image and storing the image.&nbsp;</p></div>
+<div align="left">&nbsp;</div>
+<div class="csharpcode"><pre class="alt">        SpriteBatch mSpriteBatch;</pre><pre>        Texture2D mDottedLine;</pre><pre>&nbsp;</pre></div>
+<p></p>
+<p>This "SpriteBatch" object is used to draw your images. The
+"Texture2D" object is used to store your images.&nbsp;Both of
+these&nbsp;types of objects are used very frequently when creating 2D
+games with XNA, so learning to use them and all that they can do
+becomes very important. We will only be scratching the surface of what
+you can do with just these two objects in this tutorial.</p>
+<p>Now that we our objects, we need to<b> initialize them and use them</b>.
+To initialize the objects, we are going to add some code to the
+"LoadGraphicsContent" method that was automatically created for us when
+we selected the Windows Game template.</p>
+<p>Add the following code to the "LoadGraphicsContent" method.&nbsp;</p><!-- code formatted by http://manoli.net/csharpformat/ -->
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadGraphicsContent(<span class="kwrd">bool</span> loadAllContent)</pre><pre>        {</pre><pre class="alt">            <span class="kwrd">if</span> (loadAllContent)</pre><pre>            {</pre><pre class="alt">                <span class="rem">// TODO: Load any ResourceManagementMode.Automatic content</span></pre><pre>&nbsp;</pre><pre class="alt">                <span class="rem">//Initialize the sprite batch</span></pre><pre>                mSpriteBatch = <span class="kwrd">new</span> SpriteBatch(<span class="kwrd">this</span>.graphics.GraphicsDevice);</pre><pre class="alt">&nbsp;</pre><pre>                <span class="rem">//Create the Content Manager object to load images </span></pre><pre class="alt">                ContentManager aLoader = <span class="kwrd">new</span> ContentManager(<span class="kwrd">this</span>.Services);</pre><pre>&nbsp;</pre><pre class="alt">                <span class="rem">//Use the Content Manager to load the Dotted Line image into the Texture2D object</span></pre><pre>                mDottedLine = aLoader.Load&lt;Texture2D&gt;(<span class="str">"DottedLine"</span>) <span class="kwrd">as</span> Texture2D;</pre><pre class="alt">&nbsp;</pre><pre>            }</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">// TODO: Load any ResourceManagementMode.Manual content</span></pre><pre class="alt">        }</pre></div>
+<p>&nbsp;</p>
+<p>First, we initialized our SpriteBatch. If we had forgotten to
+initialize it, when we tried to use this object later, we would have
+gotten an error that "Object reference was not set to an instance of an
+object". When developing with objects, this becomes a fairly frequent
+error to see. Once you get it, you know that somewhere in your code <b>you forgot to initialize an object</b>. </p>
+<p>Then we created a new object, a "ContentManager" object, to be used
+just within this method. The ContentManager object is used to load our
+images.</p>
+<p>Finally, we used the newly created "ContentManager" object to load
+our "DottedLine" image and store it in our Texture2D object.&nbsp;</p>
+<p>Now that we have initialized all of our objects,<b> we can draw</b>
+our&nbsp;Dotted line&nbsp;to the screen. To actually draw the image to
+the screen, we will add some code to the "Draw" method. The "Draw"
+method is another one of the base methods that was automatically
+created for us when we made a new Windows Game project.</p>
+<p>Add the following code to the "Draw" method.&nbsp;</p><!-- code formatted by http://manoli.net/csharpformat/ -->
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            graphics.GraphicsDevice.Clear(Color.Black);</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your drawing code here</span></pre><pre>            mBatch.Begin();</pre><pre class="alt">            mBatch.Draw(mDottedLine, <span class="kwrd">new</span> Rectangle(0, 0, 10, 5), Color.White);</pre><pre>            mBatch.End();</pre><pre class="alt">             </pre><pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre><pre class="alt">        }</pre></div>
+<p>First, we are going to change the color we are clearing the screen
+with from the default "CornflowerBlue" to "Black". Our image is a white
+dotted line so it just shows up a bit better on a black background.</p>
+<p>Next, we let the SpriteBatch object know that <b>we are ready</b> to begin drawing some things. </p>
+<p>Then we draw our image using the SpriteBatch. In this case, we told
+the SpriteBatch which image we wanted to draw (our DotteLineTexture2D
+object), where we wanted to draw it, how big we wanted the image to be
+and what color we wanted to shade the image. We told the SpriteBatch
+where we wanted to draw the image and how big we wanted to make it when
+we passed in that Rectangle object. The first two values of the
+Rectangle object tell the SpriteBatch which x, y location we want to
+start drawing our image. In this case, we told the SpriteBatch that we
+wanted to draw it at the (0,0) point on the screen which is the upper
+left of the screen. The next two values of the Rectangle object tell
+the SpriteBatch how wide and how high we want the image to be. In this
+case we used a width of 10 pixels and a height of 5
+pixels.&nbsp;Finally, the Color value we chose was White. This tells
+the SpriteBatch that we don't want to apply any coloring to the image
+at this time.</p>
+<p>Last, <b>we tell the SpriteBatch</b> object that we are done drawing are images. </p>
+<p>Now that we have created our objects and drawn the image to the screen, let's <b>do a quick build</b>&nbsp;<a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1335.jpg" atomicselection="true"><img style="border-width: 0px;" src="YouHaveBeenSelected_files/CropperCapture133_thumb3.jpg" border="0" width="40" height="36"></a> to make sure that we have coded everything properly and that there are no errors.</p>
+<p>When you do the build you should be presented with a screen like
+this one. Just black with a little with dash in the upper left corner.
+Pretty exciting right?</p>
+<p align="center"><a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1392.jpg" atomicselection="true"><img style="border: 0px none ;" src="YouHaveBeenSelected_files/CropperCapture139_thumb.jpg" border="0" width="614" height="480"></a> </p>
+<p align="left">&nbsp;</p>
+<p align="left"><b><u>Drawing the Image where the Left Click occurs:</u></b></p>
+<p align="left">Now that we are actually <b>drawing the image</b> to
+the screen, let's enhance the code to only draw the image when a left
+click occurs. For this project, the player is going to start making the
+selection box when they left click with the mouse and we are going to
+start achieving that effect by drawing the image where they left click.
+We will erase the image when they release the left click to simulate
+what happens when the player is finished with their selection
+box.&nbsp; </p>
+<p align="left">So left click, draw the image at the current mouse
+location and maintain it at that location. Release the left mouse
+button, erase the image. Got it?</p>
+<p align="left">&nbsp;</p>
+<p align="left">To start, add the following code to the top of your class after the SpriteBatch and Texture2D object declarations.</p>
+<div class="csharpcode"><pre class="alt">        Rectangle mSelectionBox;</pre><pre>        MouseState mPreviousMouseState;</pre></div>
+<p aling="left">&nbsp;</p>
+<p aling="left">The Rectangle object (mSelectionBox), will be use to
+track the current location of the mouse click (the x,y location the
+mouse click occurred). The MouseState object (mPreviousMouseState) will
+be used to store the previous state the mouse was in (was the left
+button clicked or released last time).</p>
+<p aling="left">First we will need to initialize these two objects. Add the following code to the Initialize method:</p>
+<p aling="left">&nbsp;</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Initialize()</pre><pre>        {</pre><pre class="alt">            <span class="rem">// TODO: Add your initialization logic here</span></pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Make the mouse pointer visible in the game window</span></pre><pre>            <span class="kwrd">this</span>.IsMouseVisible = <span class="kwrd">true</span>;</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//Initialize the Selection box's rectangle. Currently no selection box is drawn</span></pre><pre class="alt">            <span class="rem">//so set it's x and y position to -1 and it's height and width to 0</span></pre><pre>            mSelectionBox = <span class="kwrd">new</span> Rectangle(-1, -1, 0, 0);</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//Initialize the previous mouse state. This stores the current state of the mouse</span></pre><pre class="alt">            mPreviousMouseState = Mouse.GetState();</pre><pre>&nbsp;</pre><pre class="alt">            <span class="kwrd">base</span>.Initialize();</pre><pre>        }</pre></div>
+<p aling="left">Your beautiful mouse visible code should still remain
+and we have now added our initialization for the SelectionBox rectangle
+object and the previous state of the Mouse.</p>
+<p aling="left">The mSelectionBox variable is started with no position
+(the game has just started so the player has not left clicked yet so
+there should not be any x or y position set).</p>
+<p aling="left">The PreviousMouseState variable just gets the current state of the mouse when the game starts.</p>
+<p aling="left">&nbsp;</p>
+<p aling="left">Next, we need to add some code to the Update method to
+detect when the left mouse button is clicked and release and to store
+the current position of the mouse when the player does click the left
+mouse button.</p>
+<p aling="left">Add the following code to the Update method:</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            <span class="rem">// Allows the default game to exit on Xbox 360 and Windows</span></pre><pre>            <span class="kwrd">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)</pre><pre class="alt">                <span class="kwrd">this</span>.Exit();</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your update logic here</span></pre><pre>        </pre><pre class="alt">            </pre><pre>            <span class="rem">//Get the current state of the Mouse</span></pre><pre class="alt">            MouseState aMouse = Mouse.GetState();</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//If the user has just clicked the Left mouse button, then set the start location for the Selection box</span></pre><pre>            <span class="kwrd">if</span> (aMouse.LeftButton == ButtonState.Pressed &amp;&amp; mPreviousMouseState.LeftButton == ButtonState.Released)</pre><pre class="alt">            {</pre><pre>                <span class="rem">//Set the starting location for the selection box to the current location</span></pre><pre class="alt">                <span class="rem">//where the Left button was initially clicked.</span></pre><pre>                mSelectionBox = <span class="kwrd">new</span> Rectangle(aMouse.X, aMouse.Y, 0, 0);</pre><pre class="alt">            }          </pre><pre>                        </pre><pre class="alt">            <span class="rem">//If the user has released the left mouse button, then reset the selection square</span></pre><pre>            <span class="kwrd">if</span> (aMouse.LeftButton == ButtonState.Released)</pre><pre class="alt">            {</pre><pre>                <span class="rem">//Reset the selection square to no position with no height and width</span></pre><pre class="alt">                mSelectionBox = <span class="kwrd">new</span> Rectangle(-1, -1, 0, 0);</pre><pre>            }</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//Store the previous mouse state</span></pre><pre class="alt">            mPreviousMouseState = aMouse;</pre><pre>&nbsp;</pre><pre class="alt">            <span class="kwrd">base</span>.Update(gameTime);</pre><pre>        }</pre></div>
+<p aling="left">&nbsp;</p>
+<p aling="left">When the game updates, the first thing that is done is
+that we get the current state of the mouse (what buttons are currently
+pressed and the current location of the mouse). </p>
+<p aling="left">Next, we check to see if the left mouse button is
+currently pressed. If it was AND it previous was not pressed (so the
+player has JUST clicked it), then store the current x, y location of
+the mouse. So mSelectionBox gets the current X (aMouse.X) and the
+current Y (aMouse.Y) position of where the mouse pointer is on the
+screen. This is where we will be drawing the image.</p>
+<p aling="left">Now we check to see if the left button has been
+released. If it has, we will remove the X, Y location for the image and
+no longer draw it (we're only going to draw the image while the player
+keeps the Left button click remember?).</p>
+<p aling="left">Finally, we update the mPreviousMouseState variable
+with the current mouse state. That way we can compare next time through
+the Update method what the state of the mouse was in the previous
+iteration.</p>
+<p aling="left">Well, now we've Initialized our object, done some logic
+in the Update and the final thing to do is to get some visual result.
+To accomplish that we will change the code in our Draw method.</p>
+<p aling="left">Add the following code to the Draw method:</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            graphics.GraphicsDevice.Clear(Color.Black);</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your drawing code here</span></pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Begin drawing with the batch</span></pre><pre>            mSpriteBatch.Begin();</pre><pre class="alt">&nbsp;</pre><pre>            <span class="kwrd">if</span> (mSelectionBox.X != -1 &amp;&amp; mSelectionBox.Y != -1)</pre><pre class="alt">            {</pre><pre>                mSpriteBatch.Draw(mDottedLine, <span class="kwrd">new</span> Rectangle(mSelectionBox.X, mSelectionBox.Y, 10, 5), Color.White);</pre><pre class="alt">            }</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//End the drawing with the batch </span></pre><pre>            mSpriteBatch.End();</pre><pre class="alt">&nbsp;</pre><pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre><pre class="alt">        }</pre></div>
+<p aling="left">So we are still clearing the screen to Black (instead
+of the lovely CornflowerBlue), however we've added a bit more logic to
+the drawing of our image.</p>
+<p aling="left">First, we check to make sure that the current X and Y
+values for the mSelectionBox variable are not -1. When they are -1,
+that means the player has released the Left mouse button and we should
+no longer be drawing the dashed line image.</p>
+<p aling="left">If the values are not -1, then we will draw our dotted
+line image at the current&nbsp;position for the selection box (that is,
+wherever the player first left clicked). </p>
+<p aling="left">&nbsp;</p>
+<p aling="left">Well, that's a lot. Let's go ahead and give the changes
+we have made a quick test run to make sure we have done everything
+correctly. Do a <b>build</b> <a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1335.jpg" atomicselection="true"><img style="border-width: 0px;" src="YouHaveBeenSelected_files/CropperCapture133_thumb3.jpg" border="0" width="40" height="36"></a>&nbsp;and
+you should see the black screen. Nothing should be drawn to the screen
+at first. Now, left click and you should see the small dash drawn. Keep
+the left mouse button clicked and wave your mouse around. The image
+should remain in the original location of the click. Now release the
+mouse button and the image should disappear.</p>
+<p aling="left">&nbsp;</p>
+<p aling="left">Did you get the results you expected? Ready to add some more functionality? </p>
+<p aling="left">&nbsp;</p>
+<p aling="left"><strong><u>Drawing a Horizontal line:</u></strong></p>
+<p aling="left">&nbsp;</p>
+<p aling="left">We have a dash, but a dash is a far cry from a box.
+Let's get a little close to our final goal by drawing a horizontal
+line. We want the line to start where the player clicks the left mouse
+button and to expand and shrink in the X direction as they move their
+mouse horizontally. </p>
+<p aling="left">&nbsp;</p>
+<p aling="left">To begin drawing our horizontal line, we will need to
+track where the Mouse is moving to in the horizontal direction as the
+player keeps the left mouse button pressed. This will require us to add
+some more code to the Update method.</p>
+<p aling="left">&nbsp;</p>
+<p aling="left">Add the following code to the Update method:</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            <span class="rem">// Allows the default game to exit on Xbox 360 and Windows</span></pre><pre>            <span class="kwrd">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)</pre><pre class="alt">                <span class="kwrd">this</span>.Exit();</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your update logic here</span></pre><pre>            </pre><pre class="alt">            <span class="rem">//Get the current state of the Mouse</span></pre><pre>            MouseState aMouse = Mouse.GetState();</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//If the user has just clicked the Left mouse button, then set the start location for the Selection box</span></pre><pre class="alt">            <span class="kwrd">if</span> (aMouse.LeftButton == ButtonState.Pressed &amp;&amp; mPreviousMouseState.LeftButton == ButtonState.Released)</pre><pre>            {</pre><pre class="alt">                <span class="rem">//Set the starting location for the selection box to the current location</span></pre><pre>                <span class="rem">//where the Left button was initially clicked.</span></pre><pre class="alt">                mSelectionBox = <span class="kwrd">new</span> Rectangle(aMouse.X, aMouse.Y, 0, 0);</pre><pre>            }</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//If the user is still holding the Left button down, then continue to re-size the </span></pre><pre class="alt">            <span class="rem">//selection square based on where the mouse has currently been moved to.</span></pre><pre>            <span class="kwrd">if</span> (aMouse.LeftButton == ButtonState.Pressed)</pre><pre class="alt">            {</pre><pre>                <span class="rem">//The starting location for the selection box remains the same, but increase (or decrease)</span></pre><pre class="alt">                <span class="rem">//the size of the Width and Height but taking the current location of the mouse minus the</span></pre><pre>                <span class="rem">//original starting location.</span></pre><pre class="alt">                mSelectionBox = <span class="kwrd">new</span> Rectangle(mSelectionBox.X, mSelectionBox.Y, aMouse.X - mSelectionBox.X, 0);</pre><pre>            }</pre><pre class="alt">                        </pre><pre>            <span class="rem">//If the user has released the left mouse button, then reset the selection square</span></pre><pre class="alt">            <span class="kwrd">if</span> (aMouse.LeftButton == ButtonState.Released)</pre><pre>            {</pre><pre class="alt">                <span class="rem">//Reset the selection square to no position with no height and width</span></pre><pre>                mSelectionBox = <span class="kwrd">new</span> Rectangle(-1, -1, 0, 0);</pre><pre class="alt">            }</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Store the previous mouse state</span></pre><pre>            mPreviousMouseState = aMouse;</pre><pre class="alt">&nbsp;</pre><pre>            <span class="kwrd">base</span>.Update(gameTime);</pre><pre class="alt">        }</pre></div>
+<p aling="left">&nbsp;</p>
+<p aling="left">There's only one section of the code above that has
+changed from before. We added a new if...then block to check to see if
+the Mouse button is currently pressed and if it is, then we update the
+Width of our mSelectionBox variable.</p>
+<p aling="left">To update the width, we take the current X location
+(horizontal position) of the mouse and subtract the original point the
+player clicked the mouse. This will tell us how wide (or long) we need
+to make our horizontal line for our selection box.</p>
+<p aling="left">That little block was all we needed to add to our
+update logic. However, to actually draw the horizontal line, we need to
+add a new method to our class. This method will draw our horizontal
+line at a specified Y position. </p>
+<p aling="left">Add the following method to the class:</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> DrawHorizontalLine(<span class="kwrd">int</span> thePositionY)</pre><pre>        {</pre><pre class="alt">            <span class="rem">//When the width is greater than 0, the user is selecting an area to the right of the starting point</span></pre><pre>            <span class="kwrd">if</span> (mSelectionBox.Width &gt; 0)</pre><pre class="alt">            {</pre><pre>                <span class="rem">//Draw the line starting at the starting location and moving to the right</span></pre><pre class="alt">                <span class="kwrd">for</span> (<span class="kwrd">int</span> aCounter = 0; aCounter &lt;= mSelectionBox.Width - 10; aCounter += 10)</pre><pre>                {</pre><pre class="alt">                    <span class="kwrd">if</span> (mSelectionBox.Width - aCounter &gt;= 0)</pre><pre>                    {</pre><pre class="alt">                        mSpriteBatch.Draw(mDottedLine, <span class="kwrd">new</span> Rectangle(mSelectionBox.X + aCounter, thePositionY, 10, 5), Color.White);</pre><pre>                    }</pre><pre class="alt">                }</pre><pre>            }</pre><pre class="alt">            <span class="rem">//When the width is less than 0, the user is selecting an area to the left of the starting point</span></pre><pre>            <span class="kwrd">else</span> <span class="kwrd">if</span> (mSelectionBox.Width &lt; 0)</pre><pre class="alt">            {</pre><pre>                <span class="rem">//Draw the line starting at the starting location and moving to the left</span></pre><pre class="alt">                <span class="kwrd">for</span> (<span class="kwrd">int</span> aCounter = -10; aCounter &gt;= mSelectionBox.Width; aCounter -= 10)</pre><pre>                {</pre><pre class="alt">                    <span class="kwrd">if</span> (mSelectionBox.Width - aCounter &lt;= 0)</pre><pre>                    {</pre><pre class="alt">                        mSpriteBatch.Draw(mDottedLine, <span class="kwrd">new</span> Rectangle(mSelectionBox.X + aCounter, thePositionY, 10, 5), Color.White);</pre><pre>                    }</pre><pre class="alt">                }</pre><pre>            }</pre><pre class="alt">        }</pre></div>
+<p aling="left">&nbsp;</p>
+<p aling="left">So we have two cases here. When the Width of the
+horizontal line is greater than zero, the player has moved the mouse
+pointer from the start position (where they initially left clicked) and
+to the right of the screen. This gives the horizontal line a positive
+width. The second case is when the player has move the mouse pointer
+from the start position and to the left of the screen. this will give
+the Width a negative value. Each of those cases need to be handled
+separately. For the case of the Width equaling 0, we do not draw the
+line.</p>
+<p aling="left">When the Width is greater than 0, we loop through from
+0 to to the width of the line (minus a slight offset for the Width of
+the dotted line texture), incrementing by 10. Then as long as we aren't
+wider than the line, we draw the texture over and over again just
+moving it further and further to the right each time. This gives us our
+<b>dashed horizontal line</b>.</p>
+<p aling="left">When the Width is less than 0, we still have a loop and
+draw the line in a similar fashion, the difference is that we have to
+move down through the loop and moving the image further and further tot
+he left as we draw it.</p>
+<p aling="left">Now that we have created our method to draw the
+Horizontal line, we need to add a call to this method to our Draw
+method (and remove our code we were using to draw the image where we
+clicked).</p>
+<p aling="left">Add the following code to the Draw method:</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            graphics.GraphicsDevice.Clear(Color.Black);</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your drawing code here</span></pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Begin drawing with the batch</span></pre><pre>            mSpriteBatch.Begin();</pre><pre class="alt">            </pre><pre>            <span class="rem">//Draw the horizontal portions of the selection box </span></pre><pre class="alt">            DrawHorizontalLine(mSelectionBox.Y);  </pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//End the drawing with the batch </span></pre><pre>            mSpriteBatch.End();</pre><pre class="alt">&nbsp;</pre><pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre><pre class="alt">        }</pre></div>
+<p aling="left">&nbsp;</p>
+<p aling="left">So we removed our old code from the Draw method
+(although we still are clearing the screen to Black) and added our call
+to DrawHorizontalLine. We want the horizontal line to draw the vertical
+position where the player initialize clicked the left mouse button, so
+that's why we pass in the value mSelectionBox.Y.</p>
+<p aling="left">Well, again, we have done a lot and written quite a bit of new code. Let's take a little break from typing and do a quick <b>build</b> <a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1335.jpg" atomicselection="true"><img style="border-width: 0px;" src="YouHaveBeenSelected_files/CropperCapture133_thumb3.jpg" border="0" width="40" height="36"></a>&nbsp;to make sure that everything compiles ok.</p>
+<p aling="left">When you run the game, you should see the black screen
+initially. Now when you left click, the horizontal line should begin
+drawing and continue to draw in the horizontal direction as you move
+your mouse around. Releasing the Left mouse button should remove the
+horizontal line.</p>
+<p aling="left" align="center"><a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1412.jpg" atomicselection="true"><img style="border: 0px none ;" src="YouHaveBeenSelected_files/CropperCapture141_thumb.jpg" border="0" width="614" height="480"></a> </p>
+<p aling="left">We're getting there! </p>
+<p aling="left">&nbsp;</p>
+<p aling="left"><strong><u>Drawing a Vertical line:</u></strong></p>
+<p aling="left">To draw our vertical line, we need to track where the
+Mouse is moving to in the vertical direction as the player keeps the
+left mouse button pressed. This will require us to add some more code
+to the Update method.</p>
+<p aling="left">Add the following code to the Update method:</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            <span class="rem">// Allows the default game to exit on Xbox 360 and Windows</span></pre><pre>            <span class="kwrd">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)</pre><pre class="alt">                <span class="kwrd">this</span>.Exit();</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your update logic here</span></pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Get the current state of the Mouse</span></pre><pre>            MouseState aMouse = Mouse.GetState();</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//If the user has just clicked the Left mouse button, then set the start location for the Selection box</span></pre><pre class="alt">            <span class="kwrd">if</span> (aMouse.LeftButton == ButtonState.Pressed &amp;&amp; mPreviousMouseState.LeftButton == ButtonState.Released)</pre><pre>            {</pre><pre class="alt">                <span class="rem">//Set the starting location for the selection box to the current location</span></pre><pre>                <span class="rem">//where the Left button was initially clicked.</span></pre><pre class="alt">                mSelectionBox = <span class="kwrd">new</span> Rectangle(aMouse.X, aMouse.Y, 0, 0);</pre><pre>            }</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//If the user is still holding the Left button down, then continue to re-size the </span></pre><pre class="alt">            <span class="rem">//selection square based on where the mouse has currently been moved to.</span></pre><pre>            <span class="kwrd">if</span> (aMouse.LeftButton == ButtonState.Pressed)</pre><pre class="alt">            {</pre><pre>                <span class="rem">//The starting location for the selection box remains the same, but increase (or decrease)</span></pre><pre class="alt">                <span class="rem">//the size of the Width and Height but taking the current location of the mouse minus the</span></pre><pre>                <span class="rem">//original starting location.</span></pre><pre class="alt">                mSelectionBox = <span class="kwrd">new</span> Rectangle(mSelectionBox.X, mSelectionBox.Y, aMouse.X - mSelectionBox.X, aMouse.Y - mSelectionBox.Y);</pre><pre>            }</pre><pre class="alt">                        </pre><pre>            <span class="rem">//If the user has released the left mouse button, then reset the selection square</span></pre><pre class="alt">            <span class="kwrd">if</span> (aMouse.LeftButton == ButtonState.Released)</pre><pre>            {</pre><pre class="alt">                <span class="rem">//Reset the selection square to no position with no height and width</span></pre><pre>                mSelectionBox = <span class="kwrd">new</span> Rectangle(-1, -1, 0, 0);</pre><pre class="alt">            }</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Store the previous mouse state</span></pre><pre>            mPreviousMouseState = aMouse;</pre><pre class="alt">&nbsp;</pre><pre>            <span class="kwrd">base</span>.Update(gameTime);</pre><pre class="alt">        }</pre></div>
+<p aling="left">&nbsp;</p>
+<p aling="left">There was only one small change to this method. We now
+change the height of the selection box while the player keeps the left
+button clicked. We do this by taking the current Y position of the
+mouse and subtracting the starting Y position from it. This gives us
+our Height for the Vertical line.</p>
+<p aling="left">Now we need to add a new method to the class for
+drawing a Vertical line. This method is fairly similar to the
+Horizontal method.</p>
+<p aling="left">Add the following method to the class:</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> DrawVerticalLine(<span class="kwrd">int</span> thePositionX)</pre><pre>        {</pre><pre class="alt">            <span class="rem">//When the height is greater than 0, the user is selecting an area below the starting point</span></pre><pre>            <span class="kwrd">if</span> (mSelectionBox.Height &gt; 0)</pre><pre class="alt">            {</pre><pre>                <span class="rem">//Draw the line starting at the starting location and moving down</span></pre><pre class="alt">                <span class="kwrd">for</span> (<span class="kwrd">int</span> aCounter = -2; aCounter &lt;= mSelectionBox.Height; aCounter += 10)</pre><pre>                {</pre><pre class="alt">                    <span class="kwrd">if</span> (mSelectionBox.Height - aCounter &gt;= 0)</pre><pre>                    {</pre><pre class="alt">                        mSpriteBatch.Draw(mDottedLine, <span class="kwrd">new</span> Rectangle(thePositionX, mSelectionBox.Y + aCounter, 10, 5), <br> <span class="kwrd">new</span> Rectangle(0, 0, mDottedLine.Width, mDottedLine.Height), Color.White, MathHelper.ToRadians(90), <span class="kwrd">new</span> Vector2(0, 0), SpriteEffects.None, 0);</pre><pre>                    }</pre><pre class="alt">                }</pre><pre>            }</pre><pre class="alt">            <span class="rem">//When the height is less than 0, the user is selecting an area above the starting point</span></pre><pre>            <span class="kwrd">else</span> <span class="kwrd">if</span> (mSelectionBox.Height &lt; 0)</pre><pre class="alt">            {</pre><pre>                <span class="rem">//Draw the line starting at the start location and moving up</span></pre><pre class="alt">                <span class="kwrd">for</span> (<span class="kwrd">int</span> aCounter = 0; aCounter &gt;= mSelectionBox.Height; aCounter -= 10)</pre><pre>                {</pre><pre class="alt">                    <span class="kwrd">if</span> (mSelectionBox.Height - aCounter &lt;= 0)</pre><pre>                    {</pre><pre class="alt">                        mSpriteBatch.Draw(mDottedLine, <span class="kwrd">new</span> Rectangle(thePositionX - 10, mSelectionBox.Y + aCounter, 10, 5), Color.White);</pre><pre>                    }</pre><pre class="alt">                }</pre><pre>            }</pre><pre class="alt">        }</pre></div>
+<p aling="left">&nbsp;</p>
+<p aling="left">Again, we&nbsp;have two cases. When the&nbsp;Height of
+the&nbsp;vertical line is greater than zero, the player has moved the
+mouse pointer from the start position (where they initially left
+clicked) and to the bottom of the screen. This gives the vertical line
+a positive height. The second case is when the player has move the
+mouse pointer from the start position and to the top of the screen.
+this will give the Height a negative value. Each of those cases need to
+be handled separately. For the case of the Height equaling 0, we do not
+draw the line.</p>
+<p aling="left">When the Height is greater than 0, we loop through
+from&nbsp;-2 (a&nbsp;slight offset for&nbsp;improving the visual
+look)&nbsp;to to the height of the line, incrementing by 10. Then as
+long as we aren't higher than the line, we draw the texture over and
+over again just moving it further and further to the down each time.
+When we do the actual draw call, we have to rotate the dash so that
+it's in the vertical position. We do this by giving it a rotation of 90
+degrees. This gives us our <b>dashed vertical line</b>.</p>
+<p aling="left">When the Height is less than 0, we still have a loop
+and draw the line in a similar fashion, the difference is that we have
+to move down through the loop and moving the image further and further
+to the top as we draw it.</p>
+<p aling="left">Now that we have created our method to draw the Vertical line, we need to add a call to this method to our Draw method.</p>
+<p aling="left">Add the following code to the Draw method:</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            graphics.GraphicsDevice.Clear(Color.Black);</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your drawing code here</span></pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Begin drawing with the batch</span></pre><pre>            mSpriteBatch.Begin();</pre><pre class="alt">            </pre><pre>            <span class="rem">//Draw the horizontal portions of the selection box </span></pre><pre class="alt">            DrawHorizontalLine(mSelectionBox.Y);  </pre><pre>  </pre><pre class="alt">            <span class="rem">//Draw the vertical portions of the selection box </span></pre><pre>            DrawVerticalLine(mSelectionBox.X); </pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//End the drawing with the batch </span></pre><pre class="alt">            mSpriteBatch.End();</pre><pre>&nbsp;</pre><pre class="alt">            <span class="kwrd">base</span>.Draw(gameTime);</pre><pre>        }</pre></div>
+<p aling="left">&nbsp;</p>
+<p aling="left">Now that we have added our call to DrawVerticalLine
+(and we passed in mSelectionBox.X to draw the line at the starting X
+location), let again check to make sure we have the vertical line
+drawing correctly. Do a quick <b>build</b>&nbsp; <a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1335.jpg" atomicselection="true"><img style="border-width: 0px;" src="YouHaveBeenSelected_files/CropperCapture133_thumb3.jpg" border="0" width="40" height="36"></a>&nbsp;to test things out.</p>
+<p aling="left">When you run the game, you should see the black screen
+initially. Now when you left click, the horizontal line should begin
+drawing and continue to draw in the horizontal direction as you move
+your mouse around. Also, there should now be a vertical line drawing
+and continuing to draw in the vertical direction as you mouse your
+mouse around. Releasing the Left mouse button should remove the
+horizontal and vertical lines.</p>
+<p aling="left" align="center"><a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1422.jpg" atomicselection="true"><img style="border: 0px none ;" src="YouHaveBeenSelected_files/CropperCapture142_thumb.jpg" border="0" width="614" height="480"></a> </p>
+<p aling="left">&nbsp;</p>
+<p aling="left"><strong><u>Drawing the Selection Box:</u></strong></p>
+<p aling="left">&nbsp;</p>
+<p aling="left">Well, we have a horizontal line and a vertical line
+drawing now. We only need two more lines and we will have created our
+selection box! To get your selection box drawing in it's entirety, you
+just need to add a couple more lines of code to the Draw method.</p>
+<p aling="left">Add the following code to the Draw method:</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            graphics.GraphicsDevice.Clear(Color.Black);</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your drawing code here</span></pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Begin drawing with the batch</span></pre><pre>            mSpriteBatch.Begin();</pre><pre class="alt">            </pre><pre>            <span class="rem">//Draw the horizontal portions of the selection box </span></pre><pre class="alt">            DrawHorizontalLine(mSelectionBox.Y);  </pre><pre>            DrawHorizontalLine(mSelectionBox.Y + mSelectionBox.Height); </pre><pre class="alt">  </pre><pre>            <span class="rem">//Draw the vertical portions of the selection box </span></pre><pre class="alt">            DrawVerticalLine(mSelectionBox.X); </pre><pre>            DrawVerticalLine(mSelectionBox.X + mSelectionBox.Width);  </pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//End the drawing with the batch </span></pre><pre class="alt">            mSpriteBatch.End();</pre><pre>&nbsp;</pre><pre class="alt">            <span class="kwrd">base</span>.Draw(gameTime);</pre><pre>        }</pre></div>
+<p aling="left">Two new method calls have been added. We call
+DrawHorizontalLine a second time, passing it a new&nbsp;Y position (the
+starting Y position + the current Height of the line) to draw the
+bottom of the selection box. Then we call DrawVerticalLine a second
+time, passing it a new X position (the starting X position + the
+current Width of the line). This will complete the sides of our
+selection box. </p>
+<p aling="left">Go ahead and give the project a final <b>build</b>. You should now see your selection box demo <b>working entirely</b>.
+When you left click and drag, a dashed selection box will draw and when
+you release the left mouse button, the box will disappear.</p>
+<p aling="left" align="center"><a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1402.jpg" atomicselection="true"><img style="border: 0px none ;" src="YouHaveBeenSelected_files/CropperCapture140_thumb.jpg" border="0" width="614" height="480"></a> </p>
+<p aling="left"><b>Congratulations!</b> You have completed the selection box tutorial. </p>
+<p aling="left">&nbsp;</p>
+<p align="left">Now that you <b>know how to create a selection box</b>,
+can you think of some places where you might use it? Making an RTS
+(real time strategy) game is an obvious first thought but&nbsp;a pretty
+large project, can you think of a smaller game you could make using a
+selection box? </p>
+<p align="left">You can download the source code&nbsp;for the tutorial from <a href="http://www.xnadevelopment.com/tutorials/youhavebeenselected/SelectionBox.zip">here</a>. </p>
+<p align="left">&nbsp;</p>
+<p align="left"><strong><u>One Step Further:</u></strong></p>
+<p align="left">I've <b>expanded the project</b> a bit&nbsp;creating
+some "units" that you can select and move around the game
+window&nbsp;just to make it a little more fun. You can download the
+source code for that project <a href="http://www.xnadevelopment.com/tutorials/youhavebeenselected/SelectionBoxOneStepFurther.zip">here</a>.</p>
+<p align="left">&nbsp;</p>
+<p align="center"><a href="http://www.xnadevelopment.com/livewriter/FadeInFadeout_128E0/CropperCapture1432.jpg" atomicselection="true"><img style="border: 0px none ;" src="YouHaveBeenSelected_files/CropperCapture143_thumb.jpg" border="0" width="614" height="480"></a> </p>
+<p align="left">&nbsp;</p>
+<p align="left">Now take what you know and make something with it, most of all make sure that you are <b>having fun</b>!</p>
+
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="YouHaveBeenSelected_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</div></body></html>

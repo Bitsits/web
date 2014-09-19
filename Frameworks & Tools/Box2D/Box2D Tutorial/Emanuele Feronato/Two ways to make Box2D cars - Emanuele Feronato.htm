@@ -1,0 +1,2021 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+
+
+<meta name="google-site-verification" content="3-eG_6Sc-WSEdk4d3jBQskBtiZyMtL-Fme0dO7QtAWI">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="distribution" content="global">
+<meta name="robots" content="follow, all">
+<meta name="language" content="en, sv">
+
+<title>  Two ways to make Box2D cars - Emanuele Feronato</title>
+
+
+<link rel="Shortcut Icon" href="http://www.emanueleferonato.com/wp-content/themes/silhouette/images/favicon.ico" type="image/x-icon">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.emanueleferonato.com/feed/">
+<link rel="alternate" type="text/xml" title="RSS .92" href="http://www.emanueleferonato.com/feed/rss/">
+<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.emanueleferonato.com/feed/atom/">
+<link rel="pingback" href="http://www.emanueleferonato.com/xmlrpc.php">
+	<link rel="archives" title="November 2010" href="http://www.emanueleferonato.com/2010/11/">
+	<link rel="archives" title="October 2010" href="http://www.emanueleferonato.com/2010/10/">
+	<link rel="archives" title="September 2010" href="http://www.emanueleferonato.com/2010/09/">
+	<link rel="archives" title="August 2010" href="http://www.emanueleferonato.com/2010/08/">
+	<link rel="archives" title="July 2010" href="http://www.emanueleferonato.com/2010/07/">
+	<link rel="archives" title="June 2010" href="http://www.emanueleferonato.com/2010/06/">
+	<link rel="archives" title="May 2010" href="http://www.emanueleferonato.com/2010/05/">
+	<link rel="archives" title="April 2010" href="http://www.emanueleferonato.com/2010/04/">
+	<link rel="archives" title="March 2010" href="http://www.emanueleferonato.com/2010/03/">
+	<link rel="archives" title="February 2010" href="http://www.emanueleferonato.com/2010/02/">
+	<link rel="archives" title="January 2010" href="http://www.emanueleferonato.com/2010/01/">
+	<link rel="archives" title="December 2009" href="http://www.emanueleferonato.com/2009/12/">
+	<link rel="archives" title="November 2009" href="http://www.emanueleferonato.com/2009/11/">
+	<link rel="archives" title="October 2009" href="http://www.emanueleferonato.com/2009/10/">
+	<link rel="archives" title="September 2009" href="http://www.emanueleferonato.com/2009/09/">
+	<link rel="archives" title="August 2009" href="http://www.emanueleferonato.com/2009/08/">
+	<link rel="archives" title="July 2009" href="http://www.emanueleferonato.com/2009/07/">
+	<link rel="archives" title="June 2009" href="http://www.emanueleferonato.com/2009/06/">
+	<link rel="archives" title="May 2009" href="http://www.emanueleferonato.com/2009/05/">
+	<link rel="archives" title="April 2009" href="http://www.emanueleferonato.com/2009/04/">
+	<link rel="archives" title="March 2009" href="http://www.emanueleferonato.com/2009/03/">
+	<link rel="archives" title="February 2009" href="http://www.emanueleferonato.com/2009/02/">
+	<link rel="archives" title="January 2009" href="http://www.emanueleferonato.com/2009/01/">
+	<link rel="archives" title="December 2008" href="http://www.emanueleferonato.com/2008/12/">
+	<link rel="archives" title="November 2008" href="http://www.emanueleferonato.com/2008/11/">
+	<link rel="archives" title="October 2008" href="http://www.emanueleferonato.com/2008/10/">
+	<link rel="archives" title="September 2008" href="http://www.emanueleferonato.com/2008/09/">
+	<link rel="archives" title="August 2008" href="http://www.emanueleferonato.com/2008/08/">
+	<link rel="archives" title="July 2008" href="http://www.emanueleferonato.com/2008/07/">
+	<link rel="archives" title="June 2008" href="http://www.emanueleferonato.com/2008/06/">
+	<link rel="archives" title="May 2008" href="http://www.emanueleferonato.com/2008/05/">
+	<link rel="archives" title="April 2008" href="http://www.emanueleferonato.com/2008/04/">
+	<link rel="archives" title="March 2008" href="http://www.emanueleferonato.com/2008/03/">
+	<link rel="archives" title="February 2008" href="http://www.emanueleferonato.com/2008/02/">
+	<link rel="archives" title="January 2008" href="http://www.emanueleferonato.com/2008/01/">
+	<link rel="archives" title="December 2007" href="http://www.emanueleferonato.com/2007/12/">
+	<link rel="archives" title="November 2007" href="http://www.emanueleferonato.com/2007/11/">
+	<link rel="archives" title="October 2007" href="http://www.emanueleferonato.com/2007/10/">
+	<link rel="archives" title="September 2007" href="http://www.emanueleferonato.com/2007/09/">
+	<link rel="archives" title="August 2007" href="http://www.emanueleferonato.com/2007/08/">
+	<link rel="archives" title="July 2007" href="http://www.emanueleferonato.com/2007/07/">
+	<link rel="archives" title="June 2007" href="http://www.emanueleferonato.com/2007/06/">
+	<link rel="archives" title="May 2007" href="http://www.emanueleferonato.com/2007/05/">
+	<link rel="archives" title="April 2007" href="http://www.emanueleferonato.com/2007/04/">
+	<link rel="archives" title="March 2007" href="http://www.emanueleferonato.com/2007/03/">
+	<link rel="archives" title="February 2007" href="http://www.emanueleferonato.com/2007/02/">
+	<link rel="archives" title="January 2007" href="http://www.emanueleferonato.com/2007/01/">
+	<link rel="archives" title="December 2006" href="http://www.emanueleferonato.com/2006/12/">
+	<link rel="archives" title="November 2006" href="http://www.emanueleferonato.com/2006/11/">
+	<link rel="archives" title="October 2006" href="http://www.emanueleferonato.com/2006/10/">
+	<link rel="archives" title="September 2006" href="http://www.emanueleferonato.com/2006/09/">
+	<link rel="archives" title="August 2006" href="http://www.emanueleferonato.com/2006/08/">
+	<link rel="archives" title="July 2006" href="http://www.emanueleferonato.com/2006/07/">
+	<link rel="archives" title="June 2006" href="http://www.emanueleferonato.com/2006/06/">
+	<link rel="archives" title="May 2006" href="http://www.emanueleferonato.com/2006/05/">
+<link rel="alternate" type="application/rss+xml" title="Emanuele Feronato » Two ways to make Box2D cars Comments Feed" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/feed/">
+<link rel="stylesheet" id="wp-postratings-css" href="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/postratings-css.css" type="text/css" media="all">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.emanueleferonato.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.emanueleferonato.com/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Emanuele Feronato" href="http://www.emanueleferonato.com/">
+<link rel="start" title="WordPress in two (or more) languages" href="http://www.emanueleferonato.com/2006/05/26/wordpress-in-two-or-more-languages/">
+<link rel="prev" title="Schedule your payments – don’t suck like me" href="http://www.emanueleferonato.com/2009/04/01/schedule-your-payments-dont-suck-like-me/">
+<link rel="next" title="Making a collaboration work" href="http://www.emanueleferonato.com/2009/04/07/making-a-collaboration-work/">
+<link rel="canonical" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/">
+<link rel="shortlink" href="http://www.emanueleferonato.com/?p=1110">
+<link rel="stylesheet" href="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/dd-multi-col-cats.htm" type="text/css" media="screen">
+<link rel="stylesheet" href="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/wp-syntax.css" type="text/css" media="screen">
+<script type="text/javascript" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/jquery.js"></script>
+<link href="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/css.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/menu.css" media="screen">
+
+
+<script>
+var TabbedContent = {
+	init: function() {	
+		$(".tab_item").mouseover(function() {
+		
+			var background = $(this).parent().find(".moving_bg");
+			
+			$(background).stop().animate({
+				left: $(this).position()['left']
+			}, {
+				duration: 300
+			});
+			
+			TabbedContent.slideContent($(this));
+			
+		});
+	},
+	
+	slideContent: function(obj) {
+		
+		var margin = $(obj).parent().parent().find(".slide_content").width();
+		margin = margin * ($(obj).prevAll().size() - 1);
+		margin = margin * -1;
+		
+		$(obj).parent().parent().find(".tabslider").stop().animate({
+			marginLeft: margin + "px"
+		}, {
+			duration: 300
+		});
+	}
+}
+
+$(document).ready(function() {
+	TabbedContent.init();
+});
+	</script>
+<script src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/bsa.js" async="" type="text/javascript"></script><style>.azurebubble,.azurebubble *{border:0 none;border-collapse:collapse;border-spacing:0;margin:0;padding:0;}.azurebubble .bubr1 .bubd1{height:7px;width:7px;background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/topleft.png);background-position:right bottom;background-repeat:no-repeat;}.azurebubble .bubr1 .bubd2{background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/top.png);background-position:left bottom;background-repeat:repeat-x;position:relative;}.goog-bubble-bottomarrow .bubr1 .bubd2 span{width:17px;height:7px;border:0;display:inline-block;background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/arrowup.png);position:absolute;top:0;}.goog-bubble-toparrow .bubr3 .bubd2 span{width:17px;height:7px;border:0;display:inline-block;background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/arrowdown.png);position:absolute;top:0;}.azurebubble .bubr1 .bubd3{height:7px;width:7px;background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/topright.png);background-position:left bottom;background-repeat:no-repeat;}.goog-bubble-rightarrow .bubr2 .bubd1 span{width:7px;height:17px;border:0;display:inline-block;background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/arrowleft.png);position:absolute;left:0;background-position:right center;}.azurebubble .bubr2 .bubd1{background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/left.png);background-repeat:repeat-y;background-position:right center;}.goog-bubble-leftarrow .bubr2 .bubd3 span{width:7px;height:17px;border:0;display:inline-block;background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/arrowright.png);position:absolute;left:0;}.azurebubble .bubr2 .bubd3{background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/right.png);background-repeat:repeat-y;}.azurebubble .bubr3 .bubd1{height:7px;width:7px;background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/botleft.png);background-position:right top;background-repeat:no-repeat;}.azurebubble .bubr3 .bubd2{background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/bot.png);background-repeat:repeat-x;position:relative;}.azurebubble .bubr3 .bubd3{height:7px;width:7px;background-image:url(https://ssl.gstatic.com/s2/oz/images/iframes/styles/graybubble/botright.png);}.azurebubble .relwrapper{position:relative;}.azurebubble .bubble_content{position:relative;border:0;z-index:10000;margin:0;padding:0;}.azurebubble .bubble_content iframe{position:absolute;border:0;z-index:10000;margin:0;padding:0;}.bubr1 .relwrapper,.bubr3 .relwrapper{height:7px;}</style><script async="async" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/s_c39ba965aa0d880b83dbd005d730966e.js" id="_bsap_js_c39ba965aa0d880b83dbd005d730966e" type="text/javascript"></script><style type="text/css">div.bsap_1251503{width:300px;display:block;}div.bsap_1251503 a{width:300px;}div.bsap_1251503 a img{padding:0;}div.bsap_1251503 a em{font-style:normal;}div.bsap_1251503 a{display:block;font-size:11px;color:#888;font-family:verdana,sans-serif;margin:0 4px 10px 0;text-align:center;text-decoration:none;overflow:hidden;}div.bsap_1251503 img{border:0;clear:right;}div.bsap_1251503 a.adhere{color:#666;font-weight:bold;font-size:12px;border:1px solid #ccc;background:#e7e7e7;text-align:center;}div.bsap_1251503 a.adhere:hover{border:1px solid #999;background:#ddd;color:#333;}div.bsap_1251503 a{line-height:100%;}div.bsap_1251503 a.adhere{width:300px;height:250px;line-height:2000%;}html>body div.bsap_1251503 a.adhere{width:298px;height:248px;}div.bsap_1251503 img.s{height:0;width:0;}</style></head><body>
+	<!-- BuySellAds.com Ad Code -->
+<script type="text/javascript">
+(function(){
+  var bsa = document.createElement('script');
+     bsa.type = 'text/javascript';
+     bsa.async = true;
+     bsa.src = '//s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+})();
+</script>
+<!-- END BuySellAds.com Ad Code -->
+		<div id="header">
+		<div class="header_top_menu">
+			<ul>
+				<li><a href="http://www.emanueleferonato.com/">Home</a></li>
+				<li class="page_item page-item-2"><a href="http://www.emanueleferonato.com/about/" title="About">About</a></li>
+<li class="page_item page-item-40"><a href="http://www.emanueleferonato.com/my-works/" title="My Works">My Works</a></li>
+<li class="page_item page-item-82"><a href="http://www.emanueleferonato.com/support-this-blog/" title="Support this blog">Support this blog</a></li>
+				<li><a href="http://www.emanueleferonato.com/feed/">RSS</a></li>
+				<li><a href="http://www.facebook.com/pages/Emanuele-Feronato/50374255154" target="_blank"><img src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/facebook_icon1.gif" align="absmiddle"> Be my fan on Facebook</a></li>
+			</ul>
+		</div>
+		<div id="logo">
+			<div class="header_main">
+				<div class="header_title">
+					<a href="http://www.emanueleferonato.com/">Emanuele Feronato</a> » italian geek and PROgrammer				</div>
+				<div id="left_wrapper">
+     				<div class="header_categories">
+     					<ul>	<li class="cat-item cat-item-5"><a href="http://www.emanueleferonato.com/category/flash/" title="About Macromedia Flash">Flash</a> (512)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://www.emanueleferonato.com/category/game-design/" title="View all posts filed under Game design">Game design</a> (366)
+</li>
+	<li class="cat-item cat-item-23"><a href="http://www.emanueleferonato.com/category/actionscript-3/" title="View all posts filed under Actionscript 3">Actionscript 3</a> (221)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.emanueleferonato.com/category/monetize/" title="View all posts filed under Monetize">Monetize</a> (116)
+</li>
+	<li class="cat-item cat-item-27"><a href="http://www.emanueleferonato.com/category/box2d/" title="View all posts filed under Box2D">Box2D</a> (87)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.emanueleferonato.com/category/php/" title="Php scripts and tutorials">Php</a> (62)
+</li>
+	<li class="cat-item cat-item-2"><a href="http://www.emanueleferonato.com/category/wordpress/" title="Ideas and Plugins about WordPress, the CMS emanueleferonato.com was built with">WordPress</a> (61)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.emanueleferonato.com/category/photoshop/" title="Tutorials, actions and more Photoshop stuff">Photoshop</a> (23)
+</li>
+<li>View all</li></ul>
+     				   
+
+                         </div>
+                        	<a href="http://www.casino2k.com/" title="Casino Online">Casino Online</a><br>
+					<a href="http://casinoonlinesicuri.com/" title="casino sicuri">casino sicuri</a><br>
+					<a href="http://forum.casino2k.com/" title="forum casino">forum casino</a><br>
+					<a href="http://bonuscasinomigliori.com/" title="Migliori Bonus Casino">Migliori Bonus Casino</a><br>
+				</div>
+                    <div id="tabbed_wrapper">
+					<div class="tabbed_content">
+						<div class="tabs">
+							<div class="moving_bg">&nbsp;</div>
+							<span class="tab_item">
+								Latest posts
+							</span>
+							<span class="tab_item">
+								Most popular
+							</span>
+							<span class="tab_item">
+								Top rated
+							</span>	
+						</div>				
+						<div class="slide_content">						
+							<div class="tabslider">
+								<ul>
+																		<li><a href="http://www.emanueleferonato.com/2010/11/15/dont-miss-flash-gaming-summit-2011/">Don’t miss Flash Gaming Summit 2011</a></li>
+																		<li><a href="http://www.emanueleferonato.com/2010/11/13/full-screen-centered-background-image-with-css-and-jquery/">Full screen centered background image with CSS and jQuery</a></li>
+																		<li><a href="http://www.emanueleferonato.com/2010/11/08/getting-started-with-adobe-alchemy-mac-version/">Getting started with Adobe Alchemy – Mac version</a></li>
+																		<li><a href="http://www.emanueleferonato.com/2010/11/04/jellyphysics-soft-body-engine-for-flash/">JellyPhysics soft body engine for Flash</a></li>
+																		<li><a href="http://www.emanueleferonato.com/2010/10/28/create-a-facebook-application-like-friend-interview-step-2/">Create a Facebook application like “Friend interview” – Step 2</a></li>
+																		<li><a href="http://www.emanueleferonato.com/2010/10/25/getting-your-flash-game-sponsored-the-book/">Getting your Flash game sponsored – the book</a></li>
+																		<li><a href="http://www.emanueleferonato.com/2010/10/22/create-a-flash-game-like-gold-miner-as3-version/">Create a Flash game like Gold Miner – AS3 version</a></li>
+																		<li><a href="http://www.emanueleferonato.com/2010/10/20/create-a-facebook-application-like-friend-interview/">Create a Facebook application like “Friend interview”</a></li>
+																		<li><a href="http://www.emanueleferonato.com/2010/10/19/image-edge-detection-algorithm-php-version/">Image edge detection algorithm – php version</a></li>
+																		<li><a href="http://www.emanueleferonato.com/2010/10/13/as3-geom-point-vs-trigonometry/">AS3 geom.Point Vs trigonometry</a></li>
+																	</ul>
+								<ul><li><a href="http://www.emanueleferonato.com/2007/08/22/create-a-lightbox-effect-only-with-css-no-javascript-needed/" title="358 Comments">Create a Lightbox effect only with CSS - no javascript needed</a></li><li><a href="http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/" title="307 Comments">Flash game creation tutorial - part 1</a></li><li><a href="http://www.emanueleferonato.com/2007/05/15/create-a-flash-racing-game-tutorial/" title="265 Comments">Create a Flash Racing Game Tutorial</a></li><li><a href="http://www.emanueleferonato.com/triqui-mochiads-arcade-plugin-for-wordpress-official-page/" title="179 Comments">Triqui MochiAds Arcade plugin for WordPress official page</a></li><li><a href="http://www.emanueleferonato.com/2006/11/18/flash-game-creation-tutorial-part-2/" title="172 Comments">Flash game creation tutorial - part 2</a></li><li><a href="http://www.emanueleferonato.com/2007/11/06/make-a-flash-game-like-flash-element-tower-defense-part-2/" title="166 Comments">Make a Flash game like Flash Element Tower Defense - Part 2</a></li><li><a href="http://www.emanueleferonato.com/2006/12/06/flash-game-creation-tutorial-part-3/" title="147 Comments">Flash game creation tutorial - part 3</a></li><li><a href="http://www.emanueleferonato.com/2007/10/06/make-a-flash-game-like-flash-element-tower-defense-part-1/" title="142 Comments">Make a Flash game like Flash Element Tower Defense - Part 1</a></li><li><a href="http://www.emanueleferonato.com/2007/01/08/create-a-flash-draw-game-like-line-rider-or-others-part-1/" title="140 Comments">Create a flash draw game like Line Rider or others - part 1</a></li><li><a href="http://www.emanueleferonato.com/2007/04/28/create-a-flash-artillery-game-step-1/" title="133 Comments">Create a flash artillery game - step 1</a></li></ul>								<ul><li><a href="http://www.emanueleferonato.com/2006/12/23/flash-game-creation-tutorial-part-4/" title="Flash game creation tutorial – part 4">Flash game creation tutorial – part 4</a> (4.85/5)</li>
+<li><a href="http://www.emanueleferonato.com/2007/03/03/flash-game-creation-tutorial-part-52/" title="Flash game creation tutorial – part 5.2">Flash game creation tutorial – part 5.2</a> (4.80/5)</li>
+<li><a href="http://www.emanueleferonato.com/2007/09/26/create-a-survival-horror-game-in-flash-tutorial-part-1/" title="Create a survival horror game in Flash tutorial – part 1">Create a survival horror game in Flash tutorial – part 1</a> (4.79/5)</li>
+<li><a href="http://www.emanueleferonato.com/2007/04/28/create-a-flash-artillery-game-step-1/" title="Create a flash artillery game – step 1">Create a flash artillery game – step 1</a> (4.78/5)</li>
+<li><a href="http://www.emanueleferonato.com/2007/02/19/flash-simple-timercountdown/" title="Flash simple timer/countdown">Flash simple timer/countdown</a> (4.77/5)</li>
+<li><a href="http://www.emanueleferonato.com/2006/11/18/flash-game-creation-tutorial-part-2/" title="Flash game creation tutorial – part 2">Flash game creation tutorial – part 2</a> (4.76/5)</li>
+<li><a href="http://www.emanueleferonato.com/2007/05/15/create-a-flash-racing-game-tutorial/" title="Create a Flash Racing Game Tutorial">Create a Flash Racing Game Tutorial</a> (4.74/5)</li>
+<li><a href="http://www.emanueleferonato.com/2009/09/20/developing-a-facebook-application-for-absolute-beginners/" title="Developing a Facebook Application for absolute beginners">Developing a Facebook Application for absolute beginners</a> (4.74/5)</li>
+<li><a href="http://www.emanueleferonato.com/2006/10/29/flash-game-creation-tutorial-part-1/" title="Flash game creation tutorial – part 1">Flash game creation tutorial – part 1</a> (4.73/5)</li>
+<li><a href="http://www.emanueleferonato.com/2007/05/25/create-a-flash-artillery-game-step-2/" title="Create a flash artillery game – step 2">Create a flash artillery game – step 2</a> (4.73/5)</li>
+</ul>
+							</div>
+						</div>
+					</div>
+				</div> 
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+		<div id="games">
+			<script type="text/javascript"><!--
+google_ad_client = "pub-2062493463858889";
+/* 728x90, emanuele_header */
+google_ad_slot = "6798217234";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/show_ads.js">
+</script><script src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/gcm_392279366d8656daff9da175563f505a.js"></script><script src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/expansion_embed.js"></script><script src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 728px;"><ins id="google_ads_frame1_anchor" style="display: block; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 728px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame1" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/ads.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="728" frameborder="0" height="90" scrolling="no"></iframe></ins></ins>
+		</div>
+	</div>
+<div id="content">
+
+	<div id="contentleft">
+				<h1><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/" rel="bookmark">Two ways to make Box2D cars</a></h1>
+		<div id="postinfo">
+		<ul>
+			<li>April 6, 2009 by Emanuele Feronato</li>
+               <li>Filed under <a href="http://www.emanueleferonato.com/category/box2d/" title="View all posts in Box2D" rel="category tag">Box2D</a>, <a href="http://www.emanueleferonato.com/category/flash/" title="View all posts in Flash" rel="category tag">Flash</a>, <a href="http://www.emanueleferonato.com/category/game-design/" title="View all posts in Game design" rel="category tag">Game design</a> | <a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comments" title="Comment on Two ways to make Box2D cars">28 Comments</a>&nbsp;</li>
+		</ul>
+          </div>
+				<div class="adsensead">
+		<script type="text/javascript"><!--
+		google_ad_client = "pub-2062493463858889";
+		/* blog home 468x60, created 8/7/08 */
+		google_ad_slot = "3622156227";
+		google_ad_width = 468;
+		google_ad_height = 60;
+		//-->
+		</script>
+		<script type="text/javascript" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/show_ads.js">
+		</script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 60px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 468px;"><ins id="google_ads_frame2_anchor" style="display: block; border: medium none; height: 60px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 468px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame2" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/ads_002.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="468" frameborder="0" height="60" scrolling="no"></iframe></ins></ins>
+		</div>
+		<p>I am showing you two ways to make cars with Box2d, with source codes included</p>
+<p>These are examples I found on the web – I will make my ones later – you can find interesting in order to make cars using Box2D.</p>
+<p><strong>Top Down Car Simulation</strong></p>
+<p>Making a top down game in Box2D is not that different than making a side view game… you just don’t have to set gravity.</p>
+<p>Here it is a top-down racing game</p>
+<p><embed src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/wheeledcar.swf" allowscriptaccess="always" menu="false" quality="high" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" width="500" height="333"></p>
+<p>And this is the script to handle it</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+</pre></td><td class="code"><pre class="actionscript3" style="font-family: monospace;"><span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> Box2D.Collision.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;<span style="color: rgb(0, 153, 0);">// bounding box of our world</span>
+<span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> Box2D.Common.<span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;<span style="color: rgb(0, 153, 0);">// for vector(define gravity)</span>
+<span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> Box2D.Dynamics.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;<span style="color: rgb(0, 153, 0);">// define bodies and define world</span>
+<span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> Box2D.Dynamics.Joints.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;
+<span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> Box2D.Collision.Shapes.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;<span style="color: rgb(0, 153, 0);">// define our shapes</span>
+<span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> <span style="color: rgb(0, 73, 147);">flash.display</span>.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;<span style="color: rgb(0, 153, 0);">// sprite class</span>
+&nbsp;
+const MAX_STEER_ANGLE<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span><span style="color: rgb(0, 73, 147);">Number</span> = <span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span>;
+const STEER_SPEED = <span style="color: rgb(0, 0, 0); font-weight: bold;">1.5</span>;
+const SIDEWAYS_FRICTION_FORCE<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span><span style="color: rgb(0, 73, 147);">Number</span> = <span style="color: rgb(0, 0, 0); font-weight: bold;">10</span>;
+const HORSEPOWERS<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span><span style="color: rgb(0, 73, 147);">Number</span> = <span style="color: rgb(0, 0, 0); font-weight: bold;">40</span>
+const CAR_STARTING_POS<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Vec2 = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">10</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">10</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+const leftRearWheelPosition<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Vec2 = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1.5</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">1.90</span><span style="color: rgb(0, 0, 0);">)</span>;
+const rightRearWheelPosition<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Vec2 = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1.5</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">1.9</span><span style="color: rgb(0, 0, 0);">)</span>;
+const leftFrontWheelPosition<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Vec2 = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1.5</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1.9</span><span style="color: rgb(0, 0, 0);">)</span>;
+const rightFrontWheelPosition<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Vec2 = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1.5</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1.9</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> engineSpeed<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span><span style="color: rgb(0, 73, 147);">Number</span> =<span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> steeringAngle<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span><span style="color: rgb(0, 73, 147);">Number</span> = <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> myWorld<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2World;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> worldBox<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2AABB = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2AABB<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+worldBox.lowerBound.Set<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">100</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">100</span><span style="color: rgb(0, 0, 0);">)</span>;
+worldBox.upperBound.Set<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">100</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">100</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+myWorld = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2World<span style="color: rgb(0, 0, 0);">(</span>worldBox, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span> , <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(0, 153, 0);">//Create some static stuff</span>
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> staticDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2BodyDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+staticDef.<span style="color: rgb(0, 73, 147);">position</span>.Set<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">5</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">20</span><span style="color: rgb(0, 0, 0);">)</span>;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> staticBox = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PolygonDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+staticBox.SetAsBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">5</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">5</span><span style="color: rgb(0, 0, 0);">)</span>;
+myWorld.CreateBody<span style="color: rgb(0, 0, 0);">(</span>staticDef<span style="color: rgb(0, 0, 0);">)</span>.CreateShape<span style="color: rgb(0, 0, 0);">(</span>staticBox<span style="color: rgb(0, 0, 0);">)</span>;
+staticDef.<span style="color: rgb(0, 73, 147);">position</span>.<span style="color: rgb(0, 73, 147);">x</span> = <span style="color: rgb(0, 0, 0); font-weight: bold;">25</span>;
+myWorld.CreateBody<span style="color: rgb(0, 0, 0);">(</span>staticDef<span style="color: rgb(0, 0, 0);">)</span>.CreateShape<span style="color: rgb(0, 0, 0);">(</span>staticBox<span style="color: rgb(0, 0, 0);">)</span>;
+staticDef.<span style="color: rgb(0, 73, 147);">position</span>.Set<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">15</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">24</span><span style="color: rgb(0, 0, 0);">)</span>;
+myWorld.CreateBody<span style="color: rgb(0, 0, 0);">(</span>staticDef<span style="color: rgb(0, 0, 0);">)</span>.CreateShape<span style="color: rgb(0, 0, 0);">(</span>staticBox<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+&nbsp;
+<span style="color: rgb(0, 153, 0);">// define our body</span>
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> bodyDef<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2BodyDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2BodyDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+bodyDef.linearDamping = <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+bodyDef.angularDamping = <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+bodyDef.<span style="color: rgb(0, 73, 147);">position</span> = CAR_STARTING_POS.Copy<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> body<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Body = myWorld.CreateBody<span style="color: rgb(0, 0, 0);">(</span>bodyDef<span style="color: rgb(0, 0, 0);">)</span>;
+body.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> leftWheelDef<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2BodyDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2BodyDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftWheelDef.<span style="color: rgb(0, 73, 147);">position</span> = CAR_STARTING_POS.Copy<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftWheelDef.<span style="color: rgb(0, 73, 147);">position</span>.Add<span style="color: rgb(0, 0, 0);">(</span>leftFrontWheelPosition<span style="color: rgb(0, 0, 0);">)</span>;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> leftWheel<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Body = myWorld.CreateBody<span style="color: rgb(0, 0, 0);">(</span>leftWheelDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> rightWheelDef<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2BodyDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2BodyDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightWheelDef.<span style="color: rgb(0, 73, 147);">position</span> = CAR_STARTING_POS.Copy<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightWheelDef.<span style="color: rgb(0, 73, 147);">position</span>.Add<span style="color: rgb(0, 0, 0);">(</span>rightFrontWheelPosition<span style="color: rgb(0, 0, 0);">)</span>;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> rightWheel<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Body = myWorld.CreateBody<span style="color: rgb(0, 0, 0);">(</span>rightWheelDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> leftRearWheelDef<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2BodyDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2BodyDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftRearWheelDef.<span style="color: rgb(0, 73, 147);">position</span> = CAR_STARTING_POS.Copy<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftRearWheelDef.<span style="color: rgb(0, 73, 147);">position</span>.Add<span style="color: rgb(0, 0, 0);">(</span>leftRearWheelPosition<span style="color: rgb(0, 0, 0);">)</span>;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> leftRearWheel<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Body = myWorld.CreateBody<span style="color: rgb(0, 0, 0);">(</span>leftRearWheelDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> rightRearWheelDef<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2BodyDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2BodyDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightRearWheelDef.<span style="color: rgb(0, 73, 147);">position</span> = CAR_STARTING_POS.Copy<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightRearWheelDef.<span style="color: rgb(0, 73, 147);">position</span>.Add<span style="color: rgb(0, 0, 0);">(</span>rightRearWheelPosition<span style="color: rgb(0, 0, 0);">)</span>;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> rightRearWheel<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Body = myWorld.CreateBody<span style="color: rgb(0, 0, 0);">(</span>rightRearWheelDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(0, 153, 0);">// define our shapes</span>
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> boxDef<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2PolygonDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PolygonDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+boxDef.SetAsBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1.5</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">2.5</span><span style="color: rgb(0, 0, 0);">)</span>;
+boxDef.density = <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+body.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(0, 153, 0);">//Left Wheel shape</span>
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> leftWheelShapeDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PolygonDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftWheelShapeDef.SetAsBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.2</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftWheelShapeDef.density = <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+leftWheel.CreateShape<span style="color: rgb(0, 0, 0);">(</span>leftWheelShapeDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(0, 153, 0);">//Right Wheel shape</span>
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> rightWheelShapeDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PolygonDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightWheelShapeDef.SetAsBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.2</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightWheelShapeDef.density = <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+rightWheel.CreateShape<span style="color: rgb(0, 0, 0);">(</span>rightWheelShapeDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(0, 153, 0);">//Left Wheel shape</span>
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> leftRearWheelShapeDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PolygonDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftRearWheelShapeDef.SetAsBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.2</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftRearWheelShapeDef.density = <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+leftRearWheel.CreateShape<span style="color: rgb(0, 0, 0);">(</span>leftRearWheelShapeDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(0, 153, 0);">//Right Wheel shape</span>
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> rightRearWheelShapeDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PolygonDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightRearWheelShapeDef.SetAsBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.2</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightRearWheelShapeDef.density = <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+rightRearWheel.CreateShape<span style="color: rgb(0, 0, 0);">(</span>rightRearWheelShapeDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+body.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftWheel.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightWheel.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftRearWheel.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightRearWheel.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> leftJointDef<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2RevoluteJointDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2RevoluteJointDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftJointDef.Initialize<span style="color: rgb(0, 0, 0);">(</span>body, leftWheel, leftWheel.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftJointDef.enableMotor = <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span>;
+leftJointDef.maxMotorTorque = <span style="color: rgb(0, 0, 0); font-weight: bold;">100</span>;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> rightJointDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2RevoluteJointDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightJointDef.Initialize<span style="color: rgb(0, 0, 0);">(</span>body, rightWheel, rightWheel.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightJointDef.enableMotor = <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span>;
+rightJointDef.maxMotorTorque = <span style="color: rgb(0, 0, 0); font-weight: bold;">100</span>;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> leftJoint<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2RevoluteJoint = b2RevoluteJoint<span style="color: rgb(0, 0, 0);">(</span>myWorld.CreateJoint<span style="color: rgb(0, 0, 0);">(</span>leftJointDef<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> rightJoint<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2RevoluteJoint = b2RevoluteJoint<span style="color: rgb(0, 0, 0);">(</span>myWorld.CreateJoint<span style="color: rgb(0, 0, 0);">(</span>rightJointDef<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> leftRearJointDef<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2PrismaticJointDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PrismaticJointDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftRearJointDef.Initialize<span style="color: rgb(0, 0, 0);">(</span>body, leftRearWheel, leftRearWheel.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+leftRearJointDef.enableLimit = <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span>;
+leftRearJointDef.lowerTranslation = leftRearJointDef.upperTranslation = <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>;
+&nbsp;
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> rightRearJointDef<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2PrismaticJointDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PrismaticJointDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightRearJointDef.Initialize<span style="color: rgb(0, 0, 0);">(</span>body, rightRearWheel, rightRearWheel.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+rightRearJointDef.enableLimit = <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span>;
+rightRearJointDef.lowerTranslation = rightRearJointDef.upperTranslation = <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>;
+&nbsp;
+myWorld.CreateJoint<span style="color: rgb(0, 0, 0);">(</span>leftRearJointDef<span style="color: rgb(0, 0, 0);">)</span>;
+myWorld.CreateJoint<span style="color: rgb(0, 0, 0);">(</span>rightRearJointDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+&nbsp;
+<span style="color: rgb(0, 153, 0);">// debug draw</span>
+<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> dbgDraw<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2DebugDraw = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2DebugDraw<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+dbgDraw.m_sprite = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> <span style="color: rgb(0, 73, 147);">Sprite</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+<span style="color: rgb(0, 73, 147);">addChild</span><span style="color: rgb(0, 0, 0);">(</span>dbgDraw.m_sprite<span style="color: rgb(0, 0, 0);">)</span>;
+dbgDraw.m_drawScale = <span style="color: rgb(0, 0, 0); font-weight: bold;">20.0</span>;
+dbgDraw.m_fillAlpha = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span>;
+dbgDraw.m_lineThickness = <span style="color: rgb(0, 0, 0); font-weight: bold;">1.0</span>;
+dbgDraw.m_drawFlags = b2DebugDraw.e_shapeBit <span style="color: rgb(0, 0, 0); font-weight: bold;">|</span>b2DebugDraw.e_centerOfMassBit;
+myWorld.SetDebugDraw<span style="color: rgb(0, 0, 0);">(</span>dbgDraw<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+&nbsp;
+<span style="color: rgb(0, 153, 0);">//========== FUNCTIONS ==========</span>
+&nbsp;
+<span style="color: rgb(0, 153, 0);">//This function applies a "friction" in a direction orthogonal to the body's axis.</span>
+<span style="color: rgb(51, 153, 102); font-weight: bold;">function</span> killOrthogonalVelocity<span style="color: rgb(0, 0, 0);">(</span>targetBody<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Body<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">{</span>
+	<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> localPoint = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>,<span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span>;
+	<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> velocity<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2Vec2 = targetBody.GetLinearVelocityFromLocalPoint<span style="color: rgb(0, 0, 0);">(</span>localPoint<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+	<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> sidewaysAxis = targetBody.GetXForm<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.R.col2.Copy<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+	sidewaysAxis.Multiply<span style="color: rgb(0, 0, 0);">(</span>b2Math.b2Dot<span style="color: rgb(0, 0, 0);">(</span>velocity,sidewaysAxis<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>
+&nbsp;
+	targetBody.SetLinearVelocity<span style="color: rgb(0, 0, 0);">(</span>sidewaysAxis<span style="color: rgb(0, 0, 0);">)</span>;<span style="color: rgb(0, 153, 0);">//targetBody.GetWorldPoint(localPoint));</span>
+<span style="color: rgb(0, 0, 0);">}</span>
+&nbsp;
+<span style="color: rgb(0, 73, 147);">stage</span>.<span style="color: rgb(0, 73, 147);">addEventListener</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">KeyboardEvent</span>.<span style="color: rgb(0, 73, 147);">KEY_DOWN</span>, keyPressed_handler<span style="color: rgb(0, 0, 0);">)</span>;
+<span style="color: rgb(0, 73, 147);">stage</span>.<span style="color: rgb(0, 73, 147);">addEventListener</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">KeyboardEvent</span>.<span style="color: rgb(0, 73, 147);">KEY_UP</span>, keyReleased_handler<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(51, 153, 102); font-weight: bold;">function</span> keyPressed_handler<span style="color: rgb(0, 0, 0);">(</span>e<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span><span style="color: rgb(0, 73, 147);">KeyboardEvent</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0);">{</span>
+	<span style="color: rgb(0, 51, 255); font-weight: bold;">if</span><span style="color: rgb(0, 0, 0);">(</span>e.<span style="color: rgb(0, 73, 147);">keyCode</span> == <span style="color: rgb(0, 73, 147);">Keyboard</span>.<span style="color: rgb(0, 73, 147);">UP</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">{</span>
+		body.WakeUp<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+		engineSpeed = <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span>HORSEPOWERS;
+	<span style="color: rgb(0, 0, 0);">}</span>
+	<span style="color: rgb(0, 51, 255); font-weight: bold;">if</span><span style="color: rgb(0, 0, 0);">(</span>e.<span style="color: rgb(0, 73, 147);">keyCode</span> == <span style="color: rgb(0, 73, 147);">Keyboard</span>.<span style="color: rgb(0, 73, 147);">DOWN</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">{</span>
+		engineSpeed = HORSEPOWERS;
+	<span style="color: rgb(0, 0, 0);">}</span>
+	<span style="color: rgb(0, 51, 255); font-weight: bold;">if</span><span style="color: rgb(0, 0, 0);">(</span>e.<span style="color: rgb(0, 73, 147);">keyCode</span> == <span style="color: rgb(0, 73, 147);">Keyboard</span>.<span style="color: rgb(0, 73, 147);">RIGHT</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">{</span>
+		steeringAngle = MAX_STEER_ANGLE
+	<span style="color: rgb(0, 0, 0);">}</span>
+	<span style="color: rgb(0, 51, 255); font-weight: bold;">if</span><span style="color: rgb(0, 0, 0);">(</span>e.<span style="color: rgb(0, 73, 147);">keyCode</span> == <span style="color: rgb(0, 73, 147);">Keyboard</span>.<span style="color: rgb(0, 73, 147);">LEFT</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">{</span>
+		steeringAngle = <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span>MAX_STEER_ANGLE
+	<span style="color: rgb(0, 0, 0);">}</span>
+<span style="color: rgb(0, 0, 0);">}</span>
+&nbsp;
+<span style="color: rgb(51, 153, 102); font-weight: bold;">function</span> keyReleased_handler<span style="color: rgb(0, 0, 0);">(</span>e<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span><span style="color: rgb(0, 73, 147);">KeyboardEvent</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">{</span>
+	<span style="color: rgb(0, 51, 255); font-weight: bold;">if</span><span style="color: rgb(0, 0, 0);">(</span>e.<span style="color: rgb(0, 73, 147);">keyCode</span> == <span style="color: rgb(0, 73, 147);">Keyboard</span>.<span style="color: rgb(0, 73, 147);">UP</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">||</span> e.<span style="color: rgb(0, 73, 147);">keyCode</span> == <span style="color: rgb(0, 73, 147);">Keyboard</span>.<span style="color: rgb(0, 73, 147);">DOWN</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">{</span>
+		engineSpeed = <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>;
+	<span style="color: rgb(0, 0, 0);">}</span> 
+	<span style="color: rgb(0, 51, 255); font-weight: bold;">if</span><span style="color: rgb(0, 0, 0);">(</span>e.<span style="color: rgb(0, 73, 147);">keyCode</span> == <span style="color: rgb(0, 73, 147);">Keyboard</span>.<span style="color: rgb(0, 73, 147);">LEFT</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">||</span> e.<span style="color: rgb(0, 73, 147);">keyCode</span> == <span style="color: rgb(0, 73, 147);">Keyboard</span>.<span style="color: rgb(0, 73, 147);">RIGHT</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">{</span>
+		steeringAngle = <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>;
+	<span style="color: rgb(0, 0, 0);">}</span>
+<span style="color: rgb(0, 0, 0);">}</span>
+&nbsp;
+<span style="color: rgb(0, 73, 147);">addEventListener</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Event</span>.<span style="color: rgb(0, 73, 147);">ENTER_FRAME</span>, Update, <span style="color: rgb(0, 51, 255); font-weight: bold;">false</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span> , <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+<span style="color: rgb(51, 153, 102); font-weight: bold;">function</span> Update<span style="color: rgb(0, 0, 0);">(</span>e<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span><span style="color: rgb(0, 73, 147);">Event</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0); font-weight: bold;">:</span><span style="color: rgb(0, 51, 255); font-weight: bold;">void</span> <span style="color: rgb(0, 0, 0);">{</span>
+	myWorld.Step<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">30</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">8</span><span style="color: rgb(0, 0, 0);">)</span>;
+	killOrthogonalVelocity<span style="color: rgb(0, 0, 0);">(</span>leftWheel<span style="color: rgb(0, 0, 0);">)</span>;
+	killOrthogonalVelocity<span style="color: rgb(0, 0, 0);">(</span>rightWheel<span style="color: rgb(0, 0, 0);">)</span>;
+	killOrthogonalVelocity<span style="color: rgb(0, 0, 0);">(</span>leftRearWheel<span style="color: rgb(0, 0, 0);">)</span>;
+	killOrthogonalVelocity<span style="color: rgb(0, 0, 0);">(</span>rightRearWheel<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+	<span style="color: rgb(0, 153, 0);">//Driving</span>
+	<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> ldirection = leftWheel.GetXForm<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.R.col2.Copy<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+	ldirection.Multiply<span style="color: rgb(0, 0, 0);">(</span>engineSpeed<span style="color: rgb(0, 0, 0);">)</span>;
+	<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> rdirection = rightWheel.GetXForm<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.R.col2.Copy<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>
+	rdirection.Multiply<span style="color: rgb(0, 0, 0);">(</span>engineSpeed<span style="color: rgb(0, 0, 0);">)</span>;
+	leftWheel.ApplyForce<span style="color: rgb(0, 0, 0);">(</span>ldirection, leftWheel.GetPosition<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+	rightWheel.ApplyForce<span style="color: rgb(0, 0, 0);">(</span>rdirection, rightWheel.GetPosition<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+	<span style="color: rgb(0, 153, 0);">//Steering</span>
+	<span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> mspeed<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span><span style="color: rgb(0, 73, 147);">Number</span>;
+	mspeed = steeringAngle <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span> leftJoint.GetJointAngle<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+	leftJoint.SetMotorSpeed<span style="color: rgb(0, 0, 0);">(</span>mspeed <span style="color: rgb(0, 0, 0); font-weight: bold;">*</span> STEER_SPEED<span style="color: rgb(0, 0, 0);">)</span>;
+	mspeed = steeringAngle <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span> rightJoint.GetJointAngle<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+	rightJoint.SetMotorSpeed<span style="color: rgb(0, 0, 0);">(</span>mspeed <span style="color: rgb(0, 0, 0); font-weight: bold;">*</span> STEER_SPEED<span style="color: rgb(0, 0, 0);">)</span>;
+<span style="color: rgb(0, 0, 0);">}</span></pre></td></tr></tbody></table></div>
+
+<p>more information at the official <a target="_blank" href="http://www.box2d.org/forum/viewtopic.php?f=8&amp;t=1547">forum thread</a></p>
+<p><strong>Truck car game</strong></p>
+<p>This is a truck car game, this concept was very popular a couple of years ago.</p>
+<p><embed src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/TruckGame1.swf" allowscriptaccess="always" menu="false" quality="high" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" width="500" height="400"></p>
+<p>The truck is made using various joints, such as <a href="http://www.emanueleferonato.com/2009/01/13/box2d-joints-revolute-joint/">revolute joints</a> and <a href="http://www.emanueleferonato.com/2009/02/03/box2d-joints-prismatic-joints/">prismatic joints</a>.</p>
+<p>Here it is the source code:</p>
+
+<div class="wp_syntax"><table><tbody><tr><td class="line_numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+</pre></td><td class="code"><pre class="actionscript3" style="font-family: monospace;"><span style="color: rgb(153, 0, 204); font-weight: bold;">package</span> <span style="color: rgb(0, 0, 0);">{</span>
+&nbsp;
+   <span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> <span style="color: rgb(0, 73, 147);">flash.display</span>.<span style="color: rgb(0, 73, 147);">Sprite</span>;
+   <span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> <span style="color: rgb(0, 73, 147);">flash.events</span>.<span style="color: rgb(0, 73, 147);">Event</span>;
+&nbsp;
+   <span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> Box2D.Dynamics.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;
+   <span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> Box2D.Collision.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;
+   <span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> Box2D.Collision.Shapes.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;
+   <span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> Box2D.Common.<span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;
+   <span style="color: rgb(0, 51, 255); font-weight: bold;">import</span> Box2D.Dynamics.Joints.<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>;
+&nbsp;
+   <span style="color: rgb(0, 51, 255); font-weight: bold;">public</span> <span style="color: rgb(153, 0, 204); font-weight: bold;">class</span> TruckGame extends <span style="color: rgb(0, 73, 147);">Sprite</span> <span style="color: rgb(0, 0, 0);">{</span>
+&nbsp;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">public</span> const ITERATIONS      <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 73, 147);">int</span>       = <span style="color: rgb(0, 0, 0); font-weight: bold;">30</span>;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">public</span> const TIME_STEP       <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 73, 147);">Number</span>    = <span style="color: rgb(0, 0, 0); font-weight: bold;">1.0</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">60.0</span>;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">public</span> const SCREEN_WIDTH    <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 73, 147);">int</span>       = <span style="color: rgb(0, 0, 0); font-weight: bold;">800</span>;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">public</span> const SCREEN_HEIGHT   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 73, 147);">int</span>      = <span style="color: rgb(0, 0, 0); font-weight: bold;">500</span>;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">public</span> const DRAW_SCALE      <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 73, 147);">Number</span>   = <span style="color: rgb(0, 0, 0); font-weight: bold;">50</span>;
+&nbsp;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> world    <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2World;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> cart    <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2Body;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> wheel1    <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2Body;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> wheel2    <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2Body;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> axle1   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2Body;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> axle2   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2Body;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> motor1   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2RevoluteJoint;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> motor2   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2RevoluteJoint;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> spring1   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2PrismaticJoint;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> spring2   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2PrismaticJoint;
+&nbsp;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> screen   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 73, 147);">Sprite</span>;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> input   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> Input;
+&nbsp;
+&nbsp;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">public</span> <span style="color: rgb(51, 153, 102); font-weight: bold;">function</span> TruckGame<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 51, 255); font-weight: bold;">void</span> <span style="color: rgb(0, 0, 0);">{</span>
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// create the drawing screen //</span>
+         screen = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> <span style="color: rgb(0, 73, 147);">Sprite</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+         screen.<span style="color: rgb(0, 73, 147);">scaleY</span> = <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+         screen.<span style="color: rgb(0, 73, 147);">y</span> = SCREEN_HEIGHT;
+         <span style="color: rgb(0, 73, 147);">addChild</span><span style="color: rgb(0, 0, 0);">(</span>screen<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// initialize input object //</span>
+         input = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> Input<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 51, 255); font-weight: bold;">this</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// add main loop event listener //</span>
+         <span style="color: rgb(0, 73, 147);">addEventListener</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Event</span>.<span style="color: rgb(0, 73, 147);">ENTER_FRAME</span>, update, <span style="color: rgb(0, 51, 255); font-weight: bold;">false</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         <span style="color: rgb(0, 73, 147);">init</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+      <span style="color: rgb(0, 0, 0);">}</span>
+&nbsp;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">private</span> <span style="color: rgb(51, 153, 102); font-weight: bold;">function</span> <span style="color: rgb(0, 73, 147);">init</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 51, 255); font-weight: bold;">void</span> <span style="color: rgb(0, 0, 0);">{</span>
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// create world //</span>
+         <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> worldAABB<span style="color: rgb(0, 0, 0); font-weight: bold;">:</span>b2AABB = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2AABB<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         worldAABB.lowerBound.Set<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">200</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">100</span><span style="color: rgb(0, 0, 0);">)</span>;
+         worldAABB.upperBound.Set<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">200</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">200</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         world = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2World<span style="color: rgb(0, 0, 0);">(</span>worldAABB, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">10.0</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// allow debug drawing //</span>
+         <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> debugDraw <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2DebugDraw = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2DebugDraw<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+         debugDraw.m_sprite          = screen;
+         debugDraw.m_drawScale       = DRAW_SCALE;
+         debugDraw.m_fillAlpha       = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.1</span>;
+         debugDraw.m_lineThickness    = <span style="color: rgb(0, 0, 0); font-weight: bold;">2.0</span>;
+         debugDraw.m_drawFlags       = <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+&nbsp;
+         world.SetDebugDraw<span style="color: rgb(0, 0, 0);">(</span>debugDraw<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// temporary variables for adding new bodies //</span>
+         <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> i               <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 73, 147);">int</span>;
+         <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> body             <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2Body;
+         <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> bodyDef          <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2BodyDef;
+         <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> boxDef             <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2PolygonDef;
+         <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> circleDef          <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2CircleDef;
+         <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> revoluteJointDef   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2RevoluteJointDef;
+         <span style="color: rgb(102, 153, 204); font-weight: bold;">var</span> prismaticJointDef   <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> b2PrismaticJointDef;
+&nbsp;
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// add the ground //</span>
+         bodyDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2BodyDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+         bodyDef.<span style="color: rgb(0, 73, 147);">position</span>.Set<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PolygonDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+         boxDef.SetAsBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">50</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span><span style="color: rgb(0, 0, 0);">)</span>;
+         boxDef.friction = <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+         boxDef.density = <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>; 
+&nbsp;
+         body = world.CreateBody<span style="color: rgb(0, 0, 0);">(</span>bodyDef<span style="color: rgb(0, 0, 0);">)</span>;
+         body.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.SetAsOrientedBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">2</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">50</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span>;
+         body.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.SetAsOrientedBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">2</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">50</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span>;
+         body.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.SetAsOrientedBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">5</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">1.5</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">4</span><span style="color: rgb(0, 0, 0);">)</span>;
+         body.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.SetAsOrientedBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3.5</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">8</span><span style="color: rgb(0, 0, 0);">)</span>;
+         body.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.SetAsOrientedBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">9</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">1.5</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">4</span><span style="color: rgb(0, 0, 0);">)</span>;
+         body.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.SetAsOrientedBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">10.5</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">8</span><span style="color: rgb(0, 0, 0);">)</span>;
+         body.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         body.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// add random shit //</span>
+         circleDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2CircleDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+         circleDef.density = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.01</span>;
+         circleDef.friction = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.1</span>;
+         circleDef.restitution = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span>;
+&nbsp;
+         <span style="color: rgb(0, 51, 255); font-weight: bold;">for</span> <span style="color: rgb(0, 0, 0);">(</span>i = <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>; i <span style="color: rgb(0, 0, 0); font-weight: bold;">&lt;</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">30</span>; i<span style="color: rgb(0, 0, 0); font-weight: bold;">++</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0);">{</span>
+            circleDef.radius = <span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">random</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">20</span><span style="color: rgb(0, 0, 0); font-weight: bold;">+</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.02</span>;
+&nbsp;
+            bodyDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2BodyDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+            bodyDef.<span style="color: rgb(0, 73, 147);">position</span>.Set<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">random</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 0, 0); font-weight: bold;">35</span><span style="color: rgb(0, 0, 0); font-weight: bold;">+</span><span style="color: rgb(0, 0, 0); font-weight: bold;">15</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span><span style="color: rgb(0, 0, 0);">)</span>;
+            bodyDef.allowSleep = <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span>;
+            bodyDef.linearDamping = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.1</span>;
+            bodyDef.angularDamping = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.1</span>;
+&nbsp;
+            body = world.CreateBody<span style="color: rgb(0, 0, 0);">(</span>bodyDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+            body.CreateShape<span style="color: rgb(0, 0, 0);">(</span>circleDef<span style="color: rgb(0, 0, 0);">)</span>;
+            body.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+         <span style="color: rgb(0, 0, 0);">}</span>
+&nbsp;
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// add cart //</span>
+         bodyDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2BodyDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+         bodyDef.<span style="color: rgb(0, 73, 147);">position</span>.Set<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">3.5</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         cart = world.CreateBody<span style="color: rgb(0, 0, 0);">(</span>bodyDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PolygonDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+         boxDef.density = <span style="color: rgb(0, 0, 0); font-weight: bold;">2</span>;
+         boxDef.friction = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span>;
+         boxDef.restitution = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.2</span>;
+         boxDef.<span style="color: rgb(0, 73, 147);">filter</span>.groupIndex = <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+&nbsp;
+         boxDef.SetAsBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1.5</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span><span style="color: rgb(0, 0, 0);">)</span>;
+         cart.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.SetAsOrientedBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.4</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.15</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span>;
+         cart.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.SetAsOrientedBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.4</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.15</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span>;
+         cart.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         cart.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.density = <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+&nbsp;
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// add the axles //</span>
+         axle1 = world.CreateBody<span style="color: rgb(0, 0, 0);">(</span>bodyDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.SetAsOrientedBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.4</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.1</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0.6</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">cos</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0.6</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">sin</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span>;
+         axle1.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+         axle1.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         prismaticJointDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2PrismaticJointDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+         prismaticJointDef.Initialize<span style="color: rgb(0, 0, 0);">(</span>cart, axle1, axle1.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">cos</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">sin</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+         prismaticJointDef.lowerTranslation = <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span>;
+         prismaticJointDef.upperTranslation = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span>;
+         prismaticJointDef.enableLimit = <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span>;
+         prismaticJointDef.enableMotor = <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span>;
+&nbsp;
+         spring1 = world.CreateJoint<span style="color: rgb(0, 0, 0);">(</span>prismaticJointDef<span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 51, 255); font-weight: bold;">as</span> b2PrismaticJoint;
+&nbsp;
+&nbsp;
+         axle2 = world.CreateBody<span style="color: rgb(0, 0, 0);">(</span>bodyDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         boxDef.SetAsOrientedBox<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.4</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">0.1</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">+</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0.6</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">cos</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">+</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0.6</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">sin</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span>;
+         axle2.CreateShape<span style="color: rgb(0, 0, 0);">(</span>boxDef<span style="color: rgb(0, 0, 0);">)</span>;
+         axle2.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         prismaticJointDef.Initialize<span style="color: rgb(0, 0, 0);">(</span>cart, axle2, axle2.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2Vec2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">cos</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">sin</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         spring2 = world.CreateJoint<span style="color: rgb(0, 0, 0);">(</span>prismaticJointDef<span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 51, 255); font-weight: bold;">as</span> b2PrismaticJoint;
+&nbsp;
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// add wheels //</span>
+         circleDef.radius = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.7</span>;
+         circleDef.density = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.1</span>;
+         circleDef.friction = <span style="color: rgb(0, 0, 0); font-weight: bold;">5</span>;
+         circleDef.restitution = <span style="color: rgb(0, 0, 0); font-weight: bold;">0.2</span>;
+         circleDef.<span style="color: rgb(0, 73, 147);">filter</span>.groupIndex = <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span>;
+&nbsp;
+         <span style="color: rgb(0, 51, 255); font-weight: bold;">for</span> <span style="color: rgb(0, 0, 0);">(</span>i = <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span>; i <span style="color: rgb(0, 0, 0); font-weight: bold;">&lt;</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">2</span>; i<span style="color: rgb(0, 0, 0); font-weight: bold;">++</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0);">{</span>
+&nbsp;
+            bodyDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2BodyDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+            <span style="color: rgb(0, 51, 255); font-weight: bold;">if</span> <span style="color: rgb(0, 0, 0);">(</span>i == <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span> bodyDef.<span style="color: rgb(0, 73, 147);">position</span>.Set<span style="color: rgb(0, 0, 0);">(</span>axle1.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 73, 147);">x</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">cos</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span>, axle1.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 73, 147);">y</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">sin</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+            <span style="color: rgb(0, 51, 255); font-weight: bold;">else</span> bodyDef.<span style="color: rgb(0, 73, 147);">position</span>.Set<span style="color: rgb(0, 0, 0);">(</span>axle2.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 73, 147);">x</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">+</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">cos</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span>, axle2.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 73, 147);">y</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">+</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0.3</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">sin</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+            bodyDef.allowSleep = <span style="color: rgb(0, 51, 255); font-weight: bold;">false</span>;
+&nbsp;
+            <span style="color: rgb(0, 51, 255); font-weight: bold;">if</span> <span style="color: rgb(0, 0, 0);">(</span>i == <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span> wheel1 = world.CreateBody<span style="color: rgb(0, 0, 0);">(</span>bodyDef<span style="color: rgb(0, 0, 0);">)</span>;
+            <span style="color: rgb(0, 51, 255); font-weight: bold;">else</span> wheel2 = world.CreateBody<span style="color: rgb(0, 0, 0);">(</span>bodyDef<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+            <span style="color: rgb(0, 0, 0);">(</span>i == <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">?</span> wheel1 <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> wheel2<span style="color: rgb(0, 0, 0);">)</span>.CreateShape<span style="color: rgb(0, 0, 0);">(</span>circleDef<span style="color: rgb(0, 0, 0);">)</span>;
+            <span style="color: rgb(0, 0, 0);">(</span>i == <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">?</span> wheel1 <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> wheel2<span style="color: rgb(0, 0, 0);">)</span>.SetMassFromShapes<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         <span style="color: rgb(0, 0, 0);">}</span>
+&nbsp;
+&nbsp;
+         <span style="color: rgb(0, 153, 0);">// add joints //</span>
+         revoluteJointDef = <span style="color: rgb(0, 51, 255); font-weight: bold;">new</span> b2RevoluteJointDef<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+         revoluteJointDef.enableMotor = <span style="color: rgb(0, 51, 255); font-weight: bold;">true</span>;
+&nbsp;
+         revoluteJointDef.Initialize<span style="color: rgb(0, 0, 0);">(</span>axle1, wheel1, wheel1.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+         motor1 = world.CreateJoint<span style="color: rgb(0, 0, 0);">(</span>revoluteJointDef<span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 51, 255); font-weight: bold;">as</span> b2RevoluteJoint;
+&nbsp;
+         revoluteJointDef.Initialize<span style="color: rgb(0, 0, 0);">(</span>axle2, wheel2, wheel2.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+         motor2 = world.CreateJoint<span style="color: rgb(0, 0, 0);">(</span>revoluteJointDef<span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 51, 255); font-weight: bold;">as</span> b2RevoluteJoint;
+&nbsp;
+      <span style="color: rgb(0, 0, 0);">}</span>
+&nbsp;
+&nbsp;
+      <span style="color: rgb(0, 51, 255); font-weight: bold;">public</span> <span style="color: rgb(51, 153, 102); font-weight: bold;">function</span> update<span style="color: rgb(0, 0, 0);">(</span>e <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 73, 147);">Event</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 51, 255); font-weight: bold;">void</span> <span style="color: rgb(0, 0, 0);">{</span>
+&nbsp;
+         <span style="color: rgb(0, 51, 255); font-weight: bold;">if</span> <span style="color: rgb(0, 0, 0);">(</span>input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">32</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0);">{</span>
+            world = <span style="color: rgb(0, 51, 255); font-weight: bold;">null</span>;
+            <span style="color: rgb(0, 73, 147);">init</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>;
+            <span style="color: rgb(0, 51, 255); font-weight: bold;">return</span>;
+         <span style="color: rgb(0, 0, 0);">}</span>
+&nbsp;
+         motor1.SetMotorSpeed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">15</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">*</span> <span style="color: rgb(0, 0, 0);">(</span>input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">40</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">?</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">38</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">?</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+         motor1.SetMaxMotorTorque<span style="color: rgb(0, 0, 0);">(</span>input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">40</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">||</span> input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">38</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">?</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">17</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         motor2.SetMotorSpeed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">15</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">PI</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">*</span> <span style="color: rgb(0, 0, 0);">(</span>input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">40</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">?</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">38</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">?</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+         motor2.SetMaxMotorTorque<span style="color: rgb(0, 0, 0);">(</span>input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">40</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">||</span> input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">38</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">?</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">12</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0.5</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         spring1.SetMaxMotorForce<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">30</span><span style="color: rgb(0, 0, 0); font-weight: bold;">+</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">abs</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">800</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">pow</span><span style="color: rgb(0, 0, 0);">(</span>spring1.GetJointTranslation<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">2</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+         <span style="color: rgb(0, 153, 0);">//spring1.SetMotorSpeed(-4*Math.pow(spring1.GetJointTranslation(), 1));</span>
+         spring1.SetMotorSpeed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">(</span>spring1.GetMotorSpeed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">10</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>spring1.GetJointTranslation<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 0, 0); font-weight: bold;">0.4</span><span style="color: rgb(0, 0, 0);">)</span>;         
+&nbsp;
+         spring2.SetMaxMotorForce<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">20</span><span style="color: rgb(0, 0, 0); font-weight: bold;">+</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">abs</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">800</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">pow</span><span style="color: rgb(0, 0, 0);">(</span>spring2.GetJointTranslation<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">2</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+         spring2.SetMotorSpeed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">4</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 73, 147);">Math</span>.<span style="color: rgb(0, 73, 147);">pow</span><span style="color: rgb(0, 0, 0);">(</span>spring2.GetJointTranslation<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>, <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         cart.ApplyTorque<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">30</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 0, 0);">(</span>input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">37</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">?</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">1</span><span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> input.isPressed<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">39</span><span style="color: rgb(0, 0, 0);">)</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">?</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span><span style="color: rgb(0, 0, 0); font-weight: bold;">1</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">:</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">0</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         screen.<span style="color: rgb(0, 73, 147);">x</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span>= <span style="color: rgb(0, 0, 0);">(</span>screen.<span style="color: rgb(0, 73, 147);">x</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span> <span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">-</span>DRAW_SCALE<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>cart.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 73, 147);">x</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">+</span> SCREEN_WIDTH<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">2</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span> cart.GetLinearVelocity<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 73, 147);">x</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 0, 0); font-weight: bold;">10</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span>;
+         screen.<span style="color: rgb(0, 73, 147);">y</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span>= <span style="color: rgb(0, 0, 0);">(</span>screen.<span style="color: rgb(0, 73, 147);">y</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">-</span> <span style="color: rgb(0, 0, 0);">(</span>DRAW_SCALE<span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>cart.GetWorldCenter<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 73, 147);">y</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">+</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">2</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span>SCREEN_HEIGHT<span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span> <span style="color: rgb(0, 0, 0); font-weight: bold;">+</span> cart.GetLinearVelocity<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 73, 147);">y</span><span style="color: rgb(0, 0, 0); font-weight: bold;">*</span><span style="color: rgb(0, 0, 0); font-weight: bold;">6</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0); font-weight: bold;">/</span><span style="color: rgb(0, 0, 0); font-weight: bold;">3</span>;
+&nbsp;
+         world.Step<span style="color: rgb(0, 0, 0);">(</span>TIME_STEP, ITERATIONS<span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+         FRateLimiter.limitFrame<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0); font-weight: bold;">60</span><span style="color: rgb(0, 0, 0);">)</span>;
+&nbsp;
+      <span style="color: rgb(0, 0, 0);">}</span>
+&nbsp;
+   <span style="color: rgb(0, 0, 0);">}</span>
+&nbsp;
+<span style="color: rgb(0, 0, 0);">}</span></pre></td></tr></tbody></table></div>
+
+<p>Follow the official thread <a target="_blank" href="http://www.box2d.org/forum/viewtopic.php?f=8&amp;t=1669&amp;p=11404">here</a>.</p>
+<div style="clear: both;"></div>
+	    <div class="ratethis"><div id="post-ratings-1110" class="post-ratings">Rate this post: <img id="rating_1110_1" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/rating_on.gif" alt="1 Star" title="1 Star" onmouseover="current_rating(1110, 1, '1 Star');" onmouseout="ratings_off(5, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px none;"><img id="rating_1110_2" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/rating_on.gif" alt="2 Stars" title="2 Stars" onmouseover="current_rating(1110, 2, '2 Stars');" onmouseout="ratings_off(5, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px none;"><img id="rating_1110_3" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/rating_on.gif" alt="3 Stars" title="3 Stars" onmouseover="current_rating(1110, 3, '3 Stars');" onmouseout="ratings_off(5, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px none;"><img id="rating_1110_4" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/rating_on.gif" alt="4 Stars" title="4 Stars" onmouseover="current_rating(1110, 4, '4 Stars');" onmouseout="ratings_off(5, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px none;"><img id="rating_1110_5" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/rating_on.gif" alt="5 Stars" title="5 Stars" onmouseover="current_rating(1110, 5, '5 Stars');" onmouseout="ratings_off(5, 0, 0);" onclick="rate_post();" onkeypress="rate_post();" style="cursor: pointer; border: 0px none;"> (<strong>15</strong> votes, average: <strong>5.00</strong> out of 5)<br><span class="post-ratings-text" id="ratings_1110_text"></span></div>
+<div id="post-ratings-1110-loading" class="post-ratings-loading"><img src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/loading.gif" alt="Loading ..." title="Loading ..." class="post-ratings-image" width="16" height="16">&nbsp;Loading ...</div>
+</div>          <div class="paypal">
+               <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input name="cmd" value="_s-xclick" type="hidden">
+<input name="hosted_button_id" value="5643462" type="hidden">
+<input src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/paypal.png" name="submit" alt="PayPal - The safer, easier way to pay online!" type="image" align="absmiddle" border="0"> If you found this post useful, please consider a small donation.
+<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/pixel.gif" border="0" width="1" height="1">
+</form>
+          </div><div class="adsensead">
+<script type="text/javascript"><!--
+		google_ad_client = "pub-2062493463858889";
+		/* blog home 468x60, created 8/7/08 */
+		google_ad_slot = "3622156227";
+		google_ad_width = 468;
+		google_ad_height = 60;
+		//-->
+		</script>
+		<script type="text/javascript" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/show_ads.js">
+		</script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 60px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 468px;"><ins id="google_ads_frame3_anchor" style="display: block; border: medium none; height: 60px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 468px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame3" marginheight="0" marginwidth="0" name="google_ads_frame3" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/ads_003.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="468" frameborder="0" height="60" scrolling="no"></iframe></ins></ins></div>
+          
+          <div class="facebook">
+          <a href="http://www.facebook.com/sharer.php?u=http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/&amp;t=Two%20ways%20to%20make%20Box2D%20cars" target="blank">Share on Facebook</a><br>
+          <a href="http://www.facebook.com/pages/Emanuele-Feronato/50374255154" target="_blank"><strong>Be my fan on Facebook</strong> - exclusive content</a>
+          </div>
+          
+	
+		
+		<div class="ad">» <a href="http://www.templatemonster.com/flash-templates.php" target="\&quot;_blank\&quot;">Flash Templates</a> provided by Template Monster are pre-made web design products developed using Flash technology.<br>They can be easily customized to meet the unique requirements of your project.</div>		
+			
+		<!--
+				-->
+		
+		
+			<div id="comments">
+
+
+			<h3 id="comments-title">28 Responses to <em>Two ways to make Box2D cars</em></h3>
+
+
+			<ol class="commentlist">
+					<li class="comment even thread-even depth-1" id="li-comment-424414">
+		<div id="comment-424414">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/741ad501ab0955e188dd2b4f2b2d8dc8.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn"><a href="http://brunomikoski.com/" rel="external nofollow" class="url">Bruno</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-424414">
+			April 6, 2009 at 2:48 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Simple and Perfect! Thanks Emanuele, i search this entire last week!</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=424414#respond" onclick='return addComment.moveForm("comment-424414", "424414", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-424638">
+		<div id="comment-424638">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/25d6d7ff1bfcf2a6a75963395a60ba30.jpg" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">Eliott Robson</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-424638">
+			April 6, 2009 at 7:21 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>WOW, Always wanted to know how to do 
+this! How would i go about using images rather than squares so i could 
+design a motorbike or something?</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=424638#respond" onclick='return addComment.moveForm("comment-424638", "424638", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-424653">
+		<div id="comment-424653">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/c3375d5ab54116ce4bae741afd5ab080.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn"><a href="http://peisme.blogspot.com/" rel="external nofollow" class="url">Monkios</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-424653">
+			April 6, 2009 at 7:37 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Pretty neat.</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=424653#respond" onclick='return addComment.moveForm("comment-424653", "424653", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-424774">
+		<div id="comment-424774">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/d7c898438732a0c5083dabdb755a284c.jpg" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn"><a href="http://joyfulgames.com/" rel="external nofollow" class="url">Brian Yamabe</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-424774">
+			April 6, 2009 at 9:38 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Awesome, I have an idea for a top-down auto game and had no idea where to start. Thanks!</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=424774#respond" onclick='return addComment.moveForm("comment-424774", "424774", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-424796">
+		<div id="comment-424796">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/da8d814e9db152fe9e67cd4dd77bf581.jpg" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn"><a href="http://www.idiosync.ca/" rel="external nofollow" class="url">Rasheed</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-424796">
+			April 6, 2009 at 10:04 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Very cool examples! Can’t wait to see some more.</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=424796#respond" onclick='return addComment.moveForm("comment-424796", "424796", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-424804">
+		<div id="comment-424804">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/85a22ea762df498226c3318e97a40141.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn"><a href="http://xitri.com/" rel="external nofollow" class="url">Xitri</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-424804">
+			April 6, 2009 at 10:13 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>In the first example the car moves as 
+though in water. The centre of rotation at the car is exposed on the 
+centre? I tried to do such, the truth not with Box2D, and the centre of 
+rotation of the car put between back wheels: <a href="http://xitri.com/2008/07/09/flash-programming-drive-a-car.html" rel="nofollow">http://xitri.com/2008/07/09/flash-programming-drive-a-car.html</a></p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=424804#respond" onclick='return addComment.moveForm("comment-424804", "424804", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-425501">
+		<div id="comment-425501">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/7b34e6bda4a945c5d11a318a1abfc6e5.jpg" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn"><a href="http://www.999credits.com/" rel="external nofollow" class="url">Houen</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-425501">
+			April 7, 2009 at 10:40 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Great post, emanuele!</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=425501#respond" onclick='return addComment.moveForm("comment-425501", "425501", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-425777">
+		<div id="comment-425777">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/c0a9df359761d4cc0c43d2240b889105.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">Peter</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-425777">
+			April 7, 2009 at 6:19 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>:o :o   Awesomeeeeeeeee… I searched for this for a while ago but gave up, now I found it xD</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=425777#respond" onclick='return addComment.moveForm("comment-425777", "425777", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="post pingback">
+		<p>Pingback: <a href="http://whatisay.jonburger.com/?p=118" rel="external nofollow" class="url">Bookmarks for April 9th from 09:00 to 09:00 « what i say // jon burger</a></p>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-430375">
+		<div id="comment-430375">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/ee343038c35b4058e790f8e1521d92e9.jpg" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn"><a href="http://blog.reyco1.com/" rel="external nofollow" class="url">reyco1</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-430375">
+			April 12, 2009 at 9:38 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hey… why is the y scale -1 in the second example? The values look so small also..</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=430375#respond" onclick='return addComment.moveForm("comment-430375", "430375", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-440358">
+		<div id="comment-440358">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/f558abce233c4bb68dec1cc74a34edde.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">dVyper</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-440358">
+			April 27, 2009 at 4:44 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>These examples are absolutely amazing! Good work :)</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=440358#respond" onclick='return addComment.moveForm("comment-440358", "440358", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-515774">
+		<div id="comment-515774">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/ac7b1cd3f611bc4ad49058a7869f5413.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn"><a href="http://www.2b2.eu/" rel="external nofollow" class="url">bogdan</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-515774">
+			October 28, 2009 at 10:24 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hi ,<br>
+in the truck game demo you have the add wheel function  and you set there wheel1.<br>
+the question is how do I  reset the wheel1.angle?</p>
+<p>If I use wheel1.GetAngle I can only see it but can’t set it and if I 
+try with wheel1.angle=0; or wheel1.rotation=0; doens’t work.. please 
+help<br>
+thanks!<br>
+you’re awesome!</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=515774#respond" onclick='return addComment.moveForm("comment-515774", "515774", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-543810">
+		<div id="comment-543810">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/f5d49aebf57f4d282e04a4248d979a39.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">Xorox</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-543810">
+			February 4, 2010 at 2:35 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hi Emanuel, great example, as always.. i have a question, how would you introduce a handbrake to your topview car simulation ?</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=543810#respond" onclick='return addComment.moveForm("comment-543810", "543810", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-555154">
+		<div id="comment-555154">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/be8725a25cb1d393f6db068a524934d7.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">T</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-555154">
+			March 12, 2010 at 2:36 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>great examples!  I was wondering if you 
+could make an updated version for the new 2.1a version of Box2d – as it 
+looks like GetXForm (and xforms altogether) are now gone from the 
+library!</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=555154#respond" onclick='return addComment.moveForm("comment-555154", "555154", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-558180">
+		<div id="comment-558180">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/db951b16b882ec11097251819979d4e3.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/" rel="external nofollow" class="url">eanjo</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-558180">
+			March 19, 2010 at 5:23 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Nice tutorial.<br>
+But when i copy the source code, i cant run it,<br>
+here’s the error I’ve recieve:</p>
+<p>1046: Type was not found or was not a compile-time constant: Input.</p>
+<p>1180: Call to a possibly undefined method Input.</p>
+<p>1120: Access of undefined property FRateLimiter.</p>
+<p>I don’t know that input variable.;-(</p>
+<p>can any one knows this case?<br>
+and what if i want my movieclip to be the image on stage?</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=558180#respond" onclick='return addComment.moveForm("comment-558180", "558180", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-564338">
+		<div id="comment-564338">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/f7bb77293bc239a1f1d6ab7c6748b751.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">saravanan</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-564338">
+			April 5, 2010 at 6:59 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hi guys second tutorial not working how said its awesome</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=564338#respond" onclick='return addComment.moveForm("comment-564338", "564338", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-564339">
+		<div id="comment-564339">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/f7bb77293bc239a1f1d6ab7c6748b751.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">saravanan</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-564339">
+			April 5, 2010 at 7:01 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>please explain how to use this code pls give zip format help me</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=564339#respond" onclick='return addComment.moveForm("comment-564339", "564339", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-564579">
+		<div id="comment-564579">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/fb013d76dcedca8de545499947907e6d.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">Rodrigo</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-564579">
+			April 6, 2010 at 1:08 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hey Emanuele. I’m hacing trouble understanding this code:<br>
+spring1.SetMaxMotorForce(30+Math.abs(800*Math.pow(spring1.GetJointTranslation(), 2)));<br>
+			spring1.SetMotorSpeed((spring1.GetMotorSpeed() – 10 * spring1.GetJointTranslation()) * (5)/Constantes.RATIO);<br>
+			spring2.SetMaxMotorForce(30+Math.abs(800*Math.pow(spring2.GetJointTranslation(), 2)));<br>
+			spring2.SetMotorSpeed( -4 * Math.pow(spring2.GetJointTranslation(), 1));</p>
+<p>I changed the density of my car and the torque applied to the wheels…
+ and they started dancing all over the place when going to fast. Any 
+ideas?</p>
+<p>Rod</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=564579#respond" onclick='return addComment.moveForm("comment-564579", "564579", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-564743">
+		<div id="comment-564743">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/4d01aaacb20897355705a353911e6ca5.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">drobs</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-564743">
+			April 6, 2010 at 3:57 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>very nice tutorial, has helped alot, but I also have the same problem as eanjo.<br>
+have been looking around the web for a few days now and just can’t find it ..</p>
+<p>so if someone could help me out, it would be greatly appreciated.</p>
+<p>drobs</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=564743#respond" onclick='return addComment.moveForm("comment-564743", "564743", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="post pingback">
+		<p>Pingback: <a href="http://www.zachdidit.com/?p=14" rel="external nofollow" class="url">Physics Test</a></p>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-579334">
+		<div id="comment-579334">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/fb013d76dcedca8de545499947907e6d.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">Rodrigo</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-579334">
+			May 17, 2010 at 3:53 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>I don’t think I’m doing this right. I 
+took the topdown simulation and created a new project on FlashDevelop. 
+It worked like a charm, except for one thing: The car dances all over 
+the place. I mean, really.. I steer left and accelerate, and it goes 
+like right and starts spinning arround the main body’s mass center.</p>
+<p>I think the problem is in killOrthogonalVelocity. Any ideas?</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=579334#respond" onclick='return addComment.moveForm("comment-579334", "579334", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-596138">
+		<div id="comment-596138">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/92046d7671bcd58610652f3d7e13fe0e.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">Indy</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-596138">
+			June 29, 2010 at 12:24 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hi,</p>
+<p>Great tutorial.  Any advice on how you would handle allowing the car to skid a little on different frictional surfaces? </p>
+<p>Regards</p>
+<p>i</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=596138#respond" onclick='return addComment.moveForm("comment-596138", "596138", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-623735">
+		<div id="comment-623735">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/92046d7671bcd58610652f3d7e13fe0e.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">Indy</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-623735">
+			August 17, 2010 at 1:47 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hi,</p>
+<p>Looking at the side car with 2 wheels, I dont see anything in the 
+code which makes the axles appear as they do.  i.e. they appear to be 2 
+shapes per axel, with one cylinder moving inside another cylinder?  All I
+ can see in the code is one rectangle formed as an oriented box – per 
+axle.</p>
+<p>Any ideas?</p>
+<p>Regards</p>
+<p>i</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=623735#respond" onclick='return addComment.moveForm("comment-623735", "623735", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-627329">
+		<div id="comment-627329">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/571945dc5c6258cafbd8cedf4b596fc8.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">Mike</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-627329">
+			August 24, 2010 at 7:33 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>I’m getting the same issues as eanjo.</p>
+<p>1046: Type was not found or was not a compile-time constant: Input.<br>
+1180: Call to a possibly undefined method Input.<br>
+1120: Access of undefined property FRateLimiter.</p>
+<p>Any body know how to fix this. Thanks!</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=627329#respond" onclick='return addComment.moveForm("comment-627329", "627329", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-627661">
+		<div id="comment-627661">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/571945dc5c6258cafbd8cedf4b596fc8.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">Mike</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-627661">
+			August 25, 2010 at 5:32 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Does any body know what my errors are? (read comment above) I’m in Flash CS5 running Box2d 2.0.2</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=627661#respond" onclick='return addComment.moveForm("comment-627661", "627661", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	<ul class="children">
+	<li class="comment odd alt depth-2" id="li-comment-638421">
+		<div id="comment-638421">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/65cbbeda3d599ff54535f1b82e07411b.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">Randomman159</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-638421">
+			September 11, 2010 at 7:20 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>I am also getting these errors, and i 
+went through half a dozen different versions of Box2d. The one with the 
+least errors were the Box2d 2.0.*, so basically what you are using. To 
+get rid of the errors i just removed the FRateLimiter line of code, and 
+replaced all the ‘input’ with a class i made, but you could simply have 
+boolean values for whether keys are pressed, and check those booleans 
+(instead of checking through a class).</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=638421#respond" onclick='return addComment.moveForm("comment-638421", "638421", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+</ul>
+</li>
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-668964">
+		<div id="comment-668964">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/8192ff195005d55a4cbfc51b8ac41b65.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">vikram</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-668964">
+			October 28, 2010 at 8:08 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Really Nice Emanuele! Your tutorials are 
+really helpful for the freshers who want to enter into the gaming field.
+ I am a live example for this. Actually I learned a lot from your 
+tutorials. Your tutorials made me win my first interview.</p>
+<p>I have a small problem now! I am creating a dirt bike type game. I 
+created the bike and some platforms. I created a bridge. When the bike 
+is moving on the bridge, it just going into the bridge after traveling 
+through 2 links.</p>
+<p>I don’t know why it is happening. Can you please help me out!</p>
+<p>Thanks in advance…..</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=668964#respond" onclick='return addComment.moveForm("comment-668964", "668964", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+	<li class="comment odd alt thread-even depth-1" id="li-comment-670866">
+		<div id="comment-670866">
+		<div class="comment-author vcard">
+			<img alt="" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/aa3db90b3616c0dbb77b848e591d667b.png" class="avatar avatar-40 photo" width="40" height="40">			<cite class="fn">lacas82</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#comment-670866">
+			October 31, 2010 at 8:30 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>How to do this lines in java?:</p>
+<p>	var sidewaysAxis = targetBody.GetXForm().R.col2.Copy();<br>
+	sidewaysAxis.Multiply(b2Math.b2Dot(velocity,sidewaysAxis))</p>
+<p>Theres is nothing R.col2 in there…</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/?replytocom=670866#respond" onclick='return addComment.moveForm("comment-670866", "670866", "respond", "1110")'>Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li>
+			</ol>
+
+
+
+								<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/#respond" style="display: none;">Cancel reply</a></small></h3>
+									<form action="http://www.emanueleferonato.com/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" size="30" aria-required="true" type="text"></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" size="30" aria-required="true" type="text"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" size="30" type="text"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a
+ href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; 
+&lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del 
+datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; 
+&lt;strong&gt; &lt;pre lang="" line="" escaped=""&gt; </code></p>						<p class="form-submit">
+							<input name="submit" id="submit" value="Post Comment" type="submit">
+							<input name="comment_post_ID" value="1110" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+						</p>
+											</form>
+							</div><!-- #respond -->
+						
+</div><!-- #comments -->
+		
+					
+	</div>
+ 	
+<!-- begin main_sidebar -->
+
+<div id="mid_side">
+
+
+<form action="http://www.emanueleferonato.com/search-results/" id="cse-search-box">
+  <div id="cse">
+    <input name="cx" value="partner-pub-2062493463858889:x253il-vejs" type="hidden">
+    <input name="cof" value="FORID:11" type="hidden">
+    <input name="ie" value="ISO-8859-1" type="hidden">
+    <input style="border: 1px solid rgb(126, 157, 185); padding: 2px; background: url(&quot;http://www.google.com/cse/intl/en/images/google_custom_search_watermark.gif&quot;) no-repeat scroll left center rgb(255, 255, 255);" name="q" size="30" type="text">
+    <input name="sa" value="Search" type="submit">
+	</div>
+<input value="www.emanueleferonato.com/2009/04/06/two-ways-to-make-box2d-cars/" name="siteurl" type="hidden"></form>
+<script type="text/javascript" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/brand"></script>
+
+<div style="padding: 0px; text-align: center;">
+<!-- BuySellAds.com Zone Code -->
+<div id="bsap_1251503" class="bsap_1251503 bsap"><a href="http://stats.buysellads.com/click.go?z=1251503&amp;b=640546&amp;g=&amp;s=&amp;sw=1024&amp;sh=600&amp;br=firefox,3.6,win&amp;r=0.5087211111849573&amp;link=http://activeden.net/item/xml-flip-book-as3/63869?ref=bsa&amp;utm_source=ad&amp;utm_medium=banner&amp;utm_campaign=Emanuele" onmouseover="window.status = 'http://activeden.net/item/xml-flip-book-as3/63869?ref=bsa&amp;utm_source=ad&amp;utm_medium=banner&amp;utm_campaign=Emanuele'; return true;" onmouseout="window.status=''; return true;" class="ad1 odd" title="XML Flipbook - Activeden" id="bsa_640546" target="_blank"><img src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/41881-1289214098.png" alt="XML Flipbook - Activeden" width="300" height="250"></a></div>
+<!-- END BuySellAds.com Zone Code -->
+</div>
+
+
+<div style="margin-top: 10px; width: 150px; float: left;">
+     <a href="http://www.emanueleferonato.com/triqui-mochiads-arcade-theme-for-wordpress-official-page/"><img src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/mochitheme.png"><br>MochiAds arcade theme for WordPress</a>
+</div>
+<div style="margin-top: 10px; width: 150px; float: left;">
+     <a href="http://www.emanueleferonato.com/triqui-mochiads-arcade-plugin-for-wordpress-official-page/"><img src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/mochiplugin.png"><br>MochiAds arcade plugin for WordPress</a>
+</div>
+
+<div style="clear: both;"><!-- --></div>
+
+<div id="series" style="margin-top: 10px;">
+<h2>TUTORIAL SERIES:</h2>
+<ul>
+<li><a href="http://www.emanueleferonato.com/2010/10/20/create-a-facebook-application-like-friend-interview/">Create a Facebook application like "Friend Interview"</a></li>
+<li><a href="http://www.emanueleferonato.com/2010/09/21/create-a-flash-game-like-pixel-purge-step-1-player-movement/">Create a Flash game like Pixel Purge</a></li>
+<li><a href="http://www.emanueleferonato.com/2010/08/11/create-a-flash-game-like-blockage/">Create a Flash game like Blockage</a></li>
+<li><a href="http://www.emanueleferonato.com/2010/06/25/worms-like-destructible-terrain-in-flash/">Worms-like destructible terrain in Flash</a></li>
+<li><a href="http://www.emanueleferonato.com/2010/05/27/create-a-flash-game-like-talesworth-adventure/">Create a Flash game like Talesworth Adventure</a></li>
+<li><a href="http://www.emanueleferonato.com/2010/05/10/create-a-flash-game-like-rebuild-chile/">Create a Flash game like Rebuild Chile</a></li>
+<li><a href="http://www.emanueleferonato.com/2008/10/04/create-a-flash-game-like-gold-miner/">Create a Flash game like Gold Miner</a></li>
+<li><a href="http://www.emanueleferonato.com/2007/09/26/create-a-survival-horror-game-in-flash-tutorial-part-1/">Create a survival horror game in Flash</a></li>
+<li><a href="http://www.emanueleferonato.com/2007/05/15/create-a-flash-racing-game-tutorial/">Create a Flash racing game</a></li>
+</ul>
+</div>
+
+<div style="margin-top: 10px;">
+	<script language="Javascript">
+	var cpmstar_rnd=Math.round(Math.random()*999999);
+	var cpmstar_pid=10016;
+	document.writeln("<SCR"+"IPT language='Javascript' src='http://server.cpmstar.com/view.aspx?poolid="+cpmstar_pid+"&script=1&rnd="+cpmstar_rnd+"'></SCR"+"IPT>");
+	</script><script language="Javascript" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/view.htm"></script><script type="text/javascript">
+//20101013
+var width=300;
+var height=250;
+var imageurl="";
+var flashurl="http://hc116.simplecdn.net/cached/creatives/2612/300x250.swf";
+var clickurl="http%3a%2f%2fserver.cpmstar.com%2fclick.aspx%3fpoolid%3d10016%26subpoolid%3d0%26campaignid%3d1309%26creativeid%3d2612%26url%3d";
+var simpleclickurl="http://server.cpmstar.com/click.aspx?poolid=10016&subpoolid=0&campaignid=1309&creativeid=2612&url=";
+</script>
+<script type="text/javascript" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/flashadv10.js">
+</script><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=3,0,0,0" id="ad_banner_example" style="line-height: 1px;" width="300" height="250"> <param name="movie" value="http://hc116.simplecdn.net/cached/creatives/2612/300x250.swf?clickTAG=http%3a%2f%2fserver.cpmstar.com%2fclick.aspx%3fpoolid%3d10016%26subpoolid%3d0%26campaignid%3d1309%26creativeid%3d2612%26url%3d"> <param name="wmode" value="opaque"> <param name="menu" value="false"> <param name="quality" value="high">  <embed src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/300x250.swf" wmode="opaque" menu="false" quality="high" swliveconnect="FALSE" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" width="300" height="250">  </object>
+
+
+</div>
+
+<div style="margin-top: 10px;">
+	<iframe src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/cm.htm" marginwidth="0" marginheight="0" border="0" style="border: medium none;" width="300" frameborder="0" height="250" scrolling="no"></iframe>
+</div>
+
+<div style="margin-top: 10px;">
+<!--- UNDERDOGMEDIA Medium Rectangle Emanuele Feronato JavaScript ADCODE START-->
+<script language="javascript" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/img.js"></script><a href="http://udmserve.net/udm/clk.cpx?mid=859;sid=2887;ev=2;dt=2;" target="_blank"><img src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/brainbend300x250.gif" border="0"></a><!-- Start Quantcast tag -->
+        <script type="text/javascript">
+        _qoptions={
+        qacct:"p-effSsmMYCbAck",
+        lables:"cat.9,sid.2887"
+        };
+        </script>
+        <script type="text/javascript" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/quant.js"></script>
+        <noscript>
+        <img src="http://pixel.quantserve.com/pixel/p-effSsmMYCbAck.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+        </noscript>
+        <!-- End Quantcast tag -->
+
+<noscript><a href="http://udmserve.net/udm/clk.cpx?sid=2887;ev=2;tid=2;dt=3">
+<img src="http://udmserve.net/udm/img.fetch?sid=2887;ev=1;tid=2;dt=3" width=300 height=250 border=0></a></noscript>
+<!--- UNDERDOGMEDIA Medium Rectangle Emanuele Feronato JavaScript ADCODE END-->
+</div>
+
+<div style="margin-top: 10px;">
+<iframe src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/likebox.htm" style="border: medium none; overflow: hidden; width: 300px; height: 287px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+</div>
+
+
+<!-- begin l_sidebar -->
+
+<div id="l_sidebar">
+
+	<ul id="l_sidebarwidgeted">
+		</ul>
+	
+</div>
+
+<!-- end l_sidebar -->
+
+<!-- begin r_sidebar -->
+
+<div id="r_sidebar">
+
+	<ul id="r_sidebarwidgeted">
+		</ul>
+			
+</div>
+
+<!-- end r_sidebar -->
+
+</div>	
+
+<!-- end main_sidebar -->
+
+</div>
+
+<!-- The main column ends  -->
+<!-- begin footer -->
+
+<div style="clear: both;"></div>
+<div id="footer">
+	<div id="footer_sidebar">
+	<ul>
+     <li id="categories-2" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+	<li class="cat-item cat-item-24"><a href="http://www.emanueleferonato.com/category/actionscript-2/" title="View all posts filed under Actionscript 2">Actionscript 2</a> (61)
+</li>
+	<li class="cat-item cat-item-23"><a href="http://www.emanueleferonato.com/category/actionscript-3/" title="View all posts filed under Actionscript 3">Actionscript 3</a> (221)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.emanueleferonato.com/category/ajax/" title="Ajax script, tutorials and games">Ajax</a> (4)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.emanueleferonato.com/category/blogging/" title="View all posts filed under Blogging">Blogging</a> (33)
+</li>
+	<li class="cat-item cat-item-27"><a href="http://www.emanueleferonato.com/category/box2d/" title="View all posts filed under Box2D">Box2D</a> (87)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.emanueleferonato.com/category/contests/" title="List of contest where you can show your skills">Contests</a> (25)
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.emanueleferonato.com/category/css/" title="Examples and discussions about css">Css</a> (8)
+</li>
+	<li class="cat-item cat-item-29"><a href="http://www.emanueleferonato.com/category/facebook/" title="View all posts filed under Facebook">Facebook</a> (18)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.emanueleferonato.com/category/flash/" title="About Macromedia Flash">Flash</a> (512)
+</li>
+	<li class="cat-item cat-item-21"><a href="http://www.emanueleferonato.com/category/flex/" title="View all posts filed under Flex">Flex</a> (9)
+</li>
+	<li class="cat-item cat-item-22"><a href="http://www.emanueleferonato.com/category/game-design/" title="View all posts filed under Game design">Game design</a> (366)
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.emanueleferonato.com/category/html/" title="Html tutorials and examples">Html</a> (4)
+</li>
+	<li class="cat-item cat-item-28"><a href="http://www.emanueleferonato.com/category/iphone/" title="View all posts filed under iPhone">iPhone</a> (2)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.emanueleferonato.com/category/javascript/" title="Javascript scripts and tutorials">Javascript</a> (22)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.emanueleferonato.com/category/links/" title="Links useful for developers">Links</a> (57)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.emanueleferonato.com/category/monetize/" title="View all posts filed under Monetize">Monetize</a> (116)
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.emanueleferonato.com/category/on-the-horizon/" title="What's coming soon at emanueleferonato.com">On the horizon</a> (4)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.emanueleferonato.com/category/photoshop/" title="Tutorials, actions and more Photoshop stuff">Photoshop</a> (23)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.emanueleferonato.com/category/php/" title="Php scripts and tutorials">Php</a> (62)
+</li>
+	<li class="cat-item cat-item-26"><a href="http://www.emanueleferonato.com/category/programming/" title="View all posts filed under PROgramming">PROgramming</a> (24)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://www.emanueleferonato.com/category/reviews/" title="What I think about...">Reviews</a> (29)
+</li>
+	<li class="cat-item cat-item-25"><a href="http://www.emanueleferonato.com/category/tutorials/" title="View all posts filed under Tutorials">Tutorials</a> (35)
+</li>
+	<li class="cat-item cat-item-12"><a href="http://www.emanueleferonato.com/category/users-contributions/" title="Contribute with your examples">Users contributions</a> (112)
+</li>
+	<li class="cat-item cat-item-2"><a href="http://www.emanueleferonato.com/category/wordpress/" title="Ideas and Plugins about WordPress, the CMS emanueleferonato.com was built with">WordPress</a> (61)
+</li>
+		</ul>
+</li>
+     </ul>
+     </div>
+	<div id="copy">Copyright © 2006-2010 <a href="http://www.emanueleferonato.com/">Emanuele Feronato</a> • Powered by <a href="http://www.wordpress.org/">WordPress</a></div>
+</div>
+
+
+
+
+<!-- postratings -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var ratingsL10n = {
+	plugin_url: "http://www.emanueleferonato.com/wp-content/plugins/wp-postratings",
+	ajax_url: "http://www.emanueleferonato.com/wp-content/plugins/wp-postratings/wp-postratings.php",
+	text_wait: "Please rate only 1 post at a time.",
+	image: "stars_crystal",
+	image_ext: "gif",
+	max: "5",
+	show_loading: "1",
+	show_fading: "1",
+	custom: "0"
+};
+var ratings_mouseover_image=new Image();ratings_mouseover_image.src=ratingsL10n.plugin_url+"/images/"+ratingsL10n.image+"/rating_over."+ratingsL10n.image_ext;
+/* ]]> */
+</script>
+<script type="text/javascript">var post_id=0;var post_rating=0;var is_being_rated=false;ratingsL10n.custom=parseInt(ratingsL10n.custom);ratingsL10n.max=parseInt(ratingsL10n.max);ratingsL10n.show_loading=parseInt(ratingsL10n.show_loading);ratingsL10n.show_fading=parseInt(ratingsL10n.show_fading);function current_rating(id,rating,rating_text){if(!is_being_rated){post_id=id;post_rating=rating;if(ratingsL10n.custom&&ratingsL10n.max==2){jQuery("#rating_"+post_id+"_"+rating).attr("src",eval("ratings_"+rating+"_mouseover_image.src"))}else{for(i=1;i<=rating;i++){if(ratingsL10n.custom){jQuery("#rating_"+post_id+"_"+i).attr("src",eval("ratings_"+i+"_mouseover_image.src"))}else{jQuery("#rating_"+post_id+"_"+i).attr("src",ratings_mouseover_image.src)}}}if(jQuery("#ratings_"+post_id+"_text").length){jQuery("#ratings_"+post_id+"_text").show();jQuery("#ratings_"+post_id+"_text").html(rating_text)}}}function ratings_off(b,c,a){if(!is_being_rated){for(i=1;i<=ratingsL10n.max;i++){if(i<=b){if(ratingsL10n.custom){jQuery("#rating_"+post_id+"_"+i).attr("src",ratingsL10n.plugin_url+"/images/"+ratingsL10n.image+"/rating_"+i+"_on."+ratingsL10n.image_ext)}else{jQuery("#rating_"+post_id+"_"+i).attr("src",ratingsL10n.plugin_url+"/images/"+ratingsL10n.image+"/rating_on."+ratingsL10n.image_ext)}}else{if(i==c){if(ratingsL10n.custom){jQuery("#rating_"+post_id+"_"+i).attr("src",ratingsL10n.plugin_url+"/images/"+ratingsL10n.image+"/rating_"+i+"_half"+(a?"-rtl":"")+"."+ratingsL10n.image_ext)}else{jQuery("#rating_"+post_id+"_"+i).attr("src",ratingsL10n.plugin_url+"/images/"+ratingsL10n.image+"/rating_half"+(a?"-rtl":"")+"."+ratingsL10n.image_ext)}}else{if(ratingsL10n.custom){jQuery("#rating_"+post_id+"_"+i).attr("src",ratingsL10n.plugin_url+"/images/"+ratingsL10n.image+"/rating_"+i+"_off."+ratingsL10n.image_ext)}else{jQuery("#rating_"+post_id+"_"+i).attr("src",ratingsL10n.plugin_url+"/images/"+ratingsL10n.image+"/rating_off."+ratingsL10n.image_ext)}}}}if(jQuery("#ratings_"+post_id+"_text").length){jQuery("#ratings_"+post_id+"_text").hide();jQuery("#ratings_"+post_id+"_text").empty()}}}function set_is_being_rated(a){is_being_rated=a}function rate_post_success(a){jQuery("#post-ratings-"+post_id).html(a);if(ratingsL10n.show_loading){jQuery("#post-ratings-"+post_id+"-loading").hide()}if(ratingsL10n.show_fading){jQuery("#post-ratings-"+post_id).fadeTo("def",1,function(){set_is_being_rated(false)})}else{set_is_being_rated(false)}}function rate_post(){if(!is_being_rated){set_is_being_rated(true);if(ratingsL10n.show_fading){jQuery("#post-ratings-"+post_id).fadeTo("def",0,function(){if(ratingsL10n.show_loading){jQuery("#post-ratings-"+post_id+"-loading").show()}jQuery.ajax({type:"GET",url:ratingsL10n.ajax_url,data:"pid="+post_id+"&rate="+post_rating,cache:false,success:rate_post_success})})}else{if(ratingsL10n.show_loading){jQuery("#post-ratings-"+post_id+"-loading").show()}jQuery.ajax({type:"GET",url:ratingsL10n.ajax_url,data:"pid="+post_id+"&rate="+post_rating,cache:false,success:rate_post_success})}}else{alert(ratingsL10n.text_wait)}};</script>
+<script type="text/javascript" src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/jquery.js"></script>
+
+<!-- postratings -->
+
+
+
+<script src="Two%20ways%20to%20make%20Box2D%20cars%20-%20Emanuele%20Feronato_files/urchin.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+_uacct = "UA-475707-1";
+
+urchinTracker();
+
+</script>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk
+Page Caching using disk (enhanced)
+
+Served from: www.emanueleferonato.com @ 2010-11-16 10:27:40 --></body></html>

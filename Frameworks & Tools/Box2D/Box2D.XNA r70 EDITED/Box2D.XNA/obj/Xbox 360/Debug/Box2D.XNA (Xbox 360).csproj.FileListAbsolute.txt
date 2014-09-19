@@ -1,0 +1,5 @@
+C:\Documents and Settings\suvozit\Desktop\box2dxna\Box2D.XNA\bin\Xbox 360\Debug\Box2D.XNA.dll
+C:\Documents and Settings\suvozit\Desktop\box2dxna\Box2D.XNA\bin\Xbox 360\Debug\Box2D.XNA.pdb
+C:\Documents and Settings\suvozit\Desktop\box2dxna\Box2D.XNA\obj\Xbox 360\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\suvozit\Desktop\box2dxna\Box2D.XNA\obj\Xbox 360\Debug\Box2D.XNA.dll
+C:\Documents and Settings\suvozit\Desktop\box2dxna\Box2D.XNA\obj\Xbox 360\Debug\Box2D.XNA.pdb

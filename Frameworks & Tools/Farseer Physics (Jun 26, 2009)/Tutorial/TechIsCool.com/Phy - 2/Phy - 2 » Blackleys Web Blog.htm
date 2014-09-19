@@ -1,0 +1,551 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<!-- template /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Page.ss -->
+
+  
+		<!-- base href="http://www.techiscool.com/wingwarp/silverstripe/" -->
+		<title>Phy - 2 » Blackleys Web Blog</title>
+		<meta name="generator" http-equiv="generator" content="SilverStripe 2.3.1 - http://www.silverstripe.com">
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<meta name="keywords" http-equiv="keywords" content="Farseer Physics XNA blackley wingwarp Phy - 2 web blog tutorial">
+<meta name="description" http-equiv="description" content="The Second Tutorial using Farseer Physics in XNA. You will learn how to use animated sprites with the physics engine!">
+<meta http-equiv="Content-Language" content="en">
+
+		<link rel="shortcut icon" href="http://www.techiscool.com/favicon.ico">
+		
+		 
+		 
+		 
+		
+		<!--[if IE 6]>
+			<style type="text/css">
+			 @import url(themes/blackcandy/css/ie6.css);
+			</style> 
+		<![endif]-->
+		
+		<!--[if IE 7]>
+			<style type="text/css">
+			 @import url(themes/blackcandy/css/ie7.css);
+			</style> 
+		<![endif]-->
+	<link rel="stylesheet" type="text/css" href="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/layout.css">
+<link rel="stylesheet" type="text/css" href="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/typography.css">
+<link rel="stylesheet" type="text/css" href="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/form.css">
+</head><body><script type="text/javascript" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/prototype.js"></script><script type="text/javascript" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/behaviour.js"></script><script type="text/javascript" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/prototype_improvements.js"></script><script type="text/javascript" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/i18n.js"></script><script type="text/javascript" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/en_US.js"></script><script type="text/javascript" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/Validator.js"></script><script type="text/javascript">//<![CDATA[
+Behaviour.register({
+	'#SearchForm_SearchForm': {
+		validate : function(fromAnOnBlur) {
+			initialiseForm(this, fromAnOnBlur);
+			
+			
+			var error = hasHadFormError();
+			if(!error && fromAnOnBlur) clearErrorMessage(fromAnOnBlur);
+			
+			return !error;
+		},
+		onsubmit : function() {
+			if(typeof this.bypassValidation == 'undefined' || !this.bypassValidation) return this.validate();
+		}
+	},
+	'#SearchForm_SearchForm input' : {
+		initialise: function() {
+			if(!this.old_onblur) this.old_onblur = function() { return true; } 
+			if(!this.old_onfocus) this.old_onfocus = function() { return true; } 
+		},
+		onblur : function() {
+			if(this.old_onblur()) {
+				// Don't perform instant validation for CalendarDateField fields; it creates usability wierdness.
+				if(this.parentNode.className.indexOf('calendardate') == -1 || this.value) {
+					return $('SearchForm_SearchForm').validate(this);
+				} else {
+					return true;
+				}
+			}
+		}
+	},
+	'#SearchForm_SearchForm select' : {
+		initialise: function() {
+			if(!this.old_onblur) this.old_onblur = function() { return true; } 
+		},
+		onblur : function() {
+			if(this.old_onblur()) {
+				return $('SearchForm_SearchForm').validate(this); 
+			}
+		}
+	}
+});
+
+//]]></script>
+<div id="BgContainer">
+	<div id="Container">
+		<div id="Header">
+			<form id="SearchForm_SearchForm" action="/wingwarp/silverstripe/phy/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
+	<fieldset>
+		<legend></legend>
+		
+			<div id="Search" class="field text nolabel"><div class="middleColumn"><input class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" value="Search" type="text"></div></div>
+		
+		
+			<input class="action" id="SearchForm_SearchForm_action_results" name="action_results" value="Search" title="Search" type="submit">
+		
+	</fieldset>
+</form>
+
+	   		<h1><b>Blackleys Web Blog</b></h1>
+	    	<p><b>Bloging About Life and Programing</b></p>
+		</div>
+		
+		<div id="Navigation">
+			<!-- include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/Navigation.ss -->
+<ul>
+ 		  
+  		<li><a href="http://www.techiscool.com/wingwarp/silverstripe/" title="Go to the Home page" class="link"><span>Home</span></a></li>
+   		  
+  		<li><a href="http://www.techiscool.com/wingwarp/silverstripe/tutorials/" title="Go to the Tutorials page" class="section"><span>Tutorials</span></a></li>
+   		  
+  		<li><a href="http://www.techiscool.com/wingwarp/silverstripe/contact-us/" title="Go to the Contact Us page" class="link"><span>Contact Us</span></a></li>
+   		  
+  		<li><a href="http://www.techiscool.com/wingwarp/silverstripe/rss/" title="Go to the RSS page" class="link"><span>RSS</span></a></li>
+   	
+ </ul>
+<!-- end include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/Navigation.ss -->
+	  	</div>
+	  	
+	  	<div class="clear"><!-- --></div>
+		
+		<div id="Layout">
+		  <!-- template /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Layout/Page.ss -->
+<div class="typography">
+	
+		<!-- include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/SideBar.ss -->
+<div id="Sidebar" class="typography">
+	<div class="sidebarBox">
+ 		<h3>
+			
+				Tutorials
+			
+  		</h3>
+  		
+  		<ul id="Menu2">
+		  	
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/3d-lesson/" title="Go to the 3D Lesson 1 page" class="link levela"><span><em>3D - 1</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/3d-lesson-2/" title="Go to the 3D Lesson 2 page" class="link levela"><span><em>3D - 2</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/2d-lesson/" title="Go to the 2D Lesson 1 page" class="link levela"><span><em>2D - 1</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/physics-lesson/" title="Go to the Physics Lesson 1 page" class="link levela"><span><em>Phy - 1</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/phy/" title="Go to the Physics Lesson 2 page" class="current levela"><span><em>Phy - 2</em></span></a>
+					  
+	  		
+	  			
+	  				
+				 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/tutorials-xna-hlsl-lesson1/" title="Go to the HLSL Lesson 1 page" class="link levela"><span><em>HLSL - 1</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/tutorials-xna-hlsl-lesson2/" title="Go to the HLSL Lesson 2 page" class="link levela"><span><em>HLSL - 2</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/tutorials-xna-hlsl-lesson3/" title="Go to the HLSL Lesson 3 page" class="link levela"><span><em>HLSL - 3</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/hlsl-lesson-4/" title="Go to the HLSL Lesson 4 page" class="link levela"><span><em>HLSL - 4</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/request-tutorials/" title="Go to the Request Tutorials page" class="link levela"><span><em>Request </em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  		</ul>
+		<div class="clear"></div>
+	</div>
+	<div class="sidebarBottom"></div>
+</div>
+  
+<!-- end include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/SideBar.ss -->
+		<div id="Content">
+	
+			
+	
+	  	<!-- include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/BreadCrumbs.ss -->
+
+	<div id="Breadcrumbs">
+	   	<p><a href="http://www.techiscool.com/wingwarp/silverstripe/tutorials/">Tutorials</a> » Physics Lesson 2</p>
+	</div>
+
+<!-- end include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/BreadCrumbs.ss -->
+	
+	
+		<h2>Physics Lesson 2</h2>
+	
+		<p>Welcome
+to the second Farseer Physics tutorial! In this tutorial we will learn
+how to use the physics engine with animated sprites! We will continue
+this from our last tutorial. We are going to make our ball have an
+animation on it mine is quite simple but the idea is the same. Here is
+the new ball.</p>
+<p>&nbsp;</p>
+<div class="captionImage center" style="width: 256px;"><img title="New Ball Sprite" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/Phyball.png" alt="New Ball Sprite" width="256" height="64">
+<div class="caption" style="width: 256px;">New Ball Sprite</div>
+</div>
+<p>&nbsp;</p>
+<p>now if you have an idea and the animation is in separate images it
+would be a good idea to change it to a sprite sheet because it is much
+faster to keep drawing one texture but only a part of it each frame.
+Add the following code right above your game1 constructor.</p>
+<div class="csharp codeblock" style="font-family: monospace;">Rectangle SpriteSheetCalc<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">int</span> FrameWidth, <span style="color: rgb(255, 0, 0);">int</span> FrameHeight, <span style="color: rgb(255, 0, 0);">int</span> FrameCount<span style="color: rgb(0, 0, 0);">)</span><br>
+<span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; Rectangle tempRec <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Rectangle<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; tempRec.<span style="color: rgb(0, 0, 255);">X</span> <span style="color: rgb(0, 128, 0);">=</span> FrameWidth <span style="color: rgb(0, 128, 0);">*</span> FrameCount<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; tempRec.<span style="color: rgb(0, 0, 255);">Y</span> <span style="color: rgb(0, 128, 0);">=</span> <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; tempRec.<span style="color: rgb(0, 0, 255);">Width</span> <span style="color: rgb(0, 128, 0);">=</span> FrameWidth<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; tempRec.<span style="color: rgb(0, 0, 255);">Height</span> <span style="color: rgb(0, 128, 0);">=</span> FrameHeight<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">return</span> tempRec<span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+<br>
+<span style="color: rgb(255, 0, 0);">int</span> CurrentBallAnimFrame <span style="color: rgb(0, 128, 0);">=</span> <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp;</div>
+<p>A quick explanation of what occurs here although it is kinda simple,
+We created a function that returns a rectangle and takes the width of
+each frame and the height of each frame and the frame we are
+calculating for. We create a new rectangle and then calculate where it
+should be and set its height and its width finaly we return the
+tempRec. Below the function we add this variable and it will keep track
+of the current frame for our animation. Now find the Draw function and
+then delete the line that draws the ball it should look like this.</p>
+<div class="csharp codeblock" style="font-family: monospace;"><span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> Draw<span style="color: rgb(0, 0, 0);">(</span>GameTime gameTime<span style="color: rgb(0, 0, 0);">)</span><br>
+<span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; GraphicsDevice.<span style="color: rgb(0, 0, 255);">Clear</span><span style="color: rgb(0, 0, 0);">(</span>Color.<span style="color: rgb(0, 0, 255);">CornflowerBlue</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">Begin</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>platformTex, platformOne.<span style="color: rgb(0, 0, 255);">Position</span>, <span style="color: rgb(6, 0, 255);">null</span>, Color.<span style="color: rgb(0, 0, 255);">White</span>, platformOne.<span style="color: rgb(0, 0, 255);">Rotation</span>, <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">117</span>, <span style="color: rgb(255, 0, 0);">32</span><span style="color: rgb(0, 0, 0);">)</span>, 1f, SpriteEffects.<span style="color: rgb(0, 0, 255);">None</span>, 1f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">End</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">base</span>.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>gameTime<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(0, 0, 0);">}</span><br>
+&nbsp;</div>
+<p>Now above the 'spriteBatch.Draw(playformTex....' add this line</p>
+<div class="csharp codeblock" style="font-family: monospace;">spriteBatch.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>ballTex, ballBody.<span style="color: rgb(0, 0, 255);">Position</span>, SpriteSheetCalc<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">64</span>, <span style="color: rgb(255, 0, 0);">64</span>, CurrentBallAnimFrame<span style="color: rgb(0, 0, 0);">)</span>, Color.<span style="color: rgb(0, 0, 255);">White</span>, ballBody.<span style="color: rgb(0, 0, 255);">Rotation</span>, <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">32</span>, <span style="color: rgb(255, 0, 0);">32</span><span style="color: rgb(0, 0, 0);">)</span>, 1f, SpriteEffects.<span style="color: rgb(0, 0, 255);">None</span>, 1f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp;</div>
+<p>This is the exact same line of code that we just deleted but this
+one passes the ?SourceRec this defines the section of the image to use
+for this frame in our case we have a image that is 256 pixels wide and
+holds 4 (64 pixel) frames so the first frame we want (0,0,64,64) the
+second frame we want (64, 0, 64, 64) the third (128, 0, 64, 64) and so
+on till we reach the end. We could hard code this but we created the
+function SpriteSheetCalc so we would not have to do this. For more info
+on the sprite batch draw click <a href="http://msdn.microsoft.com/en-us/library/microsoft.xna.framework.graphics.spritebatch.draw.aspx">here</a>. In the bottom of the Update Method Add the following line of code.</p>
+<div class="csharp codeblock" style="font-family: monospace;">CurrentBallAnimFrame<span style="color: rgb(0, 128, 0);">++;</span><br>
+<span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>CurrentBallAnimFrame <span style="color: rgb(0, 128, 0);">==</span> <span style="color: rgb(255, 0, 0);">4</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; CurrentBallAnimFrame <span style="color: rgb(0, 128, 0);">=</span> <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp;</div>
+<p>This line is very simple but it moves our frame forward one step per
+frame and if it tries to move past the animation we set it back to 0.
+The update function should look like this</p>
+<div class="csharp codeblock" style="font-family: monospace;"><span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> Update<span style="color: rgb(0, 0, 0);">(</span>GameTime gameTime<span style="color: rgb(0, 0, 0);">)</span><br>
+<span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">// Allows the game to exit</span><br>
+&nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>GamePad.<span style="color: rgb(0, 0, 255);">GetState</span><span style="color: rgb(0, 0, 0);">(</span>PlayerIndex.<span style="color: rgb(0, 0, 255);">One</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 0, 255);">Buttons</span>.<span style="color: rgb(0, 0, 255);">Back</span> <span style="color: rgb(0, 128, 0);">==</span> ButtonState.<span style="color: rgb(0, 0, 255);">Pressed</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">this</span>.<span style="color: rgb(0, 0, 255);">Exit</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>ballBody.<span style="color: rgb(0, 0, 255);">Position</span>.<span style="color: rgb(0, 0, 255);">Y</span> <span style="color: rgb(0, 128, 0);">&gt;</span> GraphicsDevice.<span style="color: rgb(0, 0, 255);">PresentationParameters</span>.<span style="color: rgb(0, 0, 255);">BackBufferHeight</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; ballBody.<span style="color: rgb(0, 0, 255);">Position</span> <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">250</span>, <span style="color: rgb(255, 0, 0);">100</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Keyboard movement</span><br>
+<br>
+&nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//THE APPLYIMPULSE WILL BE DESCUSED IN THE NEXT LESSON!</span><br>
+&nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>Keyboard.<span style="color: rgb(0, 0, 255);">GetState</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 0, 255);">IsKeyDown</span><span style="color: rgb(0, 0, 0);">(</span>Keys.<span style="color: rgb(0, 0, 255);">Right</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; ballBody.<span style="color: rgb(0, 0, 255);">ApplyImpulse</span><span style="color: rgb(0, 0, 0);">(</span><a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">20</span>, <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+&nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>Keyboard.<span style="color: rgb(0, 0, 255);">GetState</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 0, 255);">IsKeyDown</span><span style="color: rgb(0, 0, 0);">(</span>Keys.<span style="color: rgb(0, 0, 255);">Left</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; ballBody.<span style="color: rgb(0, 0, 255);">ApplyImpulse</span><span style="color: rgb(0, 0, 0);">(</span><a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 128, 0);">-</span><span style="color: rgb(255, 0, 0);">20</span>, <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; CurrentBallAnimFrame<span style="color: rgb(0, 128, 0);">++;</span><br>
+&nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>CurrentBallAnimFrame <span style="color: rgb(0, 128, 0);">==</span> <span style="color: rgb(255, 0, 0);">4</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; CurrentBallAnimFrame <span style="color: rgb(0, 128, 0);">=</span> <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Update The Physics Sim</span><br>
+&nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Update</span><span style="color: rgb(0, 0, 0);">(</span>gameTime.<span style="color: rgb(0, 0, 255);">ElapsedGameTime</span>.<span style="color: rgb(0, 0, 255);">Milliseconds</span> <span style="color: rgb(0, 128, 0);">*</span> .001f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">base</span>.<span style="color: rgb(0, 0, 255);">Update</span><span style="color: rgb(0, 0, 0);">(</span>gameTime<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(0, 0, 0);">}</span><br>
+&nbsp;</div>
+<p>Here is what it should look like now:</p>
+<p>&nbsp;</p>
+<div class="captionImage center" style="width: 600px;"><img title="Final Result" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/ResizedImage600450-Phy2Final.jpg" alt="Final Result" width="600" height="450">
+<div class="caption" style="width: 600px;">Final Result</div>
+</div>
+<p>&nbsp;</p>
+<p>Here is the Project:</p>
+<p><a href="http://www.techiscool.com/wingwarp/silverstripe/assets/Phy/Lesson2/2DPhyLesson2.zip">2D Phy Lesson2.zip</a></p>
+<p>Final Source Code:</p>
+<div class="csharp codeblock" style="font-family: monospace;"><span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">System</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">System.Collections.Generic</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">System.Linq</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Audio</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Content</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.GamerServices</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Graphics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Input</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Media</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Net</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Storage</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Collisions</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Controllers</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Dynamics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Factories</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Interfaces</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Mathematics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+<br>
+<span style="color: rgb(6, 0, 255);">namespace</span> _2D_Phy_Lesson1<br>
+<span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// This is the main type for your game</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">public</span> <span style="color: rgb(255, 0, 0);">class</span> Game1 <span style="color: rgb(0, 128, 0);">:</span> Microsoft.<span style="color: rgb(0, 0, 255);">Xna</span>.<span style="color: rgb(0, 0, 255);">Framework</span>.<span style="color: rgb(0, 0, 255);">Game</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; GraphicsDeviceManager graphics<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; SpriteBatch spriteBatch<span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; PhysicsSimulator phySim<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Body ballBody<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Geom ballGeom<span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Body platformOne<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Geom platformOneGeo<span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Texture2D ballTex<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Texture2D platformTex<span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// Spire Sheet Calculator</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;param name="FrameWidth"&gt;The Width of each frame&lt;/param&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;param name="FrameHeight"&gt;The Height of each frame&lt;/param&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;param name="FrameCount"&gt;The current frame&lt;/param&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;returns&gt;&lt;/returns&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Rectangle SpriteSheetCalc<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">int</span> FrameWidth, <span style="color: rgb(255, 0, 0);">int</span> FrameHeight, <span style="color: rgb(255, 0, 0);">int</span> FrameCount<span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Rectangle tempRec <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Rectangle<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tempRec.<span style="color: rgb(0, 0, 255);">X</span> <span style="color: rgb(0, 128, 0);">=</span> FrameWidth <span style="color: rgb(0, 128, 0);">*</span> FrameCount<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tempRec.<span style="color: rgb(0, 0, 255);">Y</span> <span style="color: rgb(0, 128, 0);">=</span> <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tempRec.<span style="color: rgb(0, 0, 255);">Width</span> <span style="color: rgb(0, 128, 0);">=</span> FrameWidth<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tempRec.<span style="color: rgb(0, 0, 255);">Height</span> <span style="color: rgb(0, 128, 0);">=</span> FrameHeight<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">return</span> tempRec<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(255, 0, 0);">int</span> CurrentBallAnimFrame <span style="color: rgb(0, 128, 0);">=</span> <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">public</span> Game1<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; graphics <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> GraphicsDeviceManager<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(6, 0, 255);">this</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Content.<span style="color: rgb(0, 0, 255);">RootDirectory</span> <span style="color: rgb(0, 128, 0);">=</span> <span style="color: rgb(102, 102, 102);">"Content"</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// Allows the game to perform any initialization it needs to before starting to run.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// This is where it can query for any required services and load any non-graphic</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// related content. &nbsp;Calling base.Initialize will enumerate through any components</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// and initialize them as well.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> Initialize<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">// TODO: Add your initialization logic here</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">base</span>.<span style="color: rgb(0, 0, 255);">Initialize</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// LoadContent will be called once per game and is the place to load</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// all of your content.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> LoadContent<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">// Create a new SpriteBatch, which can be used to draw textures.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; spriteBatch <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> SpriteBatch<span style="color: rgb(0, 0, 0);">(</span>GraphicsDevice<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballTex <span style="color: rgb(0, 128, 0);">=</span> Content.<span style="color: rgb(0, 0, 255);">Load</span><span style="color: rgb(0, 128, 0);">&lt;</span>Texture2D<span style="color: rgb(0, 128, 0);">&gt;</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(102, 102, 102);">"Phy_ball"</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformTex <span style="color: rgb(0, 128, 0);">=</span> Content.<span style="color: rgb(0, 0, 255);">Load</span><span style="color: rgb(0, 128, 0);">&lt;</span>Texture2D<span style="color: rgb(0, 128, 0);">&gt;</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(102, 102, 102);">"Phy_Platform"</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Create the physics simulator</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> PhysicsSimulator<span style="color: rgb(0, 0, 0);">(</span><a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">0</span>, <span style="color: rgb(255, 0, 0);">200</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Create the ball body and geometry</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballBody <span style="color: rgb(0, 128, 0);">=</span> BodyFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateCircleBody</span><span style="color: rgb(0, 0, 0);">(</span>22f, <span style="color: rgb(255, 0, 0);">2</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballBody.<span style="color: rgb(0, 0, 255);">Position</span> <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">250</span>, <span style="color: rgb(255, 0, 0);">100</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballGeom <span style="color: rgb(0, 128, 0);">=</span> GeomFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateCircleGeom</span><span style="color: rgb(0, 0, 0);">(</span>phySim, ballBody, 22f, <span style="color: rgb(255, 0, 0);">16</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Create the platform body and geometry</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformOne <span style="color: rgb(0, 128, 0);">=</span> BodyFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateRectangleBody</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">235</span>, <span style="color: rgb(255, 0, 0);">64</span>, <span style="color: rgb(255, 0, 0);">1</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformOne.<span style="color: rgb(0, 0, 255);">IsStatic</span> <span style="color: rgb(0, 128, 0);">=</span> true<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformOne.<span style="color: rgb(0, 0, 255);">Position</span> <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">250</span>, <span style="color: rgb(255, 0, 0);">300</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformOne.<span style="color: rgb(0, 0, 255);">Rotation</span> <span style="color: rgb(0, 128, 0);">=</span> MathHelper.<span style="color: rgb(0, 0, 255);">ToRadians</span><span style="color: rgb(0, 0, 0);">(</span>15f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformOneGeo <span style="color: rgb(0, 128, 0);">=</span> GeomFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateRectangleGeom</span><span style="color: rgb(0, 0, 0);">(</span>phySim, platformOne, <span style="color: rgb(255, 0, 0);">235</span>, 64f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Add the objects to the simulator</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>ballBody<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>ballGeom<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>platformOne<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>platformOneGeo<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// UnloadContent will be called once per game and is the place to unload</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// all content.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> UnloadContent<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">// TODO: Unload any non ContentManager content here</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// Allows the game to run logic such as updating the world,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// checking for collisions, gathering input, and playing audio.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;param name="gameTime"&gt;Provides a snapshot of timing values.&lt;/param&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> Update<span style="color: rgb(0, 0, 0);">(</span>GameTime gameTime<span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">// Allows the game to exit</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>GamePad.<span style="color: rgb(0, 0, 255);">GetState</span><span style="color: rgb(0, 0, 0);">(</span>PlayerIndex.<span style="color: rgb(0, 0, 255);">One</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 0, 255);">Buttons</span>.<span style="color: rgb(0, 0, 255);">Back</span> <span style="color: rgb(0, 128, 0);">==</span> ButtonState.<span style="color: rgb(0, 0, 255);">Pressed</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">this</span>.<span style="color: rgb(0, 0, 255);">Exit</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>ballBody.<span style="color: rgb(0, 0, 255);">Position</span>.<span style="color: rgb(0, 0, 255);">Y</span> <span style="color: rgb(0, 128, 0);">&gt;</span> GraphicsDevice.<span style="color: rgb(0, 0, 255);">PresentationParameters</span>.<span style="color: rgb(0, 0, 255);">BackBufferHeight</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballBody.<span style="color: rgb(0, 0, 255);">Position</span> <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">250</span>, <span style="color: rgb(255, 0, 0);">100</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Keyboard movement</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//THE APPLYIMPULSE WILL BE DESCUSED IN THE NEXT LESSON!</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>Keyboard.<span style="color: rgb(0, 0, 255);">GetState</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 0, 255);">IsKeyDown</span><span style="color: rgb(0, 0, 0);">(</span>Keys.<span style="color: rgb(0, 0, 255);">Right</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballBody.<span style="color: rgb(0, 0, 255);">ApplyImpulse</span><span style="color: rgb(0, 0, 0);">(</span><a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">20</span>, <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>Keyboard.<span style="color: rgb(0, 0, 255);">GetState</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 0, 255);">IsKeyDown</span><span style="color: rgb(0, 0, 0);">(</span>Keys.<span style="color: rgb(0, 0, 255);">Left</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballBody.<span style="color: rgb(0, 0, 255);">ApplyImpulse</span><span style="color: rgb(0, 0, 0);">(</span><a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 128, 0);">-</span><span style="color: rgb(255, 0, 0);">20</span>, <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CurrentBallAnimFrame<span style="color: rgb(0, 128, 0);">++;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>CurrentBallAnimFrame <span style="color: rgb(0, 128, 0);">==</span> <span style="color: rgb(255, 0, 0);">4</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CurrentBallAnimFrame <span style="color: rgb(0, 128, 0);">=</span> <span style="color: rgb(255, 0, 0);">0</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Update The Physics Sim</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Update</span><span style="color: rgb(0, 0, 0);">(</span>gameTime.<span style="color: rgb(0, 0, 255);">ElapsedGameTime</span>.<span style="color: rgb(0, 0, 255);">Milliseconds</span> <span style="color: rgb(0, 128, 0);">*</span> .001f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">base</span>.<span style="color: rgb(0, 0, 255);">Update</span><span style="color: rgb(0, 0, 0);">(</span>gameTime<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// This is called when the game should draw itself.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;param name="gameTime"&gt;Provides a snapshot of timing values.&lt;/param&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> Draw<span style="color: rgb(0, 0, 0);">(</span>GameTime gameTime<span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; GraphicsDevice.<span style="color: rgb(0, 0, 255);">Clear</span><span style="color: rgb(0, 0, 0);">(</span>Color.<span style="color: rgb(0, 0, 255);">CornflowerBlue</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">Begin</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>ballTex, ballBody.<span style="color: rgb(0, 0, 255);">Position</span>, SpriteSheetCalc<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">64</span>, <span style="color: rgb(255, 0, 0);">64</span>, CurrentBallAnimFrame<span style="color: rgb(0, 0, 0);">)</span>, Color.<span style="color: rgb(0, 0, 255);">White</span>, ballBody.<span style="color: rgb(0, 0, 255);">Rotation</span>, <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">32</span>, <span style="color: rgb(255, 0, 0);">32</span><span style="color: rgb(0, 0, 0);">)</span>, 1f, SpriteEffects.<span style="color: rgb(0, 0, 255);">None</span>, 1f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>platformTex, platformOne.<span style="color: rgb(0, 0, 255);">Position</span>, <span style="color: rgb(6, 0, 255);">null</span>, Color.<span style="color: rgb(0, 0, 255);">White</span>, platformOne.<span style="color: rgb(0, 0, 255);">Rotation</span>, <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">117</span>, <span style="color: rgb(255, 0, 0);">32</span><span style="color: rgb(0, 0, 0);">)</span>, 1f, SpriteEffects.<span style="color: rgb(0, 0, 255);">None</span>, 1f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">End</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">base</span>.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>gameTime<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp;</div>
+<p>&nbsp;</p>
+		
+		<script type="text/javascript" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/show_ads.js">
+		</script><script src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><iframe name="google_ads_frame" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/ads.htm" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" width="" frameborder="0" height=""></iframe>
+		
+		
+		
+	
+		</div>
+	
+</div>
+
+	
+	
+	
+<!-- end template /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Layout/Page.ss -->
+		  <script type="text/javascript">
+			<!--
+			google_ad_client = "pub-8754052781103063";
+			/* 468x60, created 7/20/09 */
+			google_ad_slot = "4311468604";
+			google_ad_width = 468;
+			google_ad_height = 60;
+			//-->
+			</script>
+			<script type="text/javascript" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/show_ads.js">
+			</script><script src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/expansion_embed.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 60px; position: relative; visibility: visible; width: 468px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 60px; position: relative; visibility: visible; width: 468px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" src="Phy%20-%202%20%C2%BB%20Blackleys%20Web%20Blog_files/ads_002.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" scrolling="no" width="468" frameborder="0" height="60"></iframe></ins></ins>
+		</div>
+	   <div class="clear"><!-- --></div>
+	</div>
+	<div id="Footer">
+		<!-- include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/Footer.ss -->
+<div class="footerTop">
+	<!-- -->
+</div>
+<p>Copyright © 2007-2008 | <a href="http://www.silverstripe.com/" title="SilverStripe CMS">SilverStripe CMS</a></p>
+
+<!-- end include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/Footer.ss -->
+	</div> 
+</div>
+
+<!-- end template /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Page.ss -->
+</body></html>

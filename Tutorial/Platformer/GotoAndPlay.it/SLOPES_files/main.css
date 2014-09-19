@@ -1,0 +1,273 @@
+.internalFrame {
+	background-image: url(images/bg_internalFrame.gif);
+	background-repeat: repeat-y;
+}
+.internalFrameSplit {
+	background-image: url(images/bg_internalFrame_split.gif);
+	background-repeat: repeat-y;
+}
+
+.internalFrameSplit2 {
+
+	background-image: url(images/bg_internalFrame_split2.gif);
+	background-repeat: repeat-y;
+}
+
+.internalFrameGame {
+	background-image: url(images/bg_game.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.xsmall {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.bg {
+	scrollbar-face-color: #dddddd; scrollbar-shadow-color: #eeeeee; 
+	scrollbar-highlight-color: #dddddd; scrollbar-3dlight-color: #ffffff; 
+	scrollbar-darkshadow-color: #666666; scrollbar-track-color: #eeeeee;
+	scrollbar-arrow-color: #222222;
+}
+.inputFld {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	background-color: #E5E5E5;
+	border: 1px solid #A0A0A0;
+}
+a {
+	font-weight: bold;
+	color: #FF0000;
+	text-decoration: none;
+}
+a:hover {
+	color: #FF6600;
+	text-decoration: underline;
+}
+.errorMsg {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #FF0000;
+}
+.nav {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #CC0000;
+	text-decoration: none;
+}
+.navLink {
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+}
+.navLink:hover {
+	text-decoration: underline;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #330000;
+	font-weight: normal;
+}
+.smallTitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bolder;
+	color: #FF6600;
+}
+.previewTable {
+	background-color: #e6e6e6;
+	border: 1px solid #CCCCCC;
+
+}
+.swf {
+	border: 2px solid #000000;
+}
+.prevNext {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #CC0000;
+	text-decoration: none;
+	background-color: #e0e0e0;
+	padding: 6px;
+}
+.prevNext:hover {
+	color: #FFFFFF;
+	background-color: #FF3300;
+	padding: 6px;
+	text-decoration: none;
+}
+
+.pageSelector {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #CC0000;
+	background-color: #f0f0f0;
+	width: 80px;
+	border: 1px solid #CCCCCC;
+	height:22px;
+
+}
+hr {
+	border: 1px dotted #CCCCCC;
+}
+.articleSelector {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	
+	color: #CC0000;
+	text-decoration: none;
+}
+.articleSelector:hover {
+	color: #ff6600;
+	text-decoration: underline;
+}.faq-Q {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #FF6600;
+}
+.faq-A {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	background-color: #e2e2e2;
+	line-height: 14px;
+}
+.imgBorder {
+	border: 4px solid #CCCCCC;
+}
+.articleNote {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #333333;
+}
+pre {font: 11px "Courier New",monospace;}
+
+.quote {
+border: 1px Solid #505050; 
+background-color:#ffffff;  
+margin:2px;
+padding:10px; 
+color:#000000; }
+
+.articleTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #CC0000;
+}
+.articleText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	line-height: 15px;
+
+}
+.articleSubTitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #333333;
+}
+.newsText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 15px;
+	color: #000000;
+}
+.gameImgBorder {
+	border: 6px solid #AAAAAA;
+}
+.gameTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bolder;
+	color: #CC0000;
+}
+.gameDataCell {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+	vertical-align: top;
+	text-align: left;	
+}
+.articleParagraphTitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #CC0000;
+	text-transform: uppercase;
+}
+.small {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 16px;
+}
+.internalFrameSplit3 {
+
+
+	background-image: url(images/bg_internal_split3.gif);
+	background-repeat: repeat-y;
+}
+.articleQ {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: bold;
+        color: #CC0000;
+}
+.math {
+	font-size: 14px;
+	line-height: 150%;
+}
+
+.gameComment {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	padding: 8px;
+	line-height: 14px;
+}
+
+.comment_header {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	background-color:#CCCCCC;
+	padding: 2px;
+	vertical-align: middle;
+	}
+
+.comment_data {
+	font-size: 9px;
+	color: #666666;
+	font-weight: normal;
+}
+
+.comment_text {
+}
+
+.comment_num {
+	color: #CC0000;
+	font-weight: bold;
+}
+
+.comment_tb {
+	width: 444px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	border: 1px solid #A0A0A0;
+}
+
+.gameComment ul {
+	padding-left: 20px;
+	margin-left: 0px;
+}
+
+.gameComment li {
+	list-style-image: url(_games/img/gamepage/listDot.gif)
+}
+
+.oldRatings {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}

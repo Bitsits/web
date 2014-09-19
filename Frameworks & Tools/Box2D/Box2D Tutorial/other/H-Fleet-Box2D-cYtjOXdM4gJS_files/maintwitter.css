@@ -1,0 +1,223 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; background: transparent}
+body {line-height: 1; font: 85% Arial, Verdana, sans-serif}
+input {font-family: Arial, Verdana, sans-serif}
+a {color: #262da6; text-decoration: none}
+a:hover {text-decoration: underline}
+a:visited {color: #262da6}
+a.topic_link:link {text-decoration: none; color: #555}
+a.topic_link:visited {color: #555}
+a.topic_link:hover {text-decoration: underline; color: #555}
+ol, ul {margin: 5px 0; padding-left: 0em; list-style: none}
+ul.top_10{ margin: 5px 0; padding-left: 5px; list-style: none; width: 14em; overflow: hidden; color: #555}
+blockquote, q {quotes: none}
+blockquote:before, blockquote:after, q:before, q:after {content: ''}
+:focus {outline: 1px}
+p {margin: 5px 0 6px 0; line-height: 1.2em}
+table {vertical-align: baseline; border-collapse: collapse; border-spacing: 0}
+th {text-align: left; border-bottom: 1px #aaa solid}
+td, th {padding: 2px 5px}
+h1, h2, h3 {font-weight: bold; color: #555555}
+h1 {font-size: 1.60em; margin: .7em 0 .35em 0}
+h2 {font-size: 1.35em; margin: .6em 0 .3em 0}
+h3 {font-size: 1.2em; margin: .4em 0 .2em 0}
+form {margin: 5px 0}
+label {color: #555}
+hr {border-bottom: 1px #919191 solid; border-top: none; border-left: none; border-right: none}
+#document {margin: 0 auto; min-width: 70em; min-height: 700px; color: #555555}
+#header {border-bottom: 2px black solid; padding: 10px 10px 0 10px}
+#header img.ps {height: 50px; float: left; margin-left: 10px}
+#header .htab {float: left; margin: 2.5em 0 0 25px}
+#header #login {width: 23.0em; float: right; font-size: 0.8em}
+.subm {margin: 4px 0 0 111px}
+#login_spinner{ float: right; margin: 10px 10px 5px 5px}
+#login .signup{ float: right; margin-right: 5px}
+#login_message{ float: left}
+#login_error{ float: left; color: red}
+#login .textbox{ color: #aaa; font-style: italic; font-size: 1.0em; width: 10.7em}
+.button{ font-size: 1.0em; background-color: #fff; border: 1px solid #aaa; color: #aaa; float: right; margin: 3px 2px 0 0}
+.signup-button{ font-size: 1.0em; background-color: #fff; border: 1px solid #aaa; color: #aaa; margin: 3px 2px 0 0}
+.signup_box {width: 25em; margin: 4em auto}
+.signup_box label{ color: #555555}
+#content {margin: 0 10px}
+#footer {margin-top: 10px}
+#main {}
+#left {margin-right: 18.6em}
+#right {float: right; width: 18em}
+#fhose {}
+#subscriptions .sub-form {margin-left: 0px; margin-right: 6px}
+#subscriptions #topic_title {width: 100%}
+#subscriptions h3 {}
+#subscriptions .help {float: right}
+pre.hint, .wub pre {padding: 10px; background-color: #eee; font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New; font-size: 1.1em; color: black}
+.wub {margin-bottom: 10px}
+.wub .p {margin-left: 20px}
+.wub h3 {margin-top: 10px}
+.wub .nxt {margin-top: 10px}
+.help-hover {position: absolute; top: 111px; right: 262px; width: 47em; padding: 10px; background-color: white}
+.help-hover .inner {border: 3px black solid; padding: 10px}
+#help {margin: 10px}
+#s-list {}
+a.button-new, .q-button {border: 1px #919191 solid; padding: 2px; color: #555555; background-color: #eaeaea; text-decoration: none}
+a.button-new:hover, .q-button:hover {background-color: #aaaaaa; color: black}
+.r-search {float: right}
+.r-search .q-button {padding: 1px 2px}
+.box-border {border: 1px #919191 solid}
+#hot {overflow: hidden; margin: 0 10px; font-size: 0.9em}
+#hot #stories {float: left; width: 76%}
+#hot #terms {float: right; width: 22%}
+#hot .trms {font-size: 1.4em}
+#topics, #sources {margin-right: 10px}
+#topics th.subscribe {background-color: white; border: none}
+#topics td.subscribe {font-size: 12px; width: 90px}
+#topics td.title {width: 20em}
+#topics td.icon {width: 24px; padding: 2px 0}
+#topics td.desc {}
+#topics td.owner {width: 8em}
+#topics td.controls, #sources td.controls {font-size: .85em; width: 11em}
+table.tlist {width: 100%}
+.tlist td {border-bottom: 1px #ccc dotted}
+.tlist td.over {background-color: #ddd}
+.point:hover {}
+.edit_topic input[type="text"], .edit_topic input[type="file"], .edit_topic textarea {width: 500px; padding: 2px; border: 1px gray solid}
+.edit_topic input[type="text"]:focus, .edit_topic input[type="file"]:focus, .edit_topic textarea:focus {border: 1px black solid}
+.tips {border: none; background-color: #eeeeee}
+.tips pre {background-color: transparent}
+.subs-list {border: 1px #919191 solid; padding: 5px; margin-bottom: 10px}
+.subs-list h3 {margin: 0}
+.subs-list p {font-size: 0.9em; padding: 3px; color: black}
+input.text-field {width: 95%; font-size: 1.0em; color: #808080; margin: 5px 0}
+.subs-list .focus {color: black}
+.subscription {margin: 2px 0}
+.subscription .hide {height: 14px; width: 13px; margin-top: 1px; float: left}
+.subscription .line {background-color: #efefef; margin-left: 13px}
+.subscription .line img.icon {height: 16px; width: 16px; margin-right: 3px; float: left}
+.subscription .line label {display: block; overflow: hidden}
+.subscription .line label.firehose {font-size: 1.1em}
+.subscription .line .actions {font-size: .85em; float: right; margin-left: 3px; margin-top: 1px; padding-right: 3px}
+label.prompt {color: #808080; margin-left: 1px}
+.qlf-fh ul {padding-left: 0px; margin-top: 0}
+.qlf-fh form {margin: 0 6px 0 0px}
+.qlf-subs {border: #efefef 1px solid; margin-left: 13px}
+.qlf-subs form {margin: 0 12px 5px 6px}
+.qlf-subs ul {padding-left: 2px}
+.q-hide {width: 13px; height: 14px; margin-top: 2px; background: url(/images/x_to_hide.gif) no-repeat; float: left}
+.q-hide .q-hide:hover, .q-hide:hover {background: url(/images/x_to_hide_over.gif) no-repeat}
+.q-term {float: left; width: 90%; margin-left: 5px}
+.q-term .unread {font-weight: bold}
+.q-term .term {}
+.query-list .q-everything {}
+.query-list .selected {background-color: #eee}
+.query-list .selected a {font-weight: bold; color: black}
+p.term-error {color: red; font-size: .9em; padding: 0; margin: 0 0 5px 0}
+table {margin: 5px}
+th {background-color: #ddd}
+td {}
+td, th {padding-right: 10px}
+.fieldWithErrors {padding: 2px; background-color: red; display: table}
+#errorExplanation {width: 400px; border: 2px solid red; padding: 7px; padding-bottom: 12px; margin: 5px 0 10px 0; background-color: #f0f0f0}
+#errorExplanation h2 {text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; font-size: 12px; margin: -7px; background-color: #c00; color: #fff}
+#errorExplanation p {color: #333; margin: 5px 0 0 0; padding: 5px}
+#errorExplanation ul li {font-size: 12px; list-style: square}
+#attenuate {width: 340px; margin: 0 auto}
+h1#canvas-title, .big-title {margin: 8px 0 3px 10px}
+.title-link {float: left; font-size: .9em; margin-top: 1.2em; margin-left: 10px}
+#event-canvas {padding: 10px; margin: 0; overflow: hidden; border-top: 1px solid #919191; border-left: 1px solid #9c9c9c; border-right: 1px solid #9c9c9c; border-bottom: 1px solid #9c9c9c}
+#event-canvas ul {margin: 0; padding: 0}
+.highlight {text-decoration: inherit; background-color: #ddd; color: black}
+.event {overflow: hidden; margin-bottom: 10px; background-color: #f5f5f5; padding: 10px}
+.event .controls {float: right; height: 16px; margin: 2px 2px 0 0}
+.default-event img.thumb {float: left; width: 100px}
+.default-event .info {min-height: 1em; margin-left: 110px}
+.default-event .info h1.title {display: inline; font-size: 1.3em; margin: 0}
+.default-event .cg_spam {color: red; font-weight: bold}
+.default-event a.sm-link {color: #111; font-size: 0.9em}
+img.vote{ height: 16px; width: 16px; padding: 0 1px}
+.default-event .desc {margin: 5px 0 0 15px; color: #555}
+.default-event .desc img {margin: 4px}
+.default-event .details {font-size: 0.9em; color: #777}
+.default-event .lbl {font-weight: bold}
+#ev-window {position: absolute; width: 70%; left: 50%; margin-left: -35%; padding: 10px; background-color: white; z-index: 5}
+#ev-window .inner {border: 3px black solid; padding: 10px; min-height: 400px}
+#ev-window .wait {width: 66px; margin: 50px auto}
+#ev-window .controls {float: right}
+#ev-window #ev-content {}
+#ev-content h1, #ev-content h2, #ev-content h3 {margin: 0; padding: 0}
+#ev-content h1 {font-size: 1.5em}
+#ev-content img {margin: 10px}
+#ev-content .header {margin: 10px 20px}
+#ev-content label {width: 19ex; font-weight: bold; float: left}
+#ev-content .data {margin-left: 20ex}
+#ev-content .ev-desc {background-color: #f5f5f5; padding: 10px}
+.pagination {padding: 3px; margin: 3px}
+.pagination a {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #aaaadd; text-decoration: none; color: #000099}
+.pagination a:hover, .pagination a:active {border: 1px solid #000099; color: #000}
+.pagination span.current {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #000099; font-weight: bold; background-color: #000099; color: #FFF}
+.pagination span.disabled {padding: 2px 5px 2px 5px; margin: 2px; border: 1px solid #eee; color: #ddd}
+div.clear-div{ clear: both}
+#preload {display: none}
+#border-cover-left {position: absolute; top: 85px; left: 20px; width: 1px; height: 28px; background-color: white}
+#border-cover-right {position: absolute; top: 85px; right: 271px; width: 3px; height: 28px; background-color: white}
+.credit, .telefilm-credit {color: #4f4f4f; padding-bottom: 1ex; text-align: center; font-size: 0.9em}
+.sorry {padding: 2em 10em 3em 10em; margin: 10px 0; border-top: 1px #aaa solid; border-bottom: 1px #aaa solid; font-size: 1.3em}
+.sorry ul {list-style-type: disc; margin-left: 3ex}
+.sorry .exp {text-align: center; margin-bottom: 1em}
+#tabs {font-size: 1.1em}
+#tabs .tab {float: left; position: relative; top: 2px}
+#tabs .selected {padding: 9px 8px 10px 8px; border-top: 2px black solid; border-left: 2px black solid; border-right: 2px black solid; z-index: 2; background-color: white}
+#tabs .selected a {color: black; font-weight: bold}
+#tabs .unselected {padding: 10px}
+#tabs .unselected a {color: #444444}
+.no-results {text-align: center; margin: 4em 0; font-size: 3em}
+.no-results-box {border: 1px #9c9c9c solid}
+#homesearch {margin: 40px auto}
+#homesearch td {padding: 5px}
+#homesearch tr {vertical-align: top}
+#homesearch .left {text-align: right; width: 20ex}
+#homesearch .center {text-align: center}
+#homesearch .right {width: 20ex}
+#homesearch .input {padding: 1px; font-size: 1.4em; color: black}
+#homesearch form {margin: 0}
+#homesearch .q-button {margin-top: 5px; font-size: 1.2em}
+#homesearch ul {}
+.nrt-search {margin: 10px 0 5px 0}
+.nrt-search tr {}
+.nrt-search td {padding: 5px}
+.nrt-search .left {padding-left: 10px}
+.nrt-search .right {vertical-align: middle}
+.nrt-search .input {padding: 1px; font-size: 16px; color: black; margin-right: 5px}
+.nrtfsearch form {margin: 0}
+.nrt-search .q-button {font-size: 14px}
+.about {margin: 10px; padding: 10px; min-height: 700px; font-size: 1.4em}
+.about p {margin-bottom: 1em}
+.notices {margin: 10px 20px; padding: 7px 10px}
+.form-notice {margin: 10px}
+.layout-notice {margin: 10px 31px}
+.notices h3 {font-size: 1.3em; font-weight: bold}
+.pulse-good_to_go {border: #aad588 2px solid; background-color: #ecfae3}
+.pulse-notice {border: #f0e07c 2px solid; background-color: #fff9d7}
+.pulse-error {border: #ee937c 2px solid; background-color: #ffebe8}
+div.content-notice {padding: 10px 7em}
+div.content-notice p {font-size: 1.3em; text-align: center}
+.g-main-div{ margin: 10px}
+#stories {}
+#stories h1 {color: #555555}
+#stories .story {overflow: hidden; margin: 10px 0; background-color: #f5f5f5; padding: 10px}
+#stories img.thumb {float: left; width: 100px}
+#stories .info {min-height: 1em; margin-left: 110px}
+#stories .title {font-size: 1.5em}
+a.info-link {color: #555}
+#categories {min-height: 700px; margin: 10px 20px}
+#categories .bigh {font-size: 4.0em; margin: 0}
+#categories .alpha {margin: 40px 40px}
+#categories .alpha h1 {display: inline; margin: 0 10px}
+#categories .cat, #categories .top {font-size: 1.4em}
+#categories ul {list-style-type: disc; list-style-position: inside}
+.twitter {background-color: #f2fcff; padding: 8px 5px}
+.twitter .title {}
+.twitter .icon {width: 20px; margin-right: 5px; margin-bottom: -3px}
+.twitter .tw-content {}
+.twitter .tw-content .entry{ color: #333; font-size: 1.2em; font-family: 'Lucida Grande',sans-serif; font-style: normal; font-variant: normal; font-weight: normal; overflow: hidden; padding: 0; margin: 0}
+.twitter .tw-content .meta{ font-size: 0.85em}
+.twitter .tw-content .username{ font-family: 'Lucida Grande',sans-serif; font-size: 1.2em; margin-right: 5px}
+.twitter a.twitter-link:link, .twitter a.twitter-link:visited {color: #0084B4; text-decoration: none}
+.twitter a.twitter-link:hover {color: #0084B4; text-decoration: underline}

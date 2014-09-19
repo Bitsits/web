@@ -1,0 +1,868 @@
+<!DOCTYPE HTML>
+<html><head>
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="robots" content="index,follow">
+	<title>SilverSprite - XNA Games in Silverlight | The Continuum Show | Channel 9</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="generator" content="Rev9">
+	<meta name="WT.z_bdb" content="1">
+	<meta name="msapplication-task" content="name=Coffeehouse;action-uri=/forums/coffeehouse;icon-uri=/styles/images/favicon.ico">
+	<meta name="msapplication-task" content="name=Browse All Content;action-uri=/Browse;icon-uri=/styles/images/favicon.ico">
+	<meta name="msapplication-task" content="name=Shows;action-uri=/Browse/Shows;icon-uri=/styles/images/favicon.ico">
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="http://channel9.msdn.com/styles/images/favicon.ico">
+	<link rel="apple-touch-icon" href="http://channel9.msdn.com/styles/images/favicon_129x129.png">
+	<link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/site.css" media="all" rel="stylesheet" type="text/css">
+	<link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/print.css" media="print" rel="stylesheet" type="text/css">
+	<link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/handheld.css" media="handheld" rel="stylesheet" type="text/css">
+	<link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/rating.css" media="all" rel="stylesheet" type="text/css">
+	<link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/comments.css" media="all" rel="stylesheet" type="text/css">
+	<link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/sourcecode.css" media="all" rel="stylesheet" type="text/css">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/admin.css" media="all" rel="stylesheet" type="text/css">
+	
+	<link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/entry.css" media="all" rel="stylesheet" type="text/css">
+	<link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/sh.css" media="all" rel="stylesheet" type="text/css">
+	<link href="http://channel9.msdn.com/Shows/Continuum/SilverSprite/RSS" title="Comment Feed - SilverSprite - XNA Games in Silverlight" rel="alternate" type="application/rss+xml">
+	<meta name="description" content="Bill Reiss
+is building games in Silverlight, but he also likes to build games in XNA.&amp;nbsp;The obvious move then is to create a library that allows you to run XNA games within Silverlight.&amp;nbsp;And no code changes to the XNA games would be ideal.&amp;nbsp; That's exactly what Bill has
+ done, and the code&amp;nbsp;library's name is 
+SilverSprite. ">
+	<meta name="WT.entryid" content="Entry:WebView:773c9731c8f4433d87509deb001cb0d1">
+	<meta name="Search.PageType" content="Entry.Item">
+		<meta name="Search.SectionType" content="Shows">
+		<meta name="Search.Section" content="Continuum">
+	<meta name="title" content="SilverSprite - XNA Games in Silverlight">
+	<meta name="Search.Title" content="SilverSprite - XNA Games in Silverlight">
+	<meta name="tweetmeme-title" content="SilverSprite - XNA Games in Silverlight"><meta name="Search.Author" content="Adam Kinney"><meta name="Search.Author" content="AdamKinney">
+		<link type="image/jpeg" rel="videothumbnail" href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/TCSSilverlightSprite_large_ch9.png">
+		<link rel="image_src" href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/TCSSilverlightSprite_large_ch9.png"><meta name="Search.Image" content="http://mschnlnine.vo.llnwd.net/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_large_ch9.png">
+	<link rel="canonical" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite">
+	<meta name="CommentCount" content="15">
+	<!-- <meta name="keywords" content="${Model.Entry.Tags.ToString}" /> -->
+	<noscript><link href="/styles/noscript.css?v=1IwvG0dd-MNgJ2IxdJ3a3kU0dgI1" media="all" rel="stylesheet" type="text/css" /></noscript>
+	<!--[if gt IE 8]><link href="/styles/ie9beta1.css?v=1IwvG0dd-MNgJ2IxdJ3a3kU0dgI1" media="all" rel="stylesheet" type="text/css" /><![endif]-->
+	<!--[if lt IE 8]><link href="/styles/ie7_6.css?v=1IwvG0dd-MNgJ2IxdJ3a3kU0dgI1" media="all" rel="stylesheet" type="text/css" /><![endif]-->
+	<!--[if lt IE 7]><link href="/styles/ie6.css?v=1IwvG0dd-MNgJ2IxdJ3a3kU0dgI1" media="all" rel="stylesheet" type="text/css" /><![endif]-->
+		<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/jquery-1.js" type="text/javascript"></script>
+
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/globals.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/videoplayer.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/entry.js" type="text/javascript"></script>
+	
+<link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/share-button-css.css" type="text/css" rel="stylesheet"><script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/restserver.php"></script><link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/ui.css" rel="stylesheet"><link href="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/window.css" rel="stylesheet"></head><body class="hasSidebar entry ">
+<div class="branding">
+	<div class="toolbar">
+		<div class="container"><ul>
+    <li class="followus"><a href="http://twitter.com/ch9">Follow Us @Ch9</a></li>
+	<li class="subscribe"><a href="http://channel9.msdn.com/Feeds/RSS">Subscribe to Channel 9</a></li>
+	<!--IE7 needs a return here-->
+		<li class="signIn"><a href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1294631709&amp;rver=6.1.6195.0&amp;wp=MBI&amp;wreply=http:%2F%2Fchannel9.msdn.com%2Fshows%2FContinuum%2FSilverSprite%2F&amp;id=47159">Sign In</a></li>
+</ul>
+		</div>
+	</div>
+	<div class="navigation">
+		<div class="container"><div class="logo"><a href="http://channel9.msdn.com/">Channel&nbsp;9</a></div><div class="search">	
+	<span class="g l t"></span><span class="g l m"></span><span class="g l b"></span><span class="g c t"></span><span class="g c b"></span><span class="g r t"></span><span class="g r m"></span><span class="g r b"></span>     
+	<form action="/search">
+		<div class="inputHolder">
+			<input class="text inactive" value="Search this site" name="term" autocomplete="off" type="text">
+			<span class="bing logo"></span>
+			<div class="submitHolder">
+				<input class="theSubmit" alt="Submit" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/BingSearchSprite.png" type="image">
+			</div>
+		</div>
+	</form>
+</div>
+
+<ul>
+    <li class="browse">
+		<a href="http://channel9.msdn.com/Browse">Browse</a>
+		<ul class="rounded">
+			<li><a href="http://channel9.msdn.com/Browse/Tags">Tags</a></li>
+			<li><a href="http://channel9.msdn.com/Browse/Shows">Shows</a></li>
+			<li><a href="http://channel9.msdn.com/Browse/Series">Series</a></li>
+			<li><a href="http://channel9.msdn.com/Browse/Blogs">Blogs</a></li>
+			<li><a href="http://channel9.msdn.com/Browse/Authors">Authors</a></li>
+		</ul>
+	</li>
+    <li class="learn">
+		<a href="http://channel9.msdn.com/Learn">Learn</a>
+		<ul class="rounded">
+			<li><a href="http://channel9.msdn.com/Learn/Courses">Courses</a></li>
+			<li><a href="http://channel9.msdn.com/Blogs/Learn">Announcements</a></li>
+		</ul>
+	</li>
+    <li class="forums">
+		<a href="http://channel9.msdn.com/Forums">Forums</a>
+		<ul class="rounded">
+			<li><a href="http://channel9.msdn.com/Forums/Coffeehouse">Coffeehouse</a></li>
+			<li><a href="http://channel9.msdn.com/Forums/Feedback">Site Feedback</a></li>
+			<li><a href="http://channel9.msdn.com/Forums/TechOff">Tech Off</a></li>
+		</ul>
+	</li>
+    <li class="about">
+		<a href="http://channel9.msdn.com/About">About</a>
+	</li>
+</ul>
+
+		</div>
+	</div>
+</div>
+<div class="mainHolder">
+	<div class="mainContent text">
+			<div class="breadcrumbs"><ul><li class="first"><a href="http://channel9.msdn.com/Browse/Shows">Shows</a></li><li class="last"><a href="http://channel9.msdn.com/Shows/Continuum">The Continuum&nbsp;Show</a></li></ul></div>
+
+<div class="entry">
+	<div class="entry-header">
+		<h1>SilverSprite - XNA Games in&nbsp;Silverlight</h1>
+		<ul class="entry-data">
+			<li class="date">
+					Posted: Mar 12, 2009 at 1:51 PM
+			</li>
+			<li class="author">
+				By:
+					<a href="http://channel9.msdn.com/Niners/AdamKinney">Adam Kinney</a>
+			</li>
+			<li class="rating">
+<div class="rating">
+	<div class="rating-average">
+		<form>
+			<fieldset>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+			</fieldset>
+		</form>
+	<div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: 0px;" title="">0.25</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -4px;" title="">0.5</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -8px;" title="">0.75</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -12px;" title="">1</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: 0px;" title="">1.25</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -4px;" title="">1.5</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -8px;" title="">1.75</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -12px;" title="">2</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: 0px;" title="">2.25</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -4px;" title="">2.5</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -8px;" title="">2.75</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -12px;" title="">3</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: 0px;" title="">3.25</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -4px;" title="">3.5</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -8px;" title="">3.75</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -12px;" title="">4</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: 0px;" title="">4.25</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -4px;" title="">4.5</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -8px;" title="">4.75</a></div><div style="width: 4px;" class="ui-stars-star ui-stars-star-on ui-stars-star-disabled"><a style="margin-left: -12px;" title="">5</a></div><input disabled="disabled" name="" value="5" type="hidden"></div>
+	<p class="avg-rating">Avg Rating: <span>5</span></p>
+</div><div class="rating-count">(6)</div>
+
+			</li>
+			<li class="views">
+					<span class="count">52,345</span> Views
+			</li><li class="comments">
+				<a href="#comments"><span class="count">15</span> Comments</a>
+			</li>
+			<li class="sharelinks">
+				<iframe src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/tweet_button.htm" allowtransparency="true" class="twitter-share-button twitter-count-horizontal" tabindex="0" style="width: 110px; height: 20px;" title="Twitter For Websites: Tweet Button" width="110" frameborder="0" height="20" scrolling="no"></iframe>
+				<a style="text-decoration: none;" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fchannel9.msdn.com%2FShows%2FContinuum%2FSilverSprite&amp;src=sp" name="fb_share" type="button_count" share_url="http://channel9.msdn.com/Shows/Continuum/SilverSprite" class="fb_share" data-share_url="http://channel9.msdn.com/Shows/Continuum/SilverSprite"><span class="fb_share_size_Small "><span class="FBConnectButton FBConnectButton_Small" style="cursor: pointer;"><span class="FBConnectButton_Text">Share</span></span><span class="fb_share_count_nub_right fb_share_no_count"></span><span class="fb_share_count fb_share_no_count fb_share_count_right"><span class="fb_share_count_inner">&nbsp;</span></span></span></a>
+			</li>
+		</ul>
+	</div>
+	<div class="entry-content">
+			<div id="video">
+				<a href="http://mschnlnine.vo.llnwd.net/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_ch9.wmv" style="background-image: url(&quot;http://mschnlnine.vo.llnwd.net/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_large_ch9.png&quot;); display: none;">
+					<img src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/PlayButton512.png" alt="Click To Play"><div class="entry-caption">12 minutes, 43 seconds</div>
+				</a><ul class="silverlight"><li>
+						<a rel="Wmv" href="http://mschnlnine.vo.llnwd.net/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_ch9.wmv"></a>
+					</li>
+				</ul><ul class="html5"><li>
+						<a rel="Mp4" href="http://mschnlnine.vo.llnwd.net/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_ch9.mp4"></a>
+					</li>
+				</ul>
+			<div class="error"><p>Doh! Your browser doesn't seem to support Silverlight or HTML5 video or we don't have an HTML5 video for this one.</p><p>You may click the link below to install Silverlight:<br><a class="getSilverlight" href="javascript:Silverlight.getSilverlight('4.0.50826.0');"><img src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/a" alt="Install Microsoft Silverlight"></a></p><p>Upgrade to a browser that supports h264 MP4 HTML5 video playback:<br><a href="http://www.beautyoftheweb.com/">IE9+</a>, <a href="http://www.google.com/chrome/intl/en/landing_chrome.html">Chrome 5+</a>, or <a href="http://www.apple.com/safari/">Safari 4+</a></p><p>Click the link below to open the video in a different video player:<br><a href="http://mschnlnine.vo.llnwd.net/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_ch9.wmv">Play video!</a></p></div></div>
+	<div id="video-download">
+		<h3>Download</h3>
+		<div class="help">
+			<img src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/bg-help.gif">
+			<div class="popup rounded">
+				<h3>How do I download the videos?</h3>
+				<ul class="default">
+					<li>
+						To download, right click the file type you would like and pick 
+						“Save target as…” or “Save link as…”
+					</li>
+				</ul>
+				<h3>Why should I download videos from Channel9?</h3>
+				<ul class="default">
+					<li>It's an easy way to save the videos you like locally.</li>
+					<li>You can save the videos in order to watch them offline.</li>
+					<li>If all you want is to hear the audio, you can download the MP3!</li>
+				</ul>
+				<h3>Which version should I choose?</h3>
+				<ul class="default">
+					<li>
+						If you want to view the video on your PC, XBox or Media Center, 
+						download the High Quality WMV file (this is the highest quality version 
+						we have available).
+					</li>
+					<li>
+						If you'd like a lower bitrate version, to reduce the download time or 
+						cost, then choose the Medium Quality WMV file.
+					</li>
+					<li>If you have a Zune, iPhone, or iPod device, choose the MP4 file.</li>
+					<li>If you just want to hear the audio of the video, choose the MP3 file.</li>
+				</ul>
+			</div>
+		</div>
+		<p class="note">Right click “Save as…”</p>
+		<ul class="download"><li>
+					
+		<a href="http://mschnlnine.vo.llnwd.net/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_2MB_ch9.wmv">High Quality WMV</a> <span class="usage">(PC, XBox, MCE)</span>
+			</li><li>
+					
+		<a href="http://mschnlnine.vo.llnwd.net/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_ch9.mp3">MP3</a> <span class="usage">(Audio only)</span>
+			</li><li>
+          
+		<a href="http://mschnlnine.vo.llnwd.net/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_ch9.mp4">MP4</a> <span class="usage">(iPod, Zune HD)</span>
+			</li><li>
+			</li><li>
+					
+		<a href="http://mschnlnine.vo.llnwd.net/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_ch9.wmv">Medium Quality WMV</a> <span class="usage">(Lo-band, Mobile)</span>
+			</li><li>
+			</li><li>
+          
+		<a href="mms://mschnlnine.wmod.llnwd.net/a1809/d1/ch9/2/9/5/0/6/4/TCSSilverlightSprite_s_ch9.wmv">WMV</a> <span class="usage">(WMV Video)</span>
+			</li>
+		</ul>
+	</div>
+
+		<div id="entry-body">
+			<a href="http://www.bluerosegames.com/silverlightbrasstacks/" shape="rect">Bill Reiss
+</a>is building games in Silverlight, but he also likes to build games 
+in XNA.&nbsp;The obvious move then is to create a library that allows 
+you to run XNA games within Silverlight.&nbsp;And no code changes to the
+ XNA games would be ideal.&nbsp; That's exactly what Bill has
+ done, and the code&nbsp;library's name is <a href="http://www.codeplex.com/silversprite" shape="rect">
+SilverSprite</a>. 
+		</div>
+	</div><div id="entry-tags">
+		<h3>Tags:</h3>
+		<ul><li>
+				<a href="http://channel9.msdn.com/Tags/bill+reiss">Bill Reiss</a>, 
+			</li><li>
+				<a href="http://channel9.msdn.com/Tags/gaming">Gaming</a>, 
+			</li><li>
+				<a href="http://channel9.msdn.com/Tags/silverlight">Silverlight</a>, 
+			</li><li>
+				<a href="http://channel9.msdn.com/Tags/xna">XNA</a>
+			</li>
+		</ul>
+	</div><div class="comments follow">
+		<a name="comments"></a>
+		<div class="comments-header">
+			<h2>Follow the Discussion</h2>
+			<ul>
+				<li class="subscribe">
+					<a href="http://channel9.msdn.com/Shows/Continuum/SilverSprite/RSS">Subscribe to these comments</a>
+				</li>
+			</ul>
+		</div>
+		<ul class="posts"><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/NearFantastica"><img alt="NearFantastica" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/default.gif" title="NearFantastica"><span class="name">Near​Fantastica</span></a>
+</div>
+
+<div class="post" id="c633724937650000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633724937650000000" title="Comment Permalink">Mar 12, 2009 at 3:29&nbsp;PM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633724937650000000" title="NearFantastica">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633724937650000000" title="NearFantastica">reply</a>
+	</div>
+	<div class="post-content">
+			
+<p class="MsoNormal">Well that’s just the best thing since sliced bread....!</p>
+
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/magicalclick"><img alt="magicalclick" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/magicalclick_c9.jpg" title="magicalclick"><span class="name">magicalclick</span></a>
+</div>
+
+<div class="post" id="c633725032620000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725032620000000" title="Comment Permalink">Mar 12, 2009 at 6:07&nbsp;PM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725032620000000" title="magicalclick">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725032620000000" title="magicalclick">reply</a>
+	</div>
+	<div class="post-content">
+			Is this for real? Meaning run XNA game on Zune?<br>
+
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/Bill%20Reiss"><img alt="Bill Reiss" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/default.gif" title="Bill Reiss"><span class="name">Bill&nbsp;Reiss</span></a>
+</div>
+
+<div class="post" id="c633725034800000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725034800000000" title="Comment Permalink">Mar 12, 2009 at 6:11&nbsp;PM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725034800000000" title="Bill Reiss">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725034800000000" title="Bill Reiss">reply</a>
+	</div>
+	<div class="post-content">
+			This is really about running XNA games in the browser, XNA games 
+already run on Zune, and Zune doesn't run Silverlight currently as far 
+as I know.
+	</div>
+</div>
+
+			</li><li class=" 
+					staff">
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/Charles"><img alt="Charles" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/Charles_c9.jpg" title="Charles"><span class="name">Charles</span></a><span class="caption">Welcome&nbsp;Change</span>
+</div>
+
+<div class="post" id="c633725095330000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725095330000000" title="Comment Permalink">Mar 12, 2009 at 7:52&nbsp;PM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725095330000000" title="Charles">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725095330000000" title="Charles">reply</a>
+	</div>
+	<div class="post-content">
+			
+<p>&nbsp;XNA, besides being compellling for an in-browser game, 
+&nbsp;would be a&nbsp;most excellent framework&nbsp;to build the UI 
+experience of a web site.
+<br>
+<br>
+Wandering around a site (virtual world on the Internet or, continuing 
+the abuse of&nbsp;the terimnology, on premise)&nbsp;would become more of
+ a&nbsp;literal user experience ("Hop in, let me show you around. Fasten
+ your seatbelt by pressing the orange pill, but we've determined
+ that your current system is multi-touch capable so, just use your 
+fingers. Squeeze it.").<br>
+<br>
+C</p>
+
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/udithait"><img alt="uditha sampath bandara" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/4cdffd50-b6cf-4f87-b16d-d44800a6b363.jpg" title="uditha sampath bandara"><span class="name">udithait</span></a><span class="caption">Microsoft® ​MVP (Most ​Valuable ​Professiona​l)in XNA / ​DirectX .</span>
+</div>
+
+<div class="post" id="c633725142550000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725142550000000" title="Comment Permalink">Mar 12, 2009 at 9:10&nbsp;PM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725142550000000" title="udithait">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725142550000000" title="udithait">reply</a>
+	</div>
+	<div class="post-content">
+			its realy grate to have XNA like envionment in silverlight.<br>
+Now im ready to develop browser based game in silverlight more easily.<br>
+thnks<br>
+<a href="http://uditha.wordpress.com/xna-games">http://uditha.wordpress.com/xna-games</a>
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/Dark_Halmut"><img alt="Dark_Halmut" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/Dark_Halmut_c9.jpg" title="Dark_Halmut"><span class="name">Dark_Halmut</span></a>
+</div>
+
+<div class="post" id="c633725230710000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725230710000000" title="Comment Permalink">Mar 12, 2009 at 11:37&nbsp;PM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725230710000000" title="Dark_Halmut">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725230710000000" title="Dark_Halmut">reply</a>
+	</div>
+	<div class="post-content">
+			Great idea to get people started! If I were to write games in 
+silverlight though, I'd rather make my own library then depend on 
+someone else's library/design decisions.
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/raymond"><img alt="raymond" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/1fbfd6e7-d83f-44e4-b77d-4a49325b3078.jpg" title="raymond"><span class="name">raymond</span></a>
+</div>
+
+<div class="post" id="c633725811570000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725811570000000" title="Comment Permalink">Mar 13, 2009 at 3:45&nbsp;PM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725811570000000" title="raymond">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633725811570000000" title="raymond">reply</a>
+	</div>
+	<div class="post-content">
+			
+<p>Cool!<br>
+<br>
+Great interview Adam!</p>
+<p>This has got my attention big time.</p>
+<p>&nbsp;</p>
+
+	</div>
+</div>
+
+			</li><li class="owner">
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/AdamKinney"><img alt="Adam Kinney" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/4cb3122b-53f6-4f91-b2d0-c4949bb45fe4.jpg" title="Adam Kinney"><span class="name">AdamKinney</span></a><span class="caption">Agent of&nbsp;Change</span>
+</div>
+
+<div class="post" id="c633727369060000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633727369060000000" title="Comment Permalink">Mar 15, 2009 at 11:01&nbsp;AM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633727369060000000" title="AdamKinney">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633727369060000000" title="AdamKinney">reply</a>
+	</div>
+	<div class="post-content">
+			Thanks Raymond, I'm happy to hear that <img src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/emotion-1.gif" alt="Smiley">
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/Bill%20Reiss"><img alt="Bill Reiss" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/default.gif" title="Bill Reiss"><span class="name">Bill&nbsp;Reiss</span></a>
+</div>
+
+<div class="post" id="c633732491530000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633732491530000000" title="Comment Permalink">Mar 21, 2009 at 9:19&nbsp;AM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633732491530000000" title="Bill Reiss">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633732491530000000" title="Bill Reiss">reply</a>
+	</div>
+	<div class="post-content">
+			Just released an update to SilverSprite which addressed some of the 
+most glaring things that were missing, like bitmap font support and 
+being able to read compressed textures. The compressed texture one is 
+pretty cool because if the compression looks ok
+ for your particular textures, it will compress to 4 times smaller at 
+least, and possibly 8 times smaller. This then will compress even 
+further in the xap compression so it can be a big size savings.<br>
+<br>
+There were also some missing methods that have been implemented for more compatibility.<br>
+<br>
+Finally I&nbsp;included the Farseer Physics demos shown in the video 
+here to the solution, along with a version of the class library which 
+makes it easier to use with Farseer.<br>
+<br>
+Thanks and enjoy,<br>
+Bill Reiss
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/Bill%20Reiss"><img alt="Bill Reiss" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/default.gif" title="Bill Reiss"><span class="name">Bill&nbsp;Reiss</span></a>
+</div>
+
+<div class="post" id="c633737528480000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633737528480000000" title="Comment Permalink">Mar 27, 2009 at 5:14&nbsp;AM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633737528480000000" title="Bill Reiss">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633737528480000000" title="Bill Reiss">reply</a>
+	</div>
+	<div class="post-content">
+			You can now also try the samples in this video yourself, I have made the Dr. Popper game available here:<br>
+<br>
+<a href="http://www.bluerosegames.com/drpoppersilverxna.web/">http://www.bluerosegames.com/drpoppersilverxna.web/</a><br>
+<br>
+and the Farseer Physics XNA samples running with SilverSprite here:<br>
+<br>
+<a href="http://www.bluerosegames.com/silverspritefarseerdemo/">http://www.bluerosegames.com/silverspritefarseerdemo/</a>
+	</div>
+</div>
+
+			</li><li class=" 
+					microsoft">
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/SocalSam"><img alt="Sam Stokes" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/SocalSam_c9.jpg" title="Sam Stokes"><span class="name">SocalSam</span></a><span class="caption">boy, what a shiny&nbsp;head!</span>
+</div>
+
+<div class="post" id="c633782836660000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633782836660000000" title="Comment Permalink">May 18, 2009 at 3:47&nbsp;PM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633782836660000000" title="SocalSam">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633782836660000000" title="SocalSam">reply</a>
+	</div>
+	<div class="post-content">
+			
+<p>XNA is awesome to use, and even better with Silverlight, etc.&nbsp; 
+But I have been told that XNA designers are concerned about the XBox and
+ not the PC developer, which would be the case for the Silverlight 
+applications.&nbsp;</p>
+<p>As a result, I am going to be very cautious about the use of XNA, 
+which also requires that the XNA be distributed with your application.</p>
+<p>Feel free to spam me if I am wrong.</p>
+
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/Bill%20Reiss"><img alt="Bill Reiss" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/default.gif" title="Bill Reiss"><span class="name">Bill&nbsp;Reiss</span></a>
+</div>
+
+<div class="post" id="c633783309220000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633783309220000000" title="Comment Permalink">May 19, 2009 at 4:55&nbsp;AM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633783309220000000" title="Bill Reiss">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c633783309220000000" title="Bill Reiss">reply</a>
+	</div>
+	<div class="post-content">
+			
+<p>SilverSprite doesn't require XNA to be installed, but as for the 
+rest, I would agree that Xbox is a major focus for XNA, and there are 
+some good reasons you might not want to use it for Windows, like the 
+fairly subtantial prerequisites. I don't feel, however,
+ that XNA for Windows gets shortchanged unless you want to use 
+DX10&nbsp;features in&nbsp;your game or integrate it into another 
+application.</p>
+
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/LiquidAsh"><img alt="LiquidAsh" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/default.gif" title="LiquidAsh"><span class="name">LiquidAsh</span></a>
+</div>
+
+<div class="post" id="c634030944370000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c634030944370000000" title="Comment Permalink">Mar 01, 2010 at 6:40&nbsp;PM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c634030944370000000" title="LiquidAsh">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c634030944370000000" title="LiquidAsh">reply</a>
+	</div>
+	<div class="post-content">
+			
+<p>Thinks looks really great.&nbsp; I can't wait to play around with it!!!</p>
+
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/saul1"><img alt="Samuel M&amp;#252;ller" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/default.gif" title="Samuel M&amp;#252;ller"><span class="name">saul1</span></a>
+</div>
+
+<div class="post" id="c634127290850000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c634127290850000000" title="Comment Permalink">Jun 21, 2010 at 7:58&nbsp;AM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c634127290850000000" title="saul1">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c634127290850000000" title="saul1">reply</a>
+	</div>
+	<div class="post-content">
+			
+<p>Silversprite doesen´t work!</p>
+<p>&nbsp;</p>
+<p>Can anybody make a step by step tutorial?</p>
+<p>&nbsp;</p>
+<p>Thanks!</p>
+
+	</div>
+</div>
+
+			</li><li>
+<div class="author">
+		<a class="button" href="http://channel9.msdn.com/Niners/Gronis"><img alt="Gronis" class="avatar" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/default.gif" title="Gronis"><span class="name">Gronis</span></a>
+</div>
+
+<div class="post" id="c634127328760000000">
+	<div class="post-header">
+		<a class="permalink" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c634127328760000000" title="Comment Permalink">Jun 21, 2010 at 9:01&nbsp;AM</a>
+				<a class="add quote button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c634127328760000000" title="Gronis">quote</a>
+				<a class="add reply button" href="http://channel9.msdn.com/Shows/Continuum/SilverSprite#c634127328760000000" title="Gronis">reply</a>
+	</div>
+	<div class="post-content">
+			
+<p>Hi iv'e read your tutorial and downloaded some samples. but I can't get it work when I add the sorce code here:</p>
+<p>&lt;UserControl x:Class="SilverlightApplication1.MainPage"<br>
+&nbsp;&nbsp;&nbsp; xmlns="<a href="http://schemas.microsoft.com/winfx/2006/xaml/presentation%22">http://schemas.microsoft.com/winfx/2006/xaml/presentation"</a> <br>
+&nbsp;&nbsp;&nbsp; xmlns:x="<a href="http://schemas.microsoft.com/winfx/2006/xaml%22">http://schemas.microsoft.com/winfx/2006/xaml"</a><br>
+&nbsp;&nbsp;&nbsp; xmlns:game="clr-namespace:Zombie_Mash_v1"<br>
+&nbsp;&nbsp;&nbsp; Width="400" Height="300" &gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;Grid x:Name="LayoutRoot" Background="White"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Canvas&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;game:Game1 x:Name="game"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/Canvas&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/Grid&gt;<br>
+&lt;/UserControl&gt;</p>
+<p>&nbsp;</p>
+<p>It worked first. But than, I edited another application and suddenly 
+it stopped working. It says there is nothing called like that.&nbsp; <img src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/emotion-6.gif" alt="Sad"></p>
+
+	</div>
+</div>
+
+			</li>
+		</ul>
+<div id="adminRemoveComment" class="text">
+	<h2 class="removeThisComment">Remove this comment</h2>
+	<h2 class="removeThisThread">Remove this thread</h2>
+	<div class="message alert"></div>
+	<form method="POST" action="#">
+		<input name="__RequestVerificationToken" value="gDIJPCv4yzL5eH2duhiEivCN3c96PXIdjwzfFql7sJgKeu3XbyO/6D7dN+oWE3b6q8c3cTMirl4bTeELsR3lcpq1p2xFF4i5XE9hmFC17e0jZ89sCgTYAO1kMyZMrCnbbP23QrGbskYwzlrYSZD3MdOEC0k=" type="hidden">
+		<dl>
+			<dt>
+				<input name="reason" value="Spam" id="deleteCommentReasonSpam" checked="checked" type="radio">
+			</dt>
+			<dd>
+				<label for="deleteCommentReasonSpam">Spam</label>
+			</dd>
+			<dt>
+				<input name="reason" value="guidlines" id="deleteCommentReasonGuidlines" type="radio">
+			</dt>
+			<dd>
+				<label for="deleteCommentReasonGuidlines">Violates C9 guidelines</label>
+			</dd>
+			<dt>
+				<input name="reason" value="language" id="deleteCommentLanguage" type="radio">
+			</dt>
+			<dd>
+				<label for="deleteCommentLanguage">Foul language</label>
+			</dd>
+			<dt>
+				<input name="reason" value="attack" id="deleteCommentPersonalAttack" type="radio">
+			</dt>
+			<dd>
+				<label for="deleteCommentPersonalAttack">Personal attacks</label>
+			</dd>
+		</dl>
+		<input value="Remove Comment" class="submit removeThisComment" type="submit">
+		<input value="Remove Thread" class="submit removeThisThread" type="submit">
+	</form>
+	<a class="close" href="#">close</a>
+</div>
+
+
+
+
+	</div>
+
+<div class="comments add-comment">
+		<div class="comments-header">
+			<h2>Comment on the Post</h2>
+		</div><div class="goSignIn">
+			<p><strong>Already have a Channel 9 account?</strong> Please <a href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1294631709&amp;rver=6.1.6195.0&amp;wp=MBI&amp;wreply=http:%2F%2Fchannel9.msdn.com%2Fshows%2FContinuum%2FSilverSprite%2F&amp;id=47159">sign&nbsp;in</a></p>
+		</div>
+		<form method="post" id="commentState" class="commentform">
+			<div class="validation-summary-valid" id="validationSummary"><ul><li style="display: none;"></li>
+</ul></div>
+			<fieldset>
+				<ol>
+					<li class="subject">
+						<span class="field-validation-valid" id="CommentState_Subject_validationMessage"></span>
+						<label for="CommentState_Subject">Are you human? If so, leave this field blank.</label>
+						<input id="CommentState_Subject" name="CommentState.Subject" type="text">
+					</li>
+						<li>
+							<span class="field-validation-valid" id="CommentState_AnonymousUser_DisplayName_validationMessage"></span>
+							<label for="CommentState_AnonymousUser_DisplayName">Name</label>
+							<input id="CommentState_AnonymousUser_DisplayName" name="CommentState.AnonymousUser.DisplayName" type="text">
+						</li>
+						<li>
+							<span class="field-validation-valid" id="CommentState_AnonymousUser_Email_validationMessage"></span>
+							<label for="CommentState_AnonymousUser_Email">Email</label>
+							<input id="CommentState_AnonymousUser_Email" name="CommentState.AnonymousUser.Email" type="text">
+						</li>
+					<li class="textarea">
+							<span class="field-validation-valid" id="CommentState_AnonymousBody_validationMessage"></span>
+							<label for="CommentState_AnonymousBody">Comment</label>
+							<textarea style="display: none;" autocomplete="off" class="non-html" cols="100" id="CommentState_AnonymousBody" name="CommentState.AnonymousBody" rows="10"></textarea><span class="mceEditor defaultSkin" id="CommentState_AnonymousBody_parent"><table style="width: 588px; height: 209px;" class="mceLayout" id="CommentState_AnonymousBody_tbl" cellpadding="0" cellspacing="0"><tbody><tr class="mceFirst"><td class="mceToolbar mceLeft mceFirst mceLast"><a href="#" accesskey="q" title="Jump to tool buttons - Alt+Q, Jump to editor - Alt-Z, Jump to element path - Alt-X"><!-- IE --></a><table id="CommentState_AnonymousBody_toolbar1" class="mceToolbar mceToolbarRow1 Enabled" align="" cellpadding="0" cellspacing="0"><tbody><tr><td class="mceToolbarStart mceToolbarStartButton mceFirst"><span><!-- IE --></span></td><td><a id="CommentState_AnonymousBody_cut" href="javascript:;" class="mceButton mceButtonEnabled mce_cut" onmousedown="return false;" onclick="return false;" title="Cut"><span class="mceIcon mce_cut"></span></a></td><td><a id="CommentState_AnonymousBody_copy" href="javascript:;" class="mceButton mceButtonEnabled mce_copy" onmousedown="return false;" onclick="return false;" title="Copy"><span class="mceIcon mce_copy"></span></a></td><td><a id="CommentState_AnonymousBody_paste" href="javascript:;" class="mceButton mceButtonEnabled mce_paste" onmousedown="return false;" onclick="return false;" title="Paste"><span class="mceIcon mce_paste"></span></a></td><td><a id="CommentState_AnonymousBody_pastetext" href="javascript:;" class="mceButton mceButtonEnabled mce_pastetext" onmousedown="return false;" onclick="return false;" title="Paste as Plain Text"><span class="mceIcon mce_pastetext"></span></a></td><td><a id="CommentState_AnonymousBody_pasteword" href="javascript:;" class="mceButton mceButtonEnabled mce_pasteword" onmousedown="return false;" onclick="return false;" title="Paste from Word"><span class="mceIcon mce_pasteword"></span></a></td><td><a id="CommentState_AnonymousBody_selectall" href="javascript:;" class="mceButton mceButtonEnabled mce_selectall" onmousedown="return false;" onclick="return false;" title="Select All"><span class="mceIcon mce_selectall"></span></a></td><td><span class="mceSeparator"></span></td><td><a id="CommentState_AnonymousBody_search" href="javascript:;" class="mceButton mceButtonEnabled mce_search" onmousedown="return false;" onclick="return false;" title="Find"><span class="mceIcon mce_search"></span></a></td><td><a id="CommentState_AnonymousBody_replace" href="javascript:;" class="mceButton mceButtonEnabled mce_replace" onmousedown="return false;" onclick="return false;" title="Find/Replace"><span class="mceIcon mce_replace"></span></a></td><td><span class="mceSeparator"></span></td><td><a id="CommentState_AnonymousBody_undo" href="javascript:;" class="mceButton mce_undo mceButtonDisabled" onmousedown="return false;" onclick="return false;" title="Undo (Ctrl+Z)"><span class="mceIcon mce_undo"></span></a></td><td><a id="CommentState_AnonymousBody_redo" href="javascript:;" class="mceButton mce_redo mceButtonDisabled" onmousedown="return false;" onclick="return false;" title="Redo (Ctrl+Y)"><span class="mceIcon mce_redo"></span></a></td><td class="mceToolbarEnd mceToolbarEndButton mceLast"><span><!-- IE --></span></td></tr></tbody></table><a href="#" accesskey="z" title="Jump to tool buttons - Alt+Q, Jump to editor - Alt-Z, Jump to element path - Alt-X" onfocus="tinyMCE.getInstanceById('CommentState_AnonymousBody').focus();"><!-- IE --></a></td></tr><tr class="mceLast"><td class="mceIframeContainer mceFirst mceLast"><iframe style="width: 100%; height: 209px;" src='javascript:""' id="CommentState_AnonymousBody_ifr" frameborder="0"></iframe></td></tr></tbody></table></span>
+					</li>
+				</ol>
+			</fieldset>
+			<input name="__RequestVerificationToken" value="XopSgUf9XxIEgNTDQ4Lj+/BimlSVcPTOPSiyBfQtGBAI8g6QryIXKFmsYbMW37fMuTiwm/m36jEVTT3DqO7m4Ka2kCCr82dVSOqsbAG5IsE/giuo/OxcnefVWXod7G0apyCbG0Vh/Z9jqVwcemlL/JQkAg0=" type="hidden">
+			<p class="submit">
+				<input value="Comment" type="submit">
+			</p>
+		</form><script type="text/javascript">
+//<![CDATA[
+if (!window.mvcClientValidationMetadata) { window.mvcClientValidationMetadata = []; }
+window.mvcClientValidationMetadata.push({"Fields":[{"FieldName":"CommentState.Subject","ReplaceValidationMessageContents":true,"ValidationMessageId":"CommentState_Subject_validationMessage","ValidationRules":[]},{"FieldName":"CommentState.AnonymousUser.DisplayName","ReplaceValidationMessageContents":true,"ValidationMessageId":"CommentState_AnonymousUser_DisplayName_validationMessage","ValidationRules":[{"ErrorMessage":"The Name field is required.","ValidationParameters":{},"ValidationType":"required"}]},{"FieldName":"CommentState.AnonymousUser.Email","ReplaceValidationMessageContents":true,"ValidationMessageId":"CommentState_AnonymousUser_Email_validationMessage","ValidationRules":[{"ErrorMessage":"Please enter a valid email address","ValidationParameters":{},"ValidationType":"email"},{"ErrorMessage":"The Email field is required.","ValidationParameters":{},"ValidationType":"required"}]},{"FieldName":"CommentState.AnonymousBody","ReplaceValidationMessageContents":true,"ValidationMessageId":"CommentState_AnonymousBody_validationMessage","ValidationRules":[]}],"FormId":"commentState","ReplaceValidationSummary":true,"ValidationSummaryId":"validationSummary"});
+//]]>
+</script>
+</div>
+
+</div>
+
+
+
+	</div>
+
+	<div class="pageNavHolder">
+	</div>
+
+	<div class="sidebarHolder">
+
+	
+	<div class="sidebar">
+			<div class="related series">
+				<h2>
+					More episodes 
+					in this show
+				</h2><ul><li>
+			<a href="http://channel9.msdn.com/Shows/Continuum/SilverlightReadyForBusiness">
+	<img class="thumb" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/TCSSilverlightReadyForBusiness_large_ch9.png" alt="Silverlight is Ready for Business">
+	<span class="title">Silverlight is Ready for Business</span></a>
+	</li><li>
+			<strong>
+	<img class="thumb" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/TCSSilverlightSprite_large_ch9.png" alt="SilverSprite - XNA Games in Silverlight">
+	<span class="title">SilverSprite - XNA Games in Silverlight</span></strong>
+	</li><li>
+			<a href="http://channel9.msdn.com/Shows/Continuum/First-Look-at-Expression-Blend-3">
+	<img class="thumb" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/TCSBlend3Preview_large_ch9.png" alt="First Look at Expression Blend 3">
+	<span class="title">First Look at Expression Blend 3</span></a>
+	</li>
+</ul>
+
+				<p class="more"><a href="http://channel9.msdn.com/Shows/Continuum">See More</a></p>
+			</div>
+			<div class="related">
+				<h2>Related posts</h2><ul><li>
+			<a href="http://channel9.msdn.com/Blogs/egibson/Windows-Phone-7-Jump-Start-Session-7-of-12-Advanced-Application-Development-Part-1">
+	<img class="thumb" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/WP7Session7_100_ch9.jpg" alt="Updated! Windows Phone 7 Jump Start (Session 7 of 19): Isolated Storage">
+	<span class="title">Updated! Windows Phone 7 Jump Start (Session 7 of…</span></a>
+	</li><li>
+			<a href="http://channel9.msdn.com/Blogs/egibson/MSDN-Radio-Game-Building-for-Windows-Phone-7-using-XNAGame-Studio-with-Dan-Waters">
+	<img class="thumb" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/MSDNRadioGames_320_ch9.jpg" alt="MSDN Radio: Game Building for Windows Phone 7 using XNA/Game Studio with Dan Waters">
+	<span class="title">MSDN Radio: Game Building for Windows Phone 7…</span></a>
+	</li><li>
+			<a href="http://channel9.msdn.com/Shows/PingShow/Ping-72-Open-Source-love-Exchange-Active-Sync-Yahoo-by-Bing-Silverlight">
+	<img class="thumb" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/Ping72_320_ch9.jpg" alt="Ping 72: Open Source love, Exchange Active Sync, Yahoo! by Bing, Silverlight">
+	<span class="title">Ping 72: Open Source love, Exchange Active Sync,…</span></a>
+	</li>
+</ul>
+
+			</div>
+	</div>	
+	</div>
+</div>
+
+<div class="footer">
+	<div class="container">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" class="ccl">
+	<img alt="Creative Commons License" src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/somerights20.png">
+</a>
+<p class="copyright">
+	© 2010 Microsoft. <a href="http://channel9.msdn.com/info">Except where designated</a> as licensed by <br>
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 License</a>,<br>
+	Microsoft reserves all rights associated with the materials on this site.
+</p>
+<ul>
+	<li class="subscribe"><a href="http://channel9.msdn.com/Feeds/RSS">Subscribe to Channel 9</a></li>
+	<li class="followus"><a href="http://twitter.com/ch9">Follow Us @Ch9</a></li>
+	<li class="feedback"><a href="http://r.ch9.ms/feedback">Feedback</a></li>
+	<li class="privacy"><a href="http://privacy.microsoft.com/">Privacy Statement</a></li>
+	<li class="termsofuse"><a href="http://www.microsoft.com/info/cpyright.mspx">Terms Of Use</a></li>
+	<li class="codeofconduct"><a href="http://channel9.msdn.com/CodeOfConduct">Code Of Conduct</a></li>
+	<li class="contactus"><a href="http://channel9.msdn.com/ContactUs">Contact Us</a></li>
+</ul>
+
+	</div>
+</div>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/core_widget.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/ratings.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/comments.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/markDirty.js" type="text/javascript"></script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/removeComment.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/tiny_mce.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/jquery.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/tiny_mce_init.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/validation.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/syntaxhighlighter.js" type="text/javascript"></script>
+	<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/sharing_init.js" type="text/javascript"></script>
+	<!--[if gt IE 8]><script src="/scripts/ie9_perf.js?v=1IwvG0dd-MNgJ2IxdJ3a3kU0dgI1" type="text/javascript"></script><![endif]--><!-- START OF SmartSource Data Collector TAG -->
+<!-- Copyright (c) 1996-2009 WebTrends Inc.  All rights reserved. -->
+<!-- Version: MS.3.0.0 -->
+<script src="SilverSprite%20-%20XNA%20Games%20in%20Silverlight%20_%20The%20Continuum%20Show%20_%20Channel%209_files/wt.js" type="text/javascript"></script>
+
+<!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
+<!-- JavaScript include file can cause serious problems with cross-domain tracking.      -->
+<script type="text/javascript">
+	//<![CDATA[
+var _tag=new WebTrends();
+_tag.dcsid="dcs1wotjh10000w0irc493s0e_6x1g";
+_tag.fpcdom=".channel9.msdn.com";
+_tag.dcsGetId();
+_tag.trackevents=true;
+//]]>>
+</script>
+
+<script type="text/javascript">
+	//<![CDATA[
+// Add custom parameters here.
+//_tag.DCSext.param_name=param_value;
+_tag.dcsCollect();
+//]]>>
+</script>
+
+<noscript>
+	<div>
+		<img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="http://m.webtrends.com/dcs1wotjh10000w0irc493s0e_6x1g/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=MS.3.0.0"/>
+	</div>
+</noscript>
+<!-- END OF SmartSource Data Collector TAG -->
+
+</body></html>

@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+
+
+<link rel="stylesheet" href="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/style.css" type="text/css"><link rel="shortcut icon" href="http://www.bluerosegames.com/silverlight-games-101/themes/Paperclip-Cactus/favicon.ico" type="image/x-icon"><link rel="last" title="Dr. Dobbs Challenge Silverlight Game Contest" href="http://www.bluerosegames.com/silverlight-games-101/post/Dr-Dobbs-Challenge-Silverlight-Game-Contest.aspx"><link rel="first" title="Welcome to Silverlight Games 101" href="http://www.bluerosegames.com/silverlight-games-101/post/Welcome-to-Silverlight-Games-101.aspx"><link rel="next" title="Silverlight Game Contest rules and FAQ now online" href="http://www.bluerosegames.com/silverlight-games-101/post/Silverlight-Game-Contest-rules-and-FAQ-now-online.aspx"><link rel="prev" title="Announcing a new Silverlight game contest" href="http://www.bluerosegames.com/silverlight-games-101/post/Announcing-a-new-Silverlight-game-contest.aspx"><link rel="contents" title="Archive" href="http://www.bluerosegames.com/silverlight-games-101/archive.aspx"><link rel="start" title="Silverlight Games 101" href="http://www.bluerosegames.com/silverlight-games-101/"><link type="application/rdf+xml" rel="meta" title="SIOC" href="http://www.bluerosegames.com/silverlight-games-101/sioc.axd"><link type="application/apml+xml" rel="meta" title="APML" href="http://www.bluerosegames.com/silverlight-games-101/apml.axd"><link type="application/rdf+xml" rel="meta" title="FOAF" href="http://www.bluerosegames.com/silverlight-games-101/foaf.axd"><link type="application/rss+xml" rel="alternate" title="Silverlight Games 101" href="http://feeds.feedburner.com/silverlightgames101"><link type="application/rsd+xml" rel="edituri" title="RSD" href="http://www.bluerosegames.com/silverlight-games-101/rsd.axd"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><script type="text/javascript">KEYhasRated='You already rated this post';KEYwebRoot='/silverlight-games-101/';KEYsavingTheComment='Saving the comment...';KEYcomments='Comments';KEYcommentWasSaved='The comment was saved. Thank you for the feedback';KEYcommentWaitingModeration='Thank you for the feedback. The comment is now awaiting moderation';KEYcancel='Cancel';KEYfilter='Filter';KEYapmlDescription='Enter the URL to your website or to your APML document';</script><link type="application/opensearchdescription+xml" rel="search" title="Silverlight Games 101" href="http://www.bluerosegames.com/silverlight-games-101/opensearch.axd"><script type="text/javascript" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/js.axd"></script><title>
+	Silverlight Games 101 | Developing games that work with both XNA and Silverlight
+</title></head><body>
+    <form name="aspnetForm" method="post" action="/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx" id="aspnetForm">
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTI2MTM1MTE0NQ9kFgJmD2QWAgIDD2QWAgIPD2QWBgIBDxYCHgdWaXNpYmxlZxYEAgEPDxYGHgtOYXZpZ2F0ZVVybAVKL3NpbHZlcmxpZ2h0LWdhbWVzLTEwMS9wb3N0L0Fubm91bmNpbmctYS1uZXctU2lsdmVybGlnaHQtZ2FtZS1jb250ZXN0LmFzcHgeBFRleHQFMiZsdDsmbHQ7IEFubm91bmNpbmcgYSBuZXcgU2lsdmVybGlnaHQgZ2FtZSBjb250ZXN0HgdUb29sVGlwBQ1QcmV2aW91cyBwb3N0ZGQCAw8PFgYfAQVSL3NpbHZlcmxpZ2h0LWdhbWVzLTEwMS9wb3N0L1NpbHZlcmxpZ2h0LUdhbWUtQ29udGVzdC1ydWxlcy1hbmQtRkFRLW5vdy1vbmxpbmUuYXNweB8CBTpTaWx2ZXJsaWdodCBHYW1lIENvbnRlc3QgcnVsZXMgYW5kIEZBUSBub3cgb25saW5lICZndDsmZ3Q7HwMFCU5leHQgcG9zdGRkAgcPFgIfAGdkAgkPZBYEAgEPFgIfAGgWAgIMDxYCHgVWYWx1ZQUkNWQyMTcxZDgtNWU0ZC00YzhmLWJhMTItNmZiZWE1OGQ1ZDQ4ZAICDw8WAh8AZ2RkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBRhfY3RsMDpMb2dpblN0YXR1czE6X2N0bDEFGF9jdGwwOkxvZ2luU3RhdHVzMTpfY3RsMxZrOHF25L7TIhlqBx5nEP6Xdo4H" type="hidden">
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<script src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/WebResource.js" type="text/javascript"></script>
+
+        <div id="masthead">
+	        <div id="userArea">
+	            <div id="welcome" class="welcome" align="right">
+                    <a id="_ctl0_LoginStatus1" href="javascript:__doPostBack('_ctl0$LoginStatus1$_ctl2','')">Sign in</a>
+	            </div>
+                <div id="Search" align="right">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                        <td><input id="searchfield" name="SearchBox" class="searchBox" button="SearchButton" onkeypress="if(event.keyCode==13) return Search('/silverlight-games-101/')" onfocus="SearchClear('')" onblur="SearchClear('')" type="text"></td>
+                        <td><span class="SearchButtonOuter"><a id="SearchButton" class="SearchButton" href="#" onclick="Search('/silverlight-games-101/');" onkeypress="Search('/silverlight-games-101/');">Search</a></span></td>
+                    </tr>
+                    </tbody></table>		        
+                </div>
+	        </div>
+	        <div id="title">
+                <h1 class="headermaintitle">Silverlight Games 101</h1>
+                <div>Write games in Silverlight 2 using C# by Bill Reiss</div>
+            </div>
+        </div>
+        
+        <div id="nav">
+	        <div id="navbar">
+		        <ul>
+		            <li><a href="http://www.bluerosegames.com/silverlight-games-101/" rel="home">Home</a></li>
+<li><a href="http://feeds.feedburner.com/SilverlightGames101" rel="alternate" type="application/rss+xml"><img src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/feed-icon16x16.png" alt="" style="vertical-align: middle; border: 0pt none;"></a>&nbsp;<a href="http://feeds.feedburner.com/SilverlightGames101" rel="alternate" type="application/rss+xml">RSS/Atom Subscribe</a></li>
+			        <li><a href="http://www.bluerosegames.com/silverlight-games-101/contact.aspx">Contact</a></li>
+                    <li><a href="http://www.bluerosegames.com/silverlight-games-101/archive.aspx">Archive</a></li>
+                    
+		        </ul>
+	        </div>
+        </div>
+        
+        <div id="content">
+            <div id="leftmenu">
+                   <div>
+	<div>Our upcoming Silverlight book for beginners (includes a great chapter on game development in Silverlight!) <a href="http://www.manning.com/affiliate/idevaffiliate.php?id=1025_129">Hello! Silverlight 2</a> with Dave Campbell, available <a href="http://www.manning.com/affiliate/idevaffiliate.php?id=1025_129">online</a> now!</div>
+                   <div style="margin-left: 20px;">
+	<a href="http://www.manning.com/affiliate/idevaffiliate.php?id=1025_129"><img src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/reiss_cover150.jpg"></a></div><br>
+
+</div>
+<a href="http://twitter.com/billreiss" style="margin: 20px;"><img src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/twitter3gif.gif"></a>
+<script type="text/javascript"><!--
+google_ad_client = "pub-5814409658542983";
+/* 200x90, created 10/7/08 */
+google_ad_slot = "1386999346";
+google_ad_width = 200;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/show_ads.js">
+</script><script src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/show_ads_impl.js"></script><script src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/expansion_embed.js"></script><script src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 200px;"><ins id="google_ads_frame1_anchor" style="display: block; border: medium none; height: 90px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 200px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/ads.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="200" frameborder="0" height="90" scrolling="no"></iframe></ins></ins><br><br>
+                
+                 <h3>Pages</h3>
+                <ul id="pagelist" class="pagelist"></ul>
+
+           
+                <h3>Recent posts</h3>
+                <ul class="recentPosts" id="recentPosts"><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Dr-Dobbs-Challenge-Silverlight-Game-Contest.aspx">Dr. Dobbs Challenge Silverlight Game Contest</a><span>Comments: 10</span><span>Rating: 2 / 1</span></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Compile-your-XNA-2D-games-to-run-in-Silverlight-with-SilverSprite.aspx">Compile your XNA 2D games to run in Silverlight with SilverSprite</a><span>Comments: 24</span><span>Rating: 0 / 0</span></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Write-a-Silverlight-Game-and-win-245000-cash%21.aspx">Write a Silverlight Game and win $5000 cash!</a><span>Comments: 10</span><span>Rating: 5 / 1</span></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/New-Silverlight-game-developers-forum-on-silverlightnet.aspx">New Silverlight game developers forum on silverlight.net</a><span>Comments: 60</span><span>Rating: 2 / 1</span></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Im-just-speechlesse280a6-What-an-honor-to-be-the-first-Silverlight-MVP.aspx">I'm just speechless… What an honor to be the first Silverlight MVP</a><span>Comments: 20</span><span>Rating: 3 / 2</span></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/SilverArcadecom-Logo-contest-over-please-help-us-choose.aspx">SilverArcade.com Logo contest over, please help us choose</a><span>Comments: 14</span><span>Rating: 0 / 0</span></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Help-us-pick-a-logo-for-new-Silverlight-game-site-SilverArcadecom.aspx">Help us pick a logo for new Silverlight game site SilverArcade.com</a><span>Comments: 22</span><span>Rating: 2.8 / 6</span></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Got-a-Silverlight-Game-Want-to-make-some-money.aspx">Got a Silverlight Game? Want to make some money?</a><span>Comments: 91</span><span>Rating: 0 / 0</span></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Frame-Based-Sprite-Animation-in-Silverlight.aspx">Frame Based Sprite Animation in Silverlight</a><span>Comments: 76</span><span>Rating: 1 / 1</span></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Dr-Popper-now-on-Xbox-Live-Community-Games.aspx">Dr. Popper now on Xbox Live Community Games</a><span>Comments: 13</span><span>Rating: 0 / 0</span></li></ul>
+<!--
+                <h3>Tags</h3>
+                <p>None</p><ul id="tagcloud" class="tagcloud"></ul>
+
+                
+                <h3>Categories</h3>
+                <ul id="categorylist"><li><a href="/silverlight-games-101/syndication.axd?category=41a076e8-504c-4040-8126-be0123b31903" rel="nofollow"><img src="/silverlight-games-101/pics/rssButton.gif" alt="RSS feed for Games" class="rssButton" /></a><a href="/silverlight-games-101/category/Games.aspx" title="Category: Games">Games</a></li></ul>
+
+  -->              
+                <h3>Navigation</h3>
+                <ul>
+		            <li><a title="XFN relationship: home" href="http://www.bluerosegames.com/silverlight-games-101/" rel="home">Home</a></li>
+			        <li><a href="http://www.bluerosegames.com/silverlight-games-101/contact.aspx">Contact</a></li>
+                    <li><a href="http://www.bluerosegames.com/silverlight-games-101/archive.aspx" id="_ctl0_A1">Archive</a></li>
+                    <li><a href="http://feeds.feedburner.com/silverlightgames101">RSS</a></li>
+                    <li><a href="http://feeds.feedburner.com/silverlightgames101?format=1">Atom</a></li>
+                    <li><a href="http://feeds.feedburner.com/silverlightgames101?comments=1">Comments RSS</a></li>
+                    
+                </ul>
+                <h3>Archive</h3>
+                <ul id="monthList"><li class="year" onclick="ToggleMonth('year2009')">2009<ul id="year2009"><li><a href="http://www.bluerosegames.com/silverlight-games-101/2009/04/default.aspx">April (1)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2009/03/default.aspx">March (5)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2009/02/default.aspx">February (2)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2009/01/default.aspx">January (1)</a></li></ul></li><li class="year" onclick="ToggleMonth('year2008')">2008<ul id="year2008"><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/12/default.aspx">December (3)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/11/default.aspx">November (7)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/10/default.aspx">October (5)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/09/default.aspx">September (4)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/08/default.aspx">August (2)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/07/default.aspx">July (2)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/06/default.aspx">June (4)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/05/default.aspx">May (2)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/04/default.aspx">April (4)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/03/default.aspx">March (18)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/02/default.aspx">February (2)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2008/01/default.aspx">January (2)</a></li></ul></li><li class="year" onclick="ToggleMonth('year2007')">2007<ul id="year2007"><li><a href="http://www.bluerosegames.com/silverlight-games-101/2007/10/default.aspx">October (2)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2007/08/default.aspx">August (3)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2007/06/default.aspx">June (3)</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/2007/05/default.aspx">May (7)</a></li></ul></li></ul>
+
+                
+                <h3>Blogroll</h3>   
+                <div id="blogroll">
+<ul class="xoxo"></ul>
+</div>
+
+                <h3><a href="http://www.lutzfamilylaw.com/">Tampa Divorce Lawyer</a></h3>
+                <p>North of Tampa in Lutz, Florida. A <a href="http://www.lutzfamilylaw.com/">Tampa Divorce Lawyer</a> focusing on family, divorce, and real estate law.</p>
+                
+                <h3>Disclaimer</h3>
+                <p>The opinions expressed herein are my own personal opinions and do not represent my employer's view in anyway.</p>
+            </div>
+            
+            <div id="main">
+<script type="text/javascript"><!--
+    google_ad_client = "pub-5814409658542983";
+    /* 468x60, created 11/21/08 */
+    google_ad_slot = "7090624768";
+    google_ad_width = 468;
+    google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/show_ads.js">
+</script><script src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/show_ads_impl.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 60px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 468px;"><ins id="google_ads_frame2_anchor" style="display: block; border: medium none; height: 60px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 468px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/ads_002.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="468" frameborder="0" height="60" scrolling="no"></iframe></ins></ins>               <div id="searchonsearch"><h3>You searched for 'xna to silverlight '</h3><p>Here are some results for the search term on this website</p><ol><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Silverlight-Streaming-now-supports-Silverlight-2-Beta-2.aspx">Silverlight Streaming now supports Silverlight 2 Beta 2</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Announcing-the-Farseer-Physics-Engine-for-Silverlight-11-and-XNA-Game-Studio.aspx">Announcing the Farseer Physics Engine for Silverlight 1.1 and XNA Game Studio</a></li><li><a href="http://www.bluerosegames.com/silverlight-games-101/post/Compile-your-XNA-2D-games-to-run-in-Silverlight-with-SilverSprite.aspx">Compile your XNA 2D games to run in Silverlight with SilverSprite</a></li></ol></div>
+                
+  
+  
+    <div id="postnavigation">
+      <a id="_ctl0_cphBody_hlPrev" title="Previous post" href="http://www.bluerosegames.com/silverlight-games-101/post/Announcing-a-new-Silverlight-game-contest.aspx">&lt;&lt; Announcing a new Silverlight game contest</a> | 
+      <a id="_ctl0_cphBody_hlNext" title="Next post" href="http://www.bluerosegames.com/silverlight-games-101/post/Silverlight-Game-Contest-rules-and-FAQ-now-online.aspx">Silverlight Game Contest rules and FAQ now online &gt;&gt;</a>
+    </div>
+  
+  
+  
+
+    <div class="post xfolkentry">
+	    
+        <h2 class="pageTitle">Developing games that work with both XNA and Silverlight</h2>
+	    <p>Yesterday I co-presented a session at GameFest 2008 on 
+Silverlight game development, and one of the things I showed was a 
+sample of abstracting out the differences between Silverlight and XNA so
+ that you could write game code that would run against both.</p> <p>The quick and dirty sample is here:</p> <p><a href="http://www.bluerosegames.com/silverlightxnasample.zip">http://www.bluerosegames.com/silverlightxnasample.zip</a></p> <p>I
+ want your input, if something like this was built up into a game 
+library that could run on both Silverlight and XNA and was available on 
+CodePlex, would you be interested? It would be a fairly significant 
+undertaking and I want to know whether people would find it worthwhile. I
+ thought it might be a bit more relevant now that you'll be able to <a href="http://blogs.msdn.com/xna/archive/2008/07/22/introducing-xbox-live-community-games.aspx">sell XNA Games on XBOX 360</a>.&nbsp; </p><script src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/silverlightgames101.js" type="text/javascript" charset="utf-8"></script><script src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/SilverlightGames101.js" type="text/javascript"></script><div align="center">
+<script type="text/javascript"><!--
+google_ad_client="pub-5814409658542983";
+google_ad_host="pub-0720175472434865";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text_image";
+google_ad_channel="3699102132";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="0000FF";
+google_color_url="008000";
+google_color_text="000000";
+//--></script>
+<script type="text/javascript" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/show_ads.js">
+</script><script src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/show_ads_impl.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 60px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 468px;"><ins id="google_ads_frame3_anchor" style="display: block; border: medium none; height: 60px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 468px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame3" marginheight="0" marginwidth="0" name="google_ads_frame" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/ads_003.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="468" frameborder="0" height="60" scrolling="no"></iframe></ins></ins>
+</div>
+
+
+        <div class="postfoot">	
+            <span class="em">Posted:</span> <a rel="nofollow" href="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx">Jul 23 2008, 11:54</a> by 
+            <a href="http://www.bluerosegames.com/silverlight-games-101/author/Bill%20Reiss.aspx">Bill Reiss</a> | 
+            <a rel="nofollow" href="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx#comment">Comments (7)</a> 
+            <a rel="nofollow" href="http://www.bluerosegames.com/silverlight-games-101/syndication.axd?post=e3709d9b-4ed5-4f11-b69b-d6f2a461c3d8"><img src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/rssButton.gif" alt="RSS comment feed" style="margin-left: 3px;"></a> | 
+
+	        
+	        <span class="inline-rating">
+	            <ul class="star-rating small-star">
+                    <li class="current-rating" style="width: 0%;">Currently 0/5 Stars.</li>
+		            <li><a href="javascript:void(Rate('e3709d9b-4ed5-4f11-b69b-d6f2a461c3d8',%201))" rev="vote-against" title="Poor" class="one-star">1</a></li>
+		            <li><a href="javascript:void(Rate('e3709d9b-4ed5-4f11-b69b-d6f2a461c3d8',%202))" rev="vote-against" title="Fair" class="two-stars">2</a></li>
+		            <li><a href="javascript:void(Rate('e3709d9b-4ed5-4f11-b69b-d6f2a461c3d8',%203))" rev="vote-abstain" title="Average" class="three-stars">3</a></li>
+		            <li><a href="javascript:void(Rate('e3709d9b-4ed5-4f11-b69b-d6f2a461c3d8',%204))" rev="vote-for" title="Good" class="four-stars">4</a></li>
+		            <li><a href="javascript:void(Rate('e3709d9b-4ed5-4f11-b69b-d6f2a461c3d8',%205))" rev="vote-for" title="Excellent" class="five-stars">5</a></li>
+	            </ul>
+	        </span>
+            
+            <div class="em"><span class="em">Filed under:</span> </div>
+            
+            
+        </div>
+    </div>
+  
+  
+    <!-- 
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+      <rdf:Description rdf:about="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx" dc:identifier="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx" dc:title="Developing games that work with both XNA and Silverlight" trackback:ping="http://www.bluerosegames.com/silverlight-games-101/trackback.axd?id=e3709d9b-4ed5-4f11-b69b-d6f2a461c3d8" />
+    </rdf:RDF>
+    -->
+  
+  
+  <div id="relatedPosts"><h1>Related posts</h1><div><a href="http://www.bluerosegames.com/silverlight-games-101/post/Compile-your-XNA-2D-games-to-run-in-Silverlight-with-SilverSprite.aspx">Compile your XNA 2D games to run in Silverlight with SilverSprite</a><span>In December, I released my Dr. Popper game on Xbox Live Community Games (XLCG) which allows you to s...</span><a href="http://www.bluerosegames.com/silverlight-games-101/post/Ie28099m-actively-looking-for-more-Silverlight-games-for-Blue-Rose-Games.aspx">I’m actively looking for more Silverlight games for Blue Rose Games</a><span>I’m looking to add to the games available on Blue Rose Games. The ultimate goal is to make it into t...</span><a href="http://www.bluerosegames.com/silverlight-games-101/post/Silverlight-Games-101-Posts-and-Samples-Updated-to-Silverlight-2-Beta-2.aspx">Silverlight Games 101 Posts and Samples Updated to Silverlight 2 Beta 2</a><span>I have updated the new iteration of samples and tutorials to Silverlight 2 Beta 2. The Zip files for...</span></div></div>
+  
+<h1 id="comment">Comments</h1>
+
+
+<div id="commentlist" style="display: block;">
+  
+
+<div id="id_98b8548e-ca61-4dbe-94ec-9d6791747b93" class="CommentArea">
+    <p class="author">
+        <a title="roverhair" rel="nofollow" href="http://jimmyinteractive.com/">roverhair</a>  said: <img class="CommentArrow" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/spacer.gif" alt=" " style="border-width: 0px;" align="bottom">
+    </p>
+    <div class="CommentText">
+        <div class="CommentText2">
+            <div class="CommentText3"><p class="content"><img class="thumb" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/a_003.jpg" alt="">I
+ would find it worthwhile. Im jumping into xna this summer. I just make 
+games in flash and now silverlight as a hobby, but im starting to get 
+better i guess cause i won the RIA Run Contest.  Anyway I would love to 
+get into XNA. Most if not all the games I build are small and simple 
+enough that silverlight can handle. The are small games cause im just 
+doing this in my spare time.  I would love to publish the games in both 
+xna and silverlight without recoding it. The posiblitiy to sell games on
+ the Xbox arcade really excites me.</p></div>
+        </div>
+    </div>
+    <div class="CommentFooter">
+        <a href="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx#id_98b8548e-ca61-4dbe-94ec-9d6791747b93">#</a> July 23 2008, 18:36 
+    </div>
+</div>
+
+<div id="id_6269e863-3847-4d06-b356-63bdbc8b58cd" class="CommentArea">
+    <p class="author">
+        <a title="chrisaswain" rel="nofollow" href="http://swainman.spaces.live.com/">chrisaswain</a>  said: <img class="CommentArrow" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/spacer.gif" alt=" " style="border-width: 0px;" align="bottom">
+    </p>
+    <div class="CommentText">
+        <div class="CommentText2">
+            <div class="CommentText3"><p class="content"><img class="thumb" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/a.jpg" alt="">Yes, please put something together on CodePlex.  I would definately use it.</p></div>
+        </div>
+    </div>
+    <div class="CommentFooter">
+        <a href="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx#id_6269e863-3847-4d06-b356-63bdbc8b58cd">#</a> July 23 2008, 20:58 
+    </div>
+</div>
+
+<div id="id_6d33a0e1-4914-4629-8fd1-5dbc556525ee" class="CommentArea">
+    <p class="author">
+        <a title="kierepka" rel="nofollow" href="http://xna.pl/silverlight.aspx">kierepka</a>  said: <img class="CommentArrow" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/spacer.gif" alt=" " style="border-width: 0px;" align="bottom">
+    </p>
+    <div class="CommentText">
+        <div class="CommentText2">
+            <div class="CommentText3"><p class="content"><img class="thumb" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/a_002.jpg" alt="">I'm working on this same problem. But my main development library is Farseer. 
+<br>My CodePlex game is here:
+<br><a href="http://codeplex.com/silvertower" rel="nofollow">http://codeplex.com/silvertower</a>
+<br>
+<br>I don't have too much time right now but in next week I will spend maybe another hours for this project.</p></div>
+        </div>
+    </div>
+    <div class="CommentFooter">
+        <a href="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx#id_6d33a0e1-4914-4629-8fd1-5dbc556525ee">#</a> July 24 2008, 02:55 
+    </div>
+</div>
+
+<div id="id_60ac9675-f7e5-422a-9380-c25eac8a4ee3" class="CommentArea">
+    <p class="author">
+        <a title="BobStrogg" rel="nofollow" href="http://chriscavanagh.wordpress.com/">BobStrogg</a>  said: <img class="CommentArrow" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/spacer.gif" alt=" " style="border-width: 0px;" align="bottom">
+    </p>
+    <div class="CommentText">
+        <div class="CommentText2">
+            <div class="CommentText3"><p class="content"><img class="thumb" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/a_004.jpg" alt="">Not
+ sure if it'll help you guys or not, but some of the SL demos I've done 
+were based on XNA code (usually physics libraries).  I wrote a basic 
+wrapper assembly ("XnaToWpf") originally for WPF but adapted for 
+Silverlight.  All you need to do is include it in your SL project and 
+you'll get [some of] the Microsoft.Xna.Framework namespace.  It only 
+includes stuff I needed (basic 3D classes; placeholders where 
+appropriate etc) but might be useful for someone.
+<br>
+<br>You can grab the project source here: <a href="http://chriscavanagh.wordpress.com/2008/07/23/silverlight-soft-body-physics-source-code/" rel="nofollow">chriscavanagh.wordpress.com/.../</a></p></div>
+        </div>
+    </div>
+    <div class="CommentFooter">
+        <a href="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx#id_60ac9675-f7e5-422a-9380-c25eac8a4ee3">#</a> July 25 2008, 11:17 
+    </div>
+</div>
+
+<div id="id_b7947fe0-a67e-45b0-a549-a3a2bbcc9de3" class="CommentArea">
+    <p class="author">
+         <span class="adr"><img src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/us.png" class="country-name flag" title="United States" alt="United States"></span> said: <img class="CommentArrow" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/spacer.gif" alt=" " style="border-width: 0px;" align="bottom">
+    </p>
+    <div class="CommentText">
+        <div class="CommentText2">
+            <div class="CommentText3"><p class="content"><img src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/noavatar.jpg" alt=""></p></div>
+        </div>
+    </div>
+    <div class="CommentFooter">
+        <a href="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx#id_b7947fe0-a67e-45b0-a549-a3a2bbcc9de3">#</a> October 14 2009, 06:09 
+    </div>
+</div>
+
+<div id="id_1d09658e-34b7-4646-bea3-81809ab25c66" class="CommentArea">
+    <p class="author">
+         <span class="adr"><img src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/us.png" class="country-name flag" title="United States" alt="United States"></span> said: <img class="CommentArrow" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/spacer.gif" alt=" " style="border-width: 0px;" align="bottom">
+    </p>
+    <div class="CommentText">
+        <div class="CommentText2">
+            <div class="CommentText3"><p class="content"><img src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/noavatar.jpg" alt=""></p></div>
+        </div>
+    </div>
+    <div class="CommentFooter">
+        <a href="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx#id_1d09658e-34b7-4646-bea3-81809ab25c66">#</a> October 22 2009, 02:57 
+    </div>
+</div>
+
+<div id="id_26d3d21b-5101-44a7-b096-da644a51ee07" class="CommentArea">
+    <p class="author">
+        <a title="online cash loans" rel="nofollow" href="http://cashusloans.com/">online cash loans</a> <span class="adr"><img src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/us.png" class="country-name flag" title="United States" alt="United States"></span> said: <img class="CommentArrow" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/spacer.gif" alt=" " style="border-width: 0px;" align="bottom">
+    </p>
+    <div class="CommentText">
+        <div class="CommentText2">
+            <div class="CommentText3"><p class="content"><img class="photo" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/36284e01dcdc4a412921d272f22ac063.png" alt="online cash loans">Do you have any more info on this?</p></div>
+        </div>
+    </div>
+    <div class="CommentFooter">
+        <a href="http://www.bluerosegames.com/silverlight-games-101/post/Developing-games-that-work-with-both-XNA-and-Silverlight.aspx#id_26d3d21b-5101-44a7-b096-da644a51ee07">#</a> October 26 2009, 23:46 
+    </div>
+</div>
+</div>
+
+
+<script type="text/javascript">$('commentlist').style.display='block';</script>
+
+
+<span id="_ctl0_cphBody_CommentView1_lbCommentsDisabled">Comments are closed</span>
+
+            </div>
+        </div>
+        <div class="footer">
+            Powered by <a href="http://www.dotnetblogengine.net/" target="_blank">BlogEngine.NET</a> 1.4.5.0 | 
+            Original Design by <a href="http://www.telligent.com/">Telligent</a>, Adapted by <a href="http://www.caioproiete.com/" rel="me">Caio Proiete</a>
+        </div>
+    
+<input name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAgLT79zjBwK58vn/DBiOotl0gp6Hwuc7AmPoPEabTipo" type="hidden">
+
+<script language="javascript" type="text/javascript" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/msAnalytics.js"></script>
+<script language="javascript" type="text/javascript">
+	msAnalytics.ProfileId = 'C668';
+	msAnalytics.TrackPage();
+</script>
+<script type="text/javascript">
+<!--
+
+WebForm_InitCallback();// -->
+</script>
+</form>
+<iframe style="z-index: -1; height: 1px; width: 1px; visibility: hidden; display: none;" src="Developing-games-that-work-with-both-XNA-and-Silverlight.aspx_files/Sync.htm" id="_syncFrame"></iframe></body></html>

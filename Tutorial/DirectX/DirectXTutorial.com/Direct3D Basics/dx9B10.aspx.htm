@@ -1,0 +1,811 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Lesson 9: More on Lighting
+</title><link href="dx9B10.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B10.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B10.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B10.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B10.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+        Lesson 9:&nbsp; More on Lighting</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B10.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B9.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B11.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+    Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Directional light is very good, but it only covers ordinary light that is everywhere.&nbsp;
+    What about lights that aren't everywhere?&nbsp; Covered in the last lesson, in addition
+    to directional lights, were point lights and spot lights.&nbsp; However, these two
+    types of light sources have additional properties that I did not cover in the last
+    lesson.</p>
+    <p>
+        In addition to these two types of light sources, there comes a slight, and somewhat
+        hidden, problem involved in lighting, which we will go over first.&nbsp; (Don't
+        worry, it's an easy one.)</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    The Scaling Problem</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    If, in messing around with lights, you tried to scale any of your models, you may
+    have found a slight problem with the lighting.&nbsp; As your models got smaller,
+    they also got lighter.&nbsp; Likewise, as your models got larger, they got darker.</p>
+    <p>
+        Why is this exactly?&nbsp; Well, when you scale a model, the normals are scaled
+        right along with it!&nbsp; And the smaller the normal, the brighter the object.&nbsp;
+        This certainly doesn't help things (unless you <em>want</em> your models to get lighter when
+        they get smaller).</p>
+    <p>
+        This is a problem you may or may not have noticed.&nbsp; But if you haven't yet,
+        you would have eventually.&nbsp; Fortunately, the fix is simple.&nbsp; All we have
+        to do is set another render state to TRUE:</p>
+    <div class="codebox">
+        d3ddev-&gt;SetRenderState(D3DRS_NORMALIZENORMALS, TRUE);</div>
+    <p>
+        What this does is make Direct3D automatically handle the normals.&nbsp; It fixes
+        them at the correct length, despite how they were scaled.</p>
+    <p>
+        And that's all there is to it.&nbsp; Now let's get back to light sources.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Point Lights</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    A point light, as discussed in the previous lesson, is a light which has an exact
+    location, and emanates light in all directions from that location.</p>
+    <center>
+        <img alt="Image 10.1 - Point Light" src="dx9B10.aspx_files/dx9B9-6.PNG"><br>
+        <br>
+        Image 10.1 - Point Light
+    </center>
+    <p>
+        Unlike a directional light, a point light does not go on indefinitely.&nbsp; As
+        the light travels away from the source, it gets dispersed, spreading out in every
+        direction equally.&nbsp; Therefore, the farther an object is from a directional
+        light, the less illuminated that object will be.&nbsp; This change in illumination
+        is known as <em>attenuation</em> of light.</p>
+    <p>
+                Before I go into attenuation, I want to talk about <em>range</em>.</p>
+    <hr>
+    <p class="subheader">
+        Range</p>
+    <p>
+        Range itself is quite simple.&nbsp; It is the distance that a light shines.&nbsp;
+        Beyond a light source's range, no light from that source is shown.</p>
+    <p>
+        You set the range of a light by changing the light's Range value, like this:</p>
+    <div class="codebox">
+        light.Range = 100.0f;</div>
+    <p>
+        This makes the light only extend for 100 units, meaning that after 100 units, the
+        light will no longer be calculated into lighting operations, speeding up your game.</p>
+    <hr>
+    <p class="subheader">
+        Attenuation</p>
+    <p>
+        Attenuation is a bit more complex, and requires some basic algebra skills to fully
+        understand (sorry, I have sat on this one for two weeks now trying to find an easier
+        way to explain it and I just can't).&nbsp; Basically, attenuation controls how illuminated
+        an object will be based on its distance from the light source.&nbsp; In other words,
+        it controls how a light's intensity will decrease as it travels through space.</p>
+    <p>
+        I am going to give you the algebraic function (not C++ function) for attenuation,
+        then explain it in detail.&nbsp; You can read it if you want, or (if you are a math
+        wiz already) you can skip it if you feel you get it enough to use it.&nbsp; Here
+        is the function:</p>
+    <p>
+        Atten = 1 / (att0 + att1 * d + att2 * d<sup>2</sup>)</p>
+    <p>
+        Let's start at the beginning.</p>
+    <p class="subheader">
+        Atten</p>
+    <p>
+        <em>Atten</em> is short for attenuation.&nbsp; It is a number between 1.0 and 0.0
+        which indicates the intensity of light.&nbsp; 1.0 is full intensity, while 0.0 is
+        no intensity (no light).&nbsp; For each vertex within the light's range, the <em>Atten</em>
+        is applied, along with the vertex's normal, to determine how much illumination there
+        is.</p>
+    <p class="subheader">
+        d</p>
+    <p>
+        <em>d</em> in this function represents <em>distance</em>.&nbsp; This refers to the
+        distance between the vertex and the light.&nbsp; In the function it is multiplied
+        by <em>att1</em> and <em>att2</em>, which are constants I'll go over next.</p>
+    <p class="subheader">
+        att0</p>
+    <p>
+        There are three constant values in this equation, <em>att0</em>, <em>att1</em> and
+        <em>att2</em>. &nbsp;If you look, you will see that <em>att0</em> is not multiplied
+        by anything.&nbsp; This makes it a constant modifier.&nbsp; If you place a
+        number
+        in only this variable, you get a constant amount of light.&nbsp; This means there
+        is no attenuation at all.&nbsp; For example, if you put 0.5 in this value, you will
+        get a half-lit light that will extend all the way to the maximum range of the light.</p>
+    <center>
+        <img alt="Image 10.2 - att0 graphed at 0.5" src="dx9B10.aspx_files/dx9B10-2.GIF" width="308" height="190"><br>
+        <br>
+        Image 10.2 - <em>att0</em> graphed at 0.5
+    </center>
+    <p class="subheader">
+        att1</p>
+    <p>
+        This is the second constant value.&nbsp; If used by itself, it is an inverse function,
+        meaning that the light will dissipate more slowly as the distance increases.&nbsp;
+        This is probably the most realistic type of light.&nbsp; Usually you can get away
+        with just setting this to 1.0 and the other two values to 0.0.&nbsp; However, because
+        of varying types of lights, this doesn't always work out.</p>
+    <center>
+        <img alt="Image 10.3 - att1 graphed at 1.0" src="dx9B10.aspx_files/dx9B10-3.GIF" width="308" height="190"><br>
+        <br>
+        Image 10.3 - <em>att1</em> graphed at 1.0
+    </center>
+    <p class="subheader">
+        att2</p>
+    <p>
+        This is the third constant value.&nbsp; If used by itself, it is an inverse square
+        function, meaning that the light will not only dissipate more slowly as the distance
+        increases, but the dissipation will be very rapid at first, then sharply slow down.&nbsp;
+        This type of attenuation has the effect of, say, a campfire at night.&nbsp; It is
+        very bright around the campfire.&nbsp; But if you walk fifty feet away, you can
+        still see objects lit by the fire, but very dimly.&nbsp; If you walk a hundred feet
+        away, you'll still be able to see the light, and it probably won't get that much
+        darker.</p>
+    <center>
+        <img alt="Image 10.4 - att2 graphed at 1.0" src="dx9B10.aspx_files/dx9B10-4.GIF" width="308" height="190"><br>
+        <br>
+        Image 10.4 - <em>att2</em> graphed at 1.0
+    </center>
+    <p class="subheader">
+        Using the Equation</p>
+    <p>
+        When building a point light, you will want to look over the attenuation function
+        and find out what values you want in each variable.&nbsp; You can combine them to
+        get all kinds of different effects.&nbsp; You do this by plugging in each <em>att</em>
+        value and seeing how brightly the light will show at various distances.&nbsp; This
+        will give you some prediction on how the light will perform.</p>
+    <p>
+        There is another thing to look out for, and that is having the Range of the light
+        suddenly cut off an area where the light is still bright.&nbsp; Remember that Range
+        determines how far Direct3D will calculate the attenuation.&nbsp; If the maximum
+        range of the light is still quite bright with attenuation, it can make things look
+        a bit unrealistic.&nbsp; If you position the Range correctly, you won't even notice
+        where the edge of the light is.</p>
+    <p>
+        Note that setting the range or attenuation for a directional light has no effect.</p>
+    <hr>
+    <p class="subheader">
+        Coding a Point Light</p>
+    <p>
+        The following code sets up a point light.&nbsp; You should already be familiar with
+        much of it, but some of it will be new.&nbsp; I have highlighted all the new or
+        changed parts from the last example.</p>
+    <div class="codebox" style="left: 0px; top: 0px;">
+        void init_light(void)<br>
+        {<br>
+        &nbsp; &nbsp; D3DLIGHT9 light;<br>
+        &nbsp; &nbsp; D3DMATERIAL9 material;<br>
+        <br>
+        &nbsp; &nbsp; ZeroMemory(&amp;light, sizeof(light));<br>
+        &nbsp; &nbsp; light.Type = D3DLIGHT_<strong>POINT</strong>; &nbsp;&nbsp; // make
+        the light type '<strong>point</strong> light'<br>
+        &nbsp; &nbsp; light.Diffuse = D3DXCOLOR(0.5f, 0.5f, 0.5f, 1.0f);<br>
+        <span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);">&nbsp; &nbsp; light.</span><strong>Position</strong><span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);"> = D3DXVECTOR3(<strong>0.0f, 5.0f,
+                0.0f</strong>);</span><br>
+        <strong>&nbsp; &nbsp; light.Range = 100.0f; &nbsp; &nbsp;// a range of 100<br>
+            &nbsp; &nbsp; light.Attenuation0 = 0.0f; &nbsp; &nbsp;// no constant inverse attenuation<br>
+            &nbsp; &nbsp; light.Attenuation1 = 0.125f; &nbsp;&nbsp; // only .125 inverse attenuation<br>
+            &nbsp; &nbsp; light.Attenuation2 = 0.0f; &nbsp; &nbsp;// no square inverse attenuation</strong><br>
+        <br>
+        &nbsp; &nbsp; d3ddev-&gt;SetLight(0, &amp;light);<br>
+        &nbsp; &nbsp; d3ddev-&gt;LightEnable(0, TRUE);<br>
+        <br>
+        &nbsp; &nbsp; ZeroMemory(&amp;material, sizeof(D3DMATERIAL9));<br>
+        &nbsp; &nbsp; material.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);<br>
+        &nbsp; &nbsp; material.Ambient = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);<br>
+        <br>
+        &nbsp; &nbsp; d3ddev-&gt;SetMaterial(&amp;material);<br>
+        }</div>
+    <p>
+        Let's quickly go through the new stuff.</p>
+    <p class="subheader">
+        D3DLIGHT_POINT</p>
+    <p>
+        This is the flag we use to indicate that we want a point light.&nbsp; It replaces
+        D3DLIGHT_DIRECTIONAL used in the last example.</p>
+    <p class="subheader">
+        light.Range</p>
+    <p>
+        This is a float value that indicates the range of the light.</p>
+    <p class="subheader">
+        light.Attenuation 0...1...2</p>
+    <p>
+        These three values represent the constants <em>att0</em>, <em>att1</em> and <em>att2</em>
+        in the attenuation function.</p>
+    <p class="subheader">
+        light.Position</p>
+    <p>
+        Because this light has position, and not direction, we need to state where the light
+        is.&nbsp; We don't actually have to change much.&nbsp; We need to set a D3DVECTOR,
+        just like a directional light, and instead fill the Position value with it, instead
+        of the Direction value.</p>
+    <hr>
+    <p>
+        With the above point light, and with the proper use of matrices, I was able to produce
+        this:</p>
+    <center>
+        <img alt="Image 10.5 - The Point Light" src="dx9B10.aspx_files/dx9B10-5.PNG"><br>
+        <br>
+        Image 10.5 - The Point Light
+    </center>
+    <p>
+        As you can see, the two cubes are each lit differently based on their position in
+        relation to the point light (which is in the middle).&nbsp; In this example, I had
+        the two cubes circling around the light, so that each would get light from a different
+        direction.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Spot Lights</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    As I mentioned in the previous lesson, the spotlight is the least-used, least-efficient,
+    and least-simple type of light there is.&nbsp; It actually requires the entire D3DLIGHT9
+    struct to be filled.&nbsp; That means every single property we've gone over so far,
+    including some new ones we haven't covered yet.</p>
+    <p>
+        A spot light is a light that has both position and direction.&nbsp; In other words,
+        it emanates light from a specific point and in a specifc direction.</p>
+    <center>
+        <img alt="Image 10.6 - Spot Light" src="dx9B10.aspx_files/dx9B9-7.PNG"><br>
+        <br>
+        Image 10.6 - Spot Light
+    </center>
+    <p>
+        There are three new properties in addition to what we have already covered.&nbsp;
+        These properties are called Phi, Theta, and Falloff.</p>
+    <hr>
+    <p class="subheader">
+        Phi and Theta</p>
+    <p>
+        Of course, the spot light does not go exactly in one direction.&nbsp; That would
+        be a lazer's job, and their are no perfect lazers in Direct3D.&nbsp; What would
+        be the point?&nbsp; You can just as easily draw a pixel on the screen.</p>
+    <p>
+        Instead, spot lights are shaped like cones, where the tip of the cone is the emanation
+        point of the light.&nbsp; The center of the cone is in the direction given.</p>
+    <p>
+        So how is this done to be realistic?&nbsp; Well, go into a dark room and shine a
+        flashlight on a wall.&nbsp; You will see a very bright and small circle in the center
+        of a larger and darker circle.</p>
+    <p>
+        In Direct3D, this is recreated using two values to show how wide these two circles
+        are.</p>
+    <center>
+        <img alt="Image 10.7 - Phi and Theta" src="dx9B10.aspx_files/dx9B10-7.PNG"><br>
+        <br>
+        Image 10.7 - Phi and Theta
+    </center>
+    <p>
+        As you can see, <em>Theta</em> represents the inner circle and <em>Phi</em> represents
+        the outer circle.&nbsp; Phi and Theta are both float values which hold the angle
+        used to determine the size of each circle.</p>
+    <hr>
+    <p class="subheader">
+        Falloff</p>
+    <p>
+        Go back to the dark room and shine the light on the wall again.&nbsp; You will see
+        that the bright circle actually fades away into the dark circle.&nbsp; It is not
+        a sharp transition (unless you have a strange flashlight).&nbsp; This fading is
+        called <em>falloff</em>.&nbsp; Falloff is a value used to control how fast the inner
+        circle fades into the outer circle.</p>
+    <center>
+        <img alt="Image 10.8 - Spot Light Falloff" src="dx9B10.aspx_files/dx9B10-8.PNG"><br>
+        <br>
+        Image 10.8 - Spot Light Falloff
+    </center>
+    <p>
+        Usually, falloff is determined by a float value of 1.0.&nbsp; This makes the light
+        fade evenly.&nbsp; However, you can also get some interesting effects by changing
+        to falloff value in certain ways.</p>
+    <center>
+        <img alt="Image 10.9 - Various Falloff Values" src="dx9B10.aspx_files/dx9B10-9.PNG"><br>
+        <br>
+        Image 10.9 - Various Falloff Values
+    </center>
+    <p>
+        Because creating a falloff other than 1.0 takes time to process, developers usually
+        use 1.0, and leave the other effects alone.&nbsp; In fact, spot lights should be
+        used rarely, beacuse the spot lights in general take extra time to process.</p>
+    <hr>
+    <p class="subheader">
+        Coding a Spot Light</p>
+    <p>
+        Setting up a spot light is exactly like setting up a point light, but with the new
+        properties included.&nbsp; The four properties added here from the code above are
+        phi, theta, falloff and direction.&nbsp; Also, the type was changed to D3DLIGHT_SPOT.</p>
+    <div class="codebox">
+        void init_light(void)<br>
+        {<br>
+        &nbsp; &nbsp; D3DLIGHT9 light;<br>
+        &nbsp; &nbsp; D3DMATERIAL9 material;<br>
+        <br>
+        &nbsp; &nbsp; ZeroMemory(&amp;light, sizeof(light));<br>
+        &nbsp; &nbsp; light.Type = <strong>D3DLIGHT_SPOT</strong>; &nbsp;&nbsp; // make
+        the light type '<strong>spot</strong> light'<br>
+        &nbsp; &nbsp; light.Diffuse = D3DXCOLOR(0.5f, 0.5f, 0.5f, 1.0f);<br>
+        <span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);">&nbsp; &nbsp; light.</span>Position<span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);"> = D3DXVECTOR3<strong>(-12.0f, 0.0f,
+                        30.0f</strong>);<br>
+        </span><strong>&nbsp; &nbsp; light.Direction = D3DXVECTOR3(0.0f, 0.0f, -1.0f);<br>
+        </strong>&nbsp; &nbsp; light.Range = 100.0f; &nbsp; &nbsp;// a range of 100<br>
+        &nbsp; &nbsp; light.Attenuation0 = 0.0f; &nbsp; &nbsp;// no constant inverse attenuation<br>
+        &nbsp; &nbsp; light.Attenuation1 = 0.125f; &nbsp;&nbsp; // only .125 inverse attenuation<br>
+        &nbsp; &nbsp; light.Attenuation2 = 0.0f; &nbsp; &nbsp;// no square inverse attenuation<br>
+        <span style="color: rgb(255, 255, 255);"><strong>&nbsp; &nbsp; light.Phi = D3DXToRadian(40.0f);
+            &nbsp;&nbsp; // set the outer cone to 30 degrees<br>
+        </strong></span><strong><span style="color: rgb(255, 255, 255);">&nbsp; &nbsp; light.Theta = D3DXToRadian(20.0f);
+            &nbsp;&nbsp; // set the inner cone to 10 degrees<br>
+        </span><span style="color: rgb(255, 255, 255);">&nbsp; &nbsp; light.Falloff = 1.0f; &nbsp;&nbsp;
+            // use the typical falloff</span></strong><br>
+        <br>
+        &nbsp; &nbsp; d3ddev-&gt;SetLight(0, &amp;light);<br>
+        &nbsp; &nbsp; d3ddev-&gt;LightEnable(0, TRUE);<br>
+        <br>
+        &nbsp; &nbsp; ZeroMemory(&amp;material, sizeof(D3DMATERIAL9));<br>
+        &nbsp; &nbsp; material.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);<br>
+        &nbsp; &nbsp; material.Ambient = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);<br>
+        <br>
+        &nbsp; &nbsp; d3ddev-&gt;SetMaterial(&amp;material);<br>
+        }</div>
+    <p>
+        When I plugged this into the same demo from above, I got this:</p>
+    <center>
+        <img alt="Image 10.10 - The Spot Light" src="dx9B10.aspx_files/dx9B10-10.PNG"><br>
+        <br>
+        Image 10.10 - The Spot Light
+    </center>
+    <p>
+        As you can see, the box on the right is illuminated, whereas the box on the left
+        is only lit with ambient lighting.&nbsp; The box on the right is lit by the spot
+        light.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    The Finished Program</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                For the final program we will build a demo similar to the one's I used to show the
+                lights above, but with only one cube.&nbsp; We'll have it <a class="mainlink" href="http://www.directxtutorial.com/TutorialArticles/Art1-CosSin.aspx">going around in a circle</a>, and we'll use
+                a point light in the center.</p>
+            <p>
+                This is the same as the last lesson's demo, with the new parts covered in <strong>bold</strong>.</p>
+            <p>
+                [<a class="mainlink" href="#still" onclick="Toggle('lessonprog')">Show Code</a>]</p>
+            <div id="lessonprog" class="codebox" style="display: none; left: 0px; top: 0px;">
+                // include the basic windows header files and the Direct3D header file<br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                #include &lt;d3d9.h&gt;<br>
+                #include &lt;d3dx9.h&gt;<br>
+                <br>
+                // define the screen resolution<br>
+                #define SCREEN_WIDTH 800<br>
+                #define SCREEN_HEIGHT 600<br>
+                <br>
+                // include the Direct3D Library files<br>
+                #pragma comment (lib, "d3d9.lib")<br>
+                #pragma comment (lib, "d3dx9.lib")<br>
+                <br>
+                // global declarations<br>
+                LPDIRECT3D9 d3d;<br>
+                LPDIRECT3DDEVICE9 d3ddev;<br>
+                LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL;<br>
+                LPDIRECT3DINDEXBUFFER9 i_buffer = NULL;<br>
+                <br>
+                // function prototypes<br>
+                void initD3D(HWND hWnd);<br>
+                void render_frame(void);<br>
+                void cleanD3D(void);<br>
+                void init_graphics(void);<br>
+                void init_light(void);<br>
+                <br>
+                struct CUSTOMVERTEX {FLOAT X, Y, Z; D3DVECTOR NORMAL;};<br>
+                #define CUSTOMFVF (D3DFVF_XYZ | D3DFVF_NORMAL)<br>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);<br>
+                <br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+                {<br>
+                &nbsp; &nbsp; HWND hWnd;<br>
+                &nbsp; &nbsp; WNDCLASSEX wc;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+                <br>
+                &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+                &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+                &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+                &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+                &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+                &nbsp; &nbsp; wc.lpszClassName = L"WindowClass";<br>
+                <br>
+                &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+                <br>
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL, L"WindowClass", L"Our Direct3D Program",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WS_OVERLAPPEDWINDOW, 0, 0, 
+SCREEN_WIDTH, SCREEN_HEIGHT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NULL, NULL, hInstance, NULL);<br>
+                <br>
+                &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+                <br>
+                &nbsp; &nbsp; // set up and initialize Direct3D<br>
+                &nbsp; &nbsp; initD3D(hWnd);<br>
+                <br>
+                &nbsp; &nbsp; // enter the main loop:<br>
+                <br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; while(TRUE)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; render_frame();<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; cleanD3D();<br>
+                <br>
+                &nbsp; &nbsp; return msg.wParam;<br>
+                }<br>
+                <br>
+                <br>
+                // this is the main message handler for the program<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+                {<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+                }<br>
+                <br>
+                <br>
+                // this function initializes and prepares Direct3D for use<br>
+                void initD3D(HWND hWnd)<br>
+                {<br>
+                &nbsp; &nbsp; d3d = Direct3DCreate9(D3D_SDK_VERSION);<br>
+                <br>
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp));<br>
+                &nbsp; &nbsp; d3dpp.Windowed = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;<br>
+                &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferWidth = SCREEN_WIDTH;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferHeight = SCREEN_HEIGHT;<br>
+                &nbsp; &nbsp; d3dpp.EnableAutoDepthStencil = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.AutoDepthStencilFormat = D3DFMT_D16;<br>
+                <br>
+                &nbsp; &nbsp; // create a device class using this information and the info from
+                the d3dpp stuct<br>
+                &nbsp; &nbsp; d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D3DDEVTYPE_HAL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; D3DCREATE_SOFTWARE_VERTEXPROCESSING,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3dpp,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3ddev);<br>
+                <br>
+                &nbsp; &nbsp; init_graphics(); &nbsp; &nbsp;// call the function to initialize the
+                cube<br>
+                &nbsp; &nbsp; init_light(); &nbsp;&nbsp; // call the function to initialize
+                    the light and material<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, TRUE);
+                &nbsp; &nbsp;// turn on the 3D lighting<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_ZENABLE, TRUE); &nbsp;&nbsp; // turn
+                on the z-buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_AMBIENT, D3DCOLOR_XRGB(50, 50,
+                    50)); &nbsp;&nbsp; // ambient light<br>
+                <strong>&nbsp;&nbsp; &nbsp;d3ddev-&gt;SetRenderState(D3DRS_NORMALIZENORMALS, TRUE);
+                    &nbsp;&nbsp; // handle normals in scaling</strong><br>
+                }<br>
+                <br>
+                <br>
+                // this is the function used to render a single frame<br>
+                void render_frame(void)<br>
+                {<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0),
+                1.0f, 0);<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 0),
+                1.0f, 0);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;BeginScene();<br>
+                <br>
+                &nbsp; &nbsp; // select which vertex format we are using<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetFVF(CUSTOMFVF);<br>
+                <br>
+                &nbsp; &nbsp; // set the view transform<br>
+                &nbsp; &nbsp; D3DXMATRIX matView; &nbsp; &nbsp;// the view transform matrix<br>
+                &nbsp; &nbsp; D3DXMatrixLookAtLH(&amp;matView,<br>
+                &nbsp; &nbsp; &amp;D3DXVECTOR3 (0.0f, 40.0f, 30.0f), &nbsp; &nbsp;// the camera position<br>
+                &nbsp; &nbsp; &amp;D3DXVECTOR3 (0.0f, 0.0f, 0.0f),  &nbsp; &nbsp;// the look-at
+                position<br>
+                &nbsp; &nbsp; &amp;D3DXVECTOR3 (0.0f, 1.0f, 0.0f)); &nbsp; &nbsp;// the up direction<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_VIEW, &amp;matView); &nbsp; &nbsp;//
+                set the view transform to matView
+                <br>
+                <br>
+                &nbsp; &nbsp; // set the projection transform<br>
+                &nbsp; &nbsp; D3DXMATRIX matProjection; &nbsp; &nbsp;// the projection transform
+                matrix<br>
+                &nbsp; &nbsp; D3DXMatrixPerspectiveFovLH(&amp;matProjection,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; D3DXToRadian(45), &nbsp; &nbsp;// the horizontal field
+                of view<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp; (FLOAT)SCREEN_WIDTH / (FLOAT)SCREEN_HEIGHT, // aspect
+                ratio<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp; 1.0f, &nbsp;&nbsp; // the near view-plane<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; &nbsp; &nbsp; 100.0f); &nbsp; &nbsp;// the far view-plane<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_PROJECTION, &amp;matProjection); &nbsp;&nbsp;
+                // set the projection<br>
+                <br>
+                &nbsp; &nbsp; // set the world transform<br>
+                &nbsp; &nbsp; static float index = 0.0f; index+=0.03f; &nbsp; &nbsp;// an ever-increasing float value<br>
+                &nbsp; &nbsp; D3DXMATRIX matTranslate; &nbsp;&nbsp; // the world transform matrix<br>
+                <strong>
+                &nbsp; &nbsp; D3DXMatrixTranslation(&amp;matTranslate,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; (float)sin(index) * 12.0f, 0.0f, (float)cos(index) * 25.0f);<br>
+                </strong>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;(matTranslate)); &nbsp; &nbsp;// set the world transform<br>
+                <br>
+                &nbsp; &nbsp; // select the vertex and index buffers to use<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetIndices(i_buffer);<br>
+                <br>
+                &nbsp; &nbsp; // draw the cube<br>
+                &nbsp; &nbsp; d3ddev-&gt;DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, 24,
+                0, 12);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;EndScene();&nbsp;<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL);<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that cleans up Direct3D and COM<br>
+                void cleanD3D(void)<br>
+                {<br>
+                &nbsp; &nbsp; v_buffer-&gt;Release(); &nbsp; &nbsp;// close and release the
+                vertex buffer<br>
+                &nbsp; &nbsp; i_buffer-&gt;Release(); &nbsp; &nbsp;// close and release the vertex
+                buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;Release(); &nbsp; &nbsp;// close and release the 3D device<br>
+                &nbsp; &nbsp; d3d-&gt;Release(); &nbsp; &nbsp;// close and release Direct3D<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that puts the 3D models into video RAM<br>
+                void init_graphics(void)<br>
+                {<br>
+                &nbsp; &nbsp; // create the vertices using the CUSTOMVERTEX struct<br>
+                &nbsp; &nbsp; CUSTOMVERTEX vertices[] =<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f,&nbsp; 0.0f, 0.0f, 1.0f, }, &nbsp;&nbsp;
+                // side 1<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f,&nbsp; 0.0f, 0.0f, 1.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f,&nbsp; 0.0f, 0.0f, 1.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f,&nbsp; 0.0f, 0.0f, 1.0f, },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, -3.0f,&nbsp; 0.0f, 0.0f, -1.0f, }, &nbsp;&nbsp;
+                // side 2<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, -3.0f,&nbsp; 0.0f, 0.0f, -1.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, -3.0f,&nbsp; 0.0f, 0.0f, -1.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, -3.0f,&nbsp; 0.0f, 0.0f, -1.0f, },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, -3.0f,&nbsp; 0.0f, 1.0f, 0.0f, }, &nbsp;&nbsp;
+                // side 3<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f,&nbsp; 0.0f, 1.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, -3.0f,&nbsp; 0.0f, 1.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f,&nbsp; 0.0f, 1.0f, 0.0f, },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, -3.0f,&nbsp; 0.0f, -1.0f, 0.0f, }, &nbsp;&nbsp;
+                // side 4<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, -3.0f,&nbsp; 0.0f, -1.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f,&nbsp; 0.0f, -1.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f,&nbsp; 0.0f, -1.0f, 0.0f, },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, -3.0f,&nbsp; 1.0f, 0.0f, 0.0f, }, &nbsp;&nbsp;
+                // side 5<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, -3.0f,&nbsp; 1.0f, 0.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 3.0f,&nbsp; 1.0f, 0.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, 3.0f, 3.0f,&nbsp; 1.0f, 0.0f, 0.0f, },<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, -3.0f,&nbsp; -1.0f, 0.0f, 0.0f, }, &nbsp;&nbsp;
+                // side 6<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 3.0f,&nbsp; -1.0f, 0.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, -3.0f, &nbsp;-1.0f, 0.0f, 0.0f, },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, 3.0f, 3.0f,&nbsp; -1.0f, 0.0f, 0.0f, },<br>
+                &nbsp; &nbsp; };<br>
+                <br>
+                &nbsp; &nbsp; // create a vertex buffer interface called v_buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;CreateVertexBuffer(24*sizeof(CUSTOMVERTEX),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; CUSTOMFVF,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; &amp;v_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; VOID* pVoid; &nbsp;&nbsp; // a void pointer<br>
+                <br>
+                &nbsp; &nbsp; // lock v_buffer and load the vertices into it<br>
+                &nbsp; &nbsp; v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                &nbsp; &nbsp; memcpy(pVoid, vertices, sizeof(vertices));<br>
+                &nbsp; &nbsp; v_buffer-&gt;Unlock();<br>
+                <br>
+                &nbsp; &nbsp; // create the indices using an int array<br>
+                &nbsp; &nbsp; short indices[] =<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 0, 1, 2, &nbsp;&nbsp; // side 1<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 2, 1, 3,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 4, 5, 6, &nbsp;&nbsp; // side 2<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 6, 5, 7,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 8, 9, 10, &nbsp;&nbsp; // side 3<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 10, 9, 11,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 12, 13, 14, &nbsp;&nbsp; // side 4<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 14, 13, 15,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 16, 17, 18, &nbsp;&nbsp; // side 5<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 18, 17, 19,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 20, 21, 22, &nbsp;&nbsp; // side 6<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; 22, 21, 23,<br>
+                &nbsp; &nbsp; };<br>
+                <br>
+                &nbsp; &nbsp; // create an index buffer interface called i_buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;CreateIndexBuffer(36*sizeof(short),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; D3DFMT_INDEX16,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &amp;i_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; // lock i_buffer and load the indices into it<br>
+                &nbsp; &nbsp; i_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                &nbsp; &nbsp; memcpy(pVoid, indices, sizeof(indices));<br>
+                &nbsp; &nbsp; i_buffer-&gt;Unlock();<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that sets up the lights and materials<br>
+                    void init_light(void)<br>
+                    {<br>
+                    &nbsp; &nbsp; D3DLIGHT9 light;<br>
+                    &nbsp; &nbsp; D3DMATERIAL9 material;<br>
+                    <br>
+                    &nbsp; &nbsp; ZeroMemory(&amp;light, sizeof(light));<br>
+                    &nbsp; &nbsp; light.Type = D3DLIGHT_<strong>POINT</strong>; &nbsp;&nbsp; // make
+                the light type '<strong>point</strong> light'<br>
+                &nbsp; &nbsp; light.Diffuse = D3DXCOLOR(0.5f, 0.5f, 0.5f, 1.0f);<br>
+                <span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);">&nbsp; &nbsp; light.</span><strong>Position</strong><span style="color: rgb(204, 204, 204); background-color: rgb(50, 50, 50);"> = D3DXVECTOR3(<strong>0.0f, 5.0f,
+                        0.0f</strong>);</span><br>
+                <strong>&nbsp; &nbsp; light.Range = 100.0f; &nbsp; &nbsp;// a range of 100<br>
+                    &nbsp; &nbsp; light.Attenuation0 = 0.0f; &nbsp; &nbsp;// no constant inverse attenuation<br>
+                    &nbsp; &nbsp; light.Attenuation1 = 0.125f; &nbsp;&nbsp; // only .125 inverse attenuation<br>
+                    &nbsp; &nbsp; light.Attenuation2 = 0.0f; &nbsp; &nbsp;// no square inverse attenuation</strong><br>
+                <br>
+                    &nbsp; &nbsp; d3ddev-&gt;SetLight(0, &amp;light);<br>
+                    &nbsp; &nbsp; d3ddev-&gt;LightEnable(0, TRUE);<br>
+                    <br>
+                    &nbsp; &nbsp; ZeroMemory(&amp;material, sizeof(D3DMATERIAL9));<br>
+                    &nbsp; &nbsp; material.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);<br>
+                &nbsp; &nbsp; material.Ambient = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);<br>
+                    <br>
+                    &nbsp; &nbsp; d3ddev-&gt;SetMaterial(&amp;material);<br>
+                    }</div>
+            <p>
+                If you run this, you should get something like this:</p>
+            <center>
+                <img alt="Image 10.11 - The Point Light in Action" src="dx9B10.aspx_files/dx9B10-11.PNG"><br><br>
+                Image 10.11 - The Point Light in Action
+            </center>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                Summary</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                So now you know all about basic lighting.&nbsp; I will go over additional lighting
+                techniques later, but for now, get good at using the basic light sources, setting
+                them up in strategic positions, and getting a scene well lit.&nbsp; I recommend
+                doing these exercises:</p>
+            <p>
+                1.&nbsp; Make a point light circle around a box.<br>
+                2.&nbsp; Have a spot light spin around on the Y-axis and light the things around
+                it.<br>
+                3.&nbsp; Light up a box with point lights, spot lights, <em>and</em> directional
+                lights!</p>
+            <center>
+                <p>
+                    Next Lesson:&nbsp; Blending Colors for Special Effects</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B11.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Liked the Lesson?  Hated the lesson?  Give your <a class="feedlink" href="javascript:RunFeedback(30)">feedback</a>.</p>
+            </center>
+        </div>
+        
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B10.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

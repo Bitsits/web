@@ -1,0 +1,511 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Lesson 3: An Overview of the Third Dimension
+</title><link href="dx9B3.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B3.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B3.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B3.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B3.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">Lesson 3:&nbsp; An Overview of the Third Dimension</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B3.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B2.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B4.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+        Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+        If you have progressed through the tutorial this far, you are now ready to program
+        in 3D.&nbsp; However, 3D programming is not like modeling clay, where you simply
+        move the clay with your hands and everything looks perfect.</p>
+        <p>
+            3D programming is strictly mathematical, and you must 
+understand the concepts of
+            3D mathematics before you can effectively program with 
+them.&nbsp; Don't worry, though.&nbsp; It's nothing complex.&nbsp; You 
+won't need any more math than it takes
+            to program in C++, so you should already be far enough along
+ to be able to understand
+            this.</p>
+        <p>
+            This lesson is a theoretical lesson.&nbsp; We will cover the practice involved in
+            the next lesson.&nbsp; In this lesson we will cover coordinate systems and how they
+            apply to Direct3D and creating a 3D scene.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    3D Coordinate Systems</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Without understanding of the basic math of 3D, 3D programming would be impossible.&nbsp;
+    And I don't mean doing college algebra all over again, but just understanding the
+    concepts of 3D coordinates, how they work and the various things which might get
+    in your way.</p>
+    <p>
+        Of course, before you understand 3D coordinate systems, you need to understand Cartesian
+        Coordinates.</p>
+    <p class="subheader">
+        The Cartesian Coordinate System</p>
+    <p>
+        The Cartesian Coordinate System might be better recognized if called a 2D coordinate
+        system.&nbsp; In other words, it is a system of locating an exact point on a flat
+        surface.</p>
+    <p>
+        A point is defined as an exact position along an axis.&nbsp; If we wanted to know
+        how far something has gone, we usually give an exact number, as in "Bob walked 12
+        meters". &nbsp;12 meters is a distance along a single axis.&nbsp; We say that 0
+        is our starting point, and as Bob progresses, he moves farther and farther along
+        this axis.&nbsp; This is a 1D coordinate system.</p>
+    <center>
+        <img alt="Image 3.1 - 1D Coordinate System" src="dx9B3.aspx_files/dx9B3-1.GIF" width="523" height="121">&nbsp;<br>
+        <br>
+        Image 3.1 - 1D Coordinate System
+    </center>
+    <p>
+        When we look at this scenario from the side, as in the picture, we can see that
+        as Bob continues walking toward the right of the screen, his distance travelled
+        increases away from 0.&nbsp; We will call this '0' the origin, as it is where he
+        started from.&nbsp; On the other side of the origin, we would have negative values
+        instead of positive values.</p>
+    <p>
+        However, what if he were then to turn 90 degrees and walk in a different direction?&nbsp;
+        Truthfully, Bob would then be walking along a second axis, and we would diagram
+        his path like this:</p>
+    <center>
+        <img alt="Image 3.2 - The Cartesian Coordinate System" src="dx9B3.aspx_files/dx9B3-2.PNG">&nbsp;<br>
+        <br>
+        Image 3.2 - The Cartesian Coordinate System
+    </center>
+    <p>
+        Now that we have more than one axis, we give ourselves a way to identify them.&nbsp;
+        The horizontal axis, along which Bob walked 12 meters, we will call the x-axis.&nbsp;
+        The vertical axis we will call the y-axis.</p>
+    <p>
+        Of course, this new axis, like the horizontal axis, also has an origin.&nbsp;
+        It is the point where Bob stopped walking sideways and started walking up.&nbsp;
+        Notice that the y-axis origin is also given the value of 0, and increases the farther
+        Bob walks.&nbsp; (go Bob go...)</p>
+    <p>
+        So now we have two axes (the x-axis and the y-axis), and each have their origins.&nbsp;
+        Well, this is what forms our Cartesian Coordinate System.&nbsp; We can now locate
+        any point along this surface (probably the ground in Bob's case).&nbsp; We can state
+        Bob's exact position by saying how far he is off of each axis' origin, so we could
+        say he is at (x, y) &nbsp;or (12, 4), 12 being his position on the x-axis and 4
+        being his position on the y-axis.</p>
+    <p>
+        These two numbers are called coordinates, and are used to show how far an exact
+        point is from the origin (or the '0' point on both axes).</p>
+    <p class="subheader">
+        3D Coordinate Systems</p>
+    <p>
+        Actually, the 3D Coordinate System is merely an extention to what we have been discussing.&nbsp;
+        If we took Cartesian Coordinates and added a third axis (a z-axis) running perpendicular
+        to both the x and y axes, we would have 3D coordinates.&nbsp; This is illustrated
+        here.</p>
+    <center>
+        <img alt="Image 3.3 - The 3D Coordinate System" src="dx9B3.aspx_files/dx9B3-3.PNG"><br>
+        <br>
+        Image 3.3 - The 3D Coordinate System
+    </center>
+    <p>
+        Like Cartesian Coordinates, 3D coordinates can be both positive and negative, depending
+        on which direction the point is.&nbsp; However, instead of being written like Cartesian
+        Coordinates, 3D coordinates are written with three numbers, like this:&nbsp; (x,
+        y, z)&nbsp; or (12, 4, 15).&nbsp; This would indicate that Bob was somehow fifteen
+        meters in the air.&nbsp; It could also be written (12, 4, -15).&nbsp; Perhaps this
+        means he's lost in a dungeon somewhere.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Triangular Geometry</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Now let's cover how 3D coordinates are applied to games and game programming.&nbsp;
+    If a point in a 3D coordinate system represents a position in space, then we can
+    form an array of exact positions which will eventually become a 3D model.&nbsp;
+    Of course, setting so many points would take up a lot of space in memory, so an
+    easier and faster way has been employed.&nbsp; This method is set up using triangles.</p>
+    <p>
+        Triangles, of course, are a very useful shape in just about any mathematical area.&nbsp;
+        They can be formed to measure circles, they can be used to strengthen buildings,
+        and they can be used to create 3D images.&nbsp; The reason we would want to use
+        triangles is because triangles can be positioned to form just about any shape imaginable,
+        as shown in these images:</p>
+    <center>
+        <img alt="Image 3.4 - Models Made From Triangles" src="dx9B3.aspx_files/dx9B3-4.GIF" width="572" height="281"><br>
+        <br>
+        Image 3.4 - Models Made From Triangles
+    </center>
+    <p>
+        Because of the useful nature of triangles when creating 3D models, Direct3D is designed
+        solely around triangles and combining triangles to make shapes.&nbsp; To build a
+        triangle, we use something called vertices.</p>
+    <p>
+        Vertices is plural for vertex.&nbsp; A vertex is defined as an exact point in 3D
+        space.&nbsp; It is defined by three values, x, y and z.&nbsp; In Direct3D, we add
+        to that a little.&nbsp; We also include various properties of this point.&nbsp;
+        And so we extend the definition to mean "the location and properties of an exact
+        point in 3D space".</p>
+    <p>
+        A triangle is made up of three vertices, each defined in your program in clockwise
+        order.&nbsp; When coded, these three vertices form a flat surface, which can then
+        be rotated, textured, positioned and modified as needed.</p>
+    <center>
+        <img alt="Image 3.5 - A Triangle Built From Vertices" src="dx9B3.aspx_files/dx9B3-5.PNG"><br>
+        <br>
+        Image 3.5 - A Triangle Built From Vertices
+    </center>
+    <p>
+        The triangle shown in Image 3.5 is created by three points:</p>
+    <p>
+        x = 0, y = 5, z = 1<br>
+        x = 5, y = -5, z = 1<br>
+        x = -5, y = -5, z = 1</p>
+    <p>
+        You will notice that all the above vertices have a z-value of 1.&nbsp; This is because
+        we aren't talking about a 3D object; we are talking about a triangle, which is a
+        2D object.&nbsp; We could change the z-values, but it would make no essential difference.</p>
+    <p>
+        To make actual 3D objects, we will need to combine triangles.&nbsp; You can see
+        how triangles are combined in Image 3.4 above.&nbsp; To take a simple example, the
+        cube is simply two triangles placed together to create one side.&nbsp; Each side
+        is made up of identical triangles combined the same way.</p>
+    <p>
+        However, defining the 3D coordinates of every triangle in your game multiple times
+        is more than just tedious.&nbsp; It's ridiculously complex!&nbsp; There's just no
+        need to get that involved (and you'll see what I mean in the next lesson).</p>
+    <p>
+        Instead of defining each and every corner of every triangle in the game, all you
+        need to do is create a list of vertices, which contain the coordinates and information
+        of each vertex, as well as what order they go in.</p>
+    <p class="subheader">
+        Primitives</p>
+    <p>
+        A primitive is a single element in a 3D environment, be it a triangle, a line, a
+        dot, or whatever.&nbsp; Following is a list of ways primitives can be combined to
+        create 3D objects.</p>
+    <p>
+        1.&nbsp; Point Lists<br>
+        2.&nbsp; Line Lists<br>
+        3.&nbsp; Line Strips<br>
+        4.&nbsp; Triangle Lists<br>
+        5.&nbsp; Triangle Strips<br>
+        6.&nbsp; Triangle Fans</p>
+    <p class="subheader">
+        1.&nbsp; Point Lists</p>
+    <p>
+        A Point List is a list of vertices that are shown as individual points on the screen.&nbsp;
+        These can be useful for rendering 3D starfields, creating dotted lines, displaying
+        locations on minimaps and so on.&nbsp; Image 3.6 illustrates how a Point List is
+        shown on the screen (without the labels, of course).</p>
+    <center>
+        <img alt="Image 3.6 - A Point List" src="dx9B3.aspx_files/dx9B3-6.GIF" width="434" height="131"><br>
+        <br>
+        Image 3.6 - A Point List (6 Primitives)</center>
+    <p class="subheader">
+        2.&nbsp; Line Lists</p>
+    <p>
+        A Line List is a list of vertices that create separate line segments between each
+        odd-numbered vertex and the next vertex.&nbsp; These can be used for a variety of
+        effects, including 3D grids, heavy rain, waypoint lines, and so on.&nbsp; Image
+        3.7 illustrates how a Line List is shown on the screen (this is the same set of
+        vertices as before).</p>
+    <center>
+        <img alt="Image 3.7 - A Line List" src="dx9B3.aspx_files/dx9B3-7.GIF" width="434" height="131"><br>
+        <br>
+        Image 3.7 - A Line List (3 Primitives)</center>
+    <p class="subheader">
+        3.&nbsp; Line Strips</p>
+    <p>
+        A Line Strip is similar to a line list, but differs in that all vertices in such
+        a list are connected by line segments.&nbsp; This is useful for creating many wire-frame
+        images such as wire-frame terrain, blades of grass, and other non-model-based objects.&nbsp;
+        It is also very useful in debugging programs.&nbsp; Image 3.8 illustrates how a
+        Line Strip is shown on the screen.</p>
+    <center>
+        <img alt="Image 3.8 - A Line Strip" src="dx9B3.aspx_files/dx9B3-8.GIF" width="434" height="131"><br>
+        <br>
+        Image 3.8 - A Line Strip&nbsp; (5 Primitives)</center>
+    <p class="subheader">
+        4.&nbsp; Triangle Lists</p>
+    <p>
+        A Triangle List is a list of vertices where every group of three vertices is used
+        to make a single, separate triangle.&nbsp; This can be used in a variety of effects,
+        such as force-fields, explosions, objects being pieced together, etc.&nbsp; Image
+        3.9 illustrates how a Triangle List is shown on the screen.</p>
+    <center>
+        <img alt="Image 3.9 - A Triangle List" src="dx9B3.aspx_files/dx9B3-9.PNG"><br>
+        <br>
+        Image 3.9 - A Line List (2 Primitives)</center>
+    <a id="PrimTable"></a>
+    <p class="subheader">
+        5.&nbsp; Triangle Strips</p>
+    <p>
+        A Triangle Strip is a list of vertices that creates a series of triangles connected
+        to one another.&nbsp; This is the most-used method when dealing with 3D graphics.&nbsp;
+        These are mostly used to create the 3D models for your game.&nbsp; Image 3.10 illustrates
+        how a Triangle Strip is shown on the screen.&nbsp; Notice that the first three vertices
+        create a single triangle, and each vertex thereafter creates an additional triangle
+        based on the previous two.</p>
+    <center>
+        <img alt="Image 3.10 - A Triangle Strip" src="dx9B3.aspx_files/dx9B3-10.PNG"><br>
+        <br>
+        Image 3.10 - A Triangle Strip (4 Primitives)</center>
+    <p class="subheader">
+        6.&nbsp; Triangle Fans</p>
+    <p>
+        A Triangle Fan is similar to a triangle strip, with the exception that all the triangles
+        share a single vertex.&nbsp; This is illustrated in Image 3.11:</p>
+    <center>
+        <img alt="Image 3.11 - A Triangle Fan" src="dx9B3.aspx_files/dx9B3-11.PNG"><br>
+        <br>
+        Image 3.11 - A Triangle Fan (4 Primitives)</center>
+    <p class="subheader">
+        A Primitive Quirk</p>
+    <p>
+        There is a slight quirk in drawing primitives where only one side of the primitive
+        is shown.&nbsp; It is possible to show both sides, but usually a model is completely
+        enclosed, and you cannot see the inside of it.&nbsp; If the model is completely
+        enclosed, only one side of each triangle need be drawn.&nbsp; After all, drawing
+        both sides of a primitive would take twice as much time.&nbsp; You will see an example
+        of this in the next couple of lessons.</p>
+    <p>
+        A triangle primitive is only drawn when its vertices are given in a clockwise order.&nbsp;
+        If you flip it around, it becomes counter-clockwise, and is therefore not shown.</p>
+    <center>
+        <img alt="Image 3.12 - Primitive Only Visible When Drawn Clockwise" src="dx9B3.aspx_files/dx9B3-12.PNG"><br>
+        <br>
+        Image 3.12 - Primitive Only Visible When Drawn Clockwise</center>
+    <p>
+        There is an easy way (though tedious when you get into larger games) to show both
+        sides of a primitive, which is to show the primitive twice, giving one primitive
+        clockwise and the other counter-clockwise.</p>
+    <center>
+        <img alt="Image 3.13 - Primitive Visible When Drawn Either Way" src="dx9B3.aspx_files/dx9B3-13.PNG"><br>
+        <br>
+        Image 3.13 - Primitive Visible When Drawn Either Way</center>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Color</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Color is a rather simple part of 3D programming.&nbsp; However, even if you are
+                very familiar with color spectrums and the physics of light, it would be good to
+                know that Direct3D does not follow the laws of this universe exactly.&nbsp; To do
+                so would be a nightmare on graphics hardware and the CPU.&nbsp; It's just too much,
+                and so we'll just leave graphics like that to the Matrix and make our own laws that
+                we can cope with.</p>
+            <p>
+                Light, of course, is a wavelength of particles that allows you to see and differentiate
+                between various objects around you.&nbsp; Direct3D mimicks this with various mathematical
+                algorithms performed by the graphics hardware.&nbsp; The image is then displayed
+                on the screen appearing well lit.&nbsp; In this section we'll cover the mechanics
+                of how Direct3D mimicks the light we see in nature.</p>
+            <p class="subheader">
+                Subtractive Color vs. Additive Color</p>
+            <p>
+                In the younger years of your education you may have learned the primary colors to
+                be red, blue and yellow.&nbsp; This isn't actually the case.&nbsp; The colors are
+                actually magenta, cyan and yellow.&nbsp; And why this useless technical detail?&nbsp;
+                To understand this, you must understand the concept of subtractive and additive
+                color.</p>
+            <p>
+                The difference between these two types of color have to do with whether or not the
+                color refers to the color of light or the color of an object.&nbsp; Subtractive
+                color is the color of an object, and has the primary colors magenta, cyan and yellow.&nbsp;
+                Additive color is the color of light, and has the primary colors red, green and
+                blue.</p>
+            <p>
+                In a beam of light, the more primary colors you add the closer you get to white.&nbsp;
+                The colors add together to make white, and thus it is called additive color.</p>
+            <center>
+                <img alt="Image 3.14 - Additive Colors Add Up to White" src="dx9B3.aspx_files/dx9B3-14.PNG"><br><br>
+                Image 3.14 - Additive Colors Add Up to White</center>
+            <p>
+                Above you can see the primary colors of light combine to make white.&nbsp; However,
+                if you look, you will also see that when you combine <em>two</em> of the colors,
+                you get one of the primary subtractive colors (magenta, cyan or yellow).&nbsp; If
+                we take a look at these subtractive colors, we'll see why this is.</p>
+            <p>
+                Subtractive colors are essentially the opposite of additive colors.&nbsp; They consist
+                of the light that is not reflected off the surface of an object.&nbsp; For example,
+                a red object illuminated by a white light only reflects red light and absorbs green
+                and blue light.&nbsp; If you look at the above image, you will see that green and
+                blue combined make cyan, and so cyan was <em>subtracted</em> from the white light,
+                resulting in red.</p>
+            <center>
+                <img alt="Image 3.15 - Subtractive Colors Subtract Out to Black" src="dx9B3.aspx_files/dx9B3-15.PNG"><br><br>
+                Image 3.15 - Subtractive Colors Subtract Out to Black</center>
+            <p>
+                In graphics programming, you will always use the additive colors (red, green and
+                blue), because monitors consist of light.&nbsp; However, when building a 3D engine,
+                it is good to understand what makes objects look the colors they do.</p>
+            <p>
+                By the way, this is why you find magenta, cyan and yellow in printers, and red,
+                green and blue on screens.</p>
+            <p>
+                If you want to really get into color, then following is a site which gives a thorough rundown
+                of color and the physics of light.&nbsp; If you're thinking of the future and DirectX
+                10's nextgen games, I'd seriously recommend knowing your color well.&nbsp; There's
+                much more to it than you'd think at first, and it makes a big difference in making a great
+                game engine.</p>
+            <p>
+                Anyway, here's the link: <a class="mainlink" href="http://www.byronc.com/art_color.shtml">http://www.byronc.com/art_color.shtml</a></p>
+            <p class="subheader">
+                Alpha Coloring</p>
+            <p>
+                Alpha coloring is an additional element to the red-green-blue color of light.&nbsp;
+                When you include some Alpha into your color, the graphic appears semi-transparent,
+                allowing you to see through the object somewhat.&nbsp; This is useful for creating
+                a semi-transparent display for your game, having units cloak (but still be seen somewhat by allies), and
+                numerous other things.&nbsp; I'm sure your imagination can run rampant for some
+                time on this one.</p>
+            <p class="subheader">
+                Setting the Color Using 32 Bits</p>
+            <p>
+                Color in Direct3D comes in the form of a 32-bit variable which stores all the information
+                about the color.&nbsp; This includes the primary colors (refered to as RGB for <span style="text-decoration: underline;">R</span>ed, <span style="text-decoration: underline;">
+                        G</span>reen and <span style="text-decoration: underline;">B</span>lue) and
+                the amount of Alpha in the color.&nbsp; Each of these are refered to as <em>channels</em>,
+                and each take up 8-bits, as showed here:</p>
+            <center>
+                <img alt="Image 3.16 - Bit Layout of Color" src="dx9B3.aspx_files/dx9B3-16.GIF" width="301" height="165"><br><br>
+                Image 3.16 - Bit Layout of Color</center>
+            <p>
+                Following is the code that defines the above colors:</p>
+            <div class="codebox">
+                DWORD Color_A = 0xff00ff00;<br>
+                DWORD Color_B = 0x88ff00cc;</div>
+            <p>
+                There are also two functions we can use to build these colors for us, in case we
+                need to plug variables into these values.</p>
+            <div class="codebox">
+                DWORD Color_A = D3DCOLOR_XRGB(0, 255, 0);<br>
+                DWORD Color_B = D3DCOLOR_ARGB(136, 255, 0, 204);</div>
+            <p>
+                The function D3DCOLOR_ARGB() returns a DWORD filled with the proper values for the
+                color you are building.&nbsp; If you don't want to bother with Alpha, then you can
+                use the D3DCOLOR_XRGB() which does the exact same thing, but automatically fills
+                the Alpha channel with 255.</p>
+            <p>
+                If you want to see an example of this, check out the example from Lesson 1 and 2,
+                which clear the screen using the D3DCOLOR_XRGB() function.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                    Light and Color</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                    I'm not going to cover everything about light here.&nbsp; I'll save that for a later
+                    lesson.&nbsp; For now, I just want to cover the basic light equasion, as you will
+                    have to understand parts of it before you actually add lighting into your program.</p>
+                    <p>
+                        Light in nature is a very complicated subject mathematically speaking.&nbsp; When
+                        the sun shines, almost everything is lit by it, even though the sun is not shining
+                        on a lot of what can be seen.&nbsp; This is because light bounces around an area
+                        thousands of times, hitting just about everything, whether the sun shines there
+                        or not.&nbsp; To further add to this equation, as the sunlight travels through space,
+                        some of it is reflected off dust particles, which scatter the light in a completely
+                        uncalculatable pattern.&nbsp; Even if a computer could calculate all this, it could
+                        not run real-time.</p>
+                    <p>
+                        Direct3D uses a system to mimick the light of a real-life environment.&nbsp; To
+                        do this, it breaks light down into three types of light that, when combined, closely
+                        approximate actual light.&nbsp; These three types of light are <em>Diffuse Light</em>,
+                        <em>Ambient Light</em> and <em>Specular Light</em>.</p>
+                    <p class="subheader">
+                        Diffuse Light</p>
+                    <p>
+                        Diffuse Light is light that shines upon an object indirectly.&nbsp; This sphere
+                        is lit by diffuse lighting alone.</p>
+                    <center>
+                        <img alt="Image 3.17 - Diffuse Lighting" src="dx9B3.aspx_files/dx9B3-17.PNG"><br>
+                        <br>
+                        Image 3.17 - Diffuse Lighting</center>
+                    <p>
+                        Later, you will learn about sources of light.&nbsp; This sphere is lit by one source,
+                        coming off from the left somewhere.&nbsp; The further the sphere curves away from
+                        the light, the less that portion is lit by the source.</p>
+                    <p class="subheader">
+                        Ambient Light</p>
+                    <p>
+                        Ambient Light is light that is considered to be everywhere.&nbsp; Unlike the diffuse
+                        light, it has no source, and if used alone appears a circle (because all parts are
+                        lit equally under this lighting).&nbsp; This sphere is the same sphere as last time,
+                        but this time has ambient lighting included to fill in the dark, unlit parts.</p>
+                    <center>
+                        <img alt="Image 3.18 - Diffuse and Ambient Lighting" src="dx9B3.aspx_files/dx9B3-18.PNG"><br>
+                        <br>
+                        Image 3.18 - Diffuse and Ambient Lighting</center>
+                    <p class="subheader">
+                        Specular Light</p>
+                    <p>
+                        This is sometimes refered to as Specular Highlight, because it highlights an object
+                        with a reflective color.&nbsp; This sphere is lit with Diffuse and Ambient Light,
+                        and has a Specular Highlight added to make it look more real.</p>
+                    <center>
+                        <img alt="Image 3.19 - Diffuse, Ambient and Specular Lighting" src="dx9B3.aspx_files/dx9B3-19.PNG"><br>
+                        <br>
+                        Image 3.19 - Diffuse, Ambient and Specular Lighting</center>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Summary</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                By now you should understand the basic underlying concepts of the third dimension,
+                and
+                how it is applied to game programming.&nbsp; Now let's go on and put all this theory
+                into practice.&nbsp; In the next lesson, you will take what you know from this lesson
+                and build a basic
+                triangle.</p>
+            <center>
+                <p>
+                    Next Lesson:&nbsp; Drawing a Triangle</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B4.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Would you have written this better?  Give your <a class="feedlink" href="javascript:RunFeedback(23)">feedback</a>.</p>
+            </center>
+        </div>
+
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B3.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

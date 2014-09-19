@@ -1,0 +1,763 @@
+﻿body
+{
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: 20pt 10pt;
+}
+
+h1
+{
+    font-size: 15px;
+    color: white;
+    font-style: italic;
+    font-family: Arial;
+    background-color: black;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+}
+
+strong
+{
+    color: white;
+}
+
+b
+{
+	color: White;
+}
+
+.logoscript
+{
+    font-size: 15px;
+    left: 170px;
+    background-image: none;
+    color: white;
+    font-style: italic;
+    font-family: Arial;
+    position: absolute;
+    top: 157px;
+    background-color: black;
+    width: 200px;
+    height: 16px;
+}
+
+.wtfbox
+{
+    left: 372px;
+    position: absolute;
+    top: 135px;
+    background-color: transparent;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+    z-index: 100;
+}
+
+.sidebar2
+{
+	background-position: left top;
+	background-image: url(https://www.directxtutorial.com/Graphics/SideGridA.JPG);
+	vertical-align: top;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 5px;
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	left: 16px;
+	width: 172px;
+	position: absolute;
+	top: 192px;
+	height: 203px;
+	z-index: 99;
+}
+
+.sidebar
+{
+    background-position: left top;
+    background-image: url(https://www.directxtutorial.com/Graphics/Layout/SideGridBody.PNG);
+    vertical-align: top;
+    background-repeat: repeat-y;
+    background-color: transparent;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-size: 15px;
+    color: white;
+    font-family: Arial;
+    left: 16px;
+    width: 172px;
+    position: absolute;
+    top: 192px;
+    z-index: 99;
+    padding-bottom: 10px;
+}
+
+.sidetopbar
+{
+    left: 0px;
+    position: absolute;
+    top: 0px;
+}
+
+.sidebottombar
+{
+    left: 0px;
+    bottom: -1px;
+    position: absolute;
+}
+
+.glossarybar
+{
+	left: 16px;
+	width: 182px;
+	position: absolute;
+	bottom: 16px;
+	height: 300px;
+	z-index: 100;
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	background-color: transparent;
+}
+
+.donationbox
+{
+    left: 16px;
+    width: 172px;
+    position: absolute;
+    top: 403px;
+    height: 100px;
+    z-index: 98;
+    background-color: transparent;
+    color: white;
+    font-family: Arial;
+    font-size: 11px;
+}
+
+.adsense
+{
+	left: 26px;
+	width: 172px;
+	position: absolute;
+	top: 512px;
+	height: 0px;
+	z-index: 99;
+	background-color: transparent;
+	color: white;
+	font-family: Arial;
+}
+
+.adsense2
+{
+    left: 456px;
+    width: 470px;
+    position: absolute;
+    top: 68px;
+    height: 92px;
+    z-index: 99;
+    background-color: transparent;
+    color: white;
+    font-family: Arial;
+}
+
+img
+{
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+
+a.sidelink:link
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: none;
+}
+
+a.sidelink:visited
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: none;
+}
+
+a.sidelink:hover
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: underline;
+}
+
+a.sidelink:active
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: none;
+}
+
+a.sidelinkin1:link
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: none;
+	left: 10px;
+	position: relative;
+}
+
+a.sidelinkin1:visited
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: none;
+	left: 10px;
+	position: relative;
+}
+
+a.sidelinkin1:hover
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: underline;
+	left: 10px;
+	position: relative;
+}
+
+a.sidelinkin1:active
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: none;
+	left: 10px;
+	position: relative;
+}
+
+a.sidelinkin2:link
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: none;
+	left: 20px;
+	position: relative;
+}
+
+a.sidelinkin2:visited
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: none;
+	left: 20px;
+	position: relative;
+}
+
+a.sidelinkin2:hover
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: underline;
+	left: 20px;
+	position: relative;
+}
+
+a.sidelinkin2:active
+{
+	font-size: 15px;
+	color: white;
+	font-family: Arial;
+	font-style: normal;
+	text-decoration: none;
+	left: 20px;
+	position: relative;
+}
+
+.copyright
+{
+	font-weight: normal;
+	font-size: 12px;
+	color: #727272;
+	font-style: normal;
+	text-decoration: none;
+	font-family: Arial;
+	text-align: center;
+	position: static;
+	background-color: black;
+	width: 702px;
+	height: 15px;
+	background-image: none;
+}
+
+.titlebar
+{
+    font-size: 30px;
+    color: white;
+    text-align: left;
+    font-family: Arial;
+    z-index: 50;
+    left: 268px;
+    width: 658px;
+    position: absolute;
+    top: 192px;
+    height: 40px;
+    background-color: transparent;
+}
+
+.codebox
+{
+	border: 1px solid white;
+	padding: 10px;
+	background-image: none;
+	font-family: 'Courier New';
+	color: #cccccc;
+	background-color: #323232;
+	position: relative;
+	left: 0px;
+	width: 656px;
+	top: 0px;
+	font-size: 12px;
+}
+
+.indentcodebox
+{
+	border: 1px solid white;
+	padding: 10px;
+	background-image: none;
+	font-family: 'Courier New';
+	color: #cccccc;
+	background-color: #323232;
+	position: relative;
+	left: 15px;
+	width: 656px;
+	top: 0px;
+	font-size: 12px;
+}
+
+.tablebox
+{
+	border-right: white 1px solid;
+	padding-right: 3px;
+	border-top: white 1px solid;
+	padding-left: 3px;
+	background-image: none;
+	padding-bottom: 3px;
+	border-left: white 1px solid;
+	width: 630px;
+	padding-top: 3px;
+	border-bottom: white 1px solid;
+	background-color: transparent;
+}
+
+.indenttablebox
+{
+	border-right: white 1px solid;
+	padding-right: 3px;
+	border-top: white 1px solid;
+	padding-left: 3px;
+	background-image: none;
+	padding-bottom: 3px;
+	border-left: white 1px solid;
+	width: 630px;
+	padding-top: 3px;
+	border-bottom: white 1px solid;
+	background-color: transparent;
+	position: relative;
+	left: 15px;
+}
+
+td
+{
+	font-size: 15px;
+	background-image: none;
+	vertical-align: top;
+	color: white;
+	font-family: Arial;
+	background-color: black;
+	text-align: left;
+	padding-bottom: 15px;
+}
+
+th
+{
+	font-size: 15px;
+	background-image: none;
+	vertical-align: top;
+	color: white;
+	font-family: Arial;
+	background-color: black;
+	text-align: left;
+	padding-bottom: 15px;
+	font-weight: bold;
+}
+
+.entrybox
+{
+    position: absolute;
+    left: 228px;
+    top: 230px;
+    z-index: 50;
+    background-image: url(https://www.directxtutorial.com/Graphics/Layout/Pixel.GIF);
+    background-repeat: repeat-y;
+    background-position: 20px;
+    background-color: transparent;
+    width: 600px;
+}
+
+.entry
+{
+	position: static;
+}
+
+.entryheader
+{
+	background-position: left top;
+	background-image: url(https://www.directxtutorial.com/Graphics/Layout/TitleGrid.png);
+	color: white;
+	background-repeat: no-repeat;
+	font-family: Arial;
+	background-color: transparent;
+	position: relative;
+	width: 727px;
+	height: 32px;
+	font-size: 19px;
+	vertical-align: top;
+	text-align: left;
+	padding-left: 15px;
+	padding-top: 10px;
+	z-index: 51;
+	padding-bottom: 15px;
+}
+
+.maintext
+{
+	font-size: 15px;
+	z-index: 50;
+	vertical-align: top;
+	color: white;
+	font-family: Arial;
+	position: absolute;
+	background-color: black;
+	text-align: left;
+	left: 40px;
+	width: 660px;
+	padding-right: 5px;
+	padding-bottom: 15px;
+}
+
+.indent
+{
+	padding-left: 15px;
+}
+
+.mainlink:link
+{
+	text-decoration: underline;
+	color: white;
+}
+
+.mainlink:visited
+{
+	text-decoration: underline;
+	color: white;
+}
+
+.mainlink:hover
+{
+	text-decoration: underline;
+	color: #c8c8c8;
+}
+
+.mainlink:active
+{
+	text-decoration: underline;
+	color: white;
+}
+
+.paidlink:link
+{
+	text-decoration: underline;
+	color: #969696;
+}
+
+.paidlink:visited
+{
+	text-decoration: underline;
+	color: #969696;
+}
+
+.paidlink:hover
+{
+	text-decoration: underline;
+	color: #666666;
+}
+
+.paidlink:active
+{
+	text-decoration: underline;
+	color: #969696;
+}
+
+.subheader
+{
+    font-weight: bold;
+}
+
+
+surveydesc
+{
+    width: 652px;
+    height: 60px;
+    position: static;
+}
+
+.secretlink:link
+{
+    font-family: Arial;
+    font-size: 8pt;
+    text-decoration: none;
+    cursor: default
+}
+
+.secretlink:visited
+{
+    font-family: Arial;
+    font-size: 8pt;
+    text-decoration: none;
+    text-decoration: Underline;
+    cursor: hand;
+}
+
+.secretlink:hover
+{
+    font-family: Arial;
+    font-size: 8pt;
+    cursor: default
+}
+
+.secretlink:active
+{
+    font-family: Arial;
+    font-size: 8pt;
+    text-decoration: none;
+    cursor: default
+}
+
+a.smallgraylink:link
+{
+    font-family: Arial;
+    font-size: 8pt;
+    color: #a9a9a9;
+}
+
+a.smallgraylink:visited
+{
+    font-family: Arial;
+    font-size: 8pt;
+    color: #a9a9a9;
+}
+
+a.smallgraylink:hover
+{
+    font-family: Arial;
+    font-size: 8pt;
+    color: #a9a9a9;
+}
+
+a.smallgraylink:active
+{
+    font-family: Arial;
+    font-size: 8pt;
+    color: #a9a9a9;
+}
+
+
+.navbar
+{
+	font-size: 15px;
+	z-index: 50;
+	vertical-align: top;
+	color: white;
+	font-family: Arial;
+	background-color: black;
+	text-align: left;
+	
+    position: static;
+    height: 20px;
+    background-color: black;
+    width: 735px;
+}
+
+.nextbar
+{
+    text-align: right;
+    vertical-align: top;
+    position: static;
+}
+
+.prevbar
+{
+    text-align: left;
+    vertical-align: top;
+    position: absolute;
+}
+
+.secretcodelink:link
+{
+	font-family: 'Courier New';
+	color: #cccccc;
+	font-size: 12px;
+	text-decoration: none;
+	cursor: text;
+}
+
+.secretcodelink:visited
+{
+	font-family: 'Courier New';
+	color: #cccccc;
+	font-size: 12px;
+	text-decoration: none;
+    text-decoration: Underline;
+	cursor: text;
+}
+
+.secretcodelink:hover
+{
+	font-family: 'Courier New';
+	color: #cccccc;
+	font-size: 12px;
+	cursor: text;
+}
+
+.secretcodelink:active
+{
+	font-family: 'Courier New';
+	color: #cccccc;
+	font-size: 12px;
+    text-decoration: none;
+	cursor: text;
+}
+
+.logout
+{
+	font-size: 12px;
+	right: 15px;
+	color: white;
+	font-family: Arial;
+	position: absolute;
+	top: 15px;
+	background-color: #000000;
+	text-align: right;
+}
+
+.secrettextlink:link
+{
+	font-family: Arial;
+	color: white;
+	font-size: 15px;
+	text-decoration: none;
+	cursor: text;
+}
+
+.secrettextlink:visited
+{
+	font-family: Arial;
+	color: white;
+	font-size: 15px;
+	text-decoration: underline;
+	cursor: hand;
+}
+
+.secrettextlink:hover
+{
+	font-family: Arial;
+	color: white;
+	font-size: 15px;
+	cursor: text;
+}
+
+.secrettextlink:active
+{
+	font-family: Arial;
+	color: white;
+	font-size: 15px;
+	text-decoration: none;
+	cursor: text;
+}
+
+.availablelink
+{
+	font-size: 9pt;
+	color: gray;
+	font-family: Arial;
+}
+
+.feedback
+{
+	color: gray;
+}
+
+.feedlink:link
+{
+	text-decoration: underline;
+	color: gray;
+}
+
+.feedlink:visited
+{
+	text-decoration: underline;
+	color: gray;
+}
+
+.feedlink:hover
+{
+	text-decoration: underline;
+	color: white;
+}
+
+.feedlink:active
+{
+	text-decoration: underline;
+	color: gray;
+}
+
+.rssbox
+{
+	position: absolute;
+	width: 36px;
+	height: 14px;
+	top: 200px;
+	left: 920px;
+	background-color: transparent;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+	border-bottom-style: none;
+	z-index: 100;
+	font-family: Arial;
+	font-size: 9pt;
+}

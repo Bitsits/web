@@ -1,0 +1,680 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+<!-- template /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Page.ss -->
+
+  
+		<!-- base href="http://www.techiscool.com/wingwarp/silverstripe/" -->
+		<title>Physics Lesson 1 » Blackleys Web Blog</title>
+		<meta name="generator" http-equiv="generator" content="SilverStripe 2.3.1 - http://www.silverstripe.com">
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="en">
+
+		<link rel="shortcut icon" href="http://www.techiscool.com/favicon.ico">
+		
+		 
+		 
+		 
+		
+		<!--[if IE 6]>
+			<style type="text/css">
+			 @import url(themes/blackcandy/css/ie6.css);
+			</style> 
+		<![endif]-->
+		
+		<!--[if IE 7]>
+			<style type="text/css">
+			 @import url(themes/blackcandy/css/ie7.css);
+			</style> 
+		<![endif]-->
+	<link rel="stylesheet" type="text/css" href="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/layout.css">
+<link rel="stylesheet" type="text/css" href="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/typography.css">
+<link rel="stylesheet" type="text/css" href="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/form.css">
+</head><body><script type="text/javascript" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/behaviour.js"></script><script type="text/javascript" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/prototype.js"></script><script type="text/javascript" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/effects.js"></script><script type="text/javascript" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/PageCommentInterface.js"></script><script type="text/javascript" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/prototype_improvements.js"></script><script type="text/javascript" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/i18n.js"></script><script type="text/javascript" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/en_US.js"></script><script type="text/javascript" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/Validator.js"></script><script type="text/javascript">//<![CDATA[
+Behaviour.register({
+	'#PageCommentInterface_Form_PostCommentForm': {
+		validate : function(fromAnOnBlur) {
+			initialiseForm(this, fromAnOnBlur);
+			
+			
+			var error = hasHadFormError();
+			if(!error && fromAnOnBlur) clearErrorMessage(fromAnOnBlur);
+			
+			return !error;
+		},
+		onsubmit : function() {
+			if(typeof this.bypassValidation == 'undefined' || !this.bypassValidation) return this.validate();
+		}
+	},
+	'#PageCommentInterface_Form_PostCommentForm input' : {
+		initialise: function() {
+			if(!this.old_onblur) this.old_onblur = function() { return true; } 
+			if(!this.old_onfocus) this.old_onfocus = function() { return true; } 
+		},
+		onblur : function() {
+			if(this.old_onblur()) {
+				// Don't perform instant validation for CalendarDateField fields; it creates usability wierdness.
+				if(this.parentNode.className.indexOf('calendardate') == -1 || this.value) {
+					return $('PageCommentInterface_Form_PostCommentForm').validate(this);
+				} else {
+					return true;
+				}
+			}
+		}
+	},
+	'#PageCommentInterface_Form_PostCommentForm select' : {
+		initialise: function() {
+			if(!this.old_onblur) this.old_onblur = function() { return true; } 
+		},
+		onblur : function() {
+			if(this.old_onblur()) {
+				return $('PageCommentInterface_Form_PostCommentForm').validate(this); 
+			}
+		}
+	}
+});
+
+//]]></script><script type="text/javascript">//<![CDATA[
+Behaviour.register({
+	'#SearchForm_SearchForm': {
+		validate : function(fromAnOnBlur) {
+			initialiseForm(this, fromAnOnBlur);
+			
+			
+			var error = hasHadFormError();
+			if(!error && fromAnOnBlur) clearErrorMessage(fromAnOnBlur);
+			
+			return !error;
+		},
+		onsubmit : function() {
+			if(typeof this.bypassValidation == 'undefined' || !this.bypassValidation) return this.validate();
+		}
+	},
+	'#SearchForm_SearchForm input' : {
+		initialise: function() {
+			if(!this.old_onblur) this.old_onblur = function() { return true; } 
+			if(!this.old_onfocus) this.old_onfocus = function() { return true; } 
+		},
+		onblur : function() {
+			if(this.old_onblur()) {
+				// Don't perform instant validation for CalendarDateField fields; it creates usability wierdness.
+				if(this.parentNode.className.indexOf('calendardate') == -1 || this.value) {
+					return $('SearchForm_SearchForm').validate(this);
+				} else {
+					return true;
+				}
+			}
+		}
+	},
+	'#SearchForm_SearchForm select' : {
+		initialise: function() {
+			if(!this.old_onblur) this.old_onblur = function() { return true; } 
+		},
+		onblur : function() {
+			if(this.old_onblur()) {
+				return $('SearchForm_SearchForm').validate(this); 
+			}
+		}
+	}
+});
+
+//]]></script>
+<div id="BgContainer">
+	<div id="Container">
+		<div id="Header">
+			<form id="SearchForm_SearchForm" action="/wingwarp/silverstripe/physics-lesson/SearchForm" method="get" enctype="application/x-www-form-urlencoded">
+	<fieldset>
+		<legend></legend>
+		
+			<div id="Search" class="field text nolabel"><div class="middleColumn"><input class="text nolabel" id="SearchForm_SearchForm_Search" name="Search" value="Search" type="text"></div></div>
+		
+		
+			<input class="action" id="SearchForm_SearchForm_action_results" name="action_results" value="Search" title="Search" type="submit">
+		
+	</fieldset>
+</form>
+
+	   		<h1><b>Blackleys Web Blog</b></h1>
+	    	<p><b>Bloging About Life and Programing</b></p>
+		</div>
+		
+		<div id="Navigation">
+			<!-- include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/Navigation.ss -->
+<ul>
+ 		  
+  		<li><a href="http://www.techiscool.com/wingwarp/silverstripe/" title="Go to the Home page" class="link"><span>Home</span></a></li>
+   		  
+  		<li><a href="http://www.techiscool.com/wingwarp/silverstripe/tutorials/" title="Go to the Tutorials page" class="section"><span>Tutorials</span></a></li>
+   		  
+  		<li><a href="http://www.techiscool.com/wingwarp/silverstripe/contact-us/" title="Go to the Contact Us page" class="link"><span>Contact Us</span></a></li>
+   		  
+  		<li><a href="http://www.techiscool.com/wingwarp/silverstripe/rss/" title="Go to the RSS page" class="link"><span>RSS</span></a></li>
+   	
+ </ul>
+<!-- end include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/Navigation.ss -->
+	  	</div>
+	  	
+	  	<div class="clear"><!-- --></div>
+		
+		<div id="Layout">
+		  <!-- template /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Layout/Page.ss -->
+<div class="typography">
+	
+		<!-- include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/SideBar.ss -->
+<div id="Sidebar" class="typography">
+	<div class="sidebarBox">
+ 		<h3>
+			
+				Tutorials
+			
+  		</h3>
+  		
+  		<ul id="Menu2">
+		  	
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/3d-lesson/" title="Go to the 3D Lesson 1 page" class="link levela"><span><em>3D - 1</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/3d-lesson-2/" title="Go to the 3D Lesson 2 page" class="link levela"><span><em>3D - 2</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/2d-lesson/" title="Go to the 2D Lesson 1 page" class="link levela"><span><em>2D - 1</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/physics-lesson/" title="Go to the Physics Lesson 1 page" class="current levela"><span><em>Phy - 1</em></span></a>
+					  
+	  		
+	  			
+	  				
+				 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/phy/" title="Go to the Physics Lesson 2 page" class="link levela"><span><em>Phy - 2</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/tutorials-xna-hlsl-lesson1/" title="Go to the HLSL Lesson 1 page" class="link levela"><span><em>HLSL - 1</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/tutorials-xna-hlsl-lesson2/" title="Go to the HLSL Lesson 2 page" class="link levela"><span><em>HLSL - 2</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/tutorials-xna-hlsl-lesson3/" title="Go to the HLSL Lesson 3 page" class="link levela"><span><em>HLSL - 3</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/hlsl-lesson-4/" title="Go to the HLSL Lesson 4 page" class="link levela"><span><em>HLSL - 4</em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  	    		
+		  			<li><a href="http://www.techiscool.com/wingwarp/silverstripe/request-tutorials/" title="Go to the Request Tutorials page" class="link levela"><span><em>Request </em></span></a>
+					  
+	  		
+	  			 
+			</li> 
+  			
+  		</ul>
+		<div class="clear"></div>
+	</div>
+	<div class="sidebarBottom"></div>
+</div>
+  
+<!-- end include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/SideBar.ss -->
+		<div id="Content">
+	
+			
+	
+	  	<!-- include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/BreadCrumbs.ss -->
+
+	<div id="Breadcrumbs">
+	   	<p><a href="http://www.techiscool.com/wingwarp/silverstripe/tutorials/">Tutorials</a> » Physics Lesson 1</p>
+	</div>
+
+<!-- end include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/BreadCrumbs.ss -->
+	
+	
+		<h2>Physics Lesson 1</h2>
+	
+		<p><!--[if gte mso 9]><xml> <w:WordDocument> <w:View>Normal</w:View> <w:Zoom>0</w:Zoom> <w:TrackMoves /> <w:TrackFormatting /> <w:PunctuationKerning /> <w:ValidateAgainstSchemas /> <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid> <w:IgnoreMixedContent>false</w:IgnoreMixedContent> <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText> <w:DoNotPromoteQF /> <w:LidThemeOther>EN-US</w:LidThemeOther> <w:LidThemeAsian>X-NONE</w:LidThemeAsian> <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript> <w:Compatibility> <w:BreakWrappedTables /> <w:SnapToGridInCell /> <w:WrapTextWithPunct /> <w:UseAsianBreakRules /> <w:DontGrowAutofit /> <w:SplitPgBreakAndParaMark /> <w:DontVertAlignCellWithSp /> <w:DontBreakConstrainedForcedTables /> <w:DontVertAlignInTxbx /> <w:Word11KerningPairs /> <w:CachedColBalance /> </w:Compatibility> <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel> <m:mathPr> <m:mathFont m:val="Cambria Math" /> <m:brkBin m:val="before" /> <m:brkBinSub m:val="&#45;-" /> <m:smallFrac m:val="off" /> <m:dispDef /> <m:lMargin m:val="0" /> <m:rMargin m:val="0" /> <m:defJc m:val="centerGroup" /> <m:wrapIndent m:val="1440" /> <m:intLim m:val="subSup" /> <m:naryLim m:val="undOvr" /> </m:mathPr></w:WordDocument> </xml><![endif]--><!--[if gte mso 9]><xml> <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"   DefSemiHidden="true" DefQFormat="false" DefPriority="99"   LatentStyleCount="267"> <w:LsdException Locked="false" Priority="0" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Normal" /> <w:LsdException Locked="false" Priority="9" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="heading 1" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8" /> <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9" /> <w:LsdException Locked="false" Priority="39" Name="toc 1" /> <w:LsdException Locked="false" Priority="39" Name="toc 2" /> <w:LsdException Locked="false" Priority="39" Name="toc 3" /> <w:LsdException Locked="false" Priority="39" Name="toc 4" /> <w:LsdException Locked="false" Priority="39" Name="toc 5" /> <w:LsdException Locked="false" Priority="39" Name="toc 6" /> <w:LsdException Locked="false" Priority="39" Name="toc 7" /> <w:LsdException Locked="false" Priority="39" Name="toc 8" /> <w:LsdException Locked="false" Priority="39" Name="toc 9" /> <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption" /> <w:LsdException Locked="false" Priority="10" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Title" /> <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font" /> <w:LsdException Locked="false" Priority="11" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Subtitle" /> <w:LsdException Locked="false" Priority="22" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Strong" /> <w:LsdException Locked="false" Priority="20" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Emphasis" /> <w:LsdException Locked="false" Priority="59" SemiHidden="false"    UnhideWhenUsed="false" Name="Table Grid" /> <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text" /> <w:LsdException Locked="false" Priority="1" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="No Spacing" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 1" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 1" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 1" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 1" /> <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision" /> <w:LsdException Locked="false" Priority="34" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="List Paragraph" /> <w:LsdException Locked="false" Priority="29" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Quote" /> <w:LsdException Locked="false" Priority="30" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Intense Quote" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 1" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 1" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 1" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 1" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 1" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 2" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 2" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 2" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 2" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 2" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 2" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 2" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 2" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 2" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 3" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 3" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 3" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 3" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 3" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 3" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 3" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 3" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 3" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 4" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 4" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 4" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 4" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 4" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 4" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 4" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 4" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 4" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 5" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 5" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 5" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 5" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 5" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 5" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 5" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 5" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 5" /> <w:LsdException Locked="false" Priority="60" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Shading Accent 6" /> <w:LsdException Locked="false" Priority="61" SemiHidden="false"    UnhideWhenUsed="false" Name="Light List Accent 6" /> <w:LsdException Locked="false" Priority="62" SemiHidden="false"    UnhideWhenUsed="false" Name="Light Grid Accent 6" /> <w:LsdException Locked="false" Priority="63" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6" /> <w:LsdException Locked="false" Priority="64" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6" /> <w:LsdException Locked="false" Priority="65" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 1 Accent 6" /> <w:LsdException Locked="false" Priority="66" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium List 2 Accent 6" /> <w:LsdException Locked="false" Priority="67" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6" /> <w:LsdException Locked="false" Priority="68" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6" /> <w:LsdException Locked="false" Priority="69" SemiHidden="false"    UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6" /> <w:LsdException Locked="false" Priority="70" SemiHidden="false"    UnhideWhenUsed="false" Name="Dark List Accent 6" /> <w:LsdException Locked="false" Priority="71" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Shading Accent 6" /> <w:LsdException Locked="false" Priority="72" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful List Accent 6" /> <w:LsdException Locked="false" Priority="73" SemiHidden="false"    UnhideWhenUsed="false" Name="Colorful Grid Accent 6" /> <w:LsdException Locked="false" Priority="19" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis" /> <w:LsdException Locked="false" Priority="21" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis" /> <w:LsdException Locked="false" Priority="31" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference" /> <w:LsdException Locked="false" Priority="32" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Intense Reference" /> <w:LsdException Locked="false" Priority="33" SemiHidden="false"    UnhideWhenUsed="false" QFormat="true" Name="Book Title" /> <w:LsdException Locked="false" Priority="37" Name="Bibliography" /> <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading" /> </w:LatentStyles> </xml><![endif]--> <!--[if gte mso 10]> <mce:style><!   /* Style Definitions */  table.MsoNormalTable 	{mso-style-name:"Table Normal"; 	mso-tstyle-rowband-size:0; 	mso-tstyle-colband-size:0; 	mso-style-noshow:yes; 	mso-style-priority:99; 	mso-style-qformat:yes; 	mso-style-parent:""; 	mso-padding-alt:0in 5.4pt 0in 5.4pt; 	mso-para-margin-top:0in; 	mso-para-margin-right:0in; 	mso-para-margin-bottom:10.0pt; 	mso-para-margin-left:0in; 	line-height:115%; 	mso-pagination:widow-orphan; 	font-size:11.0pt; 	font-family:"Calibri","sans-serif"; 	mso-ascii-font-family:Calibri; 	mso-ascii-theme-font:minor-latin; 	mso-fareast-font-family:"Times New Roman"; 	mso-fareast-theme-font:minor-fareast; 	mso-hansi-font-family:Calibri; 	mso-hansi-theme-font:minor-latin;} --></p>
+<p>This will be my first tutorial on using a physics engine, this
+tutorial was created on request so if you have any ideas please drop by
+the request page and leave a comment! For this we will be using the
+Farseer Physics engine and it so far has been very simple and at the
+same time allowing for very complex shapes and special environments
+with differing gravity. So let’s get started the first thing we will
+need is the download the Physics engine you can get it here</p>
+<p><a href="http://farseerphysics.codeplex.com/">http://farseerphysics.codeplex.com/</a></p>
+<p>
+</p><div class="captionImage center" style="width: 430px;"><img src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/farseerPhysics.png" alt="" width="430" height="260"></div>
+
+<p>just select the download tab and get the one named “Farseer Physics
+2.1 XNA” unzip the entire thing in your temp folder or on your desktop
+but make sure you keep the folder visible we will need to copy this
+over to our actual project. Now launch Visual Studio and create a new
+project name it what you would like I named my 2D_Phy_Lesson1 now right
+click on your project and select “Open Folder In Windows Explorer” once
+the folder has opened go up one folder and copy the “Farseer Physics
+2.1 XNA” folder from the extracted download and paste it in your
+solution folder your folder should be laid out like this</p>
+<p>&nbsp;</p>
+<div class="image center" style="width: 600px;">
+<div class="captionImage center" style="width: 600px;"><img src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/ResizedImage600393-WhatYourFolderSHouldLookLike.jpg" alt="" width="600" height="393"></div>
+</div>
+<p>&nbsp;</p>
+<p>Now we need to combine the two projects and run them under one
+solution so right click on your Solution and select Add-&gt;Existing
+Project... then find your .csproj and add it.</p>
+<p>&nbsp;</p>
+<div class="image center" style="width: 491px;">
+<div class="captionImage center" style="width: 491px;"><img src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/FileAddExestingProject.jpg" alt="" width="491" height="360"></div>
+<br></div>
+<p>&nbsp;</p>
+<p>Your solution explorer should look something like that of the next
+image. Now we need to select our first project the original one and
+then click Project -&gt; add reference…</p>
+<p>&nbsp;</p>
+<div class="image center" style="width: 600px;">
+<div class="captionImage center" style="width: 600px;"><img src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/ResizedImage600435-AddRefrence.jpg" alt="" width="600" height="435"></div>
+<br></div>
+<p>&nbsp;</p>
+<p>Then it might take a second it is queering your computer for all the
+references and when the window popes up select the tab ‘Projects’ then
+select FarseerPhysicsXNA it should look like this</p>
+<p>&nbsp;</p>
+<div class="image center" style="width: 467px;">
+<div class="captionImage center" style="width: 467px;"><img src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/FarseerPhysicsRefrence.jpg" alt="" width="467" height="392"></div>
+<br></div>
+<p>&nbsp;</p>
+<p>Now our first project can use classes and functions from the other
+project! On to the Code! where we have all of our using Microsoft... we
+need to ad a few of them for starters lets add all of these</p>
+<div class="csharp codeblock" style="font-family: monospace;"><span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Collisions</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Controllers</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Dynamics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Factories</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Interfaces</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Mathematics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp;</div>
+<p>There might be a few in there we will not be using. Now we have the
+FarseerPhysics linked with our project! Lets keep moving Add this code
+just above your constructor if you don't know what it is it looks like
+this 'public Game1()'</p>
+<div class="csharp codeblock" style="font-family: monospace;">PhysicsSimulator phySim<span style="color: rgb(0, 128, 0);">;</span><br>
+Body ballBody<span style="color: rgb(0, 128, 0);">;</span><br>
+Geom ballGeom<span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+Body platformOne<span style="color: rgb(0, 128, 0);">;</span><br>
+Geom platformOneGeo<span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+Texture2D ballTex<span style="color: rgb(0, 128, 0);">;</span><br>
+Texture2D platformTex<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp;</div>
+<p>The physics simulator is the backbone of the physics it will control
+and Handel how objects interact with each other it also will need to
+know what gravity is, we will talk a little more about this when we
+create the phy sim, Next we have a Body this handles all the effects
+for the object in our case it will be a ball. Then we have a Geom short
+for Geometry this is the outline of the object and is the main part of
+collisions. Then we just have 2 Texture2Ds to hold our platform and our
+ball if you don't know how to use spritebatch or Texture2D please read
+my 2D tutorials (coming soon (really soon)) Now in the LoadContent
+function add the following if you cant find it it looks like this
+'protected override void LoadContent()'</p>
+<div class="csharp codeblock" style="font-family: monospace;">ballTex <span style="color: rgb(0, 128, 0);">=</span> Content.<span style="color: rgb(0, 0, 255);">Load</span><span style="color: rgb(0, 128, 0);">&lt;</span>Texture2D<span style="color: rgb(0, 128, 0);">&gt;</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(102, 102, 102);">"Phy_ball"</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+platformTex <span style="color: rgb(0, 128, 0);">=</span> Content.<span style="color: rgb(0, 0, 255);">Load</span><span style="color: rgb(0, 128, 0);">&lt;</span>Texture2D<span style="color: rgb(0, 128, 0);">&gt;</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(102, 102, 102);">"Phy_Platform"</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+<span style="color: rgb(0, 128, 128); font-style: italic;">//Create the physics simulator</span><br>
+phySim <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> PhysicsSimulator<span style="color: rgb(0, 0, 0);">(</span><a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">0</span>, <span style="color: rgb(255, 0, 0);">200</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+<span style="color: rgb(0, 128, 128); font-style: italic;">//Create the ball body and geometry</span><br>
+ballBody <span style="color: rgb(0, 128, 0);">=</span> BodyFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateCircleBody</span><span style="color: rgb(0, 0, 0);">(</span>22f, <span style="color: rgb(255, 0, 0);">2</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+ballBody.<span style="color: rgb(0, 0, 255);">Position</span> <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">250</span>, <span style="color: rgb(255, 0, 0);">100</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+ballGeom <span style="color: rgb(0, 128, 0);">=</span> GeomFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateCircleGeom</span><span style="color: rgb(0, 0, 0);">(</span>phySim, ballBody, 22f, <span style="color: rgb(255, 0, 0);">16</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp;</div>
+<p>So the first two lines are quite simple just loading our textures
+just for reference my ball is (64,64) and my platform is (256, 64) in
+pixels. The next thing is our physics simulator it can take a Vector2
+as gravity or you can set it later but for now we will use a Vector2
+setting gravity don't worry 200 is just an amount of force not the
+amount of pixels to move every second. Then we create the Body and the
+Geometry for the ball, since the ball is a circle and and its 64 pixels
+wide the radius would be 32 but since my ball does not go out to the
+exact pixel edge it will stay 22, when we create the body we also need
+to give it an amount of mass in this case we gave it 2. Then we set the
+position of the body to 250 , 100. Finally we need to create the
+geometry this is what will actually be used to check the collisions in
+this case we want it to be a circle we could create our own geometry
+and send it to the ballGeom but there is a function that will create a
+circle for us. In this case it is 'CreateCircleGeom' it takes the
+physics simulator then the body that it will be linked to, then the
+radius of the object, then it takes the number of edges in this ball we
+told it 16 this means there will be 16 piece of geometry to check the
+collision, the larger the number the more calculations occur but the
+more accurate it is.</p>
+<div class="csharp codeblock" style="font-family: monospace;">platformOne <span style="color: rgb(0, 128, 0);">=</span> BodyFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateRectangleBody</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">256</span>, <span style="color: rgb(255, 0, 0);">64</span>, <span style="color: rgb(255, 0, 0);">1</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+platformOne.<span style="color: rgb(0, 0, 255);">IsStatic</span> <span style="color: rgb(0, 128, 0);">=</span> true<span style="color: rgb(0, 128, 0);">;</span><br>
+platformOne.<span style="color: rgb(0, 0, 255);">Position</span> <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">250</span>, <span style="color: rgb(255, 0, 0);">300</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+platformOne.<span style="color: rgb(0, 0, 255);">Rotation</span> <span style="color: rgb(0, 128, 0);">=</span> MathHelper.<span style="color: rgb(0, 0, 255);">ToRadians</span><span style="color: rgb(0, 0, 0);">(</span>15f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+platformOneGeo <span style="color: rgb(0, 128, 0);">=</span> GeomFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateRectangleGeom</span><span style="color: rgb(0, 0, 0);">(</span>phySim, platformOne, 256f, 64f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp;</div>
+<p>This goes right below the last piece of code we wrote, This uses
+different functions for the GeomFactory and the BodyFactory but their
+constructors are all understandable. The new thing we added was the
+rotation it takes radians and in this case it will be rotated 15
+degrees clockwise.</p>
+<div class="csharp codeblock" style="font-family: monospace;"><span style="color: rgb(0, 128, 128); font-style: italic;">//Add the objects to the simulator</span><br>
+phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>ballBody<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>ballGeom<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>platformOne<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>platformOneGeo<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp;</div>
+<p>One of the last things we need to do to get the simulator working is
+add the objects we created to the sim, I noticed that if you do not
+pass the body followed by the Geom sometimes it gets messed up, just
+make sure you pass a body and its geometry to the phySim right after
+each other. This might be a short time glitch with this current
+version. Now for the last thing simulator wise add this code in the
+update function now if you cant find it it looks like this 'protected
+override void Update(GameTime gameTime)'</p>
+<div class="csharp codeblock" style="font-family: monospace;"><span style="color: rgb(0, 128, 128); font-style: italic;">//Update The Physics Sim</span><br>
+phySim.<span style="color: rgb(0, 0, 255);">Update</span><span style="color: rgb(0, 0, 0);">(</span>gameTime.<span style="color: rgb(0, 0, 255);">ElapsedGameTime</span>.<span style="color: rgb(0, 0, 255);">Milliseconds</span> <span style="color: rgb(0, 128, 0);">*</span> .001f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp;</div>
+<p>This just updates the physics engine. If you try to run the game
+right now it will work and the simulation will run the only problem is
+we cant see anything! So add this code to your draw function again if
+you cant find it it looks like 'protected override void Draw(GameTime
+gameTime)'</p>
+<div class="csharp codeblock" style="font-family: monospace;">spriteBatch.<span style="color: rgb(0, 0, 255);">Begin</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+spriteBatch.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>ballTex, ballBody.<span style="color: rgb(0, 0, 255);">Position</span>, <span style="color: rgb(6, 0, 255);">null</span>, Color.<span style="color: rgb(0, 0, 255);">White</span>, ballBody.<span style="color: rgb(0, 0, 255);">Rotation</span>, <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">32</span>, <span style="color: rgb(255, 0, 0);">32</span><span style="color: rgb(0, 0, 0);">)</span>, 1f, SpriteEffects.<span style="color: rgb(0, 0, 255);">None</span>, 1f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+spriteBatch.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>platformTex, platformOne.<span style="color: rgb(0, 0, 255);">Position</span>, <span style="color: rgb(6, 0, 255);">null</span>, Color.<span style="color: rgb(0, 0, 255);">White</span>, platformOne.<span style="color: rgb(0, 0, 255);">Rotation</span>, <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">128</span>, <span style="color: rgb(255, 0, 0);">32</span><span style="color: rgb(0, 0, 0);">)</span>, 1f, SpriteEffects.<span style="color: rgb(0, 0, 255);">None</span>, 1f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+spriteBatch.<span style="color: rgb(0, 0, 255);">End</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp;</div>
+<p>So there are a few things to note here, first the Vector2 Origin
+should be the center of the object this is what the engine expects it
+to be if it is not some strange things will occur. The other thing is
+that we use the position of the body! If all this came together
+properly you should be able to run and have your ball fall hit the
+platform all roll off. and it should look something like this.</p>
+<p>&nbsp;</p>
+<div class="captionImage center" style="width: 600px;"><img title="The Final Result" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/ResizedImage600450-Working.jpg" alt="The Final Result" width="600" height="450">
+<div class="caption" style="width: 600px;">The Final Result</div>
+</div>
+<p>&nbsp;</p>
+<p>Challenges: I will be adding these to the end of each tutorial if
+you feel like it they will help you change your code so you understand
+it a little better</p>
+<p>1. Make the gravity inverted so the ball falls up</p>
+<p>2. Move the ball so it is under the platform</p>
+<p>3. Rotate the platform to a different angle</p>
+<p>4. Add a second platform</p>
+<p>In the source i added keyboard movement right and left and if the ball fallse off the screen its position is reset.</p>
+<p>Download Project Here:</p>
+<p><a href="http://www.techiscool.com/wingwarp/silverstripe/assets/Phy/Lesson1/2DPhyLesson1.zip">2D PhyLesson 1 </a></p>
+<p>Lesson Code: (without keyboard input and ball reset)</p>
+<div class="csharp codeblock" style="font-family: monospace;"><span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">System</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">System.Collections.Generic</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">System.Linq</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Audio</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Content</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.GamerServices</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Graphics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Input</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Media</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Net</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">Microsoft.Xna.Framework.Storage</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Collisions</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Controllers</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Dynamics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Factories</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Interfaces</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<span style="color: rgb(6, 0, 255);">using</span> <span style="color: rgb(0, 128, 128);">FarseerGames.FarseerPhysics.Mathematics</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+<br>
+<span style="color: rgb(6, 0, 255);">namespace</span> _2D_Phy_Lesson1<br>
+<span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// This is the main type for your game</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">public</span> <span style="color: rgb(255, 0, 0);">class</span> Game1 <span style="color: rgb(0, 128, 0);">:</span> Microsoft.<span style="color: rgb(0, 0, 255);">Xna</span>.<span style="color: rgb(0, 0, 255);">Framework</span>.<span style="color: rgb(0, 0, 255);">Game</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; GraphicsDeviceManager graphics<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; SpriteBatch spriteBatch<span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; PhysicsSimulator phySim<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Body ballBody<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Geom ballGeom<span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Body platformOne<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Geom platformOneGeo<span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; Texture2D ballTex<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; Texture2D platformTex<span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">public</span> Game1<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; graphics <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> GraphicsDeviceManager<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(6, 0, 255);">this</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Content.<span style="color: rgb(0, 0, 255);">RootDirectory</span> <span style="color: rgb(0, 128, 0);">=</span> <span style="color: rgb(102, 102, 102);">"Content"</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// Allows the game to perform any initialization it needs to before starting to run.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// This is where it can query for any required services and load any non-graphic</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// related content. &nbsp;Calling base.Initialize will enumerate through any components</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// and initialize them as well.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> Initialize<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">// TODO: Add your initialization logic here</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">base</span>.<span style="color: rgb(0, 0, 255);">Initialize</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// LoadContent will be called once per game and is the place to load</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// all of your content.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> LoadContent<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">// Create a new SpriteBatch, which can be used to draw textures.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; spriteBatch <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> SpriteBatch<span style="color: rgb(0, 0, 0);">(</span>GraphicsDevice<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballTex <span style="color: rgb(0, 128, 0);">=</span> Content.<span style="color: rgb(0, 0, 255);">Load</span><span style="color: rgb(0, 128, 0);">&lt;</span>Texture2D<span style="color: rgb(0, 128, 0);">&gt;</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(102, 102, 102);">"Phy_ball"</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformTex <span style="color: rgb(0, 128, 0);">=</span> Content.<span style="color: rgb(0, 0, 255);">Load</span><span style="color: rgb(0, 128, 0);">&lt;</span>Texture2D<span style="color: rgb(0, 128, 0);">&gt;</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(102, 102, 102);">"Phy_Platform"</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Create the physics simulator</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> PhysicsSimulator<span style="color: rgb(0, 0, 0);">(</span><a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">0</span>, <span style="color: rgb(255, 0, 0);">200</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Create the ball body and geometry</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballBody <span style="color: rgb(0, 128, 0);">=</span> BodyFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateCircleBody</span><span style="color: rgb(0, 0, 0);">(</span>22f, <span style="color: rgb(255, 0, 0);">2</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballBody.<span style="color: rgb(0, 0, 255);">Position</span> <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">250</span>, <span style="color: rgb(255, 0, 0);">100</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ballGeom <span style="color: rgb(0, 128, 0);">=</span> GeomFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateCircleGeom</span><span style="color: rgb(0, 0, 0);">(</span>phySim, ballBody, 22f, <span style="color: rgb(255, 0, 0);">16</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Create the platform body and geometry</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformOne <span style="color: rgb(0, 128, 0);">=</span> BodyFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateRectangleBody</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">256</span>, <span style="color: rgb(255, 0, 0);">64</span>, <span style="color: rgb(255, 0, 0);">1</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformOne.<span style="color: rgb(0, 0, 255);">IsStatic</span> <span style="color: rgb(0, 128, 0);">=</span> true<span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformOne.<span style="color: rgb(0, 0, 255);">Position</span> <span style="color: rgb(0, 128, 0);">=</span> <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">250</span>, <span style="color: rgb(255, 0, 0);">300</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformOne.<span style="color: rgb(0, 0, 255);">Rotation</span> <span style="color: rgb(0, 128, 0);">=</span> MathHelper.<span style="color: rgb(0, 0, 255);">ToRadians</span><span style="color: rgb(0, 0, 0);">(</span>15f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; platformOneGeo <span style="color: rgb(0, 128, 0);">=</span> GeomFactory.<span style="color: rgb(0, 0, 255);">Instance</span>.<span style="color: rgb(0, 0, 255);">CreateRectangleGeom</span><span style="color: rgb(0, 0, 0);">(</span>phySim, platformOne, 256f, 64f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Add the objects to the simulator</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>ballBody<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>ballGeom<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>platformOne<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Add</span><span style="color: rgb(0, 0, 0);">(</span>platformOneGeo<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// UnloadContent will be called once per game and is the place to unload</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// all content.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> UnloadContent<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">// TODO: Unload any non ContentManager content here</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// Allows the game to run logic such as updating the world,</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// checking for collisions, gathering input, and playing audio.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;param name="gameTime"&gt;Provides a snapshot of timing values.&lt;/param&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> Update<span style="color: rgb(0, 0, 0);">(</span>GameTime gameTime<span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">// Allows the game to exit</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">if</span> <span style="color: rgb(0, 0, 0);">(</span>GamePad.<span style="color: rgb(0, 0, 255);">GetState</span><span style="color: rgb(0, 0, 0);">(</span>PlayerIndex.<span style="color: rgb(0, 0, 255);">One</span><span style="color: rgb(0, 0, 0);">)</span>.<span style="color: rgb(0, 0, 255);">Buttons</span>.<span style="color: rgb(0, 0, 255);">Back</span> <span style="color: rgb(0, 128, 0);">==</span> ButtonState.<span style="color: rgb(0, 0, 255);">Pressed</span><span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">this</span>.<span style="color: rgb(0, 0, 255);">Exit</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">//Update The Physics Sim</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phySim.<span style="color: rgb(0, 0, 255);">Update</span><span style="color: rgb(0, 0, 0);">(</span>gameTime.<span style="color: rgb(0, 0, 255);">ElapsedGameTime</span>.<span style="color: rgb(0, 0, 255);">Milliseconds</span> <span style="color: rgb(0, 128, 0);">*</span> .001f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">base</span>.<span style="color: rgb(0, 0, 255);">Update</span><span style="color: rgb(0, 0, 0);">(</span>gameTime<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// This is called when the game should draw itself.</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;/summary&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 128, 128); font-style: italic;">/// &lt;param name="gameTime"&gt;Provides a snapshot of timing values.&lt;/param&gt;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">protected</span> <span style="color: rgb(6, 0, 255);">override</span> <span style="color: rgb(6, 0, 255);">void</span> Draw<span style="color: rgb(0, 0, 0);">(</span>GameTime gameTime<span style="color: rgb(0, 0, 0);">)</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">{</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; GraphicsDevice.<span style="color: rgb(0, 0, 255);">Clear</span><span style="color: rgb(0, 0, 0);">(</span>Color.<span style="color: rgb(0, 0, 255);">CornflowerBlue</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">Begin</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>ballTex, ballBody.<span style="color: rgb(0, 0, 255);">Position</span>, <span style="color: rgb(6, 0, 255);">null</span>, Color.<span style="color: rgb(0, 0, 255);">White</span>, ballBody.<span style="color: rgb(0, 0, 255);">Rotation</span>, <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">32</span>, <span style="color: rgb(255, 0, 0);">32</span><span style="color: rgb(0, 0, 0);">)</span>, 1f, SpriteEffects.<span style="color: rgb(0, 0, 255);">None</span>, 1f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>platformTex, platformOne.<span style="color: rgb(0, 0, 255);">Position</span>, <span style="color: rgb(6, 0, 255);">null</span>, Color.<span style="color: rgb(0, 0, 255);">White</span>, platformOne.<span style="color: rgb(0, 0, 255);">Rotation</span>, <a href="http://www.google.com/search?q=new+msdn.microsoft.com"><span style="color: rgb(0, 128, 0);">new</span></a> Vector2<span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(255, 0, 0);">128</span>, <span style="color: rgb(255, 0, 0);">32</span><span style="color: rgb(0, 0, 0);">)</span>, 1f, SpriteEffects.<span style="color: rgb(0, 0, 255);">None</span>, 1f<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; spriteBatch.<span style="color: rgb(0, 0, 255);">End</span><span style="color: rgb(0, 0, 0);">(</span><span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(6, 0, 255);">base</span>.<span style="color: rgb(0, 0, 255);">Draw</span><span style="color: rgb(0, 0, 0);">(</span>gameTime<span style="color: rgb(0, 0, 0);">)</span><span style="color: rgb(0, 128, 0);">;</span><br>
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+&nbsp; &nbsp; <span style="color: rgb(0, 0, 0);">}</span><br>
+<span style="color: rgb(0, 0, 0);">}</span><br>
+<br>
+&nbsp;</div>
+		
+		<script type="text/javascript" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/show_ads.js">
+		</script><script src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><iframe name="google_ads_frame" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/ads.xhtml" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" width="" frameborder="0" height=""></iframe>
+		
+		
+		<div id="PageComments_holder" class="typography">
+	
+		<h4>Post your comment</h4>
+		
+		
+<form id="PageCommentInterface_Form_PostCommentForm" action="/wingwarp/silverstripe/physics-lesson/PageComments/PostCommentForm" method="post" enctype="application/x-www-form-urlencoded">
+
+	
+	<p id="PageCommentInterface_Form_PostCommentForm_error" class="message" style="display: none;"></p>
+	
+	
+	<fieldset>
+		<legend></legend>
+		
+			<input class="hidden" id="PageCommentInterface_Form_PostCommentForm_ParentID" name="ParentID" value="20" type="hidden">
+		
+			<div id="Name" class="field text"><label class="left" for="PageCommentInterface_Form_PostCommentForm_Name">Your name</label><div class="middleColumn"><input class="text" id="PageCommentInterface_Form_PostCommentForm_Name" name="Name" value="" type="text"></div></div>
+		
+			<div id="CommenterURL" class="field text"><label class="left" for="PageCommentInterface_Form_PostCommentForm_CommenterURL">Your website URL</label><div class="middleColumn"><input class="text" id="PageCommentInterface_Form_PostCommentForm_CommenterURL" name="CommenterURL" value="" type="text"></div></div>
+		
+			<div id="Comment" class="field textarea"><label class="left" for="PageCommentInterface_Form_PostCommentForm_Comment">Comments</label><div class="middleColumn"><textarea id="PageCommentInterface_Form_PostCommentForm_Comment" name="Comment" rows="5" cols="20"></textarea></div></div>
+		
+			<input class="hidden" id="PageCommentInterface_Form_PostCommentForm_SecurityID" name="SecurityID" value="881902205" type="hidden">
+		
+		<div class="clear"><!-- --></div>
+	</fieldset>
+
+	
+	<div class="Actions">
+		
+			<input class="action" id="PageCommentInterface_Form_PostCommentForm_action_postcomment" name="action_postcomment" value="Post" title="Post" type="submit">
+		
+	</div>
+	
+
+</form>
+
+
+	
+	
+	<h4>Comments</h4>
+	
+	<div id="CommentHolder">
+		
+			<p id="NoComments">No one has commented on this page yet.</p>
+		
+	</div>
+	<p id="CommentsRSSFeed">
+		<a class="commentrss" href="http://www.techiscool.com/wingwarp/silverstripe/PageComment/rss?pageid=20">RSS feed for comments on this page</a> | 
+		<a href="http://www.techiscool.com/wingwarp/silverstripe/PageComment/rss" class="commentrss" title="View all Comments">RSS feed for all comments</a>
+	</p>
+</div>
+	
+
+	
+		</div>
+	
+</div>
+
+	
+	
+	
+<!-- end template /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Layout/Page.ss -->
+		  <script type="text/javascript">
+			<!--
+			google_ad_client = "pub-8754052781103063";
+			/* 468x60, created 7/20/09 */
+			google_ad_slot = "4311468604";
+			google_ad_width = 468;
+			google_ad_height = 60;
+			//-->
+			</script>
+			<script type="text/javascript" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/show_ads.js">
+			</script><script src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/expansion_embed.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 60px; position: relative; visibility: visible; width: 468px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 60px; position: relative; visibility: visible; width: 468px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" src="Physics%20Lesson%201%20%C2%BB%20Blackleys%20Web%20Blog_files/ads.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" scrolling="no" width="468" frameborder="0" height="60"></iframe></ins></ins>
+		</div>
+	   <div class="clear"><!-- --></div>
+	</div>
+	<div id="Footer">
+		<!-- include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/Footer.ss -->
+<div class="footerTop">
+	<!-- -->
+</div>
+<p>Copyright © 2007-2008 | <a href="http://www.silverstripe.com/" title="SilverStripe CMS">SilverStripe CMS</a></p>
+
+<!-- end include /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Includes/Footer.ss -->
+	</div> 
+</div>
+
+<!-- end template /home/techi9/public_html/wingwarp/silverstripe/themes/blackcandy/templates/Page.ss -->
+</body></html>

@@ -1,0 +1,189 @@
+/* Permalink page defaults (Show entry, Series entry, Blog entry, Lesson entry, etc.)
+-------------------------------------------------- */
+.entry .entry-header {
+	border-bottom:1px dotted #333;
+	float:left;
+	padding-bottom:1.2em;
+	width:100%;
+}
+
+.entry .entry-header .admin {
+	clear:right;
+	float:right;
+}
+
+.entry .entry-header .admin .button {
+	float:right;
+}
+
+.entry .entry-header .avatar {
+	float:left;
+	margin-right:18px;
+	max-width:64px;
+}
+
+.entry .entry-header h1 {
+	border-bottom:0;
+	padding-bottom:0;
+}
+
+.entry .entry-header ul.entry-data {
+	font-size:110%;
+}
+
+.entry .entry-header ul.entry-data li {
+	color:#878787;
+	line-height:1.4;
+}
+
+.entry .entry-header ul.entry-data li.sharelinks {
+	float:right;
+	min-height:21px;
+}
+
+.entry .entry-header ul.entry-data li.sharelinks div.retweet,
+.entry .entry-header ul.entry-data li.sharelinks iframe {
+	float:left;
+	margin-top:1px;
+}
+
+.entry .entry-header ul.entry-data li.sharelinks div.retweet {
+	height:20px;
+	visibility:hidden;
+	width:110px;
+}
+
+.entry .entry-header ul.entry-data li.sharelinks .fb_share_size_Small {
+	vertical-align:top;
+}
+
+.entry .entry-header ul.entry-data li.comments,
+.entry .entry-header ul.entry-data li.rating,
+.entry .entry-header ul.entry-data li.views {
+	clear:none;
+	float:left;
+	font-size:81%;
+	line-height:1.4;
+}
+
+.entry .entry-header ul.entry-data li.comments,
+.entry .entry-header ul.entry-data li.views {
+	border-left:1px solid #c7c7c7;
+	margin-left:10px;
+	padding-left:10px;
+}
+
+.entry .entry-header ul.entry-data li.views .number {
+	font-weight:bold;
+}
+
+.entry .entry-content {
+	background:url("images/bg-post-content.gif") left top no-repeat;
+	clear:left;
+	overflow:hidden;
+	padding:20px 0 0 80px;
+	width:640px;
+}
+
+.entry .entry-content #video-download {
+	float:left;
+	margin-left:12px;
+	width:108px;
+}
+
+.entry .entry-content #video-download h3 {
+	float:left;
+	font-size:130%;
+	margin:2px 0 0.5em 0;
+	width:80px;
+}
+
+.entry .entry-content #video-download ul {
+	clear:both;
+}
+
+.entry .entry-content #video-download li {
+	text-align:center;
+	margin-bottom:0.5em;
+}
+
+.entry .entry-content #video-download .note {
+	clear:both;
+}
+
+.entry .entry-content #video-download .note,
+.entry .entry-content #video-download .usage {
+	color:#878787;
+	display:block;
+	font-size:80%;
+}
+
+.entry .entry-content #video-download .help .popup h3 {
+	float:none;
+	width:auto;
+}
+
+.entry .entry-content #video-download .help .popup li {
+	text-align:left;
+}
+
+.entry .entry-content #entry-body {
+	clear:left;
+	margin-top:1.2em;
+	width:40em;
+}
+
+.entry .entry-content #entry-body img {
+	max-width:640px;
+}
+
+.entry .entry-content #entry-body ol img,
+.entry .entry-content #entry-body ul img {
+	max-width:600px; /* this was increased from 580 when site went from 940 to 960. Correct? */
+}
+
+.entry .entry-content #entry-body img.preview {
+	float:left;
+	margin:0 1.12em 0 -80px;
+}
+
+.entry #entry-tags {
+	border-top:1px dotted #333;
+	clear:both;
+	font-size:115%;
+	margin-top:20px;
+	padding:0.5em 0 0 80px;
+	width:640px;
+}
+
+.entry #entry-tags h3 {
+	display:inline;
+	font-size:115%;
+	font-weight:bold;
+	margin-right:0.25em;
+}
+
+.entry #entry-tags ul,
+.entry #entry-tags li {
+	display:inline;
+}
+
+
+/* Comments overrides (defaults in comments.css)
+-------------------------------------------------- */
+.comments.follow,
+.comments.add-comment {
+	width:720px;
+}
+
+.comments.add-comment fieldset li input {
+	width:264px;
+}
+
+.posts li {
+	width:700px;
+}
+
+.posts li .post {
+	width:558px;
+}

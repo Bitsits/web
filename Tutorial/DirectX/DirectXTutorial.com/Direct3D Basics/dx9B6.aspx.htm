@@ -1,0 +1,538 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Lesson 6: Rendering Depth
+</title><link href="dx9B6.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B6.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B6.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B6.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B6.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+        Lesson 6:&nbsp; Rendering Depth</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B6.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B5.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B7.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+    Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Using the pipeline presents us with one little problem.&nbsp; While it flawlessly
+    calculates the screen location of 3D vertices, it does not show depth.&nbsp; You
+    will see exactly what I mean by this in a minute.&nbsp; The problem is that Direct3D
+    draws over all images when drawing (whether or not that image was closer or not).&nbsp;
+    So far, we have only worked with one triangle, and so you haven't had a chance to
+    see this in action.</p>
+    <p>
+        This lesson will go over the anatomy of this problem, and a good way to fix it.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Understanding the Problem At Hand</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Let's say we wanted to draw two triangles, one behind the other, and then view them
+    from an angle where the farther triangle was partially behind the other.&nbsp; If
+    we did this with what code we've covered so far, this is how that might look:</p>
+    <center>
+        <img alt="Image 6.1 - Defying the Laws of Physics" src="dx9B6.aspx_files/dx9B6-1.PNG"><br>
+        <br>
+        Image 6.1 - Defying the Laws of Physics
+    </center>
+    <p>
+        This, unfortunately, defies the laws of physics.&nbsp; Things that are farther do
+        not usually appear in front of closer things, especially when the closer thing is
+        blocking it.&nbsp; The way it <em>should</em> appear is like this:</p>
+    <center>
+        <img alt="Image 6.2 - Obeying the Law" src="dx9B6.aspx_files/dx9B6-2.PNG"><br>
+        <br>
+        Image 6.2 - Obeying the Law
+    </center>
+    <p class="subheader">
+        How This Works (or rather, why it doesn't)</p>
+    <p>
+        When a model is rendered, several things happen.&nbsp; First, Direct3D calls up
+        the pipeline you built.&nbsp; It is all neatly packed away in memory.&nbsp; Direct3D
+        takes this and processes each model, one at a time, into a 2D image.&nbsp; Immediately
+        after creating that image, it is drawn to the back buffer.</p>
+    <p>
+        After the first image has been drawn to the screen, the next model is taken up,
+        processed, and drawn to the back buffer.&nbsp; However, no matter where the model
+        was placed in 3D space, the second image is shown <em>over</em> the first one, and
+        you get the result shown in Image 6.1.</p>
+    <p>
+        Fortunately, Direct3D provides an easy solution to this.&nbsp; The solution is known
+        as a <em>Z-Buffer</em>.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Z-Buffers</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    A Z-Buffer, also known as a depth buffer, is simply a large buffer that keeps track
+    of the distance from the camera of every pixel on the screen.&nbsp; This is illustrated
+    in the following image.</p>
+    <center>
+        <img alt="Image 6.3 - The Z-Buffer (Or Depth Buffer)" src="dx9B6.aspx_files/dx9B6-3.PNG"><br>
+        <br>
+        Image 6.3 - The Z-Buffer (Or Depth Buffer)
+    </center>
+    <p>
+        Image 6.3 shows how a z-buffer works.&nbsp; Whenever a pixel is drawn, it takes the
+        closest pixel to the camera and draws that on the back buffer.&nbsp; At the same
+        time, it stores the <em>depth</em> value into the same spot in the z-buffer, so
+        that the next time something is drawn, Direct3D can see how close each pixel is,
+        and which objects should be drawn and which should not.</p>
+    <p>
+        Now that you understand the concept of a z-buffer, let's go over how to implement
+        the z-buffer into your game.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Including the Z-Buffer</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    I'm going to dive right in.&nbsp; There are three key steps to Z-Buffering.</p>
+    <p>
+        1.&nbsp; Setting the Appropriate Presentation Parameters<br>
+        2.&nbsp; Turning On Z-Buffering<br>
+        3.&nbsp; Clearing the Z-Buffer</p>
+    <p>
+        Each of these steps are very simple.&nbsp; Let's go over them now.</p>
+    <hr>
+    <p class="subheader">
+        1.&nbsp; Setting the Appropriate Presentation Parameters</p>
+    <p>
+        This first step takes us all the way back to the first few lines of Direct3D we
+        run.&nbsp; We only add two lines of code to this, and make no further changes.&nbsp;
+        I'll show you the changes, then explain what they do.&nbsp; As usual, changes are
+        in <strong>bold</strong>.</p>
+    <div class="codebox">
+        D3DPRESENT_PARAMETERS d3dpp;<br>
+        <br>
+        ZeroMemory(&amp;d3dpp, sizeof(d3dpp));<br>
+        d3dpp.Windowed = FALSE;<br>
+        d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;<br>
+        d3dpp.hDeviceWindow = hWnd;<br>
+        d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;<br>
+        d3dpp.BackBufferWidth = SCREEN_WIDTH;<br>
+        d3dpp.BackBufferHeight = SCREEN_HEIGHT;<br>
+        <strong>d3dpp.EnableAutoDepthStencil = TRUE;<br>
+            d3dpp.AutoDepthStencilFormat = D3DFMT_D16;</strong></div>
+    <p>
+        Let's go over what these do.</p>
+    <p class="subheader">
+        EnableAutoDepthStencil</p>
+    <p>
+        In truth, z-buffering can be complex.&nbsp; Setting this value to TRUE tells Direct3D
+        to automatically create the z-buffer and set it up in a way used most often. &nbsp;There are,
+        of course, uses for the complex method, but we'll stick to simple for now.&nbsp;
+        We'll cover ways the complex method can be
+    useful later in the tutorial.</p>
+    <p class="subheader">
+        AutoDepthStencilFormat</p>
+    <p>
+        This is the format for each pixel in the z-buffer.&nbsp; We don't use the regular
+        pixel format defined in the Presentation Parameters.&nbsp; Instead, we use a special
+        format for z-buffers.&nbsp; This format is D3DFMT_D16.&nbsp; This means that each
+        pixel is 16-bit.&nbsp; There are other formats, but we will not need them for the
+        extent of this tutorial.</p>
+    <hr>
+    <p class="subheader">
+        2.&nbsp; Turning On Z-Buffering</p>
+    <p>
+        This one is quite simple.&nbsp; We have just one function to call, with two simple
+        parameters.</p>
+    <p>
+        If you did the last lesson, you might recall using the SetRenderState() function.&nbsp;
+        Well, we're going to use it again, meaning two calls will be made.&nbsp; Here is
+        what we now have:</p>
+    <div class="codebox">
+        d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, FALSE); &nbsp;&nbsp; // turn off the 3D
+        lighting<br>
+        <strong>d3ddev-&gt;SetRenderState(D3DRS_ZENABLE, TRUE); &nbsp;&nbsp; // turn on the
+            z-buffer</strong></div>
+    <p>
+        This time we set the first parameter to D3DRS_ZENABLE, which enables z-buffering.&nbsp;
+        We could, of course, set it to FALSE, but this would turn the z-buffering off, which
+        would not be desirable.</p>
+    <hr>
+    <p class="subheader">
+        3.&nbsp; Clearing the Z-Buffer</p>
+    <p>
+        This also takes just one function, and this function is also one you have seen before,
+        and are therefore using twice.&nbsp; This function is the Clear() function.</p>
+    <p>
+        Previously, you used this function to clear the back buffer, like so:</p>
+    <div class="codebox">
+        d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0), 1.0f, 0);</div>
+    <p>
+        This cleared the back buffer to black.&nbsp; Well, we also want to clear the z-buffer,
+        so we change one parameter and do this:</p>
+    <div class="codebox">
+        d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0), 1.0f, 0);<br>
+        <strong>d3ddev-&gt;Clear(0, NULL, D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 0), 1.0f, 0);</strong></div>
+    <p>
+        The only change here being that the D3DCLEAR_TARGET was changed to D3DCLEAR_ZBUFFER.&nbsp;
+        Simple.</p>
+        <p>
+            Notice that the color is still there.&nbsp; When clearing a z-buffer, the Clear()
+            function uses the parameter after the color.&nbsp; This is 1.0f, which is the "farthest"
+            a depth buffer can be.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    The Finished Program</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                And now let's look at the final program.&nbsp; In 
+addition to adding z-buffering,
+                I changed a few things in the pipeline,
+                because this program does not rotate a single triangle, 
+but shows two identical
+                rotating triangles, one right behind the other.&nbsp; 
+These changes are not bolded.&nbsp; If you have not yet mastered
+                matrices, it might be a good idea to study the new 
+pipeline code in addition to
+                the <strong>bold</strong>
+                buffer code,
+                to see how this works.</p>
+
+            [<a href="#still" onclick="Toggle('lessonprog')" class="mainlink">Show Code</a>]<br>
+            <br>
+
+            <div class="codebox" id="lessonprog" style="display: none;">
+                // include the basic windows header files and the Direct3D header file<br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                #include &lt;d3d9.h&gt;<br>
+                #include &lt;d3dx9.h&gt;<br>
+                <br>
+                // define the screen resolution<br>
+                #define SCREEN_WIDTH 800<br>
+                #define SCREEN_HEIGHT 600<br>
+                <br>
+                // include the Direct3D Library files<br>
+                #pragma comment (lib, "d3d9.lib")<br>
+                #pragma comment (lib, "d3dx9.lib")<br>
+                <br>
+                // global declarations<br>
+                LPDIRECT3D9 d3d; &nbsp;&nbsp; // the pointer to our Direct3D interface<br>
+                LPDIRECT3DDEVICE9 d3ddev; &nbsp;&nbsp; // the pointer to the device class<br>
+                LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL; &nbsp;&nbsp; // the pointer to the vertex
+                buffer<br>
+                <br>
+                // function prototypes<br>
+                void initD3D(HWND hWnd); &nbsp; &nbsp;// sets up and initializes Direct3D<br>
+                void render_frame(void); &nbsp; &nbsp;// renders a single frame<br>
+                void cleanD3D(void); &nbsp;&nbsp; // closes Direct3D and releases memory<br>
+                void init_graphics(void); &nbsp; &nbsp;// 3D declarations<br>
+                <br>
+                struct CUSTOMVERTEX {FLOAT X, Y, Z; DWORD COLOR;};<br>
+                #define CUSTOMFVF (D3DFVF_XYZ | D3DFVF_DIFFUSE)<br>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);<br>
+                <br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+                {<br>
+                &nbsp; &nbsp; HWND hWnd;<br>
+                &nbsp; &nbsp; WNDCLASSEX wc;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+                <br>
+                &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+                &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+                &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+                &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+                &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+                &nbsp; &nbsp; wc.lpszClassName = L"WindowClass";<br>
+                <br>
+                &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+                <br>
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL, L"WindowClass", L"Our Direct3D Program",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WS_OVERLAPPEDWINDOW, 0, 0, 
+SCREEN_WIDTH, SCREEN_HEIGHT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NULL, NULL, hInstance, NULL);<br>
+                <br>
+                &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+                <br>
+                &nbsp; &nbsp; // set up and initialize Direct3D<br>
+                &nbsp; &nbsp; initD3D(hWnd);<br>
+                <br>
+                &nbsp; &nbsp; // enter the main loop:<br>
+                <br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; while(TRUE)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; render_frame();<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; // clean up DirectX and COM<br>
+                &nbsp; &nbsp; cleanD3D();<br>
+                <br>
+                &nbsp; &nbsp; return msg.wParam;<br>
+                }<br>
+                <br>
+                <br>
+                // this is the main message handler for the program<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+                {<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+                }<br>
+                <br>
+                <br>
+                // this function initializes and prepares Direct3D for use<br>
+                void initD3D(HWND hWnd)<br>
+                {<br>
+                &nbsp; &nbsp; d3d = Direct3DCreate9(D3D_SDK_VERSION);<br>
+                <br>
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp));<br>
+                &nbsp; &nbsp; d3dpp.Windowed = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;<br>
+                &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferWidth = SCREEN_WIDTH;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferHeight = SCREEN_HEIGHT;<br>
+                <strong>&nbsp; &nbsp; d3dpp.EnableAutoDepthStencil = TRUE; &nbsp;&nbsp; // automatically
+                    run the z-buffer for us</strong><br>
+                <strong>&nbsp; &nbsp; d3dpp.AutoDepthStencilFormat = D3DFMT_D16; &nbsp;&nbsp; // 16-bit
+                    pixel format for the z-buffer</strong><br>
+                <br>
+                &nbsp; &nbsp; // create a device class using this information and the info from
+                the d3dpp stuct<br>
+                &nbsp; &nbsp; d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D3DDEVTYPE_HAL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; D3DCREATE_SOFTWARE_VERTEXPROCESSING,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3dpp,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3ddev);<br>
+                <br>
+
+                &nbsp; &nbsp; init_graphics(); &nbsp; &nbsp;// call the function to initialize the
+                triangle<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, FALSE); &nbsp; &nbsp;// turn off
+                    the 3D lighting<br>
+                <strong>&nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE); &nbsp;&nbsp;
+                    // both sides of the triangles<br>
+                    &nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_ZENABLE, TRUE); &nbsp;&nbsp; // turn
+                    on the z-buffer</strong><br>
+                }<br>
+                <br>
+                <br>
+                // this is the function used to render a single frame<br>
+                void render_frame(void)<br>
+                {<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0),
+                1.0f, 0);<br>
+                <strong>&nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0,
+                    0), 1.0f, 0);</strong><br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;BeginScene();<br>
+                <br>
+                &nbsp; &nbsp; // select which vertex format we are using<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetFVF(CUSTOMFVF);<br>
+                <br>
+                &nbsp; &nbsp; // set the view transform<br>
+                &nbsp; &nbsp; D3DXMATRIX matView; &nbsp; &nbsp;// the view transform matrix<br>
+                &nbsp; &nbsp; D3DXMatrixLookAtLH(&amp;matView,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                &amp;D3DXVECTOR3 (0.0f, 0.0f, 15.0f), &nbsp; // the camera position<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                &amp;D3DXVECTOR3 (0.0f, 0.0f, 0.0f), &nbsp; &nbsp;// the look-at position<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                &amp;D3DXVECTOR3 (0.0f, 1.0f, 0.0f)); &nbsp; &nbsp;// the up direction<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_VIEW, 
+&amp;matView); &nbsp; &nbsp;// set the view transform to matView<br>
+                <br>
+                &nbsp; &nbsp; // set the projection transform<br>
+                &nbsp; &nbsp; D3DXMATRIX matProjection; &nbsp; &nbsp;// the projection transform matrix<br>
+                &nbsp; &nbsp; D3DXMatrixPerspectiveFovLH(&amp;matProjection,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; D3DXToRadian(45), &nbsp; &nbsp;// the horizontal field of view<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp;(FLOAT)SCREEN_WIDTH / (FLOAT)SCREEN_HEIGHT, // aspect ratio<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; 1.0f, &nbsp; &nbsp;// the near view-plane<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; 100.0f); &nbsp; &nbsp;// the far view-plane<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_PROJECTION, &amp;matProjection);
+                &nbsp; &nbsp; // set the projection<br>
+                <br>
+                <br>
+                &nbsp; &nbsp; // select the vertex buffer to display<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+                <br>
+                &nbsp; &nbsp; D3DXMATRIX matTranslateA; &nbsp;&nbsp; // a matrix to store the translation
+                for triangle A<br>
+                &nbsp; &nbsp; D3DXMATRIX matTranslateB; &nbsp;&nbsp; // a matrix to store the translation
+                for triangle B<br>
+                &nbsp; &nbsp; D3DXMATRIX matRotateY; &nbsp;&nbsp; // a matrix to store the rotation
+                for each triangle<br>
+                &nbsp; &nbsp; static float index = 0.0f; index+=0.05f; // an ever-increasing float value<br>
+                <br>
+                &nbsp; &nbsp; // build MULTIPLE matrices to translate the model and one to rotate<br>
+                &nbsp; &nbsp; D3DXMatrixTranslation(&amp;matTranslateA, 0.0f, 0.0f, 2.0f);<br>
+                &nbsp; &nbsp; D3DXMatrixTranslation(&amp;matTranslateB, 0.0f, 0.0f, -2.0f);<br>
+                &nbsp; &nbsp; D3DXMatrixRotationY(&amp;matRotateY, index); &nbsp;&nbsp; // the
+                front side<br>
+                <br>
+                &nbsp; &nbsp; // tell Direct3D about each world transform, and then draw another triangle<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;(matTranslateA * matRotateY));<br>
+                &nbsp; &nbsp; d3ddev-&gt;DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;(matTranslateB *
+                matRotateY));<br>
+                &nbsp; &nbsp; d3ddev-&gt;DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;EndScene();&nbsp;<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL);<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that cleans up Direct3D and COM<br>
+                void cleanD3D(void)<br>
+                {<br>
+                &nbsp; &nbsp; v_buffer-&gt;Release(); &nbsp; &nbsp;// close and release the
+                vertex buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;Release(); &nbsp; &nbsp;// close and release the 3D device<br>
+                &nbsp; &nbsp; d3d-&gt;Release(); &nbsp; &nbsp;// close and release Direct3D<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that puts the 3D models into video RAM<br>
+                void init_graphics(void)<br>
+                {<br>
+                &nbsp; &nbsp; // create the vertices using the CUSTOMVERTEX struct<br>
+                    &nbsp; &nbsp; CUSTOMVERTEX vertices[] =
+                    <br>
+                    &nbsp; &nbsp; {<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 0.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 0.0f, 3.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 0.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+                    &nbsp; &nbsp; };<br>
+                <br>
+                &nbsp; &nbsp; // create a vertex buffer interface called v_buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;CreateVertexBuffer(3*sizeof(CUSTOMVERTEX),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; CUSTOMFVF,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; &amp;v_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; VOID* pVoid; &nbsp;&nbsp; // a void pointer<br>
+                <br>
+                &nbsp; &nbsp; // lock v_buffer and load the vertices into it<br>
+                &nbsp; &nbsp; v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                &nbsp; &nbsp; memcpy(pVoid, vertices, sizeof(vertices));<br>
+                &nbsp; &nbsp; v_buffer-&gt;Unlock();<br>
+                }</div>
+            <p>
+                If you run this program, you'll get two triangles rotating around each other.&nbsp;
+                This is a screenshot of what you'll get:</p>
+            <center>
+                <img alt="Image 6.5 - The Rotating Triangles" src="dx9B6.aspx_files/dx9B6-5.PNG"><br><br>
+                Image 6.5 - The Rotating Triangles
+            </center>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                Summary</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Now we are getting somewhere!&nbsp; Next, we'll learn to apply textures to our primitives,
+                as well as combine them to make shapes more interesting than mere triangles.&nbsp;
+                This particular lesson does not have anything major to learn, but I'd suggest modifying
+                the code until you are familiar with it, then doing these exercises:</p>
+            <p>
+                1.&nbsp; See what happens when you turn z-buffering off<br>
+                2.&nbsp; See what happens when you clear the z-buffer to 0.0f instead of 1.0f<br>
+                3.&nbsp; Study and change around the new transform code to become familiar
+                with how what was done</p>
+            <p>
+                When you're done (or if you're skipping out), let's find out how to combine these
+                triangles to make simple geometric shapes in actual 3D!</p>
+            <center>
+                <p>
+                    Next Lesson:&nbsp; Simple Modeling</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B7.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Help make DirectX Tutorial better.  <a class="feedlink" href="javascript:RunFeedback(26)">Rate this lesson</a>.</p>
+            </center>
+        </div>
+        
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B6.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

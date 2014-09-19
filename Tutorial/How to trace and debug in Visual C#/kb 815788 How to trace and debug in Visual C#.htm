@@ -1,0 +1,740 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" lang="en-us"><head><link title="Microsoft Support Search" type="application/opensearchdescription+xml" rel="search" href="http://support.microsoft.com/common/opensearchdescriptor.aspx?ln=en-us"><meta name="DCSext.sup_cid" content="815788"><meta name="DCSext.sup_cln" content="en-us"><meta name="DCSext.sup_ct" content="kb"><meta name="DCSext.sup_ln" content="en-us"><meta name="DCSext.sup_sd" content="gn"><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/jquery-1.js"></script><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/default.js"></script><script type="text/javascript">setcookieval("gssSITE","gn",'',true);</script><script type="text/javascript">setcookieval("gssTHEME","gn",'',true);</script><script type="text/javascript">setcookieval("gssTOOLBAR","gn",'',true);</script><meta property="fb:admins" content="100001817197721"><meta property="fb:app_id" content="119145894811383"><meta property="og:site_name" content="Microsoft Support"><meta property="og:type" content="website"><meta property="og:image" content="/library/images/support/en-us/Help_support_55.png"><meta property="og:url" content="http://support.microsoft.com/kb/815788"><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/widgets.js"></script><script type="text/javascript">var g_currentContent='kb\x3ben-us\x3b815788';</script><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/survey.js"></script><meta name="robots" content=""><meta name="Search.KeyWords" content="kbprogramming kbdebug kbnamespace kbhowtomaster KB815788"><meta name="Search.Assets" content="1"><meta name="Search.Retire" content="0"><meta name="Search.ContentType" content="kb"><meta name="Search.Title" content="How to trace and debug in Visual C#"><meta name="Search.KBParents" content="13103 12913 1117 10741 3041 10912 7797 1108 5605 2988 5604 2987"><meta name="Search.Description" content="Describes how to trace and debug in Visual C#. This article also provides some sample steps to explain related information."><meta name="Search.DateModified" content="2010-07-02T07:04:00"><meta name="Search.QueryWords" content=""><meta name="Search.Audiences" content="kbAudDeveloper"><meta name="Search.Products" content="536933 369404 375830 36701 36700"><meta name="KBParents" content="13103 12913 1117 10741 3041 10912 7797 1108 5605 2988 5604 2987"><meta name="Search.ContentID" content="815788"><meta name="Search.scid" content="kb;en-us;815788"><meta name="Search.MT" content="0"><meta name="Search.KB3" content="0"><meta name="Keywords" content="kbprogramming kbdebug kbnamespace kbhowtomaster KB815788"><meta name="Description" content="Describes how to trace and debug in Visual C#. This article also provides some sample steps to explain related information."><meta name="MS.LOCALE" content="en"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/search.js"></script><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/ac.js"></script><script type="text/javascript">var gCookieDomain='';var url_exactMatch='/select/Default.aspx?target=assistance';</script><title>How to trace and debug in Visual C#</title><xmlreader></xmlreader><link rel="stylesheet" type="text/css" href="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/default.css"><link rel="stylesheet" type="text/css" href="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/XmlContent.css"><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/kb.js"></script><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/stickypanel.js"></script><link rel="stylesheet" type="text/css" href="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/stickypanel.css"><link rel="stylesheet" type="text/css" href="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/branding.css">
+<!-- RESG: 1/5/2011 10:48:26 AM - RESX: 1/1/0001 12:00:00 AM -->
+<!-- (c) 2011 Microsoft Corporation. All Rights Reserved -->
+<style type="text/css">html body, html select, html input, html form, html textarea{font-family : Verdana, Arial, Helvetica, Sans-Serif;}</style><script type="text/javascript">var PersonalizationInfo='a2I4MTU3ODgIZW4tdXMISG93IHRvIHRyYWNlIGFuZCBkZWJ1ZyBpbiA_';</script><link rel="stylesheet" type="text/css" href="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/surveytrigger.css"><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/surveycookieutil.js"></script><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/surveytrigger.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_reset{background:none;border-spacing:0;border:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_link img{border:none}
+.fb_dialog{position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{background:rgba(82, 82, 82, .7);padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/zq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/zL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/zq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/zL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/zq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/zL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/ze/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/ze/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/ze/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/ze/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/zd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/z9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:right}
+.fb_iframe_widget{position:relative;display:-moz-inline-block;display:inline-block}
+.fb_iframe_widget iframe{position:relative;vertical-align:text-bottom}
+.fb_iframe_widget span{position:relative}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/z9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_button_simple,
+.fb_button_simple_rtl{background-image:url(http://static.ak.fbcdn.net/rsrc.php/zH/r/eIpbnVKI9lR.png);background-repeat:no-repeat;cursor:pointer;outline:none;text-decoration:none}
+.fb_button_simple_rtl{background-position:right 0}
+.fb_button_simple .fb_button_text{margin:0 0 0 20px;padding-bottom:1px}
+.fb_button_simple_rtl .fb_button_text{margin:0 10px 0 0}
+a.fb_button_simple:hover .fb_button_text,
+a.fb_button_simple_rtl:hover .fb_button_text,
+.fb_button_simple:hover .fb_button_text,
+.fb_button_simple_rtl:hover .fb_button_text{text-decoration:underline}
+.fb_button,
+.fb_button_rtl{background:#29447e url(http://static.ak.fbcdn.net/rsrc.php/zL/r/FGFbc80dUKj.png);background-repeat:no-repeat;cursor:pointer;display:inline-block;padding:0 0 0 1px;text-decoration:none;outline:none}
+.fb_button .fb_button_text,
+.fb_button_rtl .fb_button_text{background:#5f78ab url(http://static.ak.fbcdn.net/rsrc.php/zL/r/FGFbc80dUKj.png);border-top:solid 1px #879ac0;border-bottom:solid 1px #1a356e;color:#fff;display:block;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-weight:bold;padding:2px 6px 3px 6px;margin:1px 1px 0 21px;text-shadow:none}
+a.fb_button,
+a.fb_button_rtl,
+.fb_button,
+.fb_button_rtl{text-decoration:none}
+a.fb_button:active .fb_button_text,
+a.fb_button_rtl:active .fb_button_text,
+.fb_button:active .fb_button_text,
+.fb_button_rtl:active .fb_button_text{border-bottom:solid 1px #29447e;border-top:solid 1px #45619d;background:#4f6aa3;text-shadow:none}
+.fb_button_xlarge,
+.fb_button_xlarge_rtl{background-position:left -60px;font-size:24px;line-height:30px}
+.fb_button_xlarge .fb_button_text{padding:3px 8px 3px 12px;margin-left:38px}
+a.fb_button_xlarge:active{background-position:left -99px}
+.fb_button_xlarge_rtl{background-position:right -268px}
+.fb_button_xlarge_rtl .fb_button_text{padding:3px 8px 3px 12px;margin-right:39px}
+a.fb_button_xlarge_rtl:active{background-position:right -307px}
+.fb_button_large,
+.fb_button_large_rtl{background-position:left -138px;font-size:13px;line-height:16px}
+.fb_button_large .fb_button_text{margin-left:24px;padding:2px 6px 4px 6px}
+a.fb_button_large:active{background-position:left -163px}
+.fb_button_large_rtl{background-position:right -346px}
+.fb_button_large_rtl .fb_button_text{margin-right:25px}
+a.fb_button_large_rtl:active{background-position:right -371px}
+.fb_button_medium,
+.fb_button_medium_rtl{background-position:left -188px;font-size:11px;line-height:14px}
+a.fb_button_medium:active{background-position:left -210px}
+.fb_button_medium_rtl{background-position:right -396px}
+.fb_button_text_rtl,
+.fb_button_medium_rtl .fb_button_text{padding:2px 6px 3px 6px;margin-right:22px}
+a.fb_button_medium_rtl:active{background-position:right -418px}
+.fb_button_small,
+.fb_button_small_rtl{background-position:left -232px;font-size:10px;line-height:10px}
+.fb_button_small .fb_button_text{padding:2px 6px 3px;margin-left:17px}
+a.fb_button_small:active,
+.fb_button_small:active{background-position:left -250px}
+.fb_button_small_rtl{background-position:right -440px}
+.fb_button_small_rtl .fb_button_text{padding:2px 6px;margin-right:18px}
+a.fb_button_small_rtl:active{background-position:right -458px}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr{left:-4px}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_rtl{left:2px}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{left:0}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:10%}
+.fb_share_count_wrapper{position:relative;float:left}
+.fb_share_count{background:#b0b9ec none repeat scroll 0 0;color:#333;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;text-align:center}
+.fb_share_count_inner{background:#e8ebf2;display:block}
+.fb_share_count_right{margin-left:-1px;display:inline-block}
+.fb_share_count_right .fb_share_count_inner{border-top:solid 1px #e8ebf2;border-bottom:solid 1px #b0b9ec;margin:1px 1px 0 1px;font-size:10px;line-height:10px;padding:2px 6px 3px;font-weight:bold}
+.fb_share_count_top{display:block;letter-spacing:-1px;line-height:34px;margin-bottom:7px;font-size:22px;border:solid 1px #b0b9ec}
+.fb_share_count_nub_top{border:none;display:block;position:absolute;left:7px;top:35px;margin:0;padding:0;width:6px;height:7px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/zU/r/bSOHtKbCGYI.png)}
+.fb_share_count_nub_right{border:none;display:inline-block;padding:0;width:5px;height:10px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/zX/r/i_oIVTKMYsL.png);vertical-align:top;background-position:right 5px;z-index:10;left:2px;margin:0 2px 0 0;position:relative}
+.fb_share_no_count{display:none}
+.fb_share_size_Small .fb_share_count_right .fb_share_count_inner{font-size:10px}
+.fb_share_size_Medium .fb_share_count_right .fb_share_count_inner{font-size:11px;padding:2px 6px 3px;letter-spacing:-1px;line-height:14px}
+.fb_share_size_Large .fb_share_count_right .fb_share_count_inner{font-size:13px;line-height:16px;padding:2px 6px 4px;font-weight:normal;letter-spacing:-1px}
+.fb_share_count_hidden .fb_share_count_nub_top,
+.fb_share_count_hidden .fb_share_count_top,
+.fb_share_count_hidden .fb_share_count_nub_right,
+.fb_share_count_hidden .fb_share_count_right{visibility:hidden}
+</style></head><body onload="thisLoad();" onunload="thisUnload();">
+<style type="text/css">  
+    body 
+    {
+        
+            background:url('/library/images/support/cn/parent_bkgnd.png') repeat-x #FFFFFF;
+        
+    }
+
+    
+    #gsfx_brnd_PageHeaderImage 
+    {
+        background:url('/library/images/support/cn/mso_energy.jpg') no-repeat top center;
+    }
+    
+    
+    #gsfx_brnd_SiteHeaderImage
+    {
+        height:0px;
+    }
+    
+    
+    
+    .gsfx_brnd_NetworkLink, .gsfx_brnd_NetworkLink:visited, .gsfx_brnd_NetworkLink a, .gsfx_brnd_NetworkLink a:visited
+    {
+        color: #FFFFFF;
+    }
+    
+    .gsfx_brnd_NetworkLink:hover, .gsfx_brnd_NetworkLink:active, .gsfx_brnd_NetworkLink:focus, 
+    .gsfx_brnd_NetworkLink a:hover, .gsfx_brnd_NetworkLink a:active, .gsfx_brnd_NetworkLink a:focus
+    #gsfx_brnd_NetworkFooter .gsfx_brnd_NetworkLink:hover span, #gsfx_brnd_NetworkFooter .gsfx_brnd_NetworkLink:active span, #gsfx_brnd_NetworkFooter.gsfx_brnd_NetworkLink:focus span, 
+    #gsfx_brnd_NetworkFooter .gsfx_brnd_NetworkLink a:hover span, #gsfx_brnd_NetworkFooter .gsfx_brnd_NetworkLink a:active span, #gsfx_brnd_NetworkFooter .gsfx_brnd_NetworkLink a:focus span
+    {
+        color: #FE5815;
+        border-bottom-color: #FE5815;
+    }
+    
+    #gsfx_brnd_NetworkHeader, #gsfx_brnd_NetworkHeaderLinks
+    {
+        color: #ffffff;
+    }
+
+    #gsfx_brnd_SiteHeader, #gsfx_brnd_PageLogoWrapper, #gsfx_brnd_PageTitle, #gsfx_brnd_SearchWrapper a, #gsfx_bsrch_poweredbycell span
+    {
+        color: #ffffff;
+    }
+    
+    #gsfx_bsrch_catsel a, #gsfx_bsrch_catsel span
+    {
+        border-color: #ffffff;
+    }
+
+    #gsfx_brnd_SiteFooter, #gsfx_brnd_SiteFooterWrap
+    {
+        color: #398DCA;
+    }
+
+    #gsfx_brnd_NetworkFooter, #gsfx_brnd_FooterLinkContainer, #gsfx_brnd_FooterLinkContainer span, 
+    #gsfx_brnd_copyright_container, #gsfx_brnd_copyright_container span
+    {
+        color: #398DCA;
+    }
+        
+    
+    </style>
+<!--[if lte IE 6]>
+<style type="text/css">
+    #gsfx_brnd_PageHeaderImage {background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/cn/mso_energy.jpg', sizingMethod='image');}
+    #gsfx_brnd_SiteImgWedge {background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='', sizingMethod='scale');}    
+    #gsfx_brnd_PageLogo {visibility:hidden;}
+    #gsfx_brnd_legacy_PageLogo {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='', sizingMethod='image');}
+    #gsfx_brnd_MSLogo {visibility:hidden;}
+    #gsfx_brnd_legacy_MSLogo {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/cn/gsfx_brnd_ms_logo_sml_blk.png', sizingMethod='image');}
+</style>
+<![endif]-->
+
+
+<div id="gsfx_brnd_CenterContent">
+<div id="gsfx_brnd_PageWrapper">
+    <div style="height: 450px;" id="gsfx_brnd_PageContainer">
+        <div id="gsfx_brnd_PageHeaderImage"></div>    
+        <div id="gsfx_brnd_HeaderContainer">
+            <div id="gsfx_brnd_NetworkHeader">
+                <div id="gsfx_brnd_CorpMarketingContainer" class="gsfx_brnd_NetworkLeft">
+                    
+
+                    <div id="gsfx_brnd_CorpMarketingSpace" class="gsfx_brnd_NetworkLeft">
+                        
+                        <div class="gsfx_brnd_NetworkLink">
+                        
+                          <img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gsfx_EIE_icon_dkBG.png">
+                        
+                        <span>
+                        <a href="javascript:void(0);" id="L_191784">Experience a more beautiful web</a>
+                        </span>
+                        </div>
+                        <style type="text/css">
+                            #gsfx_brnd_CorpMarketingContainer
+                            {
+                                background : url('');
+                            }
+                            
+                            #gsfx_brnd_corpflyoutad_inner
+                            {
+                                width: 423;
+                                height: 133;
+                                background: url('/library/images/support/en-US/IE9_BG2-img.png');
+                            }
+                            #gsfx_brnd_corpflyoutad_go
+                            {
+                                position: absolute;
+                                left: 265;
+                                top: 96;
+                            }
+                            
+                        </style>                                                
+                        <script type="text/javascript">
+                            var gsfx_brnd_ad_pushenddate;
+                            var gsfx_brnd_ad_pushstartdate;
+                            try
+                            {
+                                gsfx_brnd_ad_pushenddate = new Date('July 1, 2011');
+                                gsfx_brnd_ad_pushstartdate = new Date('September 8, 2010');
+                            }
+                            catch(e)
+                            {
+                                gsfx_brnd_ad_pushenddate = null;
+                                gsfx_brnd_ad_pushstartdate = null;
+                            }
+                        </script>
+                        <div style="opacity: 0;" id="gsfx_brnd_corpflyoutad">
+                            <div id="gsfx_brnd_corpflyoutad_inner">
+                                <a href="javascript:void(0);" id="gsfx_brnd_corpflyoutad_close">
+                                    <img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gsfx_corpflyoutad_btn_close.png" alt="" onmouseover="this.src='/library/images/support/en-us/gsfx_corpflyoutad_btn_close_hover.png';" onmouseout="this.src='/library/images/support/en-us/gsfx_corpflyoutad_btn_close.png';" onmousedown="this.src='/library/images/support/en-us/gsfx_corpflyoutad_btn_close_hover.png';">
+                                </a><a href="http://clk.atdmt.com/MRT/go/264390693/direct;wi.1;hi.1/01/" id="gsfx_brnd_corpflyoutad_go">
+                                    <img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gsfx_corpflyoutad_go.png" alt="" onmouseover="this.src='/library/images/support/en-us/gsfx_corpflyoutad_go_hover.png';" onmouseout="this.src='/library/images/support/en-us/gsfx_corpflyoutad_go.png';" onmousedown="this.src='/library/images/support/en-us/gsfx_corpflyoutad_go_hover.png';">
+                                </a><a href="javascript:void(0);" id="gsfx_brnd_corpflyoutad_dontshow">
+                                    
+                                    <span>
+                                        Don't show me this again
+                                    </span>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--Table is used here in order to properly order the links for LTR and RTL while maintaining the correct tab order-->
+                <table summary="Network Header Links" id="gsfx_brnd_NetworkHeaderLinks" class="gsfx_brnd_NetworkRight">
+                    <tbody><tr>
+                        <td class="gsfx_brnd_NetworkLinkContainer">
+                            <span id="gsfx_brnd_LocalName">
+                                United States
+                            </span>
+                        </td>
+                        <td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink">
+                            <a href="http://support.microsoft.com/common/international.aspx" id="L_153552">Change</a>
+                        </td>
+                        
+                        <td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_HeaderSeperator">|</td>
+                        
+                        <td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink">
+                            <a href="http://www.microsoft.com/en/us/sitemap.aspx" id="L_153551">All Microsoft Sites</a>
+                        </td>
+                        
+                        
+                    </tr>
+                </tbody></table>
+            </div>
+            <div id="gsfx_brnd_SiteHeader">            
+                <div id="gsfx_brnd_SiteHeaderImageContainer">
+                    <div id="gsfx_brnd_SiteHeaderImage">
+                    
+                    </div>
+                </div>
+                
+                <div id="gsfx_brnd_PageLogoWrapper" class="gsfx_brnd_NetworkLeft">
+                    <a id="gsfx_brnd_PageLogoLink" href="http://www.microsoft.com/"></a>
+                    <span id="gsfx_brnd_PageTitle"><a href="http://support.microsoft.com/" style="color: white; text-decoration: none;">Microsoft Support</a></span>
+                </div>
+                <div id="gsfx_brnd_SearchWrapper" class="gsfx_brnd_NetworkRight">
+                    
+<form id="frmsrch" action="/search/default.aspx" onsubmit="return SaveSimpleSearch();" method="get">
+    <style type="text/css">
+    #gsfx_cat_sel_ie6
+    {
+    	visibility:hidden;
+    }
+    </style>
+    <script type="text/javascript">setACStartChars('4:');</script>    
+    <!--[if lte IE 6]>
+    <style type="text/css">
+    .gsfx_bsrch_container
+    {
+        background-image:none;
+    }
+    .gsfx_bsrch_container1
+    {
+        display:none;
+        position:absolute;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/cn/ss_live_glass_border.png');
+    }
+    #gsfx_cat_sel
+    {
+        background-image:none;
+    }
+    #gsfx_cat_sel_ie6
+    {
+        position:absolute;
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/cn/ss_dd_select1.png');
+        visibility:visible;
+        width:12px;
+        height:24px;
+    }
+    </style>
+    <div id="gsfx_bsrch_bg_ie6" class="gsfx_bsrch_container gsfx_bsrch_container1" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/cn/ss_live_glass_border.png');"></div>
+<![endif]-->
+    <div id="gsfx_bsrch_bg" class="gsfx_bsrch_container">
+    <div id="gsfx_bsrch_divQuery" style="width: 304px;">
+        <input id="idTxtFld" type="hidden"><input id="gsfx_bsrch_query" style="width: 272px;" name="query" maxlength="200" value="Search Microsoft Support" class="siteseltxt" autocomplete="off" type="text">
+        <!--span class="gsfx_bsrch_buttonwrap" id="gsfx_bsrch_websrch"-->
+            <!--input type="image" id="gsfx_bsrch_btnimg" onclick="submitSimpleSearch('http://www.bing.com/search?mkt=en-us&q=', $('#gsfx_bsrch_query').get(0).value);" /-->
+            <input alt="" class="gsfx_img_png" style="width: 20px; height: 20px;" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/ss_live_button.png" onclick="return SaveSimpleSearch();" id="gsfx_bsrch_btnimg" type="image"><!--[if lte IE 6]><input type="image" src="/library/images/support/cn/onepix.gif" alt="" class="gsfx_div_png" style="width:20px;height:20px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/CN/ss_live_button.png', sizingMethod='scale');" onclick="return SaveSimpleSearch();" id="gsfx_bsrch_btnimg" /><![endif]-->
+            
+        <!--/span-->
+    <div style="position: relative; width: 150px; height: 0px; margin-left: -1px;" id="acListWrappergsfx_bsrch_query"><div style="padding: 6px 1px 6px 10px; margin: 0px; visibility: hidden; z-index: 99; position: absolute; line-height: 18px; width: 150px; border-width: 0px 1px; border-style: none solid; border-color: rgb(51, 107, 149); overflow: hidden; background: url(&quot;/library/images/support/cn/ss_section2.png&quot;) no-repeat scroll left top rgb(255, 255, 255); font-size: 0.7em; font-family: Verdana,Arial,Helvetica,Sans-Serif;" id="acListDivgsfx_bsrch_query"></div><div style="display: none;" id="gsfx_bsrch_options"><div style="width: 306px;" id="gsfx_bsrch_options_subcntr"><div style="cursor: default;" class="gsfx_optsub_cotnr"><div class="gsfx_srchoptimg_cotnr"><img style="display: block;" class="gsfx_bsrch_chkimg" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/ss_check.png" id="gsfx_bsrch_sitesel_img0"></div><div style="font-weight: bold;" class="gsfx_srchsitename_cotnr" id="gsfx_srchsitename_div0">Search Microsoft Support</div></div><div class="gsfx_optsub_cotnr"><div class="gsfx_srchoptimg_cotnr"><img class="gsfx_bsrch_chkimg" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/ss_check.png" id="gsfx_bsrch_sitesel_img1"></div><div class="gsfx_srchsitename_cotnr" id="gsfx_srchsitename_div1">Search Microsoft.com</div></div><div class="gsfx_optsub_cotnr"><div class="gsfx_srchoptimg_cotnr"><img class="gsfx_bsrch_chkimg" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/ss_check.png" id="gsfx_bsrch_sitesel_img2"></div><div class="gsfx_srchsitename_cotnr" id="gsfx_srchsitename_div2">Search the web</div></div></div></div></div></div>
+    
+    <div id="gsfx_cat_sel" onmouseover="ChangeBackground(this, true)" onmouseout="ChangeBackground(this, false)" onclick="ShowHideLangSel(event)" style="display: none;">
+    <div id="gsfx_cat_sel_ie6" onmouseover="ChangeBackground(this, true)" onmouseout="ChangeBackground(this, false)" style="display: none;"></div>
+    
+        
+                <input id="catalog" name="catalog" value="LCID=1033" type="hidden">
+    
+
+    </div>
+    <div id="gsfx_bsrch_logo_div">
+    <img alt="" class="gsfx_img_png" style="width: 51px; height: 17px;" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/bing_logo_white.png" onclick="CallWebSearch('http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d','http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d');" id="gsfx_bsrch_logo"><!--[if lte IE 6]><div alt="" class="gsfx_div_png" style="width:51px;height:17px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/CN/bing_logo_white.png', sizingMethod='scale');" onclick="CallWebSearch('http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d','http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d');" id="gsfx_bsrch_logo"></div><![endif]-->
+    </div>
+    <br>
+    </div>
+    <script type="text/javascript">try{MS.Support.AC.MakeAutoComplete({id:'gsfx_bsrch_query', lcid:'1033', acURL:'http://autocomplete.support.microsoft.com', statsObj:StatsDotNet, startChar:'4', bubbleside:'left'});}catch(e){}</script><script type="text/javascript">supportedSites.push(new Site('Search Microsoft Support', '\x2fsearch\x2fdefault.aspx', true));supportedSites.push(new Site('Search Microsoft.com', 'http\x3a\x2f\x2fsearch.microsoft.com\x2fresults.aspx\x3fmkt\x3den-us\x26q\x3d', false));supportedSites.push(new Site('Search the web', 'http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d', false));</script>
+    
+        <!--div id="gsfx_bsrch_poweredbycell" class="gsfx_brnd_NetworkTextRight">
+            
+        </div-->
+    
+        
+    <div class="hiddenformels">
+        <input name="mode" value="r" type="hidden">
+    </div>
+    <noscript>
+        <style type="text/css">
+            #gsfx_bsrch_catsel a {display:none;} 
+            #gsfx_bsrch_websrch {display:none;}
+            #gsfx_bsrch_query{font-style:normal;color:Black;}
+        </style>
+        <!--[if lte IE 6]>
+        <style>
+        #gsfx_bsrch_bg_ie6{display:block;right:1px}
+        </style><![endif]-->
+    </noscript>
+</form>
+                </div>
+            </div>
+        </div>
+        <div id="gsfx_brnd_TopCorners" class="gsfx_brnd_CornerContainer">
+            <div class="gsfx_brnd_TBBorders gsfx_brnd_TransBG" id="gsfx_brnd_TopBorder">
+            </div>
+            <div class="gsfx_brnd_Corner" id="gsfx_brnd_LUpperCorner">
+            </div>
+        </div>
+        <div id="gsfx_brnd_LocalToolBar" class="gsfx_brnd_TransBG gsfx_brnd_SideBorder"><ul id="gsfx_brnd_LocalLinks"><li class="gsfx_brnd_LocalLink"><a href="http://support.microsoft.com/" id="L_153581"><span>Support Home</span></a></li><li class="gsfx_brnd_LocalSeperator">&nbsp;</li><li class="gsfx_brnd_LocalLink"><a href="http://support.microsoft.com/select/?target=hub" id="L_153582"><span>Solution Centers</span></a></li><li class="gsfx_brnd_LocalSeperator">&nbsp;</li><li class="gsfx_brnd_LocalLink"><a href="http://support.microsoft.com/search/?adv=1" id="L_153583"><span>Advanced Search</span></a></li><li class="gsfx_brnd_LocalSeperator">&nbsp;</li><li class="gsfx_brnd_LocalLink"><a href="http://store.microsoft.com/home.aspx?WT.mc_id=SMCBAR_ENUS_TEXT_BUY" id="L_195944"><span>Buy Products</span></a></li></ul></div>
+        
+        <div id="gsfx_brnd_ToolbarShadow" class="gsfx_brnd_TransBG gsfx_brnd_SideBorder"><div id="gsfx_brnd_shadow"></div></div>
+        
+        <div id="gsfx_brnd_ContentContainer" class="gsfx_brnd_TransBG gsfx_brnd_SideBorder">
+            <div style="height: 266px;" id="contentArea">            
+
+<div id="mainRow"><div class="primaryTable"><table class="primaryTable" cellpadding="0" cellspacing="0"><tbody><tr><td class="primaryMainColumn"><div id="mainColumn"><div style="display: block;" class="SocialMedia"><div class="SocialMedia_out"><div class="smlist"><a href="mailto:?subject=How%20to%20trace%20and%20debug%20in%20Visual%20C%23&amp;body=http%3a%2f%2fsupport.microsoft.com%2fkb%2f815788" id="EmailPage" title="E-mail this page" onclick="return MS_HandleClick(this,'SupportTools', true);"><img alt="E-mail this page" class="gsfx_img_png" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/email_20x.png"></a></div><div class="smlist"><a href="http://support.microsoft.com/gp/noscript" id="PrintPage" title="Print this page" onclick="return MS_HandleClick(this,'SupportTools', true);"><img alt="Print this page" class="gsfx_img_png" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/printer_20x.png"></a></div><div class="smlist"><iframe title="Twitter For Websites: Tweet Button" style="width: 110px; height: 20px;" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/tweet_button.htm" allowtransparency="true" tabindex="0" class="twitter-share-button twitter-count-horizontal" frameborder="0" scrolling="no"></iframe></div><div class="smlist"><fb:like class=" fb_edge_widget_with_comment fb_iframe_widget" href="http://support.microsoft.com/kb/815788" show_faces="false" height="21" width="87" layout="button_count"><span><iframe src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/like.htm" class="fb_ltr" title="Like this content on Facebook." style="border: medium none; overflow: hidden; height: 20px; width: 90px;" name="f2cae8fb1de2514" id="f1e2ab3570b036a" scrolling="no"></iframe></span></fb:like></div><div class="smlist"><a title="Share on Windows Live" rel="nofollow" href="javascript:AddtoSocialMedia('Live','smcsocialbookmark','https://favorites.live.com/quickadd.aspx?marklet=1&amp;url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/windows_16.png" alt="Share on Windows Live"></a></div><div name="gss_socialmedia" class="gss_socialmedia"><a class="SM_Collapse" href="javascript:void(0);" onclick="SMCollapseExpand(this)"></a><div class="SMdetail" name="gss_SocialMedia_detail" style="display: none;"><div class="SMdetail_inner"><div class="smrow"><div><a title="Share on Facebook" rel="nofollow" href="javascript:AddtoSocialMedia('Facebook','smcsocialbookmark','http://www.facebook.com/share.php?u=','');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/facebook_16.png" alt="Share on Facebook"><span>Facebook</span></a></div><div><a title="Share on Twitter" rel="nofollow" href="javascript:AddtoSocialMedia('Twitter','smcsocialbookmark','http://twitter.com/share/?url=','&amp;text=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/twitter_16.png" alt="Share on Twitter"><span>Twitter</span></a></div></div><div class="smrow"><div><a title="Share on Linkedin" rel="nofollow" href="javascript:AddtoSocialMedia('linkedin','smcsocialbookmark','http://www.linkedin.com/shareArticle?url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/linkedin_16.png" alt="Share on Linkedin"><span>Linkedin</span></a></div><div><a title="Share on Digg it" rel="nofollow" href="javascript:AddtoSocialMedia('diggit','smcsocialbookmark','http://digg.com/submit?url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/digg_alt_16.png" alt="Share on Digg it"><span>Digg it</span></a></div></div><div class="smrow"><div><a title="Share on Yahoo" rel="nofollow" href="javascript:AddtoSocialMedia('Yahoo','smcsocialbookmark','http://bookmarks.yahoo.com/toolbar/savebm?u=','&amp;t=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/yahoo_16.png" alt="Share on Yahoo"><span>Yahoo</span></a></div><div><a title="Share on Delicious" rel="nofollow" href="javascript:AddtoSocialMedia('delicious','smcsocialbookmark','http://www.delicious.com/save?url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/delicious_16.png" alt="Share on Delicious"><span>Delici..</span></a></div></div><div class="smrow"><div><a title="Share on StumbleUpon" rel="nofollow" href="javascript:AddtoSocialMedia('StumbleUpon','smcsocialbookmark','http://www.stumbleupon.com/submit?url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/stumbleupon_16.png" alt="Share on StumbleUpon"><span>Stumbl..</span></a></div><div><a title="Share on Yammer" rel="nofollow" href="javascript:AddtoSocialMedia('yammer','smcsocialbookmark','https://www.yammer.com/home/bookmarklet?v=1&amp;u=','&amp;t=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/yammer_16.png" alt="Share on Yammer"><span>Yammer</span></a></div></div><div class="smrow"><div><a title="Share on Reddit" rel="nofollow" href="javascript:AddtoSocialMedia('Reddit','smcsocialbookmark','http://www.reddit.com/submit?url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/reddit_16.png" alt="Share on Reddit"><span>Reddit</span></a></div><div><a title="Share on Technorati" rel="nofollow" href="javascript:AddtoSocialMedia('technorati','smcsocialbookmark','http://technorati.com/faves?add=','');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/technorati_16.png" alt="Share on Technorati"><span>Techno..</span></a></div></div><div class="smrow"><div><a title="Share on FriendFeed" rel="nofollow" href="javascript:AddtoSocialMedia('FriendFeed','smcsocialbookmark','http://friendfeed.com/share?url=','');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/friendfeed_16.png" alt="Share on FriendFeed"><span>Friend..</span></a></div></div></div></div></div></div></div><div id="kb" class="kb"><div id="kb_default" class="kb_default ltr"><!-- - -KB 3 start- - --><a id="top"></a><div class="articleProperty">Article ID: 815788 - Last Review: July 2, 2010 - Revision: 5.0</div><h1 class="title">How to trace and debug in Visual C#</h1><div class="appliesToLink"><a href="#appliesto">View products that this article applies to.</a></div><script type="text/javascript">if (!loadTOCNode) {var loadTOCNode = function(){}}</script><div class="notice"><div class="notice"> For a Microsoft Visual Basic .NET version of this
+				  article, see
+				  <a class="KBlink" href="http://support.microsoft.com/kb/313417/EN-US/">313417 </a>&nbsp;
+                            <span class="pLink">
+            (http://support.microsoft.com/kb/313417/EN-US/
+                        )
+        </span>. </div></div><div id="kb_section" class="section"><h2 previewfixed="true" class="subTitle kb_tabs_toggle_closed" id="tocTitle"><div class="kb_tabs_toggle kb_tabs_toggle_open"></div><span><a href="javascript:void(0);">On This Page</a></span><div class="sectionpreview_open"></div></h2><div style="margin-left: 195px; display: none;" class="sbody kb_tabs_toggle_closed" id="tocDiv"><ul style="display: block;"><li><a href="#" onclick="return tocScrollTo(this);"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/downarrow.gif" alt=""><span class="tocTxt">SUMMARY</span></a><ul class="tocLine"><li><a href="#" onclick="return tocScrollTo(this);"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/downarrow.gif" alt=""><span class="tocTxt">Requirements</span></a><ul class="tocLine"></ul></li><li><a href="#" onclick="return tocScrollTo(this);"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/downarrow.gif" alt=""><span class="tocTxt">Description Of  Technique</span></a><ul class="tocLine"></ul></li><li><a href="#" onclick="return tocScrollTo(this);"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/downarrow.gif" alt=""><span class="tocTxt">Create a Sample with the Debug Class</span></a><ul class="tocLine"></ul></li><li><a href="#" onclick="return tocScrollTo(this);"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/downarrow.gif" alt=""><span class="tocTxt"> Using the Trace Class
+					 </span></a><ul class="tocLine"></ul></li><li><a href="#" onclick="return tocScrollTo(this);"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/downarrow.gif" alt=""><span class="tocTxt">
+
+
+
+Verify That It Works</span></a><ul class="tocLine"></ul></li><li><a href="#" onclick="return tocScrollTo(this);"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/downarrow.gif" alt=""><span class="tocTxt">Complete Code
+					 Listing</span></a><ul class="tocLine"></ul></li><li><a href="#" onclick="return tocScrollTo(this);"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/downarrow.gif" alt=""><span class="tocTxt">Troubleshoot</span></a><ul class="tocLine"></ul></li></ul></li><li><a href="#" onclick="return tocScrollTo(this);"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/downarrow.gif" alt=""><span class="tocTxt">REFERENCES</span></a><ul class="tocLine"></ul></li></ul></div><script type="text/javascript">
+            var sectionFilter = "type != 'notice' && type != 'securedata' && type != 'querywords'";
+            var tocArrow = "/library/images/support/kbgraphics/public/en-us/downarrow.gif";
+            var depthLimit = 10;
+            var depth3Limit = 10;
+            var depth4Limit = 5;
+            var depth5Limit = 3;
+            var tocEntryMinimum = 1;
+        </script><noscript><style>#tocTitle, #tocDiv{display: none;}</style></noscript><div id="kb_expandcollapseall" class="expandcollapseall_open"><a href="javascript:void(0);" class="expandalltext">Expand all</a> | <a href="javascript:void(0);" class="collapsealltext">Collapse all</a><script type="text/javascript">
+                    if (kb_page_object)
+                    {
+                    kb_page_object.kb_imageExpandHoverText = 'Click to expand this image';
+                    }
+                </script></div><h2 class="subTitle" id="tocHeadRef"><div class="kb_tabs_toggle kb_tabs_toggle_open"></div><span><a href="javascript:void(0);">SUMMARY</a></span><div class="sectionpreview_closed">This article describes how to use the Debug and the Trace classes. These classes...</div></h2><script type="text/javascript">
+                            loadTOCNode(1, 'summary');
+                        </script><div style="margin-left: 195px;" class="sbody">This article describes how to use the <b>Debug</b> and the <b>Trace</b> classes. These classes are available in the Microsoft .NET
+		  Framework. You can use these classes to provide information about the
+		  performance of an application either during application development, or after
+		  deployment to production. These classes are only one part of the
+		  instrumentation features that are available in the .NET Framework.
+		  <br><br><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef"><span><a id="3"></a></span>Requirements</h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script>The following list outlines the recommended hardware, software,
+		  network infrastructure, and service packs that you need:<br><ul><li> Microsoft Windows 2000 or Microsoft Windows XP or Microsoft Windows Server 2003</li><li>Microsoft Visual C#</li></ul> This article also assumes that you are familiar with program
+		  debugging.<br><br><span><a id="4"></a></span><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef">Description Of  Technique</h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script><br>The steps in the <span><a href="#5">Create a
+		  Sample with the Debug Class </a></span>section demonstrate how to create a
+		  console application that uses the <b>Debug</b> class to provide information about the program execution.
+		  <br><br>When the program is run, you can use methods of the <b>Debug</b> class to produce messages that help you to monitor the program
+		  execution sequence, to detect malfunctions, or to provide performance
+		  measurement information. By default, the messages that the <b>Debug</b> class produces appear in the Output window of the Visual Studio
+		  Integrated Development Environment (IDE). <br><br>The sample code uses the <b>WriteLine</b> method to produce a message that is followed by a line
+		  terminator. When you use this method to produce a message, each message appears
+		  on a separate line in the Output window. <br><br>When you use the <b>Assert</b> method of the <b>Debug</b> class, the Output window displays a message only if a specified
+		  condition evaluates to false. The message also appears in a modal dialog box to
+		  the user. The dialog box includes the message, the project name, and the <b>Debug.Assert</b> statement number. The dialog box also includes the following
+		  three command buttons: <br><ul><li><strong class="uiterm">Abort: </strong>The application stops running.
+				</li><li><strong class="uiterm">Retry: </strong>The application enters debug mode.
+				</li><li><strong class="uiterm">Ignore: </strong>The application
+				proceeds.</li></ul>The user must click one of these buttons before the application
+		  can continue. <br><br>You can also direct output from the <b>Debug</b> class to destinations other than the Output window. The <b>Debug</b> class has a collection named <b>Listeners</b> that includes <b>Listener</b> objects.<br><br> Each <b>Listener</b> object monitors <b>Debug</b> output and directs the output to a specified target.
+		  <br><br>Each <b>Listener</b> in the <b>Listener</b> collection receives any output that the <b>Debug</b> class generates. Use the <b>TextWriterTraceListener</b> class to define <b>Listener</b> objects. You can specify the target for a <b>TextWriterTraceListener</b> class through its constructor. <br><br>Some possible output
+		  targets include the following: 
+		  <ul><li>The Console window by using the <b>System.Console.Out</b> property.</li><li> A text (.txt) file by using the <b>System.IO.File.CreateText("FileName.txt")</b> statement. </li></ul>After you create a <b>TextWriterTraceListener</b> object, you must add the object to the <b>Debug.Listeners</b> collection to receive Debug output. <br><br><span><a id="5"></a></span><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef">Create a Sample with the Debug Class</h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script><ol><li>Start Visual Studio or Visual C# Express Edition. </li><li>Create a new Visual C# Console Application project
+				named <span class="userInput">conInfo</span>. Class1 is created in Visual Studio .NET. Program.cs is created in Visual Studio 2005.</li><li>Add the following namespace at top in Class1 or Program.cs.<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">using System.Diagnostics;</pre></div></div></li><li>To initialize variables to contain information about a
+				product, add the following declaration statements to <b>Main</b> method:<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">string sProdName = "Widget";
+int iUnitQty = 100;
+double dUnitCost = 1.03;</pre></div></div></li><li>Specify the message that the class produces as the first
+				input parameter of the <b>WriteLine</b> method. Press the CTRL+ALT+O key combination to make sure that
+				the Output window is visible. <div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">Debug.WriteLine("Debug Information-Product Starting ");</pre></div></div></li><li>For readability, use the <b>Indent</b> method to indent subsequent messages in the Output window:<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">Debug.Indent();</pre></div></div></li><li>To display the content of selected variables, use the <b>WriteLine</b> method as follows:<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">Debug.WriteLine("The product name is " + sProdName);
+Debug.WriteLine("The available units on hand are" + iUnitQty.ToString());
+Debug.WriteLine("The per unit cost is " + dUnitCost.ToString());</pre></div></div></li><li>You can also use the <b>WriteLine</b> method to display the namespace and the class name for an
+				existent object. For example, the following code displays the <b>System.Xml.XmlDocument</b> namespace in the Output window:<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">System.Xml.XmlDocument oxml = new System.Xml.XmlDocument();
+Debug.WriteLine(oxml);</pre></div></div></li><li> To organize the output, you can include a category as an
+				optional, second input parameter of the <b>WriteLine</b> method. If you specify a category, the format of the Output
+				window message is "category: message." For example, the first line of the
+				following code displays "Field: The product name is Widget" in the Output
+				window: <div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">Debug.WriteLine("The product name is " + sProdName,"Field");
+Debug.WriteLine("The units on hand are" + iUnitQty,"Field");
+Debug.WriteLine("The per unit cost is" + dUnitCost.ToString(),"Field");
+Debug.WriteLine("Total Cost is  " + (iUnitQty * dUnitCost),"Calc");</pre></div></div></li><li> The Output window can display messages only if a
+				designated condition evaluates to true by using the <b>WriteLineIf</b> method of the <b>Debug</b> class. The condition to be evaluated is the first input parameter
+				of the <b>WriteLineIf</b> method. The second parameter of <b>WriteLineIf</b> is the message that appears only if the condition in the first
+				parameter evaluates to true.<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">Debug.WriteLineIf(iUnitQty &gt; 50, "This message WILL appear");
+Debug.WriteLineIf(iUnitQty &lt; 50, "This message will NOT appear");
+</pre></div></div></li><li>Use the <b>Assert</b> method of the <b>Debug</b> class so that the Output window displays the message only if a
+				specified condition evaluates to false:<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">Debug.Assert(dUnitCost &gt; 1, "Message will NOT appear");
+Debug.Assert(dUnitCost &lt; 1, "Message will appear since dUnitcost &lt; 1 is false");
+</pre></div></div></li><li>Create the <b>TextWriterTraceListener</b> objects for the Console window (tr1) and for a text file named
+				Output.txt (tr2), and then add each object to the <b>Debug Listeners</b> collection:<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">TextWriterTraceListener tr1 = new TextWriterTraceListener(System.Console.Out);
+Debug.Listeners.Add(tr1);
+        
+TextWriterTraceListener tr2 = new TextWriterTraceListener(System.IO.File.CreateText("Output.txt"));
+Debug.Listeners.Add(tr2);</pre></div></div></li><li>For readability, use the <b>Unindent</b> method to remove the indentation for subsequent messages that the
+				<b>Debug</b> class generates. When you use the <b>Indent</b> and the <b>Unindent</b> methods together, the reader can distinguish the output as group.<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">Debug.Unindent();
+Debug.WriteLine("Debug Information-Product Ending");</pre></div></div></li><li>To make sure that each <b>Listener</b> object receives all its output, call the <b>Flush</b> method for the <b>Debug</b> class buffers:<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">Debug.Flush();</pre></div></div></li></ol><span><a id="6"></a></span><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef"> Using the Trace Class
+					 </h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script>You can also use the <b>Trace</b> class to produce messages that monitor the execution of an
+		  application. The <b>Trace</b> and <b>Debug</b> classes share most of the same methods to produce output,
+		  including the following: 
+		  <ul><li><strong class="uiterm">WriteLine</strong></li><li><strong class="uiterm">WriteLineIf </strong></li><li><strong class="uiterm">Indent</strong></li><li><strong class="uiterm">Unindent</strong></li><li><strong class="uiterm">Assert </strong></li><li><strong class="uiterm">Flush</strong></li></ul>You can use the <b>Trace</b> and the <b>Debug</b> classes separately or together in the same application. In a
+		  Debug Solution Configuration project, both <b>Trace</b> and <b>Debug</b> output are active. The project generates output from both of
+		  these classes to all <b>Listener</b> objects. However, a Release Solution Configuration project only
+		  generates output from a <b>Trace</b> class. The Release Solution Configuration project ignores any <b>Debug</b> class method invocations.<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">Trace.WriteLine("Trace Information-Product Starting ");
+Trace.Indent();
+
+Trace.WriteLine("The product name is "+sProdName);
+Trace.WriteLine("The product name is"+sProdName,"Field" );
+Trace.WriteLineIf(iUnitQty &gt; 50, "This message WILL appear");
+Trace.Assert(dUnitCost &gt; 1, "Message will NOT appear");
+        
+Trace.Unindent();
+Trace.WriteLine("Trace Information-Product Ending");
+
+Trace.Flush();
+
+Console.ReadLine();
+</pre></div></div><span><a id="7"></a></span><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef">
+
+
+
+Verify That It Works</h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script><ol><li>Make sure that <b>Debug</b> is the current solution configuration. </li><li> If the<strong class="uiterm"> Solution Explorer</strong> window is not
+				visible, press the CTRL+ALT+L key combination to display this
+				window.</li><li>Right-click <strong class="uiterm">conInfo</strong>, and then click
+				<strong class="uiterm">Properties</strong>. </li><li>In the left pane of the conInfo property page, under the
+				<strong class="uiterm">Configuration</strong> folder, make sure that the arrow points to
+				<strong class="uiterm">Debugging</strong>.<br><br><b>Note</b> In Visual C# 2005 and in Visual C# 2005 Express Edition, click <strong class="uiterm">Debug</strong> in the <strong class="uiterm">conInfo</strong> page.</li><li>Above the <strong class="uiterm">Configuration</strong> folder, in the
+				<strong class="uiterm">Configuration</strong> drop-down list box, click <strong class="uiterm">Active
+				(Debug)</strong> or <strong class="uiterm">Debug</strong>, and then click
+				<strong class="uiterm">OK</strong>. In Visual C# 2005 and in Visual C# 2005 Express Edition, click <strong class="uiterm">Active (Debug)</strong> or <strong class="uiterm">Debug</strong> in the <strong class="uiterm">Configuration</strong> drop-down list box in the <strong class="uiterm">Debug</strong> page, and then click <strong class="uiterm">Save</strong> on the <strong class="uiterm">File</strong> menu.</li><li>Press CTRL+ALT+O to display the Output window.</li><li> Press the F5 key to run the code. When the
+				<strong class="uiterm">Assertion Failed</strong> dialog box appears, click
+				<strong class="uiterm">Ignore</strong>.</li><li>In the Console window, press ENTER. The program should
+				finish, and the Output window should display the output that resembles the following<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">    Debug Information-Product Starting 
+    The product name is Widget
+    The available units on hand are100
+    The per unit cost is 1.03
+    System.Xml.XmlDocument
+    Field: The product name is Widget
+    Field: The units on hand are100
+    Field: The per unit cost is1.03
+    Calc: Total Cost is  103
+    This message WILL appear
+    ---- DEBUG ASSERTION FAILED ----
+---- Assert Short Message ----
+Message will appear since dUnitcost  &lt; 1 is false
+---- Assert Long Message ----
+
+
+    at Class1.Main(String[] args)  &lt;%Path%&gt;\class1.cs(34)
+
+    The product name is Widget
+    The available units on hand are100
+    The per unit cost is 1.03
+Debug Information-Product Ending
+Trace Information-Product Starting 
+    The product name is Widget
+    Field: The product name isWidget
+    This message WILL appear
+Trace Information-Product Ending
+                    
+</pre></div></div></li><li>The Console window and the Output.txt file should display
+				the following output:<div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">The product name is Widget
+    The available units on hand are 100
+    The per unit cost is 1.03
+Debug Information-Product Ending
+Trace Information-Product Starting 
+    The product name is Widget
+    Field: The product name is Widget
+    This message WILL appear
+Trace Information-Product Ending			
+</pre></div></div></li></ol><b>Note</b> The Output.txt file is located in the same directory as the
+		  conInfo executable (conInfo.exe). Typically, this is the \bin folder where the
+		  project source is stored. By default, this is C:\Documents and Settings\<var>User
+		  login</var>\My Documents\Visual Studio Projects\conInfo\bin. In 
+Visual C# 2005 and in Visual C# 2005 Express Edition, the Output.txt 
+file is located in the following folder:<div class="indent">C:\Documents and Settings\<var>User login</var>\My Documents\Visual Studio 2005\Projects\conInfo\conInfo\bin\Debug</div><br><br><span><a id="8"></a></span><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef">Complete Code
+					 Listing</h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script><div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">   using System;
+   using System.Diagnostics;
+
+   class Class1
+   {
+      [STAThread]
+      static void Main(string[] args)
+      {
+         string sProdName = "Widget";
+         int iUnitQty = 100;
+         double  dUnitCost = 1.03;
+         Debug.WriteLine("Debug Information-Product Starting ");
+         Debug.Indent();
+         Debug.WriteLine("The product name is "+sProdName);
+         Debug.WriteLine("The available units on hand are"+iUnitQty.ToString());
+         Debug.WriteLine("The per unit cost is "+ dUnitCost.ToString());
+
+         System.Xml.XmlDocument oxml = new System.Xml.XmlDocument();
+         Debug.WriteLine(oxml);
+
+         Debug.WriteLine("The product name is "+sProdName,"Field");
+         Debug.WriteLine("The units on hand are"+iUnitQty,"Field");
+         Debug.WriteLine("The per unit cost is"+dUnitCost.ToString(),"Field");
+         Debug.WriteLine("Total Cost is  "+(iUnitQty * dUnitCost),"Calc");
+
+         Debug.WriteLineIf(iUnitQty &gt; 50, "This message WILL appear");
+         Debug.WriteLineIf(iUnitQty &lt; 50, "This message will NOT appear");
+
+         Debug.Assert(dUnitCost &gt; 1, "Message will NOT appear");
+         Debug.Assert(dUnitCost &lt; 1, "Message will appear since dUnitcost  &lt; 1 is false");
+
+         TextWriterTraceListener tr1 = new TextWriterTraceListener(System.Console.Out);
+         Debug.Listeners.Add(tr1);
+        
+         TextWriterTraceListener tr2 = new TextWriterTraceListener(System.IO.File.CreateText("Output.txt"));
+         Debug.Listeners.Add(tr2);
+         
+ 
+         Debug.WriteLine("The product name is "+sProdName);
+         Debug.WriteLine("The available units on hand are"+iUnitQty);
+         Debug.WriteLine("The per unit cost is "+dUnitCost);
+         Debug.Unindent();
+         Debug.WriteLine("Debug Information-Product Ending");
+         Debug.Flush();
+         
+         Trace.WriteLine("Trace Information-Product Starting ");
+         Trace.Indent();
+
+         Trace.WriteLine("The product name is "+sProdName);
+         Trace.WriteLine("The product name is"+sProdName,"Field" );
+         Trace.WriteLineIf(iUnitQty &gt; 50, "This message WILL appear");
+         Trace.Assert(dUnitCost &gt; 1, "Message will NOT appear");
+        
+
+         Trace.Unindent();
+         Trace.WriteLine("Trace Information-Product Ending");
+
+         Trace.Flush();
+
+         Console.ReadLine();
+      }			
+   }</pre></div></div><br><br><span><a id="9"></a></span><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div><h3 id="tocHeadRef">Troubleshoot</h3><script type="text/javascript">
+                loadTOCNode(2, 'summary');
+            </script><ul><li>If the solution configuration type is <b>Release</b>, the <b>Debug</b> class output is ignored. </li><li>After you create a <b>TextWriterTraceListener</b> class for a particular target, <b>TextWriterTraceListener</b> receives output from the <b>Trace</b> and the <b>Debug</b> classes. This occurs regardless of whether you use the <b>Add</b> method of the <b>Trace</b> or the <b>Debug</b> class to add <b>TextWriterTraceListener</b> to the <b>Listeners</b> class.</li><li> If you add a <b>Listeners</b> object for the same target in the <b>Trace</b> and the <b>Debug</b> classes, each line of output is duplicated, regardless of whether
+				<b>Debug</b> or <b>Trace</b> generates the output. <div class="kb_codebody"><div class="kb_codecontent"><code></code><pre class="code">         TextWriterTraceListener myWriter = new TextWriterTraceListener(System.Console.Out);
+         Debug.Listeners.Add(myWriter);
+        
+         TextWriterTraceListener myCreator = new TextWriterTraceListener(System.Console.Out);
+         Trace.Listeners.Add(myCreator);
+         
+</pre></div></div></li></ul><span><a id="10"></a></span><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div></div><h2 class="subTitle" id="tocHeadRef"><div class="kb_tabs_toggle kb_tabs_toggle_open"></div><span><a href="javascript:void(0);">REFERENCES</a></span><div class="sectionpreview_closed">For more information, see the following topics in the .NET Framework Class Libra...</div></h2><script type="text/javascript">
+                            loadTOCNode(1, 'references');
+                        </script><div style="margin-left: 195px;" class="sbody">For more information, see the following topics in the .NET
+		  Framework Class Library documentation: <div class="indent">Trace Class<br><span class="ll"><a href="http://msdn2.microsoft.com/en-us/library/system.diagnostics.trace%28vs.71%29.aspx">http://msdn2.microsoft.com/en-us/library/system.diagnostics.trace(vs.71).aspx
+		  </a></span><span class="pLink">
+            (http://msdn2.microsoft.com/en-us/library/system.diagnostics.trace(vs.71).aspx)
+        </span><span class="kb_space"></span><br><br>Debug Class<br><span class="ll"><a href="http://msdn2.microsoft.com/en-us/library/system.diagnostics.debug%28vs.71%29.aspx">http://msdn2.microsoft.com/en-us/library/system.diagnostics.debug(vs.71).aspx
+		  </a></span><span class="pLink">
+            (http://msdn2.microsoft.com/en-us/library/system.diagnostics.debug(vs.71).aspx)
+        </span><span class="kb_space"></span></div><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div></div><div style="margin-left: 195px;" class="sbody"><b>Note</b>
+ This is a "FAST PUBLISH" article created directly from within the 
+Microsoft support organization.  The information contained herein is 
+provided as-is in response to emerging issues.  As a result of the speed
+ in making it available, the materials may include typographical errors 
+and may be revised at any time without notice.  See <a href="http://go.microsoft.com/fwlink/?LinkId=151500">Terms of Use</a><span class="pLink">
+            (http://go.microsoft.com/fwlink/?LinkId=151500)
+        </span><span class="kb_space"></span> for other considerations.<div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div></div></div><div style="margin-left: 195px;" class="sbody norollup"><div class="appliesTo"><hr><a id="appliesto"></a><h5 style="cursor: pointer;"><a class="kb_appliesTo_toggle kb_appliesTo_toggle_closed" href="javascript:void(0);"></a>APPLIES TO</h5><ul style="display: none;"><li>Microsoft Visual C# 2008 Express Edition</li><li>Microsoft Visual C# 2005 Express Edition</li><li>Microsoft Visual C# 2005</li><li>Microsoft Visual C# .NET 2003 Standard Edition</li><li>Microsoft Visual C# .NET 2002 Standard Edition</li></ul></div><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div><div class="keywords"><table><tbody><tr><td class="header"><h5>Keywords:&nbsp;
+                            </h5></td><td class="text">kbprogramming kbdebug kbnamespace kbhowtomaster KB815788</td></tr></tbody></table></div><div class="topOfPage"><a href="#top"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/uparrow.gif" alt="">Back to the top</a></div></div><!-- - -KB 3 end- - --></div></div><span class="bookmark"><a id="survey" name="survey">&nbsp;</a></span><div class="wp" id="fmsSurvey" style="display: block;"><div class="fms"><noscript><div class="SURVEYNOSCRIPT"></div></noscript><input id="surveyname" name="surveyname" value="" type="hidden"><input id="showpage" name="showpage" value="1" type="hidden"><div id="SURVEYSECTIONCONTAINER"><div id="SURVEYSECTION_132" class="SURVEYSECTION" style="display: block;" xmlns:sw="urn:schemas-microsoft-com/PSS/PSS_Survey01"><input name="id" value="132" type="hidden"><input name="CompoundingBranchRules" value="" type="hidden"><input name="NextSectionByTopicRef" value="0" type="hidden"><div id="SURVEYQUESTION_9089" class="QUESTIONCONTAINER"><input name="id" value="9089" type="hidden"><input name="type" value="LABEL" type="hidden"><input name="required" value="0" type="hidden"><div class="QUESTIONTEXT"><h5>Provide feedback on this information</h5></div><div class="QUESTIONINSTRUCTION"></div><div class="QUESTIONREQUIRED"></div></div><div id="SURVEYQUESTION_9088" class="QUESTIONCONTAINER"><input name="id" value="9088" type="hidden"><input name="type" value="CHOICE" type="hidden"><input name="required" value="0" type="hidden"><div class="QUESTIONTEXT">Did this information solve your problem?</div><div class="QUESTIONINSTRUCTION"></div><div class="QUESTIONREQUIRED"></div><input name="randomization" value="" type="hidden"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_90889088" id="14471" value="0" type="radio"></td><td class="ANSWERTEXT">Yes</td></tr></tbody></table></td></tr><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_90889088" id="14472" value="1" type="radio"></td><td class="ANSWERTEXT">No</td></tr></tbody></table></td></tr><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_90889088" id="14473" value="2" type="radio"></td><td class="ANSWERTEXT">I don't know</td></tr></tbody></table></td></tr></tbody></table></div><div id="SURVEYQUESTION_9086" class="QUESTIONCONTAINER"><input name="id" value="9086" type="hidden"><input name="type" value="CHOICE" type="hidden"><input name="required" value="0" type="hidden"><div class="QUESTIONTEXT">Was this information relevant?</div><div class="QUESTIONINSTRUCTION"></div><div class="QUESTIONREQUIRED"></div><input name="randomization" value="" type="hidden"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_90869086" id="14471" value="0" type="radio"></td><td class="ANSWERTEXT">Yes</td></tr></tbody></table></td></tr><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_90869086" id="14472" value="1" type="radio"></td><td class="ANSWERTEXT">No</td></tr></tbody></table></td></tr></tbody></table></div><div id="SURVEYQUESTION_9087" class="QUESTIONCONTAINER"><input name="id" value="9087" type="hidden"><input name="type" value="TEXT-BLOCK" type="hidden"><input name="required" value="0" type="hidden"><div class="QUESTIONTEXT">What can we do to improve this information?</div><div class="QUESTIONINSTRUCTION"></div><div class="QUESTIONREQUIRED"></div><textarea class="ANSWERBOX" name="TEXTBLOCK_9087" rows="6" cols="80" onpaste="enforceMaxLength(this,500,event)" onkeydown="enforceMaxLength(this,500,event)"></textarea></div><div id="SURVEYQUESTION_7813" class="QUESTIONCONTAINER"><input name="id" value="7813" type="hidden"><input name="type" value="LABEL" type="hidden"><input name="required" value="0" type="hidden"><div class="QUESTIONTEXT">To protect your privacy, do not include contact information in your feedback.</div><div class="QUESTIONINSTRUCTION"></div><div class="QUESTIONREQUIRED"></div></div><div class="NAVIGATION"><table class="NAVBUTTONCONTAINER"><tbody><tr><td class="PADDINGCELL"></td><td class="NAVBUTTONCELL"><input class="NAVBUTTON" value="Submit" onclick="kbSurvey.next();this.blur();" type="button"></td><td class="ENDPADDINGCELL"></td></tr></tbody></table></div></div><div id="DIV_CLOSE" style="display: none;" xmlns:sw="urn:schemas-microsoft-com/PSS/PSS_Survey01"><div class="SURVEYTHANKYOUCONTAINER"><div class="SURVEYINTROTEXT">Thank you! Your feedback is used to help us improve our support content. For more assistance options, please visit the <a href="http://support.microsoft.com/">Help and Support Home Page</a>.</div></div><div class="NAVIGATION"><table class="NAVBUTTONCONTAINER" nowrap="yes"><tbody><tr><td class="PADDINGCELL"></td><td class="NAVBUTTONCELL"></td><td class="ENDPADDINGCELL"></td></tr></tbody></table></div></div></div></div></div><script type="text/javascript">
+			var kbSurvey = new MS.Support.Fms.Survey("fmsSurvey");
+			kbSurvey.isKBEmbedded = true;
+			kbSurvey.addSubmitField('REGIONID', 'en-us');
+			kbSurvey.addSubmitField('SITE', 'gn');
+			kbSurvey.addSubmitField('SURVEYSCID', 'sw;en;1496');
+			kbSurvey.addSubmitField('SURVEYID', '1496');
+			kbSurvey.addSubmitField('SURVEYNAME', '');
+			kbSurvey.addSubmitField('BROWSERLANGCODE', 'en-us,en\x3bq\x3d0.5');
+			kbSurvey.addSubmitField('SURVEYLANGCODE', 'en');
+			kbSurvey.addSubmitField('FMSURL', '%252fdefault.aspx%252fkb%252f815788');
+			kbSurvey.parameters = ['kb','en-us','815788','','','','','','',''];
+			kbSurvey.maxKBsInCookie = '10';
+			kbSurvey.kbvisited = '';
+		</script><div style="display: block;" class="SocialMedia"><div class="SocialMedia_out"><div class="smlist"><a href="mailto:?subject=How%20to%20trace%20and%20debug%20in%20Visual%20C%23&amp;body=http%3a%2f%2fsupport.microsoft.com%2fkb%2f815788" id="EmailPage" title="E-mail this page" onclick="return MS_HandleClick(this,'SupportTools', true);"><img alt="E-mail this page" class="gsfx_img_png" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/email_20x.png"></a></div><div class="smlist"><a href="http://support.microsoft.com/gp/noscript" id="PrintPage" title="Print this page" onclick="return MS_HandleClick(this,'SupportTools', true);"><img alt="Print this page" class="gsfx_img_png" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/printer_20x.png"></a></div><div class="smlist"><iframe title="Twitter For Websites: Tweet Button" style="width: 110px; height: 20px;" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/tweet_button_002.htm" allowtransparency="true" tabindex="0" class="twitter-share-button twitter-count-horizontal" frameborder="0" scrolling="no"></iframe></div><div class="smlist"><fb:like class=" fb_edge_widget_with_comment fb_iframe_widget" href="http://support.microsoft.com/kb/815788" show_faces="false" height="21" width="87" layout="button_count"><span><iframe src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/like_002.htm" class="fb_ltr" title="Like this content on Facebook." style="border: medium none; overflow: hidden; height: 20px; width: 90px;" name="f19ac501ca5d55e" id="f29a0c9692e3d76" scrolling="no"></iframe></span></fb:like></div><div class="smlist"><a title="Share on Windows Live" rel="nofollow" href="javascript:AddtoSocialMedia('Live','smcsocialbookmark_footer','https://favorites.live.com/quickadd.aspx?marklet=1&amp;url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/windows_16.png" alt="Share on Windows Live"></a></div><div name="gss_socialmedia" class="gss_socialmedia"><a class="SM_Collapse" href="javascript:void(0);" onclick="SMCollapseExpand(this)"></a><div class="SMdetail" name="gss_SocialMedia_detail" style="display: none;"><div class="SMdetail_inner"><div class="smrow"><div><a title="Share on Facebook" rel="nofollow" href="javascript:AddtoSocialMedia('Facebook','smcsocialbookmark_footer','http://www.facebook.com/share.php?u=','');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/facebook_16.png" alt="Share on Facebook"><span>Facebook</span></a></div><div><a title="Share on Twitter" rel="nofollow" href="javascript:AddtoSocialMedia('Twitter','smcsocialbookmark_footer','http://twitter.com/share/?url=','&amp;text=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/twitter_16.png" alt="Share on Twitter"><span>Twitter</span></a></div></div><div class="smrow"><div><a title="Share on Linkedin" rel="nofollow" href="javascript:AddtoSocialMedia('linkedin','smcsocialbookmark_footer','http://www.linkedin.com/shareArticle?url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/linkedin_16.png" alt="Share on Linkedin"><span>Linkedin</span></a></div><div><a title="Share on Digg it" rel="nofollow" href="javascript:AddtoSocialMedia('diggit','smcsocialbookmark_footer','http://digg.com/submit?url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/digg_alt_16.png" alt="Share on Digg it"><span>Digg it</span></a></div></div><div class="smrow"><div><a title="Share on Yahoo" rel="nofollow" href="javascript:AddtoSocialMedia('Yahoo','smcsocialbookmark_footer','http://bookmarks.yahoo.com/toolbar/savebm?u=','&amp;t=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/yahoo_16.png" alt="Share on Yahoo"><span>Yahoo</span></a></div><div><a title="Share on Delicious" rel="nofollow" href="javascript:AddtoSocialMedia('delicious','smcsocialbookmark_footer','http://www.delicious.com/save?url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/delicious_16.png" alt="Share on Delicious"><span>Delici..</span></a></div></div><div class="smrow"><div><a title="Share on StumbleUpon" rel="nofollow" href="javascript:AddtoSocialMedia('StumbleUpon','smcsocialbookmark_footer','http://www.stumbleupon.com/submit?url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/stumbleupon_16.png" alt="Share on StumbleUpon"><span>Stumbl..</span></a></div><div><a title="Share on Yammer" rel="nofollow" href="javascript:AddtoSocialMedia('yammer','smcsocialbookmark_footer','https://www.yammer.com/home/bookmarklet?v=1&amp;u=','&amp;t=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/yammer_16.png" alt="Share on Yammer"><span>Yammer</span></a></div></div><div class="smrow"><div><a title="Share on Reddit" rel="nofollow" href="javascript:AddtoSocialMedia('Reddit','smcsocialbookmark_footer','http://www.reddit.com/submit?url=','&amp;title=');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/reddit_16.png" alt="Share on Reddit"><span>Reddit</span></a></div><div><a title="Share on Technorati" rel="nofollow" href="javascript:AddtoSocialMedia('technorati','smcsocialbookmark_footer','http://technorati.com/faves?add=','');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/technorati_16.png" alt="Share on Technorati"><span>Techno..</span></a></div></div><div class="smrow"><div><a title="Share on FriendFeed" rel="nofollow" href="javascript:AddtoSocialMedia('FriendFeed','smcsocialbookmark_footer','http://friendfeed.com/share?url=','');"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/friendfeed_16.png" alt="Share on FriendFeed"><span>Friend..</span></a></div></div></div></div></div></div></div></div></td><td class="primaryThinColumn gss_rightnav_withshadow"><div id="thinColumn" style="float: none;"><div id="MiniRouter"><span class="Mtitle">Other Resources</span><h3><span class="subtit">Other Support Sites</span><div class="MR_down"></div></h3><ul style="display: none;" id="OSS_MR"><li><a href="http://support.microsoft.com/select/?target=hub" id="L_206797">Solution Centers</a></li><li><a href="http://support.microsoft.com/fixit" id="L_206798">Microsoft Fix It Solutions</a></li><li><a href="http://windows.microsoft.com/en-us/windows/help" id="L_206799">Windows Help and How-to</a></li><li><a href="http://office.microsoft.com/" id="L_206800">Office Online</a></li><li><a href="https://partner.microsoft.com/" id="L_206801">Microsoft Partner Network</a></li></ul><h3><span class="subtit">Community</span><div class="MR_down"></div></h3><ul style="display: none;" id="Community_MR"><li><a href="http://answers.microsoft.com/" id="L_206802">Answers Forums</a></li><li><a href="http://social.technet.microsoft.com/Forums" id="L_206803">Technet Forums</a></li><li><a href="http://social.msdn.microsoft.com/Forums" id="L_206804">Microsoft Developer Network (MSDN)</a></li></ul><h3><span class="subtit">Get Help Now</span><div class="MR_down"></div></h3><div style="display: none;" class="gethelp" id="GetHelp_MR"><a href="http://support.microsoft.com/gethelp/default.aspx?content=kb;en-us;815788" id="L_206805" class="imglink"><img alt="" class="gsfx_img_png" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/help_icon_48x48.png"></a><a href="http://support.microsoft.com/gethelp/default.aspx?content=kb;en-us;815788" id="L_206805" class="txtlink">Contact a Support Professional by Email, Online, or Phone</a></div><div class="space"></div></div><div class="wp articleTrans"><h3 style="background: none repeat scroll 0% 0% transparent;"><span class="MRlinkCon">Article Translations</span></h3></div><div id="ArticleTranslations"><div onclick="DisplayATList()" class="ATtext"><span><a href="http://support.microsoft.com/kb/815788/ar" onclick="ATClick('29803',this)" title="(الشرق الاوسط (العربية">(الشرق الاوسط (العربية</a></span><a style="background-image: url(&quot;/library/images/support/CN/kb_dropdown_icon.png&quot;);" href="javascript:void(0)"></a></div><div style="display: none; position: absolute;" id="ATList" name="scid"><ul><li><a href="http://support.microsoft.com/kb/815788/pt-br" onclick="ATClick('29803',this)" title="Brasil (Português)">Brasil (Português)</a></li><li><a href="http://support.microsoft.com/kb/815788/cs" onclick="ATClick('29803',this)" title="Česká Republika (Čeština)">Česká Republika (Čeština)</a></li><li><a href="http://support.microsoft.com/kb/815788/de" onclick="ATClick('29803',this)" title="Deutschland (Deutsch)">Deutschland (Deutsch)</a></li><li><a href="http://support.microsoft.com/kb/815788/es" onclick="ATClick('29803',this)" title="España, Latinoamérica (Español)">España, Latinoamérica (Español)</a></li><li><a href="http://support.microsoft.com/kb/815788/fr" onclick="ATClick('29803',this)" title="France (Français)">France (Français)</a></li><li><a href="http://support.microsoft.com/kb/815788/it" onclick="ATClick('29803',this)" title="Italia (Italiano)">Italia (Italiano)</a></li><li><a href="http://support.microsoft.com/kb/815788/pl" onclick="ATClick('29803',this)" title="Polska (Polski)">Polska (Polski)</a></li><li><a href="http://support.microsoft.com/kb/815788/pt" onclick="ATClick('29803',this)" title="Portugal (Português)">Portugal (Português)</a></li><li><a href="http://support.microsoft.com/kb/815788/tr" onclick="ATClick('29803',this)" title="Türkiye (Türkçe)">Türkiye (Türkçe)</a></li><li><a href="http://support.microsoft.com/kb/815788/ru" onclick="ATClick('29803',this)" title="Россия (Русский)">Россия (Русский)</a></li><li><a href="http://support.microsoft.com/kb/815788/ko" onclick="ATClick('29803',this)" title="대한민국 (한국어)">대한민국 (한국어)</a></li><li><a href="http://support.microsoft.com/kb/815788/zh-cn" onclick="ATClick('29803',this)" title="中国 (简体中文)">中国 (简体中文)</a></li><li><a href="http://support.microsoft.com/kb/815788/zh-tw" onclick="ATClick('29803',this)" title="台灣 (繁體中文)">台灣 (繁體中文)</a></li><li><a href="http://support.microsoft.com/kb/815788/ja" onclick="ATClick('29803',this)" title="日本 (日本語)">日本 (日本語)</a></li></ul></div></div><div id="gss_sticky_container_div"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gss_sticky_panel_top.png" id="gss_stickyheader_img"><div id="gss_stickyinner_div"><div class="gss_stickywebpart_div" id="divRelContent" style="display: block;"><div class="gss_stickytitle_div"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gss_sticky_panel_rc.png" class="gss_stickytitle_img"><span class="gss_stickytitle_span"><h6>View related content</h6></span></div><div class="wp" id="RelatedContent"><table class="LCT" cellspacing="0"><tbody><tr><td class="textColumn"><ul><li id="rc_0_tr"><span><a href="http://support.microsoft.com/kb/313417/en-us" id="rc_0" title="How to trace and debug in Visual Basic 2005 or in Visual Basic .NET" onclick="return MS_HandleClick(this,'30001', true);">How to trace and debug in Visual Basic 2005 or in Visual Basic .NET</a></span></li><li id="rc_1_tr"><span><a href="http://support.microsoft.com/kb/815787/en-us" id="rc_1" title="How to trace and debug in Visual C++ .NET and in Visual C++ 2005" onclick="return MS_HandleClick(this,'30001', true);">How to trace and debug in Visual C++ .NET and in Visual C++ 2005</a></span></li><li id="rc_2_tr"><span><a href="http://msdn.microsoft.com/en-us/library/system.diagnostics.trace.aspx" id="rc_2" target="_blank" title="Trace Class (System.Diagnostics)" onclick="return MS_HandleClick(this,'30001', true);">Trace Class (System.Diagnostics)</a></span></li></ul></td></tr></tbody></table></div></div><div class="gss_stickywebpart_div gss_stickywebpart_bottom_div" id="divRelTags" style="display: block;"><div class="gss_stickytitle_div"><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gss_sticky_panel_rtags.png" class="gss_stickytitle_img"><span class="gss_stickytitle_span"><h6>Search related topics</h6></span></div><div class="wp" id="RelatedTags"><table class="LCT" cellspacing="0"><tbody><tr><td class="textColumn"><ul><li id="rt_0_tr"><span><a href="http://support.microsoft.com/search/default.aspx?query=C%20Trace.WriteLine&amp;catalog=LCID%3D1033" id="rt_0" title="C Trace.WriteLine" onclick="return MS_HandleClick(this,'30000', true);">C Trace.WriteLine</a></span></li><li id="rt_1_tr"><span><a href="http://support.microsoft.com/search/default.aspx?query=C%20tracing&amp;catalog=LCID%3D1033" id="rt_1" title="C tracing" onclick="return MS_HandleClick(this,'30000', true);">C tracing</a></span></li><li id="rt_2_tr"><span><a href="http://support.microsoft.com/search/default.aspx?query=How%20to%20debug&amp;catalog=LCID%3D1033" id="rt_2" title="How to debug" onclick="return MS_HandleClick(this,'30000', true);">How to debug</a></span></li><li id="rt_3_tr"><span><a href="http://support.microsoft.com/search/default.aspx?query=Trace%20vs%20debug%20classes&amp;catalog=LCID%3D1033" id="rt_3" title="Trace vs debug classes" onclick="return MS_HandleClick(this,'30000', true);">Trace vs debug classes</a></span></li><li id="rt_4_tr"><span><a href="http://support.microsoft.com/search/default.aspx?query=C%20Debug.Assert&amp;catalog=LCID%3D1033" id="rt_4" title="C Debug.Assert" onclick="return MS_HandleClick(this,'30000', true);">C Debug.Assert</a></span></li></ul></td></tr></tbody></table></div></div><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gss_sticky_panel_watermark.png" id="gss_stickywatermark_img"></div><img src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gss_sticky_panel_footer.png" id="gss_stickyfooter_img"></div><div class="wp" id="RelatedSupportCenters"><table class="LCT" cellspacing="0"><tbody><tr><td class="textColumn"><h3 style="background: none repeat scroll 0% 0% transparent;"><span class="MRlinkCon">Related Support Centers</span></h3><ul><li><span><a href="http://support.microsoft.com/ph/12913">Visual Studio 2008</a></span></li><li><span><a href="http://support.microsoft.com/ph/1117">Visual Studio</a></span></li><li><span><a href="http://support.microsoft.com/ph/3041">Visual Studio 2005</a></span></li><li><span><a href="http://support.microsoft.com/ph/7797">Visual C# 2005</a></span></li></ul></td></tr></tbody></table></div></div></td></tr></tbody></table></div></div><div id="bottomRow"><div class="wp getHelp"><table align="center" cellpadding="0" cellspacing="0"><tbody><tr><td class="image"><a href="http://support.microsoft.com/gethelp/default.aspx?content=kb;en-us;815788" id="L_174092"><img alt="" class="gsfx_img_png" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/help_icon_48x48.png"></a></td><td class="text"><h3>Get Help Now</h3><a href="http://support.microsoft.com/gethelp/default.aspx?content=kb;en-us;815788" id="L_174092">Contact a support professional by E-mail, Online, or Phone</a></td></tr></tbody></table></div></div>
+                        
+            </div>
+        </div>
+        
+        <div id="gsfx_brnd_BottomCorners" class="gsfx_brnd_CornerContainer">
+            <div class="gsfx_brnd_TBBorders gsfx_brnd_TransBG" id="gsfx_brnd_BottomBorder"></div>
+            <div class="gsfx_brnd_Corner" id="gsfx_brnd_LLowerCorner"></div>
+        </div>
+        
+        <div id="gsfx_brnd_WidthFix"></div>
+        
+        <div id="gsfx_brnd_FooterContainer">
+            <div id="gsfx_brnd_SiteFooter" class="gsfx_brnd_NetworkLeft">
+                Microsoft Support
+            </div>
+
+            <table id="gsfx_brnd_NetworkFooter" class="gsfx_brnd_NetworkRight"><tbody><tr>
+                <td id="gsfx_brnd_FooterLinkContainer">
+                    <!--Table is wrapped in a div tag to facilitate proper alignment and stacking-->
+                    <div class="gsfx_brnd_FooterLinks" id="gsfx_brnd_SiteFooterLinks">
+                        <!--Table is used here in order to properly order the links for LTR and RTL while maintaining the correct tab order-->                        
+                        <table summary="Site Footer Links" class="gsfx_brnd_NetworkRight"><tbody><tr><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="javascript:window.open('http://mymfe.microsoft.com/support.microsoft.com/feedback.aspx?formid=24'%20+%20'&amp;UrlReferrer='%20%20+%20%20escape(document.referrer.toString()),%20'Feedback',%20'scrollbars=yes,menubar=no,titlebar=no,location=no,width=500,height=600,resizable=yes');void(0);" id="L_184649"><span>Feedback</span></a></td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_FooterSeperator">|</td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="http://support.microsoft.com/gp/csa" id="L_157327"><span>Services Agreement</span></a></td></tr></tbody></table>                        
+                    </div>
+                    
+
+                    <!--Table is wrapped in a div tag to facilitate proper alignment and stacking-->
+                    <div class="gsfx_brnd_FooterLinks" id="gsfx_brnd_NetworkFooterLinks">
+                        <!--Table is used here in order to properly order the links for LTR and RTL while maintaining the correct tab order-->
+                        <table summary="Network Footer Links" class="gsfx_brnd_NetworkRight"><tbody><tr><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="http://support.microsoft.com/contactus/?ws=support" id="L_153553"><span>Contact Us</span></a></td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_FooterSeperator">|</td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="http://go.microsoft.com/?linkid=4412892" id="L_153554"><span>Terms of Use</span></a></td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_FooterSeperator">|</td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="http://go.microsoft.com/?linkid=4412893" id="L_153555"><span>Trademarks</span></a></td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_FooterSeperator">|</td><td class="gsfx_brnd_NetworkLinkContainer gsfx_brnd_NetworkLink"><a href="http://go.microsoft.com/?linkid=4412894" id="L_153556"><span>Privacy Statement</span></a></td></tr></tbody></table>
+                    </div>
+                </td>
+                <td id="gsfx_brnd_copyright_container">
+                    <div id="gsfx_brnd_MSLogoContainer">
+                        <!--[if lte IE 6]><div id="gsfx_brnd_legacy_MSLogo"></div><![endif]-->
+                        <img id="gsfx_brnd_MSLogo" alt="Microsoft" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gsfx_brnd_ms_logo_sml_blk.png">
+                        <img id="gsfx_brnd_MSLogoPrint" alt="Microsoft" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gsfx_brnd_ms_logo_sml_blk.png">
+                    </div>
+                    <span id="gsfx_brnd_copyright">©2011 Microsoft</span>
+                </td>
+            </tr></tbody></table>
+        </div>
+    </div>
+</div>
+</div>
+<style type="text/css">   
+    #gsfx_brnd_CenterContent, #gsfx_brnd_PageWrapper
+    {
+        background: url('') repeat-x bottom;
+    }    
+</style>
+<script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/branding.js"></script><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/wtInit.js"></script><script type="text/javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/wtCore.js"></script><noscript><img alt="" id="DCSIMG" width="1" height="1" src="http://m.webtrends.com/dcsxia05c00000s926v0z4tru_3w4l/njs.gif?dcsuri=/nojavascript&WT.js=No" /></noscript><img id="webmetriximg" alt="" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/trans_pixel.gif"><noscript><img id="StatsDotNetImgNoScript" alt="" src="http://support.microsoft.com/LTS/default.aspx?SSID=1&#38;SiteLCID=1033&#38;SsVersion=GSS6.5&#38;SiteCulture=en-us&#38;ContentCulture=en-us&#38;In404Url=&#38;EventCollectionID=1&#38;URL=%2fdefault.aspx&#38;ContentType=kb&#38;ContentLCID=1033&#38;ContentID=815788&#38;Platform=windows%20nt%205.1&#38;BrandID=1&#38;flexValue2=64&#38;flexValue8=0&#38;ContentProperties=6%3d9%7c7%3d5.0%7c9%3dkbAudDeveloper%20%7c" /></noscript><img id="StatsDotNetImg" name="StatsDotNetImg" alt="" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/default.gif"><script type="text/javascript">StatsDotNet.disabled=false;StatsDotNet.enableCollTierParams=true;StatsDotNet.host='http\x3a\x2f\x2fsupport.microsoft.com\x2fLTS\x2fdefault.aspx';StatsDotNet.ssId='1';StatsDotNet.siteLcId='1033';StatsDotNet.SiteCulture='en-us';StatsDotNet.SsVersion='GSS6.5';StatsDotNet.url='\x2fdefault.aspx';StatsDotNet.ContentCulture ='en-us';StatsDotNet.contentType='kb';StatsDotNet.contentLn='1033';StatsDotNet.contentId='815788';StatsDotNet.platform='windows nt 5.1';StatsDotNet.eventCollectionId=1;StatsDotNet.siteBrandId='1';StatsDotNet.onUnloadTimeout=300;StatsDotNet.ltsIdleTimeout=5000;StatsDotNet.userAgentString='mozilla\x2f5.0 \x28windows\x3b u\x3b windows nt 5.1\x3b en-us\x3b rv\x3a1.9.2.13\x29 gecko\x2f20101203 firefox\x2f3.6.13';StatsDotNet.ContentProperties='6\x3d9\x7c7\x3d5.0\x7c9\x3dkbAudDeveloper \x7c';StatsDotNet.flexValue2='64';StatsDotNet.flexValue8='0';</script><script type="text/javascript">var enableSiteSurvey = true;function isDomainTracking(){var entry = MS.Support.Fms.CookieUtil.getCookie('fmshb');if (entry){try{return entry.split(',')[0] == '1' ? true : false;}catch (e){return false;}}return false;};window.setInterval(function(){MS.Support.Fms.CookieUtil.setSessionCookie('fmshb', (isDomainTracking() ? '1' : '0') + ',' + (new Date()).getTime());}, 1000);function fmsLastExp(){var visits = MS.Support.Fms.CookieUtil.getCookie('ST_GN_EN-US');var parts =  visits ? visits.split('_') : [];if (null == visits || parts.length != 3 || isNaN(parts[0])){return 0;}return parseInt(parts[2]);};function fmsSurveyExpired(days){var MiliDay = 86400000;var visits = MS.Support.Fms.CookieUtil.getCookie('ST_GN_EN-US');var parts = visits ? visits.split('_') : [];if (null == visits || parts.length != 3 || isNaN(parts[0])){return true;};var origDate = parseInt(parts[1]);var curDate = new Date();return (curDate.getTime()/MiliDay - days) >= origDate;};function activateSiteSurvey (){if(window.top == window && !isDomainTracking() && typeof(enableSiteSurvey) != "undefined" && enableSiteSurvey && fmsSurveyExpired(fmsLastExp())){document.write('<script language="javascript" src="/library/svy/broker.js"></scr'+'ipt>');}};var triggerEntity = {CookieDef:'ST_GN_EN-US',Site:'gn',Region:'en-us',IsRTL:false,Scid:"sw;en;1487",Xsl:"",Path:"/common/survey.aspx",IdValue: '',EmbedSurveyPrompt: 'nothing',Expiration:90,Delay:0,Frequency:112,SurveyStyle:"popup",DisplayIntroPage:1,EmailStyle:0,EmailSurveyID:"",ReferringURL:'http\x3a\x2f\x2fsupport.microsoft.com\x2fdefault.aspx\x2fkb\x2f815788',Event:"OnUnload",TriggerId:"12105",IntervalType:"session",Redirect:"",OptOut:0,AltStyle: '',RenderOption: '',InvitationWidth: 0,PageWidth: 0,PageHeight: 0,AnimationDuration:0.5,Parameters:['kb','en-us','815788','','','','','','',''],Theme:"gn",Toolbar:"",Contains:"sub-domain",Pages:[],TrackingText:'Thank you for agreeing to participate in the Microsoft online survey.\u00a0 Please look at the support.microsoft.com Web site the way you normally would and then come back and answer the survey questions that will appear in this window.\u00a0 The questions will appear after you leave the web pages for which Microsoft is seeking your feedback.'};new MS.Support.Fms.SurveyTrigger(triggerEntity, typeof config != "undefined" ? config : null);</script><script language="javascript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/broker.js"></script><script language="JavaScript" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/SiteRecruit_PageConfiguration_2944mt.js"></script><script type="text/javascript">function thisLoad(){Renderfacebook('en_US');SocialMediaInit();SocialMediaInit();makeAjaxCall('LoadRelatedContent','815788\x3ben-us');makeAjaxCall('LoadRelatedTags','815788\x3ben-us');KBFeedBackShowSurvey();CreateSearchOptions('acListWrappergsfx_bsrch_query', 306);SetCatLangPos();InitSrch();InitAC('gsfx_bsrch_query');$(document).ready(function() {gsfx_bsrch_InitCatSelection('gsfx_bsrch_query', '4:');});MS_WebMetrix('http\x3a\x2f\x2fc.microsoft.com\x2ftrans_pixel.asp\x3fTYPE\x3dSSPV\x26SOURCE\x3dSUPPORT\x26GUID\x3d1F4FC18C-F71E-47fb-8FC9-612F8EE59C61\x26URI\x3d\x252fgn\x252fen-us\x252fkb_en-us_815788\x26R\x3dhttp\x253a\x252f\x252fwww.google.co.in\x252fsearch\x253fq\x253dc\x252523\x252b\x252523if\x252bDEBUG\x2526ie\x253dutf-8\x2526oe\x253dutf-8\x2526aq\x253dt\x2526rls\x253dorg.mozilla\x253aen-US\x253aofficial\x2526client\x253dfirefox-a');StatsDotNet.LogPageOnLoad();}function thisUnload(){}</script><div class=" fb_reset" id="fb-root"><script async="" src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/all.js"></script><div style="position: absolute; top: -10000px; height: 0pt; width: 0pt;"></div></div><script src="kb%20815788%20How%20to%20trace%20and%20debug%20in%20Visual%20C%23_files/gsfxsurvey.js" type="text/javascript"></script></body></html>

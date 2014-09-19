@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <script type="text/javascript">
+    <!--
+        var protocol = document.location.protocol.toLowerCase();
+        var loaderPath;
+        var isTestEnvironment = false;
+        var isDogfoodEnvironment = false;
+        var parameters = {};
+        var settings = {};
+        
+        function lowerDomain()
+        {
+            var domain = window.location.hostname.toLowerCase();
+
+            if (domain.indexOf(".live.com") != -1) 
+            {
+                document.domain = "live.com";
+            } 
+            else if (domain.indexOf(".live-int.com") != -1) 
+            {
+                document.domain = "live-int.com";
+                isTestEnvironment = true;
+            } 
+            else 
+            {
+                throw new Error("Unsupported domain");
+            }
+        }
+
+        function parseParameters()
+        {
+            var href = window.location.href;
+
+            var idx = href.indexOf('#');
+
+            if (idx < 0)
+            {
+                throw new Error("Invalid hash fragment");
+            }
+
+            var hash = href.substring(idx + 1);
+
+            var nvps = hash.split('&');
+
+            var dict = {};
+
+            for (var i = 0; i < nvps.length; i++) 
+            {
+                nvps[i] = nvps[i].split('=');
+
+                if (nvps[i].length == 2) 
+                {
+                    dict[decodeURIComponent(nvps[i][0])] = decodeURIComponent(nvps[i][1]);
+                }
+            }
+
+            return dict;
+        }
+        
+        function initialize() 
+        {
+            lowerDomain();
+
+            isDogfoodEnvironment = (document.location.pathname.toLowerCase().indexOf("/api/dogfood/") == 0);
+
+            parameters = parseParameters();
+            
+            if (isTestEnvironment)
+            {
+                var path = parameters["loaderPath"];
+                if (path)
+                {
+                    loaderPath = path;
+                }
+            }
+            else if (isDogfoodEnvironment)
+            {
+                var path = parameters["loaderPath"];
+                if (path)
+                {
+                    if (path.indexOf("http://settings.messenger.live-int.com/") == 0 ||
+                        path.indexOf("http://mwpbvt1-settings.messenger.live-int.com/") == 0 ||
+                        path.indexOf("http://js.wlxrs-int.com/") == 0 ||
+                        path.indexOf("https://js.wlxrs-int.com/") == 0)
+                    {
+                        loaderPath = path;
+                    }
+                }
+            }
+            else
+            {
+                var path = parameters["loaderPath"];
+                if (/^https?:\/\/js\d*\.wlxrs\.com\/[\w/$!.*-]+$/i.test(path) ||
+                    /^https?:\/\/secure\.wlxrs\.com\/[\w/$!.*-]+$/i.test(path) || 
+                    /^https?:\/\/secure\.shared\.live\.com\/[\w/$!.*-]+$/i.test(path))
+                {
+                    loaderPath = path;
+                }
+            }
+        }
+        
+        function Microsoft_Live_Core_Loader_onAvailable(loader)
+        {
+            overrideOnResourceAvailable(loader);
+
+            for (var setting in parameters)
+            {
+                if (/^(cs:)|(cn:)|(cb:)/.test(setting))
+                {
+                    var prefix = setting.substring(0, 2);
+                    var key = setting.substring(3);
+                    var value = parameters[setting];
+
+                    switch (prefix)
+                    {
+                        case "cb":
+                            value = parseBoolean(value);
+                            break;
+                        case "cn":
+                            value = Number(value);
+                            break;
+                        case "cs":
+                            value = String(value);
+                            break;
+                    }
+
+                    switch (key)
+                    {
+                        case "market":
+                        case "direction":
+                        case "httpsScope":
+                        case "environment":
+                            if (/^[\w\-]+$/.test(value))
+                            {
+                                settings[key] = value;
+                            }
+                            break;
+                            
+                        case "compatibility.version":
+                            settings[key] = value;
+                            break;
+
+                        case "configuration":
+                            if (/^(debug|release)$/.test(value))
+                            {
+                                settings[key] = value;
+                            }
+                            break;
+                            
+                        case "httpsApplication":
+                            if (typeof(value) == "boolean")
+                            {
+                                settings[key] = value;
+                            }
+                            break;
+
+                        default:
+                            if (isTestEnvironment || isDogfoodEnvironment)
+                            {
+                                settings[key] = value;
+                            }
+                            break;
+                    }
+                }
+            }
+
+            loader.initialize(settings);
+            loader.load(["messenger.services.loader"], onScriptsLoaded);
+            loader.load(["messenger.services.core"]);
+        }
+
+        function loadLoader()
+        {
+            if (loaderPath)
+            {
+                loaderPath = loaderPath.replace(/^http:/i, protocol);
+
+                document.write(
+                    "<script type='text/javascript' src='" +
+                    loaderPath +
+                    "'><\/script>");
+            }
+        }
+
+        function parseBoolean(value)
+        {
+            value = (value == "true") ? true : value;
+            value = (value == "false") ? false : value;
+            return Boolean(value);
+        }
+
+        function overrideOnResourceAvailable(loader)
+        { 
+            loader.onResourceAvailable = function _onResourceAvailable(resourceName, callback, alternateCallback)
+            {
+                var resource = this._resources[resourceName];
+                if (!resource)
+                {
+                    return;
+                }
+                
+                resource.readyState = "available";
+                resource.onAvailableCallback = callback || alternateCallback;
+            }
+        }
+
+        function onScriptsLoaded()
+        {
+            MSL.MessengerServiceInitializer.initialize("channel", parameters["domain"]);
+        }
+        
+        initialize();
+        
+        loadLoader();
+
+    // -->
+    </script><script type="text/javascript" src="cns%21C6A0309746469D9E%21720.entry_files/loader.js"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/MicrosoftAjaxCompat.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/MicrosoftAjaxCore.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/Microsoft_003.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/Microsoft_002.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/Microsoft_005.js" type="text/javascript" async="async"></script><script src="cns%21C6A0309746469D9E%21720.entry_files/Microsoft.js" type="text/javascript" async="async"></script><script src="Messenger_data/Microsoft.js" type="text/javascript" async="async"></script>
+<script src="Messenger_data/Microsoft_002.js" type="text/javascript" async="async"></script></head><body>
+<div id="channel"></div>
+<iframe src="Messenger_data/xmlProxy.htm" style="display: none;"></iframe><iframe src="Messenger_data/xmlProxy_002.htm" style="display: none;"></iframe></body></html>

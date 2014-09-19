@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="NotSoHealthy_files/styles.css">
+    <title>Not so Healthy...</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="NotSoHealthy_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>Not so Healthy</h2>
+				<p>
+					<em>Creating a basic 2D health bar. </em>
+				</p>
+				<ul>
+				<li><a href="http://www.xnadevelopment.com/tutorials/notsohealthy/NotSoHealthy.zip">Download the Source code</a></li>
+				
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="NotSoHealthy_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>Not so Healthy...</h2> 
+
+<b>How to create a health bar</b> 
+
+<p>This tutorial will cover the basics of creating a Health bar. A
+health bar is that visual representaion of just how close to death your
+game character is. This tutorial will show a method of creating that
+health bar for your own games. </p> <p>&nbsp;</p> <p><strong><u>Creating the new game project:</u></strong></p> <p>To start, first we need to create a new <strong>Windows Game Project</strong>. This can be done by launching XNA Game Studio Express and then selecting File -&gt; New Project from the menu.</p> <p>In
+the New Project window, select the "Windows Game" template and then
+give the project a name and choose a location to save your new game
+project.</p> <p align="center"><a href="http://www.xnadevelopment.com/livewriter/NotsoHealthy_12BC1/CropperCapture1442.jpg" atomicselection="true"><img style="border-width: 0px;" src="NotSoHealthy_files/CropperCapture144_thumb.jpg" border="0" width="640" height="463"></a> </p> <p align="left">Let stop here and do a quick <strong>build</strong>&nbsp;&nbsp;<a href="http://www.xnadevelopment.com/livewriter/NotsoHealthy_12BC1/CropperCapture1464.jpg" atomicselection="true"><img style="border-width: 0px;" src="NotSoHealthy_files/CropperCapture146_thumb2.jpg" border="0" width="40" height="32"></a> so we can show off the <strong>power of XNA</strong> and verify that the project was created correctly (and that your video card supports the minimum requirements for XNA). </p> <p align="left">When
+you run the project, you should be greeted with a Cornflower blue
+window. If you are seeing this lovely shade of blue, then you have
+successfully created your new game project. (Isn't XNA amazing?)</p> <p align="left">&nbsp;</p> <p align="center"><a href="http://www.xnadevelopment.com/livewriter/NotsoHealthy_12BC1/CropperCapture1454.jpg" atomicselection="true"><img style="border-width: 0px;" src="NotSoHealthy_files/CropperCapture145_thumb.jpg" border="0" width="615" height="480"></a> </p> <p align="left">If you have an error, then your video card most likely does not meet the <strong>minimum requirements</strong> for XNA. See the <a href="http://msdn.microsoft.com/directx/xna/faq/">XNA FAQ</a>
+from the Microsoft site for the minimum requirements and verify that
+your video card does&nbsp;meet those requirements. If you believe your
+video card does meet those requirements and are still getting an error,
+then I recommend you&nbsp;head on over to the <a href="http://creators.xna.com/">MSDN XNA Forums</a>
+and describe the error you are getting ask for some&nbsp; help there
+(you will probably see me around there, I find them to be a great place
+to hang out).</p> <p align="left">&nbsp;</p> <p align="left"><strong><u>Adding the image:</u></strong></p> <p align="left">Next,
+let's add the image to the project that we will use for drawing the
+Health bar. This image consists of a black rectangular outline and an
+off-white rectangular strip of color.</p> <p align="center"><a href="http://www.xnadevelopment.com/livewriter/NotsoHealthy_12BC1/HealthBar2.png" atomicselection="true"><img style="border-width: 0px;" src="NotSoHealthy_files/HealthBar_thumb.png" border="0" width="640" height="119"></a> </p> <p align="left">The black area inside of the rectangular outline is <strong>actually transparent</strong>, but the transparent area does not view properly when displayed in a web page. </p> <p align="left">The
+image is provided in the source file for this tutorial. Save the image
+to your project folder and we will next add it to the project itself.</p> <p align="left">To
+add an image to a game project, right-click on the project name and
+select "Add -&gt; Existing Item". This will then open the "Add Existing
+Item" dialog.</p> <p align="left">This dialog box defaults to show only
+Visual C# Files which mean you will not see any&nbsp;images&nbsp;until
+you change this. We want to use the Content Pipeline to manage our
+images so from the "Files of type:" combo box, select "Content Pipeline
+Files". Now you should be able to navigate to your image.
+Select&nbsp;the image&nbsp;and then click the "Add" button. You have
+now <b>successfully added an image</b> to your game project.</p> <p align="center"><a href="http://www.xnadevelopment.com/livewriter/NotsoHealthy_12BC1/CropperCapture1472.jpg" atomicselection="true"><img style="border-width: 0px;" src="NotSoHealthy_files/CropperCapture147_thumb.jpg" border="0" width="640" height="417"></a> </p> <p align="left">&nbsp;</p> <p align="left"><strong><u>Drawing the Image:</u></strong></p> <p align="left">We have created the game project and added our image, now let's <strong>write some code</strong>
+to draw that image on the screen. We sill start this by adding two new
+objects to the main game class (Game1.cs by default). These two objects
+will take care of storing and drawing the image in our game.</p> <p align="left">&nbsp;</p> <div class="csharpcode"><pre class="alt">        SpriteBatch mBatch;</pre><pre>        Texture2D mHealthBar;</pre></div>
+<style type="text/css">.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+.csharpcode pre { margin: 0em; }
+.csharpcode .rem { color: #008000; }
+.csharpcode .kwrd { color: #0000ff; }
+.csharpcode .str { color: #006080; }
+.csharpcode .op { color: #0000c0; }
+.csharpcode .preproc { color: #cc6633; }
+.csharpcode .asp { background-color: #ffff00; }
+.csharpcode .html { color: #800000; }
+.csharpcode .attr { color: #ff0000; }
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+.csharpcode .lnum { color: #606060; }
+</style>
+
+<p align="left">&nbsp;</p>
+<p>This "SpriteBatch" object is used to draw your images. The
+"Texture2D" object is used to store your images.&nbsp;Both of
+these&nbsp;types of objects are used very frequently when creating 2D
+games with XNA, so learning to use them and all that they can do
+becomes very important. </p>
+<p>Now that we our objects, we need to<b> initialize them and use them</b>.
+To initialize the objects, we are going to add some code to the
+"LoadGraphicsContent" method that was automatically created for us when
+we selected the Windows Game template.</p>
+<p>Add the following code to the "LoadGraphicsContent" method.&nbsp;</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadGraphicsContent(<span class="kwrd">bool</span> loadAllContent)</pre><pre>        {</pre><pre class="alt">            <span class="kwrd">if</span> (loadAllContent)</pre><pre>            {</pre><pre class="alt">                <span class="rem">// TODO: Load any ResourceManagementMode.Automatic content</span></pre><pre>&nbsp;</pre><pre class="alt">                <span class="rem">//Initialize the Sprite batch</span></pre><pre>                mBatch = <span class="kwrd">new</span> SpriteBatch(<span class="kwrd">this</span>.graphics.GraphicsDevice);</pre><pre class="alt">&nbsp;</pre><pre>                <span class="rem">//Create the content manager to load the images</span></pre><pre class="alt">                ContentManager aLoader = <span class="kwrd">new</span> ContentManager(<span class="kwrd">this</span>.Services);</pre><pre>&nbsp;</pre><pre class="alt">                <span class="rem">//Load the HealthBar image from the disk into the Texture2D object</span></pre><pre>                mHealthBar = aLoader.Load&lt;Texture2D&gt;(<span class="str">"HealthBar"</span>) <span class="kwrd">as</span> Texture2D;</pre><pre class="alt">            }</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Load any ResourceManagementMode.Manual content</span></pre><pre>        }&nbsp;</pre><pre>&nbsp;</pre></div>
+<p></p>
+<p>First, we initialized our SpriteBatch. If we had forgotten to
+initialize it, when we tried to use this object later, we would have
+gotten an error that "Object reference was not set to an instance of an
+object". When developing with objects, this becomes a fairly frequent
+error to see. Once you get it, you know that somewhere in your code <b>you forgot to initialize an object</b>. </p>
+<p>Then we created a new object, a "ContentManager" object, to be used
+just within this method. The ContentManager object is used to load our
+images.</p>
+<p>Finally, we used the newly created "ContentManager" object to load
+our "HealthBar" image and store it in our Texture2D object.&nbsp;</p>
+<p>Now that we have initialized all of our objects,<b> we can draw</b>
+our&nbsp;health bar image on the screen. To actually draw the image to
+the screen, we will add some code to the "Draw" method. The "Draw"
+method is another one of the base methods that was automatically
+created for us when we made a new Windows Game project.</p>
+<p>Add the following code to the "Draw" method.&nbsp;</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//TODO: Add your drawing code here</span></pre><pre>            mBatch.Begin();</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//Draw the health for the health bar</span></pre><pre class="alt"><p>            mBatch.Draw(mHealthBar, <span class="kwrd">new</span> Rectangle(<span class="kwrd">this</span>.Window.ClientBounds.Width / 2 - mHealthBar.Width / 2,</p><p>                  30, mHealthBar.Width, 44), <span class="kwrd">new</span> Rectangle(0, 45, mHealthBar.Width, 44), Color.Red);        </p></pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Draw the box around the health bar</span></pre><pre>            mBatch.Draw(mHealthBar, <span class="kwrd">new</span> Rectangle(<span class="kwrd">this</span>.Window.ClientBounds.Width / 2 - mHealthBar.Width / 2,</pre><pre>                  30, mHealthBar.Width, 44), <span class="kwrd">new</span> Rectangle(0, 0, mHealthBar.Width, 44), Color.White);</pre><pre class="alt">            </pre><pre>            mBatch.End();</pre><pre class="alt">&nbsp;</pre><pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre><pre class="alt">        }</pre></div>
+<p>&nbsp;</p>
+<p>We start things off by using the SpriteBatch object and telling it
+we are reading to begin drawing things to the screen. Then we are going
+to draw the "health" for our health bar. To do that, we position it in
+the <strong>center of the screen</strong> and towards the top. We also
+only use part of our image. To display our health we only want to use
+the off-white retangular area so we "cut" that out of our original
+image and only display that. Then for effect, we color our image red to
+give us a red health bar.</p>
+<p>The second item we are drawing is that rectangular outline. We are
+using that to place around our health bar just to give it a visual
+edge.&nbsp; We place that in the center of the screen towards the top
+as well. Then we again "cut" out just part of our original image to
+display. We do not give this image any shading and that is why was use
+the "Color.White" parameter. It tells the Sprite Batch to leave the
+original colors alone.</p>
+<p>Finally, we tell the sprite batch that we are done drawing (mBatch.End();) and our Health Bar is now ready for it's big debut.</p>
+<p>This would be a great time to do a quick <strong>build</strong> <a href="http://www.xnadevelopment.com/livewriter/NotsoHealthy_12BC1/CropperCapture1464.jpg" atomicselection="true"><img style="border-width: 0px;" src="NotSoHealthy_files/CropperCapture146_thumb2.jpg" border="0" width="40" height="32"></a>&nbsp;just
+to make sure that we have coded things correctly to this point and that
+our Health bar image is displaying as it should.</p>
+<p>When you do a build you should see a screen like this one. Looking pretty healthy isn't it?</p>
+<p align="center"><a href="http://www.xnadevelopment.com/livewriter/NotsoHealthy_12BC1/CropperCapture1482.jpg" atomicselection="true"><img style="border: 0px none ;" src="NotSoHealthy_files/CropperCapture148_thumb.jpg" border="0" width="615" height="480"></a> </p>
+<p align="left">&nbsp;</p>
+<p><strong><u>Keeping track of the Current Health:</u></strong></p>
+<p>We have a Health bar, but there does seem to be something missing.
+It seems that our game charactes would always be healthy if we just let
+things how they are. Yes, in order to add a sense of <strong>danger to our game</strong>, we definitely need a way to keep track of our heroes fading health.</p>
+<p>Since we are not going to build a full game at this point, we will
+not only create a way to track the current health level, but we will
+also construct a way to increase and decrease the current health level
+through some keyboard input (since we do not have any enemies lurking
+about at this point).</p>
+<p>To beging tracking the current health level, we will add a new object to the top of the main game class. </p>
+<div class="csharpcode"><pre class="alt">        SpriteBatch mBatch;</pre><pre>        Texture2D mHealthBar;</pre><pre class="alt">        <span class="kwrd">int</span> mCurrentHealth = 100;</pre></div>
+<p>&nbsp;</p>
+<p>So right below the SpriteBatch and Texture2D objects, we have added
+a new object "mCurrentHealth" to track the current health level. We
+have also initialized this value to "100" indicating 100% healthy.</p>
+<p>Now that we have an object to track the health. We now need to add some code to <strong>modify the health</strong>.
+Again, since we are not coding any enemies at this point, we will just
+add some code to the Update method to see if the Up or Down arrows have
+been pressed. If they have then we will increase or decrease the
+current health level accordingly. This will allow us to quickly and
+easily test that our health bar is working properly.</p>
+<p>Add the following code to the Update method.</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            <span class="rem">// Allows the default game to exit on Xbox 360 and Windows</span></pre><pre>            <span class="kwrd">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)</pre><pre class="alt">                <span class="kwrd">this</span>.Exit();</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your update logic here</span></pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Get the current keyboard state (which keys are currently pressed and released)</span></pre><pre>            KeyboardState mKeys = Keyboard.GetState();</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//If the Up Arrow is pressed, increase the Health bar</span></pre><pre class="alt">            <span class="kwrd">if</span> (mKeys.IsKeyDown(Keys.Up) == <span class="kwrd">true</span>)</pre><pre>            {</pre><pre class="alt">                mCurrentHealth += 1;</pre><pre>            }</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//If the Down Arrowis pressed, decrease the Health bar</span></pre><pre class="alt">            <span class="kwrd">if</span> (mKeys.IsKeyDown(Keys.Down) == <span class="kwrd">true</span>)</pre><pre>            {</pre><pre class="alt">                mCurrentHealth -= 1;</pre><pre>            }</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//Force the health to remain between 0 and 100</span></pre><pre class="alt">            mCurrentHealth = (<span class="kwrd">int</span>)MathHelper.Clamp(mCurrentHealth, 0, 100);</pre><pre>            </pre><pre class="alt">            <span class="kwrd">base</span>.Update(gameTime);</pre><pre>        }</pre></div>
+<p>We start things off by getting the current state of the keyboard.
+Getting the keyboard state let's us know which keys are currently
+pressed and released. </p>
+<p>Next, we check to see if the Up arrow key is currently pressed, if
+it is, then we increase the current Health level by 1 (or 1%).</p>
+<p>Then, we check to see if the Down arrow key is currently pressed, if
+it is, then we decrese the current Health level by 1 (or 1%).</p>
+<p>Finally, we use a handy little <strong>MathHelper</strong> method to
+make sure that our current health level value stays between 0 and 100.
+MathHelper is a class with a lot of very useful Math methods to help
+you code your games. The one we are using here is called <strong>"Clamp".</strong>
+What the "Clamp" method does is keep an object within a given range for
+you. So in our above code, if "mCurrentHealth" dropped below 0, say -1,
+the clamp function would detect that and set it to 0 for us keeping us
+within our range at all times. Very useful.</p>
+<p>Well, now that we are modifying the Health, we now need to modify our Draw code to show that changing Health level.</p>
+<p>Add the following code to the Draw method.</p>
+<p>&nbsp;</p>
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//TODO: Add your drawing code here</span></pre><pre>            mBatch.Begin();</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//Draw the negative space for the health bar</span></pre><pre class="alt"><p>            mBatch.Draw(mHealthBar, <span class="kwrd">new</span> Rectangle(<span class="kwrd">this</span>.Window.ClientBounds.Width / 2 - mHealthBar.Width / 2,</p><p>                 30, mHealthBar.Width, 44), <span class="kwrd">new</span> Rectangle(0, 45, mHealthBar.Width, 44), Color.Gray);</p></pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Draw the current health level based on the current Health</span></pre><pre>            mBatch.Draw(mHealthBar, <span class="kwrd">new</span> Rectangle(<span class="kwrd">this</span>.Window.ClientBounds.Width / 2 - mHealthBar.Width / 2,</pre><pre>                 30, (<span class="kwrd">int</span>)(mHealthBar.Width * ((<span class="kwrd">double</span>)mCurrentHealth / 100)), 44), </pre><pre>                 <span class="kwrd">new</span> Rectangle(0, 45, mHealthBar.Width, 44), Color.Red);</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">//Draw the box around the health bar</span></pre><pre class="alt"><p>            mBatch.Draw(mHealthBar, <span class="kwrd">new</span> Rectangle(<span class="kwrd">this</span>.Window.ClientBounds.Width / 2 - mHealthBar.Width / 2,</p><p>                30, mHealthBar.Width, 44), <span class="kwrd">new</span> Rectangle(0, 0, mHealthBar.Width, 44), Color.White);</p></pre><pre>            </pre><pre class="alt">            mBatch.End();</pre><pre>&nbsp;</pre><pre class="alt">            <span class="kwrd">base</span>.Draw(gameTime);</pre><pre>        }</pre></div>
+<p>We again are starting things off by signalling to the SpriteBatch that we are ready to begin drawing some things.</p>
+<p>Next, we draw the "Negative" space for the health. This is to show
+how much health has been lost. To do this, we are just drawing a gray
+rectangly the full length of the health bar. When the health is
+entirely full, you cannot see any of the gray, but as health is lost,
+you can then begin to see the gray behind the health image.</p>
+<p>Now, we draw the <strong>current health level</strong>. We achieve
+this by only drawing a percentage of the HealthBar image. We calculate
+that by taking the currenth health level dividing that by 100 and then
+multiplying that by the Width of the health bar image.
+(mHealthBar.Width * mCurrentHealth/100). That will give us the correct
+width to display for our current level of health.</p>
+<p>Finally, we draw the rectangle again around our health bar just to make it look all pretty.</p>
+<p>Well, that is it. We should now have a working health bar at this
+point. Let's do a final build and verify that we have it all working
+correctly. After you run the project, you should again be presented
+with the red full health bar. As you press the "Down" arrow key, the
+Health bar should decrease and as you press the "Up" arrow key the
+Health bar should increase.</p>
+<p align="center"><a href="http://www.xnadevelopment.com/livewriter/NotsoHealthy_12BC1/CropperCapture1492.jpg" atomicselection="true"><img style="border: 0px none ;" src="NotSoHealthy_files/CropperCapture149_thumb.jpg" border="0" width="615" height="480"></a> </p>
+<p>&nbsp;</p>
+<p><strong>Congratulations!</strong> You have completed the health bar
+tutorial. Now that you know the basics of how to create a health bar,
+can you think of some places where you might use it? Maybe in a 2D
+fighting game? Maybe for a fuel bar in a airplane or racing game? </p>
+<p>Now take what you know and make something with it. Most of all, make sure that you are <strong>having fun</strong>!</p>
+
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="NotSoHealthy_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</body></html>

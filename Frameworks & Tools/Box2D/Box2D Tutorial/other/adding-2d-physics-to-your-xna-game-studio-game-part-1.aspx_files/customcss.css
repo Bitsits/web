@@ -1,0 +1,14 @@
+pre
+{
+	font-family: Verdana;
+	border: solid LightSteelBlue 1px;
+	padding: 3px;
+	margin:10px;
+	overflow: hidden;
+}
+
+pre.code
+{
+	background-color: white;
+	font-family: Consolas, Verdana;
+}

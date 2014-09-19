@@ -1,0 +1,641 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="ctl00_ctl00_Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+        
+        <link rel="shortcut icon" href="http://i1.social.microsoft.com/Forums/GlobalResources/themes/windowsmobile/images/favicon.ico" type="image/x-icon"> 
+    <link href="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/Site.css" rel="Stylesheet" type="text/css"><link href="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/windowsmobile.css" rel="Stylesheet" type="text/css"><meta name="CommunityInfo" content=" B=Msdn;A=Forums;L=en-US;">
+    <script src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/jquery-1.js" type="text/javascript" language="javascript"></script>
+    
+    <title>
+    DataContractSerializer/IsolatedStorage performance issue?
+</title>
+	
+    <link type="text/css" rel="Stylesheet" href="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/Core.css">
+    <!--[if IE 6]>
+    <link type="text/css" rel="Stylesheet" href="http://i1.social.microsoft.com/Forums/resources/styles/IE6Core.css?cver=1864.432%0d%0a" />
+    <![endif]-->
+    <link type="text/css" rel="Stylesheet" href="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/forums.css">
+    
+    
+    
+    <link rel="alternate" type="application/rss+xml" title="DataContractSerializer/IsolatedStorage performance issue?" href="http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?outputAs=rss">
+
+    <meta name="Search.MSForums.Iroot" content="windowsmobile">
+    <meta name="Search.MSForums.CategoryID" content="294353ba-b797-4bdc-a036-f01b0b9e4671">
+    <meta name="Search.MSForums.CategoryName" content="windowsphone">
+    
+</head><body class="FF FF3" dir="ltr">
+    <form name="aspnetForm" method="post" action="88a9ccba-ce1f-458a-bee2-911acfe9c0e1" id="aspnetForm">
+<div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNzE1MTk2MDAwZGTQZleNWlnHbnOFYQqkT+2UuG4GOg==" type="hidden">
+</div>
+
+    
+<script src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/SearchBox.js" type="text/javascript" language="javascript"></script></form>
+    <div id="BodyBackground" class="ltr">
+        <div id="JelloSizer">    
+            <div id="JelloExpander">
+                <div id="JelloWrapper">
+                    <div class="Clear"> </div>
+                    
+                    <div class="Masthead">
+                        <div id="BrandLogo" class="BrandLogo"><a class="BrandLogoLink" href="http://developer.windowsphone.com/"><span id="BrandDisplayText">Windows Mobile Developer Center</span></a></div>
+
+                        <div class="RightSideMastHead">                        
+
+                            <div class="PassportScarab">
+                                <a id="idPPScarab" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=urn%3asocial.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen%2fwindowsphone7series%2fthread%2f88a9ccba-ce1f-458a-bee2-911acfe9c0e1%3fstoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=Msdn%24Msdn%24Msdn">Sign in</a>
+                            </div>   
+                            
+                            <div class="UserName" id="UserName"><a id="ctl00_ctl00_ctl01_UserNameLink"></a></div>
+                            
+                            <div class="Clear"></div>                              
+                            <div id="NetworkTagLineArea" class="NetworkLogo">
+                                <a id="NetworkLink" href="http://msdn.microsoft.com/en-US">
+                                    <img id="Image1" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/logo_MSDN.png">
+                                </a>
+                            </div>                           
+                                                         
+                            
+                            <div class="Clear"></div>
+                            <div class="Search">
+                                <div id="SearchBox" class="SearchBox"><input value="Search Windows Mobile with Bing" style="color: rgb(170, 170, 170); font-style: italic;" title="Search Windows Mobile with Bing" autocomplete="off" name="SearchTextBox" id="SearchTextBox" class="TextBoxSearch TextBoxSearchIE7" type="text"><input title="Search Windows Mobile with Bing" name="SearchButton" id="SearchButton" class="SearchButton" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans.gif" type="image"><span class="Bing">&nbsp;</span><div style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 255); font-family: arial;" id="SearchFlyoutContainer"><div id="SuggestionContainer"><ul style="list-style: none outside none; padding: 4px 2px 0px 1px; cursor: pointer; font-size: 8pt; margin: 1px;"></ul></div><div style="width: 100%; margin: 0px; text-align: right; font-size: 8pt;" id="FooterContainer"><a href="#">Close</a></div></div></div>
+                            </div>                                                    
+                            
+                             
+                          <div class="Clear"></div>
+                            <div class="GlobalBar">                          
+                                <div id="LocaleFlyout" class="LocaleFlyout">
+                                    <div id="LocaleSelector">
+	<div id="TargetPanel">
+		<a>United States (English)</a><img class="DropDownArrow" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_003.gif">
+	</div><div id="PopupPanel" class="ContextMenuPanel">
+		<a href="http://social.msdn.microsoft.com/Forums/en-AU/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">Australia (English)</a><a href="http://social.msdn.microsoft.com/Forums/pt-BR/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">Brasil (Português)</a><a href="http://social.msdn.microsoft.com/Forums/cs-CZ/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">Česká&nbsp;republika (Čeština)</a><a href="http://social.msdn.microsoft.com/Forums/da-DK/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">Danmark (Dansk)</a><a href="http://social.msdn.microsoft.com/Forums/de-DE/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">Deutschland (Deutsch)</a><a href="http://social.msdn.microsoft.com/Forums/es-ES/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">España (Español)</a><a href="http://social.msdn.microsoft.com/Forums/fr-FR/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">France (Français)</a><a href="http://social.msdn.microsoft.com/Forums/id-ID/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">Indonesia (Bahasa)</a><a href="http://social.msdn.microsoft.com/Forums/it-IT/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">Italia (Italiano)</a><a href="http://social.msdn.microsoft.com/Forums/ro-RO/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">România (Română)</a><a href="http://social.msdn.microsoft.com/Forums/tr-TR/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">Türkiye (Türkçe)</a><a href="http://social.msdn.microsoft.com/Forums/ru-RU/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">Россия (Русский)</a><a href="http://social.msdn.microsoft.com/Forums/he-IL/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">ישראל (עברית)</a><a href="http://social.msdn.microsoft.com/Forums/ar-SA/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">المملكة العربية السعودية (العربية)</a><a href="http://social.msdn.microsoft.com/Forums/th-TH/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">ไทย (ไทย)</a><a href="http://social.msdn.microsoft.com/Forums/ko-KR/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">대한민국 (한국어)</a><a href="http://social.msdn.microsoft.com/Forums/zh-CN/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">中华人民共和国 (中文)</a><a href="http://social.msdn.microsoft.com/Forums/zh-TW/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">台灣 (中文)</a><a href="http://social.msdn.microsoft.com/Forums/ja-JP/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">日本 (日本語)</a><a href="http://social.msdn.microsoft.com/Forums/zh-HK/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?persist=True" class="ContextMenuItem" rel="nofollow">香港特別行政區 (中文)</a>
+	</div>
+</div>
+                                </div>
+                            </div>
+                            
+
+                        </div>                         
+
+                        <div class="leftcap" xmlns:msxsl="urn:schemas-microsoft-com:xslt">&nbsp;</div><div class="internav" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><a href="http://developer.windowsphone.com/">Developer home</a><a href="http://developer.windowsphone.com/secure/dashboard/Dashboard.aspx">Your apps</a><a href="http://go.microsoft.com/?linkid=9670344">Resources</a><a class="          active
+        " href="http://social.msdn.microsoft.com/Forums/en-US/category/WindowsPhone">Forums</a><a href="http://developer.windowsphone.com/help.aspx">Help</a></div>     
+
+                          
+                    </div>
+                    
+                    <div class="Clear"> </div>
+                          
+                    <div class="topleftcorner"></div>           
+                    <div class="toprightcorner"></div>                                
+                    <div class="alley"> <!-- Left Side -->
+                        <div class="wrapper"> <!-- Right Side -->
+                            <div class="inner">  
+                            
+                                                 
+                                <div class="Clear"></div>   
+
+
+                                
+                                
+                                
+                                
+                                <div id="MainContent" class="Msdn">
+                                    
+    <div id="contentWrapper">
+        <div id="content">
+            <div id="forumsMessage"></div>
+            
+    
+<div class="bread">    
+    <span><a href="http://developer.windowsphone.com/">Windows Mobile Developer Center</a></span><span> &gt; </span>
+  
+    
+                <span><a href="http://social.msdn.microsoft.com/Forums/en/category/windowsphone">Windows Phone Forums</a></span>
+                <span> &gt; </span>
+        
+                <span><a href="http://social.msdn.microsoft.com/Forums/en/windowsphone7series/threads">Windows Phone 7</a></span>
+                <span> &gt; </span>
+        
+            <span>DataContractSerializer/IsolatedStorage performance issue?</span>
+        
+</div>
+<!-- Scope: forum-->
+<div class="box discover">
+    <div class="content">
+        <a class="btn" title="Ask a question" href="http://social.msdn.microsoft.com/Forums/en/newthread?forum=windowsphone7series" name="ask" rel="nofollow">
+        <img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif" alt="Ask a question" class="icon ask">Ask a question</a>
+        <div class="search">
+        <form action="/Forums/en/search" id="forumsSearch" method="post">Search Forums: <input class="watermark" value="Search Windows Phone 7 Forum" name="searchTerm" id="searchTerm" type="text"><input src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/search.gif" type="image">
+            <a id="searchRefinements" name="searchRefinements" href="javascript:void(0);" class="popup" style="height: 16px;"><img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif" class="expcol"></a>
+            <ul style="" name="searchRefinementsPopup" class="popup" popupalign="right">
+            
+	                    <li>
+		                    <a scopetype="Forum" scopedata="windowsphone7series" href="#" title="Search Windows Phone 7 Forum">
+		                    <img class="icon none" alt="Search Windows Phone 7 Forum" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif">
+                            Search Windows Phone 7 Forum
+		                    </a>
+	                    </li>
+                    
+	                    <li>
+		                    <a scopetype="Category" scopedata="windowsphone" href="#" title="Search All Windows Phone Forums">
+   		                    <img class="icon none" alt="Search All Windows Phone Forums" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif">
+		                    Search All Windows Phone Forums
+		                    </a>
+	                    </li>
+                    
+	                <li>
+		                <a scopetype="Brand" scopedata="" href="#" title="Search All MSDN Forums">
+		                <img class="icon none" alt="Search All MSDN Forums" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif">
+		                Search All MSDN Forums
+		                </a>
+	                </li>
+            
+            </ul>
+            <input name="scopeType" value="Forum" id="scopeType" type="hidden">
+            <input name="scopeData" value="windowsphone7series" id="scopeData" type="hidden">
+            <input name="currentScopeType" value="Forum" id="currentScopeType" type="hidden">
+            <input name="currentScopeData" value="windowsphone7series" id="currentScopeData" type="hidden">
+        </form>
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $("#forumsSearch #searchTerm").watermark('Search Windows Phone 7 Forum');
+                $("#btnSubmit").attr("disabled", "disabled");
+                $("a#searchRefinements").show();
+
+                $("#forumsSearch").submit(function()
+                {
+                    var strippedVal = $("#forumsSearch #searchTerm").watermarkVal().replace(/^\s+|\s+$/g, "");
+                    return (strippedVal.length > 0)
+                });
+
+                $("#forumsSearch ul.popup a").click(function()
+                {
+                    $("#forumsSearch #scopeType").val($(this).attr("scopeType"));
+                    $("#forumsSearch #scopeData").val($(this).attr("scopeData"));
+                    $("#forumsSearch").submit();
+                    return false;
+                });
+            });
+        </script>
+        </div>
+    <div class="clear">&nbsp;</div>
+    </div>
+</div>
+<h1 href="http://social.msdn.microsoft.com:80/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1"><img class="icon locked" alt="Locked" title="Locked" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><span name="subject">DataContractSerializer/IsolatedStorage performance issue?</span><a href="http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1?outputAs=rss" rel="nofollow"><img class="icon rss" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></a></h1><p>Locked</p><ul class="message root"><li id="88a9ccba-ce1f-458a-bee2-911acfe9c0e1" class="message  root"><div class="head"><span class="date">Monday, August 30, 2010 10:07 PM</span><a class="author" href="http://social.msdn.microsoft.com/profile/jeromiya/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/avatar_002.jpg"></a><span class="fullbadge"><a class="author" href="http://social.msdn.microsoft.com/profile/jeromiya/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><span class="name">JeroMiya</span></a><span class="affil"> </span><span class="medals"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></span></span><div class="helpful">&nbsp;<img class="icon hascode" alt="Has Code" title="Has Code" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></div></div><div class="votingouterbox"><div class="voting"><img class="icon voteup" alt="Sign In to Vote" title="Sign In to Vote" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><div class="votecount">0</div></div><span class="votinglabel type"><a title="Sign In to Vote" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=urn%3asocial.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen%2fwindowsphone7series%2fthread%2f88a9ccba-ce1f-458a-bee2-911acfe9c0e1%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign In to Vote</a></span></div><div class="container"><div class="body"><div>The
+ performance issue with IsolatedStorage in general on WP7 has been 
+reported elsewhere, but I have also noticed in addition to a huge 
+difference in performance between WP7 emulator and PC, but also the 
+DataContractSerializer and XmlSerializer classes
+ perform differently relative to each other when compared on WP7 vs on 
+the PC: On the PC the DCS is faster for the most part, while on WP7, 
+XMLSerializer is significantly faster. Note that I have attempted to 
+serialize to a MemoryStream, and then write the
+ MemoryStream to the IsolatedStorageStream in 1024 byte chunks, but this
+ in most cases made little difference and in some cases made it slower.</div>
+<div><br>
+</div>
+<div>Here is the data I attempted to serialize:</div>
+<div>
+<div style="color: Black; background-color: White;"><pre>	[DataContract]
+	<span style="color: Blue;">public</span> <span style="color: Blue;">class</span> MyData
+	{
+		[DataMember]
+		<span style="color: Blue;">public</span> <span style="color: Blue;">int</span> Data { <span style="color: Blue;">get</span>; <span style="color: Blue;">set</span>; }
+
+		[DataMember]
+		<span style="color: Blue;">public</span> MyData Left { <span style="color: Blue;">get</span>; <span style="color: Blue;">set</span>; }
+
+		[DataMember]
+		<span style="color: Blue;">public</span> MyData Right { <span style="color: Blue;">get</span>; <span style="color: Blue;">set</span>; }
+
+		<span style="color: Blue;">public</span> <span style="color: Blue;">static</span> MyData CreateTree(<span style="color: Blue;">int</span> size)
+		{
+			<span style="color: Blue;">if</span>(size == 0)
+			{
+				<span style="color: Blue;">return</span> <span style="color: Blue;">null</span>;
+			}
+			<span style="color: Blue;">else</span>
+			{
+				<span style="color: Blue;">return</span> <span style="color: Blue;">new</span> MyData { Data = size, 
+					Left = CreateTree(size - 1),
+					Right = CreateTree(size - 1) };
+			}
+		}
+	}
+</pre></div>
+</div>
+<div>I created a binary tree of depth 15 for this test. Here is the 
+serialization code for both XmlSerializer and DataContractSerializer:</div>
+<div>
+<div style="color: Black; background-color: White;"><pre>	<span style="color: Blue;">public</span> <span style="color: Blue;">class</span> StorageHelper
+	{
+		<span style="color: Blue;">public</span> <span style="color: Blue;">static</span> T LoadXml&lt;T&gt;(<span style="color: Blue;">string</span> fileName) <span style="color: Blue;">where</span> T : <span style="color: Blue;">class</span>, <span style="color: Blue;">new</span>()
+		{
+			T loadedObject = <span style="color: Blue;">null</span>;
+			XmlSerializer serializer = <span style="color: Blue;">new</span> XmlSerializer(<span style="color: Blue;">typeof</span>(T));
+<span style="color: Blue;">#if</span> WINDOWS_PHONE
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> storageFile = IsolatedStorageFile.GetUserStoreForApplication())
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> stream = <span style="color: Blue;">new</span> IsolatedStorageFileStream(fileName, FileMode.Open, storageFile))
+<span style="color: Blue;">#else</span>
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> stream = <span style="color: Blue;">new</span> FileStream(fileName, FileMode.Open))
+<span style="color: Blue;">#endif</span>
+			{
+				<span style="color: Blue;">if</span> (stream != <span style="color: Blue;">null</span>)
+				{
+					<span style="color: Blue;">if</span> (stream.Length &gt; 0)
+					{
+						loadedObject = (T)serializer.Deserialize(stream);
+					}
+					stream.Close();
+				}
+			}
+			<span style="color: Blue;">return</span> loadedObject;
+		}
+
+		<span style="color: Blue;">public</span> <span style="color: Blue;">static</span> T Load&lt;T&gt;(<span style="color: Blue;">string</span> name, <span style="color: Blue;">bool</span> useBinary) <span style="color: Blue;">where</span> T : <span style="color: Blue;">class</span>, <span style="color: Blue;">new</span>()
+		{
+			T loadedObject = <span style="color: Blue;">null</span>;
+<span style="color: Blue;">#if</span> WINDOWS_PHONE
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> storageFile = IsolatedStorageFile.GetUserStoreForApplication())
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> stream = <span style="color: Blue;">new</span> IsolatedStorageFileStream(name, FileMode.Open, storageFile))
+<span style="color: Blue;">#else</span>
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> stream = <span style="color: Blue;">new</span> FileStream(name, FileMode.Open))
+<span style="color: Blue;">#endif</span>
+			{
+<span style="color: Blue;">#if</span> WINDOWS_PHONE
+				<span style="color: Blue;">var</span> reader 
+					= (useBinary ? 
+					  XmlDictionaryReader.CreateBinaryReader(stream, XmlDictionaryReaderQuotas.Max)
+						: XmlDictionaryReader.Create(stream));
+<span style="color: Blue;">#else</span>
+				<span style="color: Blue;">var</span> reader
+					= (useBinary ? 
+						 XmlDictionaryReader.CreateBinaryReader(stream, XmlDictionaryReaderQuotas.Max)
+						: XmlDictionaryReader.CreateTextReader(stream, XmlDictionaryReaderQuotas.Max));
+<span style="color: Blue;">#endif</span>
+				<span style="color: Blue;">if</span> (stream.Length &gt; 0)
+				{
+					DataContractSerializer serializer = <span style="color: Blue;">new</span> DataContractSerializer(<span style="color: Blue;">typeof</span>(T));
+					loadedObject = serializer.ReadObject(reader) <span style="color: Blue;">as</span> T;
+				}
+				<span style="color: Blue;">if</span> (loadedObject == <span style="color: Blue;">null</span>)
+				{
+					loadedObject = <span style="color: Blue;">new</span> T();
+				}
+				stream.Close();
+			}
+
+			<span style="color: Blue;">return</span> loadedObject;
+		}
+
+		<span style="color: Blue;">public</span> <span style="color: Blue;">static</span> <span style="color: Blue;">void</span> SaveXml&lt;T&gt;(<span style="color: Blue;">string</span> fileName, T objectToSave)
+		{
+<span style="color: Blue;">#if</span> WINDOWS_PHONE
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> storageFile = IsolatedStorageFile.GetUserStoreForApplication())
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> stream
+				= <span style="color: Blue;">new</span> IsolatedStorageFileStream(fileName, FileMode.Create, storageFile))
+<span style="color: Blue;">#else</span>
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> stream = <span style="color: Blue;">new</span> FileStream(fileName, FileMode.Create))
+<span style="color: Blue;">#endif</span>
+			{
+				<span style="color: Blue;">if</span> (stream != <span style="color: Blue;">null</span>)
+				{
+					XmlSerializer xs = <span style="color: Blue;">new</span> XmlSerializer(<span style="color: Blue;">typeof</span>(T));
+					xs.Serialize(stream, objectToSave);
+					stream.Flush();
+				}
+			}
+		}
+
+		<span style="color: Blue;">public</span> <span style="color: Blue;">static</span> <span style="color: Blue;">void</span> Save&lt;T&gt;(<span style="color: Blue;">string</span> fileName, T objectToSave, <span style="color: Blue;">bool</span> useBinary)
+		{
+<span style="color: Blue;">#if</span> WINDOWS_PHONE
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> storageFile = IsolatedStorageFile.GetUserStoreForApplication())
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> stream
+				= <span style="color: Blue;">new</span> IsolatedStorageFileStream(fileName, FileMode.Create, storageFile))
+<span style="color: Blue;">#else</span>
+			<span style="color: Blue;">using</span> (<span style="color: Blue;">var</span> stream = <span style="color: Blue;">new</span> FileStream(fileName, FileMode.Create))
+<span style="color: Blue;">#endif</span>
+			{
+<span style="color: Blue;">#if</span> WINDOWS_PHONE
+				<span style="color: Blue;">var</span> writer = (useBinary ? 
+					 XmlDictionaryWriter.CreateBinaryWriter(stream)
+					: XmlDictionaryWriter.Create(stream));
+<span style="color: Blue;">#else</span>
+				<span style="color: Blue;">var</span> writer = (useBinary ? 
+					 XmlDictionaryWriter.CreateBinaryWriter(stream)
+					: XmlDictionaryWriter.CreateTextWriter(stream));
+<span style="color: Blue;">#endif</span>
+				<span style="color: Blue;">var</span> serializer = <span style="color: Blue;">new</span> DataContractSerializer(<span style="color: Blue;">typeof</span>(T));
+				serializer.WriteObject(writer, objectToSave);
+				writer.Flush();
+			}
+		}
+	}
+</pre></div>
+</div>
+<div>And here is the actual test code:</div>
+<div><br>
+</div>
+<div>
+<div style="color: Black; background-color: White;"><pre>			MyData tree = MyData.CreateTree(15);
+
+			System.Diagnostics.Debug.WriteLine(<span style="color: rgb(163, 21, 21);">"DataContractSerializerBinary"</span>);
+			Stopwatch timer = <span style="color: Blue;">new</span> Stopwatch();
+			timer.Start();
+			StorageHelper.Save(<span style="color: rgb(163, 21, 21);">"myFileDCS.bin"</span>, tree, <span style="color: Blue;">true</span>);
+			timer.Stop();
+			System.Diagnostics.Debug.WriteLine(<span style="color: rgb(163, 21, 21);">"save time: {0}"</span>, timer.Elapsed.TotalSeconds);
+
+			timer.Reset();
+			timer.Start();
+			<span style="color: Blue;">var</span> loaded = StorageHelper.Load&lt;MyData&gt;(<span style="color: rgb(163, 21, 21);">"myFileDCS.bin"</span>, <span style="color: Blue;">true</span>);
+			timer.Stop();
+			System.Diagnostics.Debug.WriteLine(<span style="color: rgb(163, 21, 21);">"load time: {0}"</span>, timer.Elapsed.TotalSeconds);
+
+			<span style="color: Green;">// -----</span>
+
+			System.Diagnostics.Debug.WriteLine(<span style="color: rgb(163, 21, 21);">"DataContractSerializerXml"</span>);
+			timer.Reset();
+			timer.Start();
+			StorageHelper.Save(<span style="color: rgb(163, 21, 21);">"myFileDCS.xml"</span>, tree, <span style="color: Blue;">false</span>);
+			timer.Stop();
+			System.Diagnostics.Debug.WriteLine(<span style="color: rgb(163, 21, 21);">"save time: {0}"</span>, timer.Elapsed.TotalSeconds);
+
+			timer.Reset();
+			timer.Start();
+			loaded = StorageHelper.Load&lt;MyData&gt;(<span style="color: rgb(163, 21, 21);">"myFileDCS.xml"</span>, <span style="color: Blue;">false</span>);
+			timer.Stop();
+			System.Diagnostics.Debug.WriteLine(<span style="color: rgb(163, 21, 21);">"load time: {0}"</span>, timer.Elapsed.TotalSeconds);
+
+			<span style="color: Green;">// -----</span>
+			System.Diagnostics.Debug.WriteLine(<span style="color: rgb(163, 21, 21);">"XmlSerializer"</span>);
+			timer.Reset();
+			timer.Start();
+			StorageHelper.SaveXml(<span style="color: rgb(163, 21, 21);">"myFileXmlSer.xml"</span>, tree);
+			timer.Stop();
+			System.Diagnostics.Debug.WriteLine(<span style="color: rgb(163, 21, 21);">"save time: {0}"</span>, timer.Elapsed.TotalSeconds);
+
+			timer.Reset();
+			timer.Start();
+			loaded = StorageHelper.LoadXml&lt;MyData&gt;(<span style="color: rgb(163, 21, 21);">"myFileXmlSer.xml"</span>);
+			timer.Stop();
+			System.Diagnostics.Debug.WriteLine(<span style="color: rgb(163, 21, 21);">"load time: {0}"</span>, timer.Elapsed.TotalSeconds);
+</pre></div>
+<br>
+</div>
+<div><br>
+</div>
+<div>Here are the results:</div>
+<div><br>
+</div>
+<div>Windows Phone 7 emulator:</div>
+<div>
+<div>
+<div>
+<div>DataContractSerializerBinary</div>
+<div><span style="white-space: pre;"></span>save time: 1.8221022</div>
+<div><span style="white-space: pre;"></span>load time: 4.990611</div>
+<div>DataContractSerializerXml</div>
+<div><span style="white-space: pre;"></span>save time: 1.476798</div>
+<div><span style="white-space: pre;"></span>load time: 5.5777374</div>
+<div>XmlSerializer</div>
+<div><span style="white-space: pre;"></span>save time: 0.8985714</div>
+<div><span style="white-space: pre;"></span>load time: 1.6051216</div>
+</div>
+</div>
+<div><br>
+</div>
+<div>Windows:</div>
+<div>
+<div>
+<div>DataContractSerializerBinary</div>
+<div><span style="white-space: pre;"></span>save time: 0.0981854</div>
+<div><span style="white-space: pre;"></span>load time: 0.0708542</div>
+<div>DataContractSerializerXml</div>
+<div><span style="white-space: pre;"></span>save time: 0.0401082</div>
+<div><span style="white-space: pre;"></span>load time: 0.163281</div>
+<div>XmlSerializer</div>
+<div><span style="white-space: pre;"></span>save time: 0.4869929</div>
+<div><span style="white-space: pre;"></span>load time: 0.0731108</div>
+</div>
+<div><br>
+</div>
+<div>Is my code doing something wrong to get these results?</div>
+</div>
+</div></div></div><div class="menu message"><ul class="menu"><div class="clear">&nbsp;</div></ul></div></li></ul><div class="answers"><h3>Answers</h3><ul class="message answers"><li id="ea85248c-4f7d-4b7a-adef-eaec5f5e4d8b" class="message answer"><div class="head"><span class="date">Tuesday, August 31, 2010 8:07 AM</span><a class="author" href="http://social.msdn.microsoft.com/profile/maarten%20struys/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/avatar.jpg"></a><span class="fullbadge"><a class="author" href="http://social.msdn.microsoft.com/profile/maarten%20struys/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><span class="name">Maarten Struys</span></a><span class="affil"><abbr class="affil">MVP</abbr></span><span class="medals"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></span></span><div class="helpful">&nbsp;<img class="icon answer" alt="Answer" title="Answer" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></div></div><div class="votingouterbox"><div class="voting"><img class="icon voteup" alt="Sign In to Vote" title="Sign In to Vote" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><div class="votecount">1</div></div><span class="votinglabel type"><a title="Sign In to Vote" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=urn%3asocial.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen%2fwindowsphone7series%2fthread%2f88a9ccba-ce1f-458a-bee2-911acfe9c0e1%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign In to Vote</a></span></div><div class="container"><div class="body"><p>I
+ don't immediately see something wrong with your code. However, you have
+ to keep in mind that performance analysis using the emulator is not 
+(always) giving realistic results. The emulator is a virtual machine, 
+with the VPC itself influencing performance
+ and being X86 based. Also, the WP7 bits are still in beta, meaning they
+ might have more diagnostics enabled and therefor influencing perf. It 
+would be interesting to run your app on a physical device. Performance 
+analysis for different scenarios inside a phone
+ application is absolutely necessary. I can't wait to start publishing 
+about this topic. Unfortunately, it really only makes sense on a device 
+itself, something I can only dream about today.</p>
+<p>Maarten</p></div><ul class="history"><li><span class="type">Marked As Answer by</span><a class="author" href="http://social.msdn.microsoft.com/profile/jeromiya/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow" title="About JeroMiya"><span class="name">JeroMiya</span> </a><span class="date">Tuesday, August 31, 2010 12:57 PM</span></li><li>&nbsp;</li></ul></div><div class="menu message"><ul class="menu"><div class="clear">&nbsp;</div></ul></div></li></ul></div><div class="replies"><h3>All Replies</h3><ul class="message"><li id="ea85248c-4f7d-4b7a-adef-eaec5f5e4d8b" class="message answer"><div class="head"><span class="date">Tuesday, August 31, 2010 8:07 AM</span><a class="author" href="http://social.msdn.microsoft.com/profile/maarten%20struys/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/avatar.jpg"></a><span class="fullbadge"><a class="author" href="http://social.msdn.microsoft.com/profile/maarten%20struys/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><span class="name">Maarten Struys</span></a><span class="affil"><abbr class="affil">MVP</abbr></span><span class="medals"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></span></span><div class="helpful">&nbsp;<img class="icon answer" alt="Answer" title="Answer" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></div></div><div class="votingouterbox"><div class="voting"><img class="icon voteup" alt="Sign In to Vote" title="Sign In to Vote" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><div class="votecount">1</div></div><span class="votinglabel type"><a title="Sign In to Vote" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=urn%3asocial.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen%2fwindowsphone7series%2fthread%2f88a9ccba-ce1f-458a-bee2-911acfe9c0e1%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign In to Vote</a></span></div><div class="container"><div class="body"><p>I
+ don't immediately see something wrong with your code. However, you have
+ to keep in mind that performance analysis using the emulator is not 
+(always) giving realistic results. The emulator is a virtual machine, 
+with the VPC itself influencing performance
+ and being X86 based. Also, the WP7 bits are still in beta, meaning they
+ might have more diagnostics enabled and therefor influencing perf. It 
+would be interesting to run your app on a physical device. Performance 
+analysis for different scenarios inside a phone
+ application is absolutely necessary. I can't wait to start publishing 
+about this topic. Unfortunately, it really only makes sense on a device 
+itself, something I can only dream about today.</p>
+<p>Maarten</p></div><ul class="history"><li><span class="type">Marked As Answer by</span><a class="author" href="http://social.msdn.microsoft.com/profile/jeromiya/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow" title="About JeroMiya"><span class="name">JeroMiya</span> </a><span class="date">Tuesday, August 31, 2010 12:57 PM</span></li><li>&nbsp;</li></ul></div><div class="menu message"><ul class="menu"><div class="clear">&nbsp;</div></ul></div></li><li id="ced865db-fc4a-47ae-b4d0-f54c0df3ed3f" class="message "><div class="head"><span class="date">Tuesday, August 31, 2010 1:13 PM</span><a class="author" href="http://social.msdn.microsoft.com/profile/jeromiya/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/avatar_002.jpg"></a><span class="fullbadge"><a class="author" href="http://social.msdn.microsoft.com/profile/jeromiya/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><span class="name">JeroMiya</span></a><span class="affil"> </span><span class="medals"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></span></span><div class="helpful">&nbsp;</div></div><div class="votingouterbox"><div class="voting"><img class="icon voteup" alt="Sign In to Vote" title="Sign In to Vote" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><div class="votecount">0</div></div><span class="votinglabel type"><a title="Sign In to Vote" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=urn%3asocial.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen%2fwindowsphone7series%2fthread%2f88a9ccba-ce1f-458a-bee2-911acfe9c0e1%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign In to Vote</a></span></div><div class="container"><div class="body"><p>Thanks
+ for the reply. At least now I know I'm not doing something obviously 
+wrong. I understand that the emulator and the phone will be slower than 
+the PC, but I didn't expect that the DataContractSerializer would be 
+slower than XmlSerializer in WP7, and
+ faster on the PC - I'm guessing it is some combination of emulator 
+quirk, IsolatedStorage performance issue, or WP7 quirk. I'll try again 
+on the RTM in a couple of weeks!</p>
+<p>&nbsp;</p>
+<p>PS: Would anyone who has a device be willing to run this test on 
+actual phone hardware? That could rule out or confirm the emulator quirk
+ theory.</p></div></div><div class="menu message"><ul class="menu"><div class="clear">&nbsp;</div></ul></div></li><li id="b80fd9d5-dc30-4c58-901e-c299f11b000f" class="message "><div class="head"><span class="date">Tuesday, August 31, 2010 1:19 PM</span><a class="author" href="http://social.msdn.microsoft.com/profile/mick%20n/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/avatar_003.jpg"></a><span class="fullbadge"><a class="author" href="http://social.msdn.microsoft.com/profile/mick%20n/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><span class="name">Mick N</span></a><span class="affil"> </span><span class="medals"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></span></span><div class="helpful">&nbsp;</div></div><div class="votingouterbox"><div class="voting"><img class="icon voteup" alt="Sign In to Vote" title="Sign In to Vote" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><div class="votecount">0</div></div><span class="votinglabel type"><a title="Sign In to Vote" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=urn%3asocial.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen%2fwindowsphone7series%2fthread%2f88a9ccba-ce1f-458a-bee2-911acfe9c0e1%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign In to Vote</a></span></div><div class="container"><div class="body"><p>Hi JeroMiya,</p>
+<p>You might also be interested to reflect on Scott's experience here.</p>
+<p><a href="http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/3080021c-3960-49a0-ac5b-ebf2680592e1">How to serialize classes to IsolatedStorage (tried and true)</a></p></div></div><div class="menu message"><ul class="menu"><div class="clear">&nbsp;</div></ul></div></li><li id="9c7e6acf-fd7e-4ac9-8ea7-5ebd6aa0bcab" class="message "><div class="head"><span class="date">Tuesday, August 31, 2010 3:31 PM</span><a class="author" href="http://social.msdn.microsoft.com/profile/jeromiya/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/avatar_002.jpg"></a><span class="fullbadge"><a class="author" href="http://social.msdn.microsoft.com/profile/jeromiya/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><span class="name">JeroMiya</span></a><span class="affil"> </span><span class="medals"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></span></span><div class="helpful">&nbsp;</div></div><div class="votingouterbox"><div class="voting"><img class="icon voteup" alt="Sign In to Vote" title="Sign In to Vote" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><div class="votecount">0</div></div><span class="votinglabel type"><a title="Sign In to Vote" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=urn%3asocial.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen%2fwindowsphone7series%2fthread%2f88a9ccba-ce1f-458a-bee2-911acfe9c0e1%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign In to Vote</a></span></div><div class="container"><div class="body"><p>@mick
+ N: Yes, that is what brought me here (see my post at the end). I was 
+testing his solution and found that doing an intermediate serialization 
+to MemoryStream and then writing the MemoryStream to isolated storage in
+ large chunks did not improve performance
+ significantly, and in a couple of cases made things slower. Of course 
+this might be different on an actual device.</p>
+<p>This post is regarding the odd performance characteristics of the 
+DataContractSerializer on WP7 - specifically that it is slower relative 
+to the XMLSerializer when running on WP7, but faster than the 
+XMLSerializer on the PC.</p>
+<p>My expectations were that they would both be slower on WP7, but that 
+they would be close to the same proportions relative to each other, if 
+that makes sense. This is particularly surprising when you consider that
+ the XmlSerializer produces an Xml file that
+ is more than twice as large as the one that the DataContractSerializer 
+produces, and almost four times as large as the binary file the 
+DataContractSerializer produces, so you would think that the extra 
+read/write time from isolated storage would dominate any
+ difference in computational performance difference between the two 
+serializers (maybe the emulator is just putting the virtual "disk" in 
+memory and reading directly from memory?).&nbsp;</p>
+<p>In fact, I have also run this test by just serializing to a 
+MemoryStream and not touching isolated storage at all. I get the same 
+odd results, so I don't think it is an isolated storage quirk that's 
+causing it.</p></div></div><div class="menu message"><ul class="menu"><div class="clear">&nbsp;</div></ul></div></li><li id="cd58175d-c5fa-4a73-bf28-b659c86778a4" class="message "><div class="head"><span class="date">Tuesday, August 31, 2010 4:20 PM</span><a class="author" href="http://social.msdn.microsoft.com/profile/cyost/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/avatar_004.jpg"></a><span class="fullbadge"><a class="author" href="http://social.msdn.microsoft.com/profile/cyost/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><span class="name">cyost</span></a><span class="affil"> </span><span class="medals"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></span></span><div class="helpful">&nbsp;</div></div><div class="votingouterbox"><div class="voting"><img class="icon voteup" alt="Sign In to Vote" title="Sign In to Vote" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><div class="votecount">0</div></div><span class="votinglabel type"><a title="Sign In to Vote" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=urn%3asocial.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen%2fwindowsphone7series%2fthread%2f88a9ccba-ce1f-458a-bee2-911acfe9c0e1%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign In to Vote</a></span></div><div class="container"><div class="body">I
+ am going to try you code on a device this evening.&nbsp; Im am in some 
+training now, and don't have access to my development tools.</div></div><div class="menu message"><ul class="menu"><div class="clear">&nbsp;</div></ul></div></li><li id="b5dc9600-3662-4930-9607-950f94b25423" class="message "><div class="head"><span class="date">Tuesday, August 31, 2010 10:38 PM</span><a class="author" href="http://social.msdn.microsoft.com/profile/cyost/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/avatar_004.jpg"></a><span class="fullbadge"><a class="author" href="http://social.msdn.microsoft.com/profile/cyost/?type=forum&amp;referrer=http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1" rel="nofollow"><span class="name">cyost</span></a><span class="affil"> </span><span class="medals"><img class="icon medalon" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><img class="icon medaloff" alt="Users Medals" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"></span></span><div class="helpful">&nbsp;</div></div><div class="votingouterbox"><div class="voting"><img class="icon voteup" alt="Sign In to Vote" title="Sign In to Vote" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif"><div class="votecount">0</div></div><span class="votinglabel type"><a title="Sign In to Vote" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=urn%3asocial.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen%2fwindowsphone7series%2fthread%2f88a9ccba-ce1f-458a-bee2-911acfe9c0e1%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft">Sign In to Vote</a></span></div><div class="container"><div class="body"><p>Alright...</p>
+<p>I ran the code both in my emulator and on the phone, both twice 
+during the execution of the app, to get any JIT time out of the 
+way.&nbsp; Here are the results of the second runs:</p>
+<p>Emulator:</p>
+<p>DataContractSerializerBinary<br>
+save time: 1.451642<br>
+load time: 5.7432028<br>
+<br>
+DataContractSerializerXml<br>
+save time: 1.475864<br>
+load time: 6.3120791<br>
+<br>
+XmlSerializer<br>
+save time: 0.9435851<br>
+load time: 1.7488437</p>
+<p>LG Device:</p>
+<p>DataContractSerializerBinary<br>
+save time: 10.6154174<br>
+load time: 47.8074645<br>
+<br>
+DataContractSerializerXml<br>
+save time: 11.9115295<br>
+load time: 54.4300842<br>
+<br>
+XmlSerializer<br>
+save time: 6.540924<br>
+load time: 14.9216003</p>
+<p>&nbsp;</p>
+<p>While the datacontract version is still much slower at loading, it is
+ better (in propotion to the emulator), but the save times got worse.</p>
+<p>I am going to dig a bit to see if I can see anything in the code.</p>
+<p>chad</p></div></div><div class="menu message"><ul class="menu"><div class="clear">&nbsp;</div></ul></div></li></ul></div>
+            <div class="clear"></div>
+        </div>
+    </div>    
+    <div id="rail">
+        <a href="http://social.msdn.microsoft.com/Forums/en-US/help" class="help" rel="Help">Need Help with Forums? (FAQ)</a>
+    <div></div><div>
+    <div class="box">
+        <h4>My Forum Links</h4>
+        <ul class="content">
+            
+                <li><a href="https://login.live.com/login.srf?wa=wsignin1.0&amp;wtrealm=urn%3asocial.msdn.microsoft.com&amp;wreply=https%3a%2f%2fsocial.msdn.microsoft.com%2fForums%2fen%2fwindowsphone7series%2fthread%2f88a9ccba-ce1f-458a-bee2-911acfe9c0e1%3fprof%3drequired%26stoAI%3d10&amp;wp=MBI_FED_SSL&amp;wlcxt=microsoft%24microsoft%24microsoft" title="Sign In To Forums">Sign In To Forums</a></li>
+            
+            <li><a href="http://social.msdn.microsoft.com/Forums/en/categories">Forums Home</a></li>
+            <li><a href="http://social.msdn.microsoft.com/Forums/en/browseusers" title="Browse Forums Users">Browse Forums Users</a></li>
+        </ul>
+    </div>
+</div><div><div id="Rectangle300">
+	<div id="88497fdd-ebb0-4bdc-b83b-60169395defb" name="88497fdd-ebb0-4bdc-b83b-60169395defb" style="margin: auto; width: 300px; height: 250px;" class="AdWidthFix" align="center"><iframe src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/a.htm" name="dapIfM0" id="dapIfM0" width="300" frameborder="0" height="250" scrolling="no"></iframe></div>
+</div></div><div>
+<div class="box">
+    <h4>Related Topics</h4>
+    <p class="content"><img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif" class="icon unanswered" alt="Unanswered" title="Unanswered"> = Unanswered <img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif" class="icon answered" alt="Answered" title="Answered"> = Answered</p>
+    <hr>
+    
+<ul class="content relatedThreads">
+
+<li>
+    <img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif" class="icon unanswered" alt="Question" title="Question"><a href="http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/a47fbd61-f379-4491-9274-5d9bfb90a98f" target="_blank" title="Posted to windowsphone7series Forum">What is the preferred way to deal with IsolatedStorage?</a></li>
+
+<li>
+    <img src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/trans_002.gif" class="icon comment" alt="General Discussion" title="General Discussion"><a href="http://social.msdn.microsoft.com/Forums/en-US/windowsphone7series/thread/f44d716b-fb5e-4a88-b77b-0d2fd80faa92" target="_blank" title="Posted to windowsphone7series Forum">XML Serializer - Efficient?</a></li>
+
+</ul>
+
+</div>
+</div><div>
+
+<div class="box">
+    <h4>Statistics</h4>
+    <ul class="content">
+        <li>Started: <span class="date">8/30/2010</span></li>
+        
+        <li>Last Reply: <span class="date">8/31/2010</span></li>
+        
+        <li>Helpful Votes: 1</li>
+        <li>Replies: 6</li>
+        <li>Views: 1,331</li>
+        
+    </ul>
+</div></div></div>
+ 
+                                    <div class="Clear"></div>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="Clearbottom"></div>          
+                    <div class="bottomleftcorner"></div>            
+                    <div class="bottomrightcorner"></div> 
+                    
+                    <div id="Footer">
+                        <div class="FooterLogoContainer"><a href="http://www.microsoft.com/"><div class="FooterLogo" title="Microsoft Corporation">&nbsp;</div></a></div><div class="FooterLinks"><div id="FooterCopyright" class="FooterCopyright">© 2011  Microsoft. All rights reserved.</div><a href="http://msdn.microsoft.com/cc300389.aspx">Terms of Use</a><span class="Pipe">|</span><a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a><span class="Pipe">|</span><a href="http://www.microsoft.com/info/privacy.mspx">Privacy Statement</a><span class="Pipe">|</span><a href="http://go.microsoft.com/?linkid=8103551">Contact Us</a><span class="Pipe">|</span><a href="http://go.microsoft.com/?linkid=8786242&amp;amp;lcid=1033">Manage Your Profile</a></div>
+                        
+    
+ 
+                    </div>                             
+                </div>
+            </div>
+        </div>  
+    </div>
+    
+    
+    <script src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/resources.htm" type="text/javascript" language="javascript"></script>
+    <script src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/core.js" type="text/javascript" language="javascript"></script>
+    <script type="text/javascript" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/broker.js"></script>
+    
+    
+
+<script type="text/javascript" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/dap.js"></script>
+
+
+<script type="text/javascript" language="javascript">
+    var railItems = ["/Forums/en/user/mylinks","/Forums/en/windowsphone7series/ads","/Forums/en/search/RelatedThreadsByThread?threadTopic=DataContractSerializer%2FIsolatedStorage%20performance%20issue%3F&threadId=88a9ccba-ce1f-458a-bee2-911acfe9c0e1","/Forums/en/windowsphone7series/thread/88a9ccba-ce1f-458a-bee2-911acfe9c0e1/stats"];
+</script>
+
+    <script type="text/javascript" language="javascript">
+        var pageData = {"validUser":false,"autoSubscribe":true};
+    </script>
+    <script src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/messages.js" type="text/javascript" language="javascript"></script>
+    
+    
+    <script type="text/javascript"> var gDomain='m.webtrends.com'; var gDcsId='dcsour5e80000008ybade4ttg_1i1l'; var gTrackEvents=1; var gFpc='WT_FPC'; if(document.cookie.indexOf(gFpc+'=') == -1) {document.write("<script type='text/javascript' src='http://m.webtrends.com/dcsour5e80000008ybade4ttg_1i1l/wtid.js'><\/script>");
+}
+</script>
+<script src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/webtrends.js" type="text/javascript"></script>
+<noscript><img alt="" border="0" id="DCSIMG" width="1" height="1" src="http://m.webtrends.com/dcsour5e80000008ybade4ttg_1i1l/njs.gif?dcsuri=/nojavascript&amp;WT.js=No"></noscript>
+
+
+    
+    
+    <script type="text/javascript" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/omni_rsid_social.js"></script>
+    <noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+    src="http://msstonojssocial.112.2O7.net/b/ss/msstonojssocial/1/H.20.2--NS/0"
+    height="1" width="1" border="0" alt="" /></a></noscript>
+    
+    <script type="text/javascript" language="javascript" src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/MasterPage.js"></script>
+    <script src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/common.js" type="text/javascript" language="javascript"></script>
+<script src="88a9ccba-ce1f-458a-bee2-911acfe9c0e1_files/broker-config.js"></script></body></html>

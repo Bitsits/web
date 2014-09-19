@@ -1,0 +1,2029 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+ 
+
+    <meta name="robots" content="index,follow">
+<meta name="GENERATOR" content="Telligent Community 1.5.134.12674 (Build: 5.5.134.12674)">
+<link rel="pingback" href="http://blogs.msdn.com/b/shawnhar/pingback.aspx">
+<link rel="alternate" type="application/rss+xml" title="Site Home (RSS 2.0)" href="http://blogs.msdn.com/rss.aspx">
+<link rel="alternate" type="application/rss+xml" title="ShawnHargreaves's Comments (RSS 2.0)" href="http://blogs.msdn.com/members/ShawnHargreaves/comments/rss.aspx">
+<link rel="alternate" type="application/rss+xml" title="ShawnHargreaves's Activities (RSS 2.0)" href="http://blogs.msdn.com/members/ShawnHargreaves/activities/rss.aspx">
+<link rel="alternate" type="application/rss+xml" title="Activities of People ShawnHargreaves Follows (RSS 2.0)" href="http://blogs.msdn.com/members/ShawnHargreaves/activities/followersrss.aspx">
+<link rel="alternate" type="application/rss+xml" title="ShawnHargreaves's Groups Activities (RSS 2.0)" href="http://blogs.msdn.com/members/ShawnHargreaves/activities/groupsrss.aspx">
+<link rel="alternate" type="application/rss+xml" title="Shawn Hargreaves Blog (RSS 2.0)" href="http://blogs.msdn.com/b/shawnhar/rss.aspx">
+<link rel="alternate" type="application/atom+xml" title="Shawn Hargreaves Blog (Atom 1.0)" href="http://blogs.msdn.com/b/shawnhar/atom.aspx">
+<link rel="alternate" type="application/rss+xml" title="Shawn Hargreaves Blog - All Comments (RSS 2.0)" href="http://blogs.msdn.com/b/shawnhar/rsscomments.aspx">
+<link rel="alternate" type="application/rss+xml" title="Everything you ever wanted to know about IntermediateSerializer - Comments for this post (RSS 2.0)" href="http://blogs.msdn.com/b/shawnhar/rsscomments.aspx?WeblogPostID=8854301">
+
+            <link rel="stylesheet" href="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/layout.css" type="text/css" media="screen">
+        
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <link rel="shortcut icon" type="image/ico" href="http://blogs.msdn.com/themes/wireframe/favicon.ico">
+          <link type="text/css" rel="stylesheet" href="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/screen.css" media="screen,print">
+        
+          <link type="text/css" rel="stylesheet" href="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/wireframe.css" media="screen,print">		
+          <link type="text/css" rel="stylesheet" href="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/DynamicStyle_002.css" media="screen,print">
+          <link type="text/css" rel="stylesheet" href="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/DynamicStyle.css" media="screen,print">
+        
+          <!--[if lte IE 6]>
+              <link type="text/css" rel="stylesheet" href="/themes/wireframe/css/ie6.css" media="screen,print" />
+          <![endif]-->
+          <link type="text/css" rel="stylesheet" href="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/print.css" media="print">
+        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blogs.msdn.com/b/shawnhar/rsd.ashx">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" title="WLWManifest" href="http://blogs.msdn.com/b/shawnhar/wlwmanifest.ashx">
+<title>
+	Everything you ever wanted to know about IntermediateSerializer - Shawn Hargreaves Blog - Site Home - MSDN Blogs
+</title></head><body spellcheck="true">
+		<form name="aspnetForm" method="post" action="/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div>
+<input name="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_answer" id="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_answer" value="5" type="hidden">
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_encrypted" id="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_encrypted" value="68RPU0sWM8eWaXkaxa7v1fuyIOvEneJ5zOx5X0Yu3lA=" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTM5OTAxNDYyNWRkvI787cXLvh9XHlDReEjVejxzcZ4=" type="hidden">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_002.js" type="text/javascript"></script>
+
+
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource.axd" type="text/javascript"></script><script type="text/javascript" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/jquery-1.js"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_003.axd" type="text/javascript"></script><script type="text/javascript" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/autoresize.js"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_011.axd" type="text/javascript"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_005.axd" type="text/javascript"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_004.axd" type="text/javascript"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_007.axd" type="text/javascript"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_009.axd" type="text/javascript"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_008.axd" type="text/javascript"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_010.axd" type="text/javascript"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_002.axd" type="text/javascript"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource.js" type="text/javascript"></script>
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/WebResource_006.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+			
+            
+                
+            
+            <div class="header-fragments-header"></div>
+<div class="header-fragments"><div class="header-fragment-outer top-bar wireframe-header-fragment-outer wireframe-top-bar"><div class="header-fragment-inner top-bar wireframe-header-fragment-inner wireframe-top-bar"><div class="header-fragment welcome-message" id="fragment-52b489ec-590f-4a84-a72f-52a4f91a2652">
+
+
+<!-- always render -->
+</div><div class="header-fragment login-logout" id="fragment-b566d488-bce2-4712-88fe-575e16a1aaf6">
+
+
+
+
+
+        <div class="navigation-list-header"></div>
+        <ul class="navigation-list">
+
+            <li class="navigation-item">
+                <span id="ctl00_fragment_b566d488_bce2_4712_88fe_575e16a1aaf6_ctl01_ctl02_ctl05_WLIDLoginButton1" class="internal-link live-id-button"><a href="http://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1286733066&amp;rver=6.0.5286.0&amp;wp=MBI&amp;wreply=http:%2F%2Fblogs.msdn.com%2Fb%2Fshawnhar%2Farchive%2F2008%2F08%2F12%2Feverything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;lc=1033&amp;id=271611">Sign in</a></span>
+            </li>
+        </ul>
+        <div class="navigation-list-footer"></div>
+    </div><div class="header-fragment user-welcome-without-login" id="fragment-82b08d0d-4f79-403a-9047-28b1d54777b7">
+
+ &nbsp;<!-- always render -->
+
+</div></div></div><div class="header-fragment-outer wireframe-header-fragment-outer site-banner"><div class="header-fragment-inner wireframe-header-fragment-inner site-banner"><div class="header-fragment site-banner" id="fragment-fbb9fecd-3506-4881-865a-7eee0d9c851a">
+
+
+<div class="site-banner-header"></div>
+<div class="site-banner">
+    
+    
+    
+            <div class="site-logo"><a href="http://blogs.msdn.com/">
+                    <img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/logo_msdn.png" alt="" style="border-width: 0px;">
+                </a></div>
+        
+</div>
+<div class="site-banner-footer"></div></div></div></div><div class="header-fragment-outer wireframe-header-fragment-outer search"><div class="header-fragment-inner wireframe-header-fragment-inner search"><div class="header-fragment search" id="fragment-98b5808e-f81c-464a-a924-df2ab4f7297a">
+
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/Search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	// <![CDATA[
+	var Core_Search_AjaxEndpoint = '/Utility/HeaderFragments/Core/SearchAjax.asmx'
+	var Core_Search_NoSearchResults = 'No results found'
+
+	var ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a={"wrapperId":"fragment-98b5808e-f81c-464a-a924-df2ab4f7297a","variableName":"ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a","parameter":{"popupId":"ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a_ctl01_SearchPopup","textBoxId":"ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a_ctl01_SearchText","searchResultWrapperHtmlBlock":"{SearchResults}","searchGroupHtmlBlock":"\r\n\t\t<div class=\"content-list-header\"></div>\r\n\t\t<div class=\"content-list-name\">{ContentName}</div>\r\n\t\t<ul class=\"content-list\">\r\n\t\t\t{ContentItems}\r\n\t\t</ul>\r\n\t\t<div class=\"content-list-footer\"></div>\r\n\t\t","searchItemHtmlBlock":"<li class=\"content-item\"><a href=\"{Link}\" class=\"internal-link {LinkType}\"><span></span>{Title}</a></li>\t\t","searchSearchingHtmlBlock":"<div class=\"message loading\">Searching...</div>","searchNoResultsHtmlBlock":"<div class=\"message norecords\">No results found</div>","showAllHtmlBlock":"<a href=\"{ShowAllLink}\" class=\"internal-link search\"><span></span>Show All...</a>","searchErrorHtmlBlock":"<div class=\"message error\">Search is currently unavailable.</div>","searchOptionsPopup":"ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a_ctl01_SearchOptionsPopup","searchOptionName":"ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a_ctl01_filter","lastKeyCode":"","timeout":""}};
+		
+	$(document).ready(function() {
+		Core_Search_Register(ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a);
+	});
+	// ]]>
+</script>
+
+<div class="field-list-header">
+</div>
+<fieldset class="field-list">
+	<ul class="field-list">
+		<li class="field-item"><span class="field-item-input"><input autocomplete="off" name="ctl00$fragment_98b5808e_f81c_464a_a924_df2ab4f7297a$ctl01$SearchText" maxlength="64" size="15" id="ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a_ctl01_SearchText" class="search empty" type="text"></span></li>
+		
+	</ul>
+</fieldset>
+<div class="field-list-footer">
+</div>
+<div id="ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a_ctl01_SearchPopup" style="position: absolute; visibility: hidden; left: -5000px;"></div>
+
+</div></div></div><div class="header-fragment-outer wireframe-header-fragment-outer group-navigation"><div class="header-fragment-inner wireframe-header-fragment-inner group-navigation"><div class="header-fragment group-navigation" id="fragment-a131d5ed-87f8-4727-a3ea-05dbb27f4a79">
+
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/GroupNavigation.js" type="text/javascript"></script>
+    
+<div id="ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_ParentGroupListContainer" class="parent-container" style="width: 100%;">
+<div class="parent-sub-container">
+	
+            <div class="navigation-list-header"></div>
+            <ul class="navigation-list parent">
+            <li class="navigation-item" style="display: none;">
+                <a href="http://blogs.msdn.com/">Home</a>
+            </li>
+        
+            <li class="navigation-item entry" style="display: none;">
+				
+						<a class="internal-link view-group" href="http://blogs.msdn.com/Microsoft_Blog_Images/"><span></span>Microsoft Blog Images</a>
+					
+            </li>
+        
+			
+            <li class="navigation-item last">
+				<a id="MoreLink" style="" onmouseover="Core_GroupNavigation_MoreShowNav(ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79, true, this)" onmouseout="Core_GroupNavigation_MoreMouseOutPopup(ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79, true, this)" href="#">More ...</a>
+            </li>
+            </ul>
+            <div class="navigation-list-footer"></div>
+        
+</div>
+</div>
+<div id="ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_GroupNavigationPopup" style="position: absolute; visibility: hidden; left: -5000px;"></div>
+<div id="ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_ParentMore" style="display: none;">
+    <div class="content-list-header"></div>
+    <ul id="ParentMoreListfragment-a131d5ed-87f8-4727-a3ea-05dbb27f4a79" class="content-list"><li class="navigation-item entry last" style="">
+				
+						<a class="internal-link view-group" href="http://blogs.msdn.com/Microsoft_Blog_Images/"><span></span>Microsoft Blog Images</a>
+					
+            </li></ul>
+    <div class="content-list-footer"></div>
+</div>
+<div id="ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_ChildMore" style="display: none;">
+    <div class="content-list-header"></div>
+    <ul id="ChildMoreListfragment-a131d5ed-87f8-4727-a3ea-05dbb27f4a79" class="content-list"></ul>
+    <div class="content-list-footer"></div>
+</div>
+	
+<script type="text/javascript">
+    // <![CDATA[
+    
+    var Core_GroupNavigation_AjaxEndpoint = '/Utility/HeaderFragments/Core/GroupNavigationAjax.asmx';
+        
+    var ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79={"wrapperId":"fragment-a131d5ed-87f8-4727-a3ea-05dbb27f4a79","variableName":"ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79","parameter":{"currentGroupId":0,"popupMenuId":"ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_GroupNavigationPopup","popupParentMoreId":"ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_ParentMore","popupChildMoreId":"ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_ChildMore","popupWrapperID":"popup-ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_GroupNavigationPopup","mouseInPopup":false,"popupPopulated":false,"errorHtml":"<div class=\"message error\">An error occured while attempting to load groups.</div>","loadingHtml":"<div class=\"message loading\">Loading...</div>","groupNavigationContentWrapperHtmlBlock":"<div id=\"popup-ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_GroupNavigationPopup\">{GroupNavigationContent}</div>","groupNavigationListHtmlBlock":"<div class=\"multiple-column-list-header\"></div>\n<div class=\"multiple-column-list columns-{ColumnsCount}\">{Columns}</div>\n<div class=\"multiple-column-list-footer\"></div>","columnWrapperHtmlBlock":"<div class=\"multiple-column-item column-{ColumnId}\">{T1GroupsData}</div>","t1GroupHtmlBlock":"\r\n\t\t<div class=\"content-list-header\"></div>\r\n\t\t<div class=\"content-list-name{NameClass}\">{Name}</div>\r\n\t\t<ul class=\"content-list\">\r\n\t\t\t{Groups}\r\n\t\t</ul>\r\n\t\t<div class=\"content-list-footer\"></div>\r\n\t","t2GroupHtmlBlock":"<li class=\"content-item{ItemClass}\">{Item}</li>","viewAllHtmlBlock":"<a href=\"{Url}\" class=\"internal-link view-all\">{Text}</a>","linkHtmlBlock":"<a href=\"{Url}\" class=\"{MoreClass}\">{Name}</a>","searchResultItemHtmlBlock":"<li class=\"content-item\"><a href=\"{Url}\">{Name}</a></li>","viewMoreText":"and {MoreText} more..."}};
+
+	$(document).ready(function() {
+		Core_GroupNavigation_SetMenuItems("#ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_ParentGroupListContainer", true, "ParentMoreListfragment-a131d5ed-87f8-4727-a3ea-05dbb27f4a79");
+		Core_GroupNavigation_SetMenuItems("#ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_ChildGroupListContainer", false, "ChildMoreListfragment-a131d5ed-87f8-4727-a3ea-05dbb27f4a79");
+	});
+
+	$(window).resize(function() {
+		Core_GroupNavigation_SetMenuItems("#ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_ParentGroupListContainer", true, "ParentMoreListfragment-a131d5ed-87f8-4727-a3ea-05dbb27f4a79");
+		Core_GroupNavigation_SetMenuItems("#ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_ChildGroupListContainer", false, "ChildMoreListfragment-a131d5ed-87f8-4727-a3ea-05dbb27f4a79");
+	});
+    // ]]>
+</script></div></div></div></div>
+<div class="header-fragments-footer"></div>
+			
+    <div class="content-fragment-page post" id="ctl00_content_ctl00_page"><div class="layout">
+<div class="layout-header"></div>
+<div class="layout-content header-top-sidebar-left-content-center-sidebar-right" id="ctl00_content_ctl00_layout">
+<div class="layout-region header" id="ctl00_content_ctl00_header">
+<div class="layout-region-inner header"><div class="content-fragment blog-title full-border" id="fragment-11496">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-content">
+<h1 class="title">
+	    
+			        
+			    
+	                Everything you ever wanted to know about IntermediateSerializer
+			    
+	</h1></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+<div class="content-fragment html-content no-wrapper-with-spacing" id="fragment-12643">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-content">
+<div class="user-defined-markup"><p class="BannerTitle"><a href="http://blogs.msdn.com/b/shawnhar">Shawn Hargreaves Blog</a></p>
+<p class="BannerSubtitle">Game programming with the XNA Framework</p></div></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+</div>
+</div>
+<div class="layout-region left-sidebar" id="ctl00_content_ctl00_left-sidebar">
+<div class="layout-region-inner left-sidebar"><div class="content-fragment blog-links no-wrapper-with-spacing with-header" id="fragment-11490">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-header"><div>Common Tasks</div></div>
+<div class="content-fragment-content">
+
+		<div class="navigation-list-header"></div>
+		<ul class="navigation-list">
+	<li class="navigation-item"><a class="internal-link view-application" href="http://blogs.msdn.com/b/shawnhar/"><span></span>Blog Home</a></li><li class="navigation-item"><a class="internal-link view-contact" href="http://blogs.msdn.com/b/shawnhar/contact.aspx"><span></span>Email Blog Author</a></li><li class="navigation-item"><a class="internal-link rss" href="http://blogs.msdn.com/b/shawnhar/rss.aspx"><span></span>RSS for Posts</a></li><li id="" rsscomments="" class="navigation-item"><a class="internal-link rss" href="http://blogs.msdn.com/b/shawnhar/rsscomments.aspx"><span></span>RSS for Comments</a></li>
+		</ul>
+		<div class="navigation-list-footer"></div>
+	</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+<div class="content-fragment blog-news no-wrapper-with-spacing with-header" id="fragment-11628">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-header"><div>Legal</div></div>
+<div class="content-fragment-content">
+
+		<div class="page-header"></div>
+		<div class="page">
+			<div class="page-content">
+	<font face="Arial" size="1">
+using Microsoft.Xna.Disclaimer;<br>
+<br>
+Disclaim("This is my blog");<br>
+Disclaim("I am not Microsoft");<br>
+Disclaim("I speak for myself");<br>
+Disclaim("All rights reserved");
+</font>
+			</div>
+		</div>
+		<div class="page-footer"></div>
+	</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+<div class="content-fragment link-list no-wrapper-with-spacing" id="fragment-11495">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-content">
+
+        <div class="content-list-header"></div>
+        <div class="content-list-name">Shawn</div>
+        <ul class="content-list">
+            
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://www.talula.demon.co.uk/blogindex.html"><span></span>Blog Index</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://www.talula.demon.co.uk/"><span></span>My Homepage</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://twitter.com/ShawnHargreaves"><span></span>My Twitter</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://www.facebook.com/ShawnHargreaves"><span></span>My Facebook</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+        </ul>
+        <div class="content-list-footer"></div>
+    
+        <div class="content-list-header"></div>
+        <div class="content-list-name">XNA</div>
+        <ul class="content-list">
+            
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://creators.xna.com/"><span></span>Creators Club</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://klucher.com/"><span></span>Michael Klucher</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://badcorporatelogo.spaces.live.com/default.aspx?sa=39659926"><span></span>Stephen Styrchak</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://blogs.msdn.com/b/nicgrave"><span></span>Nick Gravelyn</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://blogs.msdn.com/astebner/"><span></span>Aaron Stebner</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://blogs.msdn.com/dejohn/"><span></span>Dean Johnson</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+                    <li class="content-item">
+                        <div class="full-post-header"></div>
+                        <div class="full-post">
+                            <h3 class="post-name"><a class="external-link view-post" href="http://www.ozymandias.com/"><span></span>Ozymandias</a></h3>
+                            <div class="post-content user-defined-markup"></div>
+                        </div>
+                        <div class="full-post-footer"></div>
+                    </li>
+                
+        </ul>
+        <div class="content-list-footer"></div>
+    </div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+</div>
+</div>
+<div class="layout-region right-sidebar" id="ctl00_content_ctl00_right-sidebar">
+<div class="layout-region-inner right-sidebar"><div class="content-fragment blog-post-list no-wrapper-with-spacing with-header" id="fragment-11492">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-header"><div>Recent Posts</div></div>
+<div class="content-fragment-content">
+
+	    <div class="content-list-header simple"></div>
+        <ul class="content-list simple">
+	
+		<li class="content-item">
+			<div class="abbreviated-post-header"></div>
+			<div class="abbreviated-post">
+				<h4 class="post-name"><a class="internal-link view-post" href="http://blogs.msdn.com/b/shawnhar/archive/2010/10/08/guide-istrialmode-on-windows-phone.aspx"><span></span>Guide.IsTrialMode on Windows Phone</a></h4>
+				
+            <div class="post-date">
+		        <span class="label">Posted</span>
+		        <span class="value">Fri, Oct 8 2010</span>
+	        </div>
+                <div class="post-author">
+                    <span class="fiji-post-author-by">by</span>
+                    <span class="avatar"><a href="http://blogs.msdn.com/members/ShawnHargreaves/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/4TFNCZ0TWSL6.jpg" alt="" style="border-width: 0px;"></a></span>
+                    
+                    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ShawnHargreaves/"><span></span>ShawnHargreaves</a></span>
+                    
+                </div>
+	            <div class="post-attributes">
+		                <div class="attribute-list-header"></div>
+                        <ul class="attribute-list">
+                            <span class="attribute-value">5</span>
+                            <span class="attribute-name">Comments</span>
+                        </ul>
+                        <div class="attribute-list-footer"></div>
+                    </div>
+			</div>
+			<div class="abbreviated-post-footer"></div>
+		</li>
+	
+		<li class="content-item">
+			<div class="abbreviated-post-header"></div>
+			<div class="abbreviated-post">
+				<h4 class="post-name"><a class="internal-link view-post" href="http://blogs.msdn.com/b/shawnhar/archive/2010/10/06/doing-stuff-is-always-more-expensive-than-doing-nothing.aspx"><span></span>Doing stuff is always more expensive than doing nothing</a></h4>
+				
+            <div class="post-date">
+		        <span class="label">Posted</span>
+		        <span class="value">Wed, Oct 6 2010</span>
+	        </div>
+                <div class="post-author">
+                    <span class="fiji-post-author-by">by</span>
+                    <span class="avatar"><a href="http://blogs.msdn.com/members/ShawnHargreaves/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/4TFNCZ0TWSL6.jpg" alt="" style="border-width: 0px;"></a></span>
+                    
+                    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ShawnHargreaves/"><span></span>ShawnHargreaves</a></span>
+                    
+                </div>
+	            <div class="post-attributes">
+		                <div class="attribute-list-header"></div>
+                        <ul class="attribute-list">
+                            <span class="attribute-value">10</span>
+                            <span class="attribute-name">Comments</span>
+                        </ul>
+                        <div class="attribute-list-footer"></div>
+                    </div>
+			</div>
+			<div class="abbreviated-post-footer"></div>
+		</li>
+	
+		<li class="content-item">
+			<div class="abbreviated-post-header"></div>
+			<div class="abbreviated-post">
+				<h4 class="post-name"><a class="internal-link view-post" href="http://blogs.msdn.com/b/shawnhar/archive/2010/10/01/iterator-state-machines.aspx"><span></span>Iterator state machines</a></h4>
+				
+            <div class="post-date">
+		        <span class="label">Posted</span>
+		        <span class="value">Fri, Oct 1 2010</span>
+	        </div>
+                <div class="post-author">
+                    <span class="fiji-post-author-by">by</span>
+                    <span class="avatar"><a href="http://blogs.msdn.com/members/ShawnHargreaves/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/4TFNCZ0TWSL6.jpg" alt="" style="border-width: 0px;"></a></span>
+                    
+                    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ShawnHargreaves/"><span></span>ShawnHargreaves</a></span>
+                    
+                </div>
+	            <div class="post-attributes">
+		                <div class="attribute-list-header"></div>
+                        <ul class="attribute-list">
+                            <span class="attribute-value">18</span>
+                            <span class="attribute-name">Comments</span>
+                        </ul>
+                        <div class="attribute-list-footer"></div>
+                    </div>
+			</div>
+			<div class="abbreviated-post-footer"></div>
+		</li>
+	
+		<li class="content-item">
+			<div class="abbreviated-post-header"></div>
+			<div class="abbreviated-post">
+				<h4 class="post-name"><a class="internal-link view-post" href="http://blogs.msdn.com/b/shawnhar/archive/2010/09/29/appweek-2010-part-3.aspx"><span></span>AppWeek 2010 part 3</a></h4>
+				
+            <div class="post-date">
+		        <span class="label">Posted</span>
+		        <span class="value">Wed, Sep 29 2010</span>
+	        </div>
+                <div class="post-author">
+                    <span class="fiji-post-author-by">by</span>
+                    <span class="avatar"><a href="http://blogs.msdn.com/members/ShawnHargreaves/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/4TFNCZ0TWSL6.jpg" alt="" style="border-width: 0px;"></a></span>
+                    
+                    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ShawnHargreaves/"><span></span>ShawnHargreaves</a></span>
+                    
+                </div>
+	            <div class="post-attributes">
+		                <div class="attribute-list-header"></div>
+                        <ul class="attribute-list">
+                            <span class="attribute-value">0</span>
+                            <span class="attribute-name">Comments</span>
+                        </ul>
+                        <div class="attribute-list-footer"></div>
+                    </div>
+			</div>
+			<div class="abbreviated-post-footer"></div>
+		</li>
+	
+		<li class="content-item">
+			<div class="abbreviated-post-header"></div>
+			<div class="abbreviated-post">
+				<h4 class="post-name"><a class="internal-link view-post" href="http://blogs.msdn.com/b/shawnhar/archive/2010/09/28/appweek-2010-update.aspx"><span></span>AppWeek 2010 update</a></h4>
+				
+            <div class="post-date">
+		        <span class="label">Posted</span>
+		        <span class="value">Tue, Sep 28 2010</span>
+	        </div>
+                <div class="post-author">
+                    <span class="fiji-post-author-by">by</span>
+                    <span class="avatar"><a href="http://blogs.msdn.com/members/ShawnHargreaves/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/4TFNCZ0TWSL6.jpg" alt="" style="border-width: 0px;"></a></span>
+                    
+                    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ShawnHargreaves/"><span></span>ShawnHargreaves</a></span>
+                    
+                </div>
+	            <div class="post-attributes">
+		                <div class="attribute-list-header"></div>
+                        <ul class="attribute-list">
+                            <span class="attribute-value">0</span>
+                            <span class="attribute-name">Comments</span>
+                        </ul>
+                        <div class="attribute-list-footer"></div>
+                    </div>
+			</div>
+			<div class="abbreviated-post-footer"></div>
+		</li>
+	
+		</ul>
+		<div class="content-list-footer simple"></div>
+	</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+<div class="content-fragment blog-archive-list no-wrapper-with-spacing with-header" id="fragment-11494">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-header"><div>Archives</div></div>
+<div class="content-fragment-content">
+
+		<div class="content-list-header"></div>
+		<div class="content-list-name">Archives</div>
+		<ul class="content-list">
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2010/10.aspx">October 2010</a> (3)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2010/09.aspx">September 2010</a> (14)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2010/08.aspx">August 2010</a> (5)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2010/07.aspx">July 2010</a> (9)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2010/06.aspx">June 2010</a> (6)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2010/05.aspx">May 2010</a> (7)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2010/04.aspx">April 2010</a> (14)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2010/03.aspx">March 2010</a> (17)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2010/02.aspx">February 2010</a> (11)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2010/01.aspx">January 2010</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/12.aspx">December 2009</a> (4)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/11.aspx">November 2009</a> (5)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/10.aspx">October 2009</a> (4)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/09.aspx">September 2009</a> (3)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/08.aspx">August 2009</a> (3)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/07.aspx">July 2009</a> (8)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/06.aspx">June 2009</a> (15)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/05.aspx">May 2009</a> (9)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/04.aspx">April 2009</a> (6)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/03.aspx">March 2009</a> (6)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/02.aspx">February 2009</a> (5)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2009/01.aspx">January 2009</a> (5)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/12.aspx">December 2008</a> (5)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/11.aspx">November 2008</a> (5)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/10.aspx">October 2008</a> (6)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/09.aspx">September 2008</a> (9)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/08.aspx">August 2008</a> (8)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/07.aspx">July 2008</a> (4)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/06.aspx">June 2008</a> (3)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/05.aspx">May 2008</a> (6)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/04.aspx">April 2008</a> (9)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/03.aspx">March 2008</a> (4)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/02.aspx">February 2008</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2008/01.aspx">January 2008</a> (4)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/12.aspx">December 2007</a> (12)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/11.aspx">November 2007</a> (6)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/10.aspx">October 2007</a> (6)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/09.aspx">September 2007</a> (7)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/08.aspx">August 2007</a> (4)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/07.aspx">July 2007</a> (7)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/06.aspx">June 2007</a> (6)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/05.aspx">May 2007</a> (5)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/04.aspx">April 2007</a> (11)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/03.aspx">March 2007</a> (18)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/02.aspx">February 2007</a> (3)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2007/01.aspx">January 2007</a> (9)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2006/12.aspx">December 2006</a> (14)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2006/11.aspx">November 2006</a> (8)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2006/09.aspx">September 2006</a> (3)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/shawnhar/archive/2006/08.aspx">August 2006</a> (7)</li>
+	
+		</ul>
+		<div class="content-list-footer"></div>
+	
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+</div>
+</div>
+<div class="layout-region content" id="ctl00_content_ctl00_content">
+<div class="layout-region-inner content"><div class="content-fragment blog-bread-crumbs no-wrapper-with-spacing" id="fragment-14026">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-content">
+
+
+<div class="breadcrumb-list-header"></div>
+<div class="breadcrumb-list">
+	<span class="breadcrumb-item"><a class="internal-link view-home" href="http://blogs.msdn.com/">MSDN Blogs</a></span>
+  
+	
+
+	
+			<span class="separator"> &gt; </span>
+			<span class="breadcrumb-item">
+		<a href="http://blogs.msdn.com/b/shawnhar/">Shawn Hargreaves Blog</a>
+			</span>
+		
+	
+	
+			<span class="separator"> &gt; </span>
+			<span class="breadcrumb-item">
+		<a href="http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx">Everything you ever wanted to know about IntermediateSerializer</a>
+			</span>
+		
+
+	
+</div>
+<div class="breadcrumb-list-footer"></div>
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+<div class="content-fragment blog-post no-wrapper-with-spacing" id="fragment-11497">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-content">
+
+
+<div class="full-post-header"></div>
+<div class="full-post">
+	<h3 class="post-name">Everything you ever wanted to know about IntermediateSerializer</h3>
+	
+	        <div class="post-rating">
+	            Rate This<br>
+	    <span class="rating readonly" id="ctl00_content_ctl00_fragment_11497_ctl01_ctl01" title="Rated Excellent [5 out of 5]."><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"></span><input value="5" id="ctl00_content_ctl00_fragment_11497_ctl01_ctl01_Value" type="hidden">
+	        </div>
+	    
+    <div class="post-author">
+        <span class="avatar"><a href="http://blogs.msdn.com/members/ShawnHargreaves/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/4TFNCZ0TWSL6.jpg" alt="" style="border-width: 0px;"></a></span>
+        
+        <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ShawnHargreaves/"><span></span>ShawnHargreaves</a></span>
+        
+    </div>
+    <div class="post-date">
+        <span class="value">
+            12 Aug 2008 7:09 PM
+        </span>
+    </div>
+    <div class="post-attributes">
+        <div class="attribute-list-header"></div>
+        <ul class="attribute-list">
+             <li class="attribute-item post-reply-count">
+                <span class="attribute-name">Comments</span>
+                <span class="attribute-value"><a href="#comments" class="internal-link view-replies"><span></span>19</a></span>
+             </li>
+        </ul>
+        <div class="attribute-list-footer"></div>
+    </div>
+    <div class="post-content user-defined-markup"><p>It is good to <a href="http://blogs.msdn.com/shawnhar/archive/2008/08/12/teaching-a-man-to-fish.aspx" mce_href="http://blogs.msdn.com/shawnhar/archive/2008/08/12/teaching-a-man-to-fish.aspx" target="_blank">know how to fish</a>,
+but sometimes you just want to go to the store and buy a salmon that
+somebody else already caught for you. With this in mind, here is my
+attempt to fill in the blanks about exactly how to use <a href="http://blogs.msdn.com/shawnhar/archive/2008/07/28/intermediateserializer-vs-xmlserializer.aspx" mce_href="http://blogs.msdn.com/shawnhar/archive/2008/07/28/intermediateserializer-vs-xmlserializer.aspx" target="_blank">IntermediateSerializer</a>.</p>  <p>&nbsp;</p>  <h3>The Basics</h3>  <p>Consider this test class:</p>  <div class="CodeFormatContainer">   <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        <span class="kwrd">public</span> <span class="kwrd">int</span> PublicField = 1;<br>        <span class="kwrd">protected</span> <span class="kwrd">int</span> ProtectedField = 2;<br>        <span class="kwrd">private</span> <span class="kwrd">int</span> PrivateField = 3;<br>        <span class="kwrd">internal</span> <span class="kwrd">int</span> InternalField = 4;<br><br>        <span class="kwrd">public</span> <span class="kwrd">string</span> GetSetProperty<br>        {<br>            get { <span class="kwrd">return</span> <span class="str">"Hello World"</span>; }<br>            set { }<br>        }<br><br>        <span class="kwrd">public</span> <span class="kwrd">string</span> GetOnlyProperty<br>        {<br>            get { <span class="kwrd">return</span> <span class="str">"Hello World"</span>; }<br>        }<br><br>        <span class="kwrd">public</span> <span class="kwrd">string</span> SetOnlyProperty<br>        {<br>            set { }<br>        }<br><br>        <span class="kwrd">public</span> NestedClass Nested = <span class="kwrd">new</span> NestedClass();<br>    }<br><br>    <span class="kwrd">class</span> NestedClass<br>    {<br>        <span class="kwrd">public</span> <span class="kwrd">string</span> Name = <span class="str">"Shawn"</span>;<br>        <span class="kwrd">public</span> <span class="kwrd">bool</span> IsEnglish = <span class="kwrd">true</span>;<br>    }</pre>
+</div>
+
+<p>Using the technique described in my <a href="http://blogs.msdn.com/shawnhar/archive/2008/08/12/teaching-a-man-to-fish.aspx" mce_href="http://blogs.msdn.com/shawnhar/archive/2008/08/12/teaching-a-man-to-fish.aspx" target="_blank">previous post</a>, it will create this XML:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;GetSetProperty&gt;Hello World&lt;/GetSetProperty&gt;<br>        &lt;PublicField&gt;1&lt;/PublicField&gt;<br>        &lt;Nested&gt;<br>          &lt;Name&gt;Shawn&lt;/Name&gt;<br>          &lt;IsEnglish&gt;<span class="kwrd">true</span>&lt;/IsEnglish&gt;<br>        &lt;/Nested&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>We can draw many conclusions from this:</p>
+
+<ul>
+  <li>The XML always starts with an &lt;XnaContent&gt; element </li>
+
+  <li>This contains an &lt;Asset&gt; element, with a Type attribute that specifies the type of the data </li>
+
+  <li>Within the &lt;Asset&gt; element, all public fields and properties are serialized, using a separate XML element for each </li>
+
+  <li>Protected, private, or internal data is skipped </li>
+
+  <li>Get-only or set-only properties are skipped </li>
+
+  <li>Properties come before fields </li>
+
+  <li>If there is more than one field or property, these are serialized in the order they were declared </li>
+
+  <li>Nested types are serialized using nested XML elements </li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Inheritance</h3>
+
+<p>What if we have a class hierarchy where one type derives from another?</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> BaseClass<br>    {<br>        <span class="kwrd">public</span> <span class="kwrd">int</span> elf = 23;<br>    }<br><br>    <span class="kwrd">class</span> TestClass : BaseClass<br>    {<br>        <span class="kwrd">public</span> <span class="kwrd">string</span> hello = <span class="str">"world"</span>;<br>    }</pre>
+</div>
+
+<p>This produces:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;elf&gt;23&lt;/elf&gt;<br>        &lt;hello&gt;world&lt;/hello&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>Conclusion:</p>
+
+<ul>
+  <li>Base class members are serialized before data from the derived type </li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Including Private Members</h3>
+
+<p>By default, IntermediateSerializer only includes public fields and properties. We can customize this behavior using the <a href="http://msdn.microsoft.com/en-us/library/microsoft.xna.framework.content.contentserializerattribute.aspx" mce_href="http://msdn.microsoft.com/en-us/library/microsoft.xna.framework.content.contentserializerattribute.aspx" target="_blank">ContentSerializerAttribute</a>, which forces even private members to be serialized:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        [ContentSerializer]<br>        <span class="kwrd">private</span> <span class="kwrd">int</span> elf = 23;  // will be serialized<br>    }</pre>
+
+  <pre class="csharpcode">&nbsp;</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<h3>Excluding Public Members</h3>
+
+<p>If there are public fields or properties that we do not wish to serialize, we can use the <a href="http://msdn.microsoft.com/en-us/library/microsoft.xna.framework.content.contentserializerignoreattribute.aspx" mce_href="http://msdn.microsoft.com/en-us/library/microsoft.xna.framework.content.contentserializerignoreattribute.aspx" target="_blank">ContentSerializerIgnoreAttribute</a> to skip them:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        [ContentSerializerIgnore]<br>        <span class="kwrd">public</span> <span class="kwrd">int elf </span>= <span class="str">23</span>;  // will not be serialized<br>    }</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<h3>Renaming XML Elements</h3>
+
+<p>By default, XML elements are named after the field or property which
+defined them. If you want a different element name, you can specify
+this using attributes:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        [ContentSerializer(ElementName = <span class="str">"ShawnSaysHello"</span>)]<br>        <span class="kwrd">string</span> hello = <span class="str">"world"</span>;<br><br>        [ContentSerializer(ElementName = <span class="str">"ElvesAreCool"</span>)]<br>        <span class="kwrd">int</span> elf = 23;<br>    }</pre>
+</div>
+
+<p>Resulting XML:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;ShawnSaysHello&gt;world&lt;/ShawnSaysHello&gt;<br>        &lt;ElvesAreCool&gt;23&lt;/ElvesAreCool&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<h3>Null References</h3>
+
+<p>If your data contains a null value, for instance:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        <span class="kwrd">public</span> <span class="kwrd">string</span> hello = <span class="kwrd">null</span>;<br>    }</pre>
+</div>
+
+<p>This will produce:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;hello Null=<span class="str">"true"</span> /&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>Note the use of a special XML attribute to indicate the null value.
+This is different to just not putting any data inside the XML element!
+The distinction is important for types such as strings, because a null
+string is not the same thing as a string which is present but empty.</p>
+
+<p>&nbsp;</p>
+
+<h3>Optional Elements</h3>
+
+<p>You can use attributes to specify that null values should be skipped
+entirely, rather than serialized with a Null attribute tag. For
+instance:</p>
+
+<div class="CodeFormatContainer">
+  <div class="CodeFormatContainer">
+    <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        [ContentSerializer(Optional = <span class="kwrd">true</span>)]<br>        <span class="kwrd">public</span> <span class="kwrd">string</span> a = <span class="kwrd">null</span>;<br><br>        <span class="kwrd">public</span> <span class="kwrd">string</span> b = <span class="kwrd">null</span>;<br><br>        [ContentSerializer(Optional = <span class="kwrd">true</span>)]<br>        <span class="kwrd">public</span> <span class="kwrd">string</span> c = <span class="kwrd">string</span>.Empty;<br>    }</pre>
+  </div>
+</div>
+
+<p>Resulting XML:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;b Null=<span class="str">"true"</span> /&gt;<br>        &lt;c&gt;&lt;/c&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>Notes:</p>
+
+<ul>
+  <li>Field a has been skipped, because it was null and had the optional attribute </li>
+
+  <li>Field b was not skipped, even though it is null, because it did not have this attribute </li>
+
+  <li>Field c was not skipped, even though it had the attribute, because it was not null </li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>AllowNull</h3>
+
+<p>If you have a field that should never be null, you can specify this with an attribute:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        [ContentSerializer(AllowNull = <span class="kwrd">false</span>)]<br>        s<span class="kwrd">tring</span> a;<br>    }</pre>
+</div>
+
+<p>This has no effect when serializing to XML, but it will throw an
+exception while deserializing if the XML tries to specify a null value.</p>
+
+<p>&nbsp;</p>
+
+<h3>Collections</h3>
+
+<p>What about collections?</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        <span class="kwrd">public</span> <span class="kwrd">string</span>[] StringArray = { <span class="str">"Hello"</span>, <span class="str">"World"</span> };<br>        <span class="kwrd">public</span> List&lt;<span class="kwrd">string</span>&gt; StringList = <span class="kwrd">new</span> List&lt;<span class="kwrd">string</span>&gt; { <span class="str">"This"</span>, <span class="str">"is"</span>, <span class="str">"a"</span>, <span class="str">"test"</span> };<br>        <span class="kwrd">public</span> <span class="kwrd">int</span>[] IntArray = { 1, 2, 3, 23, 42 };<br>    }</pre>
+</div>
+
+<p>Resulting XML:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;StringArray&gt;<br>          &lt;Item&gt;Hello&lt;/Item&gt;<br>          &lt;Item&gt;World&lt;/Item&gt;<br>        &lt;/StringArray&gt;<br>        &lt;StringList&gt;<br>          &lt;Item&gt;This&lt;/Item&gt;<br>          &lt;Item&gt;<span class="kwrd">is</span>&lt;/Item&gt;<br>          &lt;Item&gt;a&lt;/Item&gt;<br>          &lt;Item&gt;test&lt;/Item&gt;<br>        &lt;/StringList&gt;<br>        &lt;IntArray&gt;1 2 3 23 42&lt;/IntArray&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>Note how IntArray is serialized in a different way to StringArray or
+StringList. This is a special optimization that IntermediateSerializer
+applies to collections of numeric types (ints, longs, floats, doubles,
+bytes, etc). To save space, it uses whitespace to separate each item,
+rather than XML markup. This is an important part of efficiently
+handling 3D model data such as vertex and index buffers.</p>
+
+<p>&nbsp;</p>
+
+<h3>CollectionItemName</h3>
+
+<p>By default, each item in a collection is serialized as an &lt;Item&gt; element. You can change this using attributes:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        [ContentSerializer(ElementName = <span class="str">"w00t"</span>, CollectionItemName = <span class="str">"Flibble"</span>)]<br>        <span class="kwrd">string</span>[] StringArray = { <span class="str">"Hello"</span>, <span class="str">"World"</span> };<br>    }</pre>
+</div>
+
+<p>Result:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;w00t&gt;<br>          &lt;Flibble&gt;Hello&lt;/Flibble&gt;<br>          &lt;Flibble&gt;World&lt;/Flibble&gt;<br>        &lt;/w00t&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<h3>Dictionaries</h3>
+
+<p>XmlSerializer doesn't support dictionaries, but IntermediateSerializer does!</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        <span class="kwrd">public</span> Dictionary&lt;<span class="kwrd">int</span>, <span class="kwrd">bool</span>&gt; TestDictionary = <span class="kwrd">new</span> Dictionary&lt;<span class="kwrd">int</span>, <span class="kwrd">bool</span>&gt;();<br><br>        <span class="kwrd">public</span> TestClass()<br>        {<br>            TestDictionary.Add(23, <span class="kwrd">true</span>);<br>            TestDictionary.Add(42, <span class="kwrd">false</span>);<br>        }<br>    }</pre>
+</div>
+
+<p>Result:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;TestDictionary&gt;<br>          &lt;Item&gt;<br>            &lt;Key&gt;23&lt;/Key&gt;<br>            &lt;Value&gt;<span class="kwrd">true</span>&lt;/Value&gt;<br>          &lt;/Item&gt;<br>          &lt;Item&gt;<br>            &lt;Key&gt;42&lt;/Key&gt;<br>            &lt;Value&gt;<span class="kwrd">false</span>&lt;/Value&gt;<br>          &lt;/Item&gt;<br>        &lt;/TestDictionary&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<h3>Math Types</h3>
+
+<p>People are often surprised by how IntermediateSerializer handles the XNA Framework math types. Let's look at some examples:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        <span class="kwrd">public</span> Vector3 Vector = <span class="kwrd">new</span> Vector3(1, 2, 3);<br>        <span class="kwrd">public</span> Rectangle Rectangle = <span class="kwrd">new</span> Rectangle(1, 2, 3, 4);<br>        <span class="kwrd">public</span> Quaternion Quaternion = <span class="kwrd">new</span> Quaternion(1, 2, 3, 4);<br>        <span class="kwrd">public</span> Color Color = Color.CornflowerBlue;<br>        <span class="kwrd">public</span> Vector2[] VectorArray = <span class="kwrd">new</span> Vector2[] { Vector2.Zero, Vector2.One };<br>    }</pre>
+</div>
+
+<p>This will produce:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;Vector&gt;1 2 3&lt;/Vector&gt;<br>        &lt;Rectangle&gt;1 2 3 4&lt;/Rectangle&gt;<br>        &lt;Quaternion&gt;1 2 3 4&lt;/Quaternion&gt;<br>        &lt;Color&gt;FF6495ED&lt;/Color&gt;<br>        &lt;VectorArray&gt;0 0 1 1&lt;/VectorArray&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>This is similar to the optimization we previously saw being applied
+to collections of numeric values, using whitespace instead of XML
+markup to make the encoding more efficient. When you have a collection
+of math types, such as the vector array shown here, both optimizations
+are combined.</p>
+
+<p>Colors are represented in hex format, similar to HTML.</p>
+
+<p>&nbsp;</p>
+
+<h3>Polymorphic Types</h3>
+
+<p>One advantage of IntermediateSerializer over XmlSerializer is that
+it supports arbitrary polymorphic data without requiring all the
+possible subtypes to be predeclared. Let's look at an example:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> A<br>    {<br>        <span class="kwrd">public</span> <span class="kwrd">bool</span> Value = <span class="kwrd">true</span>;<br>    }<br><br>    <span class="kwrd">class</span> B : A { }<br>    <span class="kwrd">class</span> C : A { }<br><br>    <span class="kwrd">class</span> TestClass<br>    {<br>        <span class="kwrd">public</span> <span class="kwrd">object</span> Hello = <span class="str">"World"</span>;<br>        <span class="kwrd">public</span> <span class="kwrd">object</span> Elf = 23;<br>        <span class="kwrd">public</span> A[] PolymorphicArray = { <span class="kwrd">new</span> A(), <span class="kwrd">new</span> B(), <span class="kwrd">new</span> C() };<br>    }</pre>
+</div>
+
+<p>Resulting XML:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;Hello Type=<span class="str">"string"</span>&gt;World&lt;/Hello&gt;<br>        &lt;Elf Type=<span class="str">"int"</span>&gt;23&lt;/Elf&gt;<br>        &lt;PolymorphicArray&gt;<br>          &lt;Item&gt;<br>            &lt;Value&gt;<span class="kwrd">true</span>&lt;/Value&gt;<br>          &lt;/Item&gt;<br>          &lt;Item Type=<span class="str">"B"</span>&gt;<br>            &lt;Value&gt;<span class="kwrd">true</span>&lt;/Value&gt;<br>          &lt;/Item&gt;<br>          &lt;Item Type=<span class="str">"C"</span>&gt;<br>            &lt;Value&gt;<span class="kwrd">true</span>&lt;/Value&gt;<br>          &lt;/Item&gt;<br>        &lt;/PolymorphicArray&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>XML Type attributes are used to indicate the types of polymorphic
+data. The Hello and Elf fields need this attribute, because they are
+declared as type object, but then contain data of a more specialized
+subtype.</p>
+
+<p>Note how in the PolymorphicArray, the first item (of type A) is not
+polymorphic, but the second two (of types B and C) are. This is because
+I declared it as an array of A, so only the items that are subclasses
+of A require a Type attribute. If I had declared it as an array of
+object, all three items would require this attribute.</p>
+
+<p>&nbsp;</p>
+
+<h3>Namespaces</h3>
+
+<p>If your XML uses a lot of Type attributes, it can get pretty boring
+having to enter long names like
+"Microsoft.Xna.Framework.Graphics.Color" over and over again.
+IntermediateSerializer can cut down this redundancy by using XML
+namespaces as shortcuts for C# namespaces. You can think of this as an
+XML equivalent of the C# "using" keyword.</p>
+
+<p>For instance this class:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">namespace</span> This.Is.A.Long.Namespace.For.A.Test<br>    {<br>        <span class="kwrd">class</span> TestHelper<br>        {<br>            <span class="kwrd">public</span> <span class="kwrd">bool</span> Value = <span class="kwrd">true</span>;<br>        }<br><br>        <span class="kwrd">class</span> TestClass<br>        {<br>            <span class="kwrd">public</span> <span class="kwrd">object</span> A = <span class="kwrd">new</span> TestHelper();<br>            <span class="kwrd">public</span> <span class="kwrd">object</span> B = Vector2.Zero;<br>            <span class="kwrd">public</span> <span class="kwrd">object</span> C = Color.CornflowerBlue;<br>        }<br>    }</pre>
+</div>
+
+<p>Can be serialized like so:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent xmlns:Test=<span class="str">"This.Is.A.Long.Namespace.For.A.Test"<br>                </span>xmlns:Framework=<span class="str">"Microsoft.Xna.Framework"<br>                </span>xmlns:Graphics=<span class="str">"Microsoft.Xna.Framework.Graphics"</span>&gt;<br>      &lt;Asset Type=<span class="str">"Test:TestClass"</span>&gt;<br>        &lt;A Type=<span class="str">"Test:TestHelper"</span>&gt;<br>          &lt;Value&gt;<span class="kwrd">true</span>&lt;/Value&gt;<br>        &lt;/A&gt;<br>        &lt;B Type=<span class="str">"Framework:Vector2"</span>&gt;0 0&lt;/B&gt;<br>        &lt;C Type=<span class="str">"Graphics:Color"</span>&gt;FF6495ED&lt;/C&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>The three xmlns attributes define namespace shortcuts, after which
+we can refer to types using the abbreviated syntax "Test:TestHelper",
+"Framework:Vector2", etc.</p>
+
+<p>This is optional: you could expand out the namespaces and the XML
+would load exactly the same. When you save an XML file,
+IntermediateSerializer uses some heuristics to choose namespace
+shortcuts, as shown in the above example. If you are writing the XML by
+hand, you are free to define any shortcuts you like.</p>
+
+<p>&nbsp;</p>
+
+<h3>FlattenContent</h3>
+
+<p>By default, every nested class or collection will open up a nested
+XML element. You can change this behavior using attributes. For
+instance this class:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        [ContentSerializer(FlattenContent = <span class="kwrd">true</span>)]<br>        <span class="kwrd">public</span> NestedClass Nested = <span class="kwrd">new</span> NestedClass();<br><br>        [ContentSerializer(FlattenContent = <span class="kwrd">true</span>, CollectionItemName = <span class="str">"Boo"</span>)]<br>        <span class="kwrd">public</span> <span class="kwrd">string</span>[] Collection = { <span class="str">"Hello"</span>, <span class="str">"World"</span> };<br>    }<br><br>    <span class="kwrd">class</span> NestedClass<br>    {<br>        <span class="kwrd">public</span> <span class="kwrd">string</span> Name = <span class="str">"Shawn"</span>;<br>        <span class="kwrd">public</span> <span class="kwrd">bool</span> IsEnglish = <span class="kwrd">true</span>;<br>    }</pre>
+</div>
+
+<p>Produces this XML:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;Name&gt;Shawn&lt;/Name&gt;<br>        &lt;IsEnglish&gt;<span class="kwrd">true</span>&lt;/IsEnglish&gt;<br>        &lt;Boo&gt;Hello&lt;/Boo&gt;<br>        &lt;Boo&gt;World&lt;/Boo&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>If I left out the FlattenContent attributes, it would produce this instead:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;Nested&gt;<br>          &lt;Name&gt;Shawn&lt;/Name&gt;<br>          &lt;IsEnglish&gt;<span class="kwrd">true</span>&lt;/IsEnglish&gt;<br>        &lt;/Nested&gt;<br>        &lt;Collection&gt;<br>          &lt;Item&gt;Hello&lt;/Item&gt;<br>          &lt;Item&gt;World&lt;/Item&gt;<br>        &lt;/Collection&gt;<br>      &lt;/Asset&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<h3>&nbsp;</h3>
+
+<h3>Shared Resources</h3>
+
+<p>The default behavior of representing nested classes as nested XML
+elements works fine as long as you limit yourself to tree-like data,
+but is not capable of representing circular data structures. For
+instance if Foo contained a reference to Bar, and then Bar contained a
+reference back to Foo, the serializer would nest Bar inside Foo, and
+then another copy of Foo inside Bar, with another Bar inside that...
+Infinite recursion = stack overflow = badness.</p>
+
+<p>Solution: use attributes to specify that your circular references
+should be serialized as shared resources. Consider this circular linked
+list:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        [ContentSerializer(SharedResource = <span class="kwrd">true</span>)]<br>        <span class="kwrd">public</span> Linked Head;<br><br>        <span class="kwrd">public</span> TestClass()<br>        {<br>            Head = <span class="kwrd">new</span> Linked();<br>            Head.Value = 1;<br><br>            Head.Next = <span class="kwrd">new</span> Linked();<br>            Head.Next.Value = 2;<br><br>            Head.Next.Next = <span class="kwrd">new</span> Linked();<br>            Head.Next.Next.Value = 3;<br><br>            Head.Next.Next.Next = Head;<br>        }<br>    }<br><br>    <span class="kwrd">class</span> Linked<br>    {<br>        <span class="kwrd">public</span> <span class="kwrd">int</span> Value;<br><br>        [ContentSerializer(SharedResource = <span class="kwrd">true</span>)]<br>        <span class="kwrd">public</span> Linked Next;<br>    }</pre>
+</div>
+
+<p>If I left out the SharedResource attributes, serializing this data
+would throw an exception complaining that it is a cyclic data
+structure. But with the attributes, we get this XML:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    &lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>    &lt;XnaContent&gt;<br>      &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>        &lt;Head&gt;#Resource1&lt;/Head&gt;<br>      &lt;/Asset&gt;<br>      &lt;Resources&gt;<br>        &lt;Resource ID=<span class="str">"#Resource1"</span> Type=<span class="str">"Linked"</span>&gt;<br>          &lt;Value&gt;1&lt;/Value&gt;<br>          &lt;Next&gt;#Resource2&lt;/Next&gt;<br>        &lt;/Resource&gt;<br>        &lt;Resource ID=<span class="str">"#Resource2"</span> Type=<span class="str">"Linked"</span>&gt;<br>          &lt;Value&gt;2&lt;/Value&gt;<br>          &lt;Next&gt;#Resource3&lt;/Next&gt;<br>        &lt;/Resource&gt;<br>        &lt;Resource ID=<span class="str">"#Resource3"</span> Type=<span class="str">"Linked"</span>&gt;<br>          &lt;Value&gt;3&lt;/Value&gt;<br>          &lt;Next&gt;#Resource1&lt;/Next&gt;<br>        &lt;/Resource&gt;<br>      &lt;/Resources&gt;<br>    &lt;/XnaContent&gt;</pre>
+</div>
+
+<p>See what's going on here? Rather than being embedded directly at the
+point where they are referenced, the shared resource objects have been
+gathered up into a &lt;Resources&gt; element, which comes after the
+regular &lt;Asset&gt; data. Resources are identified by unique ID
+strings. In this case the serializer has generated ID values&nbsp;
+using a simple naming convention (#Resource1, #Resource2, etc) but you
+can use any string you like if you are writing the XML by hand.</p>
+
+<p>&nbsp;</p>
+
+<h3>External References</h3>
+
+<p>The final thing I want to talk about today is how
+IntermediateSerializer handles the Content Pipeline ExternalReference
+type. This test class:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">    <span class="kwrd">class</span> TestClass<br>    {<br>        <span class="kwrd">public</span> ExternalReference&lt;Texture2D&gt; Texture = <span class="kwrd">new</span> ExternalReference&lt;Texture2D&gt;(<span class="str">"grass.tga"</span>);<br>        <span class="kwrd">public</span> ExternalReference&lt;Effect&gt; Shader = <span class="kwrd">new</span> ExternalReference&lt;Effect&gt;(<span class="str">"foliage.fx"</span>);<br>    }</pre>
+</div>
+
+<p>Produces this XML:</p>
+
+<div class="CodeFormatContainer">
+  <pre class="csharpcode">&lt;?xml version=<span class="str">"1.0"</span> encoding=<span class="str">"utf-8"</span>?&gt;<br>&lt;XnaContent&gt;<br>  &lt;Asset Type=<span class="str">"TestClass"</span>&gt;<br>    &lt;Texture&gt;<br>      &lt;Reference&gt;#External1&lt;/Reference&gt;<br>    &lt;/Texture&gt;<br>    &lt;Shader&gt;<br>      &lt;Reference&gt;#External2&lt;/Reference&gt;<br>    &lt;/Shader&gt;<br>  &lt;/Asset&gt;<br>  &lt;ExternalReferences&gt;<br>    &lt;ExternalReference ID=<span class="str">"#External1"</span> TargetType=<span class="str">"Microsoft.Xna.Framework.Graphics.Texture2D"</span>&gt;grass.tga&lt;/ExternalReference&gt;<br>    &lt;ExternalReference ID=<span class="str">"#External2"</span> TargetType=<span class="str">"Microsoft.Xna.Framework.Graphics.Effect"</span>&gt;foliage.fx&lt;/ExternalReference&gt;<br>  &lt;/ExternalReferences&gt;<br>&lt;/XnaContent&gt;</pre>
+</div>
+
+<p>Similar to shared resources, the ExternalReference data has been
+gathered up into a special &lt;ExternalReferences&gt; element at the
+end of the file, outside the regular &lt;Asset&gt; data. Each reference
+is identified by a unique ID string, which is generated by the
+serializer when it writes XML, but can be anything you like if you are
+writing the XML by hand.</p>
+
+<p>There are two reasons for this seemingly crazy encoding:</p>
+
+<p>Firstly, IntermediateSerializer applies special logic to the
+filenames used by ExternalReference objects. In memory,
+ExternalReference always stores filenames in absolute format. This
+keeps things nice and simple, avoiding the confusion that can occur
+with relative filenames if you lose track of what root directory they
+are supposed to be relative to. But on disk, filenames are stored
+relative to the XML file which contains them. This allows you to move
+an entire content directory, containing many files which reference each
+other, to a different location, and still have the references resolve
+correctly. IntermediateSerializer handles the translation between
+absolute and relative formats during the Serialize and Deserialize
+operations. This is the purpose of the third parameter to the Serialize
+method, which tells it what directory references should be relative to.
+If you don't specify that, the output XML will contain absolute
+filenames.</p>
+
+<p>Secondly, gathering the ExternalReference data together at the end
+of the file makes it easy for other tools to mine this information.
+Even without knowing anything about what a "TestClass" is, I could
+write a program that scanned the above XML, skipped over the entire
+&lt;Asset&gt; tag, and extracted the target type and filename of the
+two references. This could be useful for things like dependency
+analysis or source control management. For instance it would be trivial
+to write a tool that scanned the obj directory after a build and
+answered questions like "which models are using texture X?". We've
+never actually written such a tool, but who knows? It seemed like a
+good idea to make this data easily available in case we someday needed
+it.</p>
+
+<p>&nbsp;</p>
+
+<p>But wait, there is more! Stay tuned for some more advanced IntermediateSerializer customization options...</p></div>
+    <div class="post-attachment-viewer">
+		
+    </div>
+    <div class="post-actions">
+        <div class="navigation-list-header"></div>
+        <ul class="navigation-list">
+            
+            <li class="navigation-item"><a class="internal-link view-replies" href="http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx#comments"><span></span>19 Comments</a></li>
+            
+            
+        </ul>
+        <div class="navigation-list-footer"></div>
+    </div>
+    
+</div>
+<div class="full-post-footer"></div></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+<div class="content-fragment social-media-sharing no-wrapper-with-spacing" id="fragment-11498">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-content">
+
+<link href="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/sharethis.css" rel="stylesheet" type="text/css"> 
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/ShareThis.js" type="text/javascript"></script>
+<div class="ShareThisMainPanel">
+	<div id="ctl00_content_ctl00_fragment_11498_ctl01_f2a0d26a_dbd1_455b_bb63_7b6d0cf9c90c" class="ShareThis_ChildRootPanel" onmouseover="ShareThisChildRootPanelOnmouseOver(this.id);" onmouseout="ShareThisChildRootPanelOnmouseOut(this.id);">
+		<div id="ctl00_content_ctl00_fragment_11498_ctl01_ShareThisBtnCollPanel_28daf8ae7d2945b7bdf79a5c3203bbb9" class="tierOnePanel">
+			<div class="buttonPanel">
+				<a title="Share on Facebook" class="iconsOnPanel" href="http://www.facebook.com/sharer.php?u=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;t=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Facebook" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/facebook.gif" style="border-width: 0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on Twitter" class="iconsOnPanel" href="http://twitter.com/home?status=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs%20:%20http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx" target="_blank"><img title="Share on Twitter" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/twitter.gif" style="border-width: 0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on Digg" class="iconsOnPanel" href="http://digg.com/submit?url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Digg" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/digg.gif" style="border-width: 0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on del.icio.us" class="iconsOnPanel" href="http://del.icio.us/post?url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on del.icio.us" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/delicious.gif" style="border-width: 0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on LinkedIn" class="iconsOnPanel" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs&amp;summary=&amp;source=Microsoft&amp;armin=armin" target="_blank"><img title="Share on LinkedIn" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/linkedin.gif" style="border-width: 0px;"></a>
+			</div>
+		</div><div id="ctl00_content_ctl00_fragment_11498_ctl01_ShareThisBtnCollPanel_102e314c3eaa4f9c9d40f4e648e6ef2f" class="tierTwoPanel" onclick="TierTwoPanelOnclick(this.id);" onmouseover="TierTwoPanelOnmouseOver(this.id);" onmouseout="TierTwoPanelOnmouseOut(this.id);">
+			<div id="ctl00_content_ctl00_fragment_11498_ctl01_ShareThisBtnCollPanel_8e3ff62ec2fc43dd948d8bfcf7e7d031" class="tierTwoRowPanel">
+				<div class="buttonPanel">
+					<a title="Share on Reddit" class="iconsOnPanel" href="http://www.reddit.com/submit?url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Reddit" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/reddit.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Slashdot" class="iconsOnPanel" href="http://slashdot.org/bookmark.pl?url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Slashdot" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/slashdot.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on MySpace" class="iconsOnPanel" href="http://www.myspace.com/Modules/PostTo/Pages/?u=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;t=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on MySpace" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/myspace.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Windows Live Spaces" class="iconsOnPanel" href="http://spaces.live.com/BlogIt.aspx?Title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs&amp;SourceURL=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx" target="_blank"><img title="Share on Windows Live Spaces" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/livefavorites.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Blogmarks" class="iconsOnPanel" href="http://blogmarks.net/my/new.php?mini=1&amp;simple=1&amp;url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs&amp;content=" target="_blank"><img title="Share on Blogmarks" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/blogmarks.gif" style="border-width: 0px;"></a>
+				</div>
+			</div><div id="ctl00_content_ctl00_fragment_11498_ctl01_ShareThisBtnCollPanel_401893ca88f04e8b9b972b913277824a" class="tierTwoRowPanel">
+				<div class="buttonPanel">
+					<a title="Share on Diigo" class="iconsOnPanel" href="http://www.diigo.com/post?url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs&amp;desc=" target="_blank"><img title="Share on Diigo" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/diigo.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Fark" class="iconsOnPanel" href="http://www.fark.com/cgi/farkit.pl?u=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;h=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Fark" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/fark.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Faves" class="iconsOnPanel" href="http://faves.com/Authoring.aspx?u=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;t=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Faves" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/faves.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Technorati" class="iconsOnPanel" href="http://technorati.com/faves/?add=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx" target="_blank"><img title="Share on Technorati" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/technorati.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on FriendFeed" class="iconsOnPanel" href="http://friendfeed.com/?url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on FriendFeed" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/friendfeed.gif" style="border-width: 0px;"></a>
+				</div>
+			</div><div id="ctl00_content_ctl00_fragment_11498_ctl01_ShareThisBtnCollPanel_8969d6509ab24ee98cf30bbb7df4ab6f" class="tierTwoRowPanel">
+				<div class="buttonPanel">
+					<a title="Share on Windows Live Favorites" class="iconsOnPanel" href="http://favorites.live.com/quickadd.aspx?url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Windows Live Favorites" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/livefavorites.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Mixx" class="iconsOnPanel" href="http://www.mixx.com/submit?page_url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx" target="_blank"><img title="Share on Mixx" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/mixx.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Newsvine" class="iconsOnPanel" href="http://www.newsvine.com/_tools/seed&amp;save?u=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;h=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs&amp;s=" target="_blank"><img title="Share on Newsvine" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/newsvine.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on StumbleUpon" class="iconsOnPanel" href="http://www.stumbleupon.com/submit?url=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on StumbleUpon" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/stumbleupon.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Google" class="iconsOnPanel" href="http://www.google.com/bookmarks/mark?op=add&amp;bkmk=http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx&amp;title=Everything%20you%20ever%20wanted%20to%20know%20about%20IntermediateSerializer%20-%20Shawn%20Hargreaves%20Blog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Google" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/google.gif" style="border-width: 0px;"></a>
+				</div>
+			</div>
+		</div>
+	</div><div id="ctl00_content_ctl00_fragment_11498_ctl01_ShowMoreLessButtonsPanel_b05eee27_99a8_4669_ad3e_a2c14867f023" class="ShowMoreLessButtonsPanel" onclick="ShowMoreLessButtonsPanelOnClick(this.id);" onmouseover="ShowMoreLessButtonsPanelOnmouseOver(this.id);" onmouseout="ShowMoreLessButtonsPanelOnmouseOut(this.id);">
+		<a class="buttonMoreLess" id="btn_more"><img title="More" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/more.gif" style="border-width: 0px;"></a><a class="buttonMoreLess" id="btn_less"><img title="Less" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/less.gif" style="border-width: 0px;"></a>
+	</div>
+</div><div class="ShareClearFloatsPanel">
+
+</div></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+<div class="content-fragment blog-feedback-list no-wrapper-with-spacing" id="fragment-11500">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-content">
+
+
+
+
+<script type="text/javascript">
+	// <![CDATA[
+	$(document).ready(function() {
+	$(document).bind('telligent_blogs_commentposted', function(e, message) { 
+	            window.setTimeout(new Function(ctl00_content_ctl00_fragment_11500_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList.Reload()), 100); 
+	            return true; 
+	    });
+	    ctl00_content_ctl00_fragment_11500_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList.Reload();
+	});
+// ]]>
+</script>
+
+	
+
+
+	    <div style="cursor: default;" id="ctl00_content_ctl00_fragment_11500_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList"><input name="ctl00$content$ctl00$fragment_11500$ctl01$ctl00$ctl02$ctl05$DelayedFeedbackList" value="true:undefined" type="hidden">
+		    
+				    <a name="comments"></a>
+				    <div class="content-list-header"></div>
+				    <div class="content-list-name">
+					    
+							    <a class="internal-link rss" href="http://blogs.msdn.com/b/shawnhar/rsscomments.aspx"><span></span>Comments</a>
+						    
+				    </div>
+				    <ul class="content-list">
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/shaKu/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/shaKu/"><span></span>shaKu</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">14 Aug 2008 6:09 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Simply
+amazing Shawn! This is a great article and exactly what I have been
+hoping would be released covering the IntermediateSerializer which we
+have heard so much but know so little about ;)</p>
+<p>Keep up the great work; and I am sure I speak for everyone when I
+say thanks for fitting your very informative blog into your schedule!</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/dna8088/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/dna8088/"><span></span>dna8088</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">15 Aug 2008 7:57 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>I
+was just wanted to ask is there a reason not to use the [Serializable]
+attribute and then write custom save &amp; load methods? </p>
+<p>Or is IntermediateSerializer just so that I can use the Content.Load&lt;T&gt;?</p>
+<p>Or have I missed the point entirely?</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/wmfwlr/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/wmfwlr/"><span></span>wmfwlr</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">18 Aug 2008 4:28 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Good information to have, especially concerning the available attributes and their usage.</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/Zyxil/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/Zyxil/"><span></span>Zyxil</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">22 Aug 2008 4:41 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>While
+the IntermediateSerializer looks great, Shawn, there is one big
+sticking points that does not allow it to be a drop-in replacement for
+XMLSerializer. &nbsp;With the IS located in the Content Pipiline, it
+cannot be used by a game to USE the serialized XML files.</p>
+<p>Unless I'm missing something basic, this great functionality is only
+useful in creating XML during development, but is useless in
+distributed games because the CP is not distributed with the XNA
+libraries. &nbsp;There would be no way to load XML at runtime!</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item user-is-author">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header user-is-author"><div class="r wireframe-r"></div></div>
+							    <div class="full-post user-is-author"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/ShawnHargreaves/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/4TFNCZ0TWSL6.jpg" alt="" style="border-width: 0px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ShawnHargreaves/"><span></span>ShawnHargreaves</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">22 Aug 2008 4:48 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Zyxil:
+that's exactly right. The pipeline is designed to create binary .xnb
+files, which can be efficiently loaded on Xbox or Zune as well as
+Windows. IntermediateSerializer is a build time tool that can be used
+to help create these binary .xnb files. For instance you might use it
+to import XML source files, which would then be processed and built
+into binary .xnb format. Check out our Role Playing Game starter kit,
+or the "Authoring Particle Systems Using XML and the Content Pipeline"
+tutorial, for some examples.</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer user-is-author"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/ZammyIsOnFire/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ZammyIsOnFire/"><span></span>ZammyIsOnFire</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">6 Sep 2008 10:01 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>The
+ContentSerializerAttribute attribute does not seem to be working. It
+says that it cannot find a reference. Do I need to add a special
+assembly?</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/ZammyIsOnFire/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ZammyIsOnFire/"><span></span>ZammyIsOnFire</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">6 Sep 2008 10:03 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Ok I am sorry ;) That was stupid.</p>
+<p>It needed the Xna.Framework assembly.</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">flogo</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">21 Nov 2009 8:54 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>I
+was wondering if there is a way to add the behavior of the math types
+to custom types. For example I added a RectangleF class and would like
+to save it (just like Rectangle or Vector4) as</p>
+<p>&lt;MyRect&gt;0 0.3 1.5 2.3&lt;/MyRect&gt;</p>
+<p>I played around with a TypeConverter but could not manage this format</p><div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item user-is-author">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header user-is-author"><div class="r wireframe-r"></div></div>
+							    <div class="full-post user-is-author"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/ShawnHargreaves/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/4TFNCZ0TWSL6.jpg" alt="" style="border-width: 0px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ShawnHargreaves/"><span></span>ShawnHargreaves</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">23 Nov 2009 12:00 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>&gt; I was wondering if there is a way to add the behavior of the math types to custom types.</p>
+<p>Sure!</p>
+<p><a rel="nofollow" target="_new" href="http://blogs.msdn.com/shawnhar/archive/2008/08/26/customizing-intermediateserializer-part-2.aspx">http://blogs.msdn.com/shawnhar/archive/2008/08/26/customizing-intermediateserializer-part-2.aspx</a></p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer user-is-author"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">natchela</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">23 Nov 2009 3:08 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Thank you! Best reference on the web many times over.</p><div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">BrianWest</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">25 Nov 2009 8:52 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>I'm having trouble outputting a dictionary.</p>
+<p>To make it simple:</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;public class ControlMap</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;{</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;public Dictionary&lt;string, ControllerKeyMap&gt; ControllerMaps { get; private set; }</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;public Dictionary&lt;string, int&gt; LogicalKeys { get; private set; }</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;...</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>...</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp;protected Dictionary&lt;string, ControlMap&gt; ControlKeyMaps { get; private set; }</p>
+<p>...</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;using (XmlWriter writer = XmlWriter.Create(filename, settings))</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IntermediateSerializer.Serialize(writer, ControlKeyMaps, null);</p>
+<p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p>
+<p>Gives me:</p>
+<p>&lt;?xml version="1.0" encoding="utf-8"?&gt;</p>
+<p>&lt;XnaContent xmlns:Generic="System.Collections.Generic" xmlns:Input="Scaena.Foundation.Input"&gt;</p>
+<p> &nbsp;&lt;Asset Type="Generic:Dictionary[string,Input:ControlMapManager+ControlMap]"&gt;</p>
+<p> &nbsp; &nbsp;&lt;Item&gt;</p>
+<p> &nbsp; &nbsp; &nbsp;&lt;Key&gt;MenuMap&lt;/Key&gt;</p>
+<p> &nbsp; &nbsp; &nbsp;&lt;Value /&gt;</p>
+<p> &nbsp; &nbsp;&lt;/Item&gt;</p>
+<p> &nbsp;&lt;/Asset&gt;</p>
+<p>&lt;/XnaContent&gt;</p>
+<p>Where is value? &nbsp;I have data in there, its just not outputting it</p><div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item user-is-author">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header user-is-author"><div class="r wireframe-r"></div></div>
+							    <div class="full-post user-is-author"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/ShawnHargreaves/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/4TFNCZ0TWSL6.jpg" alt="" style="border-width: 0px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ShawnHargreaves/"><span></span>ShawnHargreaves</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">26 Nov 2009 10:54 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Brian:
+I would recommend the forums on creators.xna.com for this question.
+Blog post comments aren't really a great place for tech support
+conversations, especially if you need to post code examples!</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer user-is-author"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">thowthoww</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">20 Jan 2010 11:24 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Thank you for this amazing post that helped me a lot so far but I encountered something weird.</p>
+<p>It seems that SortedDictionary classes can be serialized, but cannot
+be deserialized; even so I am trying to deserialize the XML file
+previously produced by the serializer.</p><div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item user-is-author">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header user-is-author"><div class="r wireframe-r"></div></div>
+							    <div class="full-post user-is-author"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/ShawnHargreaves/"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/4TFNCZ0TWSL6.jpg" alt="" style="border-width: 0px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/ShawnHargreaves/"><span></span>ShawnHargreaves</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">20 Jan 2010 11:33 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Hey thowthoww,</p>
+<p>SortedDictionary is too complex a type to be serialized
+automatically just using reflection, and IntermediateSerializer doesn't
+have a built-in ContentTypeSerializer helper for it, so this type is
+not supported by default.</p>
+<p>You will have to either use a different collection type, or write your own ContentTypeSerializer&lt;SortedDictionary&gt; helper:</p>
+<p><a rel="nofollow" target="_new" href="http://blogs.msdn.com/shawnhar/archive/2008/08/26/customizing-intermediateserializer-part-2.aspx">http://blogs.msdn.com/shawnhar/archive/2008/08/26/customizing-intermediateserializer-part-2.aspx</a></p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer user-is-author"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">thowthoww</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">21 Jan 2010 2:41 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>I see, thank you very much for your help!</p><div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">Paul Zirkle</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">1 Mar 2010 4:36 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>So I've got a question regarding using this on the Zune (HD). </p>
+<p>I've got some code working as a windows executable, but it fails when running on the Zune. Specifically: </p>
+<p>manifest = m_pCM.Load&lt;SPManifest&gt;("manifest");</p>
+<p>Where the SPManifest is a custom class used to represent some data I
+am loading from an XML file. (In order to do this, I had to create a
+.Net class library project for the SPManifest class, which stores it in
+a SPManifest.DLL that I believe is deployed to the Zune.)</p>
+<p>From what I understand, the IntermediateSerializer (which is not
+available ON the Zune/XBox) is a "build-time" entity which transforms
+the XML data into .XNB. But how does that .XNB file get converted into
+a custom "SPManifest" object on the device? More importantly, is the
+API/assembly/whathaveyou that does this not available on the Zune?</p><div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name"><a title="Fernando" rel="nofollow" href="http://www.tongoxcore.com/">Fernando</a></span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">18 Apr 2010 6:58 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>I have been searching for hours this.</p>
+<p>Thank you very much ...</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name"><a title="LintfordPickle" rel="nofollow" href="http://britonia-game.com/">LintfordPickle</a></span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">4 May 2010 1:18 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>I realise this post is quite old now, but this is an absolutely great article</p>
+<p>- thanks a lot Shawn!</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer wireframe-full-post-outer"><div class="full-post-header"><div class="r wireframe-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner wireframe-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">Great Article</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">7 Jun 2010 11:11 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>I
+was wandering around in the dark about the XNA XML file format to
+encode complex types and almost decided to bypass the content pipeline
+and do it the old fashioned way. &nbsp;Thanks to your article now I
+will use the content pipeline for my XML and write the XML files in the
+correct format.</p>
+<p>THANKS A LOT!!</p>
+<p>Akshay Srinivasan</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r wireframe-r"></div></div></div>
+						    </li>
+					    
+			    
+				    </ul>
+				    <div class="content-list-footer"></div>
+			     
+		    <div class="pager">
+        <span class="summary">Page 1 of 1 (19 items)</span>
+    </div>
+		</div>
+	</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+<div class="content-fragment captcha-blog-post-comment-form no-wrapper-with-spacing" id="fragment-11499">
+<div class="content-fragment-inner wireframe-content-fragment-inner"><div class="content-fragment-top wireframe-content-fragment-top"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div><div class="content-fragment-content">
+
+    
+            <div class="field-list-header"></div>
+            <fieldset class="field-list">
+                <legend class="field-list-description">Leave a Comment</legend>
+                <ul class="field-list">
+                    <li id="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_NameField" class="field-item">
+                        <label for="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbName" class="field-item-header">Name</label>
+                        <span class="field-item-input"><input name="ctl00$content$ctl00$fragment_11499$ctl01$ctl00$ctl00$ctl05$bpCommentForm$ctl05$tbName" size="60" id="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbName" type="text"></span>
+                        <span id="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV" style="color: Red; display: none;"><span class="field-item-validation">*</span></span>
+                    </li>
+                    <li class="field-item post-body">
+                        <label for="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment" class="field-item-header">Comment</label>
+                        <span class="field-item-input"><textarea tabindex="-1" rows="2" cols="20" style="height: 100px; overflow-y: hidden; position: absolute; top: 0px; left: -9999px; width: 571px; line-height: 16px; text-decoration: none; letter-spacing: normal;"></textarea><textarea name="ctl00$content$ctl00$fragment_11499$ctl01$ctl00$ctl00$ctl05$bpCommentForm$ctl05$tbComment" rows="2" cols="20" id="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment" style="height: 100px; overflow-y: hidden;"></textarea></span>
+                        <span id="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV" style="color: Red; display: none;"><span class="field-item-validation">* Please enter a comment</span></span>
+                    </li>
+                    <li class="field-item">
+                        
+                           <span id="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha" style="color: Red; display: none;">*</span><span style="display: none;" id="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_subtext_captcha">Please add 3 and 2 and type the answer here: <input name="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_visibleanswer" type="text"></span>
+
+
+                    </li>
+                    <li class="field-item">
+                        <span class="field-item-input"><a id="ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_btnSubmit" class="internal-link add-reply" href='javascript:WebForm_DoPostBackWithOptions(new%20WebForm_PostBackOptions("ctl00$content$ctl00$fragment_11499$ctl01$ctl00$ctl00$ctl05$bpCommentForm$ctl05$btnSubmit",%20"",%20true,%20"BlogPostCommentForm-ctl00_content_ctl00_fragment_11499_ctl01_ctl00",%20"",%20false,%20true))'><span></span>Post</a></span>
+                    </li>
+                </ul>
+            </fieldset>
+            <div class="field-list-footer"></div>
+        
+    
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom wireframe-content-fragment-bottom"><div class="r1 wireframe-r1"></div><div class="r2 wireframe-r2"></div><div class="r3 wireframe-r3"></div><div class="r4 wireframe-r4"></div></div></div></div>
+</div>
+</div>
+</div>
+<div class="layout-footer"></div>
+</div></div>
+
+			<div class="footer-fragments-header"></div>
+<div class="footer-fragments"><div class="footer-fragment copyright-info" id="fragment-fc27580c-ef53-4c52-a38a-c17e42091631">
+
+<ul class="footer-fragment-links">
+    <li class="message copyright">© 2010 Microsoft Corporation.</li>
+    <li class="message termsOfService"><a href="http://msdn.microsoft.com/en-us/cc300389.aspx">Terms of Use</a></li>
+    <li class="message trademarks"><a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a> </li>
+    <li class="message privacy"><a href="http://www.microsoft.com/info/privacy.mspx">Privacy Statement</a> </li>
+    <li class="message abuse">
+    
+            <a id="ctl00_fragment_fc27580c_ef53_4c52_a38a_c17e42091631_ctl01_ctl00_ctl01_lnkAbuse" href='javascript:WebForm_DoPostBackWithOptions(new%20WebForm_PostBackOptions("ctl00$fragment_fc27580c_ef53_4c52_a38a_c17e42091631$ctl01$ctl00$ctl01$lnkAbuse",%20"",%20true,%20"",%20"",%20false,%20true))'>Report Abuse</a>
+        
+    </li>
+    
+</ul>
+</div><div class="footer-fragment omniture-footer-fragment" id="fragment-aeb635dd-22bf-4877-8e04-796a8d637486">
+
+
+<script type="text/javascript" src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/omni_rsid_msdn_current.js"></script>
+        <noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+        src="http://msstomsdnblogs.112.2O7.net/b/ss/msstomsdnblogs/1/H.20.2--NS/0"
+        height="1" width="1" border="0" alt="" /></a></noscript>
+
+</div><div class="footer-fragment user-info-popup" id="fragment-af7c2dba-d006-4be6-84ce-3436202063d9">
+
+<script src="everything-you-ever-wanted-to-know-about-intermediateserializer.aspx_files/UserInfoPopup.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+    // <![CDATA[
+    var Core_UserInfoPopup_AjaxEndpoint =
+        '/Utility/FooterFragments/Core/UserInfoPopupAjax.asmx';
+        
+    var ctl00_fragment_af7c2dba_d006_4be6_84ce_3436202063d9={"wrapperId":"fragment-af7c2dba-d006-4be6-84ce-3436202063d9","variableName":"ctl00_fragment_af7c2dba_d006_4be6_84ce_3436202063d9","parameter":{"popupName":"ctl00_fragment_af7c2dba_d006_4be6_84ce_3436202063d9_ctl01_UserInfoPopup","userProfileUrlPattern":"^(?:/|http://blogs\\.msdn\\.com/)members/([^/]+)/","userAvatarUrlPattern":"^(?:/|http://blogs\\.msdn\\.com/).*?_key/CommunityServer.Components.Avatars/([0-9\\.]*)/","messageHtml":"\r\n                <div class=\"arrow wireframe-arrow\"></div><div class=\"abbreviated-post-header\"><div class=\"l wireframe-l\"></div><div class=\"r wireframe-r\"></div></div><div class=\"outer-wrapper wireframe-outer-wrapper\"><div class=\"inner-wrapper wireframe-inner-wrapper\">\r\n                <div class=\"abbreviated-post\">\r\n                    <div class=\"post-summary\">{Message}</div>\r\n                </div>\r\n                </div></div><div class=\"abbreviated-post-footer\"><div class=\"l wireframe-l\"></div><div class=\"r wireframe-r\"></div></div>\r\n            ","userInfoHtml":"\r\n                <div class=\"arrow wireframe-arrow\"></div><div class=\"abbreviated-post-header\"><div class=\"l wireframe-l\"></div><div class=\"r wireframe-r\"></div></div><div class=\"outer-wrapper wireframe-outer-wrapper\"><div class=\"inner-wrapper wireframe-inner-wrapper\">\r\n                <div class=\"abbreviated-post\">\r\n                    <h4 class=\"post-name\">{DisplayName}</h4>\r\n                    <div class=\"post-attributes\">\r\n                        <div class=\"attribute-list-header\"></div>\r\n                        <ul class=\"attribute-list\">\r\n                            <li class=\"attribute-item post-rank\">\r\n                                <span class=\"attribute-value\">{PostRank}</span> <span class=\"attribute-name\">Post Rank</span>\r\n                            </li>\r\n                            {PostCountArea}\r\n                            {PointCountArea}\r\n                            {UserRankArea}\r\n                            {RoleIconArea}\r\n                        </ul>\r\n                        <div class=\"attribute-list-footer\"></div>\r\n                    </div>\r\n                </div>\r\n                </div></div><div class=\"abbreviated-post-footer\"><div class=\"l wireframe-l\"></div><div class=\"r wireframe-r\"></div></div>\r\n            ","postCountAreaHtml":"\r\n                <li class=\"attribute-item post-count\">\r\n                    <span class=\"attribute-value\">{PostCount}</span> <span class=\"attribute-name\">Posts</span>\r\n                </li>\r\n            ","pointCountAreaHtml":"\r\n                <li class=\"attribute-item point-count\">\r\n                    <span class=\"attribute-value\">{PointCount}</span> <span class=\"attribute-name\">Points</span>\r\n                </li>\r\n            ","userRankAreaHtml":"\r\n                <li class=\"attribute-item user-rank\">\r\n                    <span class=\"attribute-value\">{UserRank}</span> <span class=\"attribute-name\">User Rank</span>\r\n                </li>\r\n            ","roleIconAreaHtml":"\r\n                <li class=\"attribute-item role-icons\">\r\n                    <span class=\"attribute-value\">{RoleIcons}</span> <span class=\"attribute-name\">Roles</span>\r\n                </li>\r\n            "}};
+            
+    $(document).ready(function() {
+        Core_UserInfoPopup_AttachToUserElements(ctl00_fragment_af7c2dba_d006_4be6_84ce_3436202063d9);
+    });
+    // ]]>
+</script>
+
+<div id="ctl00_fragment_af7c2dba_d006_4be6_84ce_3436202063d9_ctl01_UserInfoPopup" style="position: absolute; visibility: hidden; left: -5000px;"></div></div></div>
+<div class="footer-fragments-footer"></div>
+		
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV"), document.getElementById("ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV"), document.getElementById("ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV = document.all ? document.all["ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV"] : document.getElementById("ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV");
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.controltovalidate = "ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbName";
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.display = "Dynamic";
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.validationGroup = "BlogPostCommentForm-ctl00_content_ctl00_fragment_11499_ctl01_ctl00";
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.initialvalue = "";
+var ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV = document.all ? document.all["ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV"] : document.getElementById("ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV");
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.controltovalidate = "ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment";
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.display = "Dynamic";
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.validationGroup = "BlogPostCommentForm-ctl00_content_ctl00_fragment_11499_ctl01_ctl00";
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.initialvalue = "";
+var ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha = document.all ? document.all["ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha"] : document.getElementById("ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha");
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha.errormessage = "*";
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha.display = "Dynamic";
+ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha.validationGroup = "BlogPostCommentForm-ctl00_content_ctl00_fragment_11499_ctl01_ctl00";
+//]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+ctl00_content_ctl00 = new ContentFragmentPageCustomCallback('ctl00_content_ctl00',new Function('mode','parameters','callback','errorCallback','context','ctl00_content_ctl00_ctl00._doCallback(mode+\':\'+parameters,callback,context,errorCallback);'));
+// ]]>
+</script>
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+rdf:about="http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx"
+dc:identifier="http://blogs.msdn.com/b/shawnhar/archive/2008/08/12/everything-you-ever-wanted-to-know-about-intermediateserializer.aspx"
+dc:title="Everything you ever wanted to know about IntermediateSerializer"
+trackback:ping="http://blogs.msdn.com/b/shawnhar/trackback.ashx?WeblogPostID=8854301" />
+</rdf:RDF>
+-->
+<script type="text/javascript">
+// <![CDATA[
+Telligent_Modal.Configure('/utility/loading.htm',['modal'],['modal-title','modal-title-2','modal-title-3','modal-title-4'],['modal-close'],['modal-content','modal-content-2'],['modal-footer','modal-footer-2','modal-footer-3'],['modal-resize'],['modal-mask'],10000,false,true,true);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a_ctl01_SearchPopup = new Telligent_PopupPanel('ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a_ctl01_SearchPopup','menu search-content results','downright',100,null,null,true,'ctl00_fragment_98b5808e_f81c_464a_a924_df2ab4f7297a_ctl01_SearchPopup',null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_GroupNavigationPopup = new Telligent_PopupPanel('ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_GroupNavigationPopup','menu group-navigation-content','down',100,null,null,false,'ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79_ctl01_ctl00_GroupNavigationPopup',new Function('Core_GroupNavigation_MouseOverPopup(ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79)'),new Function('Core_GroupNavigation_MouseOutPopup(ctl00_fragment_a131d5ed_87f8_4727_a3ea_05dbb27f4a79)'));
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_content_ctl00_ctl00 = new Telligent_CallbackManager('ctl00_content_ctl00_ctl00','ctl00$content$ctl00$ctl00','aspnetForm');
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+var ctl00_content_ctl00_fragment_11497_ctl01_ctl01=new RateableContentRating('ctl00_content_ctl00_fragment_11497_ctl01_ctl01','ctl00_content_ctl00_fragment_11497_ctl01_ctl01','ctl00_content_ctl00_fragment_11497_ctl01_ctl01_Value', 5, '/Utility/images/', false, 'rating','rating active','rating readonly',['Terrible','Poor','Fair','Average','Good','Excellent'],true,true);
+// ]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+
+WebForm_InitCallback();//]]>
+</script>
+<script type="text/javascript">
+				// <![CDATA[
+				var ctl00_content_ctl00_fragment_11497_ctl01_ctl01_ajax={"SaveRating":function(rating,successFunction,failureFunction){WebForm_DoCallback('ctl00$content$ctl00$fragment_11497$ctl01$ctl01',rating,successFunction,rating,failureFunction,true)}};
+				// ]]>
+				</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_content_ctl00_fragment_11500_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList = new DelayedContent('ctl00_content_ctl00_fragment_11500_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList','ctl00_content_ctl00_fragment_11500_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList','ctl00_content_ctl00._customCallback(\'fragment-11500\',\'ctl00$content$ctl00$fragment_11500$ctl01$ctl00$ctl02$ctl05$DelayedFeedbackList\',argument,null,callback,null)',true,true,null);
+// ]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        $('#ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment').autoResize({animate : false,extraSpace : 0,limit : 3000});//]]>
+</script>
+<script type="text/javascript">
+subtext_invisible_captcha_hideFromJavascriptEnabledBrowsers('ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_subtext_captcha');
+</script><script type="text/javascript">
+subtext_invisible_captcha_setAnswer(3, 2, 'ctl00_content_ctl00_fragment_11499_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_answer');
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_fragment_af7c2dba_d006_4be6_84ce_3436202063d9_ctl01_UserInfoPopup = new Telligent_PopupPanel('ctl00_fragment_af7c2dba_d006_4be6_84ce_3436202063d9_ctl01_UserInfoPopup','menu user-info-popup-content','downright',100,null,null,false,'ctl00_fragment_af7c2dba_d006_4be6_84ce_3436202063d9_ctl01_UserInfoPopup',null,null);
+// ]]>
+</script></form>
+	</body></html>

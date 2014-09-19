@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="CreatingANewXNAWindowsGameProject_files/styles.css">
+    <title>Creating a new Windows XNA Game Project</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="CreatingANewXNAWindowsGameProject_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>The State of Things</h2>
+				<p>
+					<em>This tutorial walks you through creating a new game project.</em>
+				</p>
+				<ul>
+				<li><a href="http://geekswithblogs.net/clingermangw/archive/2008/03/07/120375.aspx">View Comments or Leave Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="CreatingANewXNAWindowsGameProject_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>Creating a new Windows XNA Game Project</h2>
+<strong>An XNA tutorial covering how to start a new game by creating a new Windows Game project</strong> 
+
+<p>&nbsp; </p>
+<p><strong><u>Creating a new game project</u></strong></p>
+<p><img src="CreatingANewXNAWindowsGameProject_files/CropperCapture259.jpg" alt="CropperCapture[259]" style="margin: 10px;" align="right" width="500" height="347"> To create a game with the XNA framework, we first need to create a new <strong>Windows Game Project</strong>.
+Creating a new game project is how all new games will start out. The
+first step in creating a new game project is launching XNA Game Studio
+Express. Once XNA Game Studio Express has loaded, navigate to the menu
+and click on "File" and then select "New Project" from the menu drop
+down. This will open the "New Project" window. </p>
+<p>In the New Project window, expand the Visual C# tree on the left.
+Now select XNA Game Studio 2.0 from that list. On the right, you'll see
+some installed templates.&nbsp; Click on the "Windows Game (2.0)"
+template to select that template for your project. Next, type the name
+of your game into the "Name" text box and choose a location to save
+your new game.&nbsp; </p>
+<p>Finally, click the "OK" button to create the new game project. XNA
+Game Studio Express will create all the necessary directories and files
+a new game project needs. The new project will also open in the XNA
+Game Studio Express IDE waiting for you to start coding your
+game.&nbsp;&nbsp;&nbsp; </p>
+<p>&nbsp; </p>
+<p><strong><u>Run the new game</u></strong> </p>
+<p>Now that you have created your new game project, let's stop here and do a quick <strong>build</strong>&nbsp;<img src="CreatingANewXNAWindowsGameProject_files/CropperCapture233.jpg" alt="Build" style="border-width: 0px; margin: 0px 5px;" border="0" width="30" height="32"> . This is a good habit to get into. Not only does it show off the <strong>power of XNA</strong>
+(can you believe you can already render a solid color to the screen
+already!), but it also helps to verify that the project was created
+correctly and that the PC you are developing on has a video card that
+supports the minimum requirements for XNA. <a href="http://www.xnadevelopment.com/livewriter/XNA.comCreatingaNewXNAWindowsGameProject_C2D8/CropperCapture260.jpg"><img src="CreatingANewXNAWindowsGameProject_files/CropperCapture260_thumb.jpg" alt="CropperCapture[260]" style="border: 0px none ; margin: 10px;" align="left" border="0" width="504" height="396"></a>  </p>
+<p>When you build the game project, you should be greeted with a
+Cornflower blue window. If you are seeing this lovely shade of blue,
+then you have successfully created your new game project. (Isn't XNA
+amazing?) </p>
+<p>If you don't get the expected results and you have an error, then your video card most likely does not meet the <strong>minimum requirements</strong> for XNA. Check out the <a href="http://msdn.microsoft.com/directx/xna/faq/">XNA FAQ</a> from the Microsoft site for a complete list of minimum requirements for the XNA framework. </p>
+<p>If you are meeting the requirements for the XNA framework and are
+still getting errors, then I recommend you head on over to the <a href="http://creators.xna.com/">Creator's Club XNA Forums</a>.
+First do some quick searches around the forums just in case someone
+else has already encountered the issue and a solution has already been
+provided. If you can't find anyone else with the same issue, then
+create a new post and describe the error or behavior you are seeing.
+The XNA forums are full of very helpful folks (you will probably see me
+around there, I find them to be a great place to hang out) and you are
+sure to get some advice very quickly from some very knowledgeable
+people in the XNA community.&nbsp;&nbsp;&nbsp; </p>
+<p>&nbsp; </p>
+<p><strong><u>Congratulations!</u></strong> </p>
+<p>You can now successfully create a new XNA Windows Game project.
+Armed with this knowledge, you're just a hop skip and a jump away from
+making your own game. Go play a little. Look through the code in the
+new game project and see what happens when you change some things. Do
+you see where the code is telling the game what color to render to the
+screen? Try changing it! </p>
+<p>Now take what you know and build off of that. Explore other <a href="http://www.xnadevelopment.com/links.shtml">XNA sites in the community</a> and see what else you can learn. Start with the basics and move up from there. Most of all, make sure that you are <strong>having fun</strong>! </p>
+
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="CreatingANewXNAWindowsGameProject_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</body></html>

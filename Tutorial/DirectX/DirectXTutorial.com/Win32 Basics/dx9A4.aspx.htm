@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Win32 Lesson 4: The Real-Time Message Loop
+</title><link href="dx9A4.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9A4.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9A4.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9A4.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9A4.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+                    Lesson 4:&nbsp; The Real-Time Message Loop</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/A-Win32/dx9A4.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A3.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+                        Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                            In this lesson we will cover a single function, PeekMessage(), and how this function
+                            differs from its evil twin, GetMessage().</p>
+                            <p>
+                                Actually, there's nothing wrong with GetMessage(), the way it works just doesn't
+                                have spectacular results on games and their continuous activity.&nbsp; We'll go
+                                over how this is and how PeekMessage() is a solution.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    The Structure of the GetMessage() Loop</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    In the previous lesson, we built a simple Windows application while using the function
+    GetMessage(). We used GetMessage() and two other functions to create a loop that
+    handled all the Windows message sent. However, there was a catch we didn't talk
+    about at the time.</p>
+    <p>
+        The following diagram shows how the event loop we wrote works:</p>
+    <center>
+        <img alt="Image 4.1 - The Structure of a GetMessage() Loop" src="dx9A4.aspx_files/dx9A4-1.GIF" width="489" height="205"><br>
+        <br>
+        Image 4.1 - The Structure of a GetMessage() Loop
+    </center>
+    <p>
+                Once we create the window, we get into the event loop, where we see the function
+        GetMessage(). GetMessage() then waits for a message and, upon recieving one, sends
+        it to the next step, TranslateMessage(). This is perfectly logical for Windows programming,
+        because generally speaking Windows applications, Word for example, tend to sit and
+        do nothing until you make a move.</p>
+    <p>
+        However, this doesn't work well for us. While all this waiting is going on, we need
+        to be creating thirty to sixty fully-rendered 3D images per second and putting them
+        on the screen without any delay at all. And so we are presented with a rather interesting
+        problem, because Windows, if it sends any messages, will most definitely not be
+        sending thirty of them per second.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    A New Function, PeekMessage()</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    What we will do to solve this dilema is replace our current GetMessage() function
+    with a new function, PeekMessage(). This function does essentially the same thing,
+    but with one important difference: it doesn't wait for anything. PeekMessage() just
+    looks into the message queue and checks to see if any messages are waiting. If not,
+    the program will continue on, allowing us to do what we need.</p>
+    <center>
+        <img alt="Image 4.2 - The Structure of a PeekMessage() Loop" src="dx9A4.aspx_files/dx9A4-2.GIF" width="553" height="284"><br>
+        <br>
+        Image 4.2 - The Structure of a PeekMessage() Loop</center>
+    <p>
+        Before
+        we go any further, let's take a good look at PeekMessage(). Here is it's
+        prototype.</p>
+    <div class="codebox">
+        BOOL PeekMessage(LPMSG lpMsg,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HWND hWnd,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; UINT wMsgFilterMin,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; UINT wMsgFilterMax,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; UINT wRemoveMsg);</div>
+    <p>
+        The first four parameters should be familiar to you.&nbsp; They are identical to
+        the four parameters of GetMessage().&nbsp; However, the fifth one, wRemoveMsg, is
+        new.</p>
+    <p>
+        What it does is indicate whether or not the message retrieved from the event queue
+        should stay on the event queue or come off.&nbsp; We can put either PM_REMOVE or
+        PM_NOREMOVE.&nbsp; The first one takes the messages off the queue when they are read,
+        while the second one leaves the messages there for later retrieval.&nbsp; We will
+        use the PM_REMOVE value here, and keep things simple.</p>
+    <p>
+        So how do we implement this into our program? Following is the main loop from the
+        last program we made, modified to use PeekMessage().</p>
+    <div class="codebox">
+        // Enter the infinite message loop<br>
+        while(TRUE)<br>
+        {<br>
+        &nbsp; &nbsp; // Check to see if any messages are waiting in the queue<br>
+        &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+        &nbsp; &nbsp; {<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; // Translate the message and dispatch it to WindowProc()<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+        &nbsp; &nbsp; }<br>
+        <br>
+        &nbsp; &nbsp; // If the message is WM_QUIT, exit the while loop<br>
+        &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+        <br>
+        &nbsp; &nbsp; // Run game code here<br>
+        &nbsp; &nbsp; // ...<br>
+        &nbsp; &nbsp; // ...<br>
+        }</div>
+    <p>
+        Now our program can handle things as timely as we please, without having to worry
+        about Windows and its tedious messages.&nbsp; Let's quickly go over the changes
+        we made.</p>
+    <p class="subheader">
+        while(TRUE)</p>
+    <p>
+        Naturally, this creates an infinite loop.&nbsp; We will escape out of it later when
+        it comes time to quit the game.</p>
+    <p class="subheader">
+        while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))</p>
+    <p>
+        Because we are no longer waiting for a message, but rather just peeking in to see
+        what's there, we will use PeekMessage().&nbsp; PeekMessage()
+        returns TRUE if there is a message and FALSE if there isn't.&nbsp; So, if there
+        is a message, it runs the contents of the 'while' loop, and just continues on to the game
+        code if there isn't.</p>
+    <p class="subheader">
+        if(msg.message == WM_QUIT)</p>
+    <p>
+        If our message turns out to be a WM_QUIT, that means its time to exit our "infinite"
+        loop and return to
+        Windows.&nbsp; Remember, we didn't have this before because GetMessage()
+        would always return '0' if it was time to quit, thus breaking the while() loop.&nbsp;
+        We don't have that mechanism here unfortunately, and we have to look for it ourselves.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            Running the New Loop</div>
+        <div class="maintext" style="position: relative;">
+            <p>
+            Here is our new code, after we've modified the program with PeekMessage().&nbsp;
+            The parts that changed are now in <strong>bold</strong>.</p>
+
+            [<a href="#still" onclick="Toggle('lessonprog')" class="mainlink">Show Code</a>]<br>
+            <br>
+
+            <div class="codebox" id="lessonprog" style="display: none;">
+                // include the basic windows header file<br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;UINT message,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;WPARAM wParam,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;LPARAM lParam);<br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+                {<br>
+                &nbsp; &nbsp; // the handle for the window, filled by a function<br>
+                &nbsp; &nbsp; HWND hWnd;<br>
+                &nbsp; &nbsp; // this struct holds information for the window class<br>
+                &nbsp; &nbsp; WNDCLASSEX wc;<br>
+                <br>
+                &nbsp; &nbsp; // clear out the window class for use<br>
+                &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+                <br>
+                &nbsp; &nbsp; // fill in the struct with the needed information<br>
+                &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+                &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+                &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+                &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+                &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+                &nbsp; &nbsp; wc.hbrBackground = (HBRUSH)COLOR_WINDOW;<br>
+                &nbsp; &nbsp; wc.lpszClassName = L"WindowClass1";<br>
+                <br>
+                &nbsp; &nbsp; // register the window class<br>
+                &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+                <br>
+                &nbsp; &nbsp; // create the window and use the result as the handle<br>
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; L"WindowClass1", &nbsp;&nbsp; // name of the window class<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; L"Our First Windowed Program",&nbsp; &nbsp; // title of the window<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; WS_OVERLAPPEDWINDOW, &nbsp;&nbsp; // window style<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; 300, &nbsp; &nbsp;// x-position of the window<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; 300, &nbsp; &nbsp;// y-position of the window<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; 500, &nbsp; &nbsp;// width of the window<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; 400, &nbsp; &nbsp;// height of the window<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL, &nbsp; &nbsp;// we have no parent window, NULL<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL, &nbsp; &nbsp;// we aren't using menus, NULL<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; hInstance, &nbsp; &nbsp;// application handle<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL); &nbsp;&nbsp; // used with multiple windows, NULL<br>
+                <br>
+                &nbsp; &nbsp; // display the window on the screen<br>
+                &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+                <br>
+                &nbsp; &nbsp; // enter the main loop:<br>
+                <br>
+                &nbsp; &nbsp; // this struct holds Windows event messages<br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; // Enter the infinite message loop<br>
+                &nbsp; &nbsp; while(<strong>TRUE</strong>)<br>
+                &nbsp; &nbsp; {<br>
+                <strong>
+                &nbsp; &nbsp; &nbsp; &nbsp; // Check to see if any messages are waiting in the queue<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // translate keystroke messages into the right format<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // send the message to the WindowProc function<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                <strong>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; // If the message is WM_QUIT, exit the while loop<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;</strong><br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; // Run game code here<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; // ...<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; // ...<br></strong>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; // return this part of the WM_QUIT message to Windows<br>
+                &nbsp; &nbsp; return msg.wParam;<br>
+                }<br>
+                <br>
+                // this is the main message handler for the program<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+                {<br>
+                &nbsp; &nbsp; // sort through and find what code to run for the message given<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; // this message is read when the window is closed<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // close the application
+                entirely<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; // Handle any messages the switch statement didn't<br>
+                &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+                }</div>
+            <p>
+                When you run this program, you will find that there is actually no difference in
+                the outcome.&nbsp; The truth is, you will not see the difference until you use both
+                functions in game programming.</p>
+            <p>
+                I'd say we're doing a fairly good job.&nbsp; You now have under your belt all the
+                Windows programming tools you will need for game programming.&nbsp; With what you
+                know, you can create a window, prepare it for a game, and have everything ready for the DirectX code.</p>
+                <p>
+                    So, now the real fun begins!&nbsp; Let's dive into DirectX and build ourselves a
+                    3D game!</p>
+            <center>
+                <p>
+                    Next Tutorial:&nbsp; Direct3D Basics</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Liked the Lesson?  Hated the lesson?  Give your <a class="feedlink" href="javascript:RunFeedback(4)">feedback</a>.</p>
+            </center>
+
+        </div>
+
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9A4.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

@@ -1,0 +1,1329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Lesson 5: Transforming Vertices
+</title><link href="dx9B5.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B5.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B5.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B5.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B5.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">Lesson 5:&nbsp; Transforming Vertices</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B5.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B4.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B6.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+        Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+        In the last lesson you built a simple, flat triangle lit with simple diffuse lighting.&nbsp;
+        This triangle was not 3D, it was flat.&nbsp; If you managed to change it, you found
+        it was a 2D triangle drawn in screen coordinates.&nbsp; The triangle you made was
+        pre-transformed, meaning you took no action to convert it from 3D coordinates to
+        screen coordinates, but just gave Direct3D the screen coordinates.</p>
+        <p>
+            In this lesson, you will learn to transform vertices, or convert them from 3D coordinates
+            to screen coordinates.&nbsp; You will also learn to position the 3D camera, set
+            the 3D "lens", and put your triangle into a 3D world with other 3D objects in it.</p>
+        <p>
+            Note:&nbsp; If you get confused or overwhelmed in this lesson, make sure you do
+            the exercises listed at the end.&nbsp; Learning this topic is a bit like learning
+            pointers for the first time: you don't get it until you get it, and that's all there
+            is to it.&nbsp; To "get" how to do this, you just need to do it, so I recommend
+            doing these exercises so you can "get it" before you tackle the rest of Direct3D.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    The Geometry Pipeline</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Before we get into the actual transformation code, let's take a look at everything
+    that happens to translate something from 3D coordinates to a flat image.&nbsp; There
+    is a sequence of actions which must occur before an object appears on the screen
+    properly.&nbsp; This sequence of actions is known as the Geometry Pipeline.&nbsp;
+    It is called a pipeline because vertices are put through each step one at a time,
+    and at each step along the "pipe", the vertex is rendered into its flat image form.</p>
+    <p>
+        When a model first starts out, it is generally centered on the origin, meaning the
+        center of the object is at (0, 0, 0).&nbsp; This also means that all the objects
+        in your game will be in the exact center of the world, all piled up on top of each
+        other, which doesn't make a very excellent game.&nbsp; The first step is to sort
+        out the new positions of all the models in relation to each other.&nbsp; This is
+        called <em>World Transformation</em>.</p>
+    <p>
+        Once all the objects in the world have been sorted out and the vertices' positions
+        have been altered to represent world coordinates, then we have to change the entire
+        coordinate system to create a virtual camera.&nbsp; What this means is that we have
+        to change the <em>direction</em> of each axis, in order to position everything in
+        the most efficient way for the video card.&nbsp; This process is known as <em>View Transformation</em>.</p>
+    <p>
+        After the coordinate system has been rearanged, then it is time to convert all the
+        3D models into 2D images.&nbsp; In this step, the 3D coordinates are converted into
+        screen coordinates.&nbsp; This process is known as <em>Projection Transformation</em>.</p>
+    <center>
+        <img alt="Image 5.1 - The Geometry Pipeline" src="dx9B5.aspx_files/dx9B5-1.GIF" width="580" height="71"><br>
+        <br>
+        Image 5.1 - The Geometry Pipeline
+    </center>
+    <p class="subheader">
+        World Transformation</p>
+    <p>
+        World Transformation, in essence, changes coordinates from model space to world
+        space.&nbsp; In other words, it places a model in a world at an exact point defined
+        by coordinates.&nbsp; Following is an overhead demonstration of how this works:</p>
+    <center>
+        <img alt="Image 5.2 - Model Translation" src="dx9B5.aspx_files/dx9B5-2.GIF" width="642" height="293"><br>
+        <br>
+        Image 5.2 - Model Translation
+    </center>
+    <p>
+        This is known as translation.&nbsp; Translation refers to the movement of a vertex
+        along a coordinate system axis.&nbsp; For example, Image 5-2 shows movement of a
+        tree along the x and y axes.&nbsp; Of course, we could also translate the tree along
+        the z-axis, but our ground here is flat, and having trees floating ten feet high
+        just outside the local village tends to scare the tourists away (not to mention
+        the players).</p>
+    <p>
+        Of course, being able to move an object into world space is always useful, but it
+        can get rather limiting if your model is always facing the same direction.&nbsp;
+        A spaceship that can only face East is rather dull and does not elicit much thrill
+        or adrenaline (or so I find).</p>
+    <p>
+        And so another part of World Transformation is rotation.&nbsp; Rotation is the process
+        of spinning 3D objects along an axis.&nbsp; Like translation, it can be done along
+        multiple axes simultaneously, allowing you to position your model as desired.</p>
+    <center>
+        <img alt="Image 5.3 - Model Rotation" src="dx9B5.aspx_files/dx9B5-3.GIF" width="560" height="190"><br>
+        <br>
+        Image 5.3 - Model Rotation
+    </center>
+    <p>
+        Another important part of World Transformation is scaling.&nbsp; Scaling is the
+        action of making a 3D object larger or smaller.&nbsp; When an object is scaled,
+        each vertex in the object is multiplied by a given number.&nbsp; These numbers can
+        be different for each axis, resulting in various stretching effects.</p>
+    <center>
+        <img alt="Image 5.4 - Model Scaling" src="dx9B5.aspx_files/dx9B5-4.GIF" width="392" height="124"><br>
+        <br>
+        Image 5.4 - Model Scaling
+    </center>
+    <p class="subheader">
+        View Transformation</p>
+    <p>
+        <em>View transformation</em> is a process which sets up the 3D coordinate system
+        to point in the proper direction.&nbsp; What this means is that the directions of
+        each axis are going to change to point in different directions.&nbsp; Let me explain:</p>
+    <p>
+        Direct3D uses the concept of a virtual camera.&nbsp; This camera has an exact position
+        and points at an exact vector.&nbsp; When world transformation is done, the 3D axes
+        have no alignment to how the scene will be viewed.</p>
+    <center>
+        <img alt="Image 5.5 - 3D Axes Unaligned With Camera" src="dx9B5.aspx_files/dx9B5-5.PNG"><br>
+        <br>
+        Image 5.5 - 3D Axes Unaligned With Camera
+    </center>
+    <p>
+        In order for Direct3D and the video card to quickly process the 3D scene, the 3D
+        axes must align with the camera.&nbsp; Specifically, the origin is repositioned
+        to where the camera is, and the z-axis points directly down the line of sight.</p>
+    <center>
+        <img alt="Image 5.6 - 3D Axes Aligned With Camera" src="dx9B5.aspx_files/dx9B5-6.PNG"><br>
+        <br>
+        Image 5.6 - 3D Axes Aligned With Camera
+    </center>
+    <p>
+        Notice that while the axes <em>changed</em>, the box and the camera stayed <em>still</em>.&nbsp;
+        Of course, if the 3D axes change, the 3D coordinates of the box must also change
+        if this is to happen. View transformation is the process which quickly and cleanly
+        calculates this change.</p>
+    <p class="subheader">
+        Projection Transformation</p>
+    <p>
+        If view transformation can be thought of as a camera, then this step can be thought
+        of as a lens. Once view transformation is completed, we have to change the 3D scene
+        into one big 2D image so it can be drawn on the screen.&nbsp; The process that does
+        this is called <em>projection transformation</em>.&nbsp; It is simply the converting
+        of 3D coordinates to screen coordinates.</p>
+    <center>
+        <img alt="Image 5.7 - Projection Transformation" src="dx9B5.aspx_files/dx9B5-7.GIF" width="456" height="123"><br>
+        <br>
+        Image 5.7 - Projection Transformation
+    </center>
+    <p>
+        Now that we have covered a theoretical approach of the three different transformations
+        that occur, let's take a look at how to implement them in practice.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Untransformed Vertices</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    The last section described how to change vertices from untransformed vertices to
+    transformed vertices, or in other words, how to change 3D models to 2D images.</p>
+    <p>
+        If you have been following through this entire tutorial, you will have noticed that
+        we have been dealing only in 2D coordinates up until this point.&nbsp; You defined
+        you custom FVF like this:.</p>
+    <div class="codebox" style="left: 0px; top: 0px;">
+        struct CUSTOMVERTEX {FLOAT X, Y, Z, RHW; DWORD COLOR;};<br>
+        #define CUSTOMFVF (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
+    </div>
+    <p>
+        This code describes pre-transformed vertices, meaning they did not have to go through
+        the 3D pipeline (because they were already given in 2D form).</p>
+    <p>
+        For vertices to be in 3D form, they are described like this:</p>
+    <div class="codebox" style="left: 0px; top: 0px;">
+        struct CUSTOMVERTEX {FLOAT X, Y, Z; DWORD COLOR;};<br>
+        #define CUSTOMFVF (D3DFVF_XYZ | D3DFVF_DIFFUSE)</div>
+    <p>
+        All we really did here was take out the RHW, but that was enough.&nbsp; If you make
+        this modification and run the program, you will find that nothing will show up.&nbsp;
+        The reason?&nbsp; You are trying to draw 3D coordinates on a flat screen without
+        putting those coordinates through the pipeline.&nbsp; Let's find out how to do this.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    What is the Matrix?</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    A matrix is a mathematical term which describes a two-dimensional array of numbers.&nbsp;
+    Here is an example of a 4x4 matrix with the values 1 through 16:</p>
+    <p>
+        </p><table style="width: 175px; border-style: none; height: 130px;">
+            <tbody><tr>
+                <td>
+                    1</td>
+                <td>
+                    2</td>
+                <td>
+                    3</td>
+                <td style="width: 25px;">
+                    4</td>
+            </tr>
+            <tr>
+                <td>
+                    5</td>
+                <td>
+                    6</td>
+                <td>
+                    7</td>
+                <td style="width: 25px;">
+                    8</td>
+            </tr>
+            <tr>
+                <td>
+                    9</td>
+                <td>
+                    10</td>
+                <td>
+                    11</td>
+                <td style="width: 25px;">
+                    12</td>
+            </tr>
+            <tr>
+                <td>
+                    13</td>
+                <td>
+                    14</td>
+                <td>
+                    15</td>
+                <td style="width: 25px;">
+                    16</td>
+            </tr>
+        </tbody></table>
+    
+    <p>
+        In 3D programming, a matrix is used to represent information used during transformations.&nbsp;
+        We'll go over how they are used in a minute, but for now, let's focus on the matrix
+        itself.</p>
+    <p>
+        A matrix can be defined in C++ like this:</p>
+    <div class="codebox">
+        float TheMatrix [4][4] =<br>
+        {<br>
+        &nbsp; &nbsp; 1.0f, 0.0f, 0.0f, 0.0f,<br>
+        &nbsp; &nbsp; 0.0f, 1.0f, 0.0f, 0.0f,<br>
+        &nbsp; &nbsp; 0.0f, 0.0f, 1.0f, 0.0f,<br>
+        &nbsp; &nbsp; 0.0f, 0.0f, 0.0f, 1.0f<br>
+        };</div>
+    <p class="subheader">
+        The Identity Matrix</p>
+    <p>
+        When using Direct3D transformations, you use matrices to multiply values together
+        in order to bring about certain results.&nbsp; Before you set the values inside
+        a matrix, you need to set the matrix to its default.&nbsp; This default is called
+        the <em>identity matrix</em>.&nbsp; The above example code shows the values contained
+        in an identity matrix.</p>
+    <p class="subheader">
+        The Direct3D Defined Matrix</p>
+    <p>
+        Using a 2 dimensional array of float values can be exhaustingly tedious.&nbsp; To
+        bypass this, Direct3D uses a struct and a series of functions which can be used
+        to greatly simplify matrices.&nbsp; We will cover the functions throughout this
+        lesson, but we'll start with the struct here.&nbsp; Here is the struct's defintion:</p>
+    <div class="codebox">
+        typedef struct _D3DMATRIX {<br>
+        &nbsp; &nbsp; union {<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; struct {<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; float &nbsp; &nbsp; &nbsp;&nbsp; _11, _12, _13, _14;<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; float &nbsp; &nbsp; &nbsp;&nbsp; _21, _22, _23, _24;<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; float &nbsp; &nbsp; &nbsp;&nbsp; _31, _32, _33, _34;<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; float &nbsp; &nbsp; &nbsp;&nbsp; _41, _42, _43, _44;<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; };<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; float m[4][4];<br>
+        &nbsp; &nbsp; }<br>
+        } D3DMATRIX;</div>
+    <p>
+        Of course, this doesn't handle the tedious intializing, so we'll use a simple Direct3D
+        function to handle this for us.&nbsp; This function is called D3DXMatrixIdentity().&nbsp;
+        It's prototype is:</p>
+    <div class="codebox">
+        D3DXMATRIX* D3DXMatrixIdentity(D3DXMATRIX* pOut);</div>
+    <p>
+        This is a simple function.&nbsp; Its one parameter is a pointer to the matrix we
+        want to set up as the default identity matrix.</p>
+    <p>
+        For convenience, it also uses the exact same value as a return value, so it can
+        be used as a function parameter as well.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Setting the World Transformation</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    You are probably wondering what matrices are for.&nbsp; A Direct3D matrix is used
+    to store data required by a transformation.&nbsp; It is stored in such a way that
+    all that needs to be done is some simple multiplication, and the transformation
+    just happens.&nbsp; We could go into the exact mathematics of this for at least
+    five or six lessons, but fortunately there are functions to take care of it all
+    for us.</p>
+    <p>
+        As you recall, creating a world space (world transformation) consists of the translation
+        (moving), rotation and scaling of 3D models into world space.&nbsp; The vertices
+        in each model are multiplied by a matrix to perform each of these.</p>
+    <p>
+        To do this, our first step will be to create the matrices, and our second step will
+        be to tell Direct3D that we want to use them, and in what order (what order of multiplication,
+        that is).</p>
+    <hr>
+    <p class="subheader">
+                1. Translation</p>
+    <p>
+        The following is the code required to set up a simple translation. &nbsp;It can
+        be run between the SetStreamSource() function and the DrawPrimitive() function.</p>
+    <div class="codebox" style="left: 0px; top: 0px;">
+        D3DXMATRIX matTranslate; &nbsp;&nbsp; // a matrix to store the translation information<br>
+        <br>
+        // build a matrix to move the model 12 units along the x-axis and 4 units along
+        the y-axis<br>
+        // store it to matTranslate<br>
+        D3DXMatrixTranslation(&amp;matTranslate, 12.0f, 4.0f, 0.0f);<br>
+        <br>
+        // tell Direct3D about our matrix<br>
+        d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;matTranslate);</div>
+    <p>
+        Lets go over each one of these.</p>
+    <p class="subheader">
+        D3DMATRIX matTranslate;</p>
+    <p>
+        We covered this one in the last section.&nbsp; This creates a matrix.&nbsp; We will
+        call it matTranslate to keep it from getting confused with other matrices later
+        on.</p>
+    <p class="subheader">
+        D3DMatrixTranslation(&amp;matTranslate, 12.0f, 4.0f, 0.0f);</p>
+    <p>
+        This function is used to initialize the matrix with the proper values used for translation.&nbsp;
+        The first parameter is the address of the matrix, and the following three parameters
+        are float values, corresponding to the x-axis, y-axis and z-axis movement.</p>
+    <p class="subheader">
+        d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;matTranslate);</p>
+    <p>
+        This function has a new parameter in it, but the second parameter is obvious (the
+        address of the matrix we just built).</p>
+    <p>
+        This function tells Direct3D that the matrix we built should be used for any vertices
+        processed.&nbsp; That means that later, when we run the DrawPrimitive() function,
+        our matrix will be used to move the vertices around in the world space.</p>
+    <p>
+        The first parameter is a flag that tells Direct3D what kind of matrix this is (there
+        are more kinds).&nbsp; The kind we are building is a World Transform matrix, and
+        the flag that applies is D3DTS_WORLD.&nbsp; The other kinds we could put (but we
+        won't yet) are the D3DTS_VIEW, which specifies a View Transform matrix, and the
+        D3DTS_PROJECTION, which specifies a Projection Transform matrix.&nbsp; We'll go
+        over this in more detail later.&nbsp; For now, set this value to D3DTS_WORLD.</p>
+    <hr>
+    <p class="subheader">
+                2. Rotation</p>
+    <p>
+        Rotation is done in almost exactly the same way, although there is one slight complication.&nbsp;
+        Rotation can occur in three different directions (x-axis, y-axis and z-axis).&nbsp;
+        Therefore, there is a function to set up a matrix for each type of rotation.&nbsp;
+        However, let's start simple and use one at a time.</p>
+    <div class="codebox">
+        D3DXMATRIX matRotateX; &nbsp;&nbsp; // a matrix to store the rotation information<br>
+        <br>
+        // build a matrix to rotate the model 3.14 radians<br>
+        D3DXMatrixRotationX(&amp;matRotateX, 3.14f);<br>
+        <br>
+        // tell Direct3D about our matrix<br>
+        d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;matRotateX);</div>
+    <p>
+        Much of this is similar, but we'll go over it again briefly.</p>
+    <p class="subheader">
+        D3DXMATRIX matRotateX;</p>
+    <p>
+        This is the name of our matrix.&nbsp; We are only going to rotate on the x-axis
+        this time, so we'll label the matrix as such for clarity.</p>
+    <p class="subheader">
+        D3DXMatrixRotationX(&amp;matRotateX, 3.14f);</p>
+    <p>
+        This function builds a matrix that indicates an x-axis rotation.&nbsp; The first
+        parameter gives the address of the matrix to be built, and the second parameter
+        gives the number of radians the model should be rotated (as a float value).</p>
+    <p>
+        Of course, similar functions also exist for the y-axis and z-axis.&nbsp; All you
+        have to do is replace the 'X' with a 'Y' or a 'Z', and there you go (the parameters
+        are the same).&nbsp; We'll get into how to do multiple-axis rotations later in the
+        lesson.&nbsp; For now, you see how one rotation is done.</p>
+    <p>
+        Note that you can also use degrees instead of radians by using the D3DXToRadian()
+        function.&nbsp; It's one parameter is a float value indicating the number of degrees,
+        and the return value is a radian.&nbsp; So you could change the rotation matrix
+        function above into this:</p>
+    <div class="codebox">
+        D3DXMatrixRotationX(&amp;matRotateX, D3DXToRadian(180.0f));</div>
+    <p>
+        If you had done this instead, it would have had almost exactly the same result.<br>
+        (Almost exactly, because 180 degrees is not exactly 3.14 
+radians, but rather, 
+3.141592653589793238462643383279502884197169399375105820974944592
+        radians, and even that isn't perfect.&nbsp; If you <em>really</em> want the full
+        value of pi, go <a class="mainlink" href="http://3.141592653589793238462643383279502884197169399375105820974944592.com/">
+            here</a>, otherwise, let's just stick with
+        degrees, yea?)</p>
+    <p>
+        Trivial data aside, let's move on.</p>
+    <p class="subheader">
+        d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;matRotateX);</p>
+    <p>
+        This function operates exactly the same as in the translation.&nbsp; It sets the
+        entire world transformation to be based on the matRotateX matrix we built.</p>
+    <hr>
+    <p class="subheader">
+                3. Scaling</p>
+    <p>
+        Scaling is done like translation and rotation and has its own function for initializing
+        the matrix before using it.</p>
+    <div class="codebox" style="left: 0px; top: 0px;">
+        D3DXMATRIX matScale; &nbsp;&nbsp; // a matrix to store the scaling information<br>
+        <br>
+        // build a matrix to double the size of the model<br>
+        // store it to matScale<br>
+        D3DXMatrixScaling(&amp;matScale, 2.0f, 2.0f, 2.0f);<br>
+        <br>
+        // tell Direct3D about our matrix<br>
+        d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;matScale);</div>
+    <p>
+        The first and last commands are the same, but let's go over this new function:</p>
+    <p class="subheader">
+        D3DXMatrixScaling(&amp;matScale, 2.0f, 2.0f, 2.0f);</p>
+    <p>
+        This function sets the matrix to scale the vertices to a specific size.&nbsp; The
+        first parameter is the same as before, a pointer to the matrix to be initialized.&nbsp;
+        The next three are float values which represent how much the vertices should be
+        scaled by.</p>
+    <p>
+        In this example, all the vertices calculated get multiplied by 2.0f.&nbsp; If a
+        vertex's coordinates started out as (4, 4, 4), they would be (8, 8, 8) when drawn.</p>
+    <p>
+        Of course, you can put different values in each of those three parameters, getting
+        various results (stretching the model).&nbsp; You can also put negative values (to
+        reverse the coordinates) and decimals (to make the model smaller).</p>
+    <hr>
+    <p class="subheader">
+        Combining the Translation, Rotation and Scaling Matrices</p>
+    <p>
+        So far we have gone over how to do one type of calculation at a time.&nbsp; The
+        problem is, if we wanted to do both, we would only get to use the one we did later.&nbsp;
+        The SetTransform() function sets <em>one matrix</em> as the thing to use with the
+        world transformation.&nbsp; If you try to set another matrix later, Direct3D only
+        uses the second one, and completely ignores the first one.</p>
+    <p>
+        We can solve this problem by multiplying matrices together to form new matrices.&nbsp;
+        It so happens that if you multiply a matrix with another matrix, the result will
+        contain the effects of <em>both</em> matrices.</p>
+    <p>
+        For example, if we had a matrix that rotated and a matrix that scaled, and we multiplied
+        these two matrices together, the result would be a matrix that rotated <em>and</em>
+        scaled!&nbsp; Let's see how this is done:</p>
+    <div class="codebox">
+        D3DXMATRIX matRotateX; &nbsp;&nbsp; // a matrix to store the rotation information<br>
+        D3DXMATRIX matScale; &nbsp;&nbsp; // a matrix to store the scaling information<br>
+        <br>
+        D3DXMatrixScaling(&amp;matScale, 2.0f, 2.0f, 2.0f); &nbsp;&nbsp; // double the size
+        of the model<br>
+        D3DXMatrixRotationX(&amp;matRotateX, D3DXToRadian(90.0f)); &nbsp;&nbsp; // rotate
+        the model 90 degrees<br>
+        <br>
+        // set the world transform to the two matrices multiplied together<br>
+        d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;(matRotateX * matScale));</div>
+    <p>
+        And there you have it!&nbsp; We have now set the world transform to A) rotate all
+        models by 90 degrees, and B) to double the size of all models.</p>
+    <p>
+        Let's take another example, just for the sake of repetition:</p>
+    <div class="codebox">
+        D3DXMATRIX matRotateX;<br>
+        D3DXMATRIX matRotateY;<br>
+        D3DXMATRIX matRotateZ;<br>
+        D3DXMATRIX matScale;<br>
+        D3DXMATRIX matTranslate;<br>
+        <br>
+        D3DXMatrixRotationX(&amp;matRotateX, D3DXToRadian(50.0f));<br>
+        D3DXMatrixRotationY(&amp;matRotateY, D3DXToRadian(50.0f));<br>
+        D3DXMatrixRotationZ(&amp;matRotateZ, D3DXToRadian(50.0f));<br>
+        D3DXMatrixScaling(&amp;matScale, 5.0f, 1.0f, 1.0f);<br>
+        D3DXMatrixTranslation(&amp;matTranslate, 40.0f, 12.0f, 0.0f);<br>
+        <br>
+        d3ddev-&gt;SetTransform(D3DTS_WORLD,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&amp;(matRotateX
+        * matRotateY * matRotateZ * matScale * matTranslate));</div>
+    <p>
+        What this one does is rotate the model along the x-axis 50 degrees, then the y-axis,
+        then the z-axis.&nbsp; Then it stretches the model five times its usual size along
+        the x-axis.&nbsp; Last, it translates the model to its new position: (40, 12, 0).</p>
+    <p>
+        Next, let's look at a slightly altered version of our SetTransform() function.&nbsp;
+        What if we had done this:</p>
+    <div class="codebox">
+        d3ddev-&gt;SetTransform(D3DTS_WORLD,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &amp;(matTranslate
+        * matRotateX * matRotateY * matRotateZ * matScale));</div>
+    <p>
+        At first, this seems to be a very innocent change.&nbsp; All we did was multiply
+        the &amp;matTranslate matrix before all the others, right?&nbsp; Mathematical order
+        of operations tells us the answer should be the same, right?</p>
+    <p>
+        No, unfortunately not.&nbsp; Observe:</p>
+    <p>
+        If you rotate a model before you translate it, you get this result:</p>
+    <center>
+        <img alt="Image 5.8 - Rotating Before Translating" src="dx9B5.aspx_files/dx9B5-8.PNG"><br>
+        <br>
+        Image 5.8 - Rotating Before Translating
+    </center>
+    <p>
+        However, if you rotate a model <em>after</em> you translate it, you get this instead:</p>
+    <center>
+        <img alt="Image 5.9 - Rotating After Translating" src="dx9B5.aspx_files/dx9B5-9.PNG"><br>
+        <br>
+        Image 5.9 - Rotating After Translating
+    </center>
+    <p>
+        This effect can be
+    useful in some cases, but it is worth mentioning because you
+        don't always want it (and it can be frustrating if you don't know what is causing
+        it).</p>
+    <hr>
+    <p>
+        That about wraps it up for World Transformation.&nbsp; There are additional things
+        that can be learned, but it is probably best that they come to you with experience,
+        in addition to long hours of exploring the documentation.</p>
+    <p>
+        If at this point you are feeling a bit overwhelmed by all this, I would suggest
+        going back up to where it was easy and go over it again and again until you get
+        it.&nbsp; This lesson is covering a very important part of 3D programming, and I
+        would hate for you to miss it.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Setting the View Transformation</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Setting the view transformation can be considered to be similar to setting up a
+    virtual camera. &nbsp;All a programmer does with this is feed the camera position,
+    direction and rotation into a single matrix.&nbsp; There is no need to multiply
+    matrices here like there was in world transformation.&nbsp; There is only one matrix,
+    and one function to build that matrix.</p>
+    <p>
+        Let's say we want to have the player view an object located at the world's origin
+        (0, 0, 0).&nbsp; We want the player to be viewing the object from the coordinates
+        (100, 100, 100).&nbsp; To do this we need to build a matrix containing this data.&nbsp;
+        We build this matrix using a function called D3DXMatrixLookAtLH().&nbsp; Here is
+        the prototype:</p>
+    <div class="codebox">
+        D3DXMATRIX* D3DXMATRIXLookAtLH(D3DXMATRIX* pOut,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; CONST D3DXVECTOR3* pEye,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; CONST D3DXVECTOR3* pAt,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp;&nbsp; CONST D3DXVECTOR3* pUp);</div>
+    <p>
+        Let's go over these, because they are not all self-explanatory.</p>
+    <p>
+        First, we will talk about this new type, CONST D3DXVECTOR3*.&nbsp; D3DXVECTOR3 is
+        a very simple struct which simply holds three values:</p>
+    <div class="codebox">
+        typedef struct D3DXVECTOR3<br>
+        {<br>
+        &nbsp; &nbsp; FLOAT x; &nbsp;&nbsp; // contains an x-axis coordinate<br>
+        &nbsp; &nbsp; FLOAT y; &nbsp;&nbsp; // contayns a y-axis coordinate<br>
+        &nbsp; &nbsp; FLOAT z; &nbsp;&nbsp; // containz a z-axis coordinate<br>
+        } D3DXVECTOR3, *LPD3DXVECTOR3; &nbsp;&nbsp; // go speling</div>
+    <p>
+        Now that we know all the syntax of the D3DXMATRIXLookAtLH() function, let's define
+        each parameter:</p>
+    <p class="subheader">
+        D3DXMATRIX* pOut,</p>
+    <p>
+        We know this one.&nbsp; It is the pointer to the matrix we are going to fill.</p>
+    <p class="subheader">
+        CONST D3DXVECTOR3* pEye,</p>
+    <p>
+        This parameter is a pointer to a vector which contains the exact position of the
+        camera. &nbsp;Considering our example above, we want to fill this struct with (100,
+        100, 100).</p>
+    <p class="subheader">
+        CONST D3DXVECTOR3* pAt,</p>
+    <p>
+        This vector contains the exact location the camera should look at.&nbsp; Our example
+        is looking at (0, 0, 0), so we will fill this struct with those values.</p>
+    <p class="subheader">
+        CONST D3DXVECTOR3* pUp,</p>
+    <p>
+        This vector contains the direction of "up" for the camera.&nbsp; In other words,
+        what direction will the top of the screen be.&nbsp; Usually, game programmers use
+        the y-axis as the "up" direction.&nbsp; To set the camera this way, you simply need
+        to fill this struct with (0, 1, 0), or 1.0f on the y-axis and 0.0f on the other
+        two.</p>
+    <p>
+        Ok, let's take a look at how this appears in real code:</p>
+    <div class="codebox">
+        D3DXMATRIX matView; &nbsp;&nbsp; // the view transform matrix<br>
+        <br>
+        D3DXMatrixLookAtLH(&amp;matView,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &amp;D3DXVECTOR3
+        (100.0f, 100.0f, 100.0f), &nbsp;&nbsp; // the camera position<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &amp;D3DXVECTOR3
+        (0.0f, 0.0f, 0.0f), &nbsp;&nbsp; // the look-at position<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &amp;D3DXVECTOR3
+        (0.0f, 1.0f, 0.0f)); &nbsp;&nbsp; // the up direction<br>
+        <br>
+        d3ddev-&gt;SetTransform(D3DTS_VIEW, &amp;matView); &nbsp;&nbsp; // set the view
+        transform to matView</div>
+    <p>
+        So here we created a matrix, filled it using D3DXMatrixLookAtLH() function, and used
+        it to set the transform.</p>
+    <p>
+        And what about this new use of SetTransform()?&nbsp; True, we used a new value in
+        here: D3DTS_VIEW.&nbsp; This value indicates that the transform we are setting is
+        the view transform (we used D3DTS_WORLD to set the world transform).&nbsp; In other
+        words, we can use this function to set all three different transforms by just changing
+        this value and indicating which matrix to use.</p>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+    Setting the Projection Transformation</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    If view transformation can be considered the camera setup, then projection transformation
+    can be thought of as the camera lens.&nbsp; It is probably the most complex type
+    of transformation.&nbsp; It is simple in code (as it only needs one matrix, set
+    by a single function), but it has a lot of factors which control it.</p>
+    <p>
+        However, to make it simpler, I'm going to go over some light theory first.</p>
+    <hr>
+    <p class="subheader">
+        The Field of View (fov)</p>
+    <p>
+        The field of view is similar the zoom of a camera.&nbsp; When a camera zooms in,
+        it simply decreases the angle of light that is allowed in, as shown here.</p>
+    <center>
+        <img alt="Image 5.10 - Field of View: 45 Degrees" src="dx9B5.aspx_files/dx9B5-10.GIF" width="628" height="232"><br>
+        <br>
+        Image 5.10 - Field of View: 45 Degrees
+    </center>
+        <center>
+            &nbsp;</center>
+    <center>
+        <img alt="Image 5.11 - Field of View: 22.5 Degrees" src="dx9B5.aspx_files/dx9B5-11.GIF" width="628" height="232"><br>
+        <br>
+        Image 5.11 - Field of View: 22.5 Degrees
+    </center>
+    <p>
+        In 3D graphics, the field of view is defined by setting the amount of radians allowed
+        (vertically).&nbsp; The normal amount for this is 0.78539 (which is pi/4 radians,
+        or 45 degrees)</p>
+    <hr>
+    <p class="subheader">
+        View-Plane Clipping</p>
+    <p>
+        Clipping is where Direct3D cuts out parts of an image that are unnecessary to draw.&nbsp;
+        For example, if you have a large 3D environment which is too large to see the edge
+        of (either because of fog or the horizon), then clipping can be used to cut out
+        the parts of the image that are not going to be displayed anyway (the stuff that's
+        beyond the fog).</p>
+    <p>
+        Direct3D accomplishes this by asking for two <em>view-planes</em>.&nbsp; A view-plane
+        is a set distance from the camera.&nbsp; Direct3D asks for two view-planes, and
+        only draws the graphics that are shown in between.&nbsp; This is illustrated here.</p>
+    <center>
+        <img alt="Image 5.12 - The Viewing Frustum" src="dx9B5.aspx_files/dx9B5-12.PNG"><br>
+        <br>
+        Image 5.12 - The Viewing Frustum
+    </center>
+    <hr>
+    <p class="subheader">
+        Setting Up the Projection Matrix</p>
+    <p>
+        Setting up the Projection Matrix uses a function called D3DXMatrixPerspectiveFovLH().&nbsp;
+        It's quite a name, and its parameters are also numerous, although simple.</p>
+    <div class="codebox">
+        D3DXMATRIX* D3DXMatrixPerspectiveFovLH(D3DXMATRIX* pOut,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; FLOAT fovy,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; FLOAT Aspect,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; FLOAT zn,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; FLOAT zf);</div>
+    <p class="subheader">
+        D3DXMATRIX* pOut,</p>
+    <p>
+        This is the pointer to the matrix.</p>
+    <p class="subheader">
+        FLOAT fovy,</p>
+    <p>
+        As discussed before, we need to set the field of view.&nbsp; This is typically set
+        to 45 degrees (0.78539 radians).&nbsp; This can be changed depending on what amount
+        of zoom you want in your game.</p>
+    <p class="subheader">
+        FLOAT Aspect,</p>
+    <p>
+        The <em>aspect ratio</em> is the ratio between the width of your screen and the
+        height of your screen, in pixels.&nbsp; This is easy, because we have already defined
+        them clearly (if you have come all the way through this tutorial).&nbsp; All you
+        need to do is fill this value with:<br>
+        (FLOAT)SCREEN_WIDTH / (FLOAT)SCREEN_HEIGHT.&nbsp; We convert each to a FLOAT in
+        order to maintain accuracy in the division.&nbsp; Not doing this would make the
+        result an integer, which will stretch the rendered image slightly.</p>
+    <p class="subheader">
+        FLOAT zn,</p>
+    <p>
+        This parameter defines the nearer view-plane.&nbsp; This should usually be set to
+        1.0, although later on we will find uses for other values.&nbsp; Putting it less
+        that 1.0 will create a bug in the next lesson.</p>
+    <p class="subheader">
+        FLOAT zf</p>
+    <p>
+        This parameter defines the farther view-plane.&nbsp; This should be set to the farthest
+        distance you want your user to see, usually beyond the horizon, or where fog cuts
+        everything out.&nbsp; We'll set it to 100.0 for now.</p>
+    <div class="codebox">
+        D3DXMATRIX matProjection; &nbsp;&nbsp; // the projection transform matrix<br>
+        <br>
+        D3DXMatrixPerspectiveFovLH(&amp;matProjection,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; D3DXToRadian(45), &nbsp;&nbsp; // the horizontal field of view<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; (FLOAT)SCREEN_WIDTH / (FLOAT)SCREEN_HEIGHT, &nbsp;&nbsp; // aspect ratio<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.0f, &nbsp; &nbsp;// the near 
+view-plane<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp;&nbsp; 100.0f); &nbsp;&nbsp; // the far view-plane<br>
+        <br>
+        d3ddev-&gt;SetTransform(D3DTS_PROJECTION, &amp;matProjection); &nbsp;&nbsp; // set
+        the projection transform</div>
+    <p>
+        With a bit of repetition and intellisense you should be able to master this function
+        in no time.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Lighting</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Unfortunately, lighting must be mentioned in 3D.&nbsp; We don't have any code to
+    add lights just yet, and without these, nothing will appear at all.&nbsp; Let's
+    change that by turning off the lights just for now, and having everything show up
+    normally (as if everything were lit automatically).&nbsp; To do this, we just have
+    one command, which we may put in our initialization function initD3D().</p>
+    <div class="codebox" style="left: 0px; top: 0px;">
+        d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, FALSE); &nbsp;&nbsp; // turn off the 3D
+        lighting</div>
+    <p>
+        Fairly simple.&nbsp; This function is actually capable of quite a lot, and we'll
+        go into some of the things it can do in the next few lessons.&nbsp; For now, here's
+        a table of just a few simple tricks we can perform.</p>
+            <p>
+            [<a class="mainlink" href="#still" onclick="Toggle('table1')">Table 5.1 - SetRenderState()
+                Values]</a></p>
+            <table id="table1" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 148px;">
+                        First Parameter</th>
+                    <th style="width: 198px;">
+                        Second Parameter</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 148px;">
+                        D3DRS_LIGHTING</td>
+                    <td style="width: 198px;">
+                        TRUE (Default)</td>
+                    <td>
+                        Activates light.&nbsp; Nothing will appear unless a light is shining on it.</td>
+                </tr>
+                <tr>
+                    <td style="width: 148px;">
+                        </td>
+                    <td style="width: 198px;">
+                        FALSE</td>
+                    <td>
+                        Deactivates light.&nbsp; Objects will appear as if fully lit.</td>
+                </tr>
+                <tr>
+                    <td style="width: 148px;">
+                        D3DRS_AMBIENT</td>
+                    <td style="width: 198px;">
+                        [A color value]</td>
+                    <td>
+                        Tells Direct3D how much ambient light the environment will have.&nbsp; It only works
+                        if D3DRS_LIGHTING is set to TRUE.</td>
+                </tr>
+                <tr>
+                    <td style="width: 148px; height: 33px;">
+                        D3DRS_FILLMODE</td>
+                    <td style="width: 198px; height: 33px;">
+                        D3DFILL_SOLID (Default)</td>
+                    <td style="height: 33px;">
+                        Draws the triangles as a solid triangle</td>
+                </tr>
+                <tr>
+                    <td style="width: 148px;">
+                        </td>
+                    <td style="width: 198px;">
+                        D3DFILL_WIREFRAME</td>
+                    <td>
+                        Draws only the lines surrounding the triangles.</td>
+                </tr>
+                <tr>
+                    <td style="width: 148px;">
+                        </td>
+                    <td style="width: 198px;">
+                        D3DFILL_POINT</td>
+                    <td>
+                        Draws only the points at the corners of the triangles.</td>
+                </tr>
+                <tr>
+                    <td style="width: 148px;">
+                        D3DRS_CULLMODE</td>
+                    <td style="width: 198px;">
+                        D3DCULL_CCW (Default)</td>
+                    <td>
+                        Culling is the action of removing the back side of the triangle to save time.&nbsp;
+                        This value culls the side in which the vertices are drawn in counter-clockwise order.</td>
+                </tr>
+                <tr>
+                    <td style="width: 148px;">
+                        </td>
+                    <td style="width: 198px;">
+                        D3DCULL_CW</td>
+                    <td>
+                        Culls the side in which the vertices are drawn in clockwise order.</td>
+                </tr>
+                <tr>
+                    <td style="width: 148px;">
+                        </td>
+                    <td style="width: 198px;">
+                        D3DCULL_NONE</td>
+                    <td>
+                        Doesn't cull either side.&nbsp; Both sides are drawn.</td>
+                </tr>
+                <tr>
+                    <td style="width: 148px;">
+                        [<a class="mainlink" href="#still" onclick="Toggle('table1')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+        <p>
+            Normally I would make such a table far more complete, but 
+most of the concepts involved
+            will be covered in later lessons, and this lesson is already
+ long enough!&nbsp; We'll go over additional values when we come across a
+ need for them.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    A Quick Review</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Let's go over the entire pipeline one more time, and at the same time, let's look
+    at how it plugs into your program as it exists.&nbsp; What I'll do is show you a
+    completed render_frame() function as well as other parts of the program that should
+    be changed slightly.</p>
+    <p>
+        In the header, we need to change the vertex format.&nbsp; Before, we had pre-transformed
+        vertices.&nbsp; Now our vertices are not transformed and so the vertex format is:</p>
+    <div class="codebox" style="left: 0px; top: 0px;">
+        struct CUSTOMVERTEX {FLOAT X, Y, Z; DWORD COLOR;};<br>
+        #define CUSTOMFVF (D3DFVF_XYZ | D3DFVF_DIFFUSE)</div>
+    <p>
+        Next, in the initD3D() function, add the following command down at the bottom to
+        turn off advanced lighting:</p>
+    <div class="codebox" style="left: 0px; top: 0px;">
+        d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, FALSE); &nbsp;&nbsp; // turn off the 3D
+        lighting</div>
+    <p>
+        Next, in the init_graphics() function, change the CUSTOMVERTEX array to this:</p>
+    <div class="codebox">
+        // create the vertices using the CUSTOMVERTEX struct<br>
+        CUSTOMVERTEX t_vert[] =<br>
+        {<br>
+        &nbsp; &nbsp; { 2.5f, -3.0f, 0.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+        &nbsp; &nbsp; { 0.0f, 3.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+        &nbsp; &nbsp; { -2.5f, -3.0f, 0.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+        };
+    </div>
+    <p>
+        Look closely to see what changed here.&nbsp; Not only do we change the numbers,
+        but we also took out the RHW value that was previously there.&nbsp; We change the
+        numbers to position the triange in front of our camera, which we will define next.</p>
+    <p>
+        Now let's take a look at our new render_frame() function.</p>
+    <div class="codebox">
+        // this is the function used to render a single frame<br>
+        void render_frame(void)<br>
+        {<br>
+        &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0),
+        1.0f, 0);<br>
+        <br>
+        &nbsp; &nbsp; d3ddev-&gt;BeginScene();<br>
+        <br>
+        &nbsp; &nbsp; // select which vertex format we are using<br>
+        &nbsp; &nbsp; d3ddev-&gt;SetFVF(CUSTOMFVF);<br>
+        <br>
+        &nbsp; &nbsp; <strong>// SET UP THE PIPELINE</strong><br>
+        <br>
+        <strong>&nbsp; &nbsp; D3DXMATRIX matRotateY; &nbsp;&nbsp; // a matrix to store the rotation
+            information<br>
+        </strong>
+        <br>
+        <strong>&nbsp; &nbsp; static float index = 0.0f; index+=0.05f; &nbsp;&nbsp; // an ever-increasing
+            float value</strong><br>
+        <br>
+        <strong>&nbsp; &nbsp; // build a matrix to rotate the model based on the increasing
+            float value<br>
+            &nbsp; &nbsp; D3DXMatrixRotationY(&amp;matRotateY, index);</strong><br>
+        <br>
+        <strong>&nbsp; &nbsp; // tell Direct3D about our matrix<br>
+            &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;matRotateY);<br>
+        </strong>
+        <br>
+        <strong>&nbsp; &nbsp; D3DXMATRIX matView; &nbsp;&nbsp; // the view transform matrix<br>
+        </strong>
+        <br>
+        <strong>&nbsp; &nbsp; D3DXMatrixLookAtLH(&amp;matView,<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+            &amp;D3DXVECTOR3 (0.0f, 0.0f, 10.0f), &nbsp; &nbsp;// the camera position<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+            &amp;D3DXVECTOR3 (0.0f, 0.0f, 0.0f), &nbsp;&nbsp; // the look-at position<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+            &amp;D3DXVECTOR3 (0.0f, 1.0f, 0.0f)); &nbsp; &nbsp;// the up direction<br>
+        </strong>
+        <br>
+        <strong>&nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_VIEW, &amp;matView); &nbsp; &nbsp;//
+            set the view transform to matView<br>
+        </strong>
+        <br>
+        <strong>&nbsp; &nbsp; D3DXMATRIX matProjection; &nbsp;&nbsp; &nbsp;// the projection
+            transform matrix<br>
+        </strong>
+        <br>
+        <strong>&nbsp; &nbsp; D3DXMatrixPerspectiveFovLH(&amp;matProjection,<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp;&nbsp; D3DXToRadian(45), &nbsp; &nbsp;// the horizontal field
+            of view<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp;&nbsp; (FLOAT)SCREEN_WIDTH / (FLOAT)SCREEN_HEIGHT, // aspect
+            ratio<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.0f, 
+&nbsp;&nbsp; // the near view-plane<br>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp;&nbsp; 100.0f); &nbsp;&nbsp; // the far view-plane<br>
+        </strong>
+        <br>
+        <strong>&nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_PROJECTION, &amp;matProjection);
+            &nbsp;&nbsp; // set the projection<br>
+        </strong>
+        <br>
+        &nbsp; &nbsp; // select the vertex buffer to display<br>
+        &nbsp; &nbsp; d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+        <br>
+        &nbsp; &nbsp; // copy the vertex buffer to the back buffer<br>
+        &nbsp; &nbsp; d3ddev-&gt;DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);<br>
+        <br>
+        &nbsp; &nbsp; d3ddev-&gt;EndScene();<br>
+        <br>
+        &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL);<br>
+        <br>
+        &nbsp; &nbsp; return;<br>
+        }</div>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    The Finished Program</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Now that you see how it all fits in, let's go ahead and see the whole program for
+                what it now is.&nbsp; The changed parts, as usual, are in <strong>bold</strong>.</p>
+
+            [<a href="#still" onclick="Toggle('lessonprog')" class="mainlink">Show Code</a>]<br>
+            <br>
+
+            <div class="codebox" id="lessonprog" style="display: none;">
+                // include the basic windows header files and the Direct3D header file<br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                #include &lt;d3d9.h&gt;<br>
+                <strong>
+                #include &lt;d3dx9.h&gt;</strong><br>
+                <br>
+                // define the screen resolution<br>
+                #define SCREEN_WIDTH 800<br>
+                #define SCREEN_HEIGHT 600<br>
+                <br>
+                // include the Direct3D Library files<br>
+                #pragma comment (lib, "d3d9.lib")<br>
+                <strong>#pragma comment (lib, "d3dx9.lib")</strong><br>
+                <br>
+                // global declarations<br>
+                LPDIRECT3D9 d3d; &nbsp;&nbsp; // the pointer to our Direct3D interface<br>
+                LPDIRECT3DDEVICE9 d3ddev; &nbsp;&nbsp; // the pointer to the device class<br>
+                LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL; &nbsp;&nbsp; // the pointer to the vertex
+                buffer<br>
+                <strong></strong>
+                <br>
+                // function prototypes<br>
+                void initD3D(HWND hWnd); &nbsp; &nbsp;// sets up and initializes Direct3D<br>
+                void render_frame(void); &nbsp; &nbsp;// renders a single frame<br>
+                void cleanD3D(void); &nbsp;&nbsp; // closes Direct3D and releases memory<br>
+                void init_graphics(void); &nbsp; &nbsp;// 3D declarations<br>
+                <br>
+                <strong>struct CUSTOMVERTEX {FLOAT X, Y, Z; DWORD COLOR;};<br>
+                </strong><strong>#define CUSTOMFVF (D3DFVF_XYZ | D3DFVF_DIFFUSE)</strong><br>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);<br>
+                <br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+                {<br>
+                &nbsp; &nbsp; HWND hWnd;<br>
+                &nbsp; &nbsp; WNDCLASSEX wc;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+                <br>
+                &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+                &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+                &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+                &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+                &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+                &nbsp; &nbsp; wc.lpszClassName = L"WindowClass";<br>
+                <br>
+                &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+                <br>
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL, L"WindowClass", L"Our Direct3D Program",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WS_OVERLAPPEDWINDOW, 0, 0, 
+SCREEN_WIDTH, SCREEN_HEIGHT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NULL, NULL, hInstance, NULL);<br>
+                <br>
+                &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+                <br>
+                &nbsp; &nbsp; // set up and initialize Direct3D<br>
+                &nbsp; &nbsp; initD3D(hWnd);<br>
+                <br>
+                &nbsp; &nbsp; // enter the main loop:<br>
+                <br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; while(TRUE)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; render_frame();<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; // clean up DirectX and COM<br>
+                &nbsp; &nbsp; cleanD3D();<br>
+                <br>
+                &nbsp; &nbsp; return msg.wParam;<br>
+                }<br>
+                <br>
+                <br>
+                // this is the main message handler for the program<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+                {<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+                }<br>
+                <br>
+                <br>
+                // this function initializes and prepares Direct3D for use<br>
+                void initD3D(HWND hWnd)<br>
+                {<br>
+                &nbsp; &nbsp; d3d = Direct3DCreate9(D3D_SDK_VERSION);<br>
+                <br>
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp));<br>
+                &nbsp; &nbsp; d3dpp.Windowed = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;<br>
+                &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferWidth = SCREEN_WIDTH;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferHeight = SCREEN_HEIGHT;<br>
+                <br>
+                &nbsp; &nbsp; // create a device class using this information and the info from
+                the d3dpp stuct<br>
+                &nbsp; &nbsp; d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D3DDEVTYPE_HAL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; D3DCREATE_SOFTWARE_VERTEXPROCESSING,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3dpp,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3ddev);<br>
+                <br>
+                &nbsp; &nbsp; init_graphics(); &nbsp;&nbsp; // call the function to initialize the
+                triangle<br>
+                <br>
+                <strong>&nbsp; &nbsp; d3ddev-&gt;SetRenderState(D3DRS_LIGHTING, FALSE); &nbsp;&nbsp;
+                    // turn off
+                    the 3D lighting</strong><br>
+                }<br>
+                <br>
+                <br>
+                // this is the function used to render a single frame<br>
+                void render_frame(void)<br>
+                {<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0),
+                1.0f, 0);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;BeginScene();<br>
+                <br>
+                &nbsp; &nbsp; // select which vertex format we are using<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetFVF(CUSTOMFVF);<br>
+                <br>
+                &nbsp; &nbsp; <strong>// SET UP THE PIPELINE</strong><br>
+                <br>
+                <strong>&nbsp; &nbsp; D3DXMATRIX matRotateY; &nbsp;&nbsp; // a matrix to store the rotation
+                    information<br>
+                </strong>
+                <br>
+                <strong>&nbsp; &nbsp; static float index = 0.0f; index+=0.05f; &nbsp;&nbsp; // an ever-increasing
+                    float value</strong><br>
+                <br>
+                <strong>&nbsp; &nbsp; // build a matrix to rotate the model based on the increasing
+                    float value<br>
+                    &nbsp; &nbsp; D3DXMatrixRotationY(&amp;matRotateY, index);</strong><br>
+                <br>
+                <strong>&nbsp; &nbsp; // tell Direct3D about our matrix<br>
+                    &nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_WORLD, &amp;matRotateY);<br>
+                </strong>
+                <br>
+                <strong>&nbsp; &nbsp; D3DXMATRIX matView; &nbsp;&nbsp; // the view transform matrix<br>
+                </strong>
+                <br>
+                <strong>&nbsp; &nbsp; D3DXMatrixLookAtLH(&amp;matView,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                    &amp;D3DXVECTOR3 (0.0f, 0.0f, 10.0f), &nbsp; &nbsp;// the camera position<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                    &amp;D3DXVECTOR3 (0.0f, 0.0f, 0.0f), &nbsp;&nbsp; // the look-at position<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                    &amp;D3DXVECTOR3 (0.0f, 1.0f, 0.0f)); &nbsp; &nbsp;// the up direction<br>
+                </strong>
+                <br>
+                <strong>&nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_VIEW, &amp;matView); &nbsp; &nbsp;//
+                    set the view transform to matView<br>
+                </strong>
+                <br>
+                <strong>&nbsp; &nbsp; D3DXMATRIX matProjection; &nbsp;&nbsp; &nbsp;// the projection
+                    transform matrix<br>
+                </strong>
+                <br>
+                <strong>&nbsp; &nbsp; D3DXMatrixPerspectiveFovLH(&amp;matProjection,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;&nbsp; D3DXToRadian(45), &nbsp; &nbsp;// the horizontal field
+                    of view<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;&nbsp; (FLOAT)SCREEN_WIDTH / (FLOAT)SCREEN_HEIGHT, // aspect
+                    ratio<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.0f, 
+&nbsp;&nbsp; // the near view-plane<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;&nbsp; 100.0f); &nbsp;&nbsp; // the far view-plane<br>
+                </strong>
+                <br>
+                <strong>&nbsp; &nbsp; d3ddev-&gt;SetTransform(D3DTS_PROJECTION, &amp;matProjection);
+                    &nbsp;&nbsp; // set the projection<br>
+                </strong>
+                <br>
+                &nbsp; &nbsp; // select the vertex buffer to display<br>
+                &nbsp; &nbsp; d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+                <br>
+                &nbsp; &nbsp; // copy the vertex buffer to the back buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;EndScene();<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL);<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that cleans up Direct3D and COM<br>
+                void cleanD3D(void)<br>
+                {<br>
+                &nbsp; &nbsp; v_buffer-&gt;Release(); &nbsp; &nbsp;// close and release the vertex buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;Release(); &nbsp; &nbsp;// close and release the 3D device<br>
+                &nbsp; &nbsp; d3d-&gt;Release(); &nbsp; &nbsp;// close and release Direct3D<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that puts the 3D models into video RAM<br>
+                void init_graphics(void)<br>
+                {<br>
+                <strong>&nbsp; &nbsp; // create the vertices using the CUSTOMVERTEX struct<br>
+                    &nbsp; &nbsp; CUSTOMVERTEX vertices[] =
+                    <br>
+                    &nbsp; &nbsp; {<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 3.0f, -3.0f, 0.0f, D3DCOLOR_XRGB(0, 0, 255), },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 0.0f, 3.0f, 0.0f, D3DCOLOR_XRGB(0, 255, 0), },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { -3.0f, -3.0f, 0.0f, D3DCOLOR_XRGB(255, 0, 0), },<br>
+                    &nbsp; &nbsp; };</strong><br>
+                <br>
+                &nbsp; &nbsp; // create a vertex buffer interface called v_buffer<br>
+                &nbsp; &nbsp; d3ddev-&gt;CreateVertexBuffer(3*sizeof(CUSTOMVERTEX),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; CUSTOMFVF,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; &amp;v_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; VOID* pVoid; &nbsp;&nbsp; // a void pointer<br>
+                <br>
+                &nbsp; &nbsp; // lock v_buffer and load the vertices into it<br>
+                &nbsp; &nbsp; v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                &nbsp; &nbsp; memcpy(pVoid, vertices, sizeof(vertices));<br>
+                &nbsp; &nbsp; v_buffer-&gt;Unlock();<br>
+                }</div>
+            <p>
+                If you run this program, you will find a triangle similar to the one in the last
+                lesson, only this time it is rotating as well!</p>
+            <center>
+                <img alt="Image 5.13 - The Rotating Triangle" src="dx9B5.aspx_files/dx9B5-13.PNG"><br><br>
+                Image 5.13 - The Rotating Triangle
+            </center>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                Summary</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Now you know enough for at least some innovation!&nbsp; We've covered how to do
+                just about anything with a virtual camera, and with 3D objects.&nbsp; Try changing
+                this code around to get the feel of it, then I'd recommend doing these exercises:</p>
+            <p>
+                1.&nbsp; Make the triangle rotate in the other direction.<br>
+                2.&nbsp; As the triangle rotates, make it lift off like a
+ rocket (but have the camera stay pointed at the triangle).<br>
+                3.&nbsp; Extend the far view-plane so that the rocket does not disappear.<br>
+                4.&nbsp; Now make the triangle lie flat while it rotates (be careful, it can only
+                be seen from one side).<br>
+                5.&nbsp; Make the triangle rotate instead along the z-axis.<br>
+                6.&nbsp; &nbsp;Make the <em>position</em> of the camera change.<br>
+                7.&nbsp; Now set it up to zoom in and zoom
+                out!<br>
+                8.&nbsp; Use SetRenderState() to draw both sides of the triangle.</p>
+            <p>
+                And when you're done, I've got something important to tell you in the next lesson,
+                so don't quit just yet!</p>
+            <center>
+                <p>
+                    Next Lesson:&nbsp; Rendering Depth</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B6.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Help make DirectX Tutorial better.  Give your <a class="feedlink" href="javascript:RunFeedback(25)">feedback</a>.</p>
+            </center>
+        </div>
+        
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B5.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

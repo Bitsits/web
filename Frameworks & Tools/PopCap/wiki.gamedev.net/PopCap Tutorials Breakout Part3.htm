@@ -1,0 +1,808 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="generator" content="MediaWiki 1.13.1">
+		<meta name="keywords" content="PopCap:Tutorials:Breakout:Part3,PopCap:Tutorials:Breakout:Part1,PopCap:Tutorials:Breakout:Part2,PopCap:Tutorials:Breakout:Part4">
+		<link rel="shortcut icon" href="http://wiki.gamedev.net/favicon.ico">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.gamedev.net/opensearch_desc.php" title="GDWiki (en)">
+		<link title="Creative Commons" type="application/rdf+xml" href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=creativecommons" rel="meta">
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html">
+		<link rel="alternate" type="application/rss+xml" title="GDWiki RSS Feed" href="http://wiki.gamedev.net/index.php?title=Special:RecentChanges&amp;feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="GDWiki Atom Feed" href="http://wiki.gamedev.net/index.php?title=Special:RecentChanges&amp;feed=atom">
+		<title>PopCap:Tutorials:Breakout:Part3 - GDWiki</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins/common/shared.css?164";
+			@import "/skins/monobook/main.css?164";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="PopCap%20Tutorials%20Breakout%20Part3_files/commonPrint.css">
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins/monobook/IE50Fixes.css?164";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins/monobook/IE55Fixes.css?164";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins/monobook/IE60Fixes.css?164";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins/monobook/IE70Fixes.css?164";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?164"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type="text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins";
+var wgArticlePath = "/index.php/$1";
+var wgScriptPath = "";
+var wgScript = "/index.php";
+var wgVariantArticlePath = false;
+var wgActionPaths = [];
+var wgServer = "http://wiki.gamedev.net";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "PopCap:Tutorials:Breakout:Part3";
+var wgTitle = "PopCap:Tutorials:Breakout:Part3";
+var wgAction = "view";
+var wgArticleId = "5853";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "26146";
+var wgVersion = "1.13.1";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="PopCap%20Tutorials%20Breakout%20Part3_files/wikibits.js"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="PopCap%20Tutorials%20Breakout%20Part3_files/ajax.js"></script>
+		<script type="text/javascript" src="PopCap%20Tutorials%20Breakout%20Part3_files/index.php"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+	</head><body class="mediawiki ns-0 ltr page-PopCap_Tutorials_Breakout_Part3">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">PopCap:Tutorials:Breakout:Part3</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From GDWiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Sprites"><span class="tocnumber">2</span> <span class="toctext">Sprites</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Widgets_and_when_not_to_use_them"><span class="tocnumber">2.1</span> <span class="toctext">Widgets and when not to use them</span></a></li>
+<li class="toclevel-2"><a href="#So_what_now.3F"><span class="tocnumber">2.2</span> <span class="toctext">So what now?</span></a></li>
+<li class="toclevel-2"><a href="#Starting_the_sprite_class"><span class="tocnumber">2.3</span> <span class="toctext">Starting the sprite class</span></a></li>
+<li class="toclevel-2"><a href="#Where_to_put_the_sprite"><span class="tocnumber">2.4</span> <span class="toctext">Where to put the sprite</span></a></li>
+<li class="toclevel-2"><a href="#Moving_stuff"><span class="tocnumber">2.5</span> <span class="toctext">Moving stuff</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#What_we_have_done_in_this_tutorial"><span class="tocnumber">3</span> <span class="toctext">What we have done in this tutorial</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Until_next_time.."><span class="tocnumber">3.1</span> <span class="toctext">Until next time..</span></a></li>
+<li class="toclevel-2"><a href="#Legal_Stuff"><span class="tocnumber">3.2</span> <span class="toctext">Legal Stuff</span></a></li>
+<li class="toclevel-2"><a href="#Continue_to_part_4"><span class="tocnumber">3.3</span> <span class="toctext">Continue to part 4</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Introduction"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=1" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline">Introduction</span></h2>
+<p>Hello and welcome to part 3 of my PopCap game development tutorial. 
+</p><p>If you have not read the first two tutorials then you can get them from these links:
+</p><p>Continue to <a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part1" title="PopCap:Tutorials:Breakout:Part1">part 1</a>
+</p><p>Continue to <a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part2" title="PopCap:Tutorials:Breakout:Part2">part 2</a>
+</p><p>In the last tutorial we made a new project from our BareBones 
+template and learned how to draw a ball graphic to the screen. In this 
+tutorial we are going to learn how to make this ball bounce around on 
+the screen. 
+</p><p>Open up your BreakoutGame project that you created in Part 2 and let’s get started!
+</p><p>Before we begin to code the actual project, I am going to take 
+some time to clarify some concepts and how they are being used in this 
+tutorial.
+</p>
+<a name="Sprites"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=2" title="Edit section: Sprites">edit</a>]</span> <span class="mw-headline">Sprites</span></h2>
+<p>The term <b>Sprite</b> is passed around a lot in game programming. 
+Some people would have you believe that it is any image that is drawn to
+ a computer screen. It is my view that a Sprite is a moveable image that
+ can be drawn without destroying a complex background. 
+</p><p>So in this case a sprite is anything that can be moved around and
+ drawn with transparency so that the background is still visible in the 
+areas that we don’t have an image. If we were to draw an image for our 
+background then that would not be considered a sprite, while the bricks,
+ the ball, and the paddle are all considered sprites under this 
+definition. 
+</p><p>In some systems a sprite is responsible for saving the background
+ underneath it, so that it can be restored later on. This allows the 
+programmer to not have to constantly redraw a massive background image 
+every frame and can result in increased performance if implemented 
+correctly. 
+</p><p>In this tutorial however we are not going to implement such a 
+system. We are going to simply redraw our background every frame and our
+ sprites will only be responsible for drawing themselves to the frame. 
+</p>
+<a name="Widgets_and_when_not_to_use_them"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=3" title="Edit section: Widgets and when not to use them">edit</a>]</span> <span class="mw-headline">Widgets and when not to use them</span></h3>
+<p>Many people when they start with the PopCap framework assume that 
+anything that needs to be moved around should be a widget. If I said 
+that I wanted to draw a ball on screen and it should be moved around 
+then you might be tempted to make a ball widget to accomplish this! 
+</p><p>The problem with this idea is that a widget requires a lot of 
+overhead. Widgets have update methods which are called 100 times a 
+second. If we had 100 objects on screen and they were widgets, then our 
+program would attempt to run 10,000 update calls a second!
+</p><p>In the case of game related objects it is a wise idea to write 
+your own classes, and reserve widgets for interface elements, dialogs, 
+and separate screens.
+</p>
+<a name="So_what_now.3F"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=4" title="Edit section: So what now?">edit</a>]</span> <span class="mw-headline">So what now?</span></h3>
+<p>Ok so now that we know what a sprite is and why it isn’t a wise idea 
+to represent our sprites with widgets. Armed with this information we 
+can move on to the content of this tutorial.
+</p><p>The first thing we need to implement is a sprite class. A sprite 
+class will hold the position of our sprite, variables to hold the 
+direction of the sprite, a pointer to the image that we will use for the
+ sprite, and methods to move the sprite, draw the sprite, and test for 
+collisions with other sprites. 
+</p><p>Whenever you make a new class, you should write a header for it 
+that prototypes that class and the methods that the class will use. When
+ I write game specific classes, I like putting them in a separate 
+namespace from the framework code. This is a design choice and it is up 
+to you as a developer to decide what namespaces to use and when.
+</p>
+<a name="Starting_the_sprite_class"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=5" title="Edit section: Starting the sprite class">edit</a>]</span> <span class="mw-headline">Starting the sprite class</span></h3>
+<p>Add a new header to your project named <b>Sprite.h</b>
+</p><p>Whenever I create a new header, I always start it like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#ifndef __SPRITE_H__ </span>
+<span style="color: rgb(51, 153, 0);">#define __SPRITE_H__ </span>
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#endif</span></pre>
+<p>This adds a bit of protection incase your header is included more 
+then once. Without this code you can get some nasty errors about classes
+ being defined more then once and that is never a good thing.
+</p><p>Now for this tutorial I am going to use the namespace <b>Breakout</b>.
+</p><p>I add the following code to my header between the last define and the endif:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+&nbsp;
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>So that our current code looks like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#ifndef __SPRITE_H__ </span>
+<span style="color: rgb(51, 153, 0);">#define __SPRITE_H__ </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+&nbsp;
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#endif</span></pre>
+<p>I want to prototype our image class and our graphics class before our
+ Breakout namespace so that I can use DDImage and Graphics in the sprite
+ parameters and fields.
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">namespace</span> Sexy 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> DDImage<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Graphics<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Ok so now we can add the definition for our sprite class inside of the Breakout namespace:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">class</span> Sprite 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">public</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Sprite<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,<span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY,<span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        ~Sprite<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Here I ended the class prototype with a semicolon, and I prototyped the sprite constructor and deconstructor.
+</p><p>Now I am going to add some private variables before this code to store some data about the sprite.
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">private</span><span style="color: rgb(0, 128, 128);">:</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> mX,mY,mVX,mVY,mSpeed<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>mX and mY are the sprite’s x and y position. mVX and mVY are the 
+directional values for the sprite, and mSpeed is the speed of the 
+sprite. I decided to use floats because we might want our sprite to move
+ in less than pixel increments.
+</p><p>Below this line of code I am going to add a pointer to our sprite’s image:
+</p>
+<pre class="cpp" style="font-family: monospace;">Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span> mImg<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>We need to use the Sexy namespace because we decided to place our sprite class inside of the Breakout namespace. 
+</p><p>Ok so now we need to prototype a few more methods for our sprite class.
+</p><p>After the deconstructor for our sprite, add the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> SetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetSpeed<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetSpeed<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">void</span> SetImage<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span>pImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span> GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">bool</span> CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>Sprite<span style="color: rgb(0, 0, 64);">*</span> pOtherSprite<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> Draw<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span><span style="color: rgb(0, 0, 64);">*</span> pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>The first group allows us to get and set the position, direction, and
+ speed of our sprite. The second group allows us to set and get the 
+image for our sprite. Then we have a method to check if this sprite 
+overlaps another one. The last group of methods is defined to be virtual
+ so if a class inherits the sprite class they can have their own code in
+ these methods.
+</p><p>Here is the full code for <b>Sprite.h</b>
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#ifndef __SPRITE_H__ </span>
+<span style="color: rgb(51, 153, 0);">#define __SPRITE_H__ </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">namespace</span> Sexy 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> DDImage<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Graphics<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Sprite 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">private</span><span style="color: rgb(0, 128, 128);">:</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> mX,mY,mVX,mVY,mSpeed<span style="color: rgb(0, 128, 128);">;</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span>mImg<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">public</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Sprite<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,<span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY,<span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        ~Sprite<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">void</span> SetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> SetSpeed<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> GetSpeed<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">void</span> SetImage<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span>pImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span> GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">bool</span> CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>Sprite<span style="color: rgb(0, 0, 64);">*</span> pOtherSprite<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> Draw<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span><span style="color: rgb(0, 0, 64);">*</span> pG<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+    <span style="color: rgb(0, 128, 0);">}</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#endif</span></pre>
+<p>Now let’s add a new source file called <b>Sprite.cpp</b>
+</p><p>We will start our sprite file off by including the headers that we will need and by stating which namespace we will use.
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "Sprite.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Graphics.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h" </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">using</span> <span style="color: rgb(0, 0, 255);">namespace</span> Breakout<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Ok so we include the Sprite header first, and then we include the 
+graphics and the image headers. We need to include these classes so we 
+can use the graphic and image classes in our sprite class.
+</p><p>Now we can define the code for our constructor and deconstructor:
+</p>
+<pre class="cpp" style="font-family: monospace;">Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Sprite</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,<span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY,<span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mX<span style="color: rgb(0, 0, 128);">=</span>pX<span style="color: rgb(0, 128, 128);">;</span> 
+    mY<span style="color: rgb(0, 0, 128);">=</span>pY<span style="color: rgb(0, 128, 128);">;</span> 
+    mVX<span style="color: rgb(0, 0, 128);">=</span>pVX<span style="color: rgb(0, 128, 128);">;</span> 
+    mVY<span style="color: rgb(0, 0, 128);">=</span>pVY<span style="color: rgb(0, 128, 128);">;</span> 
+    mSpeed<span style="color: rgb(0, 0, 128);">=</span>pSpeed<span style="color: rgb(0, 128, 128);">;</span> 
+    mImg<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+Sprite<span style="color: rgb(0, 128, 128);">::</span>~Sprite<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>This could should be fairly self explanatory. We store the passed parameters into the class fields. 
+</p><p>For this class I decided not topass the Image in the constructor.
+ This gives you a bit more freedom as to where you use the class. The 
+image is a loaded resource and so I decided to pass the image pointer in
+ a separate method.
+</p><p>Now let’s define all of the code to get and set our movement related fields:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetX</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mX<span style="color: rgb(0, 0, 128);">=</span>pX<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetY</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pY<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mY<span style="color: rgb(0, 0, 128);">=</span>pY<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetVX</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVX<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mVX<span style="color: rgb(0, 0, 128);">=</span>pVX<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetVY</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVY<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mVY<span style="color: rgb(0, 0, 128);">=</span>pVY<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetSpeed</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mSpeed<span style="color: rgb(0, 0, 128);">=</span>pSpeed<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">float</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetX</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mX<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">float</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetY</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mY<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">float</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetVX</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mVX<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">float</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetVY</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mVY<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">float</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetSpeed</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mSpeed<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>This code just gives us an interface where we can use our class 
+fields without making them totally public. While you could make these 
+fields public, generally this is a bad idea because in some cases you 
+might want to perform error checking on the members.
+</p><p>Now for the code to get and set our image:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetImage</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span> <span style="color: rgb(0, 0, 64);">*</span>pImg<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mImg<span style="color: rgb(0, 0, 128);">=</span>pImg<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetImage</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mImg<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Nothing too complex here, we store the passed image into our class field in SetImage and we retrieve it in GetImage.
+</p><p>Then comes the CheckOverlap method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">bool</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">CheckOverlap</span><span style="color: rgb(0, 128, 0);">(</span>Sprite<span style="color: rgb(0, 0, 64);">*</span> pOtherSprite<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 255);">false</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>We haven’t actually defined any code in this yet, we are going to 
+expand this method later on. For now we will just leave it returning 
+false.
+</p><p>The last two methods are the Draw and Update methods for our sprite class.
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mX<span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 128);">=</span>mVX<span style="color: rgb(0, 128, 128);">;</span> 
+    mY<span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 128);">=</span>mVY<span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span> <span style="color: rgb(0, 0, 64);">*</span>pG<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mImg<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        pG<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DrawImage<span style="color: rgb(0, 128, 0);">(</span>mImg,<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span><span style="color: rgb(0, 128, 0);">)</span>mX,<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span><span style="color: rgb(0, 128, 0);">)</span>mY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>This is the real meat of the class. The Update method adds our velocity to our position. 
+</p><p>The Draw method checks to make sure our image isn’t NULL. If it 
+isn’t NULL then our image has been set and it is safe to draw it to the 
+graphics device that was passed to it. We need to cal the DrawImage 
+method like we did in our Board widget, but this time we must typecast 
+our position variables to integers because currently they are floats.
+</p><p>In a future tutorial we are going to look at another DrawImage 
+function that takes floats directly, but for now we will leave this 
+alone.
+</p><p>Here is the complete code for <b>Sprite.cpp</b>
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "Sprite.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Graphics.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h" </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">using</span> <span style="color: rgb(0, 0, 255);">namespace</span> Breakout<span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Sprite</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,<span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY,<span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mX<span style="color: rgb(0, 0, 128);">=</span>pX<span style="color: rgb(0, 128, 128);">;</span> 
+    mY<span style="color: rgb(0, 0, 128);">=</span>pY<span style="color: rgb(0, 128, 128);">;</span> 
+    mVX<span style="color: rgb(0, 0, 128);">=</span>pVX<span style="color: rgb(0, 128, 128);">;</span> 
+    mVY<span style="color: rgb(0, 0, 128);">=</span>pVY<span style="color: rgb(0, 128, 128);">;</span> 
+    mSpeed<span style="color: rgb(0, 0, 128);">=</span>pSpeed<span style="color: rgb(0, 128, 128);">;</span> 
+    mImg<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+Sprite<span style="color: rgb(0, 128, 128);">::</span>~Sprite<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetX</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mX<span style="color: rgb(0, 0, 128);">=</span>pX<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetY</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pY<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mY<span style="color: rgb(0, 0, 128);">=</span>pY<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetVX</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVX<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mVX<span style="color: rgb(0, 0, 128);">=</span>pVX<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetVY</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVY<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mVY<span style="color: rgb(0, 0, 128);">=</span>pVY<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetSpeed</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mSpeed<span style="color: rgb(0, 0, 128);">=</span>pSpeed<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">float</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetX</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mX<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">float</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetY</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mY<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">float</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetVX</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mVX<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">float</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetVY</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mVY<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">float</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetSpeed</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mSpeed<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetImage</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span> <span style="color: rgb(0, 0, 64);">*</span>pImg<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mImg<span style="color: rgb(0, 0, 128);">=</span>pImg<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetImage</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mImg<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">bool</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">CheckOverlap</span><span style="color: rgb(0, 128, 0);">(</span>Sprite<span style="color: rgb(0, 0, 64);">*</span> pOtherSprite<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 255);">false</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mX<span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 128);">=</span>mVX<span style="color: rgb(0, 128, 128);">;</span> 
+    mY<span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(0, 0, 128);">=</span>mVY<span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Graphics</span> <span style="color: rgb(0, 0, 64);">*</span>pG<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mImg<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        pG<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DrawImage<span style="color: rgb(0, 128, 0);">(</span>mImg,<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span><span style="color: rgb(0, 128, 0);">)</span>mX,<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span><span style="color: rgb(0, 128, 0);">)</span>mY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<a name="Where_to_put_the_sprite"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=6" title="Edit section: Where to put the sprite">edit</a>]</span> <span class="mw-headline">Where to put the sprite</span></h3>
+<p>Ok so we have our sprite class and we want to create a ball sprite to
+ use in our game. While we could have the sprite inside of the GameApp 
+class, I am going to put the sprite inside of the Board widget. The 
+reasoning behind this is that game related objects should go in the game
+ widget whenever possible. This will keep things modular and reduce 
+congestion in the GameApp class.
+</p><p>Now we are faced with a choice. In the Board header we could 
+include the Sprite header directly, or we could do the whole class 
+prototype thing. I think we should do the whole prototype thing so that 
+we match the format of the framework.
+</p><p>Open up <b>Board.h</b> file and add the following code before the Sext namespace:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Sprite<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Ok now right below this line of code:
+</p>
+<pre class="cpp" style="font-family: monospace;">GameApp<span style="color: rgb(0, 0, 64);">*</span>    mApp<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Add:
+</p>
+<pre class="cpp" style="font-family: monospace;">Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Sprite</span><span style="color: rgb(0, 0, 64);">*</span> mBall<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now let’s go to <b>Board.cpp</b> and after the code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h"</span></pre>
+<p>Add:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "Sprite.h"</span></pre>
+<p>So your code should look like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h" </span>
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#include "Sprite.h" </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">using</span> <span style="color: rgb(0, 0, 255);">namespace</span> Sexy<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now in the Board constructor add the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Sprite</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">400</span>,<span style="color: rgb(0, 0, 221);">300</span>,<span style="color: rgb(0, 0, 221);">2</span>,<span style="color: rgb(0, 0, 221);">2</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>theApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBallImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>This creates a new sprite and sets our ball image to the sprite.
+</p><p>Here is the complete code for the Board constructor:
+</p>
+<pre class="cpp" style="font-family: monospace;">Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Board</span><span style="color: rgb(0, 128, 0);">(</span>GameApp<span style="color: rgb(0, 0, 64);">*</span> theApp<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mApp <span style="color: rgb(0, 0, 128);">=</span> theApp<span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Sprite</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">400</span>,<span style="color: rgb(0, 0, 221);">300</span>,<span style="color: rgb(0, 0, 221);">2</span>,<span style="color: rgb(0, 0, 221);">2</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>theApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBallImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now in the Board deconstructor we need to add the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 221);">delete</span> mBall<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Here is the complete code for the Board deconstructor:
+</p>
+<pre class="cpp" style="font-family: monospace;">Board<span style="color: rgb(0, 128, 128);">::</span>~Board<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBall<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>In the Update method for the Board widget we need to call the Update method of our sprite:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>This will make our sprite move based on our mVX and mVY values that we passed to the Sprite constructor.
+</p><p>Here is the complete code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    Widget<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(102, 102, 102);">//Your update code here! </span>
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    MarkDirty<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Finally it is time to draw the sprite to the screen.
+</p><p>In the Draw method for the Board widget add the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So your current code should look like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Graphics<span style="color: rgb(0, 0, 64);">*</span> g<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColor<span style="color: rgb(0, 128, 0);">(</span>Color<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">128</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Set dark red color </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>FillRect<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>, <span style="color: rgb(0, 0, 221);">0</span>, mWidth, mHeight<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Fill screen with current color </span>
+    <span style="color: rgb(102, 102, 102);">//draw here </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>DrawImage<span style="color: rgb(0, 128, 0);">(</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBallImg,<span style="color: rgb(0, 0, 221);">400</span>,<span style="color: rgb(0, 0, 221);">300</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Remove the DrawImage and change the color in SetColor back to black. For illustrative purposes, Comment out the FillRect code.
+</p><p>Here is the changed code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Graphics<span style="color: rgb(0, 0, 64);">*</span> g<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColor<span style="color: rgb(0, 128, 0);">(</span>Color<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Set dark red color </span>
+    <span style="color: rgb(102, 102, 102);">//g-&gt;FillRect(0, 0, mWidth, mHeight); //Fill screen with current color </span>
+    <span style="color: rgb(102, 102, 102);">//draw here </span>
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>You should now see the ball draw a line across the screen.
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BallDraw.jpg" class="image" title="Image:PopCap_Tutorials_BallDraw.jpg"><img alt="Image:PopCap_Tutorials_BallDraw.jpg" src="PopCap%20Tutorials%20Breakout%20Part3_files/PopCap_Tutorials_BallDraw.jpg" width="800" border="0" height="627"></a>
+</p>
+<a name="Moving_stuff"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=7" title="Edit section: Moving stuff">edit</a>]</span> <span class="mw-headline">Moving stuff</span></h3>
+<p>As you noticed when you your game, the ball moved on the screen. This
+ effect was caused by manipulating the position where we drew the ball 
+over time.
+</p><p>When dealing with two dimensions we have two axes X and Y. X is the horizontal position and Y is the vertical position.
+</p><p>On a computer screen when we add a value to the X axis we move right and when we subtract a value we move left.
+</p><p>When we add a value to the Y axis then we move down and when we subtract from the Y axis we move up. 
+</p><p>In math class you might have learned about the <b>Cartesian coordinate system</b> where we define the points by their distances from the origin. 
+</p><p>The computer screen is like the cartesian coordinate system but the <b>Y axis is reversed</b>. 
+</p><p>Typically in math class we learn that when we go up on the graph 
+then the value gets larger, but on the computer screen it is just the 
+opposite. On the computer screen the larger values move downward! This 
+is important to remember. 
+</p><p><br>
+Currently I have spent a large part of this tutorial explaining concepts
+ such as sprites and movement. These concepts are very important to 
+understand. While I could just give you code and give a step by step how
+ to in “This is how you make a game”, I want to try and explain the 
+logic behind what we are doing as well as possible. 
+</p><p>Of course I might suck at explaining some things but I want to 
+give you the general idea so that you can go out and learn things for 
+yourself! After all in the end you are responsible for your own 
+education on this subject!
+</p><p>That brings me to another subject. If you don’t understand a 
+concept explained here then by all means look up what it means. Search 
+for other tutorials on the subject and try to understand it. Leaving a 
+gap in your understanding will just serve to fuel your confusion later 
+on if you do not correct it!
+</p><p>Using the information we just learned we can now add code that will make our sprite bounce when it leaves the window.
+</p><p>Whenever we approach a problem like this it is a good idea to 
+break it down so that we know how to approach it. This consists of two 
+steps:
+</p><p><b>A) Test the X and Y coordinates of the sprite to see if they are outside of our window</b>
+</p><p><b>B) If so then we need to reverse either our VX or VY coordinates</b>
+</p><p>So given this information we can add the following code before the sprite update method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(102, 102, 102);">//</span>
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&lt;</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Leaves left </span>
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mWidth<span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//leave right </span>
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&lt;</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//leave up </span>
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mHeight<span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//leave down </span>
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Woah that is a lot of code! We add checks for each condition where 
+the ball can leave the window and if it does we reverse the X or Y 
+directional variable. 
+</p><p>Abs is absolute value and it gets the value of the variable 
+without the sign. That way we can be sure as to the value of the 
+direction while ignoring the current magnitude of the variable. 
+</p><p>Of course now we run into a problem if we want to add multiple 
+balls to our screen. We would need to duplicate this code for each ball!
+ There must be an easier way and infact there is, we can encapsulate 
+(put) such code in a Ball class that will inherit the Sprite class.
+</p><p>Try running the code so far and after a while you will see this:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BallDraw2.jpg" class="image" title="Image:PopCap_Tutorials_BallDraw2.jpg"><img alt="Image:PopCap_Tutorials_BallDraw2.jpg" src="PopCap%20Tutorials%20Breakout%20Part3_files/PopCap_Tutorials_BallDraw2.jpg" width="800" border="0" height="627"></a>
+</p>
+<a name="What_we_have_done_in_this_tutorial"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=8" title="Edit section: What we have done in this tutorial">edit</a>]</span> <span class="mw-headline">What we have done in this tutorial</span></h2>
+<p>In this tutorial we learned about sprites, made a sprite class, and implemented a ball that bounces around on the screen. 
+</p><p>In the next tutorial we are going to create a ball class and play around with sprite collisions.
+</p>
+<a name="Until_next_time.."></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=9" title="Edit section: Until next time..">edit</a>]</span> <span class="mw-headline">Until next time..</span></h3>
+<p>Well I hope you enjoyed this part of my tutorial and keep on the lookout for my next tutorial.
+</p><p><a href="http://wiki.gamedev.net/images/0/0a/PopCap_Tutorials_BreakoutGame_part3.zip" class="internal" title="PopCap Tutorials BreakoutGame part3.zip">Media:PopCap_Tutorials_BreakoutGame_part3.zip</a> is the latest code for our project.
+</p>
+<a name="Legal_Stuff"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=10" title="Edit section: Legal Stuff">edit</a>]</span> <span class="mw-headline">Legal Stuff</span></h3>
+<p><b>I take no responsibility what so ever for any damages or 
+liabilities from the code and/or information presented in this tutorial.
+ This tutorial is provided AS-IS with no warranty what so ever.</b>
+</p>
+<a name="Continue_to_part_4"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit&amp;section=11" title="Edit section: Continue to part 4">edit</a>]</span> <span class="mw-headline">Continue to part 4</span></h3>
+<p><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part4" title="PopCap:Tutorials:Breakout:Part4">part 4</a>
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 108/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key gpwiki:pcache:idhash:5853-0!1!0!!en!2 and timestamp 20101224082631 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part3">http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part3</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part3" title="View the content page [alt-shift-c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki.gamedev.net/index.php?title=Talk:PopCap:Tutorials:Breakout:Part3&amp;action=edit" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-edit"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=edit" title="You can edit this page.
+Please use the preview button before saving. [alt-shift-e]" accesskey="e">Edit</a></li>
+				 <li id="ca-history"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;action=history" title="Past versions of this page. [alt-shift-h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://wiki.gamedev.net/index.php?title=Special:UserLogin&amp;returnto=PopCap:Tutorials:Breakout:Part3" title="You are encouraged to log in, it is not mandatory however. [alt-shift-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(&quot;/stylesheets/images/wiki.png&quot;);" href="http://wiki.gamedev.net/index.php/Main_Page" title="Visit the Main Page [alt-shift-z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="http://gpwiki.org/" title="Visit the Main Page [alt-shift-z]" accesskey="z">Main Page</a></li>
+				<li id="n-Message-Board"><a href="http://gpwiki.org/forums">Message Board</a></li>
+				<li id="n-currentevents"><a href="http://wiki.gamedev.net/index.php/GDWiki:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="http://wiki.gamedev.net/index.php/Special:Recentchanges" title="The list of recent changes in the wiki. [alt-shift-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="http://wiki.gamedev.net/index.php/Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="http://wiki.gamedev.net/index.php/Help:Contents" title="The place to find out.">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-categories">
+		<h5>Categories</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-introduction"><a href="http://wiki.gamedev.net/index.php/Introduction">introduction</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" title="Search GDWiki [alt-shift-f]" accesskey="f" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" title="Go to a page with this exact name if exists" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://wiki.gamedev.net/index.php/Special:WhatLinksHere/PopCap:Tutorials:Breakout:Part3" title="List of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://wiki.gamedev.net/index.php/Special:RecentChangesLinked/PopCap:Tutorials:Breakout:Part3" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="http://wiki.gamedev.net/index.php/Special:Upload" title="Upload files [alt-shift-u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="http://wiki.gamedev.net/index.php/Special:SpecialPages" title="List of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;printable=yes" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part3&amp;oldid=26146" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="PopCap%20Tutorials%20Breakout%20Part3_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="PopCap%20Tutorials%20Breakout%20Part3_files/gnu-fdl.png" alt="GNU Free Documentation License 1.2"></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified on 9 January 2009, at 13:48.</li>
+				<li id="copyright">Content is available under <a href="http://www.gnu.org/copyleft/fdl.html" class="external " title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License 1.2</a>.</li>
+				<li id="privacy"><a href="http://wiki.gamedev.net/index.php/GDWiki:Privacy_policy" title="GDWiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://wiki.gamedev.net/index.php/GDWiki:About" title="GDWiki:About">About GDWiki</a></li>
+				<li id="disclaimer"><a href="http://wiki.gamedev.net/index.php/GDWiki:General_disclaimer" title="GDWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 1.164 secs. --><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? 
+"https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + 
+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="PopCap%20Tutorials%20Breakout%20Part3_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6779482-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body></html>

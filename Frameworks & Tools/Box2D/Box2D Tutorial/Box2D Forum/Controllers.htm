@@ -1,0 +1,1028 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-gb" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en-gb"><head>
+
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-language" content="en-gb">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="copyright" content="2000, 2002, 2005, 2007 phpBB Group">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+
+<title>Box2D Forums • View topic - Controllers</title>
+
+
+
+<link rel="stylesheet" href="Controllers_files/stylesheet.css" type="text/css">
+
+<script type="text/javascript">
+// <![CDATA[
+
+
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+	return false;
+}
+
+function jumpto()
+{
+	var page = prompt('Enter the page number you wish to go to:', '1');
+	var per_page = '10';
+	var base_url = './viewtopic.php?f=8&amp;t=1567';
+
+	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0)
+	{
+		if (base_url.indexOf('?') == -1)
+		{
+			document.location.href = base_url + '?start=' + ((page - 1) * per_page);
+		}
+		else
+		{
+			document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * per_page);
+		}
+	}
+}
+
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+
+
+// ]]>
+</script>
+</head><body class="ltr">
+
+<a name="top"></a>
+
+<div id="wrapheader">
+
+	<div id="logodesc">
+		<table cellspacing="0" width="100%">
+		<tbody><tr>
+			<td><a href="http://www.box2d.org/forum/index.php"><img src="Controllers_files/title.gif" alt="" title="" width="207" height="55"></a></td>
+			<td align="center" width="100%"><h1>Box2D Forums</h1><span class="gen"></span></td>
+		</tr>
+		</tbody></table>
+	</div>
+
+	<div id="menubar">
+		<table cellspacing="0" width="100%">
+		<tbody><tr>
+			<td class="genmed">
+				<a href="http://www.box2d.org/forum/ucp.php?mode=login"><img src="Controllers_files/icon_mini_login.gif" alt="*" width="12" height="13"> Login</a>&nbsp; &nbsp;<a href="http://www.box2d.org/forum/ucp.php?mode=register"><img src="Controllers_files/icon_mini_register.gif" alt="*" width="12" height="13"> Register</a>
+					
+			</td>
+			<td class="genmed" align="right">
+				<a href="http://www.box2d.org/forum/faq.php"><img src="Controllers_files/icon_mini_faq.gif" alt="*" width="12" height="13"> FAQ</a>
+				&nbsp; &nbsp;<a href="http://www.box2d.org/forum/search.php"><img src="Controllers_files/icon_mini_search.gif" alt="*" width="12" height="13"> Search</a>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+
+	<div id="datebar">
+		<table cellspacing="0" width="100%">
+		<tbody><tr>
+			<td class="gensmall"></td>
+			<td class="gensmall" align="right">It is currently Mon Nov 22, 2010 3:58 am<br></td>
+		</tr>
+		</tbody></table>
+	</div>
+
+</div>
+
+<div id="wrapcentre">
+
+	
+	<p class="searchbar">
+		<span style="float: left;"><a href="http://www.box2d.org/forum/search.php?search_id=unanswered">View unanswered posts</a> | <a href="http://www.box2d.org/forum/search.php?search_id=active_topics">View active topics</a></span>
+		
+	</p>
+	
+
+	<br style="clear: both;">
+
+	<table class="tablebg" style="margin-top: 5px;" cellpadding="0" cellspacing="1" width="100%">
+	<tbody><tr>
+		<td class="row1">
+			<p class="breadcrumbs"><a href="http://www.box2d.org/forum/index.php">Board index</a> » <a href="http://www.box2d.org/forum/viewforum.php?f=12">Box2D Ports</a> » <a href="http://www.box2d.org/forum/viewforum.php?f=8">Flash</a></p>
+			<p class="datetime">All times are UTC - 8 hours [ <abbr title="Daylight Saving Time">DST</abbr> ]</p>
+		</td>
+	</tr>
+	</tbody></table>
+
+	<br>
+
+<div id="pageheader">
+	<h2><a class="titles" href="http://www.box2d.org/forum/viewtopic.php?f=8&amp;t=1567&amp;start=0">Controllers</a></h2>
+
+
+</div>
+
+<br clear="all"><br>
+
+<div id="pagecontent">
+
+	<table cellspacing="1" width="100%">
+	<tbody><tr>
+		<td align="left" valign="middle" nowrap="nowrap">
+		<a href="http://www.box2d.org/forum/posting.php?mode=post&amp;f=8"><img src="Controllers_files/button_topic_new.gif" alt="Post new topic" title="Post new topic"></a>&nbsp;<a href="http://www.box2d.org/forum/posting.php?mode=reply&amp;f=8&amp;t=1567"><img src="Controllers_files/button_topic_reply.gif" alt="Reply to topic" title="Reply to topic"></a>
+		</td>
+		
+			<td class="nav" valign="middle" nowrap="nowrap">&nbsp;Page <strong>1</strong> of <strong>2</strong><br></td>
+			<td class="gensmall" nowrap="nowrap">&nbsp;[ 13 posts ]&nbsp;</td>
+			<td class="gensmall" align="right" width="100%" nowrap="nowrap"><b><a href="#" onclick="jumpto(); return false;" title="Click to jump to page…">Go to page</a> <strong>1</strong><span class="page-sep">, </span><a href="http://www.box2d.org/forum/viewtopic.php?f=8&amp;t=1567&amp;start=10">2</a> &nbsp;<a href="http://www.box2d.org/forum/viewtopic.php?f=8&amp;t=1567&amp;start=10">Next</a></b></td>
+		
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr>
+		<td class="cat">
+			<table cellspacing="0" width="100%">
+			<tbody><tr>
+				<td class="nav" nowrap="nowrap">&nbsp;
+				<a href="http://www.box2d.org/forum/viewtopic.php?f=8&amp;t=1567&amp;start=0&amp;view=print" title="Print view">Print view</a>
+				</td>
+				<td class="nav" align="right" nowrap="nowrap"><a href="http://www.box2d.org/forum/viewtopic.php?f=8&amp;t=1567&amp;view=previous">Previous topic</a> | <a href="http://www.box2d.org/forum/viewtopic.php?f=8&amp;t=1567&amp;view=next">Next topic</a>&nbsp;</td>
+			</tr>
+			</tbody></table>
+		</td>
+	</tr>
+
+	</tbody></table>
+
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	
+		<tbody><tr>
+			<th>Author</th>
+			<th>Message</th>
+		</tr>
+	<tr class="row1">
+
+			<td align="center" valign="middle">
+				<a name="p8903"></a>
+				<b class="postauthor">BorisTheBrave</b>
+			</td>
+			<td width="100%" height="25">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Controllers</div><div style="float: right;"><a href="http://www.box2d.org/forum/viewtopic.php?p=8903#p8903"><img src="Controllers_files/icon_post_target.gif" alt="Post" title="Post" width="12" height="9"></a><b>Posted:</b> Sun Oct 05, 2008 5:03 pm&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="Controllers_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Mon Jan 07, 2008 10:51 am<br><b>Posts:</b> 1908
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">Ok, this isn't nearly as cool as some of the
+ other things I've done, but I think this is necessary. I've implemented
+ a bit of a Controllers suite, where by controller I mean helper class 
+for applying forces, like the buoyancy controller I posted earlier.<br><span style="font-weight: bold;"><a href="http://boristhebrave.com/project/controller-grab-pack/demo" class="postlink">Demo</a></span><br><span style="font-weight: bold;"><a href="http://boristhebrave.com/sites/default/files/Box2DAS3%20v2.0.1%20-%20Controllers.zip" class="postlink">Download</a></span><br><span style="font-weight: bold;"><a href="http://boristhebrave.com/project/controller-grab-pack" class="postlink">Details</a></span><br><br>See
+ details for more info. Of particular interest is probably 
+b2TensorDampingController, which despite its obscure name, is 
+essentially a controller which allows you to do (one kind of) top down 
+wheel behaviour, which a few people were asking about earlier.<br><br>Please
+ please please comment on the design choice I made (e.g. perhaps you'd 
+prefer this in the Box2D package, rather than my own). I'm gonna start 
+porting to C++ now, so it's important to get it right.</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://www.box2d.org/forum/memberlist.php?mode=viewprofile&amp;u=239"><img src="Controllers_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="Controllers_files/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row2">
+
+			<td align="center" valign="middle">
+				<a name="p8904"></a>
+				<b class="postauthor">mayobutter</b>
+			</td>
+			<td width="100%" height="25">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Controllers</div><div style="float: right;"><a href="http://www.box2d.org/forum/viewtopic.php?p=8904#p8904"><img src="Controllers_files/icon_post_target.gif" alt="Post" title="Post" width="12" height="9"></a><b>Posted:</b> Sun Oct 05, 2008 7:19 pm&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="Controllers_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Fri Dec 14, 2007 8:07 pm<br><b>Posts:</b> 537
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">The separate package doesn't matter me. In 
+fact, I think I prefer it. The only complaint I have about your 
+contributed code is that I have to patch the core Box2d classes all over
+ the place. Upgrading when a new version comes out is going to be 
+painful.<br><br>I've been working on some crazy gravity implementations,
+ stuff like gravity that changes direction based on sin(x), gravity 
+that's part linear / part radial (rounded rectangle), and I'm thinking 
+of using your controllers for the final implementation. The base 
+controller classes are general enough that I think a lot of useful stuff
+ could be built on them...</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://www.box2d.org/forum/memberlist.php?mode=viewprofile&amp;u=193"><img src="Controllers_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="Controllers_files/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row1">
+
+			<td align="center" valign="middle">
+				<a name="p8910"></a>
+				<b class="postauthor">Daid</b>
+			</td>
+			<td width="100%" height="25">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Controllers</div><div style="float: right;"><a href="http://www.box2d.org/forum/viewtopic.php?p=8910#p8910"><img src="Controllers_files/icon_post_target.gif" alt="Post" title="Post" width="12" height="9"></a><b>Posted:</b> Mon Oct 06, 2008 2:29 am&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="Controllers_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Wed Sep 10, 2008 8:03 am<br><b>Posts:</b> 138
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">Small side question, any idea why your side fails in firefox? The flash file works fine:<br><!-- m --><a class="postlink" href="http://boristhebrave.com/sites/default/files/flash/ControllerGrabPack.swf">http://boristhebrave.com/sites/default/ ... abPack.swf</a><!-- m --><br>But it won't show up on the demo page...</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://www.box2d.org/forum/memberlist.php?mode=viewprofile&amp;u=898"><img src="Controllers_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="Controllers_files/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row2">
+
+			<td align="center" valign="middle">
+				<a name="p8915"></a>
+				<b class="postauthor">zappBrannigan</b>
+			</td>
+			<td width="100%" height="25">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Controllers</div><div style="float: right;"><a href="http://www.box2d.org/forum/viewtopic.php?p=8915#p8915"><img src="Controllers_files/icon_post_target.gif" alt="Post" title="Post" width="12" height="9"></a><b>Posted:</b> Mon Oct 06, 2008 4:19 am&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="Controllers_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Tue Apr 29, 2008 1:55 am<br><b>Posts:</b> 102
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">works fine here with FF 3.0.3 on Vista x64. Any addons blocking it perhaps?</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://www.box2d.org/forum/memberlist.php?mode=viewprofile&amp;u=540"><img src="Controllers_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="Controllers_files/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row1">
+
+			<td align="center" valign="middle">
+				<a name="p8920"></a>
+				<b class="postauthor">Daid</b>
+			</td>
+			<td width="100%" height="25">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Controllers</div><div style="float: right;"><a href="http://www.box2d.org/forum/viewtopic.php?p=8920#p8920"><img src="Controllers_files/icon_post_target.gif" alt="Post" title="Post" width="12" height="9"></a><b>Posted:</b> Mon Oct 06, 2008 4:51 am&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="Controllers_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Wed Sep 10, 2008 8:03 am<br><b>Posts:</b> 138
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody"><div class="quotetitle">zappBrannigan wrote:</div><div class="quotecontent">works fine here with FF 3.0.3 on Vista x64. Any addons blocking it perhaps?</div>Only
+ have adblock installed, but that's not blocking it. Also got firebug 
+installed. I don't see any errors in the error console, and I can see 
+with firebug that it does load the flash file.</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://www.box2d.org/forum/memberlist.php?mode=viewprofile&amp;u=898"><img src="Controllers_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="Controllers_files/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row2">
+
+			<td align="center" valign="middle">
+				<a name="p8923"></a>
+				<b class="postauthor">BorisTheBrave</b>
+			</td>
+			<td width="100%" height="25">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Controllers</div><div style="float: right;"><a href="http://www.box2d.org/forum/viewtopic.php?p=8923#p8923"><img src="Controllers_files/icon_post_target.gif" alt="Post" title="Post" width="12" height="9"></a><b>Posted:</b> Mon Oct 06, 2008 5:53 am&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="Controllers_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Mon Jan 07, 2008 10:51 am<br><b>Posts:</b> 1908
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">I get jerkiness myself (FF3, vista, 32). I 
+don't know what the problem is or how to fix it, though I'd love to 
+hear. Firefox has never been good with Flash for some reason. I'm using 
+SWFObject, which I thought would have dealt with any problems.<br><br><div class="quotetitle">mayobutter wrote:</div><div class="quotecontent">The
+ separate package doesn't matter me. In fact, I think I prefer it. The 
+only complaint I have about your contributed code is that I have to 
+patch the core Box2d classes all over the place. Upgrading when a new 
+version comes out is going to be painful.</div><br>Hmm. This is really 
+what source control etc is designed for. You don't need manually do all 
+that patching, but instead make a patch from my contributed code, and 
+apply it to the new version, or visa versa. I used to provide patches as
+ well as .zip downloads, but it was apparent no one was using them. 
+Also, the odds aren't too bad that the next version will come with some 
+of this code.<br><br><div class="quotetitle">mayobutter wrote:</div><div class="quotecontent">The base controller classes are general enough that I think a lot of useful stuff could be built on them...</div><br>Exactly
+ the point. Now hopefully we will be able to share snippets of code 
+easier without having do adapt it to different frameworks every time.</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://www.box2d.org/forum/memberlist.php?mode=viewprofile&amp;u=239"><img src="Controllers_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="Controllers_files/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row1">
+
+			<td align="center" valign="middle">
+				<a name="p8924"></a>
+				<b class="postauthor">irresistible force</b>
+			</td>
+			<td width="100%" height="25">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Controllers</div><div style="float: right;"><a href="http://www.box2d.org/forum/viewtopic.php?p=8924#p8924"><img src="Controllers_files/icon_post_target.gif" alt="Post" title="Post" width="12" height="9"></a><b>Posted:</b> Mon Oct 06, 2008 6:02 am&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="Controllers_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Tue Jun 24, 2008 8:25 pm<br><b>Posts:</b> 154<br><b>Location:</b> Tokyo
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">Wow, this is the first time I've seen the buoyancy one. Extra cool! Many thanks Boris.</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://www.box2d.org/forum/memberlist.php?mode=viewprofile&amp;u=675"><img src="Controllers_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="Controllers_files/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row2">
+
+			<td align="center" valign="middle">
+				<a name="p8936"></a>
+				<b class="postauthor">kne</b>
+			</td>
+			<td width="100%" height="25">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Controllers</div><div style="float: right;"><a href="http://www.box2d.org/forum/viewtopic.php?p=8936#p8936"><img src="Controllers_files/icon_post_target.gif" alt="Post" title="Post" width="12" height="9"></a><b>Posted:</b> Mon Oct 06, 2008 8:56 am&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="Controllers_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Mon Feb 18, 2008 12:30 am<br><b>Posts:</b> 76
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">This is awesome. Looking forward to the C++ port!</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://www.box2d.org/forum/memberlist.php?mode=viewprofile&amp;u=336"><img src="Controllers_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="Controllers_files/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row1">
+
+			<td align="center" valign="middle">
+				<a name="p8964"></a>
+				<b class="postauthor">android</b>
+			</td>
+			<td width="100%" height="25">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Controllers</div><div style="float: right;"><a href="http://www.box2d.org/forum/viewtopic.php?p=8964#p8964"><img src="Controllers_files/icon_post_target.gif" alt="Post" title="Post" width="12" height="9"></a><b>Posted:</b> Tue Oct 07, 2008 3:00 am&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="Controllers_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Fri May 16, 2008 2:52 pm<br><b>Posts:</b> 280
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">Hey, <br><br>I took a look at your code, but
+ haven't got a chance to test it out yet. I think it's pretty clear, and
+ nicely separated from the rest of the engine, at the moment. <br><br>I 
+can imagine that if this is a useful enough feature, inclusion in the 
+Box2D package would seem logical. (maybe in Box2D.dynamics.controllers ?
+ ) (So that it works "out of the box" so to say).<br><br>API-wise, at 
+this moment it seems straightforward enough, but again, if this becomes a
+ standard feature, something along the lines of <br><div class="codetitle"><b>Code:</b></div><div class="codecontent">world.CreateController(....)</div><br>might be worth considering? Or am I overlooking something?</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://www.box2d.org/forum/memberlist.php?mode=viewprofile&amp;u=580"><img src="Controllers_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="Controllers_files/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr class="row2">
+
+			<td align="center" valign="middle">
+				<a name="p8970"></a>
+				<b class="postauthor">BorisTheBrave</b>
+			</td>
+			<td width="100%" height="25">
+				<table cellspacing="0" width="100%">
+				<tbody><tr>
+				
+					<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Controllers</div><div style="float: right;"><a href="http://www.box2d.org/forum/viewtopic.php?p=8970#p8970"><img src="Controllers_files/icon_post_target.gif" alt="Post" title="Post" width="12" height="9"></a><b>Posted:</b> Tue Oct 07, 2008 4:17 am&nbsp;</div></td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile" valign="top">
+				<table align="center" cellspacing="4" width="150">
+			
+				<tbody><tr>
+					<td><img src="Controllers_files/icon_user_offline.gif" alt="Offline" title="Offline"></td>
+				</tr>
+			
+				</tbody></table>
+
+				<span class="postdetails">
+					<br><b>Joined:</b> Mon Jan 07, 2008 10:51 am<br><b>Posts:</b> 1908
+				</span>
+
+			</td>
+			<td valign="top">
+				<table cellspacing="5" width="100%">
+				<tbody><tr>
+					<td>
+					
+
+						<div class="postbody">I did code exactly that up, but deleted it. 
+Here are some reasons why I'm apprehensive, despite the obvious nicety 
+of having a similar interface. Though none are especially compelling, 
+there are quite a few...<br><ul><li>Thus far, I haven't gone down the 
+factory route of making matched Defs to go with each class, so it would 
+be misleading to give a similar behaviour.</li><li>Controllers are order dependent, at least some of the non-force generating ones are (currently only TensorDamping, I think). </li><li>Box2D
+ doesn't "know" which bodies a controller controls, and enabling this 
+would be messy. This means sleep doesn't work properly, nor implicit 
+destruction, or islands. The user must code around these problems.</li></ul><br>Basically,
+ once I "attach" controllers to the world, it is necessary to implement 
+the full many-to-many relationship of controllers to bodies for 
+consistency reasons, and re-implement a lot of the joint based features.
+ And in box2d style the relationship would be represented by some sort 
+of convoluted linked list. I'd really rather wait until Erin creates a 
+pattern for dealing with dynamically sized arrays as he mentioned he 
+might, before proceeding.</div>
+
+					<br clear="all"><br>
+
+						<table cellspacing="0" width="100%">
+						<tbody><tr valign="middle">
+							<td class="gensmall" align="right">
+							
+							</td>
+						</tr>
+						</tbody></table>
+					</td>
+				</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+
+			<td class="profile"><strong><a href="#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="http://www.box2d.org/forum/memberlist.php?mode=viewprofile&amp;u=239"><img src="Controllers_files/icon_user_profile.gif" alt="Profile" title="Profile"></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+	
+		</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="Controllers_files/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	</tbody></table>
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr align="center">
+		<td class="cat"><form name="viewtopic" method="post" action="./viewtopic.php?f=8&amp;t=1567&amp;start=0"><span class="gensmall">Display posts from previous:</span> <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select>&nbsp;<span class="gensmall">Sort by</span> <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select> <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select>&nbsp;<input class="btnlite" value="Go" name="sort" type="submit"></form></td>
+	</tr>
+	</tbody></table>
+	
+
+	<table cellspacing="1" width="100%">
+	<tbody><tr>
+		<td align="left" valign="middle" nowrap="nowrap">
+		<a href="http://www.box2d.org/forum/posting.php?mode=post&amp;f=8"><img src="Controllers_files/button_topic_new.gif" alt="Post new topic" title="Post new topic"></a>&nbsp;<a href="http://www.box2d.org/forum/posting.php?mode=reply&amp;f=8&amp;t=1567"><img src="Controllers_files/button_topic_reply.gif" alt="Reply to topic" title="Reply to topic"></a>
+		</td>
+		
+			<td class="nav" valign="middle" nowrap="nowrap">&nbsp;Page <strong>1</strong> of <strong>2</strong><br></td>
+			<td class="gensmall" nowrap="nowrap">&nbsp;[ 13 posts ]&nbsp;</td>
+			<td class="gensmall" align="right" width="100%" nowrap="nowrap"><b><a href="#" onclick="jumpto(); return false;" title="Click to jump to page…">Go to page</a> <strong>1</strong><span class="page-sep">, </span><a href="http://www.box2d.org/forum/viewtopic.php?f=8&amp;t=1567&amp;start=10">2</a> &nbsp;<a href="http://www.box2d.org/forum/viewtopic.php?f=8&amp;t=1567&amp;start=10">Next</a></b></td>
+		
+	</tr>
+	</tbody></table>
+
+</div>
+
+<div id="pagefooter"></div>
+
+<br clear="all">
+<table class="tablebg" style="margin-top: 5px;" cellpadding="0" cellspacing="1" width="100%">
+	<tbody><tr>
+		<td class="row1">
+			<p class="breadcrumbs"><a href="http://www.box2d.org/forum/index.php">Board index</a> » <a href="http://www.box2d.org/forum/viewforum.php?f=12">Box2D Ports</a> » <a href="http://www.box2d.org/forum/viewforum.php?f=8">Flash</a></p>
+			<p class="datetime">All times are UTC - 8 hours [ <abbr title="Daylight Saving Time">DST</abbr> ]</p>
+		</td>
+	</tr>
+	</tbody></table>
+	<br clear="all">
+
+	<table class="tablebg" cellspacing="1" width="100%">
+	<tbody><tr>
+		<td class="cat"><h4>Who is online</h4></td>
+	</tr>
+	<tr>
+		<td class="row1"><p class="gensmall">Users browsing this forum: <span style="color: rgb(158, 141, 167);" class="username-coloured">Yahoo [Bot]</span> and 8 guests</p></td>
+	</tr>
+	</tbody></table>
+
+
+<br clear="all">
+
+<table cellspacing="1" width="100%">
+<tbody><tr>
+	<td align="left" valign="top" width="40%" nowrap="nowrap"></td>
+	<td align="right" valign="top" nowrap="nowrap"><span class="gensmall">You <strong>cannot</strong> post new topics in this forum<br>You <strong>cannot</strong> reply to topics in this forum<br>You <strong>cannot</strong> edit your posts in this forum<br>You <strong>cannot</strong> delete your posts in this forum<br>You <strong>cannot</strong> post attachments in this forum<br></span></td>
+</tr>
+</tbody></table>
+
+<br clear="all">
+
+<table cellspacing="0" width="100%">
+<tbody><tr>
+	<td><form method="post" name="search" action="./search.php?t=1567"><span class="gensmall">Search for:</span> <input class="post" name="keywords" size="20" type="text"> <input class="btnlite" value="Go" type="submit"></form></td>
+	<td align="right"></td>
+</tr>
+</tbody></table>
+
+
+</div>
+
+<!--
+	We request you retain the full copyright notice below including the link to www.phpbb.com.
+	This not only gives respect to the large amount of time given freely by the developers
+	but also helps build interest, traffic and use of phpBB3. If you (honestly) cannot retain
+	the full copyright we ask you at least leave in place the "Powered by phpBB" line, with
+	"phpBB" linked to www.phpbb.com. If you refuse to include even this then support on our
+	forums may be affected.
+
+	The phpBB Group : 2006
+//-->
+
+<div id="wrapfooter">
+	
+	<span class="copyright">Powered by <a href="http://www.phpbb.com/">phpBB</a> © 2000, 2002, 2005, 2007 phpBB Group
+	</span>
+</div>
+
+</body></html>

@@ -1,0 +1,777 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Lesson 1: Getting Started with Direct3D
+</title><link href="dx9B1.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B1.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B1.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B1.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B1.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+                    Lesson 1:&nbsp; Getting Started with Direct3D</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B1.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B2.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+                        Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                            First of all, I officially welcome you to Direct3D.&nbsp; I would like to teach
+                            you both the basics and the advanced topics of 3D programming.&nbsp; Whether you
+                            want to build you own engine, borrow one and modify it, or just buy one and use
+                            it, it is important that you understand the concepts underlying it.</p>
+                            <p>
+                                Just as important as the underlying concepts of a game engine, are the concepts
+                                underlying DirectX itself.&nbsp;
+                        This lesson will cover the basics of Direct3D and
+                                what you need to know to you punch out your first DirectX program.&nbsp; We will
+                                then build a basic Direct3D program inside of a window.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    COM</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    And COM is what?</p>
+    <p>
+        COM stands for Component Object Model.&nbsp; COM is a method of creating very advanced
+        objects that, well, they act a lot like Legos actually.</p>
+    <p>
+        Legos, as you
+                know, can be stuck together to create more advanced shapes.&nbsp;
+        No single Lego actually cares about any other Lego in the set.&nbsp; They are all
+        compatible with each other, and all you have to do is stick them together to get
+        them to work.&nbsp; If you want to change pieces, all you have to do is unplug one
+        piece and put another in its place.</p>
+    <p>
+        And so it is with COM.&nbsp; COM objects are actually C++ classes or groups of classes
+        from which you can call functions and achieve certain aims. &nbsp;No class requires
+        another to operate, and they don't really need to work together to get things done
+        together, but you can plug them in or unplug them as you desire without changing
+        the rest of the program also.</p>
+    <p>
+        For example, say you had a game distributed broadly and you want to upgrade it.&nbsp;
+        Well, instead of keeping track of and shipping a new copy to every single user who
+        ever bought your game, all you have to do is say "Upgrade!&nbsp; Right Here!".&nbsp;
+        They download
+                the updated COM object, and the new object plugs right in to your
+        program without further hassle.&nbsp; Nice, huh?</p>
+    <p>
+        I won't get too detailed into COM, because it is far too complex for what we need.&nbsp;
+        It's job is to get all the complex stuff out of the way so that you have an easy
+        time.&nbsp; And if that's its job, what would be the purpose of learning all that
+        complex material?</p>
+    <p>
+        So why COM?&nbsp; Well, DirectX is actually a series of COM objects, one of which
+        is Direct3D.&nbsp; Direct3D is a rather advanced class that contains everything
+        you need to run 2D and 3D graphics using software, hardware, or whateverware.</p>
+    <p>
+        So don't be surprised when you see Direct3D functions being called like this:</p>
+    <div class="codebox">
+        d3d-&gt;CreateDevice()<br>
+        <br>
+        d3d-&gt;Release()</div>
+    <p>
+        We use the indirect member access operator here to access the functions CreateDevice()
+        and Release() from the Direct3D interface class.&nbsp; We'll get more into this
+        when we see how it is applied in practice.&nbsp; I'm going to try to avoid unneeded
+        theory from here on out.</p>
+    <p>
+        For now let's go on to the next topic:</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    The Swap Chain and Page Swapping</div>
+        <div class="maintext" style="position: relative;">
+            <p>
+                A graphics adapter contains in its memory a pointer to a buffer of pixels that contains
+                the image currently being displayed on the screen.&nbsp; When you need to render
+                something, such as a 3D model or texture, the graphics adapter updates this array
+                and sends the information to the monitor to display.&nbsp; The monitor then redraws
+                the screen from top to bottom, adding in the new part rendered.</p>
+    <p>
+        However, there is a slight problem with this in that the monitor does not refresh
+        as fast as needed for real-time rendering.&nbsp; Most refresh rates range from 60
+        Hz (60 fps) to about 100 Hz.&nbsp; If another model were rendered to the graphics
+        adapter while the monitor was refreshing, the image displayed would be cut in two,
+        the top half containing the old image and the bottom half containing the new.&nbsp;
+        This effect is called tearing.</p>
+    <p>
+        To avoid this, DirectX implements a feature called swapping.</p>
+    <p class="subheader">
+        Swapping</p>
+    <p>
+        Instead of rendering new images directly to the monitor, Direct3D draws your images
+        onto a secondary buffer of pixels, known as a back buffer.&nbsp; The front buffer
+        would be the buffer currently being displayed.&nbsp; You draw all your images onto
+        the back buffer, and when you are done, Direct3D will update the front buffer with
+        the contents of the back buffer, discarding the old image.</p>
+    <p>
+        However, doing this can still cause tearing, because the image transfer can still
+        occur while the monitor is refreshing (the CPU is faster than the monitor).</p>
+    <p>
+        In order to avoid this (and to make the whole thing go much faster), DirectX uses
+        a pointer for each buffer (both front and back) and simply switches their values.&nbsp;
+        The back buffer then <em>becomes</em> the front buffer (and vice versa), and no
+        tearing occurs.</p>
+    <center>
+        <img alt="Image 1.1 - Addresses Swap Instantly" src="dx9B1.aspx_files/dx9B1-1.GIF" width="304" height="159"><br>
+        <br>
+        Image 1.1 - Addresses Swap Instantly
+    </center>
+    <p>
+        Of course, we could make our game have better performance by adding additional back
+        buffers, like this.</p>
+    <center>
+        <img alt="Image 1.2 - Multiple Back Buffers Gets Better Performance" src="dx9B1.aspx_files/dx9B1-2.GIF" width="622" height="352"><br>
+        <br>
+        Image 1.2 - Multiple Back Buffers Gets Better Performance
+    </center>
+    <p>
+        How can adding additional back buffers get better performance?&nbsp; Well, let's
+        say that every once in a while you finish rendering the back buffer and are ready
+        to swap, but the screen hasn't yet finished drawing the contents of the front buffer.&nbsp;
+        Swapping now would cause more tearing.&nbsp; So what happens instead is your program
+        stops and waits for the screen to finish.&nbsp; You could, of course, be spending
+        this valuable time preparing the <em>next</em> image, and having multiple back buffers
+        allows your program to do just that.</p>
+        <p>
+            This setup called a swap chain, as it is a chain of buffers, swapping positions each
+        time a new frame is rendered.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            The Basic Direct3D Program</div>
+        <div class="maintext" style="position: relative;">
+            <p>
+                We won't be making a "Hello World!" application for Direct3D.&nbsp; We will assume
+                that Direct3D is not a language on its own (which it isn't).&nbsp; Instead, we will
+                start by filling our window with blue.&nbsp; For this we have four steps:</p>
+            <p>
+                1.&nbsp; Create global variables and function prototypes<br>
+                2.&nbsp; Create a function to initialize Direct3D and create the Direct3D Device<br>
+                3.&nbsp; Create a function to render a frame<br>
+                4. &nbsp;Create a function to close Direct3D</p>
+            <p>
+                Let's go over each function and its parts, then look at the whole picture and how
+                to plug it in to your windows program.</p>
+            <hr>
+            <p class="subheader">
+                1.&nbsp; Create global variables and function prototypes</p>
+            <p>
+                We need to add a few things to the top of our program before we start working with
+                Direct3D in the first place.&nbsp; Let's take a look at these and see what they
+                are.</p>
+            <div class="codebox">
+                // include the basic windows header files<strong> and the Direct3D header file</strong><br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                <strong>#include &lt;d3d9.h&gt;</strong><br>
+                <br>
+                <strong>// include the Direct3D Library file</strong><br>
+                <strong>#pragma comment (lib, "d3d9.lib")</strong><br>
+                <br>
+                <strong>// global declarations</strong><br>
+                <strong>LPDIRECT3D9 d3d; &nbsp; &nbsp;// the pointer to our Direct3D interface</strong><br>
+                <strong>LPDIRECT3DDEVICE9 d3ddev; &nbsp;&nbsp; // the pointer to the device class</strong><br>
+                <br>
+                <strong>// function prototypes</strong><br>
+                <strong>void initD3D(HWND hWnd); &nbsp; &nbsp;// sets up and initializes Direct3D</strong><br>
+                <strong>void render_frame(void); &nbsp;&nbsp; // renders a single frame</strong><br>
+                <strong>void cleanD3D(void); &nbsp;&nbsp; // closes Direct3D and releases memory</strong><br>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+            </div>
+            <p class="subheader">
+                #include &lt;d3d9.h&gt;</p>
+            <p>
+                This includes the Direct3D 9 header file.&nbsp; This consists of various declarations
+                to the actual methods contained in the Direct3D library.</p>
+            <p class="subheader">
+                #pragma comment (lib, "d3d9.lib")</p>
+            <p>
+                This includes the Direct3D 9 library file.&nbsp; The #pragma comment directive places
+                a certain piece of information in your project's object file.&nbsp; With our first
+                paramter, lib, we indicate that we want to add a library file to the project.&nbsp;
+                We then specify which file, "d3d9.lib".</p>
+            <p class="subheader">
+                LPDIRECT3D9 d3d;</p>
+            <p>
+                This variable is a long pointer to Direct3D.&nbsp; What this means is that we will
+                create a class called iDirect3D9.&nbsp; When COM makes this class, we will ignore
+                it, and access it only indirectly using this pointer.&nbsp; We will cover how the
+                class is created in a moment.</p>
+            <p class="subheader">
+                LPDIRECT3DDEVICE9 d3ddev;</p>
+            <p>
+                The Direct3D Device interface holds all the information pertaining to the graphics
+                drivers, the video card, and everything else having to do with the hardware side
+                of graphics.&nbsp; This is a pointer to the class that stores all this information.</p>
+            <hr>
+            <p>
+                <strong>2.&nbsp; Create a function to initialize Direct3D and create the Direct3D Device</strong></p>
+            <p>
+                The first step to actually coding Direct3D is to create the interface and initialize
+                the graphics device.&nbsp; This is done using two functions and a struct containing
+                graphics device information.&nbsp; Let's take a look at this function here, then
+                go over its parts.&nbsp; I didn't bother to bold the new parts, because the entire
+                thing is new.</p>
+            <div class="codebox">
+                // this function initializes and prepares Direct3D for use<br>
+                void initD3D(HWND hWnd)<br>
+                {<br>
+                &nbsp; &nbsp; d3d = Direct3DCreate9(D3D_SDK_VERSION); &nbsp;&nbsp; // create the
+                Direct3D interface<br>
+                <br>
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp; &nbsp;&nbsp; // create a struct to hold
+                various device information<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp)); &nbsp;&nbsp; // clear out the
+                struct for use<br>
+                &nbsp; &nbsp; d3dpp.Windowed = TRUE; &nbsp;&nbsp; // program windowed, not fullscreen<br>
+                &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD; &nbsp;&nbsp; // discard
+                old frames<br>
+                &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd; &nbsp;&nbsp; // set the window to be used
+                by Direct3D<br>
+                <br>
+                &nbsp; &nbsp; // create a device class using this information and information from
+                the d3dpp stuct<br>
+                &nbsp; &nbsp; d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D3DDEVTYPE_HAL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; D3DCREATE_SOFTWARE_VERTEXPROCESSING,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3dpp,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3ddev);<br>
+                }</div>
+            <p>
+                If the comments here are good enough for you, excellent.&nbsp; Otherwise, I've described
+                each of these commands below.</p>
+            <p class="subheader">
+                d3d = Direct3DCreate9(D3D_SDK_VERSION);</p>
+            <p>
+                This is where the fun begins.&nbsp; This is the first Direct3D function you will
+                run.&nbsp; It's primary purpose is to create the Direct3D interface.&nbsp; The return
+                value is the address of the interface created, and so we will store this address
+                in the pointer we created earlier, d3d.</p>
+            <p>
+                Then there is the parameter.&nbsp; This parameter is always the same: D3D_SDK_VERSION.&nbsp;
+                Why is this?&nbsp; Well, it really only matters for compatibility on other machines.&nbsp;
+                When a later release of DirectX is published, the users will usually have varying
+                levels of DirectX upgrades.&nbsp; This tells the user's DirectX which version you
+                developed your game for.&nbsp; The user's DirectX can then look back and properly
+                execute your program without implementing the upgrades that have occurred
+        since then.&nbsp; Kinda useful, eh?</p>
+            <p>
+                In the version of Direct3D 9c, this value returns 32.&nbsp; Previous
+                versions would return different values, causing DirectX to function in different
+                ways.&nbsp; Note that you should not change this value, as it will cause confusion
+                and is not really needed anyway.&nbsp; Just use D3D_SDK_VERSION, and everything
+                will work out all right.</p>
+            <p class="subheader">
+                D3DPRESENT_PARAMETERS d3dpp;</p>
+            <p>
+                There are certain factors involved in both beginning and
+ advanced game programming which require certain information to be fed 
+into the graphics device from the start.&nbsp;
+                There are plenty of these, but we will only go into 
+three of them here.&nbsp; For
+                now, D3DPRESENT_PARAMETERS is a struct whose members 
+will contain information about
+                the graphics device.&nbsp; We will go over the ones we 
+use here and cover new members
+                as they come up throughout the tutorial.</p>
+            <p class="subheader">
+                ZeroMemory(&amp;d3dpp, sizeof(d3dpp));</p>
+            <p>
+                We use ZeroMemory() to quickly initialize the entire d3dpp struct to NULL.&nbsp;
+                That way we don't have to go through every member of the struct and set them individually.</p>
+            <p class="subheader">
+                d3dpp.Windowed = TRUE;</p>
+            <p>
+                When we run Direct3D in a window like we are now, this value is set to TRUE.&nbsp;
+                Otherwise, it is set to false.&nbsp; Later, when we make our window full-screen,
+                we will change this value to FALSE.</p>
+            <p>
+                Note:&nbsp; There are other changes to make when an application goes full-screen.&nbsp;
+                Changing this one value will not make your application full-screen, unfortunately.&nbsp;
+                Patience until the next lesson.</p>
+            <p class="subheader">
+                d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;</p>
+            <p>
+                Before, we talked about swap chains as the method Direct3D uses to change images
+                on the screen.&nbsp; However, we get to pick which <em>type</em> of swap chain is
+                used.&nbsp; There are three different kinds.</p>
+        <p>
+            [<a href="#still" onclick="Toggle('table1-1')" class="mainlink">Table 1.1 - d3dpp.SwapEffect Flags</a>]</p>
+        <p>
+            </p><table id="table1-1" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 226px;">
+                        Value</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 226px; height: 50px;">
+                    D3DSWAPEFFECT_DISCARD</td>
+                    <td>
+                        This type of swap chain is used
+                to get the best speed possible.&nbsp; However, if you later want to look at the previous
+                back buffer (which can be useful for various effects), you cannot guarantee the
+                image will still be intact.</td>
+                </tr>
+                <tr>
+                    <td style="width: 226px; height: 50px;">
+                        D3DSWAPEFFECT_FLIP</td>
+                    <td>
+                        This type is similar to discarding, but is
+                reasonably slower, because it has to take the time to ensure your previous back
+                buffer(s) are protected and unchanged.</td>
+                </tr>
+                <tr>
+                    <td style="width: 226px; height: 50px;">
+                        D3DSWAPEFFECT_COPY</td>
+                    <td>
+                        This last type is
+                the one I least recommend.&nbsp; Instead of switching pointers like the other two,
+                this method copies the image, pixel by pixel, from the back buffer to the front
+                buffer.&nbsp; This is not prefered, although required for some advanced techniques.</td>
+                </tr>
+                <tr>
+                    <td style="width: 226px;">
+                        [<a class="mainlink" href="#still" onclick="Toggle('table1-1')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+                <p>
+                So which one to use?&nbsp; Throughout this tutorial I will be using D3DSWAPEFFECT_DISCARD.&nbsp;
+                The only exception to this will be at some later date when I add additional tutorials
+                on various effects that use the other two methods.</p>
+            <p class="subheader">
+                d3dpp.hDeviceWindow = hWnd;</p>
+            <p>
+                This value sets the handle to the window Direct3D should use.&nbsp; We'll just use
+                the same hWnd we've always been using.</p>
+            <p class="subheader">
+                d3d-&gt;CreateDevice()</p>
+            <p>
+                This is a big function, but in actual fact, it is quite simple.&nbsp; Most of the
+                parameters will probably stay the same in every game you write.</p>
+            <p>
+                What this function does is create a graphics device interface.&nbsp; What this means
+                is a new class will be created from which you will handle all the graphics you need.&nbsp;
+                Notice that this function is part of the d3d class.&nbsp; Most of the functions
+                you use in Direct3D will come from here, so we give the pointer a rather simple
+                name, d3ddev, as seen before.</p>
+            <p>
+                Here is this function's prototype:</p>
+            <div class="codebox">
+                HRESULT CreateDevice(<br>
+                &nbsp; &nbsp; UINT Adapter,<br>
+                &nbsp; &nbsp; D3DDEVTYPE DeviceType,<br>
+                &nbsp; &nbsp; HWND hFocusWindow,<br>
+                &nbsp; &nbsp; DWORD BehaviorFlags,<br>
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS *pPresentationParameters,<br>
+                &nbsp; &nbsp; IDirect3DDevice9 **ppReturnedDeviceInterface);</div>
+            <p>
+                Now let's go into the parameters of this function.&nbsp; They are all simple, so
+                this will go fast.</p>
+            <p class="subheader">
+                UINT Adapter,</p>
+            <p>
+                This is an unsigned integer that stores a value indicating what graphics adapter,
+                or video card, Direct3D should use.&nbsp; We could get detailed here, and try to
+                find the better graphics card, but we'll let Direct3D take care of that for us (because
+                in most cases there's only one).&nbsp; To tell Direct3D that it needs to decide,
+                we put into this parameter the value D3DADAPTER_DEFAULT, indicating the default
+                graphics card.</p>
+            <p class="subheader">
+                D3DDEVTYPE DeviceType,</p>
+            <p>
+                While there are four possible values for this parameter, we are only going to be
+                concerned with one of them, and stay away from the others until later.&nbsp; The
+                one we will use is D3DDEVTYPE_HAL.</p>
+            <p>
+                D3DDEVTYPE_HAL tells Direct3D to use what is called the Hardware Abstraction Layer.&nbsp;
+                The Hardware Abstraction Layer, or HAL, is used to indicate that Direct3D should
+                be using hardware to process graphics (and we would use...what else?).&nbsp; If
+                for some reason our graphics device cannot use hardware to handle something, that
+                something will be rendered by software instead.&nbsp; This is done automatically,
+                but probably won't be done, considering the capabilities of modern cards.</p>
+            <p class="subheader">
+                HWND hFocusWindow,</p>
+            <p>
+                This is the handle to our window.&nbsp; We can just put 'hWnd' in here as we passed
+                the value from WinMain().</p>
+            <p class="subheader">
+                DWORD BehaviorFlags,</p>
+            <p>
+                While there are plenty of values we can store in this parameter, there are only
+                three we will cover just now.&nbsp; They are D3DCREATE_SOFTWARE_VERTEXPROCESSING,
+                D3DCREATE_MIXED_VERTEXPROCESSING and D3DCREATE_HARDWARE_VERTEXPROCESSING.&nbsp;
+                These three values are fairly self-explanatory.&nbsp; The software one indicates
+                that all 3D calculations should be done with software, the hardware one with hardware,
+                and the mixed one using a combination of both, depending on which Direct3D sees
+                fit.&nbsp; We will use the software value for compatibility, but you can experiment
+                with these as you desire.&nbsp; At first you will notice no difference, but as we
+                move into advanced topics, you may start to see some differences appear.</p>
+            <p class="subheader">
+                D3DPRESENT_PARAMETERS *pPresentationParameters,</p>
+            <p>
+                This is a pointer to the d3dpp struct that we filled out earlier.&nbsp; We just
+                fill this with '&amp;d3dpp'.</p>
+            <p class="subheader">
+                IDirect3DDevice9 **ppReturnedDeviceInterface</p>
+            <p>
+                This is a pointer to a pointer to the graphics device interface (if you can understand
+                that).&nbsp; Earlier in the program we defined this pointer as d3ddev, so we will
+                put '&amp;d3ddev' in this parameter.</p>
+            <p>
+                And that's it!&nbsp; You have an entire function using Direct3D.&nbsp; However,
+                if you run this program (and you should not), you will find that absolutely nothing
+                different occurs.&nbsp; All we have done at this point is prepare for action.&nbsp;
+                Now let's have some action!</p>
+            <hr>
+            <p class="subheader">
+                3.&nbsp; Create a function to render a frame</p>
+            <p>
+                In this function we will render a single frame.&nbsp; The frame will be rather simple,
+                and will consist of a blue background.&nbsp; Of course, you can change the color
+                if you want.&nbsp; Here is the code for this function.</p>
+            <div class="codebox">
+                // this is the function used to render a single frame<br>
+                void render_frame(void)<br>
+                {<br>
+                &nbsp; &nbsp; // clear the window to a deep blue<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 40, 100),
+                1.0f, 0);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;BeginScene(); &nbsp;&nbsp; // begins the 3D scene<br>
+                <br>
+                &nbsp; &nbsp; // do 3D rendering on the back buffer here<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;EndScene(); &nbsp;&nbsp; // ends the 3D scene<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL); &nbsp;&nbsp; // displays
+                the created frame<br>
+                }</div>
+            <p>
+                There are four functions to rendering a frame, two of them big (but simple) and
+                two of them small.&nbsp; We'll go over them here.</p>
+            <p class="subheader">
+                d3ddev-&gt;Clear()</p>
+            <p>
+                This clears a buffer to a specific color.&nbsp; In this case, we are going to clear
+                our back buffer.&nbsp; It's pretty simple.</p>
+            <p>
+    Because most of the parameters are irrelevant at this point, we will leave most
+                of them alone.&nbsp; The first two have to do with clearing a specific area.&nbsp;
+                You will rarely need this, but will just leave them at 0 and NULL, indicating the
+                entire back buffer is to be cleared.&nbsp; The third parameter, set to D3DCLEAR_TARGET,
+                indicates that we should clear the back buffer.&nbsp; There are other types of buffers,
+                but we want this type.&nbsp; Next we have color.&nbsp; The parameter is the struct
+                D3DCOLOR, and we will use the function D3DCOLOR_XRGB() to build the color.&nbsp;
+                The next two parameters we will get into in later lessons.&nbsp; For now, just set
+                them to '1.0f' and 0.</p>
+            <p class="subheader">
+                d3ddev-&gt;BeginScene()</p>
+            <p>
+                Next we call the function BeginScene() which tells Direct3D you are ready to start
+                rendering.&nbsp; This function needs to be called for two reasons.&nbsp; First,
+                you need to tell Direct3D that you are in control of the memory.&nbsp; Second, this
+                function does something called locking, where the buffer in the video RAM is 'locked',
+                granting you exclusive access to this memory.&nbsp; There is no guarantee that your
+                memory will stay put and not be moved around while you are trying to work on it.&nbsp;
+                Having your memory suddenly appear somewhere else can be quite a hassle for sure.</p>
+            <p class="subheader">
+                d3ddev-&gt;EndScene()</p>
+            <p>
+                Next we call the function EndScene().&nbsp; While BeginScene() locked the video
+                memory we wanted, EndScene() unlocks it, making it available by other processes
+                that need access to it.</p>
+            <p>
+                Note:&nbsp; Locking video RAM is slow, but required.&nbsp; You should call BeginScene()
+                and EndScene() only once per frame to save your valuable CPU ticks.</p>
+            <p class="subheader">
+                d3ddev-&gt;Present()</p>
+            <p>
+                And finally we call the Present() function.&nbsp; The four parameters, all set to
+                NULL, are not going to be used in this tutorial.&nbsp; Three of them have to do
+                with the slowest method of handling the swap chain (which we don't use) and the
+                other one has to do with presenting to a different window (which we won't need and
+                won't go into).</p>
+            <hr>
+            <p class="subheader">
+                4. &nbsp;Create a function to close Direct3D</p>
+            <p>
+                This is the last (and easiest) step to creating a Direct3D program.&nbsp; We just
+                have two steps here:</p>
+            <div class="codebox">
+                // this is the function that cleans up Direct3D and COM<br>
+                void cleanD3D(void)<br>
+                {<br>
+                &nbsp; &nbsp; d3ddev-&gt;Release(); &nbsp;&nbsp; // close and release the 3D device<br>
+                &nbsp; &nbsp; d3d-&gt;Release(); &nbsp;&nbsp; // close and release Direct3D<br>
+                }</div>
+            <p>
+                Here, we call the Release() function from each of the two interfaces we created,
+                d3ddev and d3d.&nbsp; No parameters, nothing spectacular.&nbsp; Just cleans everything
+                up.</p>
+            <p>
+                Why?&nbsp; Well, let's say it would be a bad thing to do otherwise. &nbsp;Basically,
+                if you create Direct3D, but never close it, it will just keep on
+                            running in the
+                background of the computer until your next reboot, even after the program itself
+                closes.&nbsp; Bad.&nbsp; Especially bad if you have a lot of resources in your game.&nbsp;
+                Releasing these two interfaces let's everything off the hook and allows Windows
+                to take back it's memory.</p>
+
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+            The Finished Program</div>
+        <div class="maintext" style="position: relative;">
+            <p>
+                Wow!&nbsp; That was quite a start, but it will go down from here.</p>
+            <p>
+                Let's take a look at what we just did.&nbsp; Following is the code we added
+                to our program.&nbsp; The new parts are now in <strong>bold</strong>.</p>
+
+            [<a href="#still" onclick="Toggle('lessonprog')" class="mainlink">Show Code</a>]<br>
+            <br>
+
+            <div class="codebox" id="lessonprog" style="display: none;">
+                // include the basic windows header files<strong> and the Direct3D header file</strong><br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                <strong>#include &lt;d3d9.h&gt;</strong><br>
+                <br>
+                <strong>// include the Direct3D Library file<br>
+                    #pragma comment (lib, "d3d9.lib")</strong><br>
+                <br>
+                <strong>// global declarations<br>
+                    LPDIRECT3D9 d3d; &nbsp;&nbsp; // the pointer to our Direct3D interface<br>
+                    LPDIRECT3DDEVICE9 d3ddev; &nbsp;&nbsp; // the pointer to the device class</strong><br>
+                <br>
+                <strong>// function prototypes<br>
+                    void initD3D(HWND hWnd); &nbsp;&nbsp; // sets up and initializes Direct3D<br>
+                    void render_frame(void); &nbsp;&nbsp; // renders a single frame<br>
+                    void cleanD3D(void); &nbsp;&nbsp; // closes Direct3D and releases memory</strong><br>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);<br>
+                <br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+                {<br>
+                &nbsp; &nbsp; HWND hWnd;<br>
+                &nbsp; &nbsp; WNDCLASSEX wc;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+                <br>
+                &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+                &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+                &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+                &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+                &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+                &nbsp; &nbsp; wc.hbrBackground = (HBRUSH)COLOR_WINDOW;<br>
+                &nbsp; &nbsp; wc.lpszClassName = L"WindowClass";<br>
+                <br>
+                &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+                <br>
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; L"WindowClass",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; <strong>L"Our First Direct3D Program",</strong><br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; WS_OVERLAPPEDWINDOW,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; 300, 300,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; <strong>800, 600,</strong><br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+                <br>
+                &nbsp; &nbsp; // set up and initialize Direct3D<br>
+                &nbsp; &nbsp; <strong>initD3D(hWnd);</strong><br>
+                <br>
+                &nbsp; &nbsp; // enter the main loop:<br>
+                <br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; while(TRUE)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <strong>render_frame();</strong><br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; // clean up DirectX and COM<br>
+                &nbsp; &nbsp; <strong>cleanD3D();</strong><br>
+                <br>
+                &nbsp; &nbsp; return msg.wParam;<br>
+                }<br>
+                <br>
+                <br>
+                // this is the main message handler for the program<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+                {<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+                }<br>
+                <br>
+                <br>
+                <strong>// this function initializes and prepares Direct3D for use<br>
+                    void initD3D(HWND hWnd)<br>
+                    {<br>
+                    &nbsp; &nbsp; d3d = Direct3DCreate9(D3D_SDK_VERSION); &nbsp; &nbsp;// create the Direct3D interface<br>
+                    <br>
+                    &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp; &nbsp; &nbsp;// create a struct to hold various device
+                    information<br>
+                    <br>
+                    &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp)); &nbsp; &nbsp;// clear out the struct for
+                    use<br>
+                    &nbsp; &nbsp; d3dpp.Windowed = TRUE; &nbsp; &nbsp;// program windowed, not fullscreen<br>
+                    &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD; &nbsp; &nbsp;// discard old frames<br>
+                    &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd; &nbsp; &nbsp;// set the window to be used by Direct3D<br>
+                </strong>
+                <br>
+                    <br>
+                <strong>
+                    &nbsp; &nbsp; // create a device class using this information and the info from
+                    the d3dpp stuct<br>
+                    &nbsp; &nbsp; d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D3DDEVTYPE_HAL,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hWnd,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; D3DCREATE_SOFTWARE_VERTEXPROCESSING,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3dpp,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3ddev);<br>
+                    }</strong><br>
+                <br>
+                <br>
+                <strong>// this is the function used to render a single frame<br>
+                    void render_frame(void)<br>
+                    {<br>
+                    &nbsp; &nbsp; // clear the window to a deep blue<br>
+                    &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 40, 100),
+                    1.0f, 0);<br>
+                    <br>
+                    &nbsp; &nbsp; d3ddev-&gt;BeginScene(); &nbsp; &nbsp;// begins the 3D scene<br>
+                    <br>
+                    &nbsp; &nbsp; // do 3D rendering on the back buffer here<br>
+                    <br>
+                    &nbsp; &nbsp; d3ddev-&gt;EndScene(); &nbsp; &nbsp;// ends the 3D scene<br>
+                    <br>
+                    &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL); &nbsp; // displays the created
+                    frame on the screen<br>
+                    }</strong><br>
+                <br>
+                <br>
+                <strong>// this is the function that cleans up Direct3D and COM<br>
+                    void cleanD3D(void)<br>
+                    {<br>
+                    &nbsp; &nbsp; d3ddev-&gt;Release(); &nbsp;&nbsp; // close and release the 3D device<br>
+                    &nbsp; &nbsp; d3d-&gt;Release(); &nbsp;&nbsp; // close and release Direct3D<br>
+                    }</strong></div>
+            <p>
+                And that's it!&nbsp; If you run this program you should get something like this:</p>
+            <center>
+                <img alt="Image 1.3 - Our First Direct3D Program" src="dx9B1.aspx_files/dx9B1-3.PNG">&nbsp;<br><br>
+                Image 1.3 - Our First Direct3D Program
+            </center>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+            Summary</div>
+        <div class="maintext" style="position: relative;">
+            <p>
+                Well, it isn't much yet.&nbsp; But you have begun the journey into the near-inifinite
+                depths of 3D game programming.&nbsp; You've created a window and gotten DirectX
+                to put an image (albeit a somewhat dull image) into it.</p>
+            <p>
+                As an exercise, see if you can get your program to change colors while running.&nbsp;
+                Try to make it fade from blue to black, then to blue again, and repeat.</p>
+            <p>
+                So we haven't got a game running yet, but we have enough concepts to start.&nbsp;
+                So with that, let's dive right in and start your next step (which is rather short,
+                btw)!</p>
+            <center>
+                <p>
+                    Next Lesson:&nbsp; Going Fullscreen</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B2.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Would you have written this better?  Give your <a class="feedlink" href="javascript:RunFeedback(21)">feedback</a>.</p>
+            </center>
+            
+        </div>
+
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B1.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

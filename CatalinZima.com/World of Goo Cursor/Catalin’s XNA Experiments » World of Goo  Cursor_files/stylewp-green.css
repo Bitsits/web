@@ -1,0 +1,22 @@
+﻿body { background: #2e4323; }
+
+a { color: #39701e; }
+
+#wrapper { background: #506d42 url(images/bg-wrapper.gif) no-repeat; }
+
+#narrowcolumn-wrapper {	background: url(images/narrowcolumn-bottom.jpg) no-repeat left bottom; }
+
+#menu ul li { background: url(images/tab-right.gif) no-repeat right top; }
+#menu ul li a { background: url(images/tab-left.gif) no-repeat; }
+#menu ul li:hover { background: url(images/tab-right-hover.gif) no-repeat right top; }
+#menu ul li a:hover { background: url(images/tab-left-hover.gif) no-repeat; }
+#menu ul li.current_page_item { background: url(images/tab-right-hover.gif) no-repeat right top; }
+#menu ul li.current_page_item a { background: url(images/tab-left-hover.gif) no-repeat; }
+
+#header { background: url(images/header.jpg) no-repeat; }
+
+#sidebar { background: #506d42; }
+
+.Search input.keyword { background: url(./images/search.gif) no-repeat; } 
+
+#footer { background: #506d42 url(images/footer.gif) no-repeat left bottom; }

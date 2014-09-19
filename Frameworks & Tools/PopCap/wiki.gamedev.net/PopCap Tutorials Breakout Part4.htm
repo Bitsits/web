@@ -1,0 +1,1107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="generator" content="MediaWiki 1.13.1">
+		<meta name="keywords" content="PopCap:Tutorials:Breakout:Part4,PopCap:Tutorials:Breakout:Part1,PopCap:Tutorials:Breakout:Part2,PopCap:Tutorials:Breakout:Part3,PopCap:Tutorials:Breakout:Part5">
+		<link rel="shortcut icon" href="http://wiki.gamedev.net/favicon.ico">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.gamedev.net/opensearch_desc.php" title="GDWiki (en)">
+		<link title="Creative Commons" type="application/rdf+xml" href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=creativecommons" rel="meta">
+		<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html">
+		<link rel="alternate" type="application/rss+xml" title="GDWiki RSS Feed" href="http://wiki.gamedev.net/index.php?title=Special:RecentChanges&amp;feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="GDWiki Atom Feed" href="http://wiki.gamedev.net/index.php?title=Special:RecentChanges&amp;feed=atom">
+		<title>PopCap:Tutorials:Breakout:Part4 - GDWiki</title>
+		<style type="text/css" media="screen, projection">/*<![CDATA[*/
+			@import "/skins/common/shared.css?164";
+			@import "/skins/monobook/main.css?164";
+		/*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="PopCap%20Tutorials%20Breakout%20Part4_files/commonPrint.css">
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/skins/monobook/IE50Fixes.css?164";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/skins/monobook/IE55Fixes.css?164";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/skins/monobook/IE60Fixes.css?164";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/skins/monobook/IE70Fixes.css?164";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?164"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		<script type="text/javascript">/*<![CDATA[*/
+var skin = "monobook";
+var stylepath = "/skins";
+var wgArticlePath = "/index.php/$1";
+var wgScriptPath = "";
+var wgScript = "/index.php";
+var wgVariantArticlePath = false;
+var wgActionPaths = [];
+var wgServer = "http://wiki.gamedev.net";
+var wgCanonicalNamespace = "";
+var wgCanonicalSpecialPageName = false;
+var wgNamespaceNumber = 0;
+var wgPageName = "PopCap:Tutorials:Breakout:Part4";
+var wgTitle = "PopCap:Tutorials:Breakout:Part4";
+var wgAction = "view";
+var wgArticleId = "5857";
+var wgIsArticle = true;
+var wgUserName = null;
+var wgUserGroups = null;
+var wgUserLanguage = "en";
+var wgContentLanguage = "en";
+var wgBreakFrames = false;
+var wgCurRevisionId = "26133";
+var wgVersion = "1.13.1";
+var wgEnableAPI = true;
+var wgEnableWriteAPI = false;
+var wgRestrictionEdit = [];
+var wgRestrictionMove = [];
+/*]]>*/</script>
+                
+		<script type="text/javascript" src="PopCap%20Tutorials%20Breakout%20Part4_files/wikibits.js"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="PopCap%20Tutorials%20Breakout%20Part4_files/ajax.js"></script>
+		<script type="text/javascript" src="PopCap%20Tutorials%20Breakout%20Part4_files/index.php"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Common.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=MediaWiki:Monobook.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+@import "/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+	</head><body class="mediawiki ns-0 ltr page-PopCap_Tutorials_Breakout_Part4">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">PopCap:Tutorials:Breakout:Part4</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From GDWiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#The_ball_class"><span class="tocnumber">2</span> <span class="toctext">The ball class</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_first_problem"><span class="tocnumber">2.1</span> <span class="toctext">The first problem</span></a></li>
+<li class="toclevel-2"><a href="#Ball_header"><span class="tocnumber">2.2</span> <span class="toctext">Ball header</span></a></li>
+<li class="toclevel-2"><a href="#Ball_source"><span class="tocnumber">2.3</span> <span class="toctext">Ball source</span></a></li>
+<li class="toclevel-2"><a href="#A_small_fix"><span class="tocnumber">2.4</span> <span class="toctext">A small fix</span></a></li>
+<li class="toclevel-2"><a href="#Implementing_the_Ball"><span class="tocnumber">2.5</span> <span class="toctext">Implementing the Ball</span></a></li>
+<li class="toclevel-2"><a href="#Collision_detection"><span class="tocnumber">2.6</span> <span class="toctext">Collision detection</span></a></li>
+<li class="toclevel-2"><a href="#Implementing_pixel_perfect_collision_detection"><span class="tocnumber">2.7</span> <span class="toctext">Implementing pixel perfect collision detection</span></a></li>
+<li class="toclevel-2"><a href="#A_better_bounce"><span class="tocnumber">2.8</span> <span class="toctext">A better bounce</span></a></li>
+<li class="toclevel-2"><a href="#Cleaning_up"><span class="tocnumber">2.9</span> <span class="toctext">Cleaning up</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Adding_a_paddle"><span class="tocnumber">3</span> <span class="toctext">Adding a paddle</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Test_the_game"><span class="tocnumber">3.1</span> <span class="toctext">Test the game</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#What_we_have_done_in_this_tutorial"><span class="tocnumber">4</span> <span class="toctext">What we have done in this tutorial</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Until_next_time.E2.80.A6"><span class="tocnumber">4.1</span> <span class="toctext">Until next time…</span></a></li>
+<li class="toclevel-2"><a href="#Legal_Stuff"><span class="tocnumber">4.2</span> <span class="toctext">Legal Stuff</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Introduction"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=1" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline">Introduction</span></h2>
+<p>Welcome to part 4 in my PopCap game development tutorial series. 
+</p><p>If you haven’t read the first 3 tutorials then they can be found here:
+</p><p><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part1" title="PopCap:Tutorials:Breakout:Part1">Part 1</a>
+</p><p><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part2" title="PopCap:Tutorials:Breakout:Part2">Part 2</a>
+</p><p><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part3" title="PopCap:Tutorials:Breakout:Part3">Part 3</a>
+</p><p>In the last tutorial we created a sprite class and started to 
+learn some things about movement. In this tutorial we are going to 
+create a <b>Ball</b> class and learn how to do sprite collisions. We are also going to create a paddle that is controllable by the mouse.
+</p>
+<a name="The_ball_class"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=2" title="Edit section: The ball class">edit</a>]</span> <span class="mw-headline">The ball class</span></h2>
+<p>Sometimes in game development you will encounter situations where you
+ need to allow for multiple instances of a particular object. In this 
+case we may eventually want to have more than one ball bouncing around 
+the screen if we get a special power-up or something.
+</p><p>If we didn’t make a ball class then in this case we would have to
+ add the same code over and over again for each ball instance and then 
+this becomes a pain to manage, especially if the balls have to be 
+created at runtime. 
+</p><p>Now we want our ball to have the same methods as the sprite class, so we can have the ball object inherit from it.
+</p>
+<a name="The_first_problem"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=3" title="Edit section: The first problem">edit</a>]</span> <span class="mw-headline">The first problem</span></h3>
+<p>Open up your solution and go to <b>Sprite.h</b>. 
+</p><p>Notice how for the variables that we didn’t want public we used the keyword <b>private</b>.
+ Well we want our ball class to be able to use fields and methods that 
+are private to this class, however we still want our class to be 
+protected from the user calling these methods.
+</p><p>The answer is to use the <b>protected</b> keyword instead. So I the <b>Sprite.h</b> header replace <b>private</b> with <b>protected</b>
+</p><p>When you are done your code should look like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">protected</span><span style="color: rgb(0, 128, 128);">:</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> mX,mY,mVX,mVY,mSpeed<span style="color: rgb(0, 128, 128);">;</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span>mImg<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now in this same header locate the line of code that reads:
+</p>
+<pre class="cpp" style="font-family: monospace;">Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">DDImage</span><span style="color: rgb(0, 0, 64);">*</span> GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>After this line add:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">bool</span> CheckPixel<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> px, <span style="color: rgb(0, 0, 255);">int</span> py<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>This is a method that will be used with the <b>CheckOverlap</b> method. The reason that we don’t make this method private is that we need to call it on a passed sprite as well.
+</p>
+<a name="Ball_header"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=4" title="Edit section: Ball header">edit</a>]</span> <span class="mw-headline">Ball header</span></h3>
+<p>Later on in this tutorial we are going to implement Sprite 
+collisions, but for right now we are going to add a new header called <b>Ball.h</b>
+</p><p>We start with the typical header stuff:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#ifndef __BALL_H__ </span>
+<span style="color: rgb(51, 153, 0);">#define __BALL_H__ </span>
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#endif</span></pre>
+<p>Now we want to make a class that inherits from our sprite class, so 
+we need to include our sprite header in the Ball header. We will also be
+ using PopCap’s rectangle class in our Ball class, so we will need to 
+include that header as well. 
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "Sprite.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Rect.h"</span></pre>
+<p>Now we put our Breakout namespace:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+&nbsp;
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now let’s prototype our entire Ball class:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">class</span> Ball <span style="color: rgb(0, 128, 128);">:</span> <span style="color: rgb(0, 0, 255);">public</span> Sprite 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">private</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> mBoundry<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">public</span><span style="color: rgb(0, 128, 128);">:</span> 
+        Ball<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,<span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY,<span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        ~Ball<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">void</span> SetBoundry<span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> <span style="color: rgb(0, 0, 64);">&amp;</span>pBoundry<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> GetBoundry<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">void</span> Bounce<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">private</span><span style="color: rgb(0, 128, 128);">:</span> 
+        <span style="color: rgb(0, 0, 255);">void</span> CheckBoundry<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>We use <b>class Ball&nbsp;: public Sprite</b> because our ball class inherits from our sprite class. 
+</p><p>Our mBoundry field will store the window boundries. While we 
+could have just provided the width and the height of the window, this 
+will make our code more flexible. 
+</p><p>Right now the Ball constructor has the same parameters as our 
+Sprite constructor but it doesn’t have to have the same parmeters. We 
+could add new parameters or have less parameters if we wanted.
+</p><p>The SetBoundry and GetBoundry method allow us to set the boundries for our ball.
+</p><p>The Bounce method is a special method that will allow us to react to collisions between other moving objects. 
+</p><p>The Update method is from the Sprite class. In our sprite class 
+we also allowed the Draw method to be changed by a child class, however 
+we don’t need to change the draw method for our ball class.
+</p><p>Finally the CheckBoundry method is a private method because we 
+only need to call it in our Update method and the user should never need
+ to call this method directly.
+</p>
+<a name="Ball_source"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=5" title="Edit section: Ball source">edit</a>]</span> <span class="mw-headline">Ball source</span></h3>
+<p>Now it is time to add the <b>Ball.cpp</b> source file.
+</p><p>We start by adding the ball header include, graphic and image includes, and tell it to use the breakout namespace like so:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "Ball.h" </span>
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Graphics.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h" </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">using</span> <span style="color: rgb(0, 0, 255);">namespace</span> Breakout<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now for the Ball constructor and deconstructor:
+</p>
+<pre class="cpp" style="font-family: monospace;">Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,<span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY,<span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">:</span>Sprite<span style="color: rgb(0, 128, 0);">(</span>pX,pY,pVX,pVY,pSpeed<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mBoundry<span style="color: rgb(0, 0, 128);">=</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+Ball<span style="color: rgb(0, 128, 128);">::</span>~Ball<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>The Ball constructor calls the Sprite constructor. If you are 
+unfamiliar with this concept them it would be a good idea to read up on 
+class inheritance. 
+</p><p>We define our mBoundry field to a blank rectangle because it is a
+ good idea to initialize all variables before use to prevent them from 
+containing junk data.
+</p><p>The next two methods are the SetBoundry and GetBoundry methods and they are fairly simple:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetBoundry</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> <span style="color: rgb(0, 0, 64);">&amp;</span>pBoundry<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mBoundry<span style="color: rgb(0, 0, 128);">=</span>pBoundry<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetBoundry</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mBoundry<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>The SetBoundry method takes the passed rectangle and stores it in our
+ mBoundry field, and the GetBoundry method returns our mBoundry field.
+</p><p>Now here is the CheckBoundry method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">CheckBoundry</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+ <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mImg<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//make sure image set </span>
+ <span style="color: rgb(0, 128, 0);">{</span> 
+     <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mX<span style="color: rgb(0, 0, 64);">+</span>mVX<span style="color: rgb(0, 0, 128);">&lt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check left </span>
+     <span style="color: rgb(0, 128, 0);">{</span> 
+         mVX<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mVX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move right </span>
+         mX<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 0, 64);">-</span>mVX<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Reposition X inside boundry </span>
+     <span style="color: rgb(0, 128, 0);">}</span>  
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mX<span style="color: rgb(0, 0, 64);">+</span>mVX<span style="color: rgb(0, 0, 64);">+</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mWidth</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check right </span>
+    <span style="color: rgb(0, 128, 0);">{</span> 
+         mVX<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mVX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move left </span>
+         mX<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mWidth</span><span style="color: rgb(0, 0, 64);">-</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span>mVX<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Reposition X inside boundry </span>
+    <span style="color: rgb(0, 128, 0);">}</span>  
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mY<span style="color: rgb(0, 0, 64);">+</span>mVY<span style="color: rgb(0, 0, 128);">&lt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check top </span>
+    <span style="color: rgb(0, 128, 0);">{</span> 
+         mVY<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move down </span>
+         mY<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 0, 64);">-</span>mVY<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//reposition Y inside boundry </span>
+    <span style="color: rgb(0, 128, 0);">}</span>  
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mY<span style="color: rgb(0, 0, 64);">+</span>mVY<span style="color: rgb(0, 0, 64);">+</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mHeight</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check bottom </span>
+    <span style="color: rgb(0, 128, 0);">{</span> 
+         mVY<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move up </span>
+         mY<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mHeight</span><span style="color: rgb(0, 0, 64);">-</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span>mVY<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//reposition y inside boundry </span>
+    <span style="color: rgb(0, 128, 0);">}</span> 
+ <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>It is a lot of code but hopefully the comments will clear up what we 
+are doing. We basically check every bound and if the object has left it 
+then we reposition the ball and reverse the appropriate directional 
+fields. 
+</p><p>Now we can add the Bounce method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Bounce</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mVX<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mVY<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>The Bounce method for now simply reverses the X and Y directional 
+fields. Later we will change this to take into account the passed 
+directional parameters.
+</p><p>Finally we add the Update method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    CheckBoundry<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Here is the complete code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "Ball.h" </span>
+&nbsp;
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Graphics.h" </span>
+<span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h" </span>
+&nbsp;
+<span style="color: rgb(0, 0, 255);">using</span> <span style="color: rgb(0, 0, 255);">namespace</span> Breakout<span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pX,<span style="color: rgb(0, 0, 255);">float</span> pY,<span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY,<span style="color: rgb(0, 0, 255);">float</span> pSpeed<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">:</span>Sprite<span style="color: rgb(0, 128, 0);">(</span>pX,pY,pVX,pVY,pSpeed<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mBoundry<span style="color: rgb(0, 0, 128);">=</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+Ball<span style="color: rgb(0, 128, 128);">::</span>~Ball<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">SetBoundry</span><span style="color: rgb(0, 128, 0);">(</span>Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> <span style="color: rgb(0, 0, 64);">&amp;</span>pBoundry<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mBoundry<span style="color: rgb(0, 0, 128);">=</span>pBoundry<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">GetBoundry</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> mBoundry<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">CheckBoundry</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+ <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mImg<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//make sure image set </span>
+ <span style="color: rgb(0, 128, 0);">{</span> 
+     <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mX<span style="color: rgb(0, 0, 64);">+</span>mVX<span style="color: rgb(0, 0, 128);">&lt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check left </span>
+     <span style="color: rgb(0, 128, 0);">{</span> 
+         mVX<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mVX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move right </span>
+         mX<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 0, 64);">-</span>mVX<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Reposition X inside boundry </span>
+     <span style="color: rgb(0, 128, 0);">}</span>  
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mX<span style="color: rgb(0, 0, 64);">+</span>mVX<span style="color: rgb(0, 0, 64);">+</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mWidth</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check right </span>
+    <span style="color: rgb(0, 128, 0);">{</span> 
+         mVX<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mVX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move left </span>
+         mX<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mWidth</span><span style="color: rgb(0, 0, 64);">-</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span>mVX<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Reposition X inside boundry </span>
+    <span style="color: rgb(0, 128, 0);">}</span>  
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mY<span style="color: rgb(0, 0, 64);">+</span>mVY<span style="color: rgb(0, 0, 128);">&lt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check top </span>
+    <span style="color: rgb(0, 128, 0);">{</span> 
+         mVY<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move down </span>
+         mY<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 0, 64);">-</span>mVY<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//reposition Y inside boundry </span>
+    <span style="color: rgb(0, 128, 0);">}</span>  
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mY<span style="color: rgb(0, 0, 64);">+</span>mVY<span style="color: rgb(0, 0, 64);">+</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mHeight</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check bottom </span>
+    <span style="color: rgb(0, 128, 0);">{</span> 
+         mVY<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move up </span>
+         mY<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mHeight</span><span style="color: rgb(0, 0, 64);">-</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span>mVY<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//reposition y inside boundry </span>
+    <span style="color: rgb(0, 128, 0);">}</span> 
+ <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Bounce</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mVX<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mVY<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+<span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    CheckBoundry<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<a name="A_small_fix"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=6" title="Edit section: A small fix">edit</a>]</span> <span class="mw-headline">A small fix</span></h3>
+<p>When we added the ball graphic we messed up and forgot to delete the ball graphic in the GameApp deconstructor. Open <b>GameApp.cpp</b> and in the GameApp deconstructor add:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 221);">delete</span> mBallImg<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>You should always be on the lookout for places where you don’t clean up resources as these can cause memory leaks.
+</p>
+<a name="Implementing_the_Ball"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=7" title="Edit section: Implementing the Ball">edit</a>]</span> <span class="mw-headline">Implementing the Ball</span></h3>
+<p>Ok now in <b>Board.h</b> locate:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Sprite<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>And after <b>class Sprite</b> add:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">class</span> Ball<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So that you have:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">namespace</span> Breakout 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Sprite<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">class</span> Ball<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now locate:
+</p>
+<pre class="cpp" style="font-family: monospace;">Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Sprite</span><span style="color: rgb(0, 0, 64);">*</span> mBall<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>and change it to:
+</p>
+<pre class="cpp" style="font-family: monospace;">Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 0, 64);">*</span> mBall<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now go to <b>Board.cpp</b>. Locate this line of code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h"</span></pre>
+<p>and add the following:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Rect.h"</span></pre>
+<p>We have to add the Rect header because we want to use rectangles in our Board class. 
+</p><p>We also need to include the Ball header so after:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "Sprite.h"</span></pre>
+<p>Add:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "Ball.h"</span></pre>
+<p>Locate the Board constructor and change the line that initalizes mBall to:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">400</span>,<span style="color: rgb(0, 0, 221);">300</span>,<span style="color: rgb(0, 0, 221);">10</span>,<span style="color: rgb(0, 0, 221);">10</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Locate the code the code:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>theApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBallImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>And after it add:
+</p>
+<pre class="cpp" style="font-family: monospace;">Rect mWinBoundry<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mWidth,mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mHeight<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetBoundry<span style="color: rgb(0, 128, 0);">(</span>mWinBoundry<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now we can remove this code in our Board widgets update method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&lt;</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Leaves left  </span>
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mWidth<span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//leave right  </span>
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&lt;</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//leave up  </span>
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span>  
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mHeight<span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//leave down  </span>
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>This code is no longer needed because we have included it in our Ball class.
+</p><p>At this point we should be able to run the game and see the ball bouncing around on the screen once again.
+</p><p>Press <b>F5</b> to run your game!
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BallMove1.jpg" class="image" title="Image:PopCap_Tutorials_BallMove1.jpg"><img alt="Image:PopCap_Tutorials_BallMove1.jpg" src="PopCap%20Tutorials%20Breakout%20Part4_files/PopCap_Tutorials_BallMove1.jpg" width="800" border="0" height="627"></a>
+</p><p>Let’s add another ball to the mix.
+</p><p>Go to <b>Board.h</b> and locate:
+</p>
+<pre class="cpp" style="font-family: monospace;">Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 0, 64);">*</span> mBall<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Below it add:
+</p>
+<pre class="cpp" style="font-family: monospace;">Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 0, 64);">*</span> mBall2<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now in <b>Board.cpp</b>
+</p><p>Locate:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">400</span>,<span style="color: rgb(0, 0, 221);">300</span>,<span style="color: rgb(0, 0, 221);">10</span>,<span style="color: rgb(0, 0, 221);">10</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>And below it add:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall2<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">100</span>,<span style="color: rgb(0, 0, 221);">100</span>,<span style="color: rgb(0, 0, 221);">1</span>,<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Locate:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>theApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBallImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>And below it add:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>theApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBallImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Then locate:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetBoundry<span style="color: rgb(0, 128, 0);">(</span>mWinBoundry<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>And add:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetBoundry<span style="color: rgb(0, 128, 0);">(</span>mWinBoundry<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>In the Board deconstructor after:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 221);">delete</span> mBall<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Add:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 221);">delete</span> mBall2<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Your Board constructor and deconstructor should now look like this:
+</p>
+<pre class="cpp" style="font-family: monospace;">Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Board</span><span style="color: rgb(0, 128, 0);">(</span>GameApp<span style="color: rgb(0, 0, 64);">*</span> theApp<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mApp <span style="color: rgb(0, 0, 128);">=</span> theApp<span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">400</span>,<span style="color: rgb(0, 0, 221);">300</span>,<span style="color: rgb(0, 0, 221);">10</span>,<span style="color: rgb(0, 0, 221);">10</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall2<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">100</span>,<span style="color: rgb(0, 0, 221);">100</span>,<span style="color: rgb(0, 0, 221);">1</span>,<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>theApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBallImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>theApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBallImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    Rect mWinBoundry<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mWidth,mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mHeight<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetBoundry<span style="color: rgb(0, 128, 0);">(</span>mWinBoundry<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetBoundry<span style="color: rgb(0, 128, 0);">(</span>mWinBoundry<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span> 
+&nbsp;
+Board<span style="color: rgb(0, 128, 128);">::</span>~Board<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBall<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBall2<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>In the Board update method locate:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Add the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Finally in the Board draw method locate:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>And add:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>For now remove the commenting before:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(102, 102, 102);">//g-&gt;FillRect(0, 0, mWidth, mHeight); //Fill screen with current color</span></pre>
+<p>Our Draw method should look like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Draw</span><span style="color: rgb(0, 128, 0);">(</span>Graphics<span style="color: rgb(0, 0, 64);">*</span> g<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetColor<span style="color: rgb(0, 128, 0);">(</span>Color<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Set dark red color </span>
+    g<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>FillRect<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>, <span style="color: rgb(0, 0, 221);">0</span>, mWidth, mHeight<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Fill screen with current color </span>
+    <span style="color: rgb(102, 102, 102);">//draw here </span>
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Test out your application and you will see two balls moving around on the screen!
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BallMove2.jpg" class="image" title="Image:PopCap_Tutorials_BallMove2.jpg"><img alt="Image:PopCap_Tutorials_BallMove2.jpg" src="PopCap%20Tutorials%20Breakout%20Part4_files/PopCap_Tutorials_BallMove2.jpg" width="800" border="0" height="627"></a>
+</p><p>The first ball is moving too fast so change this line in the constructor:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">400</span>,<span style="color: rgb(0, 0, 221);">300</span>,<span style="color: rgb(0, 0, 221);">10</span>,<span style="color: rgb(0, 0, 221);">10</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>To the following:
+</p>
+<pre class="cpp" style="font-family: monospace;">mBall<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">400</span>,<span style="color: rgb(0, 0, 221);">300</span>,<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span>,<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">1</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p><br>
+Now run your application and eventually you will something like this:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BallMove3.jpg" class="image" title="Image:PopCap_Tutorials_BallMove3.jpg"><img alt="Image:PopCap_Tutorials_BallMove3.jpg" src="PopCap%20Tutorials%20Breakout%20Part4_files/PopCap_Tutorials_BallMove3.jpg" width="800" border="0" height="627"></a>
+</p><p>The problem is that we have no code to tell if two ball objects 
+have collided with each other and as a result the two balls simply pass 
+right through one another.
+</p><p>Naturally this isn’t very realistic and so we want to do two things:
+</p><p><b>A) Detect when a collision has occurred between two sprites</b>
+</p><p><b>B) Respond to the collision by making the two sprites move away from one another</b>
+</p><p>The first step is to detect the collision and to do this we are going to implement the <b>CheckOverlap</b> method of our Sprite class.
+</p>
+<a name="Collision_detection"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=8" title="Edit section: Collision detection">edit</a>]</span> <span class="mw-headline">Collision detection</span></h3>
+<p>Collision detection is a very broad subject and there are a number of ways to detect collisions between two objects. 
+</p><p>The first way we can check for collisions is amoung the easiest. 
+</p><p>Imagine that around our sprites we had a box that bounded the sprite perfectly. 
+</p><p>Like this:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BoundBoxes.jpg" class="image" title="Image:PopCap_Tutorials_BoundBoxes.jpg"><img alt="Image:PopCap_Tutorials_BoundBoxes.jpg" src="PopCap%20Tutorials%20Breakout%20Part4_files/PopCap_Tutorials_BoundBoxes.jpg" width="800" border="0" height="627"></a>
+</p><p>Now we can state that if these two rectangles intersect, we have a collision!
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BoundBoxes2.jpg" class="image" title="Image:PopCap_Tutorials_BoundBoxes2.jpg"><img alt="Image:PopCap_Tutorials_BoundBoxes2.jpg" src="PopCap%20Tutorials%20Breakout%20Part4_files/PopCap_Tutorials_BoundBoxes2.jpg" width="800" border="0" height="627"></a>
+</p><p>However as this picture shows, this method has a bit of a problem. This method tends to <b>overdetect</b> a collision. That means that it detects a collision between two objects even if they are not actually touching. 
+</p><p>We want to implement something called <b>Pixel perfect</b> collision detection which means that we will only register a collision if two nontransparent areas of our sprite overlap.
+</p><p>We are in luck however because we can expand our bounding box collision to add pixel perfect collision detection!
+</p><p>The Bounding box check is the first check we do. If the two 
+bounding boxes do not overlap then obviously there can not be a 
+collision. If they do then we need to check the <b>area of overlap</b> to see if two non transparent pixels are overlapping!
+</p><p>This has the advantage of reducing the amount of pixels we have to search to the size of the overlapping area. 
+</p><p>Here is the difference that such a check can make:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BoundBoxes3.jpg" class="image" title="Image:PopCap_Tutorials_BoundBoxes3.jpg"><img alt="Image:PopCap_Tutorials_BoundBoxes3.jpg" src="PopCap%20Tutorials%20Breakout%20Part4_files/PopCap_Tutorials_BoundBoxes3.jpg" width="800" border="0" height="627"></a>
+</p><p>It results in much more accurate detection! 
+</p><p>Now let’s look at how to implement this.
+</p>
+<a name="Implementing_pixel_perfect_collision_detection"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=9" title="Edit section: Implementing pixel perfect collision detection">edit</a>]</span> <span class="mw-headline">Implementing pixel perfect collision detection</span></h3>
+<p>Open Sprite.cpp and after this line of code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h"</span></pre>
+<p>Add this line of code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Rect.h"</span></pre>
+<p>This will allow us to use the Rectangle class inside of our sprite class. 
+</p><p>Now locate the CheckOverlap method.
+</p><p>The first thing we will do is add some error checking to make 
+sure both our sprite and the passed sprite have defined images. This 
+will prevent this method from crashing our game:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mImg<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 0, 64);">&amp;&amp;</span>pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>The step step that we need to do is to construct bounding rectangles for both sprites.
+</p>
+<pre class="cpp" style="font-family: monospace;">Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> Bound1<span style="color: rgb(0, 128, 0);">(</span>mX,mY,mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>,mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> Bound2<span style="color: rgb(0, 128, 0);">(</span>pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>,pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>,pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>,pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>The X and the Y of each sprite becomes the X and Y starting position 
+of the bounding rectangle, and the width and height of each image 
+becomes the width and height of the bounding rectangles.
+</p><p>Now we need to check to see if the two bounding rectangles overlap. The rectangle class has an <b>Intersects</b> method that does just that:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>Bound1.<span style="color: rgb(0, 119, 136);">Intersects</span><span style="color: rgb(0, 128, 0);">(</span>Bound2<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+        <span style="color: rgb(0, 128, 0);">{</span> 
+&nbsp;
+        <span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now we need to get a rectangle that is the intersection area:
+</p>
+<pre class="cpp" style="font-family: monospace;">Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> Result<span style="color: rgb(0, 0, 128);">=</span>Bound1.<span style="color: rgb(0, 119, 136);">Intersection</span><span style="color: rgb(0, 128, 0);">(</span>Bound2<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>We need to loop through this area so we can test each pixel that it contains:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> iy<span style="color: rgb(0, 0, 128);">=</span>Result.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 128);">;</span>iy<span style="color: rgb(0, 0, 128);">&lt;</span>Result.<span style="color: rgb(0, 119, 136);">mHeight</span><span style="color: rgb(0, 0, 64);">+</span>Result.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 128);">;</span>iy<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+            <span style="color: rgb(0, 128, 0);">{</span> 
+                <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> ix<span style="color: rgb(0, 0, 128);">=</span>Result.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 128, 128);">;</span>ix<span style="color: rgb(0, 0, 128);">&lt;</span>Result.<span style="color: rgb(0, 119, 136);">mWidth</span><span style="color: rgb(0, 0, 64);">+</span>Result.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 128, 128);">;</span>ix<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+                <span style="color: rgb(0, 128, 0);">{</span> 
+&nbsp;
+                <span style="color: rgb(0, 128, 0);">}</span> 
+            <span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now we can check each looped pixel and if both sprites have an opaque pixel at that point, then there is a collision!
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>CheckPixel<span style="color: rgb(0, 128, 0);">(</span>ix<span style="color: rgb(0, 0, 64);">-</span>Bound1.<span style="color: rgb(0, 119, 136);">mX</span>,iy<span style="color: rgb(0, 0, 64);">-</span>Bound1.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">&amp;&amp;</span>pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckPixel<span style="color: rgb(0, 128, 0);">(</span>ix<span style="color: rgb(0, 0, 64);">-</span>Bound2.<span style="color: rgb(0, 119, 136);">mX</span>,iy<span style="color: rgb(0, 0, 64);">-</span>Bound2.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+                        <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Wait a minute! What is <b>CheckPixel</b>? Well we will implement that in a second. 
+</p><p>Now right before the bracket that ends our method we want to add:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 255);">false</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>because if the method hasn’t returned by now, then there was no collision.
+</p><p>Here is the complete code to the CheckOverlap method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">bool</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">CheckOverlap</span><span style="color: rgb(0, 128, 0);">(</span>Sprite<span style="color: rgb(0, 0, 64);">*</span> pOtherSprite<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mImg<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 0, 64);">&amp;&amp;</span>pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> Bound1<span style="color: rgb(0, 128, 0);">(</span>mX,mY,mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>,mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> Bound2<span style="color: rgb(0, 128, 0);">(</span>pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>,pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>,pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>,pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>Bound1.<span style="color: rgb(0, 119, 136);">Intersects</span><span style="color: rgb(0, 128, 0);">(</span>Bound2<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+        <span style="color: rgb(0, 128, 0);">{</span> 
+            Sexy<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Rect</span> Result<span style="color: rgb(0, 0, 128);">=</span>Bound1.<span style="color: rgb(0, 119, 136);">Intersection</span><span style="color: rgb(0, 128, 0);">(</span>Bound2<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+            <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> iy<span style="color: rgb(0, 0, 128);">=</span>Result.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 128);">;</span>iy<span style="color: rgb(0, 0, 128);">&lt;</span>Result.<span style="color: rgb(0, 119, 136);">mHeight</span><span style="color: rgb(0, 0, 64);">+</span>Result.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 128);">;</span>iy<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+            <span style="color: rgb(0, 128, 0);">{</span> 
+                <span style="color: rgb(0, 0, 255);">for</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> ix<span style="color: rgb(0, 0, 128);">=</span>Result.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 128, 128);">;</span>ix<span style="color: rgb(0, 0, 128);">&lt;</span>Result.<span style="color: rgb(0, 119, 136);">mWidth</span><span style="color: rgb(0, 0, 64);">+</span>Result.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 128, 128);">;</span>ix<span style="color: rgb(0, 0, 64);">++</span><span style="color: rgb(0, 128, 0);">)</span> 
+                <span style="color: rgb(0, 128, 0);">{</span> 
+                    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>CheckPixel<span style="color: rgb(0, 128, 0);">(</span>ix<span style="color: rgb(0, 0, 64);">-</span>Bound1.<span style="color: rgb(0, 119, 136);">mX</span>,iy<span style="color: rgb(0, 0, 64);">-</span>Bound1.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">&amp;&amp;</span>pOtherSprite<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckPixel<span style="color: rgb(0, 128, 0);">(</span>ix<span style="color: rgb(0, 0, 64);">-</span>Bound2.<span style="color: rgb(0, 119, 136);">mX</span>,iy<span style="color: rgb(0, 0, 64);">-</span>Bound2.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+                        <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 255);">true</span><span style="color: rgb(0, 128, 128);">;</span> 
+                <span style="color: rgb(0, 128, 0);">}</span> 
+            <span style="color: rgb(0, 128, 0);">}</span> 
+        <span style="color: rgb(0, 128, 0);">}</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 255);">false</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now copy and paste this code before the <b>CheckOverlap</b> method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">bool</span> Sprite<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">CheckPixel</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> px,<span style="color: rgb(0, 0, 255);">int</span> py<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    ulong<span style="color: rgb(0, 0, 64);">*</span> PixelData<span style="color: rgb(0, 0, 128);">=</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetBits<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>PixelData<span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        <span style="color: rgb(0, 0, 255);">int</span> mAlphaVal<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">(</span>PixelData<span style="color: rgb(0, 128, 0);">[</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*</span>py<span style="color: rgb(0, 0, 64);">+</span>px<span style="color: rgb(0, 128, 0);">]</span><span style="color: rgb(0, 0, 128);">&gt;&gt;</span><span style="color: rgb(0, 0, 221);">24</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">return</span> mAlphaVal<span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 0, 221);">20</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+    <span style="color: rgb(0, 0, 255);">return</span> <span style="color: rgb(0, 0, 255);">false</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>This gets the bits from an image as a 1D array. We then get a 
+specific pixel by converting the X and Y coordinats into a 1D index 
+using the formula:
+</p><p><b>Pos=Y*Width+X</b>
+</p><p>Say I had a 5x5 grid and I was at 2,3 in the grid. Well because 
+the index is 0 based, there are 3 complete rows before the 3 position 
+and so I have 3*5 cells. Then I add 2 because there are two more cells 
+at this coordinate.
+</p><p>3*5=15+2=17
+</p>
+<table>
+<tbody><tr>
+<td> </td><td> 0 </td><td> 1 </td><td> <b>2</b> </td><td> 3 </td><td> 4
+</td></tr>
+<tr>
+<td> 0 </td><td> 00 </td><td> 01 </td><td> 02 </td><td> 03 </td><td> 04
+</td></tr>
+<tr>
+<td> 1 </td><td> 05 </td><td> 06 </td><td> 07 </td><td> 08 </td><td> 09
+</td></tr>
+<tr>
+<td> 2 </td><td> 10 </td><td> 11 </td><td> 12 </td><td> 13 </td><td> 14
+</td></tr>
+<tr>
+<td> <b>3</b> </td><td> 15 </td><td> 16 </td><td> <b>17</b> </td><td> 18 </td><td> 19
+</td></tr>
+<tr>
+<td> 4 </td><td> 20 </td><td> 21 </td><td> 22 </td><td> 23 </td><td> 24
+</td></tr></tbody></table>
+<p>Hopefully that should clear it up a bit.
+</p><p>Once I get the pixel color I shift it to get the alpha component. 
+</p><p>When I have retrieved the alpha component of the image I test to 
+see if it is greater than 20 (Just a threshold value so that really 
+transparent pixels don’t cause a collision). If so then this pixel was 
+opaque.
+</p><p>The CheckOverlap function checked each image to see if we could 
+find a common opaque pixel in the overlap area. If so then we found an 
+overlap and thus a collision!
+</p><p>Ok so we implemented our CheckOverlap method and now we are ready to check to see if our two balls overlap.
+</p><p>Go to <b>Board.cpp</b> and before the update methods for our ball objects in our Board widgets update method, add this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>mBall2<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>So that the final method looks like this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    Widget<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(102, 102, 102);">//Your update code here! </span>
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>mBall2<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    MarkDirty<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Here we check to see if the Ball sprite is overlapping the Ball2 sprite, and if they are then we bounce both sprites. 
+</p><p>Run the game by pressing <b>F5</b> and you will see the two sprites bounce off of each other when they collide!
+</p>
+<a name="A_better_bounce"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=10" title="Edit section: A better bounce">edit</a>]</span> <span class="mw-headline">A better bounce</span></h3>
+<p>The bounce that we have looks ok when both balls are moving at the 
+same speed, but if you chance the speed of either ball then you will 
+notice that it looks a bit unrealistic. 
+</p><p>We want the speeds to transfer.
+</p><p>Open <b>Ball.cpp</b> and implement this new bounce method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Bounce</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">float</span> pVX,<span style="color: rgb(0, 0, 255);">float</span> pVY<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mVX<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>mVX<span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(128, 0, 128);">0.5</span><span style="color: rgb(0, 0, 64);">+</span>pVX<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mVY<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>mVY<span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(128, 0, 128);">0.5</span><span style="color: rgb(0, 0, 64);">+</span>pVY<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>The factors in this method are completely fudged, so feel free to 
+play around with them until you find values that look the best to you.
+</p><p>What we have done here is sumed half of the current reversed 
+energy plus half of the passed energy. This is like each object imparts 
+half of it’s energy onto the other.
+</p><p>Now in <b>Board.cpp</b> in our Update method change our CheckOverlap code to:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>mBall2<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> tVX<span style="color: rgb(0, 0, 128);">=</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        <span style="color: rgb(0, 0, 255);">float</span> tVY<span style="color: rgb(0, 0, 128);">=</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span>mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVX<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span>,mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        mBall2<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span>tVX,tVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>We store the old VX and VY values for our first ball so that when we 
+change them with the first bounce we can pass the old values to the 
+second ball. This will allow both balls to be affected by the energy of 
+the ball they collided with!
+</p><p>You can decide if you want to have perfectly elastic collisions 
+or if you want to have the balls get slower as they impact each other. I
+ am programming them to lose energy as I view it as more realistic. 
+</p><p>Try out your game by pressing <b>F5</b>. Now when the two balls collide with each other, they become slower!
+</p><p>But wait! There is a problem. It appears that our border checking
+ code doesn’t do well with floating point values. The balls seem to slow
+ down when hitting the boundries. If our speed ever falls close to 0 
+then this will cause our balls to eventually stop.
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BallStop.jpg" class="image" title="Image:PopCap_Tutorials_BallStop.jpg"><img alt="Image:PopCap_Tutorials_BallStop.jpg" src="PopCap%20Tutorials%20Breakout%20Part4_files/PopCap_Tutorials_BallStop.jpg" width="800" border="0" height="627"></a>
+</p><p>To correct this problem we are going to use a floating point version of our absolute value function.
+</p><p>Go to <b>Ball.cpp</b> and after 
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/DDImage.h"</span></pre>
+<p>Add the following include:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include &lt;cmath&gt;</span></pre>
+<p>We now have access to a different absolute value function called <b>fabs</b> which gets the absolute value of a float instead of an integer.
+</p><p>Change your CheckBoundry method to this:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Ball<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">CheckBoundry</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+ <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mImg<span style="color: rgb(0, 0, 64);">!</span><span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 255);">NULL</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//make sure image set </span>
+ <span style="color: rgb(0, 128, 0);">{</span> 
+     <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mX<span style="color: rgb(0, 0, 64);">+</span>mVX<span style="color: rgb(0, 0, 128);">&lt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check left </span>
+     <span style="color: rgb(0, 128, 0);">{</span> 
+         mVX<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">fabs</span><span style="color: rgb(0, 128, 0);">(</span>mVX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move right </span>
+         mX<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 0, 64);">-</span>mVX<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Reposition X inside boundry </span>
+     <span style="color: rgb(0, 128, 0);">}</span>  
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mX<span style="color: rgb(0, 0, 64);">+</span>mVX<span style="color: rgb(0, 0, 64);">+</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mWidth</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check right </span>
+    <span style="color: rgb(0, 128, 0);">{</span> 
+         mVX<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">fabs</span><span style="color: rgb(0, 128, 0);">(</span>mVX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move left </span>
+         mX<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mX</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mWidth</span><span style="color: rgb(0, 0, 64);">-</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span>mVX<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Reposition X inside boundry </span>
+    <span style="color: rgb(0, 128, 0);">}</span>  
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mY<span style="color: rgb(0, 0, 64);">+</span>mVY<span style="color: rgb(0, 0, 128);">&lt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check top </span>
+    <span style="color: rgb(0, 128, 0);">{</span> 
+         mVY<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">fabs</span><span style="color: rgb(0, 128, 0);">(</span>mVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move down </span>
+         mY<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 0, 64);">-</span>mVY<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//reposition Y inside boundry </span>
+    <span style="color: rgb(0, 128, 0);">}</span>  
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mY<span style="color: rgb(0, 0, 64);">+</span>mVY<span style="color: rgb(0, 0, 64);">+</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mHeight</span><span style="color: rgb(0, 128, 0);">)</span> <span style="color: rgb(102, 102, 102);">//Check bottom </span>
+    <span style="color: rgb(0, 128, 0);">{</span> 
+         mVY<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">fabs</span><span style="color: rgb(0, 128, 0);">(</span>mVY<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">*-</span><span style="color: rgb(0, 0, 221);">1</span><span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Move up </span>
+         mY<span style="color: rgb(0, 0, 128);">=</span>mBoundry.<span style="color: rgb(0, 119, 136);">mY</span><span style="color: rgb(0, 0, 64);">+</span>mBoundry.<span style="color: rgb(0, 119, 136);">mHeight</span><span style="color: rgb(0, 0, 64);">-</span>mImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span>mVY<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//reposition y inside boundry </span>
+    <span style="color: rgb(0, 128, 0);">}</span> 
+ <span style="color: rgb(0, 128, 0);">}</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now the ball doesn’t slow down when it touches a wall.
+</p>
+<a name="Cleaning_up"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=11" title="Edit section: Cleaning up">edit</a>]</span> <span class="mw-headline">Cleaning up</span></h3>
+<p>Your first challenge in this course is to remove everything pertaining to <b>mBall2</b>. I won’t explain how to do this but you need to remove the <b>mBall2</b> and the collision code in our Board widgets Update method.
+</p><p>We need to do this because we no longer want to have two balls on the screen, we want to have one ball like we started with. 
+</p><p>Incase you are too lazy to do this, then I have provided the project up to this point so that you can download it.
+</p><p><a href="http://wiki.gamedev.net/images/0/01/PopCap_Tutorials_BreakoutGame_part4_OnlyBall.zip" class="internal" title="PopCap Tutorials BreakoutGame part4 OnlyBall.zip">Get the project</a>
+</p><p><br>
+</p>
+<a name="Adding_a_paddle"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=12" title="Edit section: Adding a paddle">edit</a>]</span> <span class="mw-headline">Adding a paddle</span></h2>
+<p>This tutorial series is all about creating the game Breakout. In the 
+game Breakout you knock a ball around with a paddle and destroy waves of
+ bricks. 
+</p><p>The paddle is the element that is controlled by the player and so that is the element that we will add next to our game.
+</p><p>When it comes to Casual game development the <b>primary rule</b> is that <b>all player input should come from the mouse</b>. The only time the player should be required to use the keyboard is to quit the game, or enter their name. 
+</p><p>The first thing that we need is a graphic for our paddle.
+</p><p>A good size for our paddle will be 64x20 pixels and at this point
+ you can either create your own graphic like wih the ball graphic, or I 
+will provide a graphic for you.
+</p><p>Here is the paddle graphic:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:GreenBat.png" class="image" title="Image:GreenBat.png"><img alt="Image:GreenBat.png" src="PopCap%20Tutorials%20Breakout%20Part4_files/GreenBat.png" width="64" border="0" height="20"></a>
+</p><p>And here is the Alpha channel:
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:Alpha_GreenBat.png" class="image" title="Image:Alpha_GreenBat.png"><img alt="Image:Alpha_GreenBat.png" src="PopCap%20Tutorials%20Breakout%20Part4_files/Alpha_GreenBat.png" width="64" border="0" height="20"></a> (Don't forget to remove Alpha from the name)
+</p><p><br>
+Now in <b>GameApp.h</b> we need to locate:
+</p>
+<pre class="cpp" style="font-family: monospace;">DDImage<span style="color: rgb(0, 0, 64);">*</span> mBallImg<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Below it add:
+</p>
+<pre class="cpp" style="font-family: monospace;">DDImage<span style="color: rgb(0, 0, 64);">*</span> mPaddleImg<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Now go to <b>GameApp.cpp</b> and locate the <b>LoadingThreadProc</b> method.
+</p><p>Add the code:
+</p>
+<pre class="cpp" style="font-family: monospace;">mPaddleImg<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>DDImage<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">)</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(255, 0, 0);">"GreenBat"</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So this method should now look like:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> GameApp<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">LoadingThreadProc</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mBallImg<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>DDImage<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">)</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(255, 0, 0);">"BlueBall"</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mPaddleImg<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>DDImage<span style="color: rgb(0, 0, 64);">*</span><span style="color: rgb(0, 128, 0);">)</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(255, 0, 0);">"GreenBat"</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>In the GameApp deconstructor we need to add the following line of code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 221);">delete</span> mPaddleImg<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So your GameApp deconstructor should now look like this:
+</p>
+<pre class="cpp" style="font-family: monospace;">GameApp<span style="color: rgb(0, 128, 128);">::</span>~GameApp<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mWidgetManager<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>RemoveWidget<span style="color: rgb(0, 128, 0);">(</span>mBoard<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBoard<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBallImg<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mPaddleImg<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now go to <b>Board.h</b>
+</p><p>Right below the line of code:
+</p>
+<pre class="cpp" style="font-family: monospace;">Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 0, 64);">*</span> mBall<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Add this code:
+</p>
+<pre class="cpp" style="font-family: monospace;">Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Sprite</span> <span style="color: rgb(0, 0, 64);">*</span>mPaddle<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So your code should look like:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">private</span><span style="color: rgb(0, 128, 128);">:</span> 
+&nbsp;
+        GameApp<span style="color: rgb(0, 0, 64);">*</span>    mApp<span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+        Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 0, 64);">*</span> mBall<span style="color: rgb(0, 128, 128);">;</span> 
+        Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Sprite</span> <span style="color: rgb(0, 0, 64);">*</span>mPaddle<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">public</span><span style="color: rgb(0, 128, 128);">:</span></pre>
+<p>We created our paddle as type Sprite instead of as a Ball because we don’t need the extra functionality of the Ball class. 
+</p><p>While we could make a paddle class, right now we don’t need to do
+ this. We only have one paddle and we can’t think of any circumstances 
+in our game design where we would need another paddle. In this situation
+ it is a safe bet to just code the logic for the paddle directly in the 
+Board widget. 
+</p><p>When using OOP it is very easy to go class crazy and use a class 
+for EVERYTHING, however this can make the code longer then it needs to 
+be and more complicated as well. I like to use the general rule of thumb
+ that if it is reusuable or if we need multiple instances which would 
+otherwise have the exact same code over and over again, then we should 
+make a class. If we only have one instance of something and it isn’t 
+reusuable then there is no harm in coding some logic in the Board 
+widget.
+</p><p>After the line of code you just added add this line of code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">int</span> mOldMouseX,mOldMouseY,mMouseX,mMouseY<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>This will store the old mouse positions and the current mouse 
+positions so that we can calculate the direction the mouse has moved. 
+</p><p>Now after the line of code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Add this line of code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">virtual</span> <span style="color: rgb(0, 0, 255);">void</span> MouseMove<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> x,<span style="color: rgb(0, 0, 255);">int</span> y<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>This will allow us to add our own code to the widget method that is called whenever the mouse is moved.
+</p><p>Now go to <b>Board.cpp</b>
+</p><p>Locate the code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/Rect.h"</span></pre>
+<p>And the following code below it:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(51, 153, 0);">#include "SexyAppFramework/WidgetManager.h"</span></pre>
+<p>We need to include this class because we need to use the WidgetManager in our widget.
+</p><p>I have made a few changes to the Board widget constructor so just replace the method with this code:
+</p>
+<pre class="cpp" style="font-family: monospace;">Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Board</span><span style="color: rgb(0, 128, 0);">(</span>GameApp<span style="color: rgb(0, 0, 64);">*</span> theApp<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mApp <span style="color: rgb(0, 0, 128);">=</span> theApp<span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Ball</span><span style="color: rgb(0, 128, 0);">(</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mWidth<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span>,mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mHeight<span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span>,<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">2</span>,<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">2</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mBallImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    Rect mWinBoundry<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mWidth,mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mHeight<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetBoundry<span style="color: rgb(0, 128, 0);">(</span>mWinBoundry<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mPaddle<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">new</span> Breakout<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Sprite</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">0</span>,mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mHeight<span style="color: rgb(0, 0, 64);">-</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mPaddleImg<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetHeight<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">10</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetImage<span style="color: rgb(0, 128, 0);">(</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mPaddleImg<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mOldMouseX<span style="color: rgb(0, 0, 128);">=</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mWidgetManager<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mLastMouseX<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Gets current mouse X pos </span>
+    mOldMouseY<span style="color: rgb(0, 0, 128);">=</span>mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mWidgetManager<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>mLastMouseY<span style="color: rgb(0, 128, 128);">;</span> <span style="color: rgb(102, 102, 102);">//Gets current mouse Y pos </span>
+    mMouseX<span style="color: rgb(0, 0, 128);">=</span>mOldMouseX<span style="color: rgb(0, 128, 128);">;</span> 
+    mMouseY<span style="color: rgb(0, 0, 128);">=</span>mOldMouseY<span style="color: rgb(0, 128, 128);">;</span> 
+    mApp<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetCursor<span style="color: rgb(0, 128, 0);">(</span>CURSOR_NONE<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>I changed the Ball constructor so that it places the ball at the 
+center of the window width and height and I initalized our Paddle 
+sprite. 
+</p><p>I set the mOldMouseX and the mOldMouseY variables to the current X
+ and Y mouse position. We can use these variables to determine in what 
+direction the mouse moves! The mMouseX and mMouseY variables always hold
+ the latest mouse coordinates and right now the old mouse position and 
+the new mouse position are equal. That means that we haven’t moved our 
+paddle any direction yet.
+</p><p>The SetCursor method of the GameApp class allows us to hide the 
+mouse cursor. Since we will be moving a paddle with the mouse we don’t 
+want the mouse cursor to distract us!
+</p><p>Now on the Board deconstructor add:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 221);">delete</span> mPaddle<span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>So that the Board deconstructor looks like this:
+</p>
+<pre class="cpp" style="font-family: monospace;">Board<span style="color: rgb(0, 128, 128);">::</span>~Board<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mBall<span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 221);">delete</span> mPaddle<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now you really don’t need to call the pdate method for the paddle sprite as our VX and VY directional variables are 0. 
+</p><p>However if you want to call the update method anyway in the Board update method add:
+</p>
+<pre class="cpp" style="font-family: monospace;">mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>Before mBall calls it’s update method we need to add the following code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">float</span> PaddleSpeed<span style="color: rgb(0, 0, 128);">=</span>min<span style="color: rgb(0, 128, 0);">(</span>max<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(128, 0, 128);">2.0f</span>,<span style="color: rgb(0, 0, 221);">4</span><span style="color: rgb(0, 128, 0);">)</span>,<span style="color: rgb(0, 0, 221);">10</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">int</span> PaddleDir<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> 
+        PaddleDir<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>mPaddle<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetY<span style="color: rgb(0, 128, 0);">(</span>mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span>PaddleDir<span style="color: rgb(0, 0, 64);">*</span>PaddleSpeed,<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">6</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVY<span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(128, 0, 128);">0.02</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p>This is quite a bit of code! 
+</p><p>First we calculate the speed of the paddle which is calculated by
+ taking the magnitude that we have moved the mouse and then limiting it 
+to a certain range.
+</p><p>Then we see if our mouse has changed X position any. If it has then we can set our mouse direction to the sign of that change.
+</p><p>Then we check to see if the ball has collided with the paddle. If
+ it has then we set the ball to above the paddle and we make the ball 
+bounce off the paddle. We pass our X speed by recombining our speed and 
+our direction to give the VX component and we pass -6 as our VY 
+component (which will make the ball travel faster each time it hits the 
+paddle. 
+</p><p>Then by adding a small value to the VY component of our ball each frame we can make the ball seem like it has gravity!
+</p><p>We also need to set the mOldMouseX and mOldMouseY variables so here is the final code:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    Widget<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">Update</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(102, 102, 102);">//Your update code here! </span>
+    <span style="color: rgb(0, 0, 255);">float</span> PaddleSpeed<span style="color: rgb(0, 0, 128);">=</span>min<span style="color: rgb(0, 128, 0);">(</span>max<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(128, 0, 128);">2.0f</span>,<span style="color: rgb(0, 0, 221);">4</span><span style="color: rgb(0, 128, 0);">)</span>,<span style="color: rgb(0, 0, 221);">10</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">int</span> PaddleDir<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 128);">&gt;</span><span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span> 
+        PaddleDir<span style="color: rgb(0, 0, 128);">=</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">abs</span><span style="color: rgb(0, 128, 0);">(</span>mMouseX<span style="color: rgb(0, 0, 64);">-</span>mOldMouseX<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+&nbsp;
+    <span style="color: rgb(0, 0, 255);">if</span><span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>CheckOverlap<span style="color: rgb(0, 128, 0);">(</span>mPaddle<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span> 
+    <span style="color: rgb(0, 128, 0);">{</span> 
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetY<span style="color: rgb(0, 128, 0);">(</span>mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+        mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Bounce<span style="color: rgb(0, 128, 0);">(</span>PaddleDir<span style="color: rgb(0, 0, 64);">*</span>PaddleSpeed,<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 221);">6</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    <span style="color: rgb(0, 128, 0);">}</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetVY<span style="color: rgb(0, 128, 0);">(</span>mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetVY<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">+</span><span style="color: rgb(128, 0, 128);">0.02</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mBall<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Update<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mOldMouseX<span style="color: rgb(0, 0, 128);">=</span>mMouseX<span style="color: rgb(0, 128, 128);">;</span> 
+    mOldMouseY<span style="color: rgb(0, 0, 128);">=</span>mMouseY<span style="color: rgb(0, 128, 128);">;</span> 
+    MarkDirty<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>Now in the Draw method for the Board widget add:
+</p>
+<pre class="cpp" style="font-family: monospace;">mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>Draw<span style="color: rgb(0, 128, 0);">(</span>g<span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span></pre>
+<p><br>
+Now after the Draw method, copy and paste this new method:
+</p>
+<pre class="cpp" style="font-family: monospace;"><span style="color: rgb(0, 0, 255);">void</span> Board<span style="color: rgb(0, 128, 128);">::</span><span style="color: rgb(0, 119, 136);">MouseMove</span><span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 0, 255);">int</span> x, <span style="color: rgb(0, 0, 255);">int</span> y<span style="color: rgb(0, 128, 0);">)</span> 
+<span style="color: rgb(0, 128, 0);">{</span> 
+    mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>SetX<span style="color: rgb(0, 128, 0);">(</span>min<span style="color: rgb(0, 128, 0);">(</span>max<span style="color: rgb(0, 128, 0);">(</span>x<span style="color: rgb(0, 0, 64);">-</span>mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">/</span><span style="color: rgb(0, 0, 221);">2</span>,<span style="color: rgb(0, 0, 221);">0</span><span style="color: rgb(0, 128, 0);">)</span>,mWidth<span style="color: rgb(0, 0, 64);">-</span>mPaddle<span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetImage<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 0, 64);">-</span><span style="color: rgb(0, 0, 128);">&gt;</span>GetWidth<span style="color: rgb(0, 128, 0);">(</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 0);">)</span><span style="color: rgb(0, 128, 128);">;</span> 
+    mMouseX<span style="color: rgb(0, 0, 128);">=</span>x<span style="color: rgb(0, 128, 128);">;</span> 
+    mMouseY<span style="color: rgb(0, 0, 128);">=</span>y<span style="color: rgb(0, 128, 128);">;</span> 
+<span style="color: rgb(0, 128, 0);">}</span></pre>
+<p>This method is called when the mouse is moved. We change the X 
+position of our paddle to the x mouse position but we adjust the 
+position of the image so that our X is located at the center of our 
+image. 
+</p><p>We then limit the values that this X position can have so that our paddle does not move off screen.
+</p>
+<a name="Test_the_game"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=13" title="Edit section: Test the game">edit</a>]</span> <span class="mw-headline">Test the game</span></h3>
+<p>Test the game by pressing <b>F5</b> and move the paddle around with the mouse to knock the ball around!
+</p><p><a href="http://wiki.gamedev.net/index.php/Image:PopCap_Tutorials_BallAndPaddle.jpg" class="image" title="Image:PopCap_Tutorials_BallAndPaddle.jpg"><img alt="Image:PopCap_Tutorials_BallAndPaddle.jpg" src="PopCap%20Tutorials%20Breakout%20Part4_files/PopCap_Tutorials_BallAndPaddle.jpg" width="800" border="0" height="627"></a>
+</p>
+<a name="What_we_have_done_in_this_tutorial"></a><h2><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=14" title="Edit section: What we have done in this tutorial">edit</a>]</span> <span class="mw-headline">What we have done in this tutorial</span></h2>
+<p>In this tutorial we implemented a ball class, added sprite collisions, and added a mouse controlled paddle to the game.
+</p>
+<a name="Until_next_time.E2.80.A6"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=15" title="Edit section: Until next time…">edit</a>]</span> <span class="mw-headline">Until next time…</span></h3>
+<p>Well I hope you enjoyed this part of my tutorial! Next time we are 
+going to look at making the ball move smoother and we are going to start
+ our block manager!
+</p><p><a href="http://wiki.gamedev.net/images/1/14/PopCap_Tutorials_BreakoutGame_part4.zip" class="internal" title="PopCap Tutorials BreakoutGame part4.zip">Attached</a> is the latest code for our project.
+</p>
+<a name="Legal_Stuff"></a><h3><span class="editsection">[<a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit&amp;section=16" title="Edit section: Legal Stuff">edit</a>]</span> <span class="mw-headline">Legal Stuff</span></h3>
+<p>I take no responsibility what so ever for any damages or liabilities 
+from the code and/or information presented in this tutorial. This 
+tutorial is provided AS-IS with no warranty what so ever.
+</p><p>Continue to <a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part5" title="PopCap:Tutorials:Breakout:Part5">part 5</a>
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 278/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key gpwiki:pcache:idhash:5857-0!1!0!!en!2 and timestamp 20101223233414 -->
+<div class="printfooter">
+Retrieved from "<a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part4">http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part4</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="http://wiki.gamedev.net/index.php/PopCap:Tutorials:Breakout:Part4" title="View the content page [alt-shift-c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki.gamedev.net/index.php?title=Talk:PopCap:Tutorials:Breakout:Part4&amp;action=edit" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-edit"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=edit" title="You can edit this page.
+Please use the preview button before saving. [alt-shift-e]" accesskey="e">Edit</a></li>
+				 <li id="ca-history"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;action=history" title="Past versions of this page. [alt-shift-h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="http://wiki.gamedev.net/index.php?title=Special:UserLogin&amp;returnto=PopCap:Tutorials:Breakout:Part4" title="You are encouraged to log in, it is not mandatory however. [alt-shift-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(&quot;/stylesheets/images/wiki.png&quot;);" href="http://wiki.gamedev.net/index.php/Main_Page" title="Visit the Main Page [alt-shift-z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class="generated-sidebar portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="http://gpwiki.org/" title="Visit the Main Page [alt-shift-z]" accesskey="z">Main Page</a></li>
+				<li id="n-Message-Board"><a href="http://gpwiki.org/forums">Message Board</a></li>
+				<li id="n-currentevents"><a href="http://wiki.gamedev.net/index.php/GDWiki:Current_events" title="Find background information on current events">Current events</a></li>
+				<li id="n-recentchanges"><a href="http://wiki.gamedev.net/index.php/Special:Recentchanges" title="The list of recent changes in the wiki. [alt-shift-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-randompage"><a href="http://wiki.gamedev.net/index.php/Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li>
+				<li id="n-help"><a href="http://wiki.gamedev.net/index.php/Help:Contents" title="The place to find out.">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-categories">
+		<h5>Categories</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-introduction"><a href="http://wiki.gamedev.net/index.php/Introduction">introduction</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/index.php/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" title="Search GDWiki [alt-shift-f]" accesskey="f" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" title="Go to a page with this exact name if exists" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://wiki.gamedev.net/index.php/Special:WhatLinksHere/PopCap:Tutorials:Breakout:Part4" title="List of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://wiki.gamedev.net/index.php/Special:RecentChangesLinked/PopCap:Tutorials:Breakout:Part4" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+<li id="t-upload"><a href="http://wiki.gamedev.net/index.php/Special:Upload" title="Upload files [alt-shift-u]" accesskey="u">Upload file</a></li>
+<li id="t-specialpages"><a href="http://wiki.gamedev.net/index.php/Special:SpecialPages" title="List of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;printable=yes" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="http://wiki.gamedev.net/index.php?title=PopCap:Tutorials:Breakout:Part4&amp;oldid=26133" title="Permanent link to this version of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="PopCap%20Tutorials%20Breakout%20Part4_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://www.gnu.org/copyleft/fdl.html"><img src="PopCap%20Tutorials%20Breakout%20Part4_files/gnu-fdl.png" alt="GNU Free Documentation License 1.2"></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified on 7 January 2009, at 08:23.</li>
+				<li id="copyright">Content is available under <a href="http://www.gnu.org/copyleft/fdl.html" class="external " title="http://www.gnu.org/copyleft/fdl.html" rel="nofollow">GNU Free Documentation License 1.2</a>.</li>
+				<li id="privacy"><a href="http://wiki.gamedev.net/index.php/GDWiki:Privacy_policy" title="GDWiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://wiki.gamedev.net/index.php/GDWiki:About" title="GDWiki:About">About GDWiki</a></li>
+				<li id="disclaimer"><a href="http://wiki.gamedev.net/index.php/GDWiki:General_disclaimer" title="GDWiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.333 secs. --><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? 
+"https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + 
+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="PopCap%20Tutorials%20Breakout%20Part4_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6779482-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body></html>

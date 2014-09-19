@@ -1,0 +1,135 @@
+/* Sample on top for Code Browser */
+
+.mkt-ad-top {
+	background-color: #f5fce4;
+    font-size: 13px;
+    padding: 8px 13px;
+    margin: 0 0 15px 0;
+    border: 2px solid #E7FABB;
+    max-width: 1320px;
+}
+
+.mkt-ad-top h2 {
+    font-size: 18px;
+    margin: 0 200px 4px 0;
+    font-weight: normal;
+}
+
+.mkt-ad-top h2 span {
+    color: #327BBF;
+    font-weight: bold;
+}
+
+.mkt-ad-top p {
+	margin: 0 200px 0 0;
+	line-height: 1.5em;
+	color: #333;
+}
+
+.mkt-ad-top p span {
+	color: #327BBF;
+}
+
+.mkt-ad-top ul {
+	list-style-type: inherit;
+	float: left;
+	margin: 4px 0 0 50px;
+	padding: 0;
+}
+.mkt-ad-top ul li {
+	margin: 0 0 5px 0;
+}
+
+.mkt-ad-top .img-button-top {
+	float: right;
+	text-align: right;
+	margin: 14px 30px 0 0;
+}
+
+/* Sample on sidebar for Wiki */
+
+.mkt-ad-sidebar {
+	background-color: #ECF3FE;
+    font-size: 12px;
+    line-height: 1.45em;
+    padding: 11px 14px 4px 12px;
+    margin: 0 0 7px 7px;
+    font-family: "Lucida Grande", verdana;
+    border-top: 6px solid #fff;
+
+}
+
+.mkt-ad-sidebar h2 {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.mkt-ad-sidebar h2 span {
+    color: #327BBF;
+    font-weight: bold;
+}
+
+.mkt-ad-sidebar p {
+	margin: 0 0 10px 0;
+	color: #000;
+}
+
+.mkt-ad-sidebar p span {
+	color: #C00;
+	font-weight: bold;
+}
+
+.mkt-ad-sidebar p.link-ad a {
+  font-weight: bold;
+  padding: 2px 5px 3px 5px;
+  background-color: #fff;
+}
+
+.mkt-ad-sidebar p.link-ad a:hover {
+    color: #fff;
+    background-color: #15478c;
+  }
+
+
+/* Sample on top for Files */
+
+.mkt-ad-top-files {
+	background-color: #FFF9D8;
+    font-size: 12px;
+    padding: 7px 12px;
+    margin: 0 0 11px 0;
+    border-top: 1px solid #f7f1d1;
+    border-bottom: 1px solid #f7f1d1;
+    max-width: 1200px;
+}
+
+.mkt-ad-top-files h2 {
+    font-size: 15px;
+    margin: 0 200px 2px 0;
+    color: #333;
+}
+
+.mkt-ad-top-files h2 span {
+    color: #327BBF;
+    font-weight: bold;
+}
+
+.mkt-ad-top-files p {
+	margin: 0 180px 0 0;
+	line-height: 1.4em;
+	color: #000;
+}
+
+.mkt-ad-top-files p span {
+	color: #e00;
+	font-weight: bold;
+}
+
+
+.mkt-ad-top-files .img-button-top {
+	float: right;
+	text-align: right;
+	margin: 10px 20px 0 0;
+}
+

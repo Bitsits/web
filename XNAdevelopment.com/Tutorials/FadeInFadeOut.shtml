@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="FadeInFadeOut_files/styles.css">
+    <title>Fade In, Fade Out</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="FadeInFadeOut_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>Fade In, Fade Out</h2>
+				<p>
+					<em>This tutorial walks you through learning how to fade a sprite out from a scene.</em>
+				</p>
+				<ul>
+				<li><a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/Fade.zip">Download the Source code</a></li>
+				<li><a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/FadeInFadeOut.zip">Download the Enhanced Source code</a></li>				
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="FadeInFadeOut_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>Fade In, Fade Out</h2> 
+<b>How to fade an image into and out of a scene.</b> 
+
+<p>In this tutorial, we will examine how to fade in image into and out
+of a scene. Using a technique like this can be useful when you want to
+fade in some text or maybe fade out some falling enemies. </p>
+<p>&nbsp;</p>
+<p><b><u>Creating the new game project:</u></b></p>
+<p>To start, first create a new <b>Windows Game Project</b>. This can be done by launching XNA Game Studio Express and then selecting File -&gt; New Project from the Menu.</p>
+<p>In the New Project window, select the "Windows Game" template and then give the project a name and <b>choose a location to save</b> the project.</p>
+<p align="center"><a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/CropperCapture%5B131%5D.Jpeg" atomicselection="true"><img style="border-width: 0px;" src="FadeInFadeOut_files/CropperCapture131.Jpeg" border="0" width="640" height="439"></a> &nbsp;</p>
+
+<div align="left"><p>Let's stop here and do a quick <b>build</b> <a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/CropperCapture%5B133%5D.Jpeg" atomicselection="true"><img style="border-width: 0px;" src="FadeInFadeOut_files/CropperCapture133.Jpeg" border="0" width="40" height="36"></a>
+so you can see the power of XNA (and so we can verify that the project
+was created correctly and that your video card supports the minimum XNA
+requirements).</p></div>
+<div align="left">&nbsp;</div>
+<div align="left"><p>When you run the project, you should be greeted with a <b>Cornflower blue</b> window. If you're seeing this lovely shade of blue, then you have successfully setup your new game project.</p></div>
+<div align="left">&nbsp;</div>
+<center><a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/CropperCapture%5B132%5D.Jpeg" atomicselection="true"><img style="border-width: 0px;" src="FadeInFadeOut_files/CropperCapture132.Jpeg" border="0" width="613" height="480"></a> </center>
+<div align="left">&nbsp;</div>
+<div align="left"><p>If you have an error, then your video card most likely does not meet the minimum requirements for XNA. See the <a href="http://msdn.microsoft.com/directx/xna/faq/">XNA FAQ</a>
+from the Microsoft site for the minimum requirements and verify that
+your video cards meet those. If you believe your video card does meet
+those requirement and are still getting an error, than<b> I recommend</b> you pop on over to the <a href="http://forums.microsoft.com/MSDN/default.aspx?ForumGroupID=20&amp;SiteID=1">MSDN XNA Forums</a>
+and describe the error you are getting ask for some&nbsp; help there
+(you will probably see me around there, I find them a great place to
+hang out).</p></div>
+<div align="left">&nbsp;</div>
+<div align="left">&nbsp;</div>
+<div align="left"><b><u>Adding the image:</u></b></div>
+<div align="left"><b><u></u></b>&nbsp;</div>
+<div align="left"><p>Next, let's add the image to the project that we
+are going to fade in this example. In this tutorial, we are going to be
+fading in and out a cat creature. Here's <b>the little guy</b> now.</p></div>
+<div align="left">&nbsp;</div>
+<div align="center"><a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/CatCreature.png" atomicselection="true"><img style="border-width: 0px;" src="FadeInFadeOut_files/CatCreature.png" border="0" width="240" height="174"></a> </div>
+<div align="center">&nbsp;</div>
+<div align="left"><p>You can download the image from <a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/CatCreature.zip">here</a> to use in your project or feel free to use an image of your own.</p></div>
+<div align="left">&nbsp;</div>
+<div align="left"><p>&gt;<b>Save the image</b> to your project folder and now we will add it to the project.</p> </div>
+<div align="left">&nbsp;</div>
+<div align="left"><p>To add an image to the game project. <b>Right-click on the project</b> name and select "Add -&gt; Existing Item". This will open the "Add Existing Item" dialog.</p></div>
+<div align="left">&nbsp;</div>
+<div align="left"><p>This dialog box defaults to show only Visual C#
+Files which mean you won't see any pictures until you change this. We
+want to use the Content Pipeline to manage our images so from the
+"Files of type:" combobox, select "Content Pipeline Files". Now you
+should be able to navigate to your image. Select it and click the "Add"
+button. You have now <b>successfully added an image</b> to your game project.</p></div>
+<div align="left">&nbsp;</div>
+<div align="center"><a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/Cropper%20Capture%5B134%5D.Jpeg" atomicselection="true"><img style="border-width: 0px;" src="FadeInFadeOut_files/Cropper%2520Capture134.Jpeg" border="0" width="640" height="417"></a> </div>
+<div align="center">&nbsp;</div>
+<div align="left">&nbsp;</div>
+<div align="left"><b><u>Displaying the Cat Creature:</u></b></div>
+<div align="left">&nbsp;</div>
+<div align="left">&nbsp;<p>We have create the game project, added an image, now let's go ahead and write a little code to make that image <b>draw on the screen</b>.</p></div>
+<div align="left">&nbsp;</div>
+<div align="left"><p>Start by adding two new objects to the class. These objects will take care of drawing the image and storing the image.&nbsp;</p></div>
+<div align="left">&nbsp;</div>
+<div class="csharpcode"><pre class="alt">        SpriteBatch mBatch;</pre><pre>        Texture2D mCatCreature;</pre><pre>&nbsp;</pre></div>
+
+<p>This "SpriteBatch" object is used to draw your images. The
+"Texture2D" object is used to store your images.&nbsp;Both of
+these&nbsp;types of objects are used very frequently when creating 2D
+games with XNA, so learning to use them and all that they can do
+becomes very important. We will only be scratching the surface of what
+you can do with just these two objects in this tutorial.</p>
+<p>Now that we our objects, we need to<b> initialize them and use them</b>.
+To initialize the objects, we are going to add some code to the
+"LoadGraphicsContent" method that was automatically created for us when
+we selected the Windows Game template.</p>
+<p>Add the following code to the "LoadGraphicsContent" method.</p>
+<p>&nbsp;</p><!-- code formatted by http://manoli.net/csharpformat/ -->
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadGraphicsContent(<span class="kwrd">bool</span> loadAllContent)</pre><pre>        {</pre><pre class="alt">            <span class="kwrd">if</span> (loadAllContent)</pre><pre>            {</pre><pre class="alt">                <span class="rem">// TODO: Load any ResourceManagementMode.Automatic content</span></pre><pre>&nbsp;</pre><pre class="alt">                <span class="rem">//Initialize the sprite batch</span></pre><pre>                mBatch = <span class="kwrd">new</span> SpriteBatch(<span class="kwrd">this</span>.graphics.GraphicsDevice);</pre><pre class="alt">&nbsp;</pre><pre>                <span class="rem">//Create the Content Manager object to load images </span></pre><pre class="alt">                ContentManager aLoader = <span class="kwrd">new</span> ContentManager(<span class="kwrd">this</span>.Services);</pre><pre>&nbsp;</pre><pre class="alt">                <span class="rem">//Use the Content Manager to load the Cat Creature image into the Texture2D object</span></pre><pre>                mCatCreature = aLoader.Load&lt;Texture2D&gt;(<span class="str">"CatCreature"</span>) <span class="kwrd">as</span> Texture2D;</pre><pre class="alt">&nbsp;</pre><pre>            }</pre><pre class="alt">&nbsp;</pre><pre>            <span class="rem">// TODO: Load any ResourceManagementMode.Manual content</span></pre><pre class="alt">        }</pre></div>
+<p>&nbsp;</p>
+<p>First, we initialized our SpriteBatch. If we had forgotten to
+initialize it, when we tried to use this object later, we would have
+gotten an error that "Object reference was not set to an instance of an
+object". When developing with objects, this becomes a fairly frequent
+error to see. Once you get it, you know that somewhere in your code <b>you forgot to initialize an object</b>. </p>
+<p>Then we created a new object, a "ContentManager" object, to be used
+just within this method. The ContentManager object is used to load our
+images.</p>
+<p>Finally, we used the newly created "ContentManager" object to load
+our "CatCreature" image and store it in our Texture2D object.&nbsp;</p>
+<p>Now that we have initialized all of our objects,<b> we can draw</b>
+our Cat Creature to the screen. To actually draw the image to the
+screen, we will add some code to the "Draw" method. The "Draw" method
+is another one of the base methods that was automatically created for
+us when we made a new Windows Game project.</p>
+<p>Add the following code to the "Draw" method.&nbsp;</p><!-- code formatted by http://manoli.net/csharpformat/ -->
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your drawing code here</span></pre><pre>            mBatch.Begin();</pre><pre class="alt">            mBatch.Draw(mCatCreature, <span class="kwrd">new</span> Rectangle(0, 0, mCatCreature.Width, mCatCreature.Height), Color.White);</pre><pre>            mBatch.End();</pre><pre class="alt">             </pre><pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre><pre class="alt">        }</pre></div>
+<p>First, we let the SpriteBatch object know that <b>we are ready</b> to begin drawing some things. </p>
+<p>Then we draw our image using the SpriteBatch. In this case, we told
+the SpriteBatch which image we wanted to draw (our CatCreature
+Texture2D object), where we wanted to draw it, how big we wanted the
+image to be and what color we wanted to shade the image. We told the
+SpriteBatch where we wanted to draw the image and how big we wanted to
+make it when we passed in that Rectangle object. The first two values
+of the Rectangle object tell the SpriteBatch which x, y location we
+want to start drawing our image. In this case, we told the SpriteBatch
+that we wanted to draw it at the (0,0) point on the screen which is the
+upper left of the screen. The next two values of the Rectangle object
+tell the SpriteBatch how wide and how high we want the image to be. In
+this case we used the original size of the CatCreature image by passing
+in the Width and Height of our Texture2D object. Finally, the Color
+value we chose was White. This tells the SpriteBatch that we don't want
+to apply any coloring to the image at this time.</p>
+<p>Last, <b>we tell the SpriteBatch</b> object that we are done drawing are images. </p>
+<p>&nbsp;</p>
+<p>Now that we have created our objects and drawn the image to the screen, let's <b>do a quick build</b> <a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/CropperCapture%5B133%5D.Jpeg" atomicselection="true"><img style="border-width: 0px;" src="FadeInFadeOut_files/CropperCapture133.Jpeg" border="0" width="40" height="36"></a> to make sure that we have coded everything properly and that there are no errors.</p>
+<p>When you do the build you should be presented with a screen like this one.</p>
+<p align="center"><a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/Cropper%20Capture%5B133%5D.Jpeg" atomicselection="true"><img style="border-width: 0px;" src="FadeInFadeOut_files/Cropper%2520Capture133.Jpeg" border="0" width="611" height="480"></a> </p>
+<p align="left">&nbsp;</p>
+<p align="left"><b><u>Fading the image in and out:</u></b></p>
+<p align="left">Now that we are actually <b>drawing the image</b> to
+the screen, let's enhance the code to actually fade the image in and
+out. (that was kind of the purpose of this tutorial in the first place
+right?).</p>
+<p align="left">To start, we are going to add some tracking objects to
+the class. We will add them directly below the SpriteBatch and
+Texture2D objects we created in the first steps.</p>
+<p align="left">Add the following code to the top of your class after the SpriteBatch and Texture2D object declarations.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">int</span> mAlphaValue = 1;</pre>
+<pre>        <span class="kwrd">int</span> mFadeIncrement = 3;</pre>
+<pre class="alt">        <span class="kwrd">double</span> mFadeDelay = .035;</pre>
+</div>
+<p aling="left">Now, we just need to add the logic for the fading. We
+will add that code to the Update function. This is another one of the
+automatically generated functions that was created when you made a new
+XNA Game project.
+</p>
+<p align="left">Add the following code to the Update method:</p>
+<p align="left">&nbsp;</p><!-- code formatted by http://manoli.net/csharpformat/ -->
+<div class="csharpcode"><pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Update(GameTime gameTime)</pre><pre>        {</pre><pre class="alt">            <span class="rem">// Allows the default game to exit on Xbox 360 and Windows</span></pre><pre>            <span class="kwrd">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)</pre><pre class="alt">                <span class="kwrd">this</span>.Exit();</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">// TODO: Add your update logic here</span></pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//Decrement the delay by the number of seconds that have elapsed since</span></pre><pre>            <span class="rem">//the last time that the Update method was called</span></pre><pre class="alt">            mFadeDelay -= gameTime.ElapsedGameTime.TotalSeconds;</pre><pre>&nbsp;</pre><pre class="alt">            <span class="rem">//If the Fade delays has dropped below zero, then it is time to </span></pre><pre>            <span class="rem">//fade in/fade out the image a little bit more.</span></pre><pre class="alt">            <span class="kwrd">if</span> (mFadeDelay &lt;= 0)</pre><pre>            {</pre><pre class="alt">                <span class="rem">//Reset the Fade delay</span></pre><pre>                mFadeDelay = .035;</pre><pre class="alt">&nbsp;</pre><pre>                <span class="rem">//Increment/Decrement the fade value for the image</span></pre><pre class="alt">                mAlphaValue += mFadeIncrement;</pre><pre>&nbsp;</pre><pre class="alt">                <span class="rem">//If the AlphaValue is equal or above the max Alpha value or</span></pre><pre>                <span class="rem">//has dropped below or equal to the min Alpha value, then </span></pre><pre class="alt">                <span class="rem">//reverse the fade</span></pre><pre>                <span class="kwrd">if</span> (mAlphaValue &gt;= 255 || mAlphaValue &lt;= 0)</pre><pre class="alt">                {</pre><pre>                    mFadeIncrement *= -1;</pre><pre class="alt">                }</pre><pre>            }</pre><pre class="alt">            </pre><pre>            <span class="kwrd">base</span>.Update(gameTime);</pre><pre class="alt">        }</pre></div>
+<p align="left">&nbsp;</p>
+<p align="left">This code is the <b>meat and potatoes</b> of the logic for fading the image in and out.</p>
+<p align="left">We start by decrementing the Fade delay tracking
+object. This object is used to control how often the object is faded.
+If we faded the image every time the Update function was called. The
+image would fade in and out too quickly for the viewer to appreciate
+the effect. So by only changing the fade every certain interval, the
+effect can be seen properly.</p>
+<p align="left">Next we check to see if it's time to change the Fade
+effect. If enough of a delay has elapsed (the delay tracking object is
+now less than or equal to zero), then we first reset the delay object
+and then Increment/Decrement the Alpha value to increase/decrease the
+amount of fade the image has. </p>
+<p align="left">Finally, we check to see if the Alpha Value has
+increased or decreased outside the range of accepted alpha values
+(colors go from 0-255). If the Alpha Value object has exceeded these
+values, then we will reverse the direction of the fade. <b>We reverse the direction</b> of the fade by taking the Increment object and multiplying it by -1. </p>
+<p align="left">So now we've written our fade logic. There's only one
+thing left to do. Change the way the image is drawn so that the fade
+effect is applied.</p>
+<p align="left">We do that by<b> modifying the line of code</b> that draws the image that we added to the "Draw" method previously.</p>
+<p align="left">So in the "Draw" method, the following line of code:&nbsp;</p><!-- code formatted by http://manoli.net/csharpformat/ -->
+<div class="csharpcode"><pre>            mBatch.Draw(mCatCreature, <span class="kwrd">new</span> Rectangle(0, 0, mCatCreature.Width, mCatCreature.Height), Color.White);</pre></div>
+<p align="left">Become this new line of code:&nbsp;</p><!-- code formatted by http://manoli.net/csharpformat/ -->
+<div class="csharpcode"><pre class="alt">            mBatch.Draw(mCatCreature, <span class="kwrd">new</span> Rectangle(0, 0, mCatCreature.Width, mCatCreature.Height), </pre><pre>                <span class="kwrd">new</span> Color(255, 255, 255, (<span class="kwrd">byte</span>)MathHelper.Clamp(mAlphaValue, 0, 255)));</pre></div>
+<p align="left">&nbsp;</p>
+<p align="left">So you will immediately notice that there are some
+changes to the values being passed into the Draw method of the
+SpriteBatch object. Particularly, the Color object has changed from the
+simple Color.White to this new complicated looking Color value. This is
+how we are achieving the fade effect on the image.</p>
+<p align="left">Basically, we still have a white color. That's<b> what we create</b>
+when we say New Color(255, 255, 255... Those are the Red, Blue and
+Green values for the color and setting each of them to 255 says we are
+making white. The last value is the "Alpha" value, that is the value we
+change from 0 to 255 and from 255 back to 0 to achieve our fade effect.</p>
+<p align="left">We use a little MathHelper method(MathHelper has LOTS
+of very useful methods) called "Clamp" to keep our AlphaValue within
+the accept range for Alpha Values (basically 0 to 255). </p>
+<p align="left">And that's all you need. Now, you can do a quick build <a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/CropperCapture%5B133%5D.Jpeg" atomicselection="true"><img style="border-width: 0px;" src="FadeInFadeOut_files/CropperCapture133.Jpeg" border="0" width="40" height="36"></a> to see the Cat Creature fade in and then fade out. </p>
+<p align="left">&nbsp;</p>
+<p align="left">Now that you <b>know how to achieve a fade effect</b>,
+can you think of some places where you might use it? Try to modify the
+code so the image just fades in but does not fade back out. Try to
+modify the code to fade out but not fade back in. Try to re-position
+the image so that it is drawn in a new location. </p>
+<p align="left">Can you think of a game you can make using just what you know?</p>
+<p align="left">You can download the Project for the tutorial from <a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/Fade.zip">here</a>. I've also <b>expanded the project</b>
+a bit making more of a "Cheshire Cat Creature" just to make it a little
+more fun. You can download the source code for that project <a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/FadeInFadeOut.zip">here</a>.</p>
+<p align="left">&nbsp;</p>
+<p align="center"><a href="http://www.xnadevelopment.com/tutorials/fadeinfadeout/Cropper%20Capture%5B135%5D.Jpeg" atomicselection="true"><img style="border-width: 0px;" src="FadeInFadeOut_files/Cropper%2520Capture135.Jpeg" border="0" width="611" height="480"></a> </p>
+<p align="left">&nbsp;</p>
+<p align="left">Now take what you know and make something with it, most of all make sure that you are <b>having fun</b>!</p>
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="FadeInFadeOut_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</body></html>

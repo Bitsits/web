@@ -1,0 +1,80 @@
+h1, h2, h3, h4, h5, h6 {
+	font-family: Helvetica, Arial;
+	color: black;
+	font-weight: bold;	
+	margin: 0;
+	padding: 0;
+	padding-top: 20px;
+}
+h1 {
+	font-size: 45px;
+	padding-top: 0px;
+} 
+h2, h3, h4 {
+	font-size: 30px;
+}
+h5, h6 {
+	font-size: 20px;
+}
+a {
+	color: blue;
+	text-decoration: none;
+}
+a, img, a img {
+	border: 0;
+	outline: none;
+}
+#header_wrap {
+	height: 60px;
+	width: 202px;
+	display: block;
+	display: list-item;
+	list-style-image: url(../images/logo_footer.gif);
+	list-style-position: inside;
+	margin-bottom: 40px;
+	background: black;
+}
+#about_author {
+	border-bottom: 1px solid #d2d2d2;
+	padding-bottom: 20px;
+	margin-bottom: 40px;
+	display: block;
+	clear: left;
+}
+.exerpt img {
+	float: left;
+	margin: 0 20px 20px 0;
+	width: 200px;
+	height: 200px;
+}
+.exerpt small {
+	font-size: 17px;
+	font-family: Georgia;
+	color: gray;
+}
+.exerpt small a {
+	color: #000000;
+}
+.webroundup li {
+	float: left;
+}
+
+.webroundup div {
+	float: left;
+	margin: 0 20px 20px 0;
+}
+#header,
+#navigation_wrap,
+#breadcrumb, 
+#about_author img, 
+#about_author .author_text, 
+.download,
+#post_meta,
+#tuts_plus,
+#comments_wrap, 
+#trackbacks,
+.wp-pagenavi,
+#sidebar,
+#footer {
+	display: none;
+}

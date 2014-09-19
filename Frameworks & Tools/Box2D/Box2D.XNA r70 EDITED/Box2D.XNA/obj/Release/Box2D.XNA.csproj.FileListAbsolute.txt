@@ -1,0 +1,10 @@
+C:\Documents and Settings\suvozit\Desktop\Box2D.XNA\bin\Release\Box2D.XNA.dll
+C:\Documents and Settings\suvozit\Desktop\Box2D.XNA\bin\Release\Box2D.XNA.pdb
+C:\Documents and Settings\suvozit\Desktop\Box2D.XNA\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\suvozit\Desktop\Box2D.XNA\obj\Release\Box2D.XNA.dll
+C:\Documents and Settings\suvozit\Desktop\Box2D.XNA\obj\Release\Box2D.XNA.pdb
+F:\Game Design\Box2D\Box2DXNA r70 EDITED\Box2D.XNA\obj\Release\ResolveAssemblyReference.cache
+F:\Game Design\Box2D\Box2DXNA r70 EDITED\Box2D.XNA\bin\Release\Box2D.XNA.dll
+F:\Game Design\Box2D\Box2DXNA r70 EDITED\Box2D.XNA\bin\Release\Box2D.XNA.pdb
+F:\Game Design\Box2D\Box2DXNA r70 EDITED\Box2D.XNA\obj\Release\Box2D.XNA.dll
+F:\Game Design\Box2D\Box2DXNA r70 EDITED\Box2D.XNA\obj\Release\Box2D.XNA.pdb

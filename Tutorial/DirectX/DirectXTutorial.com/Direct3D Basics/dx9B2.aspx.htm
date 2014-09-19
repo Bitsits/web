@@ -1,0 +1,549 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Lesson 2: Going Fullscreen
+</title><link href="dx9B2.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B2.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B2.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B2.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B2.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">Lesson 2:&nbsp; Going Fullscreen</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B2.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B1.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B3.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+        Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+        Making your game fullscreen is easy, but requires changing a few details of the
+        program, as well as adding a couple lines of code.</p>
+        <p>
+            In this lesson we will cover two things.&nbsp; First, we will go over how to globalize
+            your screen resolution and why you would do this.&nbsp; Second, we'll cover the
+            mechanics of making a window go into fullscreen mode.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Setting Up the Screen Size</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Throughout your DirectX experience and in game programming you will come across
+    many functions and structs that demand to know your screen size.&nbsp; This can
+    become a hassle when you decide to change the resolution later, and especially when
+    you decide to change it during run-time.&nbsp; For right now, we will cover a simple
+    method to standardize your screen size across your program.</p>
+    <p>
+        First, we must add two directives to the top of our program.&nbsp; These represent
+        the screen width and the screen height.</p>
+    <div class="codebox">
+        // define the screen resolution<br>
+        #define SCREEN_WIDTH&nbsp; 800<br>
+        #define SCREEN_HEIGHT 600</div>
+    <p>
+        The next step is to go through your program to where you indicate the width and
+        height of your window.&nbsp; Up to this point in the tutorial, you only have one,
+        although we will come across another in a minute.&nbsp; Do this to the code (changes
+        in <strong>bold</strong>):</p>
+    <div class="codebox">
+        &nbsp; &nbsp; hWnd = CreateWindowEx(NULL,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; L"WindowClass",<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; L"Our Direct3D Program",<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; WS_OVERLAPPEDWINDOW,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; 300, 300,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; <strong>SCREEN_WIDTH, SCREEN_HEIGHT, &nbsp;&nbsp; // set window to new resolution</strong><br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; NULL,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; NULL,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; hInstance,<br>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; NULL);</div>
+    <p>
+        In a later lesson we will cover how to maintain screen size throughout your game
+        after changing it during runtime.</p>
+        <p>
+            There are specific resolutions that are available
+            on most PCs, the most common
+            of which can be seen in this table.</p>
+        <p>
+            [<a href="#still" onclick="Toggle('table2-1')" class="mainlink">Table 2.1 - Common Screen Resolutions</a>]</p>
+        <p>
+            </p><table id="table2-1" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 179px;">
+                        Resolution</th>
+                    <th style="width: 183px;">
+                        Pixels</th>
+                    <th>
+                        Widescreen</th>
+                </tr>
+                <tr>
+                    <td style="width: 179px;">
+                        800 x 600</td>
+                    <td style="width: 183px;">
+                        480,000</td>
+                    <td>
+                        No</td>
+                </tr>
+                <tr>
+                    <td style="width: 179px;">
+                        1024 x 768</td>
+                    <td style="width: 183px;">
+                        786,432</td>
+                    <td>
+                        No</td>
+                </tr>
+                <tr>
+                    <td style="width: 179px;">
+                        1152 x 864</td>
+                    <td style="width: 183px;">
+                        995,328</td>
+                    <td>
+                        No</td>
+                </tr>
+                <tr>
+                    <td style="width: 179px;">
+                        1280 x 1024</td>
+                    <td style="width: 183px;">
+                        1,310,720</td>
+                    <td>
+                        No</td>
+                </tr>
+                <tr>
+                    <td style="width: 179px;">
+                        1600 x 1200</td>
+                    <td style="width: 183px;">
+                        1,920,000</td>
+                    <td>
+                        No</td>
+                </tr>
+                <tr>
+                    <td style="width: 179px;">
+                        1440 x 900</td>
+                    <td style="width: 183px;">
+                        1,296,000</td>
+                    <td>
+                        Yes</td>
+                </tr>
+                <tr>
+                    <td style="width: 179px;">
+                        1680 x 1050</td>
+                    <td style="width: 183px;">
+                        1,764,000</td>
+                    <td>
+                        Yes</td>
+                </tr>
+                <tr>
+                    <td style="width: 179px;">
+                        1920 x 1080</td>
+                    <td style="width: 183px;">
+                        2,073,600</td>
+                    <td>
+                        Yes</td>
+                </tr>
+                <tr>
+                    <td style="width: 179px;">
+                        1920 x 1200</td>
+                    <td style="width: 183px;">
+                        2,304,000</td>
+                    <td>
+                        Yes</td>
+                </tr>
+                <tr>
+                    <td style="width: 179px;">
+                        [<a class="mainlink" href="#still" onclick="Toggle('table2-1')">Close Table</a>]</td>
+                    <td style="width: 183px;">
+                        [<a class="mainlink" href="http://en.wikipedia.org/wiki/List_of_common_resolutions">See Full Table</a>]</td>
+                    <td>
+                    </td>
+                </tr>
+            </tbody></table>
+        
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+            Changing to Fullscreen Mode</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                When changing to full screen you are doing several things.&nbsp; First, your are
+                telling Windows not to apply any of the standard Windows borders to your window.&nbsp;
+                Second, you are telling Windows to have your window overlap all other things on
+                the screen, including the start menu.&nbsp; Third, you are telling DirectX to change
+                the resolution of the monitor to your set preference.&nbsp; Finally, although less
+                importantly, you are telling Windows to leave the window background color up to
+                you.</p>
+            <p>
+                The first two of these are handled by changing some CreateWindowEx() parameters.&nbsp;
+                The changes we need to make are shown here.</p>
+            <div class="codebox">
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; L"WindowClass",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; L"Our Direct3D Program",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; <strong>WS_EX_TOPMOST | WS_POPUP, &nbsp;&nbsp; // fullscreen values</strong><br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; <strong>0, 0, &nbsp;&nbsp; // the starting x and y positions should be 0</strong><br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; SCREEN_WIDTH, SCREEN_HEIGHT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL);</div>
+            <p>
+                Here we set the starting x and y positions to 0.&nbsp; We also changed the previous
+                parameter to "WS_EX_TOPMOST | WS_POPUP".&nbsp; The WS_EX_TOPMOST is self-explanatory,
+                and makes the window overlap everything else.&nbsp; The WS_POPUP is less self-explanatory,
+                but what it does is tell Windows to remove all borders of any kind, including the
+                rounded-edge top that you see in Windows XP.</p>
+            <p>
+                There is also a member of the WINDOWCLASSEX struct that we need to take out.&nbsp;
+                This leaves the background color untouched, which means it won't be visible as window
+                for a second or two before the game starts (important to making your game look professional).</p>
+            <div class="codebox">
+                <strong>&nbsp; &nbsp; // wc.hbrBackground = (HBRUSH)COLOR_WINDOW;</strong></div>
+            <p>
+                Next, we have to tell DirectX about our new screen resolution.&nbsp; We do this
+                by making a few changes to the d3dpp struct we built in the last lesson.&nbsp; Let's
+                look at what they are before we see what they do.</p>
+            <div class="codebox">
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp; &nbsp;&nbsp; // create a struct to hold various device information<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp)); &nbsp;&nbsp; // clear out the struct for use<br>
+                &nbsp; &nbsp; d3dpp.Windowed = <strong>FALSE;</strong> &nbsp;&nbsp; // program fullscreen,
+                not windowed<br>
+                &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD; &nbsp;&nbsp; // discard
+                old frames<br>
+                &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd; &nbsp;&nbsp; // set the window to
+                    be used by Direct3D<br>
+                    <strong>&nbsp; &nbsp; d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8; &nbsp; &nbsp;// set the back buffer format
+                    to 32-bit<br>
+                    &nbsp; &nbsp; d3dpp.BackBufferWidth = SCREEN_WIDTH; &nbsp; &nbsp;// set the width of the buffer<br>
+                    &nbsp; &nbsp; d3dpp.BackBufferHeight = SCREEN_HEIGHT; &nbsp; &nbsp;// set the height of the buffer</strong></div>
+            <p>
+                Let's examine these new back buffer related variables.</p>
+            <p class="subheader">
+                d3dpp.BackBufferFormat</p>
+            <p>
+                This member is used to tell Direct3D what kind of pixels should be displayed.&nbsp;
+                There are six types that can be used here, but two of them are older types (16-bit)
+                and not generally used anymore.&nbsp; There are several 32-bit types that we can use.&nbsp;
+                We'll use the D3DFMT_X8R8G8B8.&nbsp; See the table for a description
+                along with some other values than can be used here (definitely not all of them).</p>
+            
+            [<a href="#still" onclick="Toggle('table2-2')" class="mainlink">Table 2.2 - Some Back Buffer Formats</a>]<br>
+            <br>
+            <table id="table2-2" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 193px;">
+                        Value</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 193px; height: 50px;">
+                        D3DFMT_A8R8G8B8</td>
+                    <td style="height: 50px;">
+                        This is a 32-Bit pixel format, with 256 levels 
+(8 bits) of red, green, blue and alpha (semi-transparency).</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px; height: 50px;">
+                        D3DFMT_X8R8G8B8</td>
+                    <td style="height: 50px;">
+                        This is similar to A8R8G8B8, with the one difference being that it does not support
+                        alpha, even though there are 8 bits to represent this.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px; height: 50px;">
+                        D3DFMT_A2R10G10B10</td>
+                    <td style="height: 50px;">
+                        This is a 32-Bit pixel format, with only two bits of alpha, but 10 bits (1024 levels)
+                        of each red, green and blue.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px; height: 50px;">
+                        D3DFMT_A16B16G16R16</td>
+                    <td style="height: 50px;">
+                        64-BIT COLOR!&nbsp; If you have the capability to run 64-bit color, I'd recommend
+                        playing around with this to see how it works.<br>
+                        <br>
+                        This value has 16 bits for each component (65536 levels compared to the current
+                        measly 256!)</td>
+                </tr>
+                <tr>
+                    <td>
+                        [<a class="mainlink" href="#still" onclick="Toggle('table2-2')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+            <p class="subheader">
+                BackBufferWidth and BackBufferHeight</p>
+            <p>
+                These two members indicate the width and height of the back buffer. &nbsp;Painfully
+                simple.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                The Finished Program</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                So, there isn't much to change.&nbsp; Let's take a look at the whole picture and
+                see what is different and what is the same.</p>
+
+            [<a href="#still" onclick="Toggle('lessonprog')" class="mainlink">Show Code</a>]<br>
+            <br>
+
+            <div class="codebox" id="lessonprog" style="display: none;">
+                // include the basic windows header files and the Direct3D header file<br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                #include &lt;d3d9.h&gt;<br>
+                <br>
+                // define the screen resolution<br>
+                    #define SCREEN_WIDTH&nbsp; 800<br>
+                    #define SCREEN_HEIGHT 600<br>
+                <br>
+                // include the Direct3D Library file<br>
+                #pragma comment (lib, "d3d9.lib")<br>
+                <br>
+                // global declarations<br>
+                LPDIRECT3D9 d3d; // the pointer to our Direct3D interface<br>
+                LPDIRECT3DDEVICE9 d3ddev; // the pointer to the device class<br>
+                <br>
+                // function prototypes<br>
+                void initD3D(HWND hWnd); // sets up and initializes Direct3D<br>
+                void render_frame(void); // renders a single frame<br>
+                void cleanD3D(void); // closes Direct3D and releases memory<br>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);<br>
+                <br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+                {<br>
+                &nbsp; &nbsp; HWND hWnd;<br>
+                &nbsp; &nbsp; WNDCLASSEX wc;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+                <br>
+                &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+                &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+                &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+                &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+                &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+                <strong>&nbsp; &nbsp; // wc.hbrBackground = (HBRUSH)COLOR_WINDOW; &nbsp;&nbsp; // not
+                    needed any more</strong><br>
+                &nbsp; &nbsp; wc.lpszClassName = L"WindowClass";<br>
+                <br>
+                &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+                <br>
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; L"WindowClass",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;
+                L"Our Direct3D Program",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; <strong>WS_EX_TOPMOST | WS_POPUP, &nbsp;&nbsp; // fullscreen values</strong><br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; <strong>0, 0, &nbsp;&nbsp; // the starting x and y positions should be 0</strong><br>
+                <strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; SCREEN_WIDTH, SCREEN_HEIGHT, &nbsp;&nbsp; // set the window to 640
+                    x 480<br>
+                </strong>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+                <br>
+                &nbsp; &nbsp; // set up and initialize Direct3D<br>
+                &nbsp; &nbsp; initD3D(hWnd);<br>
+                <br>
+                &nbsp; &nbsp; // enter the main loop:<br>
+                <br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; while(TRUE)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; render_frame();<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; // clean up DirectX and COM<br>
+                &nbsp; &nbsp; cleanD3D();<br>
+                <br>
+                &nbsp; &nbsp; return msg.wParam;<br>
+                }<br>
+                <br>
+                <br>
+                // this is the main message handler for the program<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+                {<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+                }<br>
+                <br>
+                <br>
+                // this function initializes and prepares Direct3D for use<br>
+                void initD3D(HWND hWnd)<br>
+                {<br>
+                &nbsp; &nbsp; d3d = Direct3DCreate9(D3D_SDK_VERSION); // create the Direct3D interface<br>
+                <br>
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp; // create a struct to hold various device
+                information<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp)); &nbsp;&nbsp; // clear
+                out the struct for use<br>
+                &nbsp; &nbsp; d3dpp.Windowed = <strong>FALSE;</strong> &nbsp;&nbsp; // program fullscreen,
+                not windowed<br>
+                &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD; &nbsp;&nbsp; // discard
+                old frames<br>
+                &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd; &nbsp;&nbsp; // set the window to be used
+                by Direct3D<br>
+                <strong>&nbsp; &nbsp; d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8; &nbsp;&nbsp; // set the back buffer
+                    format to 32-bit<br>
+                    &nbsp; &nbsp; d3dpp.BackBufferWidth = SCREEN_WIDTH; &nbsp;&nbsp; // set the width of the buffer<br>
+                    &nbsp; &nbsp; d3dpp.BackBufferHeight = SCREEN_HEIGHT; &nbsp; &nbsp;// set the height of the buffer</strong><br>
+                <br>
+                <br>
+                &nbsp; &nbsp; // create a device class using this information and the info from
+                the d3dpp stuct<br>
+                &nbsp; &nbsp; d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D3DDEVTYPE_HAL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; D3DCREATE_SOFTWARE_VERTEXPROCESSING,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3dpp,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3ddev);<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function used to render a single frame<br>
+                void render_frame(void)<br>
+                {<br>
+                &nbsp; &nbsp; // clear the window to a deep blue<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 40, 100),
+                1.0f, 0);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;BeginScene(); &nbsp;&nbsp; // begins the 3D scene<br>
+                <br>
+                &nbsp; &nbsp; // do 3D rendering on the back buffer here<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;EndScene(); &nbsp; &nbsp;// ends the 3D scene<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL); &nbsp; // displays the created
+                frame on the screen<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that cleans up Direct3D and COM<br>
+                void cleanD3D(void)<br>
+                {<br>
+                &nbsp; &nbsp; d3ddev-&gt;Release(); // close and release the 3D device<br>
+                &nbsp; &nbsp; d3d-&gt;Release(); // close and release Direct3D<br>
+                }</div>
+            <p>
+                There isn't really a point in me showing a screenshot of this program's result,
+                because it would just be a blue rectangle.&nbsp; Your program should look like that:
+                a blue rectangle with a mouse pointer in the middle.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                    Summary</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Great!&nbsp; We now have a simple platform on which to build games.</p>
+            <p>
+                Before you go on, I recommend doing the following exercise to gain familiarity
+                with the code in this program:</p>
+            <p>
+                Change the resolution of the program until you are familiar with the various
+                resolutions selectable.</p>
+            <p>
+                When you're ready to go on, let's hit the next lesson!</p>
+            <center>
+                <p>
+                    Next Lesson:&nbsp; An Overview of the Third Dimension</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B3.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Found a typo?  Let me know <a class="feedlink" href="javascript:RunFeedback(22)">here</a>.</p>
+            </center>
+        </div>
+        
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B2.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

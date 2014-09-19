@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="GettingStartedWithXNADevelopment_files/styles.css">
+    <title>Getting started with XNA Development</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="GettingStartedWithXNADevelopment_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>Getting Started with XNA Development</h2>
+				<p>
+					<em>Everything you need to know to get started making your game with the XNA framework. </em>
+				</p>
+				<ul>
+				<li><em>Posted on:</em> <strong>05-07-2008</strong></li>
+				<li><a href="http://geekswithblogs.net/clingermangw/archive/2008/03/07/120373.aspx">View Comments or Leave Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="GettingStartedWithXNADevelopment_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>Getting started with XNA Development</h2>
+
+<strong>Everything you need to know to start making your game with the XNA framework</strong> 
+
+<p>So you have heard about this awesome new game thing from Microsoft
+and you are all excited because your mind is brimming with ideas for
+really cool games, but just one problem, you are just not really sure
+how to get started. Well, let's see what we can do about getting you
+pointed in the right direction. </p>
+<p>For those of you who are not fans of reading (come on guys, how far
+are you going to get in life honestly if you don't learn to love to
+read?), here's the summarized quickie list of what you need to know. </p>
+<p>&nbsp; </p>
+<blockquote>
+<p><strong>Getting Started: The I Hate to Read Version</strong>  </p>
+<ul>
+    <li>Everything you need to make games with the XNA framework for the PC is free.  </li>
+    <li>You need to learn to program in C# before you can make games with the XNA framework.  </li>
+    <li>You will need to make sure your PC has a video card that supports the minimum requirements of the XNA framework.  </li>
+    <li>You will need to install some applications (all free) from Microsoft that you will use to make games.  </li>
+    <li>Nothing about game development with the XNA framework is drag-and-drop, you have to program it all, but the sky is the limit.  </li>
+    <li>You will not immediately be able to make your dream game, but if you work hard and learn the basics, you can someday.</li>
+</ul>
+</blockquote>
+<p>&nbsp; </p>
+<p>Now for the rest of you, the ones who really are trying hard to succeed in life. We'll go into a bit more details.  </p>
+<p>&nbsp; </p>
+<p><strong>Ok, I'm excited, but just what is XNA exactly?</strong> </p>
+<p>You have heard all the buzz, you might have even seen some cool
+games that people said were written with XNA, but you're still not sure
+what exactly XNA is and what you can do with it. "XNA" the term is a
+brand, it refers to all the Microsoft Technologies that have to do with
+developing games. This includes both DirectX and the XNA framework.
+Most of the buzz lately is due to the XNA framework and chances are
+that is why you are here. </p>
+<p>The XNA framework is an API. What that means is that it is a
+framework developed by Microsoft to help you make games faster. It's
+not a drag and drop game maker and you will need to learn how to
+program before you can use it. It is easy to use, but you will have to
+be somewhat technical to develop games with it. </p>
+<p>The XNA framework is not a game engine. It does not include physics,
+collision detection and other things often found in game engines. It is
+a game development framework, but how the game works is programmed
+entirely by you. </p>
+<p>XNA Game Studio is the environment you develop in. XNA Game Studio
+is basically a plug-in that gets installed into one of the currently
+supported Visual Studio environments. Typically XNA framework games are
+written in C#, but there is some support for other .NET languages with
+some slight functionality lost. </p>
+<p>You can read more about XNA <a href="http://en.wikipedia.org/wiki/Microsoft_XNA">here</a> to get more of an overall picture and some of the history.  </p>
+<p>&nbsp; </p>
+<p><strong>What do I need to install on my PC to get started</strong>?  </p>
+<p>Before you can start making a game using the XNA framework, you are
+going to have to download and install some programs on your PC. Here
+are some FAQs to help walk you through that process and make sure your
+PC is ready for the XNA framework. </p>
+<ul>
+    <li><a href="http://forums.xna.com/thread/4031.aspx">How to make sure your graphics card is XNA ready</a>  </li>
+    <li><a href="http://forums.xna.com/thread/9928.aspx">Installing Game Studio Express</a>  </li>
+    <li><a href="http://creators.xna.com/Education/GettingStarted.aspx">Getting Started</a></li>
+</ul>
+<p>&nbsp; </p>
+<p><strong>Where do I go for help?</strong> </p>
+<p>You're going to get stuck and have questions as you're working with
+the XNA framework and playing with game development. And while I try to
+help out people the best I can, I don't really think asking me directly
+is the best resource for you. So one of the first things to know is
+where to go for help. Luckily, Microsoft has created a great set of <a href="http://forums.xna.com/">forums for XNA</a>
+and they are brimming with people helping out. It is important to
+remember that the forums are not monitored by paid individuals, but by
+everyday people just like you. The people that answer questions on
+these forums are taking time to try and help you, but the only benefit
+they get from it is your thanks. So it's important to remember some
+simple guidelines. </p>
+<blockquote>
+<p><em><strong>Search the forums before you ask.</strong></em> This is
+important for several reasons, first of all, if the question is already
+answered then you get your answer right away! Second, it helps cut down
+on the number of questions that are waiting for answers out there, this
+is important so that when you do have a question that isn't a
+duplicate, the individuals monitoring these forums don't have to wade
+through as many duplicate questions before they get to yours. So
+remember, search first then ask! (the search box is in the upper right
+of the forum. Type in a keyword and hit the "Go" button). </p>
+<p><em><strong>Be polite.</strong></em> The people here are friendly
+and helpful, so even if you're frustrated and stuck on a problem and
+want to scream at the world, try to scream politely. There really is no
+point in being rude to us, we're trying to help. </p>
+<p><em><strong>Be patient.</strong></em> Generally questions are
+answered pretty quickly, but when you're really stuck on something,
+sometimes that just isn't fast enough for you. We understand, but
+remember we're not being paid to answer questions and we're helping as
+many people as fast as we can. Give it a day or do before you re-post
+asking for someone to please help you. We're helpful, but we also have
+other things going on in our lives that sometimes take us away from the
+forums for a day or so. </p>
+<p><em><strong>Return the favor.</strong></em> If you see a question
+that you know the answer to, take the time to answer! Just remember to
+be polite when you do even if you think the original poster is an idiot.</p>
+</blockquote>
+<p>Along with those general guidelines, it's a good idea to read over these FAQs to get familiar with the XNA forums. </p>
+<ul>
+    <li><a href="http://forums.xna.com/thread/206.aspx">Did your post get deleted? Here's why</a> </li>
+    <li><a href="http://forums.xna.com/thread/205.aspx">How to Ask A Question so that it's not Ignored or Deleted</a> </li>
+    <li><a href="http://forums.xna.com/thread/3972.aspx">HOWTO: Advanced forum use and Q&amp;A</a> </li>
+    <li><a href="http://forums.xna.com/thread/7647.aspx">How to use your real name in the forums</a> </li>
+    <li><a href="http://forums.xna.com/thread/16780.aspx">How do I post an image in the forum?</a> </li>
+    <li><a href="http://forums.xna.com/thread/31945.aspx">Non-English posts and forums</a> </li>
+    <li><a href="http://forums.xna.com/thread/17893.aspx">Posting code to the forums</a></li>
+</ul>
+<p><strong></strong> </p>
+<p><a href="http://creators.xna.com/Education/GettingStarted.aspx"></a>&nbsp; </p>
+<p><strong>You are going to need to learn C#</strong> </p>
+<p>To get started making games with the XNA framework, you are going to
+first need to learn the basics of programming in C#. You will not have
+to become an expert, but getting a fundamental grasp of programming and
+the C# syntax is going to be required before you can start working on
+your game. If you apply yourself, it shouldn't take too long before you
+know enough to begin making simple 2D clones like Pong. </p>
+<p>Here are some FAQs to help get you started on learning to program.  </p>
+<ul>
+    <li><a href="http://forums.xna.com/thread/1384.aspx">How do I learn to program?</a> </li>
+    <li><a href="http://forums.xna.com/thread/16573.aspx">What are the recommended books and sites for learning C#?</a></li>
+</ul>
+<p><a href="http://forums.xna.com/thread/16573.aspx"></a>&nbsp; </p>
+<p><strong>How do I get started actually making my game?</strong> </p>
+<p>So you want to start making your game, but you're not sure just
+exactly where to begin. The best way to start is with the basics and
+here are the best places to go to learn those. </p>
+<blockquote>
+<p><strong><em>The Help Files. </em></strong>The first place to start
+is by going through the Help files that were installed when you
+installed XNA Game Studio Express. They are very well written and cover
+a lot of game development basics and how to use the XNA framework. </p>
+<p><strong><em>The Creators Site.</em></strong> This site contains a
+lot of samples and articles written to help get you going on your own
+game. Not only is it a great place to get your questions answered, but
+it's a great place to find some tutorials and samples to help get you
+on your way to making your own game. </p>
+<p><em><strong>The Community</strong>.</em> After you're done browsing
+the Help files and the Creators site, start wandering around the large
+and growing XNA community for some other samples and tutorials. Keeping
+your eye on <a href="http://www.ziggyware.com/">Ziggyware</a> is
+highly recommended because he has the most comprehensive coverage of
+everything XNA. You can also check out these other community sites
+mentioned in <a href="http://forums.xna.com/thread/9937.aspx">this FAQ here</a>.</p>
+</blockquote> <blockquote>
+<p><strong><em>The Books.</em></strong> There are a lot of books being
+written and published on creating games with the XNA framework. If you
+learn best with a book in your hand, then check out <a href="http://forums.xna.com/thread/8135.aspx">this FAQ</a>
+to see if there is one perfect for you. Be careful to pay attention to
+which version of the XNA framework the book was written for. If you buy
+a book for an older version, you can become frustrated when the code
+samples no longer compile with the newer versions of the framework.</p>
+</blockquote>
+<p>&nbsp; </p>
+<p><strong>How to make an MMORPG!</strong> </p>
+<p>Now that you've got the basics, you're ready to make your dream game
+right? Wrong. You're not going to make that game in your head on your
+first attempt, probably not on your first 50 attempts. Take that great
+idea for the next killer FPS or MMORPG and put it up high on a shelf
+somewhere. You'll be ready for it soon, but you'll only frustrate
+yourself and most likely end in failure if you start with your dream
+project. </p>
+<p>I would recommend you start looking at 2D to begin with. Start with
+something small and work on the basics of game development first. How
+do I create a new Windows game project? How do I display an image on
+the screen? How do I move it around? How do I get input from the user?
+Just keep building up your skills slowly, take it a step at a time and
+you'll be ready for that AAA gaming company someday. </p>
+<p>You can start doing development right away with the XNA framework
+and your 360, but I would recommend just playing around with it on your
+PC first. (although it *IS* pretty cool to see your stuff running on
+your console!). Once you have the basic understanding of XNA
+development, starting to push things over the 360 is fairly simple
+(although you might have to start learning some tricks and techniques
+to managing your garbage collection, but that's for a much later
+topic). </p>
+<p>Now that you know the simple things, what games should you start
+with since you have your dream on a shelf? Make Pong. But *REALLY* make
+Pong. Give it a title screen, background music, SoundFX, game over,
+replay options, high scores. Don't just get the basic game play in and
+call it done. Take it all the way to the end and put some polish on it.
+Finishing your first game is a valuable experience and if you stop with
+just the game play you'll miss out on some of the valuable lessons you
+should be learning. </p>
+<p>Once you've finished Pong, pick another 2D clone to do. Tetris and
+Breakout are typical good choices. Next, move on to some side
+scrollers. Think Atari, Coleco Vision and early NES games. When you've
+finished two or three games like that, you'll be sure to have built up
+a good library of game development experience and you're probably ready
+to start branching out into 3D game development. You'll want to repeat
+the same steps with 3D game development, learn the basics first, make
+some smaller 3D games from start to finish. </p>
+<p>Finally, get your step stool out, reach way up high, grab that idea
+of your shelf and start coding away. You're there and I can't wait to
+play your game! </p>
+<p>Good luck and have some fun!</p>
+
+		</div>
+	</div>
+</div>
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="GettingStartedWithXNADevelopment_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</body></html>

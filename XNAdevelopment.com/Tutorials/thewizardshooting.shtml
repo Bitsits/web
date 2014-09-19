@@ -1,0 +1,463 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="thewizardshooting_files/styles.css">
+    <title>The Wizard: Part 4 - Making a Sprite Shoot Fireballs</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="thewizardshooting_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>The Wizard - Part 4</h2>
+				<p>
+					<em>Making a Sprite Shoot Fireballs </em>
+				</p>
+				<ul>
+				<li><a href="http://www.xnadevelopment.com/tutorials/thewizardshooting/thewizardshooting.zip">Download the Source code</a></li>
+				
+				<li><a href="http://geekswithblogs.net/clingermangw/archive/2008/03/16/120585.aspx">View Comments or Leave Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="thewizardshooting_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>The Wizard - Part 4</h2>
+<strong>Making a Sprite Shoot Fireballs</strong>
+<p>&nbsp;</p>
+
+<div style="margin: 0px; padding: 5px 10px 5px 5px; display: inline; float: right;">
+<object width="425" height="349"><param name="movie" value="http://www.youtube.com/v/0hlSuvdtAJ8&amp;hl=en&amp;fs=1&amp;color1=0x2b405b&amp;color2=0x6b8ab6&amp;border=1"><param name="allowFullScreen" value="true"><embed src="thewizardshooting_files/0hlSuvdtAJ8hlenfs1color10x2b405bcolor20x6b8ab6border1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="349"></object>
+</div>
+
+<div style="padding-right: 19px; padding-left: 10px; padding-bottom: 15px;">
+
+<p>This is the fourth and final part in the Wizard series. We have
+covered making a sprite move, jump and duck. Now, we're moving onto
+creating projectiles and making your sprite shoot. </p>
+<p><strong>Starting the game project:</strong>  </p>
+<p>We are going to be building off everything that we did in the third part of the Wizard series&nbsp; "<a href="http://www.xnadevelopment.com/tutorials/thewizardducking/thewizardducking.shtml">The Wizard - Part 3: Making a Sprite Duck</a>". Instead of creating a new XNA Game project, you can just <a href="http://www.xnadevelopment.com/tutorials/thewizardducking/thewizardducking.zip">download the source</a> for that project and begin working from that game project.  </p>
+<p><strong>Adding the images:</strong>  </p>
+<p><img src="thewizardshooting_files/Fireball.png" alt="Fireball" style="border: 0px none ; margin: 0px 10px 0px 0px;" align="left" border="0" width="100" height="81">
+Now, let's add the new sprite image that we are going to be using in
+this tutorial to the game project. You can download the Fireball image
+used in the project from <a href="http://www.xnadevelopment.com/tutorials/thewizardshooting/wizardshootingimage.zip">here</a>.
+Once you have downloaded the image, add the Fireball image to the
+Content folder in your game. If you are having trouble remembering how
+to add an image to an XNA Game project, just follow the steps in <a href="http://www.xnadevelopment.com/tutorials/addinganimagetothegameproject/AddingAnImageToTheGameProject.shtml">this tutorial here</a> and come back to this tutorial after you've refreshed your memory.  </p>
+<p><strong></strong>&nbsp; </p>
+<p><strong>Enhancing the Sprite class:</strong>  </p>
+<p>We need to enhance the sprite class, but the change we're making is
+going to be a very small one. Some of the changes we will be making
+during this tutorial will require the ability for classes that inherit
+from our Sprite class to "override" the Draw method. When a method in
+an inherited class overrides a method in it's base class, that simply
+means the inherited classes version of the method will be called
+instead. This is typically done when an inherited class needs to either
+replace some functionality in a method or when it needs to do something
+before the functionality in the base class happens. </p>
+<p>To indicate that an inherited class can override a method, the
+method must be marked as "virtual", this has nothing to do with the XNA
+framework, it's just basic object oriented programming and C# syntax.
+To make our Draw method virtual, modify the Draw method in the
+Sprite.cs class to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Draw the sprite to the screen</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">virtual</span> <span class="kwrd">void</span> Draw(SpriteBatch theSpriteBatch)</pre>
+<pre class="alt">        {</pre>
+<pre>            theSpriteBatch.Draw(mSpriteTexture, Position, Source,</pre>
+<pre class="alt">                Color.White, 0.0f, Vector2.Zero, Scale, SpriteEffects.None, 0);</pre>
+<pre>        }</pre>
+</div>
+<p>As you can see, nothing else changed, but the new keyword "virtual" was added to the the method signature. </p>
+<p><strong>Adding the Fireball class:</strong></p>
+<p>Our Wizard is going to shoot magic fireballs and we're going to make
+a "Fireball" class to represent those. The Fireball class is going to
+inherit from the Sprite class but add some fireballish type
+functionality. Let's get started. Right-click on the the game project
+in the Solution Explorer. Select, "Add", then pick "Class" from the add
+sub-men. This will open up the "Add New Item" dialog. Type in the name
+"Fireball" for your class and click the "Add" button. </p>
+<p>Now we need to start adding some functionality to the Fireball
+class. Let's start by adding our XNA framework "using" statements to
+the top of the Fireball.cs class file. </p>
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework;</pre>
+<pre><span class="kwrd">using</span> Microsoft.Xna.Framework.Content;</pre>
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework.Graphics;</pre>
+</div>
+<pre>&nbsp;</pre>
+<p>Now, let's see the Fireball class up to inherit from the Sprite
+class. Change the class declaration for the Fireball to look like the
+following. </p>
+<div class="csharpcode">
+<pre class="alt">    <span class="kwrd">class</span> Fireball : Sprite</pre>
+</div>
+<p>The Fireball class now inherits from the Sprite class and has access to all of it's public and protected members and methods.</p>
+<p>To begin adding functionality to the Fireball class, we will start
+out by adding some constant and class level objects that we will be
+working with. Add the following code to the top of the Fireball.cs
+class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">const</span> <span class="kwrd">int</span> MAX_DISTANCE = 500;</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">bool</span> Visible = <span class="kwrd">false</span>;</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">        Vector2 mStartPosition;</pre>
+<pre>        Vector2 mSpeed;</pre>
+<pre class="alt">        Vector2 mDirection;</pre>
+</div>
+<p>MAX_DISTANCE is a constant that indicates how far our Fireball can
+travel before it disappears. Visible keeps track of whether the
+Fireball should be visible any longer, so when it's traveled it's
+maximum distance it wouldn't be Visible anymore. </p>
+<p>We will use mStartPosition to store where the Fireball starts at so
+we can keep track of how far it has traveled. Speed and Direction will
+be used to move the Fireball.</p>
+<p>Next, we want to loud our Fireball image. To do that, add the following "LoadContent" method to the Fireball class. </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">void</span> LoadContent(ContentManager theContentManager)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">base</span>.LoadContent(theContentManager, <span class="str">"Fireball"</span>);</pre>
+<pre>            Scale = 0.3f;</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>We pass in the Asset name (Oh no! Refactor that "magic" string out!
+Did you see it? Remember, random strings and numbers in your code can
+lead to problems in the future.). That will load our Fireball image for
+us that we added earlier. Next, we scale the Fireball down from it's
+original size so that it looks appropriate for our Wizard sprite.</p>
+<p>The Update logic is going to be a little different for the Fireball. Add the following Update method to the Fireball.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">void</span> Update(GameTime theGameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (Vector2.Distance(mStartPosition, Position) &gt; MAX_DISTANCE)</pre>
+<pre>            {</pre>
+<pre class="alt">                Visible = <span class="kwrd">false</span>;</pre>
+<pre>            }</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">if</span> (Visible == <span class="kwrd">true</span>)</pre>
+<pre class="alt">            {</pre>
+<pre>                <span class="kwrd">base</span>.Update(theGameTime, mSpeed, mDirection);</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+<p>We start out by checking to see just how far this Fireball has
+traveled. We do that by using one of the methods of the Vector2 object
+called "Distance". With distance, you can pass in a starting vector2
+and an ending vector2 and it will calculate just how far apart they
+are. If the fireball has traveled further then it's maximum distance,
+then we say it should no longer be visible.</p>
+<p>Next, we check to see if the Fireball is still visible. If it is,
+then we pass it's current speed and direction (and the time that has
+elapsed) to the base Sprite class so that the Position for the Fireball
+sprite will be adjusted properly.</p>
+<p>The Draw code will have some similar functionality. Add the following Draw method to the Fireball.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(SpriteBatch theSpriteBatch)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (Visible == <span class="kwrd">true</span>)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="kwrd">base</span>.Draw(theSpriteBatch);</pre>
+<pre>            }</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>You can see that we used the keyword "override" in our Draw method.
+This is why we had to mark the Draw method in the base Sprite class as
+"virtual". Our Fireball doesn't want the base Draw functionality to
+happen automatically. When some class calls Draw on a Fireball, it
+first wants to make sure it's Visible, then if it is, it will go ahead
+and call the base Draw functionality. Overriding methods is very useful
+functionality!</p>
+<p>Just one more method we need to add to our Fireball class. We want
+something to start the Fireball in motion. To do that, add the
+following "Fire" method to the Fireball.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">void</span> Fire(Vector2 theStartPosition, Vector2 theSpeed, Vector2 theDirection)</pre>
+<pre>        {</pre>
+<pre class="alt">            Position = theStartPosition;            </pre>
+<pre>            mStartPosition = theStartPosition;</pre>
+<pre class="alt">            mSpeed = theSpeed;</pre>
+<pre>            mDirection = theDirection;</pre>
+<pre class="alt">            Visible = <span class="kwrd">true</span>;</pre>
+<pre>        }</pre>
+</div>
+<p>The Fire method takes in a starting position, a speed and a
+direction object. It uses these to set it's own objects so that when
+Update is called the speed and direction will be set. It also sets the
+Visible on the Fireball to true indicating the Fireball can now be
+seen. </p>
+<p>Now that we have our Fireball class created. Let's see how we're going to interact with it.</p>
+<p><strong>Enhancing the Wizard class:</strong></p>
+<p>Our Wizard is going to gain the ability to shot Fireballs, but to do
+that we're going to have to start writing some code. Let's start off
+first by creating some object to keep track of the fireballs. Add the
+following objects to the top of the Wizard.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        List&lt;Fireball&gt; mFireballs = <span class="kwrd">new</span> List&lt;Fireball&gt;();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">        ContentManager mContentManager;</pre>
+</div>
+<p>The Content Manager object will be used to create new Fireballs when
+we need them. The LoadContent method of the Fireball class needs a
+reference to the Content Manager so we need to have a reference hanging
+around to pass to it. </p>
+<p>The "List" object gives us a way of creating multiple types of
+objects and keeping track of them. One of the neat things about the
+List object is you can tell it what type of object you are going to be
+keeping in it. In our case, we're going to be keeping track of Fireball
+classes so we use that in our declaration. (for more information on
+this type of thing, start reading up on C# generics. They're great!). </p>
+<p>Next, we need to modify the LoadContent method. The LoadContent
+method is called every time the graphics device is reset. That means
+that all the content will need to be reloaded so not only our Wizard
+image, but all the Fireballs as well. Modify the LoadContent method in
+the Wizard.cs class to look like the following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">void</span> LoadContent(ContentManager theContentManager)</pre>
+<pre>        {</pre>
+<pre class="alt">            mContentManager = theContentManager;</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="kwrd">foreach</span> (Fireball aFireball <span class="kwrd">in</span> mFireballs)</pre>
+<pre>            {</pre>
+<pre class="alt">                aFireball.LoadContent(theContentManager);</pre>
+<pre>            }</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            Position = <span class="kwrd">new</span> Vector2(START_POSITION_X, START_POSITION_Y);</pre>
+<pre class="alt">            <span class="kwrd">base</span>.LoadContent(theContentManager, WIZARD_ASSETNAME);</pre>
+<pre>            Source = <span class="kwrd">new</span> Rectangle(0, 0, 200, Source.Height);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>We start by storing a reference to the ContentManager passed into
+the Wizard's LoadContent method. We want that reference hanging around
+so that when we have to add a new Fireball, it's available for us to
+pass to the Fireball's LoadContent method.</p>
+<p>Next, we cycle through all the current Fireballs we have in our list
+and call LoadContent for them. The rest of the code was there from the
+previous tutorials in the series.</p>
+<p>The Update method now needs to start Updating our Fireballs as well.
+Modify the Update method in the Wizard.cs class to look like the
+following.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">void</span> Update(GameTime theGameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            KeyboardState aCurrentKeyboardState = Keyboard.GetState();</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            UpdateMovement(aCurrentKeyboardState);</pre>
+<pre>            UpdateJump(aCurrentKeyboardState);</pre>
+<pre class="alt">            UpdateDuck(aCurrentKeyboardState);</pre>
+<pre>            UpdateFireball(theGameTime, aCurrentKeyboardState);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            mPreviousKeyboardState = aCurrentKeyboardState;</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Update(theGameTime, mSpeed, mDirection);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>We added a new line of code to call a method "UpdateFireball". So
+let's go ahead and add that new method. now. Add the following
+"UpdateFireball" method to the Wizard.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> UpdateFireball(GameTime theGameTime, KeyboardState aCurrentKeyboardState)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">foreach</span> (Fireball aFireball <span class="kwrd">in</span> mFireballs)</pre>
+<pre>            {</pre>
+<pre class="alt">                aFireball.Update(theGameTime);</pre>
+<pre>            }</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">if</span> (aCurrentKeyboardState.IsKeyDown(Keys.RightControl) == <span class="kwrd">true</span> &amp;&amp; mPreviousKeyboardState.IsKeyDown(Keys.RightControl) == <span class="kwrd">false</span>)</pre>
+<pre class="alt">            {</pre>
+<pre>                ShootFireball();</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+<p>The UpdateFireball method does the leg work for making sure that
+each Fireball currently in our list gets Updated (so it can move). It
+does this by cycling through all the Fireballs currently in the list
+and calling their Update method. Next, it checks to see if the right
+control key has been pressed (and wasn't pressed previously). If that's
+true, then the Wizard will shoot a fireball. </p>
+<p>Add the following "ShootFireball" method to the Wizard.cs class.</p>
+<div class="csharpcode">
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">private</span> <span class="kwrd">void</span> ShootFireball()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">if</span> (mCurrentState == State.Walking)</pre>
+<pre>            {</pre>
+<pre class="alt">                <span class="kwrd">bool</span> aCreateNew = <span class="kwrd">true</span>;</pre>
+<pre>                <span class="kwrd">foreach</span> (Fireball aFireball <span class="kwrd">in</span> mFireballs)</pre>
+<pre class="alt">                {</pre>
+<pre>                    <span class="kwrd">if</span> (aFireball.Visible == <span class="kwrd">false</span>)</pre>
+<pre class="alt">                    {</pre>
+<pre>                        aCreateNew = <span class="kwrd">false</span>;</pre>
+<pre class="alt">                        aFireball.Fire(Position + <span class="kwrd">new</span> Vector2(Size.Width / 2, Size.Height / 2), </pre>
+<pre>                            <span class="kwrd">new</span> Vector2(200, 0), <span class="kwrd">new</span> Vector2(1, 0));</pre>
+<pre class="alt">                        <span class="kwrd">break</span>;</pre>
+<pre>                    }</pre>
+<pre class="alt">                }</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">                <span class="kwrd">if</span> (aCreateNew == <span class="kwrd">true</span>)</pre>
+<pre>                {</pre>
+<pre class="alt">                    Fireball aFireball = <span class="kwrd">new</span> Fireball();</pre>
+<pre>                    aFireball.LoadContent(mContentManager);</pre>
+<pre class="alt">                    aFireball.Fire(Position + <span class="kwrd">new</span> Vector2(Size.Width / 2, Size.Height / 2), </pre>
+<pre>                        <span class="kwrd">new</span> Vector2(200, 200), <span class="kwrd">new</span> Vector2(1, 0));</pre>
+<pre class="alt">                    mFireballs.Add(aFireball);</pre>
+<pre>                }</pre>
+<pre class="alt">            }</pre>
+<pre>        }</pre>
+</div>
+</div>
+<p>Ok, there's a lot going on in this method. First, nothing happens
+unless the Wizards current state is Walking. At this point in time
+(unless you start making some changes to the code as you're playing),
+our Wizard can't shoot when in any other state (like ducking or
+jumping). </p>
+<p>The next bit of code is probably overkill for this little sample,
+but I thought it was a good thing to go over so you have this little
+trick available for future projects. Creating and destroying objects is
+expensive. A much better technique is to keep them around, but have
+them in an inactive, dead or invisible state. Then when you need to
+create a new object of that type, you just check your list to see if
+there are any not being used and you re-use them. </p>
+<p>So first we start out by setting a flag called "aCreateNew". We set
+this to true initially to indicate we have to create a new Fireball.
+Next, we cycle through all the fireballs in our list checking to see if
+any aren't currently being used. We know they're not being used because
+they won't be Visible any longer. When we find one that isn't visible,
+we change our flag to say we don't need to create a new one because we
+found one we are going to reuse instead.</p>
+<p>Then, we call the "Fire" method on the Fireball to reset all it's
+own internal objects and start it on it's own merry little magic
+fireball way again.</p>
+<p>The second part of the ShootFireball method covers the case that we
+couldn't reuse one of the existing Fireballs. For those cases, we have
+to create a new one. So if our flag still indicates we need to create a
+new one, create a new one we will do. We declare a new Fireball object,
+call LoadContent passing in our reference to the Content Manager and
+then we Fire the Fireball. Finally, we add taht Fireball to our list.</p>
+<p>Now that we're shooting Fireballs, we need to start drawing them to
+the screen. Add the following Draw method to the Wizard.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(SpriteBatch theSpriteBatch)</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="kwrd">foreach</span> (Fireball aFireball <span class="kwrd">in</span> mFireballs)</pre>
+<pre>            {</pre>
+<pre class="alt">                aFireball.Draw(theSpriteBatch);</pre>
+<pre>            }</pre>
+<pre class="alt">            <span class="kwrd">base</span>.Draw(theSpriteBatch);</pre>
+<pre>        }</pre>
+</div>
+<p>Again, we're overriding the base Sprite classes Draw method so we
+can draw our Fireballs first. Once we're done with that, we call the
+base classes Draw method so the Wizard will then draw.</p>
+<p>That's it! Go ahead and do a <strong>Build <img src="thewizardshooting_files/CropperCapture26324_thumb44.jpg" alt="CropperCapture26324_thumb44" style="border: 0px none ;" border="0" width="31" height="27"> </strong>and move and jump, ducks and set the screen ablaze with your mighty magic fireballs! </p>
+<p align="center"><img src="thewizardshooting_files/CropperCapture272.jpg" alt="CropperCapture[272]" style="border: 0px none ;" border="0" width="612" height="480"> </p>
+<p align="center">&nbsp;</p>
+<p>Congratulations! You have successfully added the ability for your
+Wizard to shot fireballs. You also gotten a taste for how to handle
+projectiles and multiple sprites on the screen. Can you think of some
+things in the project you could change? Would you make the Wizard shoot
+out other Wizards instead of fireballs? Could you make the size of the
+Fireballs larger and smaller? Could you make them move faster and
+slower? Could you make them look blue or green?</p>
+<p>Play with it, experiment and ask questions. Most of all make sure you&#8217;re having fun! </p>
+
+
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="thewizardshooting_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</div></body></html>

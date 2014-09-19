@@ -1,0 +1,425 @@
+/*
+Light blue: #D3E0EC
+Medium blue: #A0C3E3
+Dark blue: #84B1DA
+Drak Gray: #95979C
+Light gray: #A5A4A6
+ */
+
+html
+{
+	background: #C1CDD9 url(page-shadow-tl.png) fixed no-repeat top left;
+	font-size: 80%;
+}
+body
+{
+	font-family: Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+a
+{
+	color: #61778C;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+a img
+{
+	border: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 150%;
+}
+h3,
+h4,
+h5,
+h6
+{
+	font-size: 140%;
+}
+
+div.header
+{
+	border: 1px solid #D3E0EC;
+	border: none;
+	margin: 0;
+	position: relative;
+}
+div.header div
+{
+	min-height: 219px;
+	margin: 0 2em 0;
+	padding: 0.5em 0 0;
+	position: relative;
+	z-index: 1;
+}
+div.header h1
+{
+	background: Transparent;
+	min-height: 219px;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	z-index: 1;
+}
+
+
+
+div.header div div.box-wrapper
+{
+	background: Transparent url(header-box-shadow.png) scroll no-repeat bottom left;
+	min-width: 381px;
+	min-height: 155px;
+	margin: 0;
+	padding: 0 0 26px 21px;
+	position: absolute;
+	top: 3em;
+	left: 435px;
+	width: 30em;
+}
+div.header div div.box
+{
+	background: #FFFEFC;
+	border: 1px solid #61778C;
+	color: #666;
+	height: 155px;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+div.header div div h2
+{
+	border-bottom: 1px solid #61778C;
+	font-size: 150%;
+	line-height: 100%;
+	margin: 8px 12px;
+	padding: 0;
+}
+div.header div div p
+{
+	margin: 6px 12px;
+	padding: 0;
+}
+div.header div div ul
+{
+	list-style: none outside none;
+	line-height: 150%;
+	margin: 6px 12px;
+	padding: 0;
+}
+div.header div div li
+{
+	margin: 0;
+	padding: 0;
+}
+div.header div div a
+{
+	color: #61778C;
+	font-weight: bold;
+	text-decoration: none;
+}
+div.header div div a:hover
+{
+	color: #8C8A6F;
+}
+
+div.sidebar
+{
+	margin: 0;
+	padding: 0;
+	width: 15em;
+	position: fixed;
+	left: 0;
+}
+div.sidebar ul.menu
+{
+	list-style: none inside none;
+	margin: 0;
+	padding: 0 8px 0 0;
+	padding: 0;
+}
+div.sidebar ul.menu li
+{
+	color: #61778C;
+	margin: 0;
+	padding: 0 1em 0 0;
+}
+div.sidebar ul.menu li.shadow
+{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 16px;
+}
+div.sidebar ul.menu a
+{
+	color: inherit;
+	display: block;
+	font-weight: bold;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	text-align: right;
+}
+div.sidebar ul.menu li:hover
+{
+	background2: Transparent url(sidebar-arrow-highlight.png) scroll no-repeat right center;
+	color: #FFFEFC;
+}
+body.home div.sidebar ul.menu li.home,
+body.tutorials div.sidebar ul.menu li.tutorials,
+body.sprites div.sidebar ul.menu li.sprites,
+body.links div.sidebar ul.menu li.links,
+body.about div.sidebar ul.menu li.about
+{
+	background2: Transparent url(sidebar-arrow.png) scroll no-repeat right center;
+	color: #8C8A6F;
+}
+
+div.page-wrapper
+{
+	background: Transparent url(header-box-shadow.png) scroll no-repeat bottom left;
+	min-width: 381px;
+	min-height: 147px;
+	margin: 0 auto 0 13.5em;
+	padding: 0 0 26px 21px;
+	width: auto;
+	z-index: 2;
+	position: relative;
+}
+div.page
+{
+	background: #FFFEFC;
+	border: 1px solid #61778C;
+	border-right: none;
+	color: #444;
+	margin: 0;
+	padding: 1em 3em;
+}
+div.text
+{
+	line-height: 150%;
+	margin: 0 50
+	width: 40em;
+}
+
+div.columns
+{
+}
+div.columns div.column
+{
+	float: left;
+	width: 50%;
+        max-width: 35em;
+}
+div.page div.clear
+{
+	float: none;
+	clear: both;
+	width: auto;
+}
+
+body.home div.columns,
+body.about div.columns
+{
+	line-height: 150%;
+}
+body.home div.columns div.left p,
+body.about div.columns div.left p
+{
+	margin: 0 1.5em 1em 0;
+}
+body.home div.columns div.right p,
+body.about div.columns div.right p
+{
+	margin: 0 1em 1.5em 0;
+}
+
+body.tutorials div.page h2
+{
+	margin: 0;
+	padding: 0;
+}
+body.tutorials div.page ul,
+body.tutorials div.page ol
+{
+	list-style-position: outside;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+body.tutorials div.page ol li,
+body.tutorials div.page ul li
+{
+	margin: 0;
+	padding: 0;
+}
+body.tutorials div.page ol.tutorials
+{
+	list-style: none inside none;
+	margin: 0;
+	padding: 0;
+}
+body.tutorials div.page ol.tutorials li
+{
+	border-bottom: 1px solid #C1CDD9;
+	clear: both;
+	margin: 0 0 8px;
+	padding: 0;
+	height: 158px;
+}
+body.tutorials div.page ol.tutorials img
+{
+	float: left;
+}
+body.tutorials div.page ol.tutorials div
+{
+	margin-left: 216px;
+}
+
+body.tutorials div.page h2:first-child,
+body.tutorials div.page h3:first-child
+{
+	margin: 0;
+	padding: 0;
+}
+div.page div.info
+{
+	border: 1px solid #DDD;
+	background: #FFE;
+	margin: 0 -1em;
+	padding: 1em;
+}
+
+div.page div.page-box
+{
+	background: Transparent;
+	background: #FFE;
+	float: right;
+	width: 20em;
+}
+div.page div.page-box dl
+{
+	margin: 0;
+	padding: 0;
+}
+div.page div.page-box dt
+{
+	font-weight: bold;
+	margin: 0.5em 0 0;
+	padding: 0;
+}
+div.page div.page-box dt:first-child
+{
+	margin: 0;
+}
+div.page div.page-box dd
+{
+	margin: 0 0 0.125em;
+	padding: 0;
+}
+
+div.images
+{
+}
+div.images ul
+{
+	list-style: none inside none;
+	margin: 0;
+	padding: 0;
+}
+div.page div.images ul li
+{
+	float: left;
+	margin: 0 16px 16px 0;
+	padding: 0;
+	text-align: center;
+	width: 224px;
+	height: 232px;
+}
+div.page div.images ul li.clear
+{
+	float: none;
+	clear: both;
+	margin: 0;
+	width: auto;
+	height: auto;
+}
+div.page div.images ul li a
+{
+	border: 1px solid #FFF;
+	display: block;
+	padding: 8px;
+}
+div.page div.images ul li a:hover
+{
+	background: #E3EDF6;
+	border: 1px solid #84B1DA;
+	-webkit-border-radius: 8px;
+}
+div.page div.images ul li strong
+{
+	display: block;
+}
+
+body.about div.columns div.left img
+{
+	float: left;
+	margin: 0 1.5em 1em 0;
+}
+body.about div.columns div.right img
+{
+	float: right;
+	margin: 0 1.5em 1em 1em;
+}
+
+body.links div.page h3
+{
+	margin: 1em 0 0.25em;
+}
+body.links div.page ul
+{
+	list-style-position: outside;
+	margin: 0;
+	padding: 0;
+}
+body.links div.page ul li
+{
+	margin: 0;
+	padding: 0;
+}
+
+div.footer
+{
+	color: #61778C;
+	margin: 0 auto 0 16em;
+	padding: 0 3em 1em;
+	text-align: center;
+}
+div.footer p
+{
+	margin: 0.5em 0;
+}
+div.footer a
+{
+	color: #272A47;
+	font-weight: bold;
+}
+div.banner
+{
+        display: block;
+	position: absolute;
+	top: 190px;
+	left: 482px;
+        z-index: 1
+}

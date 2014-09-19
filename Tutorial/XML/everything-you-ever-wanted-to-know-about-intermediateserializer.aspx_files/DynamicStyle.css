@@ -1,0 +1,145 @@
+.layout, .page-editing, .page-tabs, .admin-bar .navigation-list, .admin-bar fieldset.field-list, .wireframe-header-fragment-inner, .poweredby-wrapper, .footer-fragments, .footer-fragments-header, .footer-fragments-footer {
+                max-width:100%;
+                min-width:100%;
+                width:100%;
+}
+
+.field-item.post-body .field-item-input textarea {
+	width:100%
+}
+
+.abbreviated-post .post-author { display: none; }
+.content-fragment.blog-post-list .content-list.standard .post-author, .content-fragment.blog-post .full-post .post-author { display: none; }
+
+.abbreviated-post { padding-left: 10px }
+
+.view-application { display: none; }
+
+a:link,
+a:visited,
+a:active
+{
+    color: #C00;
+    font-weight: normal;
+}
+
+.header-fragment a:link,
+.header-fragment a:visited,
+.header-fragment a:active
+{
+    color: #C00 !important;
+    font-weight: normal !important;
+}
+
+pre
+{
+    font-family: Lucida Console ;
+    font-size: 9pt;
+    color: darkblue;
+}
+
+.blog-post-list .simple .view-post
+{
+    font-size: 9pt;
+}
+
+.blog-post-list .standard .view-post
+{
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.content-fragment.blog-post .full-post .post-name
+{
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.content-fragment.blog-post .full-post .post-actions { display: none; }
+.content-fragment.blog-post .full-post .post-tags { display: none; }
+.content-fragment.blog-post .full-post .post-rating { display: none; }
+
+.post-rating { display: none; }
+.site-banner { display: none; }
+.breadcrumb-list { display: none; }
+
+.header-fragments, .header
+{
+    background-color: #C7C7CF;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-image: url(/blogfiles/shawnhar/WindowsLiveWriter/TitleBanner_D314/banner%5B4%5D.jpg);
+}
+
+.header-fragments, .header div
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.layout-region.header
+{
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-color: #C00;
+}
+
+.layout-region.content
+{
+    background-color: #EEEEEE;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-width: 1px;
+}
+
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.left-sidebar { width: 200px; }
+
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar { width: 200px; }
+
+.BannerTitle a:link, .BannerTitle a:visited, .BannerTitle a:active
+{
+    color: #E0E0E0;
+    font-size: 19pt;
+    font-weight: bold;
+}
+
+.BannerSubtitle
+{
+    color: #E0E0E0;
+    font-size: 12pt;
+    font-style: italic;
+    margin-top: -8px;
+}
+
+.ShareThisMainPanel
+{
+    background-color: #EEEEEE  !important;
+}
+
+.user-defined-markup TABLE { width: auto }
+
+._shawn_csharpcode, ._shawn_csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+._shawn_csharpcode pre { margin: 0em; }
+._shawn_csharpcode .rem { color: #008000; }
+._shawn_csharpcode .kwrd { color: #0000ff; }
+._shawn_csharpcode .str { color: #006080; }
+._shawn_csharpcode .op { color: #0000c0; }
+._shawn_csharpcode .preproc { color: #cc6633; }
+._shawn_csharpcode .asp { background-color: #ffff00; }
+._shawn_csharpcode .html { color: #800000; }
+._shawn_csharpcode .attr { color: #ff0000; }
+._shawn_csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+._shawn_csharpcode .lnum { color: #606060; }

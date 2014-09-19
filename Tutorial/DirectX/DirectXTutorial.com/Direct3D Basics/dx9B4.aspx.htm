@@ -1,0 +1,928 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+<title>
+	DirectX Tutorial.com - Direct3D Basics Lesson 4: Drawing a Triangle
+</title><link href="dx9B4.aspx_files/layout.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="dx9B4.aspx_files/dxpages.js" language="javascript"></script>
+</head><body>
+        <a href="http://www.directxtutorial.com/"><img src="dx9B4.aspx_files/HeaderLogo.PNG" alt="DirectXTutorial.com"></a>
+
+    <div class="logoscript"> 
+        The Ultimate DirectX Tutorial
+    </div><div class="sidebar" style="left: 16px; top: 192px;"><img alt="" class="sidetopbar" src="dx9B4.aspx_files/TopBar.gif" width="181" height="7"><div><a class="sidelink" href="http://www.directxtutorial.com/index.aspx">Home</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial9/tutorials.aspx">DirectX Tutorial 9</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/A-Win32/dx9A.aspx">Win32 Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B.aspx">Direct3D Basics</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/K-Direct3DTextures/dx9K.aspx">Direct3D Textures</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/C-Direct3DMeshes/dx9C.aspx">Direct3D Meshes</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/D-GameDisplay/dx9D.aspx">Game Display</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/E-GameInput/dx9E.aspx">Game Input</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/G-GameDevelopment/dx9G.aspx">Game Development</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/J-HLSL/dx9J.aspx">Advanced Effects</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/L-ParticleEngines/dx9L.aspx">Particle Engines</a><br><a class="sidelinkin1" href="http://www.directxtutorial.com/Tutorial9/I-Multiplayer/dx9I.aspx">Multiplayer</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial10/tutorials.aspx">DirectX Tutorial 10</a><br><a class="sidelink" href="http://www.directxtutorial.com/Tutorial11/tutorials.aspx">DirectX Tutorial 11</a><br><a class="sidelink" href="http://www.directxtutorial.com/Glossary/defindex.aspx">DirectX Glossary</a><br><a class="sidelink" href="http://www.directxtutorial.com/link.aspx">Links</a><br><a class="sidelink" href="http://www.directxtutorial.com/contact.aspx">Contact Me</a><br><a class="sidelink" href="http://www.directxtutorial.com/about.aspx">About DirectXTutorial</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/premium.aspx">DirectXTutorial Premium</a><br><a class="sidelink" href="http://www.directxtutorial.com/Premium/Testimonials.aspx">Testimonials</a></div><img alt="" class="sidebottombar" src="dx9B4.aspx_files/BottomBar.gif" width="181" height="7"></div>
+
+    <div class="titlebar">
+        Lesson 4:&nbsp; Drawing a Triangle</div>
+    
+    <div class="logout">
+        <a class="mainlink" href="https://www.directxtutorial.com/premium/login.aspx?Tutorial9/B-Direct3DBasics/dx9B4.aspx">Log In</a>
+    </div>
+
+    <div class="entrybox"> 
+    
+        <div class="navbar">
+            <div class="prevbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B3.aspx">Previous</a></div>
+            <div class="nextbar"><a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B5.aspx">Next</a></div>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+    Lesson Overview</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    There is an easy way to learn DirectX.&nbsp; Unfortunately, that easy way has a
+    lot of limits to its capabilities, and even if it didn't, it is quite a hassle to
+    use in large games.&nbsp; The easier way to program is, of course, harder to learn,
+    and this lesson will cover that easier-to-program way, hopefully without making
+    the learning part too hard.</p>
+    <p>
+        In this lesson you will learn to draw a triangle on the screen.&nbsp; We will build
+        this triangle by creating a series of vertices and having the Direct3D device draw
+        them on the screen.</p>
+    <p>
+        First we will cover the theory of how this all works, then we will go over the code
+        itself and build the program.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+    Flexible Vertex Formats</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                If you went through Lesson 3 in any great detail, you will recall the definition
+                of vertex:&nbsp; the location and properties of an exact point in 3D space.&nbsp;
+                The location simply consists of three numerical values which represent the vertex's
+                coordinates.&nbsp; The properties of the vertex are also defined using numerical
+                values.</p>
+            <p>
+                Direct3D uses a technology called a Flexible Vertex Format (or FVF).&nbsp; A vertex format
+                is the layout of the data containing the location and properties of a vertex.&nbsp;
+                A flexible vertex format would be a format of data that you can modify and set according
+                to your needs.&nbsp; Let's take a look at how this works exactly.</p>
+            <p>
+                A vertex is made of a struct, which contains the data pertinent to creating whatever
+                3D image it is made for.&nbsp; To display the image, we will copy all the information
+                to the Video RAM and then order Direct3D to copy the data to the back buffer.&nbsp;
+                However, what if we were forced to send all the data that could possibly be wanted
+                for a vertex?&nbsp; This would happen.</p>
+            <center>
+                <img alt="Image 4.1 - A Vertex Format Containing All Possible Data" src="dx9B4.aspx_files/dx9B4-1.PNG"><br><br>
+                Image 4.1 - A Vertex Format Containing All Possible Data
+            </center>
+            <p>
+                Of course, you may
+            not see right away what the problem is here, but let's say we
+                only needed two of these blocks of information.&nbsp; We could send it to the Video
+                RAM much faster by doing it like this:</p>
+            <center>
+                <img alt="Image 4.2 - A Flexible Vertex Format Goes Faster" src="dx9B4.aspx_files/dx9B4-2.PNG"><br><br>
+                Image 4.2 - A Flexible Vertex Format Goes Faster
+            </center>
+            <p>
+                This is what happens when we use a flexible format.&nbsp; We select which information
+                we want to use, and send just that, enabling us to send many more vertices between
+                each frame.</p>
+            <p class="subheader">
+                FVF Codes</p>
+            <p>
+                In Direct3D, each vertex is made from a pre-set vertex format.&nbsp; As the title
+                claims, this format is flexible, and is built using certain elements Direct3D provides.&nbsp;
+                The elements are set using specific flags which, when logically ORed together, create
+                a vertex definition, or a code that tells Direct3D the vertex format.</p>
+            <p>
+                Let's take a look at how this is done.&nbsp; Let's say we want to include the location
+                and the diffuse color of our vertices.&nbsp; We would build a code that looked like
+                this:</p>
+            <div class="codebox">
+                #define CUSTOMFVF (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)</div>
+            <p>
+                Later, when we are working with the vertices, we will simply use CUSTOMFVF, rather
+                than type out the entire FVF code each time.&nbsp; We'll see an example of this
+                in a minute.</p>
+            <p>
+                We can add all kinds of flags into this expression here.&nbsp; Following is a table
+                of flags we will use throughout this tutorial, and a description of what they do
+                (although don't go plugging them in randomly just yet).</p>
+            <p>
+                [<a href="#still" onclick="Toggle('table4-1')" class="mainlink">Table 4.1 - FVF Code Flags</a>]</p>
+
+            <table id="table4-1" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 149px;">
+                        Flag</th>
+                    <th style="width: 329px;">
+                        Description</th>
+                    <th>
+                        Types Included</th>
+                </tr>
+                <tr>
+                    <td style="width: 149px;">
+                        D3DFVF_XYZ</td>
+                    <td style="width: 329px;">
+                        Indicates that the vertex format includes the X, Y and Z coordinates of an untransformed
+                        vertex.&nbsp; Untransformed means that the vertex has not yet been translated into
+                        screen coordinates.&nbsp;
+                    </td>
+                    <td>
+                        float, float, float
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 149px;">
+                        D3DFVF_XYZRHW</td>
+                    <td style="width: 329px;">
+                        Indicates that the vertex format includes the X, Y and Z coordinates as well as
+                        an additional RHW value of a transformed vertex.&nbsp; This means that the vertex
+                        is already in screen coordinates.&nbsp; The Z and the RHW are used when building
+                        software engines, which we will not get into.</td>
+                    <td>
+                        float, float, float, float</td>
+                </tr>
+                <tr>
+                    <td style="width: 149px;">
+                        D3DFVF_DIFFUSE</td>
+                    <td style="width: 329px;">
+                        Indicates that the vertex format contains a 32-bit color code for a vertex, used
+                        for the color of diffuse lighting.</td>
+                    <td>
+                        DWORD</td>
+                </tr>
+                <tr>
+                    <td style="width: 149px;">
+                        D3DFVF_SPECULAR</td>
+                    <td style="width: 329px;">
+                        Indicates that the vertex format contains a 32-bit color code for a vertex, used
+                        for the color of specular highlighting.</td>
+                    <td>
+                        DWORD</td>
+                </tr>
+                <tr>
+                    <td style="width: 149px;">
+                        D3DFVF_TEX0<br>
+                        &nbsp;&nbsp;
+                        through<br>
+                        D3DFVF_TEX8</td>
+                    <td style="width: 329px;">
+                        Indicates that the vertex format contains the coordinates for any textures that
+                        will be applied to a model.</td>
+                    <td>
+                        float, float</td>
+                </tr>
+                <tr>
+                    <td style="width: 149px;">
+                        [<a class="mainlink" href="#still" onclick="Toggle('table4-1')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+            
+            <p>
+                There are, of course, more things to put in, and they are all covered in the DirectX
+                documentation.&nbsp; However, we will only be needing these flags for this
+                tutorial.</p>
+            <p class="subheader">
+                Creating Vertices</p>
+            <p>
+                Now we need to create the vertices using our new format.&nbsp; We don't use any
+                new function or anything like that; we do it by building a simple struct containing
+                the variables we included in the FVF code.</p>
+            <p>
+                For instance, we used both the D3DFVF_XYZRHW and D3DFVF_DIFFUSE flags in the example
+                above, and to go with it, we should build the following struct:</p>
+            <div class="codebox" style="left: 0px; top: 0px;">
+                struct CUSTOMVERTEX<br>
+                {<br>
+                &nbsp; &nbsp; FLOAT x, y, z, rhw; &nbsp;&nbsp; // from the D3DFVF_XYZRHW flag<br>
+                &nbsp; &nbsp; DWORD color; &nbsp;&nbsp; // from the D3DFVF_DIFFUSE flag<br>
+                }</div>
+            <p>
+                As you can see, the first four FLOATs are values represented by the D3DFVF_XYZRHW
+                flag, while the DWORD is represented by the D3DFVF_DIFFUSE flag.&nbsp; If you look
+                at the above table, you will find which variable types go with which FVF code flags.</p>
+            <p>
+                Now let's build an actual vertex using our new CUSTOMVERTEX struct.&nbsp; We could do it like this:</p>
+            <div class="codebox">
+                CUSTOMVERTEX OurVertex = {320.0f, 50.0f, 1.0f, 1.0f, D3DCOLOR_XRGB(0, 0, 255)};</div>
+            <p>
+                Of course, we could also make an array of vertices like this:</p>
+            <div class="codebox">
+                CUSTOMVERTEX OurVertices[] =<br>
+                {<br>
+                &nbsp; &nbsp; {320.0f, 50.0f, 1.0f, 1.0f, D3DCOLOR_XRGB(0, 0, 255),},<br>
+                &nbsp; &nbsp; {520.0f, 400.0f, 1.0f, 1.0f, D3DCOLOR_XRGB(0, 255, 0),},<br>
+                &nbsp; &nbsp; {120.0f, 400.0f, 1.0f, 1.0f, D3DCOLOR_XRGB(255, 0, 0),},<br>
+                };</div>
+            <p>
+                This results in a triangle, which we will see drawn on the screen
+                shortly.</p>
+            <p>
+                This is just one example of a Flexible Vertex Format.&nbsp; We will go over how
+                to build more complex vertex formats later, but this one will do for now.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                    Vertex Buffers</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Now we have acomplished two things.&nbsp; First, we have built an FVF code.&nbsp;
+                Second, we have constructed a triangle.&nbsp; Now we need to get that triangle ready
+                for Direct3D to use.&nbsp; To do this, we create what is called a vertex buffer.</p>
+            <p>
+                A vertex buffer is simply an interface that stores a 
+section in memory (either Video RAM or system memory) to holds 
+information about the vertices/models in your game.&nbsp; We create this
+ interface by using the function CreateVertexBuffer().&nbsp; The name is
+ self-explanatory.&nbsp;
+                It's parameters, however, are less merciful.&nbsp; Here 
+is the prototype:</p>
+            <div class="codebox" style="left: 0px; top: 1px;">
+                HRESULT CreateVertexBuffer(<br>
+                &nbsp; &nbsp; UINT Length,<br>
+                &nbsp; &nbsp; DWORD Usage,<br>
+                &nbsp; &nbsp; DWORD FVF,<br>
+                &nbsp; &nbsp; D3DPOOL Pool,<br>
+                &nbsp; &nbsp; LPDIRECT3DVERTEXBUFFER9 ppVertexBuffer,<br>
+                &nbsp; &nbsp; HANDLE* pSharedHandle);</div>
+            <p>
+                Let's take these parameters up one at a time.</p>
+            <p class="subheader">
+                UINT Length,</p>
+            <p>
+                This parameter contains the size of the buffer that will be created.&nbsp; We get
+                this number by multiplying the size of one vertex by the number of vertices that
+                will be stored in the buffer.&nbsp; For example, a triangle contains three vertices,
+                so the size of the triangle's buffer is:&nbsp; 3 * sizeof(CUSTOMVERTEX).</p>
+            <p class="subheader">
+                DWORD Usage,</p>
+            <p>
+                Sometimes there are special ways to use vertices which alter the DirectX handles
+                the vertices.&nbsp; We will not get into these in any great detail in this tutorial.&nbsp;
+                This parameter can contain flags indicating these special ways.&nbsp; As we won't
+                be using any yet, we'll just set it to 0 for now.</p>
+            <p class="subheader">
+                DWORD FVF,</p>
+            <p>
+                This is the FVF code we constructed earlier.&nbsp; We just fill it in with CUSTOMFVF.&nbsp;
+                If we went up to change the FVF code, this part would also change (hence the #define).&nbsp;
+                This is what tells DirectX what format the vertices are in, so it is important that
+                what you put here is accurate.</p>
+            <p class="subheader">
+                D3DPOOL Pool,</p>
+            <p>
+                This parameter tells Direct3D where to create the vertex buffer and how.&nbsp; Following
+                is a table that describes the possible entries for this parameter.&nbsp; For this
+                tutorial, we will be using the flag D3DPOOL_MANAGED.</p>
+            
+            [<a href="#still" onclick="Toggle('table4-2')" class="mainlink">Table 4.2 - D3DPOOL
+                Values</a>]<br>
+            <br>
+            <table id="table4-2" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 193px;">
+                        Value</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DPOOL_DEFAULT</td>
+                    <td>
+                        This flag indicates that the buffer should be created in the most appropriate memory
+                        for what settings and resources are available.&nbsp; This however, imposes some
+                        limits which are not always good for games.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DPOOL_MANAGED</td>
+                    <td>
+                        This indicates that the buffer will be located in the video RAM.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DPOOL_SYSTEMMEM</td>
+                    <td>
+                        This indicates that the buffer will be located in the system memory.&nbsp; Vertex
+                        buffers located here cannot usually be accessed by the Direct3D Device, but can
+                        be accessed by other, more advanced means.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DPOOL_SCRATCH</td>
+                    <td>
+                        This also indicates the buffer will be located in system memory, however, there
+                        is no way for the video RAM to access this.&nbsp; This type is useful for storing graphics
+                        information that is not currently being used (but will be used later), such as graphics
+                        belonging to other maps a player hasn't reached yet, but might in the near future.</td>
+                </tr>
+                <tr>
+                    <td>
+                        [<a class="mainlink" href="#still" onclick="Toggle('table4-2')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+            
+            <p class="subheader">
+                LPDIRECT3DVERTEXBUFFER9 ppVertexBuffer,</p>
+            <p>
+                If you can't decode that, it's the pointer to the vertex buffer interface we're making.&nbsp;
+                We put the blank pointer in this parameter and the function simply
+                fills it in for us.</p>
+            <p class="subheader">
+                HANDLE* pSharedHandle</p>
+            <p>
+                The documentation says this parameter is, and I quote, "Reserved.&nbsp; Set this
+                parameter to NULL".&nbsp; What this means I can't say for certain, but apparently
+                Microsoft want us to set it to NULL.&nbsp; So be it.&nbsp; We'll set it to NULL.</p>
+            <p>
+                And with all that in mind, let's take a look at how this function appears in our
+                program:</p>
+            <div class="codebox">
+                LPDIRECT3DVERTEXBUFFER9 v_buffer;<br>
+                <br>
+                d3ddev-&gt;CreateVertexBuffer(3*sizeof(CUSTOMVERTEX),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; CUSTOMFVF,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; &amp;v_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp;NULL);</div>
+            <p>
+                Now that you have created your vertex buffer, you need to load the vertices into
+                it.&nbsp; You do this using a simple call memcpy().&nbsp; However, before you can
+                get access to the buffer, you need to lock it.</p>
+            <p>
+                There are two reasons you need to lock the buffer.&nbsp; First, you need to tell
+                Direct3D that you need complete control of the memory.&nbsp; In other words, it
+                shouldn't be handled by any other process that might be going on.&nbsp; Second,
+                you need to tell the video hardware not to move it around.&nbsp; There is no guarantee
+                that the Video RAM will stay put.&nbsp; Locking tells the video hardware not to
+                mess around with the memory while you are working with it.</p>
+            <p>
+                To lock a buffer, you use the Lock() function, which has four parameters, but is
+                actually quite simple:</p>
+            <div class="codebox">
+                HRESULT Lock(UINT OffsetToLock,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; UINT SizeToLock,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; VOID** ppbData,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; DWORD Flags);</div>
+            <p>
+                Let's go over these parameters.</p>
+            <p class="subheader">
+                UINT OffsetToLock, UINT SizeToLock,</p>
+            <p>
+                If we only wanted to lock part of our vertex buffer, we would indicate that in these
+                two parameters.&nbsp; The first one indicates how far into the buffer, in bytes,
+                the lock should start.&nbsp; The second indicates how much should be locked, again
+                in bytes.&nbsp; We want to lock the entire buffer, so we'll set both of these to
+                0.</p>
+            <p class="subheader">
+                VOID** ppbData,</p>
+            <p>
+                Unless you are at least intermediate with C++ this will probably make no sense to
+                you.&nbsp; Basically a void* is a pointer that points to no particular type of variable.&nbsp;
+                For example, a double* points a double, whereas an int* points to an int.&nbsp;
+                Each type of pointer has it's own format, and so it can't convert to another type
+                without loss of data.&nbsp;
+                A void* points to any of these, and can be converted without trouble.</p>
+            <p>
+                Here we have a pointer to a void*.&nbsp; This pointer gets filled with the location
+                of the memory to contain our vertices.&nbsp; The vertex buffer interface will take
+                care of the details of this, but we need the pointer in the next step, so the Lock()
+                function will fill this pointer with the proper address.&nbsp; Have a look at the
+                example below to see how we fill this parameter.</p>
+            <p class="subheader">
+                DWORD Flags</p>
+            <p>
+                This is an advanced parameter, and we won't get into it anywhere in this tutorial.&nbsp;
+                They basically provide special ways to handle the locked memory.&nbsp; If you are
+                truly interested, they can be researched in the DirectX documentation.&nbsp; For
+                now, we will just set it to 0.</p>
+            <p>
+                Let's fill this function out and see how it looks:</p>
+            <div class="codebox">
+                VOID* pVoid; &nbsp;&nbsp; // the void* we were talking about<br>
+                <br>
+                v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0); &nbsp;&nbsp; // locks v_buffer,
+                the buffer we made earlier</div>
+            <p>
+                Next, we use a call to memcpy() to copy the vertices to the vertex buffer.</p>
+            <div class="codebox">
+                memcpy(pVoid, OurVertices, sizeof(OurVertices)); &nbsp;&nbsp; // copy vertices to
+                the vertex buffer</div>
+            <p>
+                Lastly, we have a very complicated function: Unlock().&nbsp; This function has no
+                parameters.&nbsp; What it does is tell Direct3D that we're all done with the memory,
+                and it doesn't have to be locked anymore.&nbsp; It looks like this:</p>
+            <div class="codebox">
+                v_buffer-&gt;Unlock(); &nbsp;&nbsp; // unlock v_buffer</div>
+            <p>
+                Because of the number of commands we've just learned, we're going to stick them
+                all away into a single function of our own creation: init_graphics().</p>
+            <div class="codebox">
+                void init_graphics(void)<br>
+                {<br>
+                &nbsp; &nbsp; // create three vertices using the CUSTOMVERTEX struct built earlier<br>
+                &nbsp; &nbsp; CUSTOMVERTEX vertices[] =<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 320.0f, 50.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(0, 0, 255),
+                },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 520.0f, 400.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(0, 255,
+                0), },<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; { 120.0f, 400.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(255, 0,
+                0), },<br>
+                &nbsp; &nbsp; };<br>
+                <br>
+                &nbsp; &nbsp; // create the vertex and store the pointer into v_buffer, which is
+                created globally<br>
+                &nbsp; &nbsp; d3ddev-&gt;CreateVertexBuffer(3*sizeof(CUSTOMVERTEX),<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; CUSTOMFVF,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;&nbsp; &amp;v_buffer,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp;NULL);<br>
+                <br>
+                &nbsp; &nbsp; VOID* pVoid; &nbsp;&nbsp; // the void pointer<br>
+                <br>
+                &nbsp; &nbsp; v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0); &nbsp;&nbsp; // lock
+                the vertex buffer<br>
+                &nbsp; &nbsp; memcpy(pVoid, vertices, sizeof(vertices)); &nbsp;&nbsp; // copy the vertices
+                to the locked buffer<br>
+                &nbsp; &nbsp; v_buffer-&gt;Unlock(); &nbsp;&nbsp; // unlock the vertex buffer<br>
+                }</div>
+            <p>
+                At this point I would suggest going over this section a couple times to make sure
+                you thoroughly got it all.&nbsp; This is a rather key part of 3D programming, and
+                we'll be using it and modifying it throughout the rest of the tutorial.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                    Drawing the Primitive</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Now we actually get to have something on the screen!&nbsp; We have three very simple
+                functions to talk about before this happens though.&nbsp; Each are called from the
+                Direct3D Device interface.&nbsp; Let's take a look at each one.</p>
+            <p class="subheader">
+                SetFVF()</p>
+            <p>
+                The first of these functions is SetFVF().&nbsp; SetFVF() is a function that tells
+                Direct3D what FVF code we are using currently.&nbsp; We could, of course, have multiple
+                FVF codes and use them in two different parts of the 3D scene.&nbsp; Before we draw
+                anything, we need to tell Direct3D which one we are using.&nbsp; This function is
+                written out like this:</p>
+            <div class="codebox">
+                d3ddev-&gt;SetFVF(CUSTOMFVF);</div>
+            <p class="subheader">
+                SetStreamSource()</p>
+            <p>
+                Next we have the function SetStreamSource(), which tells Direct3D which vertex buffer
+                we are drawing from.&nbsp; This one has a couple parameters, so let's take a look
+                at the prototype:</p>
+            <div class="codebox">
+                HRESULT SetStreamSource(UINT StreamNumber,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                LPDIRECT3DVERTEXBUFFER9 pStreamData,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                UINT OffsetInBytes,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                UINT Stride);</div>
+            <p>
+                The first parameter is the number of the stream source.&nbsp; We'll get into how
+                this works later, but for now set it to 0, as we only have one vertex buffer.</p>
+            <p>
+                The second parameter is the pointer to the vertex buffer we created earlier.</p>
+            <p>
+                The third parameter is the number of bytes into the vertex buffer we should start
+                from.&nbsp; This will usually be 0.</p>
+            <p>
+                The last parameter is the size of each vertex.&nbsp; We fill this with: &nbsp;sizeof(CUSTOMVERTEX).</p>
+            <p>
+                Let's take a look at the function as it is used:</p>
+            <div class="codebox">
+                d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));</div>
+            <p class="subheader">
+                DrawPrimitive()</p>
+            <p>
+                Now that we have told Direct3D what kind of vertices we are using and where to get
+                them from, we tell it to draw the vertices we have built.&nbsp; This function draws
+                the primitives in the selected vertex buffer to the screen.&nbsp; Here is the prototype:</p>
+            <div class="codebox">
+                HRESULT DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; UINT
+                StartVertex,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; UINT
+                PrimitiveCount);</div>
+            <p>
+                The first parameter is the type of primitive that is used.&nbsp; These were covered
+                in Lesson 3, but the codes used are here:</p>
+            
+            [<a href="#still" onclick="Toggle('table4-3')" class="mainlink">Table 4.3 - D3DPRIMITIVETYPE
+                Values</a>]<br>
+            <br>
+            <table id="table4-3" class="tablebox" style="display: none;">
+                <tbody><tr>
+                    <th style="width: 193px;">
+                        Value</th>
+                    <th>
+                        Description</th>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DPT_POINTLIST</td>
+                    <td>
+                        Shows a series of points.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DPT_LINELIST</td>
+                    <td>
+                        Shows a series of separated lines.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DPT_LINESTRIP</td>
+                    <td>
+                        Shows a series of connected lines.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DPT_TRIANGLELIST</td>
+                    <td>
+                        Shows a series of separated triangles.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DPT_TRIANGLESTRIP</td>
+                    <td>
+                        Shows a series of connected triangles.</td>
+                </tr>
+                <tr>
+                    <td style="width: 193px;">
+                        D3DPT_TRIANGLEFAN</td>
+                    <td>
+                        Shows a series of triangles with one shared corner.</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        [<a class="mainlink" href="#still" onclick="Toggle('table4-3')">Close Table</a>]</td>
+                </tr>
+            </tbody></table>
+
+            <p>
+                The second parameter is the number of the first vertex we will put on the screen.&nbsp;
+                We could, if we wanted, start in the middle of the vertex buffer.&nbsp; However,
+                we want the whole buffer drawn, so we will put 0 here.</p>
+            <p>
+                The third and last parameter is the number of primitives we want to draw.&nbsp;
+                If we draw a triangle, we put one here (there's only one triangle).&nbsp; If we
+                were using points, we would put 3, as there are three points.&nbsp; Lines would
+                also be 3.</p>
+            <p>
+                Now let's take a look at the entire render_frame() function now that we have modified
+                it.</p>
+            <div class="codebox">
+                // this is the function used to render a single frame<br>
+                void render_frame(void)<br>
+                {<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0),
+                1.0f, 0);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;BeginScene();<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <strong>// select which vertex format we are using</strong><br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <strong>d3ddev-&gt;SetFVF(CUSTOMFVF);</strong><br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <strong>// select the vertex buffer to display</strong><br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <strong>d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));</strong><br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; <strong>// copy the vertex buffer to the back buffer<br>
+                </strong>&nbsp; &nbsp; &nbsp; &nbsp; <strong>d3ddev-&gt;DrawPrimitive(D3DPT_TRIANGLELIST,
+                    0, 1);</strong><br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;EndScene();<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL);<br>
+                }</div>
+            <p>
+                Before looking at the whole program, let's look at one
+                last step that is required.</p>
+        </div>
+        
+        <div class="entryheader" style="position: relative;">
+                    Releasing Vertex Buffers</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+    Just like the Direct3D Device and Direct3D itself, a vertex buffer must be released
+    before our program closes.</p>
+    <div class="codebox">
+        // this is the function that cleans up Direct3D and COM<br>
+        void cleanD3D(void)<br>
+        {<br>
+        <strong>&nbsp; &nbsp; v_buffer-&gt;Release(); &nbsp;&nbsp; // close and release the
+            vertex buffer</strong><br>
+        &nbsp; &nbsp; d3ddev-&gt;Release(); &nbsp; &nbsp;// close and release the 3D device<br>
+        &nbsp; &nbsp; d3d-&gt;Release(); &nbsp; &nbsp;// close and release Direct3D<br>
+        }</div>
+    <p>
+        Now let's take a look at the whole program to see what we have.</p>
+        </div>
+
+        <div class="entryheader" style="position: relative;">
+                    The Finished Program</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Ok, let's see what a triangle looks like.&nbsp; If you've never seen one, this will
+                be an educational experience.&nbsp; If you have (please) you can see how one is
+                made in Direct3D.</p>
+            <p>
+                Anyway, let's examine the final DirectX code.&nbsp; The new parts covered in this
+                lesson are in <strong>bold</strong> as usual.</p>
+
+            [<a href="#still" onclick="Toggle('lessonprog')" class="mainlink">Show Code</a>]<br>
+            <br>
+
+            <div class="codebox" id="lessonprog" style="display: none;">
+                // include the basic windows header files and the Direct3D header file<br>
+                #include &lt;windows.h&gt;<br>
+                #include &lt;windowsx.h&gt;<br>
+                #include &lt;d3d9.h&gt;<br>
+                <br>
+                // define the screen resolution<br>
+                #define SCREEN_WIDTH 800<br>
+                #define SCREEN_HEIGHT 600<br>
+                <br>
+                // include the Direct3D Library file<br>
+                #pragma comment (lib, "d3d9.lib")<br>
+                <br>
+                // global declarations<br>
+                LPDIRECT3D9 d3d; &nbsp;&nbsp; // the pointer to our Direct3D interface<br>
+                LPDIRECT3DDEVICE9 d3ddev; &nbsp;&nbsp; // the pointer to the device class<br>
+                <strong><span style="color: rgb(255, 255, 255);">
+                    LPDIRECT3DVERTEXBUFFER9 v_buffer = NULL; &nbsp;&nbsp;
+                    // the pointer to the vertex buffer</span></strong><br>
+                <br>
+                // function prototypes<br>
+                void initD3D(HWND hWnd); &nbsp;&nbsp; // sets up and initializes Direct3D<br>
+                void render_frame(void); &nbsp;&nbsp; // renders a single frame<br>
+                void cleanD3D(void); &nbsp; &nbsp;// closes Direct3D and releases memory<br>
+                <strong>void init_graphics(void); &nbsp;&nbsp; // 3D declarations</strong><br>
+                <br>
+                <strong>struct CUSTOMVERTEX {FLOAT X, Y, Z, RHW; DWORD COLOR;};<br>
+                    #define CUSTOMFVF (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)<br>
+                </strong>
+                <br>
+                // the WindowProc function prototype<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);<br>
+                <br>
+                <br>
+                // the entry point for any Windows program<br>
+                int WINAPI WinMain(HINSTANCE hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; HINSTANCE hPrevInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; LPSTR lpCmdLine,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; int nCmdShow)<br>
+                {<br>
+                &nbsp; &nbsp; HWND hWnd;<br>
+                &nbsp; &nbsp; WNDCLASSEX wc;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;wc, sizeof(WNDCLASSEX));<br>
+                <br>
+                &nbsp; &nbsp; wc.cbSize = sizeof(WNDCLASSEX);<br>
+                &nbsp; &nbsp; wc.style = CS_HREDRAW | CS_VREDRAW;<br>
+                &nbsp; &nbsp; wc.lpfnWndProc = WindowProc;<br>
+                &nbsp; &nbsp; wc.hInstance = hInstance;<br>
+                &nbsp; &nbsp; wc.hCursor = LoadCursor(NULL, IDC_ARROW);<br>
+                &nbsp; &nbsp; wc.lpszClassName = L"WindowClass";<br>
+                <br>
+                &nbsp; &nbsp; RegisterClassEx(&amp;wc);<br>
+                <br>
+                &nbsp; &nbsp; hWnd = CreateWindowEx(NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; L"WindowClass",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; L"Our Direct3D Program",<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; WS_OVERLAPPEDWINDOW,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; 0, 0,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; SCREEN_WIDTH, SCREEN_HEIGHT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; hInstance,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; NULL);<br>
+                <br>
+                &nbsp; &nbsp; ShowWindow(hWnd, nCmdShow);<br>
+                <br>
+                &nbsp; &nbsp; // set up and initialize Direct3D<br>
+                &nbsp; &nbsp; initD3D(hWnd);<br>
+                <br>
+                &nbsp; &nbsp; // enter the main loop:<br>
+                <br>
+                &nbsp; &nbsp; MSG msg;<br>
+                <br>
+                &nbsp; &nbsp; while(TRUE)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; while(PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE))<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TranslateMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DispatchMessage(&amp;msg);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; if(msg.message == WM_QUIT)<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; render_frame();<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; // clean up DirectX and COM<br>
+                &nbsp; &nbsp; cleanD3D();<br>
+                <br>
+                &nbsp; &nbsp; return msg.wParam;<br>
+                }<br>
+                <br>
+                <br>
+                // this is the main message handler for the program<br>
+                LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)<br>
+                {<br>
+                &nbsp; &nbsp; switch(message)<br>
+                &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; case WM_DESTROY:<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PostQuitMessage(0);<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } break;<br>
+                &nbsp; &nbsp; }<br>
+                <br>
+                &nbsp; &nbsp; return DefWindowProc (hWnd, message, wParam, lParam);<br>
+                }<br>
+                <br>
+                <br>
+                // this function initializes and prepares Direct3D for use<br>
+                void initD3D(HWND hWnd)<br>
+                {<br>
+                &nbsp; &nbsp; d3d = Direct3DCreate9(D3D_SDK_VERSION);<br>
+                <br>
+                &nbsp; &nbsp; D3DPRESENT_PARAMETERS d3dpp;<br>
+                <br>
+                &nbsp; &nbsp; ZeroMemory(&amp;d3dpp, sizeof(d3dpp));<br>
+                &nbsp; &nbsp; d3dpp.Windowed = TRUE;<br>
+                &nbsp; &nbsp; d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;<br>
+                &nbsp; &nbsp; d3dpp.hDeviceWindow = hWnd;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferWidth = SCREEN_WIDTH;<br>
+                &nbsp; &nbsp; d3dpp.BackBufferHeight = SCREEN_HEIGHT;<br>
+                <br>
+                &nbsp; &nbsp; // create a device class using this information and the info from
+                the d3dpp stuct<br>
+                &nbsp; &nbsp; d3d-&gt;CreateDevice(D3DADAPTER_DEFAULT,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; D3DDEVTYPE_HAL,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hWnd,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; D3DCREATE_SOFTWARE_VERTEXPROCESSING,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3dpp,<br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;d3ddev);<br>
+                <br>
+                &nbsp; &nbsp; <strong>init_graphics(); &nbsp;&nbsp; // call the function to initialize
+                    the triangle</strong><br>
+                }<br>
+                <br>
+                <br>
+                // this is the function used to render a single frame<br>
+                void render_frame(void)<br>
+                {<br>
+                &nbsp; &nbsp; d3ddev-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0),
+                1.0f, 0);<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;BeginScene();<br>
+                <br>
+                <strong>&nbsp; &nbsp; &nbsp; &nbsp; // select which vertex format we are using<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; d3ddev-&gt;SetFVF(CUSTOMFVF);<br>
+                    <br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; // select the vertex buffer to display<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; d3ddev-&gt;SetStreamSource(0, v_buffer, 0, sizeof(CUSTOMVERTEX));<br>
+                    <br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; // copy the vertex buffer to the back buffer<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; d3ddev-&gt;DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);<br>
+                </strong>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;EndScene();<br>
+                <br>
+                &nbsp; &nbsp; d3ddev-&gt;Present(NULL, NULL, NULL, NULL);<br>
+                }<br>
+                <br>
+                <br>
+                // this is the function that cleans up Direct3D and COM<br>
+                void cleanD3D(void)<br>
+                {<br>
+                <strong>&nbsp; &nbsp; v_buffer-&gt;Release(); &nbsp;&nbsp;
+                    // close and release the vertex buffer<br>
+                </strong>
+                &nbsp; &nbsp; d3ddev-&gt;Release(); &nbsp; &nbsp;// close and release the 3D device<br>
+                &nbsp; &nbsp; d3d-&gt;Release(); &nbsp; &nbsp;// close and release Direct3D<br>
+                }<br>
+                <br>
+                <br>
+                <strong>// this is the function that puts the 3D models into video RAM<br>
+                    void init_graphics(void)<br>
+                    {<br>
+                    &nbsp; &nbsp; // create the vertices using the CUSTOMVERTEX struct<br>
+                    &nbsp; &nbsp; CUSTOMVERTEX vertices[] =<br>
+                    &nbsp; &nbsp; {<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 400.0f, 62.5f, 0.5f, 1.0f, D3DCOLOR_XRGB(0, 0, 255),
+                    },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 650.0f, 500.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(0, 255,
+                    0), },<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; { 150.0f, 500.0f, 0.5f, 1.0f, D3DCOLOR_XRGB(255, 0,
+                    0), },<br>
+                    &nbsp; &nbsp; };<br>
+                    <br>
+                    &nbsp; &nbsp; // create a vertex buffer interface called v_buffer<br>
+                    &nbsp; &nbsp; d3ddev-&gt;CreateVertexBuffer(3*sizeof(CUSTOMVERTEX),<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;&nbsp; 0,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;CUSTOMFVF,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;&nbsp; D3DPOOL_MANAGED,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;&nbsp; &amp;v_buffer,<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;&nbsp; NULL);<br>
+                    <br>
+                    &nbsp; &nbsp; VOID* pVoid; &nbsp;&nbsp; // a void pointer<br>
+                    <br>
+                    &nbsp; &nbsp; // lock v_buffer and load the vertices into it<br>
+                    &nbsp; &nbsp; v_buffer-&gt;Lock(0, 0, (void**)&amp;pVoid, 0);<br>
+                    &nbsp; &nbsp; memcpy(pVoid, vertices, sizeof(vertices));<br>
+                    &nbsp; &nbsp; v_buffer-&gt;Unlock();<br>
+                    }</strong></div>
+            <p>
+                Go ahead and update your program and let's see what we get.&nbsp; If you run this,
+                you should see the following on your screen:</p>
+            <center>
+                <img alt="Image 4.3 - The Drawn Triangle" src="dx9B4.aspx_files/dx9B4-3.PNG"><br><br>
+                Image 4.3 - The Drawn Triangle
+            </center>
+
+        </div>
+        
+        <div class="entryheader" style="position: relative;">Lesson 5:&nbsp; Transforming Vertices</div>
+        <div class="maintext" style="position: relative;"> 
+            <p>
+                Well done!&nbsp; You have made DirectX actually draw something.&nbsp; Of course,
+                there is a lot more we can do, but let's start with what we have.&nbsp; I'd recommend
+                doing the following short exercises before moving on, just so you get familiarity
+                with the program.</p>
+            <p>
+                1.&nbsp; Change the colors of the triangle.<br>
+                2.&nbsp; Get the triangle to change shape during runtime.<br>
+                3.&nbsp; Get the colors to fade from one point to the next.</p>
+            <p>
+                Of course, you may be disappointed to find that this triangle is not 3D yet, but
+                let's go on to the next lesson and make it 3D by rotating it, resizing it and moving
+                it in a 3D world.</p>
+            <center>
+                <p>
+                    Next Lesson:&nbsp; Transforming Vertices</p>
+                <p>
+                    <a class="mainlink" href="http://www.directxtutorial.com/Tutorial9/B-Direct3DBasics/dx9B5.aspx">GO! GO! GO!</a></p>
+                    <p class="feedback">Help make DirectX Tutorial better.  Give your <a class="feedlink" href="javascript:RunFeedback(24)">feedback</a>.</p>
+            </center>
+        </div>
+        
+                <center>
+            <div class="copyright"> © 2006-2010 DirectXTutorial.com. All Rights Reserved. </div>
+        </center>
+
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+<!--Google Analytics-->
+<script src="dx9B4.aspx_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-476839-2";
+urchinTracker();
+</script>
+
+
+</body></html>

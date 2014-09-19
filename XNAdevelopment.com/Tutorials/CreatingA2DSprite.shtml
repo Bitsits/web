@@ -1,0 +1,422 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+      <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <link rel="stylesheet" type="text/css" href="CreatingA2DSprite_files/styles.css">
+    <title>Creating a 2D Sprite</title>
+</head><body class="tutorials">
+<div class="header">
+	<div>
+		<h1><a href="http://www.xnadevelopment.com/"><img src="CreatingA2DSprite_files/XNA.png" width="419" height="219"></a></h1>
+		<div class="box-wrapper">
+			<div class="box">
+				<h2>Creating a 2D Sprite</h2>
+				<p>
+					<em>Learning how to get a sprite displayed on the screen </em>
+				</p>
+				<ul>
+				<li><a href="http://www.xnadevelopment.com/tutorials/creatinga2dsprite/CreatingA2DSprite.zip">Download the Source code</a></li>
+				
+				<li><a href="http://geekswithblogs.net/clingermangw/archive/2008/03/07/120377.aspx">View Comments or Leave Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="banner">
+    <a href="http://marketplace.xbox.com/en-US/games/media/66acd000-77fe-1000-9115-d8025855036d/"><img src="CreatingA2DSprite_files/KissyPooAnimatedBanner.gif"></a>
+</div>
+
+<div class="sidebar">
+	<ul class="menu">
+	<li class="home"><a href="http://www.xnadevelopment.com/index.shtml">Home</a></li>
+	<li class="tutorials"><a href="http://www.xnadevelopment.com/tutorials.shtml">Tutorials</a></li>
+	<li class="sprites"><a href="http://www.xnadevelopment.com/sprites">Sprites</a></li>
+	<li class="links"><a href="http://www.xnadevelopment.com/links.shtml">Links</a></li>
+	<li class="blog"><a href="http://geekswithblogs.net/clingermangw">Blog</a></li>
+	<li class="about"><a href="http://www.xnadevelopment.com/aboutme.shtml">About Me</a></li>
+	</ul>
+</div>
+
+<!-- code formatted by http://manoli.net/csharpformat/ --> <style type="text/css">
+.csharpcode, .csharpcode pre
+{
+	font-size: small;
+	color: black;
+	font-family: consolas, "Courier New", courier, monospace;
+	background-color: #ffffff;
+	/*white-space: pre;*/
+}
+
+.csharpcode pre { margin: 0em; }
+
+.csharpcode .rem { color: #008000; }
+
+.csharpcode .kwrd { color: #0000ff; }
+
+.csharpcode .str { color: #006080; }
+
+.csharpcode .op { color: #0000c0; }
+
+.csharpcode .preproc { color: #cc6633; }
+
+.csharpcode .asp { background-color: #ffff00; }
+
+.csharpcode .html { color: #800000; }
+
+.csharpcode .attr { color: #ff0000; }
+
+.csharpcode .alt 
+{
+	background-color: #f4f4f4;
+	width: 100%;
+	margin: 0em;
+}
+
+.csharpcode .lnum { color: #606060; }
+</style>  
+
+
+
+
+<div class="page-wrapper">
+	<div class="page">
+		<div class="text">
+
+<h2>Creating a 2D Sprite</h2>
+<strong>Drawing your first sprites to the screen</strong> 
+
+<p>Creating a 2D sprite and getting it displayed on the screen is a
+very quick and painless process using the XNA framework, so let's get
+started! </p>
+<p><strong></strong>&nbsp;</p>
+<p><strong>Creating the new game project:</strong></p>
+<p>First, let's start by opening XNA Game Studio Express and creating a
+new Windows Game project. If you are having trouble remembering how to
+create a new XNA Windows Game project just follow the steps in <a href="http://www.xnadevelopment.com/tutorials/creatinganewxnagameproject/CreatingANewXNAWindowsGameProject.shtml">this tutorial here</a> and come back to the this tutorial after you've refreshed your memory. </p>
+<p><strong></strong>&nbsp;</p>
+<p><strong>Adding the images:</strong></p>
+<p>Now, let's add the images that we are going to be using in this
+tutorial to the game project. You can download the images used in the
+project from <a href="http://www.xnadevelopment.com/tutorials/creatinga2dsprite/SquareGuy.zip">here</a>. If you are having trouble remembering how to add images to an XNA Game project, just follow the steps in <a href="http://www.xnadevelopment.com/tutorials/addinganimagetothegameproject/AddingAnImageToTheGameProject.shtml">this tutorial here</a> and come back to this tutorial after you've refreshed your memory.</p>
+<p>&nbsp; </p>
+<p><strong>Drawing the Sprite on the Screen:</strong>  </p>
+<p>On to the code! To begin with, let's add a class level variables to
+store the texture and it's position. If you're a bit confused by the
+terms "class", "variables" or other coding terms, now would be a good
+time to stop and head on over to <a href="http://forums.xna.com/thread/16573.aspx">this FAQ</a>
+on the Creator's forums to brush up on your C# coding skills. Trying to
+learn both how to program in C# AND learn how to use the XNA framework
+and how game development works will become overwhelming fast! You won't
+need to become a C# expert, but you should at least go learn the basics
+first. </p>
+<p><em>Create some objects</em>  </p>
+<p>Go ahead and add this code to the top of the Game1.cs class.  </p>
+<div class="csharpcode">
+<div class="csharpcode">
+<pre class="alt">        Vector2 mPosition = <span class="kwrd">new</span> Vector2(0, 0);</pre>
+<pre>        Texture2D mSpriteTexture;</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+<p>Vector2 is a object provided by the XNA framework. It is used to
+store 2D positional information. Texture2D is another object provided
+by the XNA framework. It is used to hold image content loaded by the
+Content Pipeline. Both Vector2 and Texture2D objects will be used a lot
+in 2D game development with the XNA framework so it's good to become
+very familiar with them.</p>
+<p><em>Load the content</em>  </p>
+<p>Now, let&#8217;s go ahead and load our texture. We&#8217;ll do this by adding some code to the <strong>&#8220;LoadContent&#8221;</strong>
+method. You don't need to create the "LoadContent" method, it's already
+created as part of your Game1.cs class when you create your Windows
+game project. We will just be adding a new line of code to this method
+to load our sprite texture.&nbsp;<!-- code formatted by http://manoli.net/csharpformat/ -->  </p>
+<div class="csharpcode">
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadContent()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Create a new SpriteBatch, which can be used to draw textures.</span></pre>
+<pre>            spriteBatch = <span class="kwrd">new</span> SpriteBatch(GraphicsDevice);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">// TODO: use this.Content to load your game content here</span></pre>
+<pre class="alt">            mSpriteTexture = <span class="kwrd">this</span>.Content.Load&lt;Texture2D&gt;(<span class="str">"SquareGuy"</span>);</pre>
+<pre>        }</pre>
+</div>
+</div>
+<p>The line we added, uses the Content Manager to load the "SquareGuy" image we added tot he project into our Texture2D object.  </p>
+<p><em>Draw the sprite</em>  </p>
+<p>With the Texture2D object loaded, we can now draw our sprite tot he screen. All of your drawing should be done in the <strong>"Draw"</strong>
+method. This is another method that already exists in your Game1.cs
+class. It is created when you first create a new Windows game project. </p>
+<p>Add the following code to the "Draw" method.  </p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">// TODO: Add your drawing code here</span></pre>
+<pre>            spriteBatch.Begin();</pre>
+<pre class="alt">            spriteBatch.Draw(mSpriteTexture, mPosition, Color.White);</pre>
+<pre>            spriteBatch.End();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>The spriteBatch object is automatically created when you make a new
+Windows game. SpriteBatch objects are what is used to draw 2D images to
+the screen. To use them, you first have to initiate "drawing" by
+calling "Begin". </p>
+<p>Next, you draw all the images you want. In our case, we're currently
+just drawing a single sprite to the screen, but some games might have
+hundreds or thousands of "Draw" calls. With our "Draw" call, we pass in
+the sprite texture we want drawn. The position in the game screen we
+want it drawn in (our current position is X=0 and Y=0) and what color
+we want to shade our sprite (using White, tells the SpriteBatch object
+that you don't want to apply any shading to the texture). </p>
+<p>Finally, you tell the SpriteBatch object that you've added all the
+things to the scene that you want drawn and you tell it to go ahead and
+draw them all by calling "End". </p>
+<p>And that&#8217;s that. <strong>Build <img src="CreatingA2DSprite_files/CropperCapture263.jpg" alt="CropperCapture[263]" style="border-width: 0px;" border="0" width="27" height="23"> </strong>your game<strong> </strong>and
+give it a go. You should see the Square Guy sitting in the upper left
+of the game window. Just click the Close button on the game window to
+stop the game. </p>
+<p align="center"><img src="CreatingA2DSprite_files/CropperCapture265.jpg" alt="CropperCapture[265]" style="border: 0px none ; margin: 10px;" border="0" width="500" height="394">&nbsp;&nbsp; </p>
+<p><strong></strong></p>
+<p><strong>Changing the Position of the Sprite</strong></p>
+<p>The position of our sprite is stored in our Vector2 object we
+created mPosition. To draw the sprite in a new location, just change
+these values. Go ahead and play with these values and see how they
+work. Change the X position, then the Y position. When you change the
+line of code to look like this. Where is it drawn?</p>
+<p>Change this line of code.</p>
+<div class="csharpcode">
+<pre class="alt">        Vector2 mPosition = <span class="kwrd">new</span> Vector2(250, 100);</pre>
+</div>
+<p>Now click <strong>Build <img src="CreatingA2DSprite_files/CropperCapture263.jpg" alt="CropperCapture[263]" style="border-width: 0px;" border="0" width="27" height="23"> </strong>and see where the sprite is drawn. </p>
+<p>&nbsp;</p>
+<p><strong>Making a "Sprite" Class</strong></p>
+<p><img src="CreatingA2DSprite_files/CropperCapture264.jpg" alt="Add New Item" style="border-width: 0px; margin: 5px 10px 10px;" align="left" border="0" width="500" height="306">
+Now that you understand how to draw an image to the screen. Let's work
+on creating a "Sprite" object so it's easier for us to work with
+multiple sprites. Start by right-clicking on the project, pick Add
+-&gt; New Item.</p>
+<p>Select "Class" from the "Add New Item" dialog and then type in the
+name "Sprite" into the Name text box. Click the "Add" button when you
+are finished. </p>
+<p>This will add a new class to your game called "Sprite" we are going to use this class to create Sprite objects in our game.</p>
+<p>When you created the new class, the code window for the class should
+have opened.&nbsp; We are going to be working with some XNA Framework
+objects, so we will need to add the following "using" statements to the
+top of the class file.</p>
+<div class="csharpcode">
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework;</pre>
+<pre><span class="kwrd">using</span> Microsoft.Xna.Framework.Content;</pre>
+<pre class="alt"><span class="kwrd">using</span> Microsoft.Xna.Framework.Graphics;</pre>
+</div>
+<p>&nbsp;</p>
+<p>Next, just like we did in the Game1.cs class when we were learning
+to draw an image to the screen, we are going to add two storage objects
+to the Sprite class to be used in the same way.</p>
+<p>Add the following code to the top of the Sprite class (I included
+the class declaration and name for reference of where you need to add
+the code).</p>
+<div class="csharpcode">
+<pre class="alt">    <span class="kwrd">class</span> Sprite</pre>
+<pre>    {</pre>
+<pre class="alt">        <span class="rem">//The current position of the Sprite</span></pre>
+<pre>        <span class="kwrd">public</span> Vector2 Position = <span class="kwrd">new</span> Vector2(0,0);</pre>
+<pre class="alt">        </pre>
+<pre>        <span class="rem">//The texture object used when drawing the sprite</span></pre>
+<pre class="alt">        <span class="kwrd">private</span> Texture2D mSpriteTexture;</pre>
+</div>
+<p>You can see that there is a little difference for how we declared
+our objects. We made the Position object Public and the Texture2D
+object private. This means that the Position can be changed by things
+outside of the class and the Texture can not. If you're a little
+confused by terms like "Public" and "Private", you might want to go do
+some more training on C#.</p>
+<p>We are now going to mimic the Game1.cs class a bit and create our
+own "LoadContent" method for our sprite class. This method will do for
+the sprite exactly what the LoadContent method does for the Game1.cs
+class.</p>
+<p>Add the following method to the Sprite.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Load the texture for the sprite using the Content Pipeline</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">void</span> LoadContent(ContentManager theContentManager, <span class="kwrd">string</span> theAssetName)</pre>
+<pre class="alt">        {</pre>
+<pre>            mSpriteTexture = theContentManager.Load&lt;Texture2D&gt;(theAssetName);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>You can see that the LoadContent method for our Sprite class takes
+in some parameters. The Sprite class does not have a ContentManager to
+do it's loading so it "asks" for one. It also wants to know the name of
+the asset that it should load into it's Texture2D object. Both of those
+values will be passed in when the LoadContent method is called. So now
+our content is loaded for the sprite, we now need to Draw it. We will
+once again copy the way the Game1.cs class works and add a "Draw"
+method to our Sprite class. </p>
+<p>Add the following method to the Sprite.cs clas</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="rem">//Draw the sprite to the screen</span></pre>
+<pre>        <span class="kwrd">public</span> <span class="kwrd">void</span> Draw(SpriteBatch theSpriteBatch)</pre>
+<pre class="alt">        {</pre>
+<pre>            theSpriteBatch.Draw(mSpriteTexture, Position, Color.White);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>Since the Sprite class does not have it's own SpriteBatch (it's a
+good idea to try and limit the number of SpriteBatch objects you are
+creating for your game), the Draw method in our class will ask for a
+SpriteBatch object that it should use for drawing itself.</p>
+<p>We have now created our Sprite class. You should be able to <strong>Build <img src="CreatingA2DSprite_files/CropperCapture263.jpg" alt="CropperCapture[263]" style="border-width: 0px;" border="0" width="27" height="23"> </strong>the
+project with no errors now and the Image should still draw BUT it's not
+being drawn by our new Sprite class, we just haven't removed our old
+code yet.</p>
+<p><strong></strong>&nbsp;</p>
+<p><strong>Using the new Sprite Class</strong></p>
+<p>We will now modify the Game1.cs class to use the new Sprite object
+we have created. To begin with, delete the following lines of code from
+the top of the Game1.cs class.</p>
+<div class="csharpcode">
+<pre class="alt">        Vector2 mPosition = <span class="kwrd">new</span> Vector2(250, 100);</pre>
+<pre>        Texture2D mSpriteTexture;</pre>
+</div>
+<p>Now, add the following line of code to the Game1.cs class. This will be our Sprite object.</p>
+<div class="csharpcode">
+<pre class="alt">        Sprite mSprite;</pre>
+</div>
+<p>Next we want to "create" our Sprite object so that it's ready to be
+used in our Game1.cs class. To do that, add the following line of code
+to the "Initialize" method. The Initialize method is another one of
+those methods already created for you when you make a new Windows game.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Initialize()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// TODO: Add your initialization logic here</span></pre>
+<pre>            mSprite = <span class="kwrd">new</span> Sprite();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Initialize();</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>With our Sprite object created, we now need to load it's content. We
+will do that by calling it's LoadContent method from within the
+Game1.cs LoadContent method. We will be adding a new line of code and
+removing the previous code we had written in the LoadContent method.</p>
+<p>Modify the LoadContent method to look like this.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadContent()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Create a new SpriteBatch, which can be used to draw textures.</span></pre>
+<pre>            spriteBatch = <span class="kwrd">new</span> SpriteBatch(GraphicsDevice);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">// TODO: use this.Content to load your game content here</span></pre>
+<pre class="alt">            mSprite.LoadContent(<span class="kwrd">this</span>.Content, <span class="str">"SquareGuy"</span>);</pre>
+<pre>        }</pre>
+</div>
+<p>Calling that will load the SquareGuy asset into the Texture2D object
+in our Sprite class. Now we just need to Draw the Sprite to the screen.
+To do that, modify the Game1.cs Draw method to look like this.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> Draw(GameTime gameTime)</pre>
+<pre>        {</pre>
+<pre class="alt">            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);</pre>
+<pre>&nbsp;</pre>
+<pre class="alt">            <span class="rem">// TODO: Add your drawing code here</span></pre>
+<pre>            spriteBatch.Begin();</pre>
+<pre class="alt">            mSprite.Draw(<span class="kwrd">this</span>.spriteBatch);</pre>
+<pre>            spriteBatch.End();</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="kwrd">base</span>.Draw(gameTime);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>We removed the previous draw code we had written and instead are now
+calling the "Draw" method of our sprite object. When you click <strong>Build <img src="CreatingA2DSprite_files/CropperCapture263.jpg" alt="CropperCapture[263]" style="border-width: 0px;" border="0" width="27" height="23"> </strong>now
+you should see that happy little Square Guy in the upper left of the
+screen. The difference is, this time you've written the code to be a
+little more Object Oriented and so it's a little more reusable for
+future projects.</p>
+<p><strong>Positioning the Sprite object </strong></p>
+<p>To position the Sprite, we will add a new line of code to the
+LoadContent() method. Modify the LoadContent() method to look like this.</p>
+<div class="csharpcode">
+<pre class="alt">        <span class="kwrd">protected</span> <span class="kwrd">override</span> <span class="kwrd">void</span> LoadContent()</pre>
+<pre>        {</pre>
+<pre class="alt">            <span class="rem">// Create a new SpriteBatch, which can be used to draw textures.</span></pre>
+<pre>            spriteBatch = <span class="kwrd">new</span> SpriteBatch(GraphicsDevice);</pre>
+<pre class="alt">&nbsp;</pre>
+<pre>            <span class="rem">// TODO: use this.Content to load your game content here</span></pre>
+<pre class="alt">            mSprite.LoadContent(<span class="kwrd">this</span>.Content, <span class="str">"SquareGuy"</span>);</pre>
+<pre>            mSprite.Position = <span class="kwrd">new</span> Vector2(125, 245);</pre>
+<pre class="alt">        }</pre>
+</div>
+<p>This changes the Position of the sprite so that when the Sprite
+draws itself, it uses the new positioning information you gave it. You
+can also change just an individual X and or Y position of the Sprite by
+writing code like this.</p>
+<div class="csharpcode">
+<pre class="alt">            mSprite.Position.X = 200;</pre>
+<pre>            mSprite.Position.Y = 300;</pre>
+</div>
+<p>Just another way of accessing and changing the positioning
+information of your sprite. With the new positioning information you
+have given the Sprite, go ahead and <strong>Build <img src="CreatingA2DSprite_files/CropperCapture263.jpg" alt="CropperCapture[263]" style="border-width: 0px;" border="0" width="27" height="23"> </strong>now and watch where the Sprite is drawn. </p>
+<p>&nbsp;</p>
+<p><strong>Drawing multiple Sprites</strong></p>
+<p>Now that we have our sprite class, adding a second Sprite to the
+game is really easy. To add a second sprite, just follow the following
+steps.</p>
+<ol>
+    <li>Add a new Sprite object to the top of the class, maybe call this one mSpriteTwo.&nbsp; <em>Sprite mSpriteTwo;</em>  </li>
+    <li>Instantiate a new instance of the Sprite in the Initialize method of the Game1.cs class. <em>mSpriteTwo = new Sprite();</em>  </li>
+    <li>Call the LoadContent method of your new sprite object in the LoadContent method of the Game1.cs class.&nbsp; <em>mSpriteTwo.LoadContent(this.Content, "SquareGuy");</em>  </li>
+    <li>Give
+the new sprite a new position (if you give it the same position, you
+won't see it since they will be drawn on top of each other). <em>mSpriteTwo.Position = new Vector2( 300, 100);</em>  </li>
+    <li>Call the Draw method of your sprite object in the Draw method of the Game1.cs class. <em>mSpriteTwo.Draw(this.spriteBatch);</em></li>
+</ol>
+<p>Now go ahead and <strong>Build <img src="CreatingA2DSprite_files/CropperCapture263.jpg" alt="CropperCapture[263]" style="border-width: 0px;" border="0" width="27" height="23"> </strong>your
+game, you should now see two sprites drawn to the screen in the
+locations you have given them. Do you think you could add a third?</p>
+<p align="center">&nbsp;<img src="CreatingA2DSprite_files/CropperCapture266.jpg" alt="CropperCapture[266]" style="border: 0px none ; margin: 5px;" border="0" width="500" height="394"> </p>
+<p>That's it, <strong>congratulations</strong> on getting your first
+(and second!) sprite drawn to the screen! It might not seem like a lot,
+but this is the first step in building up some of the basic concepts
+you will need for making your first game. Go ahead and experiment a
+little. If you get stuck on something, take some time to search the <a href="http://creators.xna.com/forums">forums</a> and see if you can figure it out. Most of all, make sure you're having some fun!</p>
+
+
+		</div>
+	</div>
+</div>
+
+
+<div style="margin: 0px; padding: 0px; display: inline;" id="scid:0767317B-992E-4b12-91E0-4F059A8CECA8:190d701e-3828-4ef7-833c-c276012fcb76" class="wlWriterSmartContent">Technorati Tags: <a rel="tag" href="http://technorati.com/tags/XNA">XNA</a></div>
+
+
+
+
+   <div class="footer">
+	<div>
+		<p>
+			Site Design by <a href="http://bxnaa.spaces.live.com/">Björn Graf</a>. Copyright © 2006-2009 <a href="mailto:clingermangw@hotmail.com">George W. Clingerman</a>
+		</p>
+		<p>
+			XNADevelopment.com is in no way affiliated with Microsoft.
+		</p>
+	</div>
+</div>
+
+<script src="CreatingA2DSprite_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-594562-2";
+urchinTracker();
+</script>
+
+
+
+</body></html>

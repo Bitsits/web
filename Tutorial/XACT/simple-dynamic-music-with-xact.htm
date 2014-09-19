@@ -1,0 +1,698 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head profile="http://gmpg.org/xfn/11">
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Simple Dynamic Music with XACT «  luminance</title>
+
+<link rel="alternate" type="application/rss+xml" title="luminance RSS Feed" href="http://www.luminance.org/feed">
+<link rel="alternate" type="application/atom+xml" title="luminance Atom Feed" href="http://www.luminance.org/feed/atom">
+<link rel="pingback" href="http://www.luminance.org/xmlrpc.php">
+<link rel="shortcut icon" href="http://www.luminance.org/wp-content/themes/arclite/favicon.ico">
+
+  
+<style type="text/css">
+@import "http://www.luminance.org/wp-content/themes/arclite/style.css";
+@import "http://www.luminance.org/wp-content/themes/arclite/options/side-blue.css";
+@import "http://www.luminance.org/wp-content/themes/arclite/options/content-default.css";
+@import "http://www.luminance.org/wp-content/themes/arclite/options/header-blue.css";
+</style>
+<!--[if lte IE 6]>
+<style type="text/css" media="screen">
+ @import "http://www.luminance.org/wp-content/themes/arclite/ie6.css";
+</style>
+<![endif]-->
+
+ <link rel="alternate" type="application/rss+xml" title="luminance » Simple Dynamic Music with XACT Comments Feed" href="http://www.luminance.org/code/2009/07/23/simple-dynamic-music-with-xact/feed">
+<link rel="stylesheet" id="colorbox-theme1-css" href="simple-dynamic-music-with-xact_files/colorbox.css" type="text/css" media="screen">
+<script type="text/javascript" src="simple-dynamic-music-with-xact_files/jquery_002.js"></script>
+<script type="text/javascript" src="simple-dynamic-music-with-xact_files/jquery.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.luminance.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.luminance.org/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="luminance" href="http://www.luminance.org/">
+<link rel="start" title="omg yay!" href="http://www.luminance.org/uncategorized/2008/11/28/omg-yay">
+<link rel="prev" title="Threaded Renderer" href="http://www.luminance.org/gruedorf/2009/07/20/threaded-renderer">
+<link rel="next" title="Event-driven audio" href="http://www.luminance.org/gruedorf/2009/07/24/event-driven-audio">
+<meta name="generator" content="WordPress 2.9.2">
+<link rel="canonical" href="http://www.luminance.org/code/2009/07/23/simple-dynamic-music-with-xact">
+<!-- jQuery Lightbox For Native Galleries v3.1.1 | http://www.viper007bond.com/wordpress-plugins/jquery-lightbox-for-native-galleries/ -->
+<script type="text/javascript">
+// <![CDATA[
+	jQuery(document).ready(function($){
+		$(".gallery").each(function(index, obj){
+			$(obj).find("a").colorbox({rel:$(obj).attr("id"), maxWidth:"95%", maxHeight:"95%"});
+		});
+	});
+// ]]>
+</script>
+
+<!-- Google Analytics for WordPress | http://yoast.com/wordpress/google-analytics/ -->
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="simple-dynamic-music-with-xact_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+	try {
+		var pageTracker = _gat._getTracker("UA-6375004-2");
+	} catch(err) {}
+</script>
+<script src="simple-dynamic-music-with-xact_files/custom_se.js" type="text/javascript"></script>
+<script type="text/javascript">
+	try {
+		// Cookied already: 
+		pageTracker._trackPageview();
+	} catch(err) {}
+</script>
+<!-- End of Google Analytics code -->
+
+</head><body class="inner"><div style="display: none;" id="cboxOverlay"></div><div style="padding-bottom: 42px; padding-right: 42px; display: none;" id="colorbox"><div id="cboxWrapper"><div><div style="float: left;" id="cboxTopLeft"></div><div style="float: left;" id="cboxTopCenter"></div><div style="float: left;" id="cboxTopRight"></div></div><div><div style="float: left;" id="cboxMiddleLeft"></div><div style="float: left;" id="cboxContent"><div class="" style="width: 0px; height: 0px; display: none;" id="cboxLoadedContent"></div><div style="display: none;" class="" id="cboxLoadingOverlay"></div><div style="display: none;" class="" id="cboxLoadingGraphic"></div><div style="display: none;" class="" id="cboxTitle"></div><div style="display: none;" class="" id="cboxCurrent"></div><div style="display: none;" class="" id="cboxSlideshow"></div><div style="display: none;" class="" id="cboxNext"></div><div style="display: none;" class="" id="cboxPrevious"></div><div style="display: none;" class="" id="cboxClose"></div></div><div style="float: left;" id="cboxMiddleRight"></div></div><div><div style="float: left;" id="cboxBottomLeft"></div><div style="float: left;" id="cboxBottomCenter"></div><div style="float: left;" id="cboxBottomRight"></div></div></div></div>
+ <!-- page wrap -->
+ <div id="page" class="with-sidebar">
+
+  <!-- header -->
+  <div id="header-wrap">
+   <div id="header" class="block-content">
+     <div id="pagetitle" class="clearfix">
+
+            <h1 class="logo"><a href="http://www.luminance.org/"><img src="simple-dynamic-music-with-xact_files/blog_logo.png" title="luminance" alt="luminance"></a></h1>
+      
+      <h4>Programming and Game Development – Kevin Gadd’s Personal Blog</h4>
+                  <!-- search form -->
+      <div class="search-block">
+        <div class="searchform-wrap">
+          <form role="search" method="get" id="searchform" action="http://www.luminance.org/">
+            <fieldset>
+            <input name="s" id="searchbox" class="searchfield" value="Search" onfocus="if(this.value == 'Search') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search';}" type="text">
+             <input value="Go" class="go" type="submit">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <!-- /search form -->
+      
+     </div>
+
+     <!-- main navigation -->
+     <div id="nav-wrap1">
+      <div id="nav-wrap2">
+        <ul role="navigation" class="sf-js-enabled" id="nav">
+                     <li id="nav-homelink"><a class="fadeThis" href="http://www.luminance.org/" title="Click for Home"><span>Home</span><span style="opacity: 0;" class="hover"></span></a></li>
+                   <li class="page_item page-item-2"><a class="fadeThis" href="http://www.luminance.org/about" title="About Me"><span>About Me</span><span style="opacity: 0;" class="hover"></span></a></li>
+<li class="page_item page-item-775"><a class="fadeThis" href="http://www.luminance.org/resume" title="Resume"><span>Resume</span><span style="opacity: 0;" class="hover"></span></a></li>
+<li class="page_item page-item-653"><a class="fadeThis" href="http://www.luminance.org/inferusgame" title="Inferus"><span>Inferus</span><span style="opacity: 0;" class="hover"></span></a></li>
+<li class="page_item page-item-772"><a class="fadeThis" href="http://www.luminance.org/fracture" title="Fracture"><span>Fracture</span><span style="opacity: 0;" class="hover"></span></a></li>
+<li class="page_item page-item-756"><a class="fadeThis" href="http://www.luminance.org/ndexer" title="NDexer"><span>NDexer</span><span style="opacity: 0;" class="hover"></span></a></li>
+<li class="page_item page-item-769"><a class="fadeThis" href="http://www.luminance.org/f2" title="Fury²"><span>Fury²</span><span style="opacity: 0;" class="hover"></span></a></li>
+        </ul>
+      </div>
+     </div>
+     <!-- /main navigation -->
+
+   </div>
+  </div>
+  <!-- /header -->
+
+<!-- main wrappers -->
+<div id="main-wrap1">
+ <div id="main-wrap2">
+
+  <!-- main page block -->
+  <div id="main" class="block-content clearfix">
+   <div class="mask-main rightdiv">
+    <div class="mask-left">
+
+     <!-- first column -->
+     <div class="col1">
+      <div role="main" id="main-content">
+
+              <div class="navigation clearfix">
+          <div class="alignleft">« <a href="http://www.luminance.org/gruedorf/2009/07/20/threaded-renderer" rel="prev">Threaded Renderer</a></div>
+          <div class="alignright"><a href="http://www.luminance.org/gruedorf/2009/07/24/event-driven-audio" rel="next">Event-driven audio</a> »</div>
+        </div>
+
+
+        <!-- post -->
+        <div id="post-604" class="post-604 post hentry category-code tag-audio tag-csharp tag-music tag-xact tag-xna">
+           <h2 class="post-title">Simple Dynamic Music with XACT</h2>
+              <div class="post-content clearfix">
+    	       <p>Good music adds a lot to a game, but only if it fits the 
+action occurring on screen. Badly chosen music that doesn’t match the 
+feel of your game, or is inappropriate for the tone of the gameplay, 
+won’t do you much good. Dynamic music is one way to help make sure your 
+music is always a good fit for the action occurring on-screen – it lets 
+you adapt the music the player is hearing based on what’s happening.</p>
+<p>There are various approaches for building dynamic music – some games 
+go so far as to create hundreds of short music ’snippets’ and string 
+them together to create longer, more dynamic songs that never sound the 
+same to the player once. Unfortunately, this is pretty complicated to 
+do, especially if you’re just working with XNA and XACT. Luckily, there 
+are some simpler techniques you can use to build dynamic music.</p>
+<p>Below, you can see a short video clip showing one of my experiments 
+with dynamic music. I’ll explain how it works in this post, so you can 
+apply the technique to your games. In this video clip, I have two music 
+tracks playing, and control the volume of one of them depending on 
+whether or not the player character is within the blue rectangle. You 
+can hear the track fading in and out as he moves.</p>
+<p></p>
+<div class="video"><object data="simple-dynamic-music-with-xact_files/7RUG7tDMUL8hlenfs1rel0color10x2b405bcolor20x6b8ab6hd1" type="application/x-shockwave-flash" width="640" height="385"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><param name="src" value="http://www.youtube-nocookie.com/v/7RUG7tDMUL8&amp;hl=en&amp;fs=1&amp;rel=0&amp;color1=0x2b405b&amp;color2=0x6b8ab6&amp;hd=1"><param name="allowfullscreen" value="true"></object></div>
+<p></p><center><i>(The track used in this example is ‘<a href="http://ftp.df.lth.se/pub/scene.org/music/groups/mephtik/mephtik_2/skyline-corn_fields.it" onclick="javascript:pageTracker._trackPageview('/outbound/article/ftp.df.lth.se');">Corn Fields</a>‘ by <a href="http://www.traxinspace.com/profile/skyline" onclick="javascript:pageTracker._trackPageview('/outbound/article/www.traxinspace.com');">Skyline</a>.)</i></center>
+<p></p>
+<p>The  approach I’m using works like this: You take a song that you 
+intend to use in your game, and in an audio tool, split it out into 
+multiple wave files, one for each ‘track’ that you want to have control 
+over. Depending on the complexity of your song, you might just want to 
+split it out into a pair of tracks, and fade one of them in when you 
+want the music to get more intense. If your music is more sophisticated 
+and your gameplay has lots of variation, you may want lots of tracks 
+that you can control individually based on what’s happening – fade in 
+some anxious-sounding strings when powerful monsters are on screen, and 
+temporarily fade in some ominous-sounding bass notes when the player is 
+injured, for example.</p>
+<p><span id="more-604"></span></p>
+<hr>
+<p>In this article I’m going to be using two simple tracks I exported 
+from a song using ModPlug tracker. This is about as simple as you can 
+get, since I just wanted to grab a song I had lying around that I knew I
+ could use without violating any copyright laws. To create the tracks, I
+ went into MPT and loaded up the song. Then, I went into the pattern 
+editor and muted part of the channels, and exported the song to a WAV. 
+After that, I unmuted those channels and muted the remaining channels, 
+and exported them to a second WAV file. This gives me two WAV files of 
+equal length, each of which composes a portion of the song.</p>
+<p>Now, to actually wire it up, you have to go into XACT and load up 
+your audio project. You’re going to want to find the wave bank you keep 
+your music in, and open it up. Once it’s open, select the tracks for 
+your song and drag-drop them into the wave bank. Afterwards, you should 
+have one entry in the wave bank for each track, as you see below.</p>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_01.png"><img class="aligncenter size-full wp-image-605" title="xactmusic_01" src="simple-dynamic-music-with-xact_files/xactmusic_01.png" alt="xactmusic_01" width="750" height="213"></a></p>
+<p>Next, open up the sound bank that contains your music cues. This 
+probably has the same name as your wave bank for music, but if it 
+doesn’t, no big deal.</p>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_02.png"><img class="aligncenter size-full wp-image-606" title="xactmusic_02" src="simple-dynamic-music-with-xact_files/xactmusic_02.png" alt="xactmusic_02" width="727" height="494"></a></p>
+<p>Now, drag one of your tracks out of your music wave bank, and drop it
+ into the bottom portion of your sound bank, where the cues are listed. 
+This will create a cue and associated sound for that track.</p>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_03.png"><img class="aligncenter size-full wp-image-607" title="xactmusic_03" src="simple-dynamic-music-with-xact_files/xactmusic_03.png" alt="xactmusic_03" width="544" height="561"></a></p>
+<p>The cue and sound are automatically named after the track, which 
+probably isn’t ideal, so you can rename both of them to something easier
+ to remember – this will make it easier to work with them in your game 
+code. After you’ve done that, select the sound for your music up in the 
+top section of the sound bank. You should see your track on the right 
+side of the window, listed as ‘Track 1′.</p>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_04.png"><img class="aligncenter size-full wp-image-608" title="xactmusic_04" src="simple-dynamic-music-with-xact_files/xactmusic_04.png" alt="xactmusic_04" width="539" height="353"></a></p>
+<p>Next, you want to drag your remaining tracks out of your wave bank, 
+and drop them directly onto the empty space below your track, in the top
+ right portion of the sound bank window. This will create additional 
+tracks for them, as a part of the sound.</p>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_05.png"><img class="aligncenter size-full wp-image-609" title="xactmusic_05" src="simple-dynamic-music-with-xact_files/xactmusic_05.png" alt="xactmusic_05" width="601" height="387"></a></p>
+<p>You’re all done here, so go ahead and close your wave and sound 
+banks. Next, you need to create a variable to control the volume of your
+ tracks. Go to the treeview on the left side of the XACT window, and 
+right click the ‘Global’ section under ‘Variables’. Select ‘New Global 
+Variable’.</p>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_06.png"><img class="aligncenter size-full wp-image-610" title="xactmusic_06" src="simple-dynamic-music-with-xact_files/xactmusic_06.png" alt="xactmusic_06" width="250" height="172"></a></p>
+<p>In the window that opens, choose a name for your variable – I chose 
+‘MusicTrackVolume’ – and then change its ‘Control’ to ‘Monitored’. Go 
+ahead and close the variable settings window after this.</p>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_07.png"><img class="aligncenter size-medium wp-image-611" title="xactmusic_07" src="simple-dynamic-music-with-xact_files/xactmusic_07-300x141.png" alt="xactmusic_07" width="300" height="141"></a></p>
+<p>Next, right click the ‘RPC Presets’ section in the left side of the window, and select ‘New RPC Preset’.</p>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_08.png"><img class="aligncenter size-full wp-image-612" title="xactmusic_08" src="simple-dynamic-music-with-xact_files/xactmusic_08.png" alt="xactmusic_08" width="221" height="200"></a></p>
+<p>A rather intimidating window will open up. The first few things you want to do in this window are:</p>
+<ul>
+<li>Select your variable in the ‘Variable’ dropdown at the top.</li>
+<li>Then, in the same row, change the ‘Object’ dropdown to point at the track for which you wish to control volume.</li>
+<li>Finally, change the ‘Parameter’ dropdown to ‘Volume’.</li>
+</ul>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_09.png"><img class="aligncenter size-full wp-image-613" title="xactmusic_09" src="simple-dynamic-music-with-xact_files/xactmusic_09.png" alt="xactmusic_09" width="779" height="150"></a></p>
+<p>Once this is done, you need to set up the volume ramp, so that XACT 
+knows how to adjust the volume of your track based on the value of the 
+variable. To keep things simple, go ahead and set two points for the 
+ramp:</p>
+<ul>
+<li><strong>MusicTrackVolume</strong> = <tt>0.00</tt>, <strong>Volume</strong> = <tt>-96.00</tt> (dB)</li>
+<li><strong>MusicTrackVolume</strong> = <tt>1.00</tt>, <strong>Volume</strong> = <tt>0.00</tt> (dB)</li>
+</ul>
+<p>This specifies that when your variable is set to 0.0, the volume will
+ be set to -96.0 dB, basically silent, and when it is set to 1.0, the 
+volume will be set to 0 dB – full volume.</p>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_10.png"><img src="simple-dynamic-music-with-xact_files/xactmusic_10.png" alt="xactmusic_10" title="xactmusic_10" class="aligncenter size-full wp-image-614" width="770" height="348"></a></p>
+<p>Once this is done, you can close the RPC Preset window, and rename 
+your new preset to something easier to identify, like ‘Music Volume 
+Preset’. After that, open your sound bank back up. Drag your RPC preset 
+out of the left side of the XACT window, and drop it directly onto the 
+entry for your music in the top left portion of the sound bank window 
+(the sounds portion, not the cues portion). </p>
+<p>After you do this, your sound should be highlighted, and the bottom 
+left portion of the XACT window (the properties viewer) should show your
+ preset under ‘Attached Objects’. We’re done in XACT now, so you can 
+save everything and close it if you like.</p>
+<hr>
+<p>Once you have everything set up in XACT, you can use your cue as you 
+normally would in-game. By default, you will only hear one of your 
+tracks, because your variable’s value defaults to zero.</p>
+<p>To make it so the player can hear the track, all you have to do is 
+provide a value for your variable. You do this by using the 
+SetGlobalVariable method of the XACT AudioEngine class, like so:</p>
+<pre>AudioEngine.SetGlobalVariable("MusicIntensity", 0.8f);</pre>
+<p>Given this, it’s straightforward to set up your game code so that 
+XACT variables change in response to in-game events. Note that variables
+ change immediately after you set them, so your volume changes will be 
+abrupt and somewhat disconcerting. The best way to solve this is to 
+interpolate your variable changes, something like this:</p>
+<pre>float fadeElapsedTime = (gameTime.TotalGameTime.TotalSeconds - FadeStartedWhen);
+float musicIntensity = MathHelper.Clamp(fadeElapsedTime / FadeDuration, 0.0f, 1.0f);
+AudioEngine.SetGlobalVariable("MusicIntensity", musicIntensity);</pre>
+<p>Doing that every frame will give you smooth transitions between 
+values, so that the player hears tracks fade in and out instead of 
+immediately stopping and starting.</p>
+<p>It’s also important to note that since the relationship between 
+volume and decibels (dB) is logarithmic, your tracks will sound like 
+they are fading in very quickly. The best way to solve this is by 
+creating a more advanced curve for your RPC Preset, so that the fading 
+sounds smoother. Here’s the one I used in my example video clip above:</p>
+<p><a href="http://www.luminance.org/wp-content/uploads/2009/07/xactmusic_12.png"><img src="simple-dynamic-music-with-xact_files/xactmusic_12.png" alt="xactmusic_12" title="xactmusic_12" class="aligncenter size-full wp-image-620" width="696" height="343"></a></p>
+<p>As you can see, I partially counteract the logarithmic nature of the dB scale by making the volume ramp up rapidly from <tt>-96</tt>dB to <tt>-32</tt>dB in the first quarter of the scale, and then ramp up more slowly from there to <tt>0</tt>dB. For your needs, a more complex curve might be appropriate.</p>
+<p>I hope this post has given you some ideas about how to integrate 
+dynamic music into your own XNA games. Please don’t hesitate to comment 
+if you have any questions!</p>
+              </div>
+                                          <p class="tags clearfix"> Tags: <a href="http://www.luminance.org/tag/audio" rel="tag">audio</a>, <a href="http://www.luminance.org/tag/csharp" rel="tag">csharp</a>, <a href="http://www.luminance.org/tag/music" rel="tag">music</a>, <a href="http://www.luminance.org/tag/xact" rel="tag">xact</a>, <a href="http://www.luminance.org/tag/xna" rel="tag">xna</a></p>
+                            <p class="post-metadata">
+                    This entry was posted on July 23, 2009, 12:16 am and is filed under <a href="http://www.luminance.org/category/code" title="View all posts in Code" rel="category tag">Code</a>. You can follow any responses to this entry through <a href="http://www.luminance.org/code/2009/07/23/simple-dynamic-music-with-xact/feed" title="RSS 2.0">RSS 2.0</a>.
+                    You can <a href="#respond">leave a response</a>, or <a href="http://www.luminance.org/code/2009/07/23/simple-dynamic-music-with-xact/trackback" rel="trackback">trackback</a> from your own site.                        		  </p>
+
+        </div>
+        <!-- /post -->
+
+    	
+  
+  <h3 class="comments">
+    6 Comments (and 2 trackbacks)   </h3>
+
+  <!-- comments -->
+  <ul id="comments" class="clearfix">
+    
+  <!-- comment entry -->
+  <li class="comment even thread-even depth-1 with-avatar" id="comment-226">
+   <div class="comment-mask regularcomment">
+    <div class="comment-main">
+     <div class="comment-wrap1">
+      <div class="comment-wrap2">
+       <div class="comment-head tiptrigger">
+        <p>
+          <a class="comment-id" href="#comment-226">#1</a> by <b id="commentauthor-226">Goombs</b> on August 3, 2009 - 4:10 am        </p>
+
+                <p class="controls tip">
+                           <a class="quote" title="Quote" href="javascript:void(0);"><span>Quote</span></a> 
+        </p>
+               </div>
+       <div class="comment-body clearfix" id="comment-body-226">
+                  <div class="avatar"><img alt="" src="simple-dynamic-music-with-xact_files/b71ca6dd130341ae21e4ecab35047f89.png" class="avatar avatar-64 photo" width="64" height="64"></div>
+         
+         
+         <div class="comment-text"><p>Thanks for this. I’ve been looking
+ for a good guide on how to do this. Would it be possible to provide the
+ project source code to see how everything is linked together?</p>
+</div>
+         <a id="comment-reply-226"></a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+</li>
+
+  <!-- comment entry -->
+  <li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1 with-avatar" id="comment-230">
+   <div class="comment-mask admincomment">
+    <div class="comment-main">
+     <div class="comment-wrap1">
+      <div class="comment-wrap2">
+       <div class="comment-head tiptrigger">
+        <p>
+          <a class="comment-id" href="#comment-230">#2</a> by <span class="with-tooltip"><a class="comment-author" id="commentauthor-230" href="http://luminance.org/">Kael</a></span> on August 4, 2009 - 3:59 pm        </p>
+
+                <p class="controls tip">
+                           <a class="quote" title="Quote" href="javascript:void(0);"><span>Quote</span></a> 
+        </p>
+               </div>
+       <div class="comment-body clearfix" id="comment-body-230">
+                  <div class="avatar"><img alt="" src="simple-dynamic-music-with-xact_files/09db625490bbe367c4cb8bad064e6725.png" class="avatar avatar-64 photo" width="64" height="64"></div>
+         
+         
+         <div class="comment-text"><p>The game will be open source eventually, but in the interim I might find time to make a tutorial with downloadable source code.</p>
+</div>
+         <a id="comment-reply-230"></a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+</li>
+  <li class="trackback">
+   <div class="comment-mask">
+    <div class="comment-main">
+     <div class="comment-wrap1">
+      <div class="comment-wrap2">
+       <div class="comment-head">
+         <p class="with-tooltip"><span>Pingback:</span> <a href="http://blog.brightside-games.com/?p=109" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/blog.brightside-games.com');" rel="external nofollow" class="url">Dynamic Volume in Xact3</a></p>
+        </div>
+      </div>
+     </div>
+    </div>
+   </div>
+
+
+ </li>
+
+  <!-- comment entry -->
+  <li class="comment even thread-even depth-1 with-avatar" id="comment-370">
+   <div class="comment-mask regularcomment">
+    <div class="comment-main">
+     <div class="comment-wrap1">
+      <div class="comment-wrap2">
+       <div class="comment-head tiptrigger">
+        <p>
+          <a class="comment-id" href="#comment-370">#3</a> by <span class="with-tooltip"><a class="comment-author" id="commentauthor-370" href="http://www.brightside-games.com/">Volker</a></span> on September 18, 2009 - 2:29 am        </p>
+
+                <p class="controls tip">
+                           <a class="quote" title="Quote" href="javascript:void(0);"><span>Quote</span></a> 
+        </p>
+               </div>
+       <div class="comment-body clearfix" id="comment-body-370">
+                  <div class="avatar"><img alt="" src="simple-dynamic-music-with-xact_files/c3405a129795787937c578afb7df55c5.png" class="avatar avatar-64 photo" width="64" height="64"></div>
+         
+         
+         <div class="comment-text"><p>Hey Kael,</p>
+<p>thanks a lot for this tutorial, it really helped by getting more controll over Xact and helped me with my own projekt.</p>
+<p><a href="http://blog.brightside-games.com/?p=109&amp;preview=true" onclick="javascript:pageTracker._trackPageview('/outbound/comment/blog.brightside-games.com');" rel="nofollow">http://blog.brightside-games.com/?p=109&amp;preview=true</a></p>
+<p>ceers Volker</p>
+</div>
+         <a id="comment-reply-370"></a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+</li>
+
+  <!-- comment entry -->
+  <li class="comment odd alt thread-odd thread-alt depth-1 with-avatar" id="comment-404">
+   <div class="comment-mask regularcomment">
+    <div class="comment-main">
+     <div class="comment-wrap1">
+      <div class="comment-wrap2">
+       <div class="comment-head tiptrigger">
+        <p>
+          <a class="comment-id" href="#comment-404">#4</a> by <b id="commentauthor-404">5p.</b> on September 28, 2009 - 7:38 pm        </p>
+
+                <p class="controls tip">
+                           <a class="quote" title="Quote" href="javascript:void(0);"><span>Quote</span></a> 
+        </p>
+               </div>
+       <div class="comment-body clearfix" id="comment-body-404">
+                  <div class="avatar"><img alt="" src="simple-dynamic-music-with-xact_files/fde271b42af958825575742921d249c9.jpg" class="avatar avatar-64 photo" width="64" height="64"></div>
+         
+         
+         <div class="comment-text"><p>Hi Kael,<br>
+I’ve been messing around with controlling different track volumes in 
+XNA, but it seems like even when I set the percussion track volume to 
+-96 via RPC, the percussion is still audible. Same for some other 
+tracks. Any ideas?</p>
+</div>
+         <a id="comment-reply-404"></a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+</li>
+
+  <!-- comment entry -->
+  <li class="comment even thread-even depth-1 with-avatar" id="comment-416">
+   <div class="comment-mask regularcomment">
+    <div class="comment-main">
+     <div class="comment-wrap1">
+      <div class="comment-wrap2">
+       <div class="comment-head tiptrigger">
+        <p>
+          <a class="comment-id" href="#comment-416">#5</a> by <b id="commentauthor-416">5p.</b> on September 29, 2009 - 5:55 pm        </p>
+
+                <p class="controls tip">
+                           <a class="quote" title="Quote" href="javascript:void(0);"><span>Quote</span></a> 
+        </p>
+               </div>
+       <div class="comment-body clearfix" id="comment-body-416">
+                  <div class="avatar"><img alt="" src="simple-dynamic-music-with-xact_files/fde271b42af958825575742921d249c9.jpg" class="avatar avatar-64 photo" width="64" height="64"></div>
+         
+         
+         <div class="comment-text"><p>Heh, this is embarrassing – I 
+figured out what was going on. Turns out Audacity doesn’t mute tracks 
+when you export, so the percussion got mixed in with all the other 
+tracks. Fixed.</p>
+</div>
+         <a id="comment-reply-416"></a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+</li>
+
+  <!-- comment entry -->
+  <li class="comment odd alt thread-odd thread-alt depth-1 with-avatar" id="comment-945">
+   <div class="comment-mask regularcomment">
+    <div class="comment-main">
+     <div class="comment-wrap1">
+      <div class="comment-wrap2">
+       <div class="comment-head tiptrigger">
+        <p>
+          <a class="comment-id" href="#comment-945">#6</a> by <span class="with-tooltip"><a class="comment-author" id="commentauthor-945" href="http://www.davematney.com/">Dave Matney</a></span> on August 3, 2010 - 2:17 pm        </p>
+
+                <p class="controls tip">
+                           <a class="quote" title="Quote" href="javascript:void(0);"><span>Quote</span></a> 
+        </p>
+               </div>
+       <div class="comment-body clearfix" id="comment-body-945">
+                  <div class="avatar"><img alt="" src="simple-dynamic-music-with-xact_files/5ef4904cfe3878e89dab55c8521a943c.jpg" class="avatar avatar-64 photo" width="64" height="64"></div>
+         
+         
+         <div class="comment-text"><p>This tutorial is awesome.  I 
+haven’t seen ANYTHING explain variables or RPC Presets so well — this 
+has revolutionized my current project.</p>
+</div>
+         <a id="comment-reply-945"></a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+</li>
+  <li class="trackback">
+   <div class="comment-mask">
+    <div class="comment-main">
+     <div class="comment-wrap1">
+      <div class="comment-wrap2">
+       <div class="comment-head">
+         <p class="with-tooltip"><span>Pingback:</span> <a href="http://www.davematney.com/2010/08/04/xacting-siphon-spirit/" onclick="javascript:pageTracker._trackPageview('/outbound/commentauthor/www.davematney.com');" rel="external nofollow" class="url">XACTing Siphon Spirit | Dave Matney : Forward</a></p>
+        </div>
+      </div>
+     </div>
+    </div>
+   </div>
+
+
+ </li>
+   </ul>
+   
+   
+   
+      <div id="respond">
+      <script type="text/javascript">
+       function validatecomment(form){
+         if(form.author.value == ('' || 'Your name (required)')){
+           alert('Please enter your name');
+           return false;
+         }
+         if(form.email.value == ('' || 'Your e-mail (required, will not be published)')){
+           alert('Please enter your email address');
+           return false;
+         }
+         if(form.comment.value == ('' || 'Type your comment here')){
+           alert('Please type a comment');
+           return false;
+         }
+         if(form.url.value == ('' || 'Your website')){
+           form.url.value = '';
+           return true;
+         }
+       }
+      </script>
+      <form action="http://www.luminance.org/wp-comments-post.php" method="post" id="commentform" onsubmit="return validatecomment(this);">
+        <div class="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.luminance.org/code/2009/07/23/simple-dynamic-music-with-xact#respond" style="display: none;">Cancel Reply</a></div>          	                <div id="author_info">
+            <div class="row">
+              <input name="author" id="author" class="textfield required" size="34" tabindex="1" value="Your name (required)" onfocus="if( this.value == 'Your name (required)') {this.value = '';}" onblur="if (this.value == '') { this.value = 'Your name (required)';}" type="text">
+            </div>
+            <div class="row">
+              <input name="email" id="email" class="textfield required" value="Your e-mail (required, will not be published)" onfocus="if(this.value == 'Your e-mail (required, will not be published)') { this.value = '';}" onblur="if (this.value == '') { this.value = 'Your e-mail (required, will not be published)';}" size="60" tabindex="2" type="text">
+            </div>
+            <div class="row">
+              <input name="url" id="url" class="textfield" value="Your website" onfocus="if(this.value == 'Your website') { this.value = 'http://';}" onblur="if ((this.value == 'http://') || (this.value == '')) { this.value = 'Your website';}" size="60" tabindex="3" type="text">
+            </div>
+
+  		  </div>
+                  
+        <!-- comment input -->
+        <div class="row">
+        	<textarea name="comment" id="comment" class="required" tabindex="4" rows="8" cols="60" onfocus="if(this.value == 'Type your comment here') {this.value = '';}" onblur="if(this.value == '') {this.value = 'Type your comment here';}">Type your comment here</textarea>
+        	            
+        	<input name="comment_post_ID" value="604" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+        </div>
+        <!-- /comment input -->
+
+        <div id="submitbox" class="left">
+		<input name="submit" id="submit" class="button" tabindex="5" value="Submit Comment" type="submit">
+         <input name="formInput" type="hidden">
+                </div>
+      </form>
+
+    </div>
+        
+  <!-- /comments -->
+
+
+            </div>
+     </div>
+     <!-- /first column -->
+     
+<!-- 2nd column (sidebar) -->
+<div class="col2">
+ <ul role="complementary" id="sidebar">
+
+    <div align="center">
+        <a title="Subscribe to this blog..." id="feedrss" href="http://feeds2.feedburner.com/luminance/OVxC"><img src="simple-dynamic-music-with-xact_files/OVxC.gif" style="border: 0pt none;" alt="" width="88" height="26"></a>
+        <a href="http://fusion.google.com/add?source=atgs&amp;feedurl=http%3A//feeds2.feedburner.com/luminance/OVxC"><img src="simple-dynamic-music-with-xact_files/add.gif" alt="Add to Google" border="0"></a>
+    </div>
+
+    
+        <li class="block">
+      <!-- sidebar menu (categories) -->
+      <ul class="menu">
+        	<li class="cat-item cat-item-6"><a class="fadeThis" href="http://www.luminance.org/category/code" title="View all posts filed under Code">Code<span style="opacity: 0;" class="hover"></span></a><a class="rss tip" href="http://www.luminance.org/category/code/feed"></a>
+</li>
+	<li class="cat-item cat-item-8"><a class="fadeThis" href="http://www.luminance.org/category/games" title="View all posts filed under Games">Games<span style="opacity: 0;" class="hover"></span></a><a class="rss tip" href="http://www.luminance.org/category/games/feed"></a>
+</li>
+	<li class="cat-item cat-item-5"><a class="fadeThis" href="http://www.luminance.org/category/gruedorf" title="View all posts filed under Gruedorf">Gruedorf<span style="opacity: 0;" class="hover"></span></a><a class="rss tip" href="http://www.luminance.org/category/gruedorf/feed"></a>
+</li>
+	<li class="cat-item cat-item-1"><a class="fadeThis" href="http://www.luminance.org/category/uncategorized" title="View all posts filed under Uncategorized">Uncategorized<span style="opacity: 0;" class="hover"></span></a><a class="rss tip" href="http://www.luminance.org/category/uncategorized/feed"></a>
+</li>
+      </ul>
+      <!-- /sidebar menu -->
+    </li>
+    
+    <li class="block widget widget_links" id="linkcat-31"><div class="box"><div class="titlewrap"><h4><span>Blogs</span></h4></div> <div class="wrapleft"><div class="wrapright"><div class="tr"><div class="bl"><div class="tl"><div class="br the-content">
+	<ul class="xoxo blogroll">
+<li><a href="http://ayende.com/Blog/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/ayende.com');">Ayende @ Rahien</a></li>
+<li><a href="http://blackpawn.com/blog/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/blackpawn.com');" title="Jim Scott’s blog about gamedev and the demoscene">Blackpawn</a></li>
+<li><a href="http://www.brokentoys.org/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/www.brokentoys.org');" title="Scott Jennings (Lum)’s blog">Broken Toys</a></li>
+<li><a href="http://chadaustin.me/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/chadaustin.me');">Chad Austin</a></li>
+<li><a href="http://startuplessonslearned.blogspot.com/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/startuplessonslearned.blogspot.com');">Eric Ries</a></li>
+<li><a href="http://www.bluebytesoftware.com/blog/default.aspx" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/www.bluebytesoftware.com');">Joe Duffy</a></li>
+<li><a href="http://msmvps.com/blogs/jon_skeet/default.aspx" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/msmvps.com');">Jon Skeet</a></li>
+<li><a href="http://jordanmechner.com/blog/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/jordanmechner.com');">Jordan Mechner</a></li>
+<li><a href="http://www.lostgarden.com/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/www.lostgarden.com');" title="Dan Cook’s game design and art blog">Lost Garden</a></li>
+<li><a href="http://nickgravelyn.com/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/nickgravelyn.com');">Nick Gravelyn</a></li>
+<li><a href="http://programmerjoe.com/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/programmerjoe.com');">Programmer Joe</a></li>
+<li><a href="http://blogs.msdn.com/shawnhar/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/blogs.msdn.com');">Shawn Hargreaves</a></li>
+<li><a href="http://steveblank.com/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/steveblank.com');">Steve Blank</a></li>
+<li><a href="http://t-machine.org/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/t-machine.org');" title="Adam Martin’s blog">T=Machine</a></li>
+<li><a href="http://timothyfitz.wordpress.com/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/timothyfitz.wordpress.com');">Timothy Fitz</a></li>
+
+	</ul>
+</div></div></div></div></div></div> </div></li>
+<li class="block widget widget_links" id="linkcat-3"><div class="box"><div class="titlewrap"><h4><span>Links</span></h4></div> <div class="wrapleft"><div class="wrapright"><div class="tr"><div class="bl"><div class="tl"><div class="br the-content">
+	<ul class="xoxo blogroll">
+<li><a href="http://www.johnweng.com/gruedorf/" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/www.johnweng.com');" title="GRUEDROFR">Gruedorf</a></li>
+<li><a href="http://www.last.fm/user/kaelan" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/www.last.fm');" title="My last.fm profile">last.fm</a></li>
+<li><a href="http://www.linkedin.com/in/kevingadd" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/www.linkedin.com');" title="My LinkedIn profile">LinkedIn</a></li>
+<li><a href="http://delicious.com/kaelan" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/delicious.com');" title="My Bookmarks on del.icio.us">My Bookmarks (del.icio.us)</a></li>
+<li><a href="http://twitter.com/antumbral" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/twitter.com');">Twitter</a></li>
+<li><a href="http://www.vimeo.com/kaelan" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/www.vimeo.com');" title="Video clips of some of my prototypes and games">Vimeo – Prototype and Demo videos</a></li>
+<li><a href="http://www.youtube.com/user/Kaelan0" rel="&quot; onclick=&quot;javascript:pageTracker._trackPageview('/outbound/blogroll/www.youtube.com');" title="Video clips of some of my prototypes and games">Youtube – Development Footage</a></li>
+
+	</ul>
+</div></div></div></div></div></div> </div></li>
+<li class="block widget widget_text" id="text-486488381"><div class="box"><div class="titlewrap"><h4><span>Advertisements</span></h4></div> <div class="wrapleft"><div class="wrapright"><div class="tr"><div class="bl"><div class="tl"><div class="br the-content">			<div class="textwidget"><div style="border-width: 0px; width: 160px; height: 600px; margin-left: auto; margin-right: auto;" id="adsense">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0759400450935778";
+/* Sidebar Tall */
+google_ad_slot = "4662464425";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="simple-dynamic-music-with-xact_files/show_ads.js">
+</script><script src="simple-dynamic-music-with-xact_files/expansion_embed.js"></script><script src="simple-dynamic-music-with-xact_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display: inline-table; border: medium none; height: 600px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 160px;"><ins id="google_ads_frame1_anchor" style="display: block; border: medium none; height: 600px; margin: 0pt; padding: 0pt; position: relative; visibility: visible; width: 160px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="simple-dynamic-music-with-xact_files/ads.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="160" frameborder="0" height="600" scrolling="no"></iframe></ins></ins>
+</div></div>
+		</div></div></div></div></div></div> </div></li> </ul>
+</div>
+<!-- /2nd column -->
+     
+
+    </div>
+   </div>
+  </div>
+  <!-- /main page block -->
+
+ </div>
+</div>
+<!-- /main wrappers -->
+
+
+ <!-- footer -->
+ <div id="footer">
+
+  <!-- page block -->
+  <div class="block-content">
+
+    
+
+    
+    <div class="copyright">
+     <p>
+     <!-- please do not remove this. respect the authors :) -->
+     Arclite theme by <a href="http://digitalnature.ro/">digitalnature</a> | powered by <a href="http://wordpress.org/">WordPress</a>     </p>
+     <p>
+     <a class="rss" href="http://www.luminance.org/feed">Entries (RSS)</a> and <a href="http://www.luminance.org/comments/feed">Comments (RSS)</a> <a href="javascript:void(0);" class="toplink">TOP</a>
+     <!-- 23 queries. 0.241 seconds. -->
+     </p>
+    </div>
+
+  </div>
+  <!-- /page block -->
+
+ </div>
+ <!-- /footer -->
+
+</div>
+<!-- /page -->
+
+  <script type="text/javascript">
+  /* <![CDATA[ */
+    var isIE6 = false; /* <- do not change! */
+    var isIE = false; /* <- do not change! */
+    var lightbox = 0;/* <- do not change! */
+  /* ]]> */
+  </script>
+  <!--[if lte IE 6]> <script type="text/javascript"> isIE6 = true; isIE = true; </script> <![endif]-->
+  <!--[if gte IE 7]> <script type="text/javascript"> isIE = true; </script> <![endif]-->
+
+
+<script type="text/javascript" src="simple-dynamic-music-with-xact_files/jquery_004.js"></script>
+<script type="text/javascript" src="simple-dynamic-music-with-xact_files/jquery_003.js"></script>
+<p id="supercache">luminance is Digg proof thanks to caching by <a href="http://ocaoimh.ie/wp-super-cache/">WP Super Cache</a></p><!-- Dynamic page generated in 0.237 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2010-10-25 20:24:35 -->
+<div id="fancyoverlay"></div><div id="fancywrap"><div class="fancyloading" id="fancyloading"><div></div></div><div id="fancyouter"><div id="fancyinner"><a href="javascript:;" id="fancyleft"><span class="fancyico" id="fancyleftico"></span></a><a href="javascript:;" id="fancyright"><span class="fancyico" id="fancyrightico"></span></a><div id="fancycontent"></div></div><div id="fancytitle"></div></div></div><div class="tooltip" id="tooltip0"><p><img src="simple-dynamic-music-with-xact_files/a_003.jpg"></p></div><div class="tooltip" id="tooltip1"><p><img src="simple-dynamic-music-with-xact_files/a.jpg"></p></div><div class="tooltip" id="tooltip2"><p><img src="simple-dynamic-music-with-xact_files/a_002.jpg"></p></div><div class="tooltip" id="tooltip3"><p><img src="simple-dynamic-music-with-xact_files/a_005.jpg"></p></div><div class="tooltip" id="tooltip4"><p><img src="simple-dynamic-music-with-xact_files/a_004.jpg"></p></div></body></html>

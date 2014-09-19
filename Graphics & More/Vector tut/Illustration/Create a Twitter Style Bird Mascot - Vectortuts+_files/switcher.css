@@ -1,0 +1,116 @@
+div#switcher {
+	position: absolute;
+	right: 320px;
+	top: 11px;
+	width: 328px;
+	font-family: Verdana, Arial;
+	font-size: 12px;
+	z-index: 9999;
+}
+div#switcher.show {
+	border: 1px solid #f00;
+}
+div#switcher a {
+	color: #5c5148;
+	text-decoration: none;
+}
+div#switcher a:hover, div#switcher td.alt a:hover {
+	color: #fff;
+}
+div#switcher td.alt a {
+	color: #cdba8d;
+}
+div#switcher h6 {
+	display: block;
+	float: right;
+	margin-bottom: -1px;
+	height: 23px;
+	width: 126px;
+	cursor: pointer;
+}
+body div#switcher h6.hide, body div#switcher h6.hover {
+	display: none;
+}
+div#links {
+	float: right;
+	width: 324px;
+	background-color: #1b1510;
+	border: 1px solid #342b23;
+	display: none;
+}
+div#links.show {
+	display: block;
+}
+div#links div {
+	width: 324px;
+	padding: 20px 0;
+	padding-top: 10px;
+}
+div#links div.alt, div#links div#second {
+	background-color: #261e18;
+	border-top: 1px solid #3b2f26;
+}
+div#links div table {
+	margin: 10px 10px 10px 25px;
+}
+div#links div table tr.hover a {
+	color: #fff;
+}
+div#links table td {
+	line-height: 22px;
+}
+div#links table td.alt {
+	width: 110px;
+}
+
+
+div#localize_head {
+	position: absolute;
+	right: 220px;
+	top: 11px;
+	width: 164px;
+	font-family: Verdana, Arial;
+	font-size: 12px;
+	z-index: 9998;
+}
+div#localize_head.show {
+	border: 1px solid #f00;
+}
+div#localize_head a {
+	color: #5c5148;
+	text-decoration: none;
+}
+div#localize_head a:hover, div#localize_head td.alt a:hover {
+	color: #fff;
+}
+div#localize_head td.alt a {
+	color: #9d9189;
+}
+div#localize_head h6 {
+	display: block;
+	float: right;
+	margin-bottom: -1px;
+	height: 23px;
+	width: 80px;
+	cursor: pointer;
+}
+body div#localize_head h6.hide, body div#localize_head h6.hover {
+	display: none;
+}
+div#localize {
+	float: right;
+	width: 160px;
+	background-color: #1b1510;
+	border: 1px solid #342b23;
+	display: none;
+	color: #5c5148;
+}
+div#localize.show {
+	display: block;
+}
+div#localize div {
+	width: 160px;
+}
+div#localize div table {
+	margin: 10px 10px 10px 15px;
+}

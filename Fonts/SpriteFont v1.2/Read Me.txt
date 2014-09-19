@@ -1,0 +1,16 @@
+http://www.nubik.com/SpriteFont/
+
+How to use sprite fonts in XNA:
+
+    * Add the created sprite font texture to your XNA project.
+    * Set the "Content Processor" property to "Sprite Font Texture".
+    * In your code use it like this:
+
+      [LoadGraphicsContent method]
+      SpriteFont font = content.Load<SpriteFont>("MySpriteFontTextureAssetName");
+      SpriteBatch batch = new SpriteBatch(graphics.GraphicsDevice);
+
+      [Draw method]
+      batch.DrawString(font, "Hello world!", new Vector2(20, 20), Color.White);
+
+    * Hint: Use the SpriteFont.Spacing property to control character spacing (use negative values when using drop shadow or outer glow)

@@ -1,0 +1,1706 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Up to the second news about Box2D from pul.se">
+  <meta name="keywords" content="Box2D,ActionScript,Flash,Game Design,news,howtos,Flash,Photoshop,Dreamweaver,Flash,Photoshop,Adobe AIR,Libraries,Flash,Flex,Adobe AIR,Digital Media Servers &amp; Content Streamers,Singapore,Freelance,RIA (Rich Internet Apps),Adobe,Role Playing Games (RPG),Linux,Gaming,Shareware,Windows,HDTV,Audio">
+  <title>Box2D</title>
+
+  <meta name="google-site-verification" content="YY8LUd-XuC_Xom4ZxjZxME0ntHcC860-UDkUJlRiwhs">
+
+  <link href="H-Fleet-Box2D-cYtjOXdM4gJS_files/maintwitter.css" media="screen" rel="stylesheet" type="text/css">
+
+  <script src="H-Fleet-Box2D-cYtjOXdM4gJS_files/prototypeeffectsapplicationbasic_event_page.js" type="text/javascript"></script>
+
+  </head><body id="body">
+  <div id="document">
+    <div id="header">
+
+      <a href="http://pul.se/"><img alt="pul.se" class="ps" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/pulse-logo-t.png" title="pul.se"></a>
+
+      <div class="htab"><div id="tabs">
+  <div class="tab unselected"><a href="http://pul.se/">Home</a></div>
+  <div class="tab selected"><a href="http://pul.se/search/">Search</a></div>
+  <div class="tab unselected"><a href="http://pul.se/realtime">Real Time</a></div>
+  <div class="tab unselected"><a href="http://pul.se/hot" rel="nofollow">Hot Items</a></div>
+  <div class="tab unselected"><a href="http://pul.se/topics">Topics</a></div>
+  <div class="tab unselected"><a href="http://pul.se/help">Help</a></div>
+  <div class="tab unselected"><a href="http://pul.se/about">About</a></div>
+  <div style="clear: both;"></div>
+</div>
+</div>
+      <div id="login">
+        <form action="/session" method="post" onsubmit="new Ajax.Updater('login', '/session', {asynchronous:true, evalScripts:true, method:'post', onLoading:function(request){$('login_spinner').show();}, parameters:Form.serialize(this)}); return false;"><div style="margin: 0pt; padding: 0pt;"><input name="authenticity_token" value="e3e91155396a0f1fc67b1d52098fe5a19b2dc740" type="hidden"></div>      <div id="login_message">Login as:</div>
+      <div style="display: none;" id="login_error"></div>
+      <div class="signup">
+        <a href="http://pul.se/signup">Sign up</a>
+      </div>
+      <div style="clear: both;"></div>
+
+      <input onfocus="text_focus_clear(this, 'username');" onblur="text_blur_fill(this, 'username');" class="textbox" name="login" value="username" type="text">
+      <input onfocus="text_focus_clear(this, 'password');" onblur="text_blur_fill(this, 'password');" class="textbox" name="password" value="password" type="password"><br>
+
+      <!--
+      <input class="button" onclick="new Ajax.Updater('login', '/sessions/welcome', {asynchronous:true, evalScripts:true, method:'get', onLoading:function(request){$('login_spinner').show();}, parameters:'authenticity_token=' + encodeURIComponent('e3e91155396a0f1fc67b1d52098fe5a19b2dc740')});" type="button" value="Cancel" />
+      -->
+
+      <input id="login-button" value="Login" class="button" type="submit">
+      <div id="login_spinner" style="display: none;">
+        <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/spinner.gif" title="loading..." alt="loading..." width="24" height="24"> 
+      </div>
+      <input style="margin-left: -1px;" type="checkbox"> Remember me
+
+</form>
+
+<script type="text/javascript">
+  //<![CDATA[
+  function flash_login_error(login_error){
+    if(login_error != ''){
+      $('login_message').hide();
+      $('login_error').show();
+      new PeriodicalExecuter(function(pe){
+        $('login_error').fade({duration: 0.25, queue: {position: 'end', scope: 'loginscope'}});
+        $('login_message').appear({duration: 0.25, queue: {position: 'end', scope: 'loginscope'}});
+        pe.stop();
+      }, 3);
+    }
+  }
+  flash_login_error('');
+  //]]>
+</script>
+
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+
+    
+
+    <div class="subm">
+      <script type="text/javascript"><!--
+      google_ad_client = "pub-2695018144090689";
+      google_ad_slot = "5568123411";
+      google_ad_width = 728;
+      google_ad_height = 15;
+      //-->
+      </script>
+      <script type="text/javascript" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/show_ads.js">
+      </script><script src="H-Fleet-Box2D-cYtjOXdM4gJS_files/expansion_embed.js"></script><script src="H-Fleet-Box2D-cYtjOXdM4gJS_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 15px; position: relative; visibility: visible; width: 728px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 15px; position: relative; visibility: visible; width: 728px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/ads.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="728" frameborder="0" height="15" scrolling="no"></iframe></ins></ins>
+    </div>
+
+    <div id="content">
+      <table class="nrt-search" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td class="left" nowrap="nowrap">
+        <form action="/search" method="post"><div style="margin: 0pt; padding: 0pt;"><input name="authenticity_token" value="e3e91155396a0f1fc67b1d52098fe5a19b2dc740" type="hidden"></div>
+          <input class="input" id="search" name="search" size="40" value="Box2D" type="text">
+          <input class="q-button" name="commit" value="pul.se search" type="submit">
+        </form>
+      </td>
+      <td class="right">
+      </td>
+    </tr>
+  </tbody>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+Event.observe(window, 'load', function(e) {$('search').focus()});
+//]]>
+</script>
+
+
+  <h1 id="canvas-title" style="float: left;">Box2D</h1>
+
+  <div class="title-link">
+    (<a href="http://pul.se/H-Fleet-Box2D-cYtjOXdM4gJS">Permalink</a>)
+  </div>
+
+  <a href="http://pul.se/search/Box2D?format=xml" style="float: right; position: relative; top: 5px;" title="Subscribe via RSS"><img alt="RSS" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/shiny-rss-icon.png"></a>
+  <div style="clear: both;"></div>
+
+
+<div id="event-canvas">
+
+
+  <ul style="min-height: 600px;">
+    <div style="border-right: 1px solid rgb(229, 229, 229); border-bottom: 1px solid rgb(229, 229, 229); margin: 0pt 10px 10px 0pt; float: left;">
+      <script type="text/javascript"><!--
+        google_ad_client = "pub-2695018144090689";
+        /* 300x250, created 11/6/09 */
+        google_ad_slot = "5001089384";
+        google_ad_width = 300;
+        google_ad_height = 250;
+        //-->
+      </script>
+      <script type="text/javascript" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/show_ads.js">
+      </script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 250px; position: relative; visibility: visible; width: 300px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 250px; position: relative; visibility: visible; width: 300px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/ads_002.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="300" frameborder="0" height="250" scrolling="no"></iframe></ins></ins>
+    </div>
+    
+<li class="event default-event" relevance="0.8" id="zg_33487065_gz" style="display: block;">
+  <div id="zg_33487065_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://ping.sg/item/H-Fleet" rel="nofollow">H-Fleet
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:singapore" title="Search topic:singapore">Singapore</a>]</span>
+
+        (<a class="sm-link" href="http://ping.sg/" title="Source: http://ping.sg/" rel="nofollow">Ping.sg  - Latest Public Pings</a>)
+      <p class="info-summary">You
+are a chopper pilot and now you must get the company prosper,to do that
+you must carry goods and buy helicopters, fly across 10 exciting levels
+and buy 4 different choppers.can you make the company a successful
+business?.A <span class="highlight">box2d</span> physics game!!!
+</p>
+      <div class="details">
+        <a id="zg_33487065_gz-more" class="more" href="#" onclick="PageManager.view_full_item('972c49c4eba9c9dd2385596e0cfde81c');return false;">[view full item]</a>
+        <a id="zg_33487065_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_33487065_gz');return false;">[close]</a>
+        received <span class="lbl">14 days ago</span>&nbsp;
+        published <span class="lbl">14 days ago</span>&nbsp;
+
+        lang: <span class="lbl">id</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_33487065_gz-desc" class="desc" style="display: none;">You
+are a chopper pilot and now you must get the company prosper,to do that
+you must carry goods and buy helicopters, fly across 10 exciting levels
+and buy 4 different choppers.can you make the company a successful
+business?.A <span class="highlight">box2d</span> physics game!!!
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_1950060_gz" style="display: block;">
+  <div id="zg_1950060_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.freelancer.com/projects/ActionScript/Box-FLASH-game.html" rel="nofollow"><span class="highlight">Box2D</span> FLASH game by zionmultimedia
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:freelance" title="Search topic:freelance">Freelance</a>]</span>
+
+        (<a class="sm-link" href="http://www.freelancer.com/" title="Source: http://www.freelancer.com/" rel="nofollow">Freelancer.com - New Projects</a>)
+      <p class="info-summary">Hi, I need a game like below with my own concept of one car chasing the other car using <span class="highlight">Box2D</span> engine. http://www.cartitans.com/firetruck-masters.php Only serious programmers. (Budget: $250-750, Jobs: ActionScript)
+</p>
+      <div class="details">
+        <a id="zg_1950060_gz-more" class="more" href="#" onclick="PageManager.view_full_item('980cb80c39468d58ae5bc0d1f201e36e');return false;">[view full item]</a>
+        <a id="zg_1950060_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_1950060_gz');return false;">[close]</a>
+        received <span class="lbl">20 days ago</span>&nbsp;
+        published <span class="lbl">20 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_1950060_gz-desc" class="desc" style="display: none;">Hi, I need a game like below with my own concept of one car chasing the other car using <span class="highlight">Box2D</span> engine. http://www.cartitans.com/firetruck-masters.php Only serious programmers. (Budget: $250-750, Jobs: ActionScript)
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_24014658_gz" style="display: block;">
+  <div id="zg_24014658_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/04/14/real-world-catapult-prototype-using-box2d-%e2%80%93-cleaner-code/" rel="nofollow">Real world catapult prototype using <span class="highlight">Box2D</span> – Cleaner code
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">We
+got it. After the first catapult prototype and the “slippery wheels”
+sequel, this is a version with realistic movement and a lot cleaner
+code. To add realistic movement I defined friction and restitution,
+making useless the CreateFixture2 function and widely using the more
+appropriate CreateFixture one. This way I have full control on
+fixtures, while in the ...
+</p>
+      <div class="details">
+        <a id="zg_24014658_gz-more" class="more" href="#" onclick="PageManager.view_full_item('38625853c67df228caaf765691c36b5b');return false;">[view full item]</a>
+        <a id="zg_24014658_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_24014658_gz');return false;">[close]</a>
+        received <span class="lbl">26 days ago</span>&nbsp;
+        published <span class="lbl">26 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_24014658_gz-desc" class="desc" style="display: none;">We
+got it. After the first catapult prototype and the “slippery wheels”
+sequel, this is a version with realistic movement and a lot cleaner
+code. To add realistic movement I defined friction and restitution,
+making useless the CreateFixture2 function and widely using the more
+appropriate CreateFixture one. This way I have full control on
+fixtures, while in the [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_1372947_gz" style="display: block;">
+  <div id="zg_1372947_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.freelancer.com/projects/Flash-Game-Design/Bike-flash-game.html" rel="nofollow">Bike flash game. by ifty420
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:freelance" title="Search topic:freelance">Freelance</a>]</span>
+
+        (<a class="sm-link" href="http://www.freelancer.com/" title="Source: http://www.freelancer.com/" rel="nofollow">Freelancer.com - New Projects</a>)
+      <p class="info-summary">Hi,
+I'm looking for someone who can make me a game like this one:
+http://www.2dplay.com/bike-champ/bike-champ-play.htm If you are going
+to apply, please remember you must have experience in <span class="highlight">box2d</span> or flash physics or atleast in making flash games (Budget: $750-1500, Jobs: Flash, Game Design)
+</p>
+      <div class="details">
+        <a id="zg_1372947_gz-more" class="more" href="#" onclick="PageManager.view_full_item('6cc97abf1daea421ec84137e0a2f302d');return false;">[view full item]</a>
+        <a id="zg_1372947_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_1372947_gz');return false;">[close]</a>
+        received <span class="lbl">28 days ago</span>&nbsp;
+        published <span class="lbl">28 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_1372947_gz-desc" class="desc" style="display: none;">Hi,
+I'm looking for someone who can make me a game like this one:
+http://www.2dplay.com/bike-champ/bike-champ-play.htm If you are going
+to apply, please remember you must have experience in <span class="highlight">box2d</span> or flash physics or atleast in making flash games... (Budget: $750-1500, Jobs: Flash, Game Design)
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_77578585_gz" style="display: block;">
+  <div id="zg_77578585_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/04/09/real-world-catapult-prototype-using-box2d-adding-wheels/" rel="nofollow">Real world catapult prototype using <span class="highlight">Box2D</span> – Adding wheels
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">Did
+you enjoy the catapult prototype? Here I am with the second part,
+adding wheels controlled by left and right arrows. Have a look: Now you
+can move the catapult with left and arrow keys, and shoot with a mouse
+click If you feel the catapult is running on an icy surface, that’s
+because I did not set any ...
+</p>
+      <div class="details">
+        <a id="zg_77578585_gz-more" class="more" href="#" onclick="PageManager.view_full_item('8905db1b079f87ae77ffb8448e2d9702');return false;">[view full item]</a>
+        <a id="zg_77578585_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_77578585_gz');return false;">[close]</a>
+        received <span class="lbl">31 days ago</span>&nbsp;
+        published <span class="lbl">31 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_77578585_gz-desc" class="desc" style="display: none;">Did
+you enjoy the catapult prototype? Here I am with the second part,
+adding wheels controlled by left and right arrows. Have a look: Now you
+can move the catapult with left and arrow keys, and shoot with a mouse
+click If you feel the catapult is running on an icy surface, that’s
+because I did not set any [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_83910286_gz" style="display: block;">
+  <div id="zg_83910286_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://ping.sg/item/hqgdvzml" rel="nofollow">Trix
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:singapore" title="Search topic:singapore">Singapore</a>]</span>
+
+        (<a class="sm-link" href="http://ping.sg/" title="Source: http://ping.sg/" rel="nofollow">Ping.sg  - Latest Public Pings</a>)
+      <p class="info-summary">Simple, fun addictive match 3 game with <span class="highlight">box2d</span> physics engine used.
+</p>
+      <div class="details">
+        <a id="zg_83910286_gz-more" class="more" href="#" onclick="PageManager.view_full_item('d3907e1cab0582cfbd60ac146f448e6f');return false;">[view full item]</a>
+        <a id="zg_83910286_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_83910286_gz');return false;">[close]</a>
+        received <span class="lbl">39 days ago</span>&nbsp;
+        published <span class="lbl">39 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_83910286_gz-desc" class="desc" style="display: none;">Simple, fun addictive match 3 game with <span class="highlight">box2d</span> physics engine used.
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_57373890_gz" style="display: block;">
+  <div id="zg_57373890_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/04/01/case-study-the-big-adventure-a-box2d-rpg/" rel="nofollow">Case study: The Big Adventure – a <span class="highlight">Box2D</span> <b>RPG</b> : Emanuele Feronato <b>...</b>
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22role%20playing%20games%20%28rpg%29%22" title="Search topic:&quot;role playing games (rpg)&quot;">Role Playing Games (RPG)</a>]</span>
+
+        (<a class="sm-link" href="http://blogsearch.google.com/blogsearch?q=RPG+OR+%22role+playing+games%22&amp;ie=utf-8" title="Source: http://blogsearch.google.com/blogsearch?q=RPG+OR+%22role+playing+games%22&amp;ie=utf-8" rel="nofollow">RPG OR "role playing games" - Google Blog Search</a>)
+      <p class="info-summary">One
+of the coolest features of RPG games is the inventory and the ability
+to wear something. I really love games like Diablo so I was inspired
+from them. I made possible to wear weapon, helmet, amulet, armour,
+gloves, belt, ...
+</p>
+      <div class="details">
+        <a id="zg_57373890_gz-more" class="more" href="#" onclick="PageManager.view_full_item('f563c5c2c9f7c0ec4f6ce80a7bc2b171');return false;">[view full item]</a>
+        <a id="zg_57373890_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_57373890_gz');return false;">[close]</a>
+        received <span class="lbl">40 days ago</span>&nbsp;
+        published <span class="lbl">40 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_57373890_gz-desc" class="desc" style="display: none;">One of the coolest features of <b>RPG</b>
+games is the inventory and the ability to wear something. I really love
+games like Diablo so I was inspired from them. I made possible to wear
+weapon, helmet, amulet, armour, gloves, belt, ...
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_83744766_gz" style="display: block;">
+  <div id="zg_83744766_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://ping.sg/item/box2Dtetris-5" rel="nofollow"><span class="highlight">box2D</span>tetris
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:singapore" title="Search topic:singapore">Singapore</a>]</span>
+
+        (<a class="sm-link" href="http://ping.sg/" title="Source: http://ping.sg/" rel="nofollow">Ping.sg  - Latest Public Pings</a>)
+      <p class="info-summary">Simple
+yet fun physics based tetris and match 3 clone with many achievements,
+badges and modes for up to three players.7 game modes, 13 unlockables,
+27 badges.Easy to learn.Suitable for short 5 min games and long 30+ min
+games also.Crazy mode for harcode players.
+</p>
+      <div class="details">
+        <a id="zg_83744766_gz-more" class="more" href="#" onclick="PageManager.view_full_item('cf5c97a0265a7b49ab476ff6257cacd5');return false;">[view full item]</a>
+        <a id="zg_83744766_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_83744766_gz');return false;">[close]</a>
+        received <span class="lbl">50 days ago</span>&nbsp;
+        published <span class="lbl">50 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_83744766_gz-desc" class="desc" style="display: none;">Simple
+yet fun physics based tetris and match 3 clone with many achievements,
+badges and modes for up to three players.7 game modes, 13 unlockables,
+27 badges.Easy to learn.Suitable for short 5 min games and long 30+ min
+games also.Crazy mode for harcode players.
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_70393493_gz" style="display: block;">
+  <div id="zg_70393493_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/03/16/citrus-engine-released-for-free-for-learning/" rel="nofollow">Citrus Engine released for free for learning
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">Do you know Citrus Engine? It’s a <span class="highlight">Box2D</span>
+library designed to allow game developers making 2D side-scrolling
+platform games, including a graphical level builder that allows you to
+drag, drop, and customize all of the game objects and art in your game.
+These are the main features, as they appear on the official site:
+Blazing 50 FPS in ...
+</p>
+      <div class="details">
+        <a id="zg_70393493_gz-more" class="more" href="#" onclick="PageManager.view_full_item('0adc9ce9b07c40398f8c9f99cf23e09a');return false;">[view full item]</a>
+        <a id="zg_70393493_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_70393493_gz');return false;">[close]</a>
+        received <span class="lbl">55 days ago</span>&nbsp;
+        published <span class="lbl">55 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_70393493_gz-desc" class="desc" style="display: none;">Do you know Citrus Engine? It’s a <span class="highlight">Box2D</span>
+library designed to allow game developers making 2D side-scrolling
+platform games, including a graphical level builder that allows you to
+drag, drop, and customize all of the game objects and art in your game.
+These are the main features, as they appear on the official site:
+Blazing 50 FPS in [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_93435582_gz" style="display: block;">
+  <div id="zg_93435582_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/03/02/understanding-box2ds-one-way-platforms-aka-clouds/" rel="nofollow">Understanding <span class="highlight">Box2D</span>’s one-way platforms, aka CLOUDS
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">One of the new features introduced with <span class="highlight">Box2D</span>
+2.1a is the improved contact listener class which comes in hand when we
+want to create one-way platforms, or “clouds”. This can be made thanks
+to a function called before the contact is processed… something like
+“hey, two bodies are about to collide, what should I do?”… so ...
+</p>
+      <div class="details">
+        <a id="zg_93435582_gz-more" class="more" href="#" onclick="PageManager.view_full_item('ee9e0cfb2ae46b300919cf59d426d20a');return false;">[view full item]</a>
+        <a id="zg_93435582_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_93435582_gz');return false;">[close]</a>
+        received <span class="lbl">70 days ago</span>&nbsp;
+        published <span class="lbl">70 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_93435582_gz-desc" class="desc" style="display: none;">One of the new features introduced with <span class="highlight">Box2D</span>
+2.1a is the improved contact listener class which comes in hand when we
+want to create one-way platforms, or “clouds”. This can be made thanks
+to a function called before the contact is processed… something like
+“hey, two bodies are about to collide, what should I do?”… so [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_45507757_gz" style="display: block;">
+  <div id="zg_45507757_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.tuxmachines.org/node/43483" rel="nofollow">today's leftovers &amp; howtos:
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:linux" title="Search topic:linux">Linux</a>]</span>
+
+        (<a class="sm-link" href="http://www.tuxmachines.org/" title="Source: http://www.tuxmachines.org" rel="nofollow">tuxmachines.org</a>)
+      <p class="info-summary">Useful
+command line little tricks (part 3) Change font and font size in
+Fluxbox Girls make a point at Linux conference Installing Drupal
+Setting Up Hibernation on Linux SSD Netbooks Is monogamy good for
+technology? Kolivas Pushes New Kernel Responsiveness Patches Miro –
+Slick open source video player Canadian tax software and Linux Novell’s
+SUSE Linux Milestone: Proper Perspective PHP 5.2.13 addresses security
+holes Qt + <span class="highlight">Box2D</span> is easy! Mandriva to be at the Solutions Linux 2010 exhibition Ce ...
+</p>
+      <div class="details">
+        <a id="zg_45507757_gz-more" class="more" href="#" onclick="PageManager.view_full_item('454589ef45ca49c2e4d712be1c880351');return false;">[view full item]</a>
+        <a id="zg_45507757_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_45507757_gz');return false;">[close]</a>
+        received <span class="lbl">73 days ago</span>&nbsp;
+        published <span class="lbl">73 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_45507757_gz-desc" class="desc" style="display: none;"><ul>
+  <li>Useful command line little tricks (part 3)
+  </li>
+  <li>Change font and font size in Fluxbox
+  </li>
+  <li>Girls make a point at Linux conference
+  </li>
+  <li>Installing Drupal
+  </li>
+  <li>Setting Up Hibernation on Linux SSD Netbooks
+  </li>
+  <li>Is monogamy good for technology?
+  </li>
+  <li>Kolivas Pushes New Kernel Responsiveness Patches
+  </li>
+  <li>Miro – Slick open source video player
+  </li>
+  <li>Canadian tax software and Linux
+  </li>
+  <li>Novell’s SUSE Linux Milestone: Proper Perspective
+  </li>
+  <li>PHP 5.2.13 addresses security holes
+  </li>
+  <li>Qt + <span class="highlight">Box2D</span> is easy!
+  </li>
+  <li>Mandriva to be at the Solutions Linux 2010 exhibition
+  </li>
+  <li>CentOS – update / install PHP 5.2
+  </li>
+  <li>FLOSS Weekly 110: Webmin
+  </li>
+</ul>
+<p>
+  Advertisement: <a href="http://www.golfkurs.com/"></a>
+</p>
+<p>
+  <a href="http://www.tuxmachines.org/node/43483" target="_blank">read more</a>
+</p>
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_38682684_gz" style="display: block;">
+  <div id="zg_38682684_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/02/25/box2d-flash-game-creation-tutorial-part-2/" rel="nofollow"><span class="highlight">Box2D</span> Flash game creation tutorial – part 2
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">After seeing the character creation in <span class="highlight">Box2D</span> Flash game creation tutorial – part 1, it’s time to add some coins to collect. This process will involve some interesting <span class="highlight">Box2D</span>
+features, like sensors and custom collision management. I would suggest
+to read the basics of sensors at Erase Box: the tutorial and custom
+collision management at Creation of ...
+</p>
+      <div class="details">
+        <a id="zg_38682684_gz-more" class="more" href="#" onclick="PageManager.view_full_item('e48d24471d4d343df9ac5f432db030a7');return false;">[view full item]</a>
+        <a id="zg_38682684_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_38682684_gz');return false;">[close]</a>
+        received <span class="lbl">74 days ago</span>&nbsp;
+        published <span class="lbl">74 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_38682684_gz-desc" class="desc" style="display: none;">After seeing the character creation in <span class="highlight">Box2D</span> Flash game creation tutorial – part 1, it’s time to add some coins to collect. This process will involve some interesting <span class="highlight">Box2D</span>
+features, like sensors and custom collision management. I would suggest
+to read the basics of sensors at Erase Box: the tutorial and custom
+collision management at Creation of [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_36549523_gz" style="display: block;">
+  <div id="zg_36549523_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/02/16/understanding-box2d-applicable-forces/" rel="nofollow">Understanding <span class="highlight">Box2D</span> applicable forces
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">In <span class="highlight">Box2d</span>,
+bodies aren’t only affected by gravity and collisions, but you can also
+apply forces to them. Knowing the right force to apply is very
+important when you want to control a body, as you may want to do in a
+Flash game Let’s see the forces you can apply: Applying a force public
+function ApplyForce(force:b2Vec2, point:b2Vec2):void Apply a ...
+</p>
+      <div class="details">
+        <a id="zg_36549523_gz-more" class="more" href="#" onclick="PageManager.view_full_item('941effacc4044aac4b0a25e727282a48');return false;">[view full item]</a>
+        <a id="zg_36549523_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_36549523_gz');return false;">[close]</a>
+        received <span class="lbl">83 days ago</span>&nbsp;
+        published <span class="lbl">83 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_36549523_gz-desc" class="desc" style="display: none;">In <span class="highlight">Box2d</span>,
+bodies aren’t only affected by gravity and collisions, but you can also
+apply forces to them. Knowing the right force to apply is very
+important when you want to control a body, as you may want to do in a
+Flash game Let’s see the forces you can apply: Applying a force public
+function ApplyForce(force:b2Vec2, point:b2Vec2):void Apply a [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_36707305_gz" style="display: block;">
+  <div id="zg_36707305_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/02/13/flash-as3-pixel-based-circle-collision-engine/" rel="nofollow">Flash AS3 Pixel based circle collision engine
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">After seeing the Lineball video teaser I got some email asking me how did I make the hollow circle with <span class="highlight">Box2D</span>, and how to get a smooth drawing using box primitives. Well, I have to say I didn’t use <span class="highlight">Box2d</span>, but another library called Collision Detection Kit. I’ll publish some tutorial about it once I’ll complete the ...
+</p>
+      <div class="details">
+        <a id="zg_36707305_gz-more" class="more" href="#" onclick="PageManager.view_full_item('d584c3f91bac79e088c3b6a7d4cb642b');return false;">[view full item]</a>
+        <a id="zg_36707305_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_36707305_gz');return false;">[close]</a>
+        received <span class="lbl">87 days ago</span>&nbsp;
+        published <span class="lbl">87 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_36707305_gz-desc" class="desc" style="display: none;">After seeing the Lineball video teaser I got some email asking me how did I make the hollow circle with <span class="highlight">Box2D</span>, and how to get a smooth drawing using box primitives. Well, I have to say I didn’t use <span class="highlight">Box2d</span>, but another library called Collision Detection Kit. I’ll publish some tutorial about it once I’ll complete the [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_44137281_gz" style="display: block;">
+  <div id="zg_44137281_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.psyked.co.uk/box2d/simple-box2d-better-cleverer-more-optimised.htm" rel="nofollow">Simple <span class="highlight">Box2D</span> – Better, cleverer, more optimised.
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">^ This time, that’s an image – saves on the page rendering time! Another update on the <span class="highlight">Box2D</span>
+classes I’m working on. &nbsp;No new features, but some pretty cool
+expansions and improvements to the library object creation. If you
+check out the previous post, you’ll see that the the dynamically drawn
+shapes weren’t exactly perfect; nor were ...
+</p>
+      <div class="details">
+        <a id="zg_44137281_gz-more" class="more" href="#" onclick="PageManager.view_full_item('fad92a9149479fa46e344803d5ed4a6c');return false;">[view full item]</a>
+        <a id="zg_44137281_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_44137281_gz');return false;">[close]</a>
+        received <span class="lbl">96 days ago</span>&nbsp;
+        published <span class="lbl">96 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_44137281_gz-desc" class="desc" style="display: none;">^ This time, that’s an image – saves on the page rendering time! Another update on the <span class="highlight">Box2D</span>
+classes I’m working on. &nbsp;No new features, but some pretty cool
+expansions and improvements to the library object creation. If you
+check out the previous post, you’ll see that the the dynamically drawn
+shapes weren’t exactly perfect; nor were [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_9175821_gz" style="display: block;">
+  <div id="zg_9175821_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/02/01/box2d-tutorial-for-the-absolute-beginners-revamped/" rel="nofollow"><span class="highlight">Box2D</span> tutorial for the absolute beginners – revamped
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">About a year ago I published a <span class="highlight">Box2D</span>
+tutorial for the absolute beginners. With 2.1 release, a lot of things
+changed, so it’s time to publish another tutorial for the absolute
+beginners. In this tutorial we’ll cover needed libraries to import,
+world creation, debug draw and the creation of static and dynamic boxes
+and circles. And obviously ...
+</p>
+      <div class="details">
+        <a id="zg_9175821_gz-more" class="more" href="#" onclick="PageManager.view_full_item('af300bbcb0f8c348bbac11f182cedf2d');return false;">[view full item]</a>
+        <a id="zg_9175821_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_9175821_gz');return false;">[close]</a>
+        received <span class="lbl">98 days ago</span>&nbsp;
+        published <span class="lbl">98 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_9175821_gz-desc" class="desc" style="display: none;">About a year ago I published a <span class="highlight">Box2D</span>
+tutorial for the absolute beginners. With 2.1 release, a lot of things
+changed, so it’s time to publish another tutorial for the absolute
+beginners. In this tutorial we’ll cover needed libraries to import,
+world creation, debug draw and the creation of static and dynamic boxes
+and circles. And obviously [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_664701_gz" style="display: block;">
+  <div id="zg_664701_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/01/27/box2dflash-2-1a-released-what-changed/" rel="nofollow"><span class="highlight">Box2D</span>Flash 2.1a released – what changed
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">Some
+days ago Boris the Brave released the new version of the popular
+physics library. There are some critical changes that won’t make old
+projects run in the new environment. The most important ones are: It is
+now not necessary to specify a size for your world, it’ll always be
+large enough. Improved collisions system You must specify if a ...
+</p>
+      <div class="details">
+        <a id="zg_664701_gz-more" class="more" href="#" onclick="PageManager.view_full_item('3c351b14e8b39b0f508a231cd0773f91');return false;">[view full item]</a>
+        <a id="zg_664701_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_664701_gz');return false;">[close]</a>
+        received <span class="lbl">103 days ago</span>&nbsp;
+        published <span class="lbl">103 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_664701_gz-desc" class="desc" style="display: none;">Some
+days ago Boris the Brave released the new version of the popular
+physics library. There are some critical changes that won’t make old
+projects run in the new environment. The most important ones are: It is
+now not necessary to specify a size for your world, it’ll always be
+large enough. Improved collisions system You must specify if a [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_41107673_gz" style="display: block;">
+  <div id="zg_41107673_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/01/19/way-of-an-idea-box2d-prototype-%e2%80%93-step-3/" rel="nofollow">Way of an Idea <span class="highlight">Box2D</span> prototype – Step 3
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">Welcome to the 3rd part. In part 2 we allowed the player to draw the chalk track in a “paused” <span class="highlight">Box2D</span>
+environment and then run the simulation. Now it’s time to delete our
+chalk track. A bit of theory: although the simulation is paused, the
+chalk bodies are already placed in the <span class="highlight">Box2D</span> world. So we ...
+</p>
+      <div class="details">
+        <a id="zg_41107673_gz-more" class="more" href="#" onclick="PageManager.view_full_item('40950398df859aa7937446f69dc95114');return false;">[view full item]</a>
+        <a id="zg_41107673_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_41107673_gz');return false;">[close]</a>
+        received <span class="lbl">111 days ago</span>&nbsp;
+        published <span class="lbl">111 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_41107673_gz-desc" class="desc" style="display: none;">Welcome to the 3rd part. In part 2 we allowed the player to draw the chalk track in a “paused” <span class="highlight">Box2D</span>
+environment and then run the simulation. Now it’s time to delete our
+chalk track. A bit of theory: although the simulation is paused, the
+chalk bodies are already placed in the <span class="highlight">Box2D</span> world. So we [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_68947679_gz" style="display: block;">
+  <div id="zg_68947679_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.emanueleferonato.com/2010/01/18/flave-a-new-open-source-as3-physics-engine/" rel="nofollow">Flave, a new open source AS3 Verlet physics engine
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">Do you remember Luis Fernando Silva? He released a <span class="highlight">Box2D</span>
+platform engine some months ago, and now I am publishing his last work,
+a Verlet physics engine. If you need more information about Verlet
+integration, check this post. This is what Luis says: « So, I was
+developing a small physics engine for a game of mine (Flash Physics ...
+</p>
+      <div class="details">
+        <a id="zg_68947679_gz-more" class="more" href="#" onclick="PageManager.view_full_item('653cb69b5315d34b771d3e51de449493');return false;">[view full item]</a>
+        <a id="zg_68947679_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_68947679_gz');return false;">[close]</a>
+        received <span class="lbl">112 days ago</span>&nbsp;
+        published <span class="lbl">112 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_68947679_gz-desc" class="desc" style="display: none;">Do you remember Luis Fernando Silva? He released a <span class="highlight">Box2D</span>
+platform engine some months ago, and now I am publishing his last work,
+a Verlet physics engine. If you need more information about Verlet
+integration, check this post. This is what Luis says: « So, I was
+developing a small physics engine for a game of mine (Flash Physics
+[...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_20471155_gz" style="display: block;">
+  <div id="zg_20471155_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.psyked.co.uk/box2d/demo-source-simple-box2d-with-curved-edges.htm" rel="nofollow">Demo &amp; Source: Simple <span class="highlight">Box2D</span>, with curved edges!
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">--&gt;
+--&gt; (The image above this text is actually the Flash movie, if you
+hadn’t guessed. &nbsp;Try using your mouse to interact. &nbsp;If it’s
+blank, then something’s gone wrong!) I’ve been busy working on my <span class="highlight">Box2D</span> classes again. (As before here and here.) &nbsp;I’m not quite ready to go through the code with some ...
+</p>
+      <div class="details">
+        <a id="zg_20471155_gz-more" class="more" href="#" onclick="PageManager.view_full_item('3aafd688d5e75e7dba18728b3796d22e');return false;">[view full item]</a>
+        <a id="zg_20471155_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_20471155_gz');return false;">[close]</a>
+        received <span class="lbl">117 days ago</span>&nbsp;
+        published <span class="lbl">117 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_20471155_gz-desc" class="desc" style="display: none;">--&gt;
+--&gt; (The image above this text is actually the Flash movie, if you
+hadn’t guessed. &nbsp;Try using your mouse to interact. &nbsp;If it’s
+blank, then something’s gone wrong!) I’ve been busy working on my <span class="highlight">Box2D</span> classes again. (As before here and here.) &nbsp;I’m not quite ready to go through the code with some [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_84947973_gz" style="display: block;">
+  <div id="zg_84947973_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+
+    <a href="http://feedproxy.google.com/%7Er/gamesetwatch/%7E3/KuZZMMZyQxg/road_to_the_igf_justin_smiths.php" rel="nofollow&quot;"><img class="thumb" alt="" title="" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/evirobear.jpg"></a>
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://feedproxy.google.com/%7Er/gamesetwatch/%7E3/KuZZMMZyQxg/road_to_the_igf_justin_smiths.php" rel="nofollow">Road To The IGF: Justin Smith's Enviro-Bear 2000
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:gaming" title="Search topic:gaming">Gaming</a>]</span>
+
+        (<a class="sm-link" href="http://www.gamesetwatch.com/" title="Source: http://www.gamesetwatch.com/" rel="nofollow">GameSetWatch</a>)
+      <p class="info-summary">[We're
+kicking of this year's Road to the IGF interview series by talking with
+Justin Smith, creator of the absurd and hilarious Enviro-Bear 2000,
+which is up for the Independent Games Festival 2010's
+alternative-focused Nuovo Award.] Bears don't drive cars. But Justin
+Smith's Enviro-Bear 2000: Operation: Hibernation, nominated for the
+alternative-focused 2010 Independent Games Festival Nuovo Award, takes
+that widely-accepted notion and tosses it out the window. In fact,
+Enviro-Bear 2000's phy ...
+</p>
+      <div class="details">
+        <a id="zg_84947973_gz-more" class="more" href="#" onclick="PageManager.view_full_item('7c29850c167ce2f10988b194140ab2c6');return false;">[view full item]</a>
+        <a id="zg_84947973_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_84947973_gz');return false;">[close]</a>
+        received <span class="lbl">118 days ago</span>&nbsp;
+        published <span class="lbl">118 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_84947973_gz-desc" class="desc" style="display: none;"><p>
+  <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/evirobear.jpg" align="left" hspace="5">[<i>We're
+kicking of this year's Road to the IGF interview series by talking with
+Justin Smith, creator of the absurd and hilarious Enviro-Bear 2000,
+which is up for the <a href="http://www.igf.com/">Independent Games Festival 2010</a>'s alternative-focused Nuovo Award.</i>]
+</p>
+<p>
+  Bears don't drive cars. But Justin Smith's <a href="http://gamejolt.com/freeware/games/action/enviro-bear-2000/211/"><i>Enviro-Bear 2000: Operation: Hibernation</i></a>,
+nominated for the alternative-focused 2010 Independent Games Festival
+Nuovo Award, takes that widely-accepted notion and tosses it out the
+window.
+</p>
+<p>
+  In fact, <i>Enviro-Bear 2000</i>'s physics-centric gameplay
+involves tossing all kinds of things out the window--pine cones,
+leaves, and even badgers to be specific. As a bear behind the wheel of
+a car, your mission is to eat the berries and fish that fall you’re
+your vehicle, and somehow drive to your cave so you can hibernate.
+</p>
+<p> Hindering your efforts is your inability to control braking,
+acceleration, gear-shifting, steering, and badger-tossing with anything
+more than one hand--or paw, rather. Not only does this
+intentionally-frustrating limitation add to the game's already absurd
+and manic humor, but it also shows how much can be done with only a
+grabbing mechanic.
+</p>
+<p>
+  The IGF Nuovo jury <a href="http://www.igf.com/2010/01/2010_igf_nuovo_jury_releases_f.html">explained that</a>
+the "'time management' approach to limited player controls" was what
+attracted them to the game, and in this interview with Smith, he
+explains how he created a wacky, novel game while letting the user in
+on the joke:
+</p>
+<p>
+  <b>What kind of background do you have making games?</b>
+</p>
+<p> I've been making games forever. I started as a wee lad typing in
+code listings from Compute magazine on my C64. Then I did some Atari ST
+and DOS freeware games. I worked in the big scary industry for several
+years, then quit that to pursue my love of being unemployed.
+</p>
+<p>
+  <b>What development tools did you use?</b>
+</p>
+<p>
+  I used Visual C++, a 2D graphics engine called HGE, and the <span class="highlight">Box2D</span> physics library. The art was surprisingly not drawn in MS Paint.
+</p>
+<p>
+  <b>How long have you been working on <i>Enviro-Bear</i>?</b>
+</p>
+<p>
+  I worked on it for about 3 months in total, including <a href="http://www.enviro-bear.com/">the iPhone version</a>, <i>Enviro-Bear 2010</i>. I'm doing some small updates right now, but every time I look at the <i>Enviro-Bear</i> code I want to claw my eyes out.
+</p>
+<p>
+  <b>How did you come up with the concept for the game? We all know bears can't drive.</b>
+</p>
+<p>
+  It started as an entry in the <a href="http://www.tigsource.com/">TIGSource</a> cockpit competition. I never seem to be able to complete a game without some kind of arbitrary constraints and a time limit.
+</p>
+<p>
+  The hand-grabbing mechanic was borrowed from the <span class="highlight">Box2D</span>
+testbed application. That app lets you grab simple shapes with your
+mouse and fling them around while experimenting with all the features
+of the physics engine.
+</p>
+<p> The bear and the foresty setting were just things I figured I was
+capable of drawing. I didn't really think too much. I just picked some
+ideas that seemed satisfactorily silly, and rolled with it. It actually
+started with a squirrel, but squirrels are a lot of work so I went for
+the bear instead.
+</p>
+<p>
+  <b>What's the point of having one hand do everything?</b>
+</p>
+<p>
+  It's the crux of the game. That's like asking what's the point of all the shooting in <i>Call of Duty</i>.
+It would have been more logical to have two arms in the iPhone version
+given that it supports multi-touch, but that seemed like a needless
+reduction in comedy value.
+</p>
+<p>
+  <b>Why do you think the game struck a chord with the IGF judges, and with people in general?</b>
+</p>
+<p> I suppose because it's very easy to play. It makes no demands of
+the player. You can just turn off your brain cells for a few minutes,
+get some laughs, and not worry about failure. So while the controls are
+intentionally frustrating, I think the game lets players in on the
+joke, rather than having them be the victim of it. That's about as
+philosophical as I get.
+</p>
+<p>
+  <b>If you could start the project over again, what would you do differently?</b>
+</p>
+<p> I would probably over-think everything and wind up making a less
+fun game. Also, I would have made it multi-platform from the beginning.
+</p>
+<p>
+  <b>Have you played any of the other IGF finalists? Any games you particularly enjoyed?</b>
+</p>
+<p> I've played all of them that are available. Even though I consider
+myself somewhat of an insensitive cad, I did particularly enjoy <a href="http://www.ludomancy.com/games/today.php"><i>Today I Die</i></a>. It's a perfectly original and uncomplicated experience. All beef, no bun.
+</p>
+<p>
+  <b>What do you think of the current state of the indie scene?</b>
+</p>
+<p> I'm not very good at big picture type statements. All I know is the
+state of my personal scene. Indie games are now at the state where
+there's so much interesting stuff being produced, I no longer pay much
+attention to all the latest happenings in mainstream games. So that's
+kind of a change.
+</p>
+<p>
+  <b>Do you worry the game will encourage real bears to try driving automobiles?</b>
+</p>
+<p>
+  Nah, real bears are pretty dense. I worry more about octopi.
+</p>
+<div class="feedflare">
+  <a href="http://feeds.feedburner.com/%7Eff/gamesetwatch?a=KuZZMMZyQxg:bMgc-x6mGD8:yIl2AUoC8zA"><img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/gamesetwatch_003.gif" border="0"></a> <a href="http://feeds.feedburner.com/%7Eff/gamesetwatch?a=KuZZMMZyQxg:bMgc-x6mGD8:dnMXMwOfBR0"><img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/gamesetwatch.gif" border="0"></a> <a href="http://feeds.feedburner.com/%7Eff/gamesetwatch?a=KuZZMMZyQxg:bMgc-x6mGD8:7Q72WNTAKBA"><img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/gamesetwatch_002.gif" border="0"></a>
+</div><img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/KuZZMMZyQxg.gif" width="1" height="1">
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_73344786_gz" style="display: block;">
+  <div id="zg_73344786_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.psyked.co.uk/box2d/simple-box2d-custom-polygon-creation.htm" rel="nofollow">Simple <span class="highlight">Box2D</span> – Custom Polygon creation.
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">I’ve been working on some classes to simplify <span class="highlight">Box2D</span>
+for Actionscript developers (See previous post for a quick intro).
+&nbsp;The latest update to these classes introduces couple of minor
+ideas, and one gosh-darned awesome idea, if I do say so myself.
+&nbsp;Let’s start with the awesome things, and move on from there…
+Awesome thing: Creating Custom ...
+</p>
+      <div class="details">
+        <a id="zg_73344786_gz-more" class="more" href="#" onclick="PageManager.view_full_item('f0e357e88ebe318795ffd208d196b5bd');return false;">[view full item]</a>
+        <a id="zg_73344786_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_73344786_gz');return false;">[close]</a>
+        received <span class="lbl">119 days ago</span>&nbsp;
+        published <span class="lbl">119 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_73344786_gz-desc" class="desc" style="display: none;">I’ve been working on some classes to simplify <span class="highlight">Box2D</span>
+for Actionscript developers (See previous post for a quick intro).
+&nbsp;The latest update to these classes introduces couple of minor
+ideas, and one gosh-darned awesome idea, if I do say so myself.
+&nbsp;Let’s start with the awesome things, and move on from there…
+Awesome thing: Creating Custom [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_21529499_gz" style="display: block;">
+  <div id="zg_21529499_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://linux.softpedia.com/get/Programming/Libraries/clutter-box2dmm-40334.shtml" rel="nofollow">clutter-<span class="highlight">box2d</span>mm 0.9.1
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:shareware" title="Search topic:shareware">Shareware</a>]</span>
+
+        (<a class="sm-link" href="http://linux.softpedia.com/" title="Source: http://linux.softpedia.com/" rel="nofollow">Softpedia - Linux - All</a>)
+      <p class="info-summary">Contains C++ wrappers for clutter ...
+</p>
+      <div class="details">
+        <a id="zg_21529499_gz-more" class="more" href="#" onclick="PageManager.view_full_item('f4f22d88c09fa766fe61065a9cd29a77');return false;">[view full item]</a>
+        <a id="zg_21529499_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_21529499_gz');return false;">[close]</a>
+        received <span class="lbl">122 days ago</span>&nbsp;
+        published <span class="lbl">122 days ago</span>&nbsp;
+
+        lang: <span class="lbl">sl</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_21529499_gz-desc" class="desc" style="display: none;">Contains C++ wrappers for clutter
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_89195056_gz" style="display: block;">
+  <div id="zg_89195056_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.psyked.co.uk/actionscript/simplifying-box2das3.htm" rel="nofollow">Simplifying <span class="highlight">Box2D</span>AS3…
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">One of the downsides to the <span class="highlight">Box2D</span>AS3
+project – and probably one of the major hurdles to most Flash
+developers – is the fact that it’s inherited a lot of the syntax from
+the C++ project that it’s derived from. &nbsp;Maybe it’s just because
+we’re used to it, but Actionscript is pretty easy to understand, ...
+</p>
+      <div class="details">
+        <a id="zg_89195056_gz-more" class="more" href="#" onclick="PageManager.view_full_item('61994730d343a6614d942907f470345b');return false;">[view full item]</a>
+        <a id="zg_89195056_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_89195056_gz');return false;">[close]</a>
+        received <span class="lbl">122 days ago</span>&nbsp;
+        published <span class="lbl">122 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_89195056_gz-desc" class="desc" style="display: none;">One of the downsides to the <span class="highlight">Box2D</span>AS3
+project – and probably one of the major hurdles to most Flash
+developers – is the fact that it’s inherited a lot of the syntax from
+the C++ project that it’s derived from. &nbsp;Maybe it’s just because
+we’re used to it, but Actionscript is pretty easy to understand, [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_92277497_gz" style="display: block;">
+  <div id="zg_92277497_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+
+    <a href="http://blogs.msdn.com/brandf/archive/2010/01/04/adding-2d-physics-to-your-xna-game-studio-game-part-1.aspx" rel="nofollow&quot;"><img class="thumb" alt="image" title="image" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/image_thumb_1.png"></a>
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://blogs.msdn.com/brandf/archive/2010/01/04/adding-2d-physics-to-your-xna-game-studio-game-part-1.aspx" rel="nofollow">Adding 2D physics to your XNA Game Studio game. Part 1
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:windows" title="Search topic:windows">Windows</a>]</span>
+
+        (<a class="sm-link" href="http://blogs.msdn.com/default.aspx" title="Source: http://blogs.msdn.com/default.aspx" rel="nofollow">MSDN Blogs</a>)
+      <p class="info-summary">One of my hobby projects (again, not Microsoft official) is a port of the <span class="highlight">Box2D</span> physics engine. My brother Nathan Furtwangler and I have been porting <span class="highlight">Box2D</span> to C#/XNA and we recently posted it on CodePlex under the MIT license. We call it <span class="highlight">Box2D</span>.XNA. It’s our goal to keep it in sync with the latest <span class="highlight">Box2D</span> changes and to optimize it for the Xbox 360. In this post, I’ll give you a basic overview of <span class="highlight">Box2D</span>.XNA and show how to use it in your game. Lets start with the basic hierarchy of the obje ...
+</p>
+      <div class="details">
+        <a id="zg_92277497_gz-more" class="more" href="#" onclick="PageManager.view_full_item('6f9feed1de7507662b1ff3be27edbbc1');return false;">[view full item]</a>
+        <a id="zg_92277497_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_92277497_gz');return false;">[close]</a>
+        received <span class="lbl">126 days ago</span>&nbsp;
+        published <span class="lbl">126 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_92277497_gz-desc" class="desc" style="display: none;"><p>
+  One of my hobby projects (again, not Microsoft official) is a port of the <a href="http://code.google.com/p/box2d/"><span class="highlight">Box2D</span></a> physics engine.&nbsp; My brother <a href="http://twitter.com/GuyNamedNate">Nathan Furtwangler</a> and I have been porting <span class="highlight">Box2D</span> to C#/XNA and we recently posted it on CodePlex under the MIT license.&nbsp; We call it <a href="http://box2dxna.codeplex.com/"><span class="highlight">Box2D</span>.XNA</a>.&nbsp; It’s our goal to keep it in sync with the latest <a href="http://code.google.com/p/box2d/"><span class="highlight">Box2D</span></a> changes and to optimize it for the Xbox 360.&nbsp; In this post, I’ll give you a basic overview of <span class="highlight">Box2D</span>.XNA and show how to use it in your game.
+</p>
+<p>
+  Lets start with the basic hierarchy of the objects you’ll be working with:<br>
+  <strong>World</strong> – the root object for the physics simulation. Step this once a frame &amp; you’re simulating physics!&nbsp;<br>
+  &nbsp; <strong>Body</strong> – Multiple bodies can be added to the world.&nbsp; These are the objects that interact with each other via collisions.<br>
+  &nbsp;&nbsp;&nbsp; <strong>Fixture</strong>
+– A body is made up of multiple fixtures.&nbsp; Fixtures combine a
+shape with material properties to form the overall “look and feel” of
+the body.&nbsp; An example of a fixtures is a bouncy, slippery circle
+that’s highly massive.<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Shape</strong> – Each fixture has a single shape object that defines its mathematical bounds.&nbsp; <span class="highlight">Box2D</span> supports circles and convex polygons.&nbsp; Multiple fixtures can be added to a body to make more complicated shapes.&nbsp;<br>
+  &nbsp; <strong>Joint</strong>
+– The world has a set of joints that bind Bodies together.&nbsp;
+Different joints do this using various constraints.&nbsp; For example a
+Distance joint will limit the distance that two points on two bodies
+can separate.&nbsp; <span class="highlight">Box2D</span>.XNA has lots of joint types that we can talk more about in another post.<br>
+  &nbsp; <strong>Contact</strong>
+– While stepping the world, Bodies will collide &amp; respond to
+collisions realistically.&nbsp; This is accomplished using
+Contacts.&nbsp; You can listen in to the contact being generated &amp;
+use this information in your game.&nbsp; Want to know when the players
+sword strikes the skull of the final boss?&nbsp; Listen for a contact
+between the two, and you’re good to go.
+</p>
+<p>
+  <br> Now that we’re familiar with the basic objects of a physics
+simulation, lets get our hands dirty and make something cool!&nbsp;
+</p>
+<p>
+  <a href="http://blogs.msdn.com/blogfiles/brandf/WindowsLiveWriter/Adding2DphysicstoyourXNAGameStudio.Part1_10867/image_4.png"><img title="image" alt="image" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/image_thumb_1.png" width="244" border="0" height="192"></a> <a href="http://blogs.msdn.com/blogfiles/brandf/WindowsLiveWriter/Adding2DphysicstoyourXNAGameStudio.Part1_10867/image_6.png"><img title="image" alt="image" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/image_thumb_2.png" width="244" border="0" height="192"></a> <a href="http://blogs.msdn.com/blogfiles/brandf/WindowsLiveWriter/Adding2DphysicstoyourXNAGameStudio.Part1_10867/image_8.png"><img title="image" alt="image" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/image_thumb_3.png" width="244" border="0" height="192"></a>
+</p>
+<p>
+  To get started you’ll need to download/install <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=80782277-d584-42d2-8024-893fcd9d3e82&amp;displaylang=en">XNA Game Studio 3.1</a> if you don’t already have it.&nbsp; Next extract the zip above and open the project in Visual Studio.&nbsp;
+</p>
+<p>
+  I’ve included the latest <span class="highlight">Box2D</span>.XNA source (as of this writing, changeset <a href="http://box2dxna.codeplex.com/SourceControl/changeset/view/34963">34963</a>), but if you’re planning on making your own physics project you’ll want to check for a <a href="http://box2dxna.codeplex.com/SourceControl/list/changesets">newer</a> version.
+</p>
+<p> The goal for this project is to take an image and approximate it
+with little circles.&nbsp; Then when a key is pressed we’ll start
+simulating the physics and the balls will drop/bounce all over the
+place.&nbsp; Sounds like fun, lets get started…
+</p>
+<p> The first thing we need to do is to create the physics World.&nbsp;
+The first parameter is the gravity, and the second argument tells the
+simulation to make objects go to sleep if they aren’t interacting with
+anything.
+</p>
+<p>
+  &nbsp;
+</p>
+<div>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _physicsWorld = <span>new</span> <span>World</span>(<span>new</span> <span>Vector2</span>(0, 100), <span>true</span>);
+  </p>
+</div>
+<p>
+  &nbsp;
+</p>
+<p> I used a gravity of 100 because I’m dealing with pixels/s^2.&nbsp;
+Normally you’d want to work in meters &amp; seconds or else things get
+a bit unstable.
+</p>
+<p> Next we need to add bodies to it.&nbsp; In this case I will
+randomly position some circles…you can look at the code to see how I
+decide on a location, but the here’s the code to add the Body.
+</p>
+<div>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>private</span> <span>void</span> AddCicle(<span>Vector2</span> position, <span>Color</span> color)
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>var</span> circle = <span>new</span> <span>CircleShape</span>();
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle._radius = _circleRadius;
+  </p>
+  <p>
+    &nbsp;
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>var</span> fd = <span>new</span> <span>FixtureDef</span>();
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fd.shape = circle;
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fd.restitution = 0.98f;
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fd.friction = 0.1f;
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fd.density = 1.0f;
+  </p>
+  <p>
+    &nbsp;
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>BodyDef</span> bd = <span>new</span> <span>BodyDef</span>();
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bd.type = <span>BodyType</span>.Dynamic;
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bd.position =&nbsp; position;
+  </p>
+  <p>
+    &nbsp;
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>var</span> body = _physicsWorld.CreateBody(bd);
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; body.CreateFixture(fd);
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; body.SetUserData(color);
+  </p>
+  <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+  </p>
+</div>
+<p>
+  &nbsp;
+</p>
+<p>
+  Now we just need to step the simulation every update (after you press a key):
+</p>
+<blockquote>
+  <div>
+    <p>
+      _physicsWorld.Step((<span>float</span>)gameTime.ElapsedGameTime.TotalSeconds, 10, 3);
+    </p>
+  </div>
+</blockquote>
+<p> The arguments to this method control the time step, and how
+accurate the simulation is.&nbsp; Feel free to experiment with the last
+two for your scene.
+</p>
+<p>
+  &nbsp;
+</p>
+<p>
+  That’s it!&nbsp; We just made a really cool app in only 10 minutes of coding!&nbsp; Feel free to use <span class="highlight">Box2D</span>.XNA in your XNA projects, and if you make anything cool leave a comment with a link.
+</p><img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/aggbug.gif" width="1" height="1">
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_82372274_gz" style="display: block;">
+  <div id="zg_82372274_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://blog.onebyonedesign.com/?p=399" rel="nofollow">Quick Quick<span class="highlight">Box2D</span> Tip – Runtime Skinning
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">Been playing around a quite a bit with Quick<span class="highlight">Box2D</span>
+lately (check out&nbsp;my last post for one example), and have been
+loving it. One of the coolest features I've found so far is being able
+to easily skin QuickObjects by just specifying a DisplayObject class as
+the skin property of the QuickObject's params object. The one drawback
+...
+</p>
+      <div class="details">
+        <a id="zg_82372274_gz-more" class="more" href="#" onclick="PageManager.view_full_item('8920c5d80dea78ee681020f208e4fc1c');return false;">[view full item]</a>
+        <a id="zg_82372274_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_82372274_gz');return false;">[close]</a>
+        received <span class="lbl">130 days ago</span>&nbsp;
+        published <span class="lbl">130 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_82372274_gz-desc" class="desc" style="display: none;">Been playing around a quite a bit with Quick<span class="highlight">Box2D</span>
+lately (check out&nbsp;my last post for one example), and have been
+loving it. One of the coolest features I've found so far is being able
+to easily skin QuickObjects by just specifying a DisplayObject class as
+the skin property of the QuickObject's params object. The one drawback
+[...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_65072489_gz" style="display: block;">
+  <div id="zg_65072489_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.psyked.co.uk/adobe/flash/building-bridges-%e2%80%93-a-box2d-powered-seasonal-game.htm" rel="nofollow">“Building Bridges”, a <span class="highlight">Box2D</span> – powered Seasonal Game
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">It’s that time of year again – and after a week or so of furiously learning <span class="highlight">Box2D</span>,
+we at MMT Digital have just released our seasonal Flash game into the
+wild. &nbsp;The idea is all about building bridges across gaps in the
+terrain, using <span class="highlight">Box2D</span> to simulate your resulting creation. You can check it out here: ...
+</p>
+      <div class="details">
+        <a id="zg_65072489_gz-more" class="more" href="#" onclick="PageManager.view_full_item('d8cbe832bf40cf6c30c66459cc55568f');return false;">[view full item]</a>
+        <a id="zg_65072489_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_65072489_gz');return false;">[close]</a>
+        received <span class="lbl">143 days ago</span>&nbsp;
+        published <span class="lbl">143 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_65072489_gz-desc" class="desc" style="display: none;">It’s that time of year again – and after a week or so of furiously learning <span class="highlight">Box2D</span>,
+we at MMT Digital have just released our seasonal Flash game into the
+wild. &nbsp;The idea is all about building bridges across gaps in the
+terrain, using <span class="highlight">Box2D</span> to simulate your resulting creation. You can check it out here: [...]
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_28990173_gz" style="display: block;">
+  <div id="zg_28990173_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://feedproxy.google.com/%7Er/vsfb/%7E3/0U2qxjkklAU/" rel="nofollow">Great <span class="highlight">Box2D</span> video tutorials.
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:%22ria%20%28rich%20internet%20apps%29%22" title="Search topic:&quot;ria (rich internet apps)&quot;">RIA (Rich Internet Apps)</a>, <a class="sm-link" href="http://pul.se/search/topic:adobe" title="Search topic:adobe">Adobe</a>]</span>
+
+        (<a class="sm-link" href="http://feeds.adobe.com/" title="Source: http://feeds.adobe.com" rel="nofollow">Latest Adobe News</a>)
+      <p class="info-summary">Todd’s <span class="highlight">Box2D</span> tutorials helped me a lot. <span class="highlight">Box2D</span> is definitely unusual for a common OOP-oriented AS3 developer.
+</p>
+      <div class="details">
+        <a id="zg_28990173_gz-more" class="more" href="#" onclick="PageManager.view_full_item('c0b5e6e6f10b3fe421bb2b4a7ca24d66');return false;">[view full item]</a>
+        <a id="zg_28990173_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_28990173_gz');return false;">[close]</a>
+        received <span class="lbl">151 days ago</span>&nbsp;
+        published <span class="lbl">152 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en-US</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_28990173_gz-desc" class="desc" style="display: none;">Todd’s <span class="highlight">Box2D</span> tutorials helped me a lot. <span class="highlight">Box2D</span> is definitely unusual for a common OOP-oriented AS3 developer.
+</div>
+  
+</li>
+
+<li class="event default-event" relevance="0.8" id="zg_8176504_gz" style="display: block;">
+  <div id="zg_8176504_gz-title" class="title">
+    <div class="controls">
+
+    </div>
+
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/grey-rss.png" class="thumb">
+
+    <div class="info">
+      <h1 class="title"><a target="_new" href="http://www.avsforum.com/avs-vb/showthread.php?t=1204222&amp;goto=newpost" rel="nofollow">Boxee Box Officially Announced
+</a></h1>
+
+        <span class="sm-link">[<a class="sm-link" href="http://pul.se/search/topic:hdtv" title="Search topic:hdtv">HDTV</a>, <a class="sm-link" href="http://pul.se/search/topic:audio" title="Search topic:audio">Audio</a>]</span>
+
+        (<a class="sm-link" href="http://www.avsforum.com/avs-vb" title="Source: http://www.avsforum.com/avs-vb" rel="nofollow">AVS Forum</a>)
+      <p class="info-summary">Boxee
+had two big announcements today. They unveiled their new beta software
+(http://www.engadget.com/2009/12/07/boxee-beta-unveiled-refreshed-ui-directx-support-and-new-cont/),
+and announced the "Boxee Box
+(http://www.engadget.com/2009/12/07/boxee-box-coming-q2-2010-d-link-revealed-as-hardware-partner/)"
+for Q2 2010. Anyone who has used the alpha versions of Boxee knows that
+it does one thing right that all the other streamers seem to get wrong
+- streaming web video. If all the features of t ...
+</p>
+      <div class="details">
+        <a id="zg_8176504_gz-more" class="more" href="#" onclick="PageManager.view_full_item('458348e3adefbae2a71b7e20fec3b2bf');return false;">[view full item]</a>
+        <a id="zg_8176504_gz-less" class="more" style="display: none;" href="#" onclick="PageManager.item_close('zg_8176504_gz');return false;">[close]</a>
+        received <span class="lbl">153 days ago</span>&nbsp;
+        published <span class="lbl">153 days ago</span>&nbsp;
+
+        lang: <span class="lbl">en</span>&nbsp;
+
+      </div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="zg_8176504_gz-desc" class="desc" style="display: none;">Boxee
+had two big announcements today. They unveiled their new beta software
+(http://www.engadget.com/2009/12/07/boxee-beta-unveiled-refreshed-ui-directx-support-and-new-cont/),
+and announced the "Boxee Box
+(http://www.engadget.com/2009/12/07/boxee-box-coming-q2-2010-d-link-revealed-as-hardware-partner/)"
+for Q2 2010. Anyone who has used the alpha versions of Boxee knows that
+it does one thing right that all the other streamers seem to get wrong
+- streaming web video. If all the features of the PC software make it
+onto the hardware box, then there will finally be a legitimate solution
+for Hulu, and every other streaming video site. Presumably it will also
+play local content in all the usual formats, but they haven't given out
+specifics yet. All we know is that it looks bizarre, and it will cost
+"around $200" and should ship sometime in the spring. Boxee's interface
+is geared more toward streaming video and web apps like facebook and
+twitter, but the local media UI is still hugely better than the generic
+interfaces used by all the currently available streamers. It even has a
+decent music interface. This could be a very interesting device indeed.
+Image: http://img205.imageshack.us/img205/2488/box1x.jpg Image:
+http://img34.imageshack.us/img34/6429/<span class="highlight">box2d</span>.jpg
+Image: http://img697.imageshack.us/img697/1475/screen1dk.jpg Image:
+http://img192.imageshack.us/img192/2596/screen2yn.jpg Image:
+http://img205.imageshack.us/img205/2366/screen3r.jpg More UI pics on
+Engadget
+(http://www.engadget.com/2009/12/07/boxee-beta-unveiled-refreshed-ui-directx-support-and-new-cont/).
+</div>
+  
+</li>
+
+  </ul>
+
+
+</div>
+
+    </div>
+
+    <div style="margin: 15px 0pt 0pt; text-align: center;">
+      <script type="text/javascript"><!--
+      google_ad_client = "pub-2695018144090689";
+      google_ad_slot = "5568123411";
+      google_ad_width = 728;
+      google_ad_height = 15;
+      //-->
+      </script>
+      <script type="text/javascript" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/show_ads.js">
+      </script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: inline-table; height: 15px; position: relative; visibility: visible; width: 728px;"><ins style="border: medium none ; margin: 0pt; padding: 0pt; display: block; height: 15px; position: relative; visibility: visible; width: 728px;"><iframe allowtransparency="true" hspace="0" id="google_ads_frame3" marginheight="0" marginwidth="0" name="google_ads_frame" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/ads_003.htm" style="left: 0pt; position: absolute; top: 0pt;" vspace="0" width="728" frameborder="0" height="15" scrolling="no"></iframe></ins></ins>
+    </div>
+
+
+    <div id="footer">
+      <div class="credit">
+        © 2009 Something Simpler Systems Inc. (<a href="mailto:info@somethingsimpler.com">contact</a>)
+      </div>
+      <a href="http://pul.se/categories" style="text-align: center; display: block; color: rgb(238, 238, 238); margin-bottom: 10px;">Categories</a>
+
+      <div class="telefilm-credit">
+        <img alt="Telefilm Canada" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/telefilm.png" title="Telefilm Canada">
+        <p>Produced with the financial participation of Telefilm Canada</p>
+      </div>
+
+    </div>
+  </div>
+  <div id="ev-window" style="display: none;">
+  <div class="inner">
+    <div class="controls">[<a href="#" onclick="$('ev-window').hide();; return false;">close</a>]</div>
+    <div style="clear: both;"></div>
+    <div id="ev-content">
+    </div>
+    <div class="wait" id="ev-wait">
+      <img alt="Big-spinner" src="H-Fleet-Box2D-cYtjOXdM4gJS_files/big-spinner.gif">
+    </div>
+  </div>
+</div>
+
+  <div id="preload">
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/play.png" alt="">
+    <img src="H-Fleet-Box2D-cYtjOXdM4gJS_files/pause.png" alt="">
+  </div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="H-Fleet-Box2D-cYtjOXdM4gJS_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7455996-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body></html>

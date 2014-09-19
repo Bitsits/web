@@ -1,0 +1,753 @@
+﻿/*-------- Start Reset --------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0px;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    margin: 0px;
+    outline: 0px;
+    padding: 0px;
+}
+ 
+table {
+    border-collapse: separate;
+    border-spacing: 0px;
+}
+/*-------- End Reset --------*/
+
+/* Start Elements */
+img {
+    border: none;
+}
+
+a, 
+a:link,
+a:visited {
+    color: #F07522;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* TODO : NEED FROM WM TEAM */
+a:hover,
+a:active {
+    color: #F07522;
+    text-decoration: none;
+}   
+
+.bold,
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    clear: both;
+    color: #040404;
+    font-family: 'Segoe UI Light','Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    line-height: 125%;
+}
+
+h1 
+{
+    font-size: 32px;
+    line-height: 38px;
+    margin: 5px 0px;
+}
+
+h2 {
+    font-size: 23px;
+    margin: 4px 0px;
+}
+
+h3 {
+    font-size: 18px;
+    margin: 3px 0px;
+}
+
+/* TODO : NEED FROM WM TEAM */
+h4 {
+    font-size: 16px;
+    margin: 2px 0px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+h6 {
+    font-size: 13px;
+}
+
+.Clear {
+    clear: both;
+}
+
+.ClearBreak {
+    clear: both;
+    padding-bottom: 1px;
+}
+
+.ClearLeft {
+    clear: left;
+}
+
+.ClearRight {
+    clear: right;
+}
+
+.ClearRightBreak {
+    clear: right;
+    height: 16px;
+}
+
+.Left {
+    float: left;
+}
+
+.Right {
+    float: right;
+}
+
+.Center {
+    text-align: center;
+}
+
+.no_wrap {
+    white-space: nowrap;	
+}
+
+p {
+    margin: 0px 0px 12px 0px;
+}
+
+.absolute {
+    position: absolute;
+}
+
+ol,
+ul {
+    line-height: 125%;
+    margin: 0px 0px 12px 0px;
+    padding-left: 26px;
+}
+
+li {
+    padding: 0px 0px 3px 0px;
+}
+
+ul li {
+    list-style-image: none;
+}
+
+ul li ol li {
+    list-style-image: none;
+    list-style-type: hebrew;
+}
+
+.BulletList {
+    line-height: 125%;
+    list-style-type: disc;
+    margin: 12px 0px 12px 18px;
+    padding-left: 18px;
+}
+
+.NumberList {
+    margin: 12px 0px 12px 24px;
+}
+
+.DropDownArrow {
+    padding-bottom: 2px;
+    padding-left: 5px;
+}
+
+a:hover .DropDownArrow {
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.pre {
+    margin: 10px;
+    padding: 10px;
+}
+
+.code {
+    background: #dddddd;
+    display: block;
+    font-family: Lucida Console, Courier New;
+    font-size: 100%;
+    line-height: 100%;
+    margin: 10px;
+    padding: 10px;
+}
+
+html {
+    font-size: 100.01%;
+}
+
+body {
+    color: #666;
+	font-family: 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 84%;
+    line-height: 125%;
+}
+/* End Elements */
+
+
+#BodyBackground {
+	background: #fff url('http://i3.social.microsoft.com/contentservice/05bb742f-072d-40a7-b0c4-9d5700e8495b/bg_wave.png') no-repeat 0px 150px;
+    padding: 0 483px;
+} 
+
+.IE6 #BodyBackground {
+	background: #fff url('http://i2.social.microsoft.com/contentservice/164b80f4-a4fb-4577-bc7d-9d5700e8493a/bg_wave.gif') no-repeat 0px 150px;
+} 
+
+
+#JelloSizer {
+    margin: 0px auto;
+    max-width: 440px;
+    padding: 0px;
+    width: 100%;
+}
+
+#JelloExpander {
+    margin: 0px -483px;
+    min-width:963px;
+    padding: 0 26px 0 0;
+    position: relative;
+}
+
+#JelloWrapper {
+    width: 100%;
+} 
+
+/*-------- Start Masthead Control --------*/
+
+.Masthead {
+    padding: 43px 0 0 0; /* 46-3 for Brand Logo */
+}
+
+.BrandLogo 
+{
+	background-image:url('http://i1.social.microsoft.com/contentservice/278cc7c1-19a0-4516-994a-9d5700e849aa/bg-brand.png');
+	background-repeat:no-repeat;
+    cursor: pointer;
+    font-family: 'Segoe UI Semibold','Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+    float: left;
+    width: 289px;
+    height: 50px;
+    margin: 0 0 0 41px; /* 46-5 for Brand Logo */
+}
+
+
+#BrandDisplayText
+{
+	display:none;	
+}
+
+*html .BrandLogo 
+{
+	background-image:url('http://i2.social.microsoft.com/contentservice/a701e4f0-3473-4c10-9eea-9d5700e84980/bg-brand.gif');
+
+}
+
+#NetworkTagLineArea
+{
+    display:none;
+}
+
+.PassportScarab {
+    float:right;
+    white-space:nowrap;
+    font-size:11px;
+}
+
+.PassportScarab:hover {
+    text-decoration:underline;
+}
+
+.PassportScarab a, 
+.PassportScarab a:link, 
+.PassportScarab a:visited, 
+.PassportScarab a:hover, 
+.PassportScarab a:active {
+    color:#040404;
+}
+
+.UserName {
+	float: right;
+	font-size: 11px;
+	font-weight: bold;
+	overflow: hidden;
+    white-space: nowrap;
+    margin:0 14px 0 0;
+}
+
+.UserName a, 
+.UserName a:link,
+.UserName a:visited,
+.UserName a:hover,
+.UserName a:active {
+    color: #040404;
+}
+
+.UserName a:hover {
+    text-decoration:underline;
+}
+
+.Search {
+    float: right;
+    padding-top: 14px;
+}
+
+.TextBoxSearch {
+    border: solid 1px #666;
+	color:black;
+	font-size:11px;
+	font-style:normal;
+	margin:0 5px 0 0;
+	padding: 4px 0 0 5px;
+	vertical-align:top;
+	width:176px;
+	height:20px;
+}
+
+.TextBoxSearch {
+	font-size: 12px !important;
+    padding: 1px 0px 0px 4px !important;
+    width: 177px !important;
+}
+
+.Bing {	
+	display: none !important;
+}
+
+.SearchButton {
+    background: #fff url('http://i2.social.microsoft.com/contentservice/9fcdc46d-264e-42ba-9916-9d6501354f31/bing.png') 0 -22px no-repeat;
+    display: inline-block;
+	border-width: 0px;
+	cursor: pointer;
+	height: 21px;
+	margin: 0px;
+	padding: 0px;
+	text-align: right;
+	vertical-align: top;
+    width: 21px;
+}
+
+*html .SearchButton {
+	background-image: url('http://i2.social.microsoft.com/contentservice/9ee792ce-28e5-4ad3-b985-9d7e002bf6a5/bing2.png');
+}
+
+.RightSideMastHead {
+    float: right;
+    margin: 16px 0 0 0;
+}
+
+.PrimaryNavBC{
+	display: none;
+	}
+
+/* Locale Flyout */
+
+.GlobalBar
+{
+    position:absolute;
+    right:26px;
+    margin: 14px 0 0 0;
+}
+
+.LocaleFlyout {
+    float: right;
+    white-space: nowrap;
+    font-size:12px;
+}
+
+.LocaleFlyout a, 
+.LocaleFlyout a:link,
+.LocaleFlyout a:visited,
+.LocaleFlyout a:hover,
+.LocaleFlyout a:active {
+    color: #040404;
+}
+
+.LocaleFlyout a:hover
+{
+    text-decoration:underline;
+}
+
+.ContextMenuPanel 
+{
+    padding:3px;
+	background-color: white;
+    border: solid 1px #040404;
+	cursor: default;
+	position: absolute;
+    display: none;
+    min-width:150px;
+}
+
+a.ContextMenuItem 
+{
+    font-size:10px;
+    color: #040404;
+	cursor: pointer;
+	display: block;
+	padding:1px 3px;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+a.ContextMenuItem:hover {
+	text-decoration: underline;
+	background-color: #F0F7FD;
+}
+
+.DropDownArrow {
+    background: transparent url('http://i3.social.microsoft.com/contentservice/3300c9bf-8d30-40ef-8349-9d6e00f78cd2/arrow_dn.gif') no-repeat scroll 0 50%;
+    margin:0 0 0 5px;
+    height: 3px;
+    width: 5px;
+	padding-bottom:4px;
+	padding-left:5px;
+}
+
+#LocaleSelector
+{
+	cursor:pointer
+}
+/* End Locale Flyout */
+
+.internav 
+{
+    clear:both;   
+    background-image: url('http://i4.social.microsoft.com/contentservice/c879e1f0-fb56-49c1-b042-9d5700e85a7c/nav bar.png');
+    background-position: bottom left;
+    background-repeat:no-repeat;
+    line-height:21px;
+    padding: 4px 0 20px 46px;
+    margin: 0 0 12px 0;
+}
+
+.IE6 .internav
+{
+    background-image: url('http://i3.social.microsoft.com/contentservice/242f4f6f-38eb-425c-9b24-9d5700e85a52/nav bar.gif');
+}
+
+.internav a, 
+.internav a:link,
+.internav a:visited,
+.internav a:hover,
+.internav a:active 
+{
+    color:#040404;
+    font-family: 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 0 46px 0 0;
+    text-decoration:none;
+}
+
+.internav a.active,
+.internav a.active:hover {
+    color:#F07522;
+    font-family: 'Segoe UI Semibold', 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+}
+
+#masthead a,
+#masthead a:link,
+#masthead a:visited,
+#masthead a:hover,
+#masthead a:focus,
+#masthead a:active
+{
+	color:#fff;
+}
+
+/* End Masthead Styles */
+
+.alley {
+    min-height: 768px;
+    padding-left: 46px;
+}
+
+.wrapper {
+    min-height: 768px;
+}
+
+.inner {
+    min-height: 768px;
+}
+
+#Footer
+{
+    background-image: url('http://i4.social.microsoft.com/contentservice/c879e1f0-fb56-49c1-b042-9d5700e85a7c/nav bar.png');
+    background-position: top left;
+    background-repeat:no-repeat;   
+    padding: 20px 0 20px 46px;
+}
+
+.IE6 #Footer
+{
+    background-image: url('http://i3.social.microsoft.com/contentservice/242f4f6f-38eb-425c-9b24-9d5700e85a52/nav bar.gif');
+}
+
+.FooterLogoContainer {
+	float: right;
+}
+
+.FooterLogoContainer a,
+.FooterLogoContainer a:link,
+.FooterLogoContainer a:visited,
+.FooterLogoContainer a:hover,
+.FooterLogoContainer a:active  {
+	text-decoration:none;
+	cursor:hand;
+}
+
+.FooterLogo {
+	height: 29px;
+	width: 132px;
+	background-image: url('http://i3.social.microsoft.com/contentservice/149f3dca-c937-4776-85e8-9d7e002bf6cf/blkmslogo.gif');
+    background-repeat: no-repeat;
+}
+
+.FooterLinks 
+{
+    font-size : 12px;
+    margin: 0;
+    padding: 0;    	
+}
+
+.FooterLinks a,
+.FooterLinks a:hover {
+	color : #3399FF;
+	font-weight : normal;
+}
+
+.FooterCopyright 
+{
+    position: absolute;
+    margin: 20px 0 0 0;
+	font-weight : normal;
+	color : #999999;
+}
+
+.Pipe
+{
+    color : #3399FF;
+    font-size: 125%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+/* Forums Styles */
+
+ul.category li.category > h2
+{
+    padding:0px;
+    background : url('http://i4.social.microsoft.com/contentservice/96e3a340-2238-4292-9618-9d5700e85a31/headers.png') 0px 0px repeat;
+    background-color:Transparent;    	
+}
+
+ul.category li.category > h2 a,
+ul.category li.category > h2 a:link,
+ul.category li.category > h2 a:visited,
+ul.category li.category > h2 a:hover,
+ul.category li.category > h2 a:active  {
+	color: #040404;
+}
+
+#rail div.box > h4 {
+    background:none;
+}
+
+#controls.box > h4
+{
+    background:none;
+}
+
+li.forum h3
+{
+    background:none;
+    max-width: 70%;
+}
+
+#content .box h4{
+    background: none; 
+}
+
+.CategoryOptionList{
+    width: 100%;
+}
+
+/*Start IE6 fixes*/
+
+* html .SiteNavTabOffLeft
+{
+    margin-right: -2px;
+}
+
+* html #LocalNavBottom
+{
+    margin-top: -3px;
+    height:5px;
+    font-size: 1%;
+}
+
+* html .WebButton
+{
+    border: none 0;
+    background-position: top center;
+}
+
+.IE6 #JelloExpander {
+	height: 0;
+}
+
+.IE6 #JelloWrapper {
+    width: 99%;
+}
+
+.IE6 .inner
+{
+	height: auto !important;
+	height: 768px;
+}
+
+.IE6 .BrandLogo 
+{
+	background-image:url('http://i2.social.microsoft.com/contentservice/a701e4f0-3473-4c10-9eea-9d5700e84980/bg-brand.gif') !important;
+	background-repeat:no-repeat;
+    width: 289px;
+    height: 50px;
+    margin: 0 0 0 41px; 
+}
+
+/*RTL*/
+
+.rtl body
+{
+    text-align:right;
+}
+
+.rtl #JelloWrapper
+{
+   margin-right:-26px; 
+}
+
+.rtl .BrandLogo
+{
+    background-position:right top;
+    margin:0px 35px 0px 0px;
+}
+
+.rtl .internav
+{
+ float:right;
+ width:95%;
+}
+
+.rtl .leftcap
+{
+    width:auto;
+}
+
+.rtl .alley
+{
+    padding-left:0px;
+    padding-right:46px;
+}
+
+.rtl #LocaleSelector
+{
+	padding-left: 10px;
+}
+
+.rtl .LocaleFlyout,.rtl .PassportScarab,.rtl .RightSideMastHead,.rtl .FooterLogoContainer
+{
+    float:left;
+}
+
+.rtl .GlobalBar
+{
+  float: left;
+  left: 25px !important;
+}
+
+.rtl .RightSideMastHead{
+	margin-left: 15px !important;
+}
+
+.rtl .ContextMenuPanel
+{
+	margin-left: 75px;
+}
+
+.rtl .UserName
+{
+   float:left;
+   margin:  0px 0px 0px 14px;
+}
+
+.rtl .TextBoxSearch
+{
+   margin:  0px 0px 0px 5px;
+}
+
+.rtl #Footer
+{
+    padding-left:0px;
+    padding-right:46px;
+}
+
+.rtl .FooterLogoContainer
+{
+    margin-left:30px;
+}
+
+
+.rtl .BrandLogo
+{
+    float:right;
+}
+
+.IE7 .rtl .Search
+{
+    float:left;
+}
+
+.rtl .internav a, 
+.rtl .internav a:link,
+.rtl .internav a:visited,
+.rtl .internav a:hover,
+.rtl .internav a:active 
+{
+    float:right;
+}
+
+.rtl .ContextMenuPanel{
+	float: right;
+	text-align: right;
+	direction: ltr;
+}
